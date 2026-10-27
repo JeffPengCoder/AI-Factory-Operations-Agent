@@ -4,6 +4,7 @@
 import asyncio
 import importlib.util
 import inspect
+import json
 import subprocess
 import sys
 import threading
@@ -97,6 +98,11 @@ class ServerTests(unittest.TestCase):
         server.cmsh_admin_enabled = False
         server.hardware_compat_enabled = True
         server.bcm_head_host = "head.example"
+        server.redfish_enabled = False
+        server.redfish_verify_tls = False
+        server.redfish_timeout = 20
+        server.redfish_via_head_node = True
+        server._redfish_members = {}
         server._cmsh_ready = False
         server._cmsh_setup_lock = threading.Lock()
         return server
@@ -180,6 +186,136 @@ ip
         allowed = asyncio.run(route(Request("Bearer generated-token")))
         self.assertEqual((denied.status_code, denied.content), (401, {"detail": "unauthorized"}))
         self.assertEqual((allowed.status_code, allowed.content), (200, {"devices": [], "count": 0}))
+
+    def test_redfish_policy_allows_read_only_inventory(self):
+        policy = self.module.RedfishPolicy
+        for path in [
+            "/redfish/v1",
+            "/redfish/v1/",
+            "/redfish/v1/Systems",
+            "/redfish/v1/Systems/DGX",
+            "/redfish/v1/Systems/System.Embedded.1/Processors/CPU.1",
+            "/redfish/v1/Systems/DGX/LogServices/BIOS/Entries?$top=5",
+            "/redfish/v1/Chassis/DGX/ThermalSubsystem/ThermalMetrics",
+            "/redfish/v1/Chassis/DGX/PowerSubsystem/PowerSupplies?$expand=.($levels=1)",
+            "/redfish/v1/Managers/BMC/LogServices/SEL/Entries?$skip=3467&$top=75",
+            "/redfish/v1/Managers/BMC/EthernetInterfaces/eth0",
+            "/redfish/v1/UpdateService/FirmwareInventory/CX7_0",
+            "/redfish/v1/TaskService/Tasks/10",
+        ]:
+            self.assertTrue(policy.is_allowed("GET", path), path)
+
+    def test_redfish_policy_rejects_writes_and_sensitive_resources(self):
+        policy = self.module.RedfishPolicy
+        self.assertFalse(policy.is_allowed("POST", "/redfish/v1/Systems/DGX"))
+        self.assertFalse(policy.is_allowed("PATCH", "/redfish/v1/Systems/DGX"))
+        for path in [
+            "/redfish/v1/AccountService",
+            "/redfish/v1/AccountService/Accounts/2",
+            "/redfish/v1/SessionService/Sessions",
+            "/redfish/v1/CertificateService",
+            "/redfish/v1/EventService/Subscriptions",
+            "/redfish/v1/Systems/DGX/Actions/ComputerSystem.Reset",
+            "/redfish/v1/Managers/BMC/Actions/Manager.Reset",
+            "/redfish/v1/Systems/DGX/LogServices/SEL/Actions/LogService.ClearLog",
+            "/redfish/v1/Systems/DGX/SecureBoot",
+            "/redfish/v1/Systems/DGX/Bios/Settings",
+            "/redfish/v1/Managers/BMC/VirtualMedia/CD1",
+            "/redfish/v1/Systems/../AccountService",
+            "/redfish/v1/Systems/DGX/..",
+            "/redfish/v1//Systems",
+            "/redfish/v1/Systems/DGX%2F..",
+            "/redfish/v1/Systems?$filter=Id",
+            "/redfish/v1/Systems?$expand=*&$select=Id",
+            "/redfish/v1/Systems?$top=1;rm",
+            "/redfish/v1/Systems/DGX?",
+            "/redfish/v1/Systems/DGX#x",
+            "/redfish/v1/Systems/DGX/Oem",
+            "/redfish/v1/Managers/BMC/NodeManager",
+            "/redfish/v1/UpdateService",
+            "/redfish/v1/Systems/DGX/LogServices/SEL/Entries/1/attachment",
+            "/redfish/v2",
+            "https://10.0.0.1/redfish/v1",
+            "",
+        ]:
+            self.assertFalse(policy.is_allowed("GET", path), path)
+
+    def test_redfish_denied_paths_never_resolve_bmc_credentials(self):
+        server = self.server()
+        server.hardware_bmc = Mock()
+        with self.assertRaises(self.module.RedfishError) as raised:
+            server.redfish_get("atlas-01", "/redfish/v1/AccountService")
+        self.assertEqual(raised.exception.status, 403)
+        server.hardware_bmc.assert_not_called()
+        payload = json.loads(server.redfish_tool(server.redfish_get, "atlas-01", "/redfish/v1/Systems/DGX/Actions/ComputerSystem.Reset"))
+        self.assertEqual(payload["status"], 403)
+
+    def test_redfish_head_node_transport_keeps_credentials_off_the_command_line(self):
+        server = self.server()
+        server.hardware_bmc = Mock(return_value={
+            "hostname": "atlas-01", "bmc_ip": "10.30.0.11", "bmc_username": "admin", "bmc_password": 'p"a\\ss',
+        })
+        body = b'{"@odata.type":"#ComputerSystem","Id":"DGX","PowerState":"On","Oem":{"UserPassword":"x","AuthToken":"y"}}'
+        server._ssh = Mock(return_value=subprocess.CompletedProcess([], 0, body + b"\n200", b""))
+        result = server.redfish_get("atlas-01", "/redfish/v1/Systems/DGX")
+        script, timeout, stdin = server._ssh.call_args.args
+        self.assertNotIn("p\"a", script)
+        self.assertIn("-K /dev/stdin", script)
+        self.assertIn("https://10.30.0.11/redfish/v1/Systems/DGX", script)
+        self.assertEqual(stdin, b'user = "admin:p\\"a\\\\ss"\n')
+        self.assertGreater(timeout, server.redfish_timeout)
+        self.assertEqual(result, {"Id": "DGX", "PowerState": "On", "Oem": {"UserPassword": "[redacted]", "AuthToken": "[redacted]"}})
+
+    def test_redfish_errors_omit_the_bmc_address(self):
+        server = self.server()
+        server.hardware_bmc = Mock(return_value={
+            "hostname": "atlas-01", "bmc_ip": "10.30.0.11", "bmc_username": "admin", "bmc_password": "secret",
+        })
+        server._ssh = Mock(return_value=subprocess.CompletedProcess([], 7, b"", b"curl: (7) Failed to connect to 10.30.0.11 port 443"))
+        text = server.redfish_tool(server.redfish_system_summary, "atlas-01")
+        self.assertEqual(json.loads(text), {"error": "BMC is unreachable", "status": 502})
+        server._ssh = Mock(return_value=subprocess.CompletedProcess([], 0, b"\n401", b""))
+        text = server.redfish_tool(server.redfish_get, "atlas-01", "/redfish/v1/Systems")
+        self.assertEqual(json.loads(text)["status"], 401)
+        self.assertNotIn("10.30.0.11", text)
+        self.assertNotIn("secret", text)
+
+    def test_redfish_tools_register_only_when_enabled(self):
+        names = {"redfish_get", "redfish_system_summary", "redfish_thermal", "redfish_power", "redfish_sel", "redfish_firmware"}
+        for enabled in (False, True):
+            server = self.server()
+            server.redfish_enabled = enabled
+            server.register_mosaic_tools()
+            registered = set(server.mcp._tool_manager._tools) & names
+            self.assertEqual(registered, names if enabled else set())
+
+    def test_redfish_sel_merges_newest_entries_across_log_services(self):
+        server = self.server()
+        server.hardware_bmc = Mock(return_value={"bmc_ip": "10.30.0.11", "bmc_username": "u", "bmc_password": "p"})
+        entry = lambda n, day: {"Id": str(n), "Created": f"2026-09-{day:02d}T00:00:00+00:00", "Severity": "OK", "Message": f"event {n}"}
+        responses = {
+            "/redfish/v1/Managers": {"Members": [{"@odata.id": "/redfish/v1/Managers/BMC"}]},
+            "/redfish/v1/Systems": {"Members": [{"@odata.id": "/redfish/v1/Systems/DGX"}]},
+            "/redfish/v1/Managers/BMC/LogServices": {"Members": [
+                {"@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL"},
+                {"@odata.id": "/redfish/v1/Managers/BMC/LogServices/Journal"},
+            ]},
+            "/redfish/v1/Systems/DGX/LogServices": {"Members": [{"@odata.id": "/redfish/v1/Systems/DGX/LogServices/BIOS"}]},
+            "/redfish/v1/Managers/BMC/LogServices/SEL/Entries?$top=2": {"Members@odata.count": 5, "Members": [entry(1, 1), entry(2, 2)]},
+            "/redfish/v1/Managers/BMC/LogServices/SEL/Entries?$skip=3&$top=2": {"Members": [entry(4, 4), entry(5, 5)]},
+            "/redfish/v1/Systems/DGX/LogServices/BIOS/Entries?$top=2": {"Members@odata.count": 1, "Members": [entry(9, 3)]},
+        }
+        requested = []
+
+        def fetch(_bmc, path):
+            requested.append(path)
+            return 200, json.dumps(responses[path]).encode()
+
+        server._redfish_fetch = fetch
+        result = server.redfish_sel("atlas-01", 2)
+        self.assertEqual(result["sources"], ["Managers/BMC/SEL", "Systems/DGX/BIOS"])
+        self.assertEqual([(e["source"], e["id"]) for e in result["entries"]], [("Managers/BMC/SEL", "5"), ("Managers/BMC/SEL", "4")])
+        self.assertNotIn("/redfish/v1/Managers/BMC/LogServices/Journal/Entries?$top=2", requested)
 
 
 if __name__ == "__main__":

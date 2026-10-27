@@ -473,6 +473,8 @@ helm upgrade mosaic "$MOSAIC_CHART" \
 
 The SSH identity must be allowed to create or update the dedicated read-only CMSH user during startup.
 
+To let the agent read node BMCs over read-only Redfish, see [Read-only Redfish](bcm.md#8-optional-read-only-redfish).
+
 ### Research
 
 To deploy the Research Agent and OpenSearch, set the embedding API key, active

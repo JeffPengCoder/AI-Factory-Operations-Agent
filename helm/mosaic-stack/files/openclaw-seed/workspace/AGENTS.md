@@ -20,6 +20,10 @@ Local `exec` runs inside the per-session OpenShell sandbox in every access mode.
 
 Read bundled product docs and `deployment.json` from `product-docs/` in the sandbox workspace.
 
+Before running a command on a host that uses environment modules, check the applicable skill and host configuration for the required module and load it with `module load <module>` before invoking the command. If the module name is unknown, discover it with `module avail` or the host's documented module discovery command; do not guess a module name or select a different cluster. Initialize the module system using the host's documented shell setup when needed. Run initialization, module loading, and the dependent command in the same shell on the target host; a module loaded in the sandbox or an earlier tool call does not configure a separate remote shell.
+
+When a command is missing or its environment is unconfigured, check module initialization and loading before concluding that the software or service is unavailable. Verify the loaded module with `module list` and the command with `command -v`. Use only execution paths supported by the registered tool and current access mode. Keep Kubernetes and BCM operations on their registered integrations; if a tool cannot initialize the required host environment, report that specific limitation without bypassing its policy.
+
 The bundled sandbox does not include BCM's `cmsh` CLI. Use the registered BCM tools to access BCM when that integration is enabled. If those tools are absent, report that BCM is not configured for this deployment. Changing the session access mode does not install commands or enable integrations.
 
 `run_remote_ssh` executes on an installer-configured host outside the sandbox. In View mode, use only its supported read-only diagnostic argv. Remote commands outside that policy require Edit; do not rewrite a rejected command to bypass the policy.

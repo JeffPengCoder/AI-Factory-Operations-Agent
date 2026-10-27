@@ -317,6 +317,123 @@ ip
         self.assertEqual([(e["source"], e["id"]) for e in result["entries"]], [("Managers/BMC/SEL", "5"), ("Managers/BMC/SEL", "4")])
         self.assertNotIn("/redfish/v1/Managers/BMC/LogServices/Journal/Entries?$top=2", requested)
 
+    def test_redfish_expand_cannot_reach_denied_resources(self):
+        policy = self.module.RedfishPolicy
+        for path in [
+            "/redfish/v1?$expand=*($levels=5)",
+            "/redfish/v1?$expand=.",
+            "/redfish/v1?$top=1",
+            "/redfish/v1/Systems?$expand=*",
+            "/redfish/v1/Systems?$expand=~",
+            "/redfish/v1/Systems?$expand=.($levels=2)",
+        ]:
+            self.assertFalse(policy.is_allowed("GET", path), path)
+        self.assertTrue(policy.is_allowed("GET", "/redfish/v1/Managers?$expand=.($levels=1)"))
+
+        server = self.server()
+        server.hardware_bmc = Mock(return_value={"bmc_ip": "10.30.0.11", "bmc_username": "u", "bmc_password": "p"})
+        expanded = {"@odata.id": "/redfish/v1/Managers", "Members": [
+            {"@odata.id": "/redfish/v1/Managers/BMC", "FirmwareVersion": "25.06", "Links": {"ManagerForServers": [{"@odata.id": "/redfish/v1/Systems/DGX"}]}},
+            {"@odata.id": "/redfish/v1/Managers/BMC/NodeManager", "NvidiaPSUPolicies": {"Mode": "x"}},
+            {"@odata.id": "/redfish/v1/AccountService", "Accounts": {"Members": [{"@odata.id": "/redfish/v1/AccountService/Accounts/2", "UserName": "admin"}]}},
+        ]}
+        server._redfish_fetch = Mock(return_value=(200, json.dumps(expanded).encode()))
+        result = server.redfish_get("atlas-01", "/redfish/v1/Managers?$expand=.($levels=1)")
+        self.assertEqual(result["Members"], [
+            {"@odata.id": "/redfish/v1/Managers/BMC", "FirmwareVersion": "25.06", "Links": {"ManagerForServers": [{"@odata.id": "/redfish/v1/Systems/DGX"}]}},
+            {"@odata.id": "/redfish/v1/Managers/BMC/NodeManager"},
+            {"@odata.id": "/redfish/v1/AccountService"},
+        ])
+        self.assertNotIn("admin", json.dumps(result))
+
+    def test_redfish_sel_reports_failed_log_reads(self):
+        server = self.server()
+        server.hardware_bmc = Mock(return_value={"bmc_ip": "10.30.0.11", "bmc_username": "u", "bmc_password": "p"})
+        entry = {"Id": "1", "Created": "2026-09-01T00:00:00+00:00", "Severity": "Critical", "Message": "PSU fault"}
+        statuses = {}
+        base = {
+            "/redfish/v1/Managers": {"Members": [{"@odata.id": "/redfish/v1/Managers/BMC"}]},
+            "/redfish/v1/Systems": {"Members": [{"@odata.id": "/redfish/v1/Systems/DGX"}]},
+            "/redfish/v1/Managers/BMC/LogServices": {"Members": [{"@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL"}]},
+            "/redfish/v1/Systems/DGX/LogServices": {"Members": [{"@odata.id": "/redfish/v1/Systems/DGX/LogServices/EventLog"}]},
+            "/redfish/v1/Managers/BMC/LogServices/SEL/Entries?$top=50": {"Members@odata.count": 1, "Members": [entry]},
+            "/redfish/v1/Systems/DGX/LogServices/EventLog/Entries?$top=50": {"Members@odata.count": 1, "Members": [entry]},
+        }
+
+        def fetch(_bmc, path):
+            if path in statuses:
+                return statuses[path], b""
+            return 200, json.dumps(base[path]).encode()
+
+        server._redfish_fetch = fetch
+        statuses["/redfish/v1/Systems/DGX/LogServices/EventLog/Entries?$top=50"] = 503
+        partial = server.redfish_sel("atlas-01")
+        self.assertFalse(partial["complete"])
+        self.assertEqual(partial["sources"], ["Managers/BMC/SEL"])
+        self.assertEqual([(e["source"], e["status"]) for e in partial["errors"]], [("Systems/DGX/EventLog", 503)])
+        self.assertEqual(len(partial["entries"]), 1)
+
+        for status in (403, 503, 504):
+            server._redfish_members = {}
+            statuses.clear()
+            statuses["/redfish/v1/Managers/BMC/LogServices/SEL/Entries?$top=50"] = status
+            statuses["/redfish/v1/Systems/DGX/LogServices"] = status
+            payload = json.loads(server.redfish_tool(server.redfish_sel, "atlas-01"))
+            self.assertEqual(payload["status"], status)
+            self.assertIn("no BMC event log could be read", payload["error"])
+            self.assertNotIn("entries", payload)
+
+    def test_redfish_sel_follows_next_links_for_newest_entries(self):
+        server = self.server()
+        server.hardware_bmc = Mock(return_value={"bmc_ip": "10.30.0.11", "bmc_username": "u", "bmc_password": "p"})
+        events = [{"Id": str(n), "Created": f"2026-09-{n:02d}T00:00:00+00:00", "Severity": "OK", "Message": f"event {n}"}
+                  for n in range(1, 11)]
+        service = "/redfish/v1/Managers/BMC/LogServices/SEL"
+
+        def fetch(_bmc, path):
+            if path == "/redfish/v1/Managers":
+                return 200, json.dumps({"Members": [{"@odata.id": "/redfish/v1/Managers/BMC"}]}).encode()
+            if path == "/redfish/v1/Systems":
+                return 200, json.dumps({"Members": []}).encode()
+            if path == "/redfish/v1/Managers/BMC/LogServices":
+                return 200, json.dumps({"Members": [{"@odata.id": service}]}).encode()
+            params = dict(item.split("=") for item in path.partition("?")[2].split("&") if item)
+            skip, top = int(params.get("$skip", 0)), int(params.get("$top", len(events)))
+            page = events[skip:skip + min(top, 2)]
+            body = {"Members@odata.count": len(events), "Members": page}
+            if skip + len(page) < min(skip + top, len(events)):
+                body["Members@odata.nextLink"] = f"{service}/Entries?$skip={skip + 2}&$top={top - 2}"
+            return 200, json.dumps(body).encode()
+
+        server._redfish_fetch = fetch
+        result = server.redfish_sel("atlas-01", 4)
+        self.assertEqual([e["id"] for e in result["entries"]], ["10", "9", "8", "7"])
+        self.assertTrue(result["complete"])
+
+        def unqueried(_bmc, path):
+            if path.endswith("/Entries"):
+                return 200, json.dumps({"Members": events[:5], "Members@odata.nextLink": f"{service}/Entries?$skip=5"}).encode()
+            if path.endswith("/Entries?$skip=5"):
+                return 200, json.dumps({"Members": events[5:]}).encode()
+            if "/Entries?" in path:
+                return 400, b""
+            return fetch(_bmc, path)
+
+        server._redfish_fetch = unqueried
+        server._redfish_members = {}
+        result = server.redfish_sel("atlas-01", 4)
+        self.assertEqual([e["id"] for e in result["entries"]], ["10", "9", "8", "7"])
+
+    def test_redfish_sel_output_stays_valid_json_within_budget(self):
+        server = self.server()
+        entries = [{"created": f"2026-09-01T00:{n // 60:02d}:{n % 60:02d}", "severity": "OK", "message": "x" * 240,
+                    "source": "Managers/BMC/SEL", "id": str(n)} for n in range(200, 0, -1)]
+        text = server.redfish_tool(lambda: {"hostname": "atlas-01", "sources": [], "entries": entries, "complete": True})
+        payload = json.loads(text)
+        self.assertLessEqual(len(text), self.module.REDFISH_MAX_CHARS)
+        self.assertEqual(payload["entries"][0]["id"], "200")
+        self.assertEqual(len(payload["entries"]) + payload["omittedOlderEntries"], 200)
+
 
 if __name__ == "__main__":
     unittest.main()

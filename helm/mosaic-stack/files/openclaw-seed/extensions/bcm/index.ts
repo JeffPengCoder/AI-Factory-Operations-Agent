@@ -899,7 +899,7 @@ export default definePluginEntry({
         {
           name: "bcm_redfish_get",
           label: "BCM Redfish GET",
-          description: "Read one Redfish resource from a node's BMC with GET. The server allows only inventory, health, sensor, log, firmware, and task paths under /redfish/v1 and refuses actions and account, session, certificate, and event services. Optional query parameters: $expand, $top, $skip.",
+          description: "Read one Redfish resource from a node's BMC with GET. The server allows only inventory, health, sensor, log, firmware, and task paths under /redfish/v1 and refuses actions and account, session, certificate, and event services. Optional query parameters: $top, $skip, and $expand=. (one level, not on the service root).",
           mcpToolName: "redfish_get",
           properties: { path: { type: "string", description: "Redfish path, for example /redfish/v1/Chassis/DGX/Sensors." } },
           args: (params) => {

@@ -320,7 +320,8 @@ self-signed certificates, so `modules.bcm.redfish.verifyTls` defaults to `false`
 30 seconds to return the expanded firmware inventory.
 
 The adapter enforces the following allowlist before it looks up any credential. Only `GET` is
-used, and the only query parameters accepted are `$expand`, `$top`, and `$skip`:
+used, and the only query parameters accepted are `$top`, `$skip`, and `$expand=.` limited to one
+level, which is refused on the service root:
 
 | Resource | Paths under `/redfish/v1` |
 | --- | --- |
@@ -332,6 +333,9 @@ used, and the only query parameters accepted are `$expand`, `$top`, and `$skip`:
 
 Everything else is refused, including any path containing `Actions`, and `AccountService`,
 `SessionService`, `CertificateService`, `EventService`, `SecureBoot`, `Bios/Settings`, and
-`VirtualMedia`. Paths with `..`, `//`, `%`, or other query parameters are also refused. Fields named
-like passwords, tokens, or secrets are redacted from responses. Resets and other BMC actions are not
+`VirtualMedia`. Paths with `..`, `//`, `%`, or other query parameters are also refused. The adapter
+also checks every resource embedded in a response, such as `$expand` results and continuation pages,
+against the same allowlist. It reduces any embedded resource outside it to a bare link, so a BMC that
+expands more than requested cannot return denied content. Fields named like passwords, tokens, or
+secrets are redacted from responses. Resets and other BMC actions are not
 available in any session mode.

@@ -104,7 +104,7 @@ class RedfishPolicy:
         "actions", "secureboot", "virtualmedia",
     })
     QUERY = {
-        "$expand": re.compile(r"[.*~](?:\(\$levels=[1-5]\))?"),
+        "$expand": re.compile(r"\.(?:\(\$levels=1\))?"),
         "$top": re.compile(r"[0-9]{1,4}"),
         "$skip": re.compile(r"[0-9]{1,7}"),
     }
@@ -130,6 +130,8 @@ class RedfishPolicy:
             if not separator or name not in cls.QUERY or not cls.QUERY[name].fullmatch(value):
                 return None
             params.append(item)
+        if resource == "/redfish/v1" and params:
+            return None
         return resource + ("?" + "&".join(params) if params else "")
 
     @classmethod
@@ -141,6 +143,9 @@ REDFISH_SECRET_SUFFIXES = ("password", "token", "secret")
 REDFISH_METADATA = ("@odata.context", "@odata.etag", "@odata.type")
 REDFISH_MAX_CHARS = 32000
 REDFISH_MAX_BYTES = 8 * 1024 * 1024
+REDFISH_MAX_PAGES = 50
+REDFISH_MAX_LOG_SERVICES = 10
+REDFISH_MAX_UNQUERIED_ENTRIES = 1000
 REDFISH_SKIPPED_LOGS = frozenset({"debugtokenservice", "diagnosticlog", "dump", "fdr", "journal"})
 CURL_ERRORS = {6: "BMC address could not be resolved", 7: "BMC is unreachable", 28: "BMC request timed out",
                35: "BMC TLS handshake failed", 60: "BMC TLS certificate verification failed"}
@@ -156,6 +161,18 @@ def scrub_redfish(value):
     if isinstance(value, list):
         return [scrub_redfish(item) for item in value]
     return value
+
+
+def confine_redfish(value):
+    """Reduce embedded resources outside the allowlist, such as $expand results, to bare links."""
+    if isinstance(value, list):
+        return [confine_redfish(item) for item in value]
+    if not isinstance(value, dict):
+        return value
+    link = value.get("@odata.id")
+    if isinstance(link, str) and set(value) - {"@odata.id"} and RedfishPolicy.normalize(link.split("#", 1)[0]) is None:
+        return {"@odata.id": link}
+    return {key: confine_redfish(item) for key, item in value.items()}
 
 
 def curl_user_config(username: str, password: str) -> bytes:
@@ -357,7 +374,8 @@ class MosaicBCMServer(BCMServer):
             data = json.loads(body)
         except ValueError as error:
             raise RedfishError(502, f"BMC returned non-JSON content for {allowed}") from error
-        return scrub_redfish(data) if isinstance(data, dict) else {"value": scrub_redfish(data)}
+        data = scrub_redfish(confine_redfish(data))
+        return data if isinstance(data, dict) else {"value": data}
 
     def _redfish_members_of(self, hostname: str, bmc: dict[str, str], collection: str) -> list[str]:
         key = (hostname, collection)
@@ -479,40 +497,84 @@ class MosaicBCMServer(BCMServer):
                 } for s in supplies.get("Members", []) if isinstance(s, dict)]
         return result
 
+    def _redfish_entries(self, bmc: dict[str, str], path: str, limit: int) -> tuple[list[dict], object, bool]:
+        """Read up to limit members from path, following bounded nextLink pages; report whether more exist."""
+        members: list[dict] = []
+        count = None
+        page = path
+        for _ in range(REDFISH_MAX_PAGES):
+            data = self._redfish_read(bmc, page)
+            if count is None:
+                count = data.get("Members@odata.count")
+            members += [m for m in data.get("Members", []) if isinstance(m, dict)]
+            link = data.get("Members@odata.nextLink")
+            if not isinstance(link, str) or not link or len(members) >= limit:
+                return members[:limit], count, len(members) > limit or bool(isinstance(link, str) and link)
+            page = link
+        return members[:limit], count, True
+
     def redfish_sel(self, hostname: str, limit: int = 50) -> dict:
         limit = max(1, min(int(limit), 200))
         bmc = self._redfish_bmc(hostname)
-        services = []
+        services: list[str] = []
+        errors: list[dict] = []
+
+        def source_of(path: str) -> str:
+            return path.removeprefix("/redfish/v1/").replace("/LogServices/", "/")
+
         for collection in ("Managers", "Systems"):
             for member in self._redfish_members_of(hostname, bmc, collection):
                 try:
                     listed = redfish_member_paths(self._redfish_read(bmc, f"{member}/LogServices"))
-                except RedfishError:
+                except RedfishError as error:
+                    if error.status != 404:
+                        errors.append({"source": source_of(member), "status": error.status, "error": str(error)})
                     continue
                 services += [path for path in listed
                              if path.rsplit("/", 1)[1].lower() not in REDFISH_SKIPPED_LOGS and path not in services]
+        if len(services) > REDFISH_MAX_LOG_SERVICES:
+            errors.append({"source": None, "status": None,
+                           "error": f"{len(services) - REDFISH_MAX_LOG_SERVICES} more log services were not read"})
         entries, sources = [], []
-        for service in services[:10]:
+        for service in services[:REDFISH_MAX_LOG_SERVICES]:
+            source = source_of(service)
             try:
-                first = self._redfish_read(bmc, f"{service}/Entries?$top={limit}")
-                count = first.get("Members@odata.count") or 0
-                pages = [first]
+                try:
+                    members, count, more = self._redfish_entries(bmc, f"{service}/Entries?$top={limit}", limit)
+                except RedfishError as error:
+                    if error.status != 400:
+                        raise
+                    # Some log services reject every query parameter; read them unqueried instead.
+                    members, more = self._redfish_entries(bmc, f"{service}/Entries", REDFISH_MAX_UNQUERIED_ENTRIES)[::2]
+                    count = None
                 if isinstance(count, int) and count > limit:
-                    pages.append(self._redfish_read(bmc, f"{service}/Entries?$skip={count - limit}&$top={limit}"))
-            except RedfishError:
+                    newest, _, _ = self._redfish_entries(bmc, f"{service}/Entries?$skip={count - limit}&$top={limit}", limit)
+                    members += newest
+                    if len(newest) < limit:
+                        errors.append({"source": source, "status": None,
+                                       "error": "fewer of the newest entries were returned than requested"})
+                elif more:
+                    errors.append({"source": source, "status": None,
+                                   "error": "more entries exist than could be read, so the newest may be missing"})
+            except RedfishError as error:
+                errors.append({"source": source, "status": error.status, "error": str(error)})
                 continue
-            source = service.removeprefix("/redfish/v1/").replace("/LogServices/", "/")
             sources.append(source)
-            for page in pages:
-                for entry in page.get("Members", []):
-                    if isinstance(entry, dict):
-                        entries.append({
-                            "created": entry.get("Created"), "severity": entry.get("Severity"),
-                            "message": str(entry.get("Message") or "")[:240], "source": source, "id": entry.get("Id"),
-                        })
+            for entry in members:
+                entries.append({
+                    "created": entry.get("Created"), "severity": entry.get("Severity"),
+                    "message": str(entry.get("Message") or "")[:240], "source": source, "id": entry.get("Id"),
+                })
+        failed = [e for e in errors if e["status"] is not None]
+        if failed and not sources:
+            raise RedfishError(failed[0]["status"], "no BMC event log could be read: "
+                               + "; ".join(f"{e['source']}: {e['error']}" for e in failed[:5]))
         unique = {(e["source"], e["id"]): e for e in entries}.values()
         newest = sorted(unique, key=lambda e: str(e["created"] or ""), reverse=True)[:limit]
-        return {"hostname": hostname, "sources": sources, "entries": newest}
+        result = {"hostname": hostname, "sources": sources, "entries": newest, "complete": not errors}
+        if errors:
+            result["errors"] = errors
+        return result
 
     def redfish_firmware(self, hostname: str) -> dict:
         bmc = self._redfish_bmc(hostname)
@@ -540,6 +602,12 @@ class MosaicBCMServer(BCMServer):
             logging.getLogger("mosaic.bcm").exception("Redfish BCM lookup failed")
             payload = {"error": "BCM lookup for the BMC failed", "status": 502}
         text = json.dumps(payload, separators=(",", ":"), default=str)
+        entries = payload.get("entries") if isinstance(payload, dict) else None
+        while len(text) > REDFISH_MAX_CHARS and isinstance(entries, list) and entries:
+            dropped = max(1, len(entries) // 10)
+            del entries[-dropped:]
+            payload["omittedOlderEntries"] = payload.get("omittedOlderEntries", 0) + dropped
+            text = json.dumps(payload, separators=(",", ":"), default=str)
         if len(text) > REDFISH_MAX_CHARS:
             text = (text[:REDFISH_MAX_CHARS] + "\n...(truncated: use a named Redfish tool, a member path, or $top"
                     " for a smaller response)")

@@ -1,0 +1,37 @@
+apiVersion: crd.projectcalico.org/v1
+kind: GlobalNetworkPolicy
+metadata:
+  name: {{ .Release.Namespace }}-{{ .Release.Name }}-egress
+spec:
+  order: {{ .Values.policyOrder }}
+  namespaceSelector: kubernetes.io/metadata.name == {{ .Release.Namespace | quote }}
+  selector: all()
+  types: [Egress]
+  egress:
+  {{- range list "UDP" "TCP" }}
+    - action: Allow
+      protocol: {{ . }}
+      destination:
+        namespaceSelector: kubernetes.io/metadata.name == {{ $.Values.dnsNamespace | quote }}
+        selector: {{ $.Values.dnsPodSelector | quote }}
+        ports: [53]
+  {{- end }}
+---
+apiVersion: crd.projectcalico.org/v1
+kind: GlobalNetworkPolicy
+metadata:
+  name: {{ .Release.Namespace }}-{{ .Release.Name }}-ingress
+spec:
+  order: {{ .Values.policyOrder }}
+  namespaceSelector: kubernetes.io/metadata.name == {{ .Values.dnsNamespace | quote }}
+  selector: {{ .Values.dnsPodSelector | quote }}
+  types: [Ingress]
+  ingress:
+  {{- range list "UDP" "TCP" }}
+    - action: Allow
+      protocol: {{ . }}
+      source:
+        namespaceSelector: kubernetes.io/metadata.name == {{ $.Release.Namespace | quote }}
+      destination:
+        ports: [53]
+  {{- end }}

@@ -19,57 +19,19 @@ kubectl -n kube-system get endpointslices -l kubernetes.io/service-name=kube-dns
 
 For example, a rule selecting `app.kubernetes.io/name=coredns` does not match pods labeled only `k8s-app=kube-dns`. An existing rule allowing communication among platform namespaces may also exclude a newly created agent namespace.
 
-For Calico clusters where agent egress and CoreDNS ingress are already isolated by site policies, the following additional policies allow DNS for the default `mosaic` namespace. Adjust the namespace, DNS labels and policy order to match your cluster. Have the platform administrator include these rules in the site's tracked network-policy Helm source and deploy through its normal release workflow. Keep existing policies in place; broad namespace access is unnecessary for this DNS allowance.
+For Calico clusters where agent egress and CoreDNS ingress are already isolated by site policies, run the following from a checkout of this repository. The small DNS chart allows UDP and TCP port 53 from the release namespace to CoreDNS, including the corresponding CoreDNS ingress rules:
 
-Clusters with working pod DNS need no additional policy. Adding the first ingress or egress policy to previously unrestricted pods can restrict other traffic; use this example only with the existing isolation described above.
-
-```yaml
-apiVersion: crd.projectcalico.org/v1
-kind: GlobalNetworkPolicy
-metadata:
-  name: mosaic-dns-egress
-spec:
-  order: 100
-  namespaceSelector: kubernetes.io/metadata.name == "mosaic"
-  selector: all()
-  types: [Egress]
-  egress:
-    - action: Allow
-      protocol: UDP
-      destination:
-        namespaceSelector: kubernetes.io/metadata.name == "kube-system"
-        selector: k8s-app == "kube-dns"
-        ports: [53]
-    - action: Allow
-      protocol: TCP
-      destination:
-        namespaceSelector: kubernetes.io/metadata.name == "kube-system"
-        selector: k8s-app == "kube-dns"
-        ports: [53]
----
-apiVersion: crd.projectcalico.org/v1
-kind: GlobalNetworkPolicy
-metadata:
-  name: mosaic-dns-ingress
-spec:
-  order: 100
-  namespaceSelector: kubernetes.io/metadata.name == "kube-system"
-  selector: k8s-app == "kube-dns"
-  types: [Ingress]
-  ingress:
-    - action: Allow
-      protocol: UDP
-      source:
-        namespaceSelector: kubernetes.io/metadata.name == "mosaic"
-      destination:
-        ports: [53]
-    - action: Allow
-      protocol: TCP
-      source:
-        namespaceSelector: kubernetes.io/metadata.name == "mosaic"
-      destination:
-        ports: [53]
+```bash
+MOSAIC_NAMESPACE=${MOSAIC_NAMESPACE:-mosaic}
+helm upgrade --install mosaic-dns ./helm/mosaic-dns-policy \
+  --namespace "$MOSAIC_NAMESPACE" \
+  --create-namespace \
+  --wait
 ```
+
+The defaults select `k8s-app=kube-dns` pods in `kube-system`, with Calico policy order `100`. Set `dnsNamespace`, `dnsPodSelector`, or `policyOrder` through Helm if the inspected cluster configuration differs. The chart is separate from the agent release and keeps these rules Helm-managed; leave existing site policies in place.
+
+Clusters with working pod DNS need no additional policy. Adding the first ingress or egress policy to previously unrestricted pods can restrict other traffic; use this command only with the existing isolation described above.
 
 These rules cover DNS only. The cluster also needs the HTTPS connectivity required by the configured inference endpoint and startup downloads. Verify DNS from a diagnostic pod in the agent namespace before installation, or from the running UI pod when troubleshooting an existing installation:
 

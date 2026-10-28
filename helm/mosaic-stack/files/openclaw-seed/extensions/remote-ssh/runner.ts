@@ -12,6 +12,20 @@ type SshSettings = {
   maxOutputBytes: number;
 };
 
+export function sshResult(payload: Record<string, unknown>) {
+  const details = payload.exitCode === 127 ? {
+    ...payload,
+    recovery: {
+      reason: "remote_command_lookup_failed",
+      guidance: "Remote command lookup remains unresolved. Required next step in Edit or Auto: use run_remote_ssh on this same configured host to check environment initialization before switching tools or answering. On a module-managed host, discover modules with argv [\"bash\",\"-lc\",\"module avail\"]. Load a relevant discovered module and invoke the dependent command inside that same shell. Repeat this initialization inside every later SSH call that needs the module, including calls with changed arguments or targets; a new login shell does not retain previous module loads. Do not guess module versions or executable names. A lookup failure after earlier success requires checking initialization in the failing invocation. Do not infer uninstallation from exit 127, use sandbox lookups as remote evidence, or hand off checks you can perform yourself. Inspect the correctly initialized retry before answering. Report an explicit access or validation denial without bypassing it.",
+    },
+  } : payload;
+  return {
+    content: [{ type: "text", text: JSON.stringify(details, null, 2) }],
+    details,
+  };
+}
+
 export function buildSshArgs(settings: SshSettings, host: RemoteHost, remoteCommand: string) {
   return [
     "-F", "/dev/null",

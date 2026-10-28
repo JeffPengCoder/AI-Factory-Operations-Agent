@@ -256,6 +256,10 @@ mosaicUi:
     machineToken: ""
 openclaw:
   enabled: true
+  # Additional gateway environment variables, including Secret references for providers.
+  extraEnv: []
+  # OpenClaw provider definitions keyed by provider ID; llm is reserved for the primary provider.
+  additionalModelProviders: {}
   # Skill instructions included in every session, without a separate file read.
   bootstrapSkills: []
   gatewayProtocol: 4

@@ -35,6 +35,10 @@ node as `root`. It uses that identity to create or update the dedicated
 `aichatbotuser` CMSH account with the `readonly` profile. Do not create that
 account manually.
 
+For Hardware Agent BMC lookups, the adapter reads the device's BMC address and
+credentials. Any unset username or password is resolved from that device's category;
+device-specific values take precedence. Credentials stay within the backend.
+
 ## 2. Create The Kind Cluster
 
 ```bash

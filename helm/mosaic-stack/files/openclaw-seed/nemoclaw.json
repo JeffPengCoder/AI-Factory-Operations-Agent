@@ -90,7 +90,7 @@
     "list": [
       {
         "id": "default",
-        "name": "OpenClaw Assistant",
+        "name": "AI Factory Operations Agent",
         "workspace": "~/.openclaw/workspace",
         "thinkingDefault": "off",
         "reasoningDefault": "off"

@@ -175,6 +175,64 @@ helm upgrade --install mosaic "$MOSAIC_CHART_PATH" \
   --timeout 30m
 ```
 
+### Configure additional model options
+
+The chart configures the primary provider as `llm` from the selected inference
+path above. To make more models available to OpenClaw, add provider definitions
+under `openclaw.additionalModelProviders`. Each provider specifies an endpoint
+and a list of model IDs. Models on the same endpoint share one provider; use
+separate providers for different endpoints or credentials. The provider ID
+`llm` is reserved for the primary provider.
+
+Create `secondary-model-credentials` in the release namespace through your
+normal Secret provisioning process, and store the API credential there.
+Keep the credential out of Helm values. The example below contains only the
+Secret name, the name of its credential field, and an environment-variable
+reference.
+
+Save these settings in an additional values file:
+
+```yaml
+openclaw:
+  extraEnv:
+    - name: SECONDARY_MODEL_API_KEY
+      valueFrom:
+        secretKeyRef:
+          name: secondary-model-credentials
+          key: apiKey # Name of the field inside the existing Secret.
+  additionalModelProviders:
+    secondary:
+      baseUrl: https://inference.example.com/v1
+      apiKey: ${SECONDARY_MODEL_API_KEY} # Loaded from the Secret at runtime.
+      api: openai-completions
+      models:
+        - id: secondary-model
+          name: Secondary model
+          reasoning: false
+          input: [text]
+          contextWindow: 131072
+          maxTokens: 8192
+```
+
+`extraEnv` loads the Secret field named `apiKey` into the gateway environment
+as `SECONDARY_MODEL_API_KEY`. OpenClaw resolves `${SECONDARY_MODEL_API_KEY}`
+when it starts. For a private cluster endpoint, set
+`request.allowPrivateNetwork: true` on that provider. Each configured endpoint
+must already serve the listed model IDs; the chart does not deploy additional
+inference servers for these definitions.
+
+Include the values file when installing or upgrading the release, along with
+your existing site values. Provider definitions are seeded into OpenClaw's
+configuration on startup. Adding or changing endpoints, models, or Secret
+references requires a Helm upgrade. These settings preserve the configured
+primary model and existing provider credentials.
+
+In frontend builds with a conversation model selector, these definitions become
+options such as `secondary/secondary-model`. Selecting an already configured
+model stores a per-conversation override for subsequent messages without a Helm
+upgrade. Other conversations keep their selections. The Helm fields supply
+configuration; they do not add the frontend selector themselves.
+
 ### 3. Add Extensions
 
 The minimal installation includes the UI, headless interfaces, OpenClaw, OpenShell, and key-free [web search](#web-search). Configure the modules needed for your cluster using the [Extensions](#extensions) instructions, then continue to [Usage](#usage).

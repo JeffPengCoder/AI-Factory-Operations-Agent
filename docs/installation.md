@@ -184,7 +184,13 @@ and a list of model IDs. Models on the same endpoint share one provider; use
 separate providers for different endpoints or credentials. The provider ID
 `llm` is reserved for the primary provider.
 
-For example, save these settings in an additional values file:
+Create `secondary-model-credentials` in the release namespace through your
+normal Secret provisioning process, and store the API credential there.
+Keep the credential out of Helm values. The example below contains only the
+Secret name, the name of its credential field, and an environment-variable
+reference.
+
+Save these settings in an additional values file:
 
 ```yaml
 openclaw:
@@ -193,11 +199,11 @@ openclaw:
       valueFrom:
         secretKeyRef:
           name: secondary-model-credentials
-          key: apiKey
+          key: apiKey # Name of the field inside the existing Secret.
   additionalModelProviders:
     secondary:
       baseUrl: https://inference.example.com/v1
-      apiKey: ${SECONDARY_MODEL_API_KEY}
+      apiKey: ${SECONDARY_MODEL_API_KEY} # Loaded from the Secret at runtime.
       api: openai-completions
       models:
         - id: secondary-model
@@ -208,10 +214,9 @@ openclaw:
           maxTokens: 8192
 ```
 
-Create `secondary-model-credentials` in the release namespace through your
-normal Secret provisioning process. Keep API keys out of values files:
-`extraEnv` injects the Secret into the OpenClaw gateway, which resolves the
-`${SECONDARY_MODEL_API_KEY}` reference. For a private cluster endpoint, set
+`extraEnv` loads the Secret field named `apiKey` into the gateway environment
+as `SECONDARY_MODEL_API_KEY`. OpenClaw resolves `${SECONDARY_MODEL_API_KEY}`
+when it starts. For a private cluster endpoint, set
 `request.allowPrivateNetwork: true` on that provider. Each configured endpoint
 must already serve the listed model IDs; the chart does not deploy additional
 inference servers for these definitions.

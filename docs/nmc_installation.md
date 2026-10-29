@@ -4,11 +4,29 @@ This guide installs AI Factory Operations Agent on an NVIDIA Mission Control adm
 
 For self-hosted inference on the separate GPU workload cluster, first follow [Self-hosted inference](#self-hosted-inference), then use its endpoint, served model name, and API key below. The bundled vLLM profile requires GPUs in the same cluster as the agent and should not be used on a GPU-free admin cluster.
 
-## Check pod DNS and network policies
+## Allow the agent namespace to use cluster DNS
 
-Before installing, verify that the intended agent namespace can query cluster DNS on **UDP and TCP port 53**. A successful lookup on the Base Command Manager head does not verify pod DNS. In a policy-enforced cluster, allow both agent-pod egress to CoreDNS and CoreDNS ingress from the agent namespace. CoreDNS must also be able to reach its configured upstream DNS servers.
+For NMC admin clusters using NMC's Calico network-policy isolation, run this step before installing the agent. Run as a Kubernetes administrator from a checkout of this repository on the Base Command Manager head node, in a login shell with `module load` available. Use the same namespace here and in the agent installation below.
 
-Inspect the deployed DNS labels and endpoints before choosing policy selectors:
+```bash
+module load kubernetes/k8s-admin
+MOSAIC_NAMESPACE=${MOSAIC_NAMESPACE:-mosaic}
+helm upgrade --install mosaic-dns ./helm/mosaic-dns-policy \
+  --namespace "$MOSAIC_NAMESPACE" \
+  --create-namespace \
+  --wait
+```
+
+This command allows agent pods to query the existing CoreDNS service on UDP and TCP port 53. It installs a separate, rerunnable Helm release and leaves existing site policies in place. After Helm reports `STATUS: deployed`, continue with [Install the agent](#install-the-agent).
+
+This step applies to namespaces already isolated by NMC's policies. Skip it on clusters without that isolation: introducing the first ingress or egress policy to unrestricted pods can restrict other traffic. Custom DNS labels or policies are covered in troubleshooting below.
+
+<details>
+<summary>Troubleshoot DNS or a Helm startup timeout</summary>
+
+A successful lookup on the head node does not verify pod DNS. Agent pods need egress to CoreDNS, CoreDNS needs ingress from the agent namespace, and CoreDNS must reach its upstream DNS servers. HTTPS connectivity to the inference endpoint and startup download hosts is required separately.
+
+The DNS chart defaults select `k8s-app=kube-dns` pods in `kube-system`, with Calico policy order `100`. For a customized cluster, inspect its DNS configuration:
 
 ```bash
 module load kubernetes/k8s-admin
@@ -17,23 +35,9 @@ kubectl -n kube-system get service kube-dns
 kubectl -n kube-system get endpointslices -l kubernetes.io/service-name=kube-dns
 ```
 
-For example, a rule selecting `app.kubernetes.io/name=coredns` does not match pods labeled only `k8s-app=kube-dns`. An existing rule allowing communication among platform namespaces may also exclude a newly created agent namespace.
+A rule selecting `app.kubernetes.io/name=coredns` does not match pods labeled only `k8s-app=kube-dns`. A platform namespace allowlist may also exclude the agent namespace. Override `dnsNamespace`, `dnsPodSelector`, or `policyOrder` on the DNS chart when the site's configuration differs from the defaults.
 
-For Calico clusters where agent egress and CoreDNS ingress are already isolated by site policies, run the following from a checkout of this repository. The small DNS chart allows UDP and TCP port 53 from the release namespace to CoreDNS, including the corresponding CoreDNS ingress rules:
-
-```bash
-MOSAIC_NAMESPACE=${MOSAIC_NAMESPACE:-mosaic}
-helm upgrade --install mosaic-dns ./helm/mosaic-dns-policy \
-  --namespace "$MOSAIC_NAMESPACE" \
-  --create-namespace \
-  --wait
-```
-
-The defaults select `k8s-app=kube-dns` pods in `kube-system`, with Calico policy order `100`. Set `dnsNamespace`, `dnsPodSelector`, or `policyOrder` through Helm if the inspected cluster configuration differs. The chart is separate from the agent release and keeps these rules Helm-managed; leave existing site policies in place.
-
-Clusters with working pod DNS need no additional policy. Adding the first ingress or egress policy to previously unrestricted pods can restrict other traffic; use this command only with the existing isolation described above.
-
-These rules cover DNS only. The cluster also needs the HTTPS connectivity required by the configured inference endpoint and startup downloads. Verify DNS from a diagnostic pod in the agent namespace before installation, or from the running UI pod when troubleshooting an existing installation:
+If installation times out, check DNS from the running UI pod. If the UI is unavailable, use a diagnostic pod in the same namespace:
 
 ```bash
 MOSAIC_NAMESPACE=${MOSAIC_NAMESPACE:-mosaic}
@@ -41,7 +45,7 @@ kubectl -n "$MOSAIC_NAMESPACE" exec deployment/mosaic-ui -- getent ahostsv4 kube
 kubectl -n "$MOSAIC_NAMESPACE" exec deployment/mosaic-ui -- getent ahostsv4 dl.k8s.io
 ```
 
-Both commands must return addresses. If Helm reports `context deadline exceeded`, inspect the pods and the failing container before retrying. In chart versions that download kubectl during startup, `curl: (6) Could not resolve host: dl.k8s.io` in `install-kubectl` indicates DNS failure:
+Both commands must return addresses. For `context deadline exceeded`, inspect the pods and failing container before retrying. In chart versions that download kubectl during startup, `curl: (6) Could not resolve host: dl.k8s.io` in `install-kubectl` indicates DNS failure:
 
 ```bash
 kubectl -n "$MOSAIC_NAMESPACE" get pods
@@ -49,6 +53,8 @@ kubectl -n "$MOSAIC_NAMESPACE" logs deployment/openclaw -c install-kubectl --tai
 ```
 
 After correcting DNS, the init container retries automatically. Verify that it completes and the OpenClaw deployment becomes available. This failure does not require changing the CoreDNS image or Corefile when CoreDNS already resolves names successfully.
+
+</details>
 
 ## Install the agent
 

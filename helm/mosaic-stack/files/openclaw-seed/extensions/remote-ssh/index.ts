@@ -11,7 +11,7 @@ import {
 import { isAllowedDiagnosticArgv } from "../diagnostic-policy.ts";
 import { runMutationOnce } from "../mutation-ledger.ts";
 import { classifySshRequest, normalizeHosts } from "./policy.ts";
-import { runSsh } from "./runner.ts";
+import { runSsh, sshResult as result } from "./runner.ts";
 
 type RemoteSshConfig = {
   command?: string;
@@ -35,13 +35,6 @@ function config(value: unknown) {
     approvalTimeoutMs: raw.approvalTimeoutMs || 120_000,
     timeoutMs: raw.timeoutMs || 60_000,
     maxOutputBytes: raw.maxOutputBytes || 65_536,
-  };
-}
-
-function result(payload: Record<string, unknown>) {
-  return {
-    content: [{ type: "text", text: JSON.stringify(payload, null, 2) }],
-    details: payload,
   };
 }
 
@@ -99,7 +92,7 @@ export default definePluginEntry({
     api.registerTool({
       name: "run_remote_ssh",
       label: "Remote SSH",
-      description: "Run one exact argv command on a configured remote host. Allowlisted read-only diagnostics run without approval; all other commands require Edit and approval when HITL is enabled. Host aliases are fixed by the installer; SSH options, credentials, destinations, nested SSH, and shell-style command strings are not accepted.",
+      description: "Run one exact argv command on a configured remote host. Allowlisted read-only diagnostics run without approval; all other commands require Edit and approval when HITL is enabled. Host aliases are fixed by the installer; SSH options, credentials, destinations and nested SSH are not accepted. Pass an argv array, never a raw command string. Shell builtins and environment initialization require explicit shell argv in Edit or Auto, under the same validation and approval policy.",
       parameters: {
         type: "object",
         additionalProperties: false,

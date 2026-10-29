@@ -165,6 +165,66 @@ ip
             "bmc_username": "operator", "bmc_password": "example-secret",
         })
 
+    def test_hardware_bmc_resolves_missing_credentials_from_category(self):
+        cases = [
+            ("node-user", "node-pass", "category-user", "category-pass", ("node-user", "node-pass")),
+            ("", "", "category-user", "category-pass", ("category-user", "category-pass")),
+            ("node-user", "", "category-user", "category-pass", ("node-user", "category-pass")),
+            ("", "node-pass", "category-user", "category-pass", ("category-user", "node-pass")),
+            ("", "", "category-user", "", None),
+            ("", "", "", "category-pass", None),
+        ]
+        for username, password, category_user, category_pass, expected in cases:
+            with self.subTest(device=(bool(username), bool(password)), category=(bool(category_user), bool(category_pass))):
+                server = self.server()
+
+                def cmsh(command):
+                    if command.startswith("device; foreach"):
+                        return f"""================ node-02 ================
++(node-02:bmcsettings) get username
+{username}
++(node-02:bmcsettings) get password
+{password}
++(node-02:interfaces) list bmc -f ip
+ip
+10.40.0.12
+"""
+                    if command.startswith("device; get"):
+                        return "compute"
+                    return category_user if command.endswith("get username") else category_pass
+
+                server._run_hardware_cmsh = Mock(side_effect=cmsh)
+                result = server.hardware_bmc("node-02")
+                if expected is None:
+                    self.assertIsNone(result)
+                else:
+                    self.assertEqual(result, {
+                        "hostname": "node-02", "bmc_ip": "10.40.0.12",
+                        "bmc_username": expected[0], "bmc_password": expected[1],
+                    })
+                if username and password:
+                    server._run_hardware_cmsh.assert_called_once()
+
+    def test_hardware_bmc_requires_a_device_bmc_address(self):
+        server = self.server()
+        for output in ("", "================ node-02 ================\n"):
+            with self.subTest(output=output):
+                server._run_hardware_cmsh = Mock(return_value=output)
+                self.assertIsNone(server.hardware_bmc("node-02"))
+                server._run_hardware_cmsh.assert_called_once()
+        server._run_hardware_cmsh.reset_mock()
+        with self.assertRaises(ValueError):
+            server.hardware_bmc("node-02; invalid")
+        server._run_hardware_cmsh.assert_not_called()
+
+    def test_hardware_bmc_requires_credentials_when_category_is_unset(self):
+        server = self.server()
+        server._run_hardware_cmsh = Mock(side_effect=["""================ node-02 ================
++(node-02:interfaces) list bmc -f ip
+10.40.0.12
+""", ""])
+        self.assertIsNone(server.hardware_bmc("node-02"))
+
     def test_hardware_routes_require_the_bearer_token(self):
         server = self.server()
         server.hardware_devices = Mock(return_value=[])

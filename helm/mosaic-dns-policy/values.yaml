@@ -1,3 +1,0 @@
-dnsNamespace: kube-system
-dnsPodSelector: 'k8s-app == "kube-dns"'
-policyOrder: 100

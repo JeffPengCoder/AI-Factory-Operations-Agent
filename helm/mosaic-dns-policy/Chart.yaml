@@ -1,5 +1,0 @@
-apiVersion: v2
-name: mosaic-dns-policy
-description: Allow an existing policy-isolated namespace to query CoreDNS.
-type: application
-version: 0.1.0

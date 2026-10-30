@@ -112,10 +112,16 @@ if (root) {
   const moduleGroup = document.createElement('fieldset'); moduleGroup.innerHTML = '<legend>Modules</legend><p>UI and execution are always enabled. Required dependencies are selected automatically.</p>';
   const buttons = document.createElement('div'); buttons.className = 'builder-modules';
   const inputs = new Map();
+  const redfishOptions = document.createElement('div'); redfishOptions.className = 'builder-suboptions';
+  const redfishLabel = document.createElement('label'); const redfishInput = document.createElement('input'); redfishInput.type = 'checkbox'; redfishInput.name = 'redfish';
+  redfishInput.addEventListener('change', () => {state.redfish = redfishInput.checked; update(false);}); redfishLabel.append(redfishInput, document.createTextNode('Read-only Redfish')); redfishOptions.append(redfishLabel);
   for (const [name, label] of Object.entries(modules)) {
     const wrapper = document.createElement('label'); const input = document.createElement('input'); input.type = 'checkbox'; input.name = name;
     input.addEventListener('change', () => {const requested = new Set(state.modules); input.checked ? requested.add(name) : requested.delete(name); state.modules = [...requested]; update(true);});
-    wrapper.append(input, document.createTextNode(label)); buttons.append(wrapper); inputs.set(name, input);
+    wrapper.append(input, document.createTextNode(label)); inputs.set(name, input);
+    if (name === 'bcm') {
+      const block = document.createElement('div'); block.className = 'builder-module'; block.append(wrapper, redfishOptions); buttons.append(block);
+    } else buttons.append(wrapper);
   }
   moduleGroup.append(buttons); form.append(moduleGroup);
   const settings = document.createElement('fieldset'); settings.innerHTML = '<legend>Connection settings</legend>';
@@ -135,6 +141,7 @@ if (root) {
   }).then(data => {catalog = data; update(false);}).catch(error => {sizing.textContent = `Deployment footprint unavailable: ${error.message}`;});
   function update(renderSettings) {
     const enabled = enabledModules(state);
+    redfishOptions.hidden = !enabled.has('bcm'); redfishInput.checked = !!state.redfish;
     for (const [name, input] of inputs) {input.checked = enabled.has(name); input.disabled = enabled.has(name) && !state.modules.includes(name);}
     if (renderSettings) {
       settingsBody.replaceChildren();
@@ -156,10 +163,6 @@ if (root) {
         const [label, initial, placeholder] = fields[key]; const wrapper = document.createElement('label'); wrapper.textContent = label;
         const input = document.createElement('input'); input.name = key; input.value = state[key] ?? initial; input.placeholder = placeholder || '';
         input.addEventListener('input', () => {state[key] = input.value; update(false);}); wrapper.append(input); settingsBody.append(wrapper);
-      }
-      if (enabled.has('bcm')) {
-        const wrapper = document.createElement('label'); const input = document.createElement('input'); input.type = 'checkbox'; input.name = 'redfish'; input.checked = !!state.redfish;
-        input.addEventListener('change', () => {state.redfish = input.checked; update(false);}); wrapper.append(input, document.createTextNode('Read-only Redfish through BCM')); settingsBody.append(wrapper);
       }
       const wrapper = document.createElement('label'); const input = document.createElement('input'); input.type = 'checkbox'; input.checked = !!state.sandboxInstalled;
       input.addEventListener('change', () => {state.sandboxInstalled = input.checked; update(false);}); wrapper.append(input, document.createTextNode('Cluster already has a compatible agent-sandbox installation')); settingsBody.append(wrapper);

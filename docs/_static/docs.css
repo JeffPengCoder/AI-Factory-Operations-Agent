@@ -21,7 +21,9 @@ pre, .admonition, .search-button { border-radius: 0; }
 #install-command-builder .builder-settings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
 #install-command-builder .builder-settings > label { flex-direction: column; align-items: stretch; text-align: left; }
 #install-command-builder input:not([type=checkbox]), #install-command-builder select { width: 100%; padding: .45rem; border: 1px solid var(--pst-color-border); border-radius: 0; background: var(--pst-color-background); color: var(--pst-color-text-base); }
-.builder-modules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+.builder-modules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; align-items: start; }
+.builder-module { background: var(--pst-color-surface); }
+.builder-suboptions { padding-left: 1.5rem; }
 .builder-modules label { padding: .5rem; background: var(--pst-color-surface); cursor: pointer; }
 .builder-modules input { accent-color: var(--pst-color-primary); }
 .builder-prerequisites { font-size: .9rem; }

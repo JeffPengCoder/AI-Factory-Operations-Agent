@@ -150,13 +150,41 @@ CURL_ERRORS = {6: "BMC address could not be resolved", 7: "BMC is unreachable", 
                35: "BMC TLS handshake failed", 60: "BMC TLS certificate verification failed"}
 
 
+def redfish_secret_key(key: str) -> bool:
+    key = key.lower().replace("-", "").replace("_", "")
+    return key.endswith((*REDFISH_SECRET_SUFFIXES, "apikey")) or key in {
+        "authorization", "proxyauthorization", "cookie", "setcookie",
+    }
+
+
+def scrub_redfish_header(header) -> str:
+    if not isinstance(header, str):
+        return "[redacted]"
+    name, separator, _ = header.partition(":")
+    if not separator:
+        return "[redacted]"
+    return f"{name}: [redacted]" if redfish_secret_key(name.strip()) else header
+
+
 def scrub_redfish(value):
     if isinstance(value, dict):
-        return {
-            key: "[redacted]" if key.lower().endswith(REDFISH_SECRET_SUFFIXES) else scrub_redfish(item)
-            for key, item in value.items()
-            if key not in REDFISH_METADATA
-        }
+        result = {}
+        for key, item in value.items():
+            if key in REDFISH_METADATA:
+                continue
+            if redfish_secret_key(key):
+                item = "[redacted]"
+            elif key.lower() == "httpheaders":
+                item = [scrub_redfish_header(header) for header in item] if isinstance(item, list) else "[redacted]"
+            elif key.lower() == "jsonbody" and isinstance(item, str) and item:
+                try:
+                    item = json.dumps(scrub_redfish(json.loads(item)))
+                except ValueError:
+                    item = "[redacted]"
+            else:
+                item = scrub_redfish(item)
+            result[key] = item
+        return result
     if isinstance(value, list):
         return [scrub_redfish(item) for item in value]
     return value

@@ -340,6 +340,33 @@ ip
         self.assertNotIn("10.30.0.11", text)
         self.assertNotIn("secret", text)
 
+    def test_redfish_task_payload_redacts_secrets_without_losing_diagnostics(self):
+        for secret_key, header in (("Password", "Authorization"), ("ClientSecret", "X-Api-Key"), ("AccessToken", "Cookie")):
+            with self.subTest(secret_key=secret_key, header=header):
+                server = self.server()
+                server.hardware_bmc = Mock(return_value={})
+                payload = {
+                    "@odata.id": "/redfish/v1/TaskService/Tasks/42",
+                    "TaskState": "Completed",
+                    "Payload": {
+                        "HttpOperation": "POST",
+                        "HttpHeaders": [f"{header}: private-value", "Content-Type: application/json"],
+                        "JsonBody": json.dumps({"nested": {secret_key: "private-value", "Mode": "diagnostic"}}),
+                    },
+                }
+                server._redfish_fetch = Mock(return_value=(200, json.dumps(payload).encode()))
+                result = server.redfish_get("atlas-01", payload["@odata.id"])
+                self.assertNotIn("private-value", json.dumps(result))
+                self.assertEqual(result["TaskState"], "Completed")
+                self.assertEqual(result["Payload"]["HttpOperation"], "POST")
+                self.assertIn("Content-Type: application/json", result["Payload"]["HttpHeaders"])
+                body = json.loads(result["Payload"]["JsonBody"])
+                self.assertEqual(body["nested"]["Mode"], "diagnostic")
+                self.assertEqual(body["nested"][secret_key], "[redacted]")
+        self.assertEqual(self.module.scrub_redfish({"JsonBody": "not JSON"})["JsonBody"], "[redacted]")
+        self.assertEqual(self.module.scrub_redfish({"HttpHeaders": "Authorization: private-value"}),
+                         {"HttpHeaders": "[redacted]"})
+
     def test_redfish_tools_register_only_when_enabled(self):
         names = {"redfish_get", "redfish_system_summary", "redfish_thermal", "redfish_power", "redfish_sel", "redfish_firmware"}
         for enabled in (False, True):

@@ -32,6 +32,17 @@
 {{- fail "modules.bcm.redfish.timeoutSeconds must be between 1 and 300" -}}
 {{- end -}}
 {{- end -}}
+{{- if .Values.modules.webSearch.enabled -}}
+{{- if not (has .Values.modules.webSearch.provider (list "duckduckgo" "brave")) -}}
+{{- fail "modules.webSearch.provider must be one of: duckduckgo, brave" -}}
+{{- end -}}
+{{- if and (eq .Values.modules.webSearch.provider "brave") (not .Values.modules.webSearch.existingSecret) -}}
+{{- fail "modules.webSearch.existingSecret is required when modules.webSearch.provider=brave" -}}
+{{- end -}}
+{{- if or (lt (int .Values.modules.webSearch.maxResults) 1) (gt (int .Values.modules.webSearch.maxResults) 10) -}}
+{{- fail "modules.webSearch.maxResults must be between 1 and 10" -}}
+{{- end -}}
+{{- end -}}
 {{- if and .Values.modules.slurm.enabled (eq .Values.modules.slurm.backend "bcm") (ne (include "mosaic-stack.bcmEnabled" .) "true") -}}
 {{- fail "modules.slurm.backend=bcm requires an enabled BCM MCP service" -}}
 {{- end -}}

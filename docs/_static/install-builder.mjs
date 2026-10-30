@@ -6,6 +6,7 @@ export const modules = {
   kubernetes: 'Kubernetes', prometheus: 'Prometheus metrics', alertmanager: 'Alertmanager alerts', loki: 'Loki logs', grafana: 'Grafana',
   bcm: 'Base Command Manager', slurm: 'Slurm', diagnostics: 'Hardware diagnostics',
   research: 'Research', terminal: 'Browser terminal', edit: 'Guarded Kubernetes edits', clusters: 'Cluster monitoring',
+  webSearch: 'Web search (DuckDuckGo)',
 };
 const observabilityServices = ['prometheus', 'alertmanager', 'loki'];
 const fields = {
@@ -93,7 +94,7 @@ export function buildCommand(state) {
 
 const root = typeof document === 'undefined' ? null : document.querySelector('#install-command-builder');
 if (root) {
-  const state = {inference: 'external', channel: 'devel', slurmBackend: 'bcm', grafanaType: 'prometheus', modules: ['kubernetes']};
+  const state = {inference: 'external', channel: 'devel', slurmBackend: 'bcm', grafanaType: 'prometheus', modules: ['kubernetes', 'webSearch']};
   const form = document.createElement('form'); form.addEventListener('submit', event => event.preventDefault());
   const options = document.createElement('fieldset'); options.innerHTML = '<legend>Installation options</legend>';
   function select(key, label, choices) {
@@ -167,6 +168,7 @@ if (root) {
     if (enabled.has('grafana')) notes.push(`Create ${state.grafanaSecret || fields.grafanaSecret[1]} with keys username and password.`);
     if (enabled.has('bcm')) notes.push(`Create ${state.bcmSecret || fields.bcmSecret[1]} with key id_ecdsa; its SSH identity must bootstrap the read-only CMSH user.`);
     if (enabled.has('research')) notes.push('Create iraop-secrets with NVIDIA_API_KEY, NVIDIA_CHAT_API_KEY and IRAOP_API_KEY; prepare the corpus directory.');
+    if (enabled.has('webSearch')) notes.push('Web search uses DuckDuckGo without an API key; the OpenClaw pod needs HTTPS egress to duckduckgo.com. Clear it for air-gapped installations.');
     if (state.inference !== 'external') notes.push('Verify GPU, memory and model cache requirements in the on-prem inference section.');
     prerequisites.textContent = notes.join(' '); code.textContent = buildCommand(state); status.textContent = '';
     if (catalog) renderSizing(sizing, catalog, state, enabled);

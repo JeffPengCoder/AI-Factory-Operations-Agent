@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+# Isolated agent replay. Supply site endpoints, host aliases and secret names
+# at install time; never store credentials or captured conversations here.
+agentSandbox:
+  install: false
+modules:
+  ui:
+    enabled: true
+  observability:
+    enabled: false
+  grafana:
+    enabled: false
+  slurm:
+    enabled: false
+  webSearch:
+    # Preserve the original replay tool profile; product defaults are unchanged.
+    enabled: false
+  edit:
+    enabled: true
+    bcm:
+      enabled: true
+    ssh:
+      enabled: true
+bcmMcp:
+  enabled: true
+  mode: ssh-adapter
+  authTokenCreate: false
+  hostSshKeySecretName: replay-bcm-ssh
+llm:
+  mode: external
+  external:
+    existingSecret: replay-model
+    caCertificateSecret: replay-ca
+openclaw:
+  pvc:
+    size: 2Gi
+  slack:
+    enabled: false

@@ -1,3 +1,6 @@
+{{- if hasKey .Values.openclaw.additionalModelProviders "llm" -}}
+{{- fail "openclaw.additionalModelProviders: llm is reserved for the primary inference provider" -}}
+{{- end -}}
 {{- $managedMcpServers := dict -}}
 {{- range $name, $config := .Values.managedMcpServers.servers -}}
 {{- if $config.enabled -}}
@@ -87,7 +90,7 @@
     "list": [
       {
         "id": "default",
-        "name": "OpenClaw Assistant",
+        "name": "AI Factory Operations Agent",
         "workspace": "~/.openclaw/workspace",
         "thinkingDefault": "off",
         "reasoningDefault": "off"
@@ -113,12 +116,22 @@
   {{- end }}
   "tools": {
     "alsoAllow": [
-      "group:plugins"
+      "group:plugins"{{- if .Values.modules.webSearch.enabled }},
+      "group:web"{{- end }}
     ],
+    {{- if .Values.modules.webSearch.enabled }}
+    "web": {
+      "search": {
+        "provider": {{ .Values.modules.webSearch.provider | quote }},
+        "maxResults": {{ .Values.modules.webSearch.maxResults }}
+      }
+    },
+    {{- end }}
     "sandbox": {
       "tools": {
         "alsoAllow": [
-          "group:plugins"
+          "group:plugins"{{- if .Values.modules.webSearch.enabled }},
+          "group:web"{{- end }}
         ]
       }
     }
@@ -168,6 +181,9 @@
   {{- end }}
   "models": {
     "providers": {
+      {{- range $id, $provider := .Values.openclaw.additionalModelProviders }}
+      {{ $id | quote }}: {{ $provider | toJson }},
+      {{- end }}
       "llm": {
         "baseUrl": "${OPENCLAW_VLLM_BASE_URL}",
         "apiKey": "${VLLM_API_KEY}",
@@ -212,7 +228,8 @@
       "remote-ssh",
       "slurm",
       "llm"{{- if .Values.openclaw.slack.enabled }},
-      "slack"{{- end }}
+      "slack"{{- end }}{{- if .Values.modules.webSearch.enabled }},
+      {{ .Values.modules.webSearch.provider | quote }}{{- end }}
     ],
     "entries": {
       "automation-guard": {
@@ -249,6 +266,14 @@
       }{{- if .Values.openclaw.slack.enabled }},
       "slack": {
         "enabled": true
+      }{{- end }}{{- if .Values.modules.webSearch.enabled }},
+      {{ .Values.modules.webSearch.provider | quote }}: {
+        "enabled": true{{- if eq .Values.modules.webSearch.provider "brave" }},
+        "config": {
+          "webSearch": {
+            "apiKey": "${BRAVE_API_KEY}"
+          }
+        }{{- end }}
       }{{- end }},
       "kubernetes": {
         "enabled": {{ .Values.modules.kubernetes.enabled }},

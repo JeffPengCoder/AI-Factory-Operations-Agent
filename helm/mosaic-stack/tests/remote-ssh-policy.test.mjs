@@ -5,15 +5,42 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { classifySshRequest, normalizeHosts, quoteRemoteArg } from "../files/openclaw-seed/extensions/remote-ssh/policy.ts";
-import { buildSshArgs, redactSshOutput } from "../files/openclaw-seed/extensions/remote-ssh/runner.ts";
+import { buildSshArgs, redactSshOutput, sshResult } from "../files/openclaw-seed/extensions/remote-ssh/runner.ts";
 
 const hosts = normalizeHosts([{ alias: "worker-1", address: "10.0.0.7", user: "root", port: 2222 }]);
+
+test("missing-command results preserve execution evidence and add recovery context", () => {
+  for (const extra of [{ diagnostic: true }, { idempotencyKey: "call-1" }]) {
+    const payload = { host: "worker-1", argv: ["example-program"], exitCode: 127,
+      stdout: "original output", stderr: "localized error text", ...extra };
+    const result = sshResult(payload);
+    assert.deepEqual(JSON.parse(result.content[0].text), result.details);
+    const { recovery, ...original } = result.details;
+    assert.deepEqual(original, payload);
+    assert.equal(recovery.reason, "remote_command_lookup_failed");
+    assert.ok(recovery.guidance.length > 0);
+    assert.equal(payload.recovery, undefined);
+  }
+});
+
+test("other exit statuses and policy denials preserve their existing results", () => {
+  for (const exitCode of [0, 1, 126, 255, null]) {
+    const payload = { exitCode, stdout: "", stderr: "command not found" };
+    assert.deepEqual(sshResult(payload).details, payload);
+  }
+});
 
 test("resolves configured hosts and preserves exact argv through POSIX quoting", () => {
   const request = classifySshRequest({ host: "worker-1", argv: ["printf", "%s", "a b", "it's"] }, hosts);
   assert.equal(request.host.address, "10.0.0.7");
   assert.equal(request.remoteCommand, "'printf' '%s' 'a b' 'it'\"'\"'s'");
   assert.equal(quoteRemoteArg("$(id); rm -rf /"), "'$(id); rm -rf /'");
+});
+
+test("accepts explicit shell argv while rejecting a raw command parameter", () => {
+  const argv = ["bash", "-lc", "printf '%s' \"$PATH\""];
+  assert.deepEqual(classifySshRequest({ host: "worker-1", argv }, hosts).argv, argv);
+  assert.throws(() => classifySshRequest({ host: "worker-1", command: "printf example" }, hosts));
 });
 
 test("rejects unknown hosts and all connection override fields", () => {

@@ -175,9 +175,67 @@ helm upgrade --install mosaic "$MOSAIC_CHART_PATH" \
   --timeout 30m
 ```
 
+### Configure additional model options
+
+The chart configures the primary provider as `llm` from the selected inference
+path above. To make more models available to OpenClaw, add provider definitions
+under `openclaw.additionalModelProviders`. Each provider specifies an endpoint
+and a list of model IDs. Models on the same endpoint share one provider; use
+separate providers for different endpoints or credentials. The provider ID
+`llm` is reserved for the primary provider.
+
+Create `secondary-model-credentials` in the release namespace through your
+normal Secret provisioning process, and store the API credential there.
+Keep the credential out of Helm values. The example below contains only the
+Secret name, the name of its credential field, and an environment-variable
+reference.
+
+Save these settings in an additional values file:
+
+```yaml
+openclaw:
+  extraEnv:
+    - name: SECONDARY_MODEL_API_KEY
+      valueFrom:
+        secretKeyRef:
+          name: secondary-model-credentials
+          key: apiKey # Name of the field inside the existing Secret.
+  additionalModelProviders:
+    secondary:
+      baseUrl: https://inference.example.com/v1
+      apiKey: ${SECONDARY_MODEL_API_KEY} # Loaded from the Secret at runtime.
+      api: openai-completions
+      models:
+        - id: secondary-model
+          name: Secondary model
+          reasoning: false
+          input: [text]
+          contextWindow: 131072
+          maxTokens: 8192
+```
+
+`extraEnv` loads the Secret field named `apiKey` into the gateway environment
+as `SECONDARY_MODEL_API_KEY`. OpenClaw resolves `${SECONDARY_MODEL_API_KEY}`
+when it starts. For a private cluster endpoint, set
+`request.allowPrivateNetwork: true` on that provider. Each configured endpoint
+must already serve the listed model IDs; the chart does not deploy additional
+inference servers for these definitions.
+
+Include the values file when installing or upgrading the release, along with
+your existing site values. Provider definitions are seeded into OpenClaw's
+configuration on startup. Adding or changing endpoints, models, or Secret
+references requires a Helm upgrade. These settings preserve the configured
+primary model and existing provider credentials.
+
+In frontend builds with a conversation model selector, these definitions become
+options such as `secondary/secondary-model`. Selecting an already configured
+model stores a per-conversation override for subsequent messages without a Helm
+upgrade. Other conversations keep their selections. The Helm fields supply
+configuration; they do not add the frontend selector themselves.
+
 ### 3. Add Extensions
 
-The minimal installation includes the UI, headless interfaces, OpenClaw, and OpenShell. Configure the modules needed for your cluster using the [Extensions](#extensions) instructions, then continue to [Usage](#usage).
+The minimal installation includes the UI, headless interfaces, OpenClaw, OpenShell, and key-free [web search](#web-search). Configure the modules needed for your cluster using the [Extensions](#extensions) instructions, then continue to [Usage](#usage).
 
 ## Usage
 
@@ -520,6 +578,60 @@ helm upgrade mosaic "$MOSAIC_CHART" \
   --timeout 12m
 
 ```
+
+### Web search
+
+Web search is **enabled by default**. It gives the agent OpenClaw's read-only `web_search` and `web_fetch` tools, using DuckDuckGo, which needs no API key or account. The agent uses them for components without bundled documentation, such as Grafana, Loki, GPU Operator, Network Operator, vLLM, and upstream Slurm, and for error codes or XIDs that local references do not cover. It cites the URL it relied on and is instructed never to put hostnames, IP addresses, serial numbers, or secrets in a query.
+
+The `openclaw` pod needs HTTPS egress to `duckduckgo.com` and to the sites `web_fetch` retrieves. The chart applies no NetworkPolicy to the `openclaw` pod. If your cluster restricts egress with its own NetworkPolicy, firewall, or proxy, allow those destinations. `modules.webSearch.maxResults` (default `5`, maximum `10`) sets the default number of results per search.
+
+DuckDuckGo support in OpenClaw is experimental: it reads DuckDuckGo's HTML results rather than an official API, so bot challenges or page changes can occasionally break searches. Switch to an API-backed provider if you need a dependable search service.
+
+#### Disable web search
+
+For air-gapped installations, or to keep the agent from making external requests, disable the module. The tools are then not registered at all.
+
+```bash
+helm upgrade mosaic "$MOSAIC_CHART" \
+  --devel \
+  -n mosaic \
+  --reuse-values \
+  --set modules.webSearch.enabled=false \
+  --wait \
+  --timeout 12m
+```
+
+#### Use Brave Search instead
+
+Brave Search is an API-backed provider. It needs a paid Brave account; at the time of writing, the **Search** plan costs $5 per 1,000 requests and includes $5 of free usage each month. Check Brave's page for current terms.
+
+1. Create a Brave Search API account at [api.search.brave.com](https://api.search.brave.com). Brave requests a credit card at signup to prevent abuse.
+2. Subscribe to the **Search** plan and create an API key in the [API keys dashboard](https://api-dashboard.search.brave.com/app/keys).
+3. Store the key in the release namespace:
+
+   ```bash
+   read -rsp 'Brave Search API key: ' WEB_SEARCH_KEY; echo
+   kubectl -n mosaic create secret generic mosaic-web-search \
+     --from-literal=WEB_SEARCH_KEY="$WEB_SEARCH_KEY" \
+     --dry-run=client -o yaml | kubectl apply -f -
+   unset WEB_SEARCH_KEY
+   ```
+
+4. Select the provider:
+
+   ```bash
+   helm upgrade mosaic "$MOSAIC_CHART" \
+     --devel \
+     -n mosaic \
+     --reuse-values \
+     --set modules.webSearch.enabled=true \
+     --set modules.webSearch.provider=brave \
+     --set modules.webSearch.existingSecret=mosaic-web-search \
+     --wait \
+     --timeout 12m
+   ```
+
+OpenClaw `2026.6.10` does not bundle the Brave provider. When `provider=brave`, an init container downloads `@openclaw/brave-plugin` at `modules.webSearch.brave.pluginVersion` from `registry.npmjs.org`, verifies it against `modules.webSearch.brave.pluginSha256`, and installs it before the gateway starts. The `openclaw` pod then also needs HTTPS egress to `registry.npmjs.org` and `api.search.brave.com`. To rotate the key, update the Secret and run `kubectl -n mosaic rollout restart deployment/openclaw`. Updating only the Secret does not restart the pod.
 
 After enabling the required plugins, use the earlier port-forward to open the UI.
 

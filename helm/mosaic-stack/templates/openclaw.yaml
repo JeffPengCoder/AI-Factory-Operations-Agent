@@ -328,6 +328,33 @@ spec:
             - name: openclaw-seed
               mountPath: /seed
         {{- end }}
+        {{- if and .Values.modules.webSearch.enabled (eq .Values.modules.webSearch.provider "brave") }}
+        - name: init-web-search-plugin
+          image: {{ include "mosaic-stack.image" .Values.openclaw.image | quote }}
+          imagePullPolicy: {{ .Values.openclaw.image.pullPolicy }}
+          command:
+            - sh
+            - -c
+            - |
+              set -eu
+              plugin=/tmp/brave-plugin.tar.gz
+              curl -fsSL --retry 5 --retry-all-errors -o "$plugin" \
+                "https://registry.npmjs.org/@openclaw/brave-plugin/-/brave-plugin-{{ .Values.modules.webSearch.brave.pluginVersion }}.tgz"
+              printf '%s  %s\n' {{ .Values.modules.webSearch.brave.pluginSha256 | quote }} "$plugin" | sha256sum -c -
+              rm -rf /tmp/brave-plugin
+              mkdir -p /tmp/brave-plugin
+              tar -xzf "$plugin" --strip-components=1 -C /tmp/brave-plugin
+              node /app/dist/index.js plugins install /tmp/brave-plugin --force
+          env:
+            - name: HOME
+              value: /home/node
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          volumeMounts:
+            - name: openclaw-home
+              mountPath: /home/node/.openclaw
+        {{- end }}
         {{- if eq (include "mosaic-stack.bcmEnabled" .) "true" }}
         - name: init-bcm-docs
           image: {{ include "mosaic-stack.image" .Values.mosaicUi.image | quote }}
@@ -481,6 +508,9 @@ spec:
           imagePullPolicy: {{ .Values.openclaw.image.pullPolicy }}
           command: ["node", "/app/dist/index.js", "gateway", "run"]
           env:
+            {{- with .Values.openclaw.extraEnv }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
             - name: HOME
               value: /home/node
             - name: OPENCLAW_CONFIG_DIR
@@ -547,6 +577,18 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.openclaw.slack.existingSecret | quote }}
                   key: {{ .Values.openclaw.slack.appTokenKey | quote }}
+            {{- end }}
+            {{- if and .Values.modules.webSearch.enabled (eq .Values.modules.webSearch.provider "brave") }}
+            - name: WEB_SEARCH_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.modules.webSearch.existingSecret | quote }}
+                  key: {{ .Values.modules.webSearch.apiKeySecretKey | quote }}
+            - name: BRAVE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.modules.webSearch.existingSecret | quote }}
+                  key: {{ .Values.modules.webSearch.apiKeySecretKey | quote }}
             {{- end }}
             {{- if and .Values.modules.observability.enabled $observability.loki.url $observability.loki.auth.existingSecret }}
             - name: MOSAIC_LOKI_AUTHORIZATION

@@ -64,8 +64,7 @@ def parse_bmc_lookup(output: str) -> dict[str, str] | None:
                 value = line
             entry[pending] = value
             pending = ""
-    required = ("hostname", "bmc_ip", "bmc_username", "bmc_password")
-    return entry if entry and all(entry.get(key) for key in required) else None
+    return entry
 
 
 def last_cmsh_value(output: str) -> str | None:
@@ -299,9 +298,22 @@ class MosaicBCMServer(BCMServer):
     def hardware_bmc(self, hostname: str) -> dict[str, str] | None:
         if not valid_hostname(hostname):
             raise ValueError("invalid hostname")
-        return parse_bmc_lookup(self._run_hardware_cmsh(
+        entry = parse_bmc_lookup(self._run_hardware_cmsh(
             f"device; foreach -n {hostname} -v (bmcsettings; get username; get password; ..; interfaces; list bmc -f ip)"
         ))
+        if not entry or not entry.get("bmc_ip"):
+            return None
+        missing = [field for field in ("username", "password") if not entry.get(f"bmc_{field}")]
+        if missing:
+            category = self._run_hardware_cmsh(f"device; get {hostname} category").strip()
+            if category:
+                for field in missing:
+                    value = self._run_hardware_cmsh(
+                        f"category; use {shlex.quote(category)}; bmcsettings; get {field}"
+                    ).strip()
+                    if value:
+                        entry[f"bmc_{field}"] = value
+        return entry if all(entry.get(f"bmc_{field}") for field in ("username", "password")) else None
 
     def hardware_os(self, hostname: str) -> dict[str, str | None] | None:
         if not valid_hostname(hostname):

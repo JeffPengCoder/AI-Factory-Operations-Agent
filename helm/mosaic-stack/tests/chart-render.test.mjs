@@ -384,6 +384,51 @@ test("generates a bearer credential with a chart-managed Research Agent Secret",
   assert.match(output, /name: iraop-secrets[\s\S]*IRAOP_API_KEY: "[A-Za-z0-9]{48}"/);
 });
 
+test("additional model options preserve the primary provider and model", () => {
+  const baseline = JSON.parse(configMapBlock(render("--show-only", "templates/openclaw-seed-configmap.yaml"), "openclaw.json"));
+  assert.deepEqual(Object.keys(baseline.models.providers), ["llm"]);
+  const providers = {
+    secondary: {
+      baseUrl: "https://inference.example.com/v1",
+      apiKey: "${SECONDARY_MODEL_API_KEY}",
+      api: "openai-completions",
+      models: [
+        { id: "small", name: "Small model", contextWindow: 32768 },
+        { id: "org/large", name: 'Large "model"', contextWindow: 131072 },
+      ],
+    },
+    local: {
+      baseUrl: "http://inference.example.com:8000/v1",
+      api: "openai-completions",
+      request: { allowPrivateNetwork: true },
+      models: [{ id: "local-model", contextWindow: 65536 }],
+    },
+  };
+  const output = render("--show-only", "templates/openclaw-seed-configmap.yaml",
+    "--set-json", `openclaw.additionalModelProviders=${JSON.stringify(providers)}`);
+  const config = JSON.parse(configMapBlock(output, "openclaw.json"));
+  assert.deepEqual(config.models.providers, { ...providers, llm: baseline.models.providers.llm });
+  assert.deepEqual(config.agents.defaults.model, baseline.agents.defaults.model);
+});
+
+test("additional provider credentials use Secret references in the gateway", () => {
+  const env = [{ name: "SECONDARY_MODEL_API_KEY", valueFrom: {
+    secretKeyRef: { name: "secondary-model-credentials", key: "apiKey" },
+  } }];
+  const output = render("--show-only", "templates/openclaw.yaml",
+    "--set-json", `openclaw.extraEnv=${JSON.stringify(env)}`);
+  assert.match(output, /name: SECONDARY_MODEL_API_KEY\s+valueFrom:\s+secretKeyRef:\s+key: apiKey\s+name: secondary-model-credentials/);
+  assert.match(output, /name: VLLM_API_KEY/);
+  assert.match(output, /name: OPENCLAW_GATEWAY_TOKEN/);
+});
+
+test("additional providers cannot shadow the primary provider ID", () => {
+  const result = spawnSync("helm", ["template", "mosaic", chart,
+    "--set-json", 'openclaw.additionalModelProviders={"llm":{"models":[]}}'], { encoding: "utf8" });
+  assert.notEqual(result.status, 0);
+  assert.ok(result.stderr.includes("llm is reserved for the primary inference provider"));
+});
+
 test("uses one no-reasoning request contract for external endpoints", () => {
   const output = render(
     "--set", "llm.mode=external",
@@ -552,6 +597,94 @@ test("rejects incomplete native Slack configuration", () => {
       { encoding: "utf8" },
     );
     assert.notEqual(result.status, 0);
+  }
+});
+
+const disableWebSearch = ["--set", "modules.webSearch.enabled=false"];
+const braveArgs = [
+  "--set",
+  "modules.webSearch.provider=brave",
+  "--set",
+  "modules.webSearch.existingSecret=mosaic-web-search",
+];
+
+function openclawConfig(...args) {
+  return JSON.parse(configMapBlock(render(...args, "--show-only", "templates/openclaw-seed-configmap.yaml"), "openclaw.json"));
+}
+
+test("does not render web search when disabled", () => {
+  const seed = render(...disableWebSearch, "--show-only", "templates/openclaw-seed-configmap.yaml");
+  const runtime = render(...disableWebSearch, "--show-only", "templates/openclaw.yaml");
+  const config = configMapBlock(seed, "openclaw.json");
+  assert.doesNotMatch(config, /duckduckgo|brave|group:web|"web":/);
+  assert.doesNotMatch(configMapBlock(seed, "AGENTS.md"), /web_search|web_fetch/);
+  assert.equal(JSON.parse(configMapBlock(seed, "agent-deployment.json")).modules.webSearch, false);
+  assert.doesNotMatch(runtime, /init-web-search-plugin|brave-plugin|WEB_SEARCH_KEY|BRAVE_API_KEY/);
+});
+
+test("enables key-free DuckDuckGo web search by default", () => {
+  const config = openclawConfig();
+  assert.ok(config.plugins.allow.includes("duckduckgo"));
+  assert.ok(!config.plugins.allow.includes("brave"));
+  assert.deepEqual(config.plugins.entries.duckduckgo, { enabled: true });
+  assert.deepEqual(config.tools.web, { search: { provider: "duckduckgo", maxResults: 5 } });
+  assert.deepEqual(config.tools.alsoAllow, ["group:plugins", "group:web"]);
+  assert.deepEqual(config.tools.sandbox.tools.alsoAllow, ["group:plugins", "group:web"]);
+
+  const seed = render("--show-only", "templates/openclaw-seed-configmap.yaml");
+  assert.match(configMapBlock(seed, "AGENTS.md"), /## Web Search[\s\S]*`web_search`[\s\S]*Never place hostnames/);
+  assert.equal(JSON.parse(configMapBlock(seed, "agent-deployment.json")).modules.webSearch, true);
+  assert.doesNotMatch(render("--show-only", "templates/openclaw.yaml"), /init-web-search-plugin|brave-plugin|WEB_SEARCH_KEY|BRAVE_API_KEY/);
+});
+
+test("renders Brave web search when selected", () => {
+  const config = openclawConfig(...braveArgs);
+  assert.ok(config.plugins.allow.includes("brave"));
+  assert.ok(!config.plugins.allow.includes("duckduckgo"));
+  assert.deepEqual(config.plugins.entries.brave, {
+    enabled: true,
+    config: { webSearch: { apiKey: "${BRAVE_API_KEY}" } },
+  });
+  assert.equal(config.plugins.entries.duckduckgo, undefined);
+  assert.deepEqual(config.tools.web, { search: { provider: "brave", maxResults: 5 } });
+
+  const runtime = render(...braveArgs, "--set", "modules.webSearch.apiKeySecretKey=key", "--show-only", "templates/openclaw.yaml");
+  assert.match(runtime, /name: init-web-search-plugin/);
+  assert.match(runtime, /registry\.npmjs\.org\/@openclaw\/brave-plugin\/-\/brave-plugin-2026\.6\.10\.tgz/);
+  assert.match(runtime, /printf '%s  %s\\n' "e922a777[0-9a-f]{56}" "\$plugin" \| sha256sum -c -/);
+  assert.match(runtime, /node \/app\/dist\/index\.js plugins install \/tmp\/brave-plugin --force/);
+  for (const name of ["WEB_SEARCH_KEY", "BRAVE_API_KEY"]) {
+    assert.match(runtime, new RegExp(`- name: ${name}\\n\\s+valueFrom:\\n\\s+secretKeyRef:\\n\\s+name: "mosaic-web-search"\\n\\s+key: "key"`));
+  }
+});
+
+test("web search adds only its own OpenClaw config", () => {
+  const disabled = openclawConfig(...disableWebSearch);
+  for (const [provider, args] of [["duckduckgo", []], ["brave", braveArgs]]) {
+    const enabled = openclawConfig(...args);
+    enabled.plugins.allow = enabled.plugins.allow.filter(name => name !== provider);
+    delete enabled.plugins.entries[provider];
+    delete enabled.tools.web;
+    enabled.tools.alsoAllow = enabled.tools.alsoAllow.filter(name => name !== "group:web");
+    enabled.tools.sandbox.tools.alsoAllow = enabled.tools.sandbox.tools.alsoAllow.filter(name => name !== "group:web");
+    assert.deepEqual(enabled, disabled);
+  }
+});
+
+test("rejects incomplete web search configuration", () => {
+  for (const [args, expected] of [
+    [["--set", "modules.webSearch.provider=brave"], /existingSecret is required when modules\.webSearch\.provider=brave/],
+    [["--set", "modules.webSearch.provider=tavily"], /modules\.webSearch\.provider must be one of: duckduckgo, brave/],
+    [["--set", "modules.webSearch.maxResults=0"], /maxResults must be between 1 and 10/],
+    [["--set", "modules.webSearch.maxResults=11"], /maxResults must be between 1 and 10/],
+  ]) {
+    const result = spawnSync(
+      "helm",
+      ["template", "mosaic", chart, "--namespace", "mosaic-test", ...args],
+      { encoding: "utf8" },
+    );
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, expected);
   }
 });
 

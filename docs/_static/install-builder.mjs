@@ -47,6 +47,7 @@ export function buildCommand(state) {
     set('llm.external.existingSecret', value('llmSecret'), true);
   }
   for (const name of ['ui', 'execution', 'observability', ...Object.keys(modules).filter(name => !observabilityServices.includes(name))]) set(`modules.${name}.enabled`, ['ui', 'execution'].includes(name) || enabled.has(name));
+  set('modules.bcm.redfish.enabled', enabled.has('bcm') && !!state.redfish);
   for (const service of ['prometheus', 'alertmanager']) {
     set(`observability.${service}Url`, enabled.has(service) ? value(`${service}Url`) : '', true);
   }
@@ -156,6 +157,10 @@ if (root) {
         const input = document.createElement('input'); input.name = key; input.value = state[key] ?? initial; input.placeholder = placeholder || '';
         input.addEventListener('input', () => {state[key] = input.value; update(false);}); wrapper.append(input); settingsBody.append(wrapper);
       }
+      if (enabled.has('bcm')) {
+        const wrapper = document.createElement('label'); const input = document.createElement('input'); input.type = 'checkbox'; input.name = 'redfish'; input.checked = !!state.redfish;
+        input.addEventListener('change', () => {state.redfish = input.checked; update(false);}); wrapper.append(input, document.createTextNode('Read-only Redfish through BCM')); settingsBody.append(wrapper);
+      }
       const wrapper = document.createElement('label'); const input = document.createElement('input'); input.type = 'checkbox'; input.checked = !!state.sandboxInstalled;
       input.addEventListener('change', () => {state.sandboxInstalled = input.checked; update(false);}); wrapper.append(input, document.createTextNode('Cluster already has a compatible agent-sandbox installation')); settingsBody.append(wrapper);
     }
@@ -167,6 +172,7 @@ if (root) {
     }
     if (enabled.has('grafana')) notes.push(`Create ${state.grafanaSecret || fields.grafanaSecret[1]} with keys username and password.`);
     if (enabled.has('bcm')) notes.push(`Create ${state.bcmSecret || fields.bcmSecret[1]} with key id_ecdsa; its SSH identity must bootstrap the read-only CMSH user.`);
+    if (enabled.has('bcm') && state.redfish) notes.push('Redfish reads node BMCs through the BCM head using credentials stored in BCM. Resets and configuration changes are unavailable. BMC TLS certificate verification is off by default; see the Redfish installation guide to configure it.');
     if (enabled.has('research')) notes.push('Create iraop-secrets with NVIDIA_API_KEY, NVIDIA_CHAT_API_KEY and IRAOP_API_KEY; prepare the corpus directory.');
     if (enabled.has('webSearch')) notes.push('Web search uses DuckDuckGo without an API key; the OpenClaw pod needs HTTPS egress to duckduckgo.com. Clear it for air-gapped installations.');
     if (state.inference !== 'external') notes.push('Verify GPU, memory and model cache requirements in the on-prem inference section.');

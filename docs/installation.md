@@ -1,7 +1,5 @@
 # AI Factory Operations Agent Helm Deployment
 
-<!-- Maintainers: when adding a heading or installation option here, update docs/installation_builder.md and docs/_static/install-builder.mjs in the same change so the builder covers it. See CONTRIBUTING.md for validation. -->
-
 AI Factory Operations Agent is installed with Helm. This guide documents the shared upgrade, LLM, module, UI, and headless workflows.
 
 ## Install AI Factory Operations Agent

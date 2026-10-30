@@ -725,7 +725,7 @@ export default definePluginEntry({
     registerTool({
       name: "bcm_search_tools",
       label: "BCM Search Tools",
-      description: "Search bcm-mcp-tools diagnostic tool IDs and descriptions before choosing a BCM command to run.",
+      description: "Search the diagnostic command catalog used by bcm_execute_tool. This does not search registered agent tools, including the separate bcm_redfish_* tools. Use the current tool definitions to determine agent capabilities; zero catalog matches do not mean a capability is unavailable.",
       parameters: {
         type: "object",
         additionalProperties: false,
@@ -737,7 +737,7 @@ export default definePluginEntry({
       },
       async execute(toolCallId: string, rawParams: Record<string, unknown>) {
         const query = stringParam(rawParams.query);
-        return callBcmTool(
+        const result = await callBcmTool(
           config,
           "search_tool",
           { query,
@@ -746,6 +746,13 @@ export default definePluginEntry({
           },
           subagentOptions(config, toolCallId, "bcm_search_tools", "BCM tool search"),
         );
+        return {
+          ...result,
+          content: [
+            { type: "text", text: "Search scope: diagnostic commands for bcm_execute_tool only. Registered agent tools are outside this catalog. Check the current tool definitions before concluding that a capability is unavailable." },
+            ...result.content,
+          ],
+        };
       },
     });
 

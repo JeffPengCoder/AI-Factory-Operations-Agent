@@ -128,6 +128,32 @@ test("never treats Redfish tools as mutations", async () => {
   }
 });
 
+test("diagnostic searches retain catalog results and explain their capability discovery scope", async () => {
+  const plugin = await loadBcmPlugin();
+  const { tools } = registerBcm(plugin, { redfishEnabled: true, mcpUrl: "http://catalog-scope.test/mcp" });
+  const originalFetch = globalThis.fetch;
+  let payload;
+  globalThis.fetch = async (url, init) => {
+    if (String(url).includes("/api/subagents/events")) return new Response("{}");
+    const request = JSON.parse(init.body);
+    assert.equal(request.params.name, "search_tool");
+    return Response.json({ jsonrpc: "2.0", id: request.id, result: payload });
+  };
+  try {
+    for (const [query, text] of [["inventory", "Matches: 0"], ["sensors", "Matches: 1\nexample_diagnostic"]]) {
+      payload = { content: [{ type: "text", text }] };
+      const result = await tools.get("bcm_search_tools").execute("scope-check", { query });
+      assert.deepEqual(result.details, payload);
+      assert.deepEqual(result.content.slice(1), payload.content);
+      assert.match(result.content[0].text, /diagnostic commands for bcm_execute_tool only/);
+      assert.match(result.content[0].text, /Registered agent tools are outside this catalog/);
+    }
+    for (const name of redfishToolNames) assert.ok(tools.has(name));
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
 test("surfaces Redfish policy refusals and validates hostnames before calling the backend", async () => {
   const plugin = await loadBcmPlugin();
   const { tools } = registerBcm(plugin, { redfishEnabled: true, mcpUrl: "http://bcm.test/mcp", authToken: "token" });

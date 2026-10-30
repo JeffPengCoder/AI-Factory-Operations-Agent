@@ -115,6 +115,43 @@ class ServerTests(unittest.TestCase):
         self.assertEqual(run.call_args.args[0][:2], ["ssh", "head.example"])
         self.assertNotIn("pip", run.call_args.args[0][-1])
 
+    def test_bounded_ssh_returns_small_output_and_stops_oversized_output(self):
+        actual_popen = subprocess.Popen
+        for content, limit in ((b"small response", 128), (b"x" * 8192, 128)):
+            with self.subTest(size=len(content), limit=limit):
+                processes = []
+
+                def launch(_command, **kwargs):
+                    program = f"import os; os.write(1, {content!r})"
+                    process = actual_popen([sys.executable, "-c", program], **kwargs)
+                    processes.append(process)
+                    return process
+
+                with patch.object(self.module.subprocess, "Popen", side_effect=launch):
+                    if len(content) <= limit:
+                        result = self.server()._ssh("diagnostic", 5, max_output_bytes=limit)
+                        self.assertEqual(result.stdout, content)
+                        self.assertEqual(result.returncode, 0)
+                    else:
+                        with self.assertRaises(self.module.RedfishError) as raised:
+                            self.server()._ssh("diagnostic", 5, max_output_bytes=limit)
+                        self.assertEqual(raised.exception.status, 502)
+                self.assertIsNotNone(processes[0].poll())
+
+    def test_bounded_ssh_preserves_timeout_and_reaps_the_child(self):
+        actual_popen = subprocess.Popen
+        processes = []
+
+        def launch(_command, **kwargs):
+            process = actual_popen([sys.executable, "-c", "import time; time.sleep(30)"], **kwargs)
+            processes.append(process)
+            return process
+
+        with patch.object(self.module.subprocess, "Popen", side_effect=launch):
+            with self.assertRaises(subprocess.TimeoutExpired):
+                self.server()._ssh("diagnostic", 0.1, stdin=b"x" * 131072, max_output_bytes=128)
+        self.assertIsNotNone(processes[0].poll())
+
     def test_cmsh_identity_is_checked_once(self):
         server = self.server()
         server._ssh = Mock(return_value=subprocess.CompletedProcess([], 0, b"", b""))

@@ -7,12 +7,15 @@ import hmac
 import ipaddress
 import json
 import logging
+import os
 import re
+import selectors
 import shlex
 import ssl
 import subprocess
 import textwrap
 import threading
+import time
 import urllib.error
 import urllib.request
 
@@ -147,7 +150,8 @@ REDFISH_MAX_LOG_SERVICES = 10
 REDFISH_MAX_UNQUERIED_ENTRIES = 1000
 REDFISH_SKIPPED_LOGS = frozenset({"debugtokenservice", "diagnosticlog", "dump", "fdr", "journal"})
 CURL_ERRORS = {6: "BMC address could not be resolved", 7: "BMC is unreachable", 28: "BMC request timed out",
-               35: "BMC TLS handshake failed", 60: "BMC TLS certificate verification failed"}
+               35: "BMC TLS handshake failed", 60: "BMC TLS certificate verification failed",
+               63: "BMC response exceeds the size limit"}
 
 
 def redfish_secret_key(key: str) -> bool:
@@ -258,16 +262,55 @@ class MosaicBCMServer(BCMServer):
         self._cmsh_ready = False
         self._cmsh_setup_lock = threading.Lock()
 
-    def _ssh(self, script: str, timeout: int, stdin: bytes | None = None) -> subprocess.CompletedProcess[bytes]:
+    def _ssh(self, script: str, timeout: int, stdin: bytes | None = None,
+             max_output_bytes: int | None = None) -> subprocess.CompletedProcess[bytes]:
         if not self.bcm_head_host:
             raise RuntimeError("BCM head host is not configured")
-        return subprocess.run(
-            ["ssh", self.bcm_head_host, "sh -lc " + shlex.quote(script)],
-            capture_output=True,
-            timeout=timeout,
-            check=False,
-            input=stdin,
-        )
+        command = ["ssh", self.bcm_head_host, "sh -lc " + shlex.quote(script)]
+        if max_output_bytes is None:
+            return subprocess.run(command, capture_output=True, timeout=timeout, check=False, input=stdin)
+        deadline = time.monotonic() + timeout
+        with subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                              stderr=subprocess.DEVNULL) as process:
+            try:
+                output = bytearray()
+                pending = memoryview(stdin or b"")
+                with selectors.DefaultSelector() as selector:
+                    selector.register(process.stdout, selectors.EVENT_READ)
+                    if pending:
+                        os.set_blocking(process.stdin.fileno(), False)
+                        selector.register(process.stdin, selectors.EVENT_WRITE)
+                    else:
+                        process.stdin.close()
+                    while selector.get_map():
+                        remaining = deadline - time.monotonic()
+                        events = selector.select(max(0, remaining))
+                        if remaining <= 0 or not events:
+                            raise subprocess.TimeoutExpired(command, timeout)
+                        for key, _ in events:
+                            if key.fileobj is process.stdin:
+                                try:
+                                    pending = pending[os.write(key.fd, pending):]
+                                except BlockingIOError:
+                                    continue
+                                except BrokenPipeError:
+                                    pending = memoryview(b"")
+                                if not pending:
+                                    selector.unregister(process.stdin)
+                                    process.stdin.close()
+                            else:
+                                chunk = os.read(key.fd, min(65536, max_output_bytes + 1 - len(output)))
+                                if not chunk:
+                                    selector.unregister(process.stdout)
+                                output.extend(chunk)
+                                if len(output) > max_output_bytes:
+                                    raise RedfishError(502, "BMC response exceeds the size limit")
+                code = process.wait(timeout=max(0, deadline - time.monotonic()))
+                return subprocess.CompletedProcess(command, code, bytes(output), b"")
+            finally:
+                if process.poll() is None:
+                    process.kill()
+                process.wait()
 
     def _ensure_cmsh_user(self) -> None:
         if self._cmsh_ready:
@@ -374,12 +417,14 @@ class MosaicBCMServer(BCMServer):
         url = f"https://{bmc['bmc_ip']}{path}"
         if self.redfish_via_head_node:
             command = ["curl", "-sS", "--proto", "=https", "--max-time", str(self.redfish_timeout),
+                       "--max-filesize", str(REDFISH_MAX_BYTES),
                        "-H", "Accept: application/json", "-K", "/dev/stdin", "-w", "\n%{http_code}"]
             if not self.redfish_verify_tls:
                 command.append("-k")
             try:
                 result = self._ssh(shlex.join(command + [url]), self.redfish_timeout + 30,
-                                   curl_user_config(bmc["bmc_username"], bmc["bmc_password"]))
+                                   curl_user_config(bmc["bmc_username"], bmc["bmc_password"]),
+                                   max_output_bytes=REDFISH_MAX_BYTES + 4)
             except subprocess.TimeoutExpired as error:
                 raise RedfishError(504, "BMC request timed out") from error
             if result.returncode != 0:

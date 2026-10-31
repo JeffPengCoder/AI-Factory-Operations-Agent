@@ -3,6 +3,8 @@
 
 # 启用 IRAOP，并观察它在告警调查中的作用
 
+**后续补测：** 已直接读回全部4条记录及每条384维向量；原生“文档缺答案”和“集合不存在”路径、页面真实错误、上传自动切片/索引已验证。直接上传接口的原件下载返回404，因此继续使用下文持久corpus+file入库；向量索引和原件可下载分别验收。飞书报告已实发并由用户确认收件，运行修复提交到[NVIDIA PR #86](https://github.com/NVIDIA/AI-Factory-Operations-Agent/pull/86)。全部新原件和角色分工见[最新补测](spark_research_feishu_followup_20261031.zh-CN.md)，旧失败快照保留。
+
 **最新进展（revision15）：** 默认关闭的Research工具协议兼容选项已回填并在Spark启用；原生HTTP/MCP和三次MOSAIC View查询从控制PDF返回正确code、文件及页码，最后一次携带现有测试告警。追踪已完整导出并关闭，共享模型未重启。完整实验、实际命令、原始返回和限制见[最新检索实测](spark_research_protocol_validation_20261031.zh-CN.md)。以下revision9/12的失败结果保留为历史快照；通用业务文档质量仍需另验。
 
 状态更新（2026-10-31）：**已实际部署和入库，原生研究质量未通过。** 本轮 Helm revision9 启用 IRAOP/OpenSearch，使用真实本地 CPU embedding 384d；控制 PDF 为2页/4 chunks/0 errors，下载 SHA256 一致。直接查询命中但行内引用页码错误；独立 OpenClaw 及实际告警会话多次 `iraop_query` 为空 sources。完整配置、原始响应和失败样本见[实测记录第5章](spark_live_validation_20261031.zh-CN.md#5-research-实际部署入库和失败点)。前置流程和变量见[主操作手册](spark_alert_feishu_runbook.zh-CN.md)。

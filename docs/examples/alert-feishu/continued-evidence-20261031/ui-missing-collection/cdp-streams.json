@@ -1,0 +1,12 @@
+{
+  "94078.56": {
+    "path": "/api/ui/events",
+    "requestId": "94078.56",
+    "status": 200,
+    "mimeType": "application/x-ndjson",
+    "chunksBase64": [
+      "eyJ0eXBlIjoicGluZyIsImF0IjoiMjAyNi0xMC0zMVQwNzoyNTo0Ni4xMzRaIn0K"
+    ],
+    "receivedBytes": 48
+  }
+}

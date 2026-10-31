@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-31T07:13:08.750785+00:00",
+  "factoryModified": false,
+  "modelModified": false,
+  "auditConfigurationModified": false,
+  "cases": [
+    {
+      "case": "unanswerable-gpu-serial",
+      "question": "Using only collection mosaic-validation-20261031, what is the exact hardware serial number of the failed GPU for the existing synthetic alert fingerprint 0fa8cbd733f54a5a? Perform a real document search. If the indexed documents do not explicitly provide that serial number or do not establish a failed GPU, say that the answer is unavailable. Do not infer a number or diagnose hardware from the synthetic alert. Cite the document filename and page for anything you actually find.",
+      "depth": "quick",
+      "collections": [
+        "mosaic-validation-20261031"
+      ],
+      "expected": "The corpus contains no GPU serial or proof of a GPU fault; clearly decline to invent either."
+    },
+    {
+      "case": "missing-collection",
+      "question": "Using only the specified collection, search for MOSAIC-KB-20261031 Operator Decision and Evidence. Return the public verification code and exact source filename/page only if they are actually retrieved. If the collection is missing or search fails, report that failure without inventing an answer.",
+      "depth": "quick",
+      "collections": [
+        "mosaic-validation-no-such-collection-20261031"
+      ],
+      "expected": "Missing collection must not yield a verified sourced research answer."
+    }
+  ]
+}

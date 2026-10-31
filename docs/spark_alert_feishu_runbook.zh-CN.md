@@ -5,7 +5,7 @@
 
 核验日期：2026-10-31。目标是完成一轮可以回放的操作：登录 Spark → 打开 MOSAIC → 开启 Alertmanager 轮询 → 创建合成告警 → 启动只读调查 → 导出告警、工具结果和分析 → 将审核后的报告发到飞书 → 清理测试规则。IRAOP 的配置与对照实验见[Research 操作说明](spark_iraop_alert_validation.zh-CN.md)，其后是[Edit/Auto 修复说明](spark_edit_auto_repair_validation.zh-CN.md)。
 
-**先读最新的[Research 协议修复与原生检索实测](spark_research_protocol_validation_20261031.zh-CN.md)。** 当前为revision15，原生HTTP/MCP和三次MOSAIC View查询已从控制PDF取得正确测试码及来源，临时追踪已关闭；通用业务文档质量和飞书真实收件仍待验收。此前的隧道恢复、现有告警调查、PDF入库和隔离用户服务View/Edit/Auto见[最初完整实测记录](spark_live_validation_20261031.zh-CN.md)。新Alertmanager API注入返回403的记录仍有效，不能把使用旧合成规则写成新注入成功。第9章保留2026-10-30历史证据，不覆盖原始记录。
+**先读最新的[Research补测、自动入库与飞书真实收件](spark_research_feishu_followup_20261031.zh-CN.md)。** 当前revision15保留；原生HTTP/MCP/UI检索和全部4条384维向量已核验，飞书API成功且用户确认同一run ID收件。直接上传API自动完成切片/入库，但发现原PDF下载404，客户继续采用持久corpus+file入库。通用业务文档质量、deep研究、旧UI独立进度及生产修复仍待验收。此前完整对照见[协议实测](spark_research_protocol_validation_20261031.zh-CN.md)，最初隧道/告警/受限修复见[完整记录](spark_live_validation_20261031.zh-CN.md)。新Alertmanager写入403仍是已有缺口，不能把旧合成规则写成本轮新注入；历史数据不覆盖。
 
 另有[revision12追加实测](spark_live_validation_20261031_followup.zh-CN.md)：补测了Edit审批过期、IRAOP Pod重建和无证据query的incomplete呈现，当时原生检索仍失败；该快照完整保留。后续在同一个 [PR #2](https://github.com/JeffPengCoder/AI-Factory-Operations-Agent/pull/2) 增加默认关闭的Research工具协议兼容选项，Spark现已回填并启用。新环境须使用含该提交的chart或交付的真实定制chart，单独切到本PR文档分支不会获得代码修复。当前使用独立UI SSH转发。
 
@@ -21,7 +21,7 @@
 | Alertmanager → MOSAIC | 2026-10-31 在 UI 恢复 Auto pull，导入 30 条现有告警，选定合成条目字段匹配 | 同一 fingerprint、完整 labels/annotations、更新的 `lastSyncAt` |
 | 调查与信息收集 | 本轮选定告警会话最终 25 条消息、14 个工具结果；2 节点、10 Pod、31 指标点完整保留；PrometheusRule 读取 Forbidden | 同一 sessionKey 下的工具名、参数/查询、完整结果及错误 |
 | 页面阶段 | 最初实测时条目显示responding而hasActiveRun=false；最终revision15快照为active，30条告警，见最新记录；没有据此认定已修复 | 分开核对页面阶段、模型运行状态和原始告警 |
-| 飞书 Webhook 发送 | 脚本已做离线验证；用户确认尚未创建群机器人；尚无真实投递记录 | API 成功响应 + 目标群中同一 `run_id` 的消息 |
+| 飞书 Webhook 发送 | 前期仅离线验证；本轮用户建好MOSAIC Alert Test自定义机器人，5445bytes完整报告实发，API code=0/StatusCode=0，用户确认同一run ID收件 | 新环境仍须API成功响应与目标群内匹配消息双重核验 |
 | OpenClaw 飞书原生通道 | [PR #74](https://github.com/NVIDIA/AI-Factory-Operations-Agent/pull/74) 截至 2026-10-31 OPEN，Spark 未启用 | 选装后验收私聊/群 @、白名单、重启后的连接 |
 | IRAOP / 文档检索：前期快照 | 1 PDF/4 chunks；直接查询曾引用错误，原生query多次空sources；失败原件均保留 | 与后续修复结果对照，不能删除失败样本 |
 | IRAOP / 文档检索：revision15 | 协议兼容开启、追踪关闭；原生HTTP/MCP及三次View查询返回正确控制码和文件/页码；最后一次关联现有告警 | 复核真实工具结果、PDF原文、完整JSONL details；业务文档另验 |
@@ -550,6 +550,8 @@ ssh -p "$SPARK_SSH_PORT" "$SPARK_USER@$SPARK_HOST" \
 ## 7. 将告警与分析发到飞书
 
 ### 7.1 先走单向群通知：自定义机器人 Webhook
+
+**本现场已于2026-10-31完成真实投递：** 用户创建MOSAIC Alert Test机器人并提供受保护凭据，签名前5445bytes报告未截断，业务响应code=0/StatusCode=0，用户确认run ID `feishu-continued-validation-20261031T071049Z`一致。完整payload、业务响应和收件确认在[最新记录第5章](spark_research_feishu_followup_20261031.zh-CN.md)。本现场不需要重复创建；其他客户按以下步骤准备自己的群和授权。当前是操作员显式投递，自动报告发布仍待开发。
 
 这条路线不依赖 PR #74，不需要将 Spark 暴露成公网回调。操作在**发送脚本运行的机器**发起 HTTPS 请求；从本机执行时，飞书看到的是本机网络出口，若迁到 Spark，则使用 Spark 的出口。
 

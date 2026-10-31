@@ -3,6 +3,8 @@
 
 # Spark Research 实测续篇：工具调用协议修复与原生检索证据
 
+**后续更新：** [最新补测与交接状态](spark_research_feishu_followup_20261031.zh-CN.md)已核验全部4条实际向量、上传自动入库及其原件下载404缺口，并完成飞书真实收件；运行修复已提交[NVIDIA PR #86](https://github.com/NVIDIA/AI-Factory-Operations-Agent/pull/86)，Tests/build成功。本文保留此前235份完整证据和当时快照，下面“飞书待创建”等措辞指原记录时点。
+
 核验日期：2026-10-31。**当前部署为 Helm revision 15，Research 兼容开关开启，临时请求追踪已关闭。原生 HTTP、MCP 和三次 MOSAIC View 查询均从控制 PDF 取得正确测试码和来源；最后一次携带实际测试告警上下文。** 这是控制文档的检索验收，不是业务知识库、任意问题或生产修复能力的质量认证。飞书真实投递仍待客户创建测试群及自定义机器人。
 
 本篇接续[revision12 追加记录](spark_live_validation_20261031_followup.zh-CN.md)和[最初完整实测](spark_live_validation_20261031.zh-CN.md)。旧失败结果和原始记录全部保留，本篇新增后续证据，不把旧快照改写成成功。

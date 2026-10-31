@@ -50,6 +50,7 @@ Edit/Auto repair validation (Chinese) <docs/spark_edit_auto_repair_validation.zh
 Spark live validation and evidence (Chinese) <docs/spark_live_validation_20261031.zh-CN>
 Spark follow-up validation (Chinese) <docs/spark_live_validation_20261031_followup.zh-CN>
 Spark research protocol validation (Chinese) <docs/spark_research_protocol_validation_20261031.zh-CN>
+Research ingestion and Feishu follow-up (Chinese) <docs/spark_research_feishu_followup_20261031.zh-CN>
 Loki query reference <docs/loki>
 Headless integration <docs/skills/ai-factory-operations-agent-headless/SKILL>
 ```

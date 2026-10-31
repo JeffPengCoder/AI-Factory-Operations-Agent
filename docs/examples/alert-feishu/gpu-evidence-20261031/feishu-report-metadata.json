@@ -1,0 +1,11 @@
+{
+  "runId": "gpu-rca-20261031t121240z",
+  "researchSessionKey": "agent:default:alert-alertmanager-d1e25281f02cec92",
+  "payloadBytesBeforeSigning": 15918,
+  "payloadSha256": "28f6de92cf823c0c693deb8d742d88402ecd2fb5823cc4349feeead38755412e",
+  "originalQwenChineseReportBytes": 10285,
+  "originalReportIncludedUnchanged": true,
+  "messagePurpose": "Explicit NOT_PASSED unattended validation finding plus full unmodified Qwen Chinese report, not a corrected success claim",
+  "reviewBy": "Codex, not human",
+  "unattendedAcceptance": "NOT_PASSED"
+}

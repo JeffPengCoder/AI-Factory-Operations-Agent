@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-31T13:38:01.089261+00:00",
+  "argv": [
+    "kubectl",
+    "--context",
+    "kubernetes-admin@kubernetes",
+    "patch",
+    "servicemonitor",
+    "gpu-telemetry-fixture",
+    "-n",
+    "mosaic-gpu-rca-20261031t121240z",
+    "--type=json",
+    "-p",
+    "[{\"op\": \"test\", \"path\": \"/metadata/uid\", \"value\": \"3f990380-2497-4153-a290-9f3c00465f8c\"}, {\"op\": \"add\", \"path\": \"/spec/fallbackScrapeProtocol\", \"value\": \"PrometheusText0.0.4\"}]",
+    "-o",
+    "json"
+  ],
+  "patch": [
+    {
+      "op": "test",
+      "path": "/metadata/uid",
+      "value": "3f990380-2497-4153-a290-9f3c00465f8c"
+    },
+    {
+      "op": "add",
+      "path": "/spec/fallbackScrapeProtocol",
+      "value": "PrometheusText0.0.4"
+    }
+  ],
+  "exitCode": 0,
+  "stdout": "{\n    \"apiVersion\": \"monitoring.coreos.com/v1\",\n    \"kind\": \"ServiceMonitor\",\n    \"metadata\": {\n        \"creationTimestamp\": \"2026-10-31T13:33:05Z\",\n        \"generation\": 2,\n        \"labels\": {\n            \"experiment\": \"gpu-telemetry-cache\",\n            \"mosaic_test\": \"true\",\n            \"release\": \"kube-prometheus-stack\",\n            \"run_id\": \"gpu-rca-20261031t121240z\"\n        },\n        \"name\": \"gpu-telemetry-fixture\",\n        \"namespace\": \"mosaic-gpu-rca-20261031t121240z\",\n        \"resourceVersion\": \"99681776\",\n        \"uid\": \"3f990380-2497-4153-a290-9f3c00465f8c\"\n    },\n    \"spec\": {\n        \"endpoints\": [\n            {\n                \"interval\": \"5s\",\n                \"path\": \"/metrics\",\n                \"port\": \"metrics\",\n                \"scrapeTimeout\": \"3s\"\n            }\n        ],\n        \"fallbackScrapeProtocol\": \"PrometheusText0.0.4\",\n        \"namespaceSelector\": {\n            \"matchNames\": [\n                \"mosaic-gpu-rca-20261031t121240z\"\n            ]\n        },\n        \"selector\": {\n            \"matchLabels\": {\n                \"experiment\": \"gpu-telemetry-cache\",\n                \"mosaic_test\": \"true\",\n                \"run_id\": \"gpu-rca-20261031t121240z\"\n            }\n        }\n    }\n}\n",
+  "stderr": ""
+}

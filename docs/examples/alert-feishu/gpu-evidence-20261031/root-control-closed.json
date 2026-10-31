@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-31T14:08:27.863912+00:00",
+  "scope": "Only this GPU run root SSH control session",
+  "exitCommandExitCode": 0,
+  "exitResponse": "Exit request sent.\n",
+  "afterCheckExitCode": 255,
+  "afterCheckResponse": "Control socket connect(/private/tmp/mosaic-gpu-rca-l20-root-20261031/ssh.sock): No such file or directory\n",
+  "passwordSaved": false
+}

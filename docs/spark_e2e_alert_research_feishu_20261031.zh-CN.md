@@ -1,4 +1,6 @@
 <!-- SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->
+
+**配套GPU实验：** [GPU遥测注入与归因验收](spark_gpu_alert_research_feishu_20261031.zh-CN.md)单独记录GPU信号与证据。本篇是CPU资源Pod的真实应用退出，不是CPU硬件故障。历史“操作员复核/人工纠正”由Codex辅助完成，不表示用户本人审核，也不能据此认为无人值守分析通过。
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
 

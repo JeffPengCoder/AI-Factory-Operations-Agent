@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-31T14:02:27.638705+00:00",
+  "group": "MOSAIC Alert Test",
+  "runId": "gpu-rca-20261031t121240z",
+  "botApiAccepted": true,
+  "groupReceiptConfirmed": true,
+  "completeResponseFile": "feishu-response-attempt2.json",
+  "credentialValuesSaved": false,
+  "unattendedAcceptance": "NOT_PASSED",
+  "identityDeidentified": true,
+  "semanticCorrectionsToQwenReport": false,
+  "groupReceipt": {
+    "recordedAt": "2026-10-31T14:10:44.515666+00:00",
+    "source": "User asynchronous reply",
+    "answer": "已收到，Run ID 一致",
+    "matchedRunId": "gpu-rca-20261031t121240z"
+  }
+}

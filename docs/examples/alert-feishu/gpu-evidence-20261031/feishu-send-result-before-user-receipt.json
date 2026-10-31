@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-31T14:02:27.638705+00:00",
+  "group": "MOSAIC Alert Test",
+  "runId": "gpu-rca-20261031t121240z",
+  "botApiAccepted": true,
+  "groupReceiptConfirmed": false,
+  "completeResponseFile": "feishu-response-attempt2.json",
+  "credentialValuesSaved": false,
+  "unattendedAcceptance": "NOT_PASSED",
+  "identityDeidentified": true,
+  "semanticCorrectionsToQwenReport": false
+}

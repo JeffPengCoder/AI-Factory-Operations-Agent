@@ -1,4 +1,6 @@
 <!-- SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->
+
+**最新GPU补测：** [独立GPU实验](spark_gpu_alert_research_feishu_20261031.zh-CN.md)已走通受控缓存信号→告警→只读取证→知识检索→飞书，群内已确认本轮Run ID；原始模型存在事实错误和危险日志建议，**无人值守分析未通过**。首次自主输出、补充追问和Codex纠错分别保留；Codex修订不是产品自身能力，也不等于用户本人审核。
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
 # Spark 上的告警、调查取证与飞书投递操作手册

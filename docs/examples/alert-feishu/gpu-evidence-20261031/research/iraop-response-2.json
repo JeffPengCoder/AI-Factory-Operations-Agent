@@ -1,0 +1,36 @@
+{
+  "toolCallId": "call_42e6dcf7f4c2482587692aa1",
+  "requestAt": "2026-10-31T13:49:38.803Z",
+  "resultAt": "2026-10-31T13:49:49.887Z",
+  "arguments": {
+    "question": "In the MOSAIC GPU Evidence Triage runbook (MOSAIC-GPU-KB-20261031), what is the generic definition of Xid 95, how does isolated DCGM cache injection differ from live hardware evidence, how should volatile and aggregate ECC counters be reconciled with available kernel logs, and what is the public retrieval verification code on page 2? Do not analyze any specific incident.",
+    "depth": "quick",
+    "collections": [
+      "mosaic-gpu-validation-20261031"
+    ]
+  },
+  "isError": false,
+  "response": {
+    "answer": "Here are the answers drawn directly from the MOSAIC-GPU-KB-20261031 runbook, with zero incident analysis:\n\n### 1. Generic definition of Xid 95\n\n> *\"Xid 95 denotes an **uncontained memory error**. It is a serious error classification, not by itself proof of a particular failed memory chip, bank, or replaceable card.\"*\n\nThe runbook treats Xid 95 as a serious but non-specific classification — it flags that a memory error occurred, but does not on its own identify a specific chip, bank, or replaceable card.\n\n---\n\n### 2. Isolated DCGM cache injection vs. live hardware evidence\n\nThe runbook states:\n\n> *\"DCGM test injection changes samples in a host-engine cache. **Synthetic Xid or ECC samples from one isolated engine are not independent NVML or kernel evidence.** Label the source as `isolated_dcgm_cache_snapshot`.\"*\n\nKey distinctions:\n\n| Aspect | Live Hardware Evidence | Isolated DCGM Cache Injection |\n|---|---|---|\n| **Source** | NVML, kernel, PCIe/AER, DCGM live scrape | Host-engine cache (synthetic) |\n| **Verification** | Cross-checkable against kernel Xid, ECC/remap counters, AER logs | Not independently verifiable — it is a replay fixture |\n| **Reporting** | Treated as genuine telemetry | Must be labelled `isolated_dcgm_cache_snapshot`; the source is identified as the injection/fixture |\n\nWhen injected DCGM samples **disagree** with unchanged live NVML ECC/remap counters and **no matching kernel Xid** exists in the available log window, the prescribed report is:\n\n> *\"Simulated GPU telemetry and insufficient evidence of a live hardware defect. Identify the injection/fixture as the cause of this test alert. Do not call injected counters corroboration of a physical failure.\"*\n\n---\n\n### 3. Volatile and aggregate ECC counters — reconciliation with kernel logs\n\nThe runbook provides the following procedure:\n\n1. **Read volatile and aggregate ECC counts separately.** A nonzero lifetime aggregate alone does *not* prove errors are growing now.\n2. **Compare timestamped samples** across collections.\n3. **Preserve SRAM versus DRAM distinctions and exact counter labels.** Do not conflate them.\n4. **Keep `N/A` separate from numeric zero.**\n5. **Check remapped-row pending/failure and spare-bank information** as supplementary evidence.\n6. When reconciling with kernel logs: if injected DCGM samples disagree with **unchanged live NVML ECC/remap counters** and there is **no matching kernel Xid** in the available log window, report the signal as **simulated GPU telemetry with insufficient evidence of a live hardware defect**.\n\nAdditionally:\n\n> *\"A missing Prometheus Xid/ECC series is an instrumentation gap. It is not a successful zero-error measurement. Verify the exporter collector list, field support, versions, scrape targets and exact metric names before claiming absence of a fault.\"*\n\n---\n\n### 4. Public retrieval verification code on page 2\n\nThe code is:\n\n> **GPU-CEDAR-7304**\n\nThe runbook notes: *\"This marker grants no access. Retrieve it only from this file and cite page 2.\"*",
+    "depth": "quick",
+    "collections_searched": [
+      "mosaic-gpu-validation-20261031"
+    ],
+    "sources": [
+      {
+        "source_file": "mosaic-gpu-evidence-runbook.pdf",
+        "page_number": 1,
+        "collection": "mosaic-gpu-validation-20261031",
+        "doc_id": "mosaic-gpu-evidence-runbook.pdf",
+        "url": "/api/v1/documents/mosaic-gpu-evidence-runbook.pdf"
+      },
+      {
+        "source_file": "mosaic-gpu-evidence-runbook.pdf",
+        "page_number": 2,
+        "collection": "mosaic-gpu-validation-20261031",
+        "doc_id": "mosaic-gpu-evidence-runbook.pdf",
+        "url": "/api/v1/documents/mosaic-gpu-evidence-runbook.pdf"
+      }
+    ]
+  }
+}

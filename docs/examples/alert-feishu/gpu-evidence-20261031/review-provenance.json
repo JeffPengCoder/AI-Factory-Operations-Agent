@@ -1,0 +1,32 @@
+{
+  "originalModel": "Existing Spark Qwen endpoint, as configured; no model changes",
+  "initialUiOutput": "browser/initial-history-gateway.json",
+  "originalChineseModelOutput": "analysis-model-original.zh-CN.txt",
+  "correctionPrompt": "review/prompt.txt",
+  "revisionMechanism": "Codex identified factual errors using command outputs, source PDF pages and Prometheus labels; submitted explicit corrections to the SAME native View session for a new Qwen revision.",
+  "reviewer": "Codex assistant, not a human reviewer",
+  "userHumanApproval": "not requested or obtained; no claim of human approval",
+  "scoringRule": "Evaluate original outputs separately; a prompted correction does not erase or pass the original errors.",
+  "feishuLabel": "Must identify the report as Qwen revision after Codex fact-check; retain raw original, correction prompt and exact diff.",
+  "phases": [
+    {
+      "name": "Initial real-UI autonomous investigation",
+      "messages": 15,
+      "tools": 11,
+      "externalFactCorrections": false
+    },
+    {
+      "name": "Codex-guided evidence followup in same View session",
+      "messagesTotal": 34,
+      "additionalTools": 14,
+      "externalFactCorrections": false,
+      "isUnattendedBaseline": false
+    },
+    {
+      "name": "Explicit Codex factual correction prompt and Qwen revision",
+      "messagesTotal": 41,
+      "additionalTools": 4,
+      "isUnattendedBaseline": false
+    }
+  ]
+}

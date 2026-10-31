@@ -1,0 +1,9 @@
+# HELP mosaic_test_dcgm_xid_error Replayed isolated DCGM cache Xid, not a live hardware event
+# TYPE mosaic_test_dcgm_xid_error gauge
+mosaic_test_dcgm_xid_error{run_id="gpu-rca-20261031t121240z",node="target-node-1",gpu="0",gpu_uuid="GPU-REDACTED-11",simulation="true",evidence_source="isolated_dcgm_cache_snapshot"} 95
+# HELP mosaic_test_dcgm_ecc_dbe_volatile_total Replayed isolated DCGM cache volatile DBE
+# TYPE mosaic_test_dcgm_ecc_dbe_volatile_total gauge
+mosaic_test_dcgm_ecc_dbe_volatile_total{run_id="gpu-rca-20261031t121240z",node="target-node-1",gpu="0",gpu_uuid="GPU-REDACTED-11",simulation="true",evidence_source="isolated_dcgm_cache_snapshot"} 1
+# HELP mosaic_test_dcgm_ecc_dbe_aggregate_total Replayed isolated DCGM cache aggregate DBE
+# TYPE mosaic_test_dcgm_ecc_dbe_aggregate_total gauge
+mosaic_test_dcgm_ecc_dbe_aggregate_total{run_id="gpu-rca-20261031t121240z",node="target-node-1",gpu="0",gpu_uuid="GPU-REDACTED-11",simulation="true",evidence_source="isolated_dcgm_cache_snapshot"} 1

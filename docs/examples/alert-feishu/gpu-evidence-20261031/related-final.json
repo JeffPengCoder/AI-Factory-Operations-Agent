@@ -1,0 +1,149 @@
+{
+  "at": "2026-10-31T13:59:21.684515+00:00",
+  "remote": [
+    {
+      "name": "prometheus",
+      "at": "2026-10-31T13:59:20.707225+00:00",
+      "url": "http://target-node-1.example.invalid:30090/api/v1/query?query=ALERTS%7Bnamespace%3D%22mosaic-gpu-rca-20261031t121240z%22%7D",
+      "status": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[]}}"
+    },
+    {
+      "name": "alertmanager",
+      "at": "2026-10-31T13:59:20.729965+00:00",
+      "url": "http://target-node-1.example.invalid:30093/api/v2/alerts?filter=namespace%3D%22mosaic-gpu-rca-20261031t121240z%22",
+      "status": 200,
+      "body": "[{\"annotations\":{\"description\":\"test from Jeff Peng. Run gpu-rca-20261031t121240z. GPU telemetry simulation, not a CPU crash or a physical hardware fault. Cluster target-lab, namespace mosaic-gpu-rca-20261031t121240z, Pod gpu-telemetry-fixture. In View mode read logs from telemetry, nvml-witness, kernel-witness; compare isolated DCGM cache with unchanged live NVML and production DCGM. Then consult iraop_query collection mosaic-gpu-validation-20261031 for generic GPU triage procedure; keep incident facts separate from knowledge. Do not reset, drain or repair any GPU.\",\"evidence_source\":\"isolated_dcgm_cache_snapshot\",\"summary\":\"GPU telemetry test: isolated DCGM Xid 95 and ECC snapshot\",\"test_from\":\"test from Jeff Peng\"},\"endsAt\":\"2026-10-31T13:59:32.799Z\",\"fingerprint\":\"d1e25281f02cec92\",\"receivers\":[{\"name\":\"null\"}],\"startsAt\":\"2026-10-31T13:43:37.799Z\",\"status\":{\"inhibitedBy\":[],\"mutedBy\":[],\"silencedBy\":[],\"state\":\"active\"},\"updatedAt\":\"2026-10-31T13:55:32.801Z\",\"generatorURL\":\"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22gpu-rca-20261031t121240z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95\\u0026g0.tab=1\",\"labels\":{\"alertname\":\"MosaicGpuTelemetrySimulation\",\"container\":\"telemetry\",\"endpoint\":\"metrics\",\"evidence_source\":\"isolated_dcgm_cache_snapshot\",\"experiment\":\"gpu-telemetry-cache\",\"gpu\":\"0\",\"gpu_uuid\":\"GPU-REDACTED-11\",\"instance\":\"private-address-07.example.invalid:8080\",\"job\":\"gpu-telemetry-fixture\",\"mosaic_test\":\"true\",\"namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"node\":\"target-node-1\",\"pod\":\"gpu-telemetry-fixture\",\"prometheus\":\"monitoring/kube-prometheus-stack-prometheus\",\"run_id\":\"gpu-rca-20261031t121240z\",\"service\":\"gpu-telemetry-fixture\",\"severity\":\"warning\",\"simulation\":\"true\",\"test_namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"test_pod\":\"gpu-telemetry-fixture\"}}]\n"
+    }
+  ],
+  "allRelatedMosaicAlerts": [
+    {
+      "id": "alertmanager:9d039033924e9122",
+      "payload": "MosaicGpuTelemetrySimulation: GPU telemetry test: isolated DCGM Xid 95 and ECC snapshot test from Jeff Peng. Run gpu-rca-20261031t121240z. GPU telemetry simulation, not a CPU crash or a physical hardware fault. Cluster target-lab, namespace mosaic-gpu-rca-20261031t121240z, Pod gpu-telemetry-fixture. In View mode read logs from telemetry, nvml-witness, kernel-witness; compare isolated DCGM cache with unchanged live NVML and production DCGM. Then consult iraop_query collection mosaic-gpu-validation-20261031 for generic GPU triage procedure; keep incident facts separate from knowledge. Do not reset, drain or repair any GPU. (severity=info, namespace=mosaic-gpu-rca-20261031t121240z, pod=gpu-telemetry-fixture, node=target-node-1, instance=private-address-07.example.invalid:8080, job=gpu-telemetry-fixture)",
+      "source": "Alertmanager",
+      "createdAt": "2026-10-31T13:41:02.799Z",
+      "stage": "active",
+      "labels": {
+        "alertname": "MosaicGpuTelemetrySimulation",
+        "container": "telemetry",
+        "endpoint": "metrics",
+        "evidence_source": "isolated_dcgm_cache_snapshot",
+        "experiment": "gpu-telemetry-cache",
+        "gpu": "0",
+        "gpu_uuid": "GPU-REDACTED-11",
+        "instance": "private-address-07.example.invalid:8080",
+        "job": "gpu-telemetry-fixture",
+        "mosaic_test": "true",
+        "namespace": "mosaic-gpu-rca-20261031t121240z",
+        "node": "target-node-1",
+        "pod": "gpu-telemetry-fixture",
+        "prometheus": "monitoring/kube-prometheus-stack-prometheus",
+        "run_id": "gpu-rca-20261031t121240z",
+        "service": "gpu-telemetry-fixture",
+        "severity": "info",
+        "simulation": "true",
+        "test_namespace": "mosaic-gpu-rca-20261031t121240z",
+        "test_pod": "gpu-telemetry-fixture"
+      },
+      "annotations": {
+        "description": "test from Jeff Peng. Run gpu-rca-20261031t121240z. GPU telemetry simulation, not a CPU crash or a physical hardware fault. Cluster target-lab, namespace mosaic-gpu-rca-20261031t121240z, Pod gpu-telemetry-fixture. In View mode read logs from telemetry, nvml-witness, kernel-witness; compare isolated DCGM cache with unchanged live NVML and production DCGM. Then consult iraop_query collection mosaic-gpu-validation-20261031 for generic GPU triage procedure; keep incident facts separate from knowledge. Do not reset, drain or repair any GPU.",
+        "evidence_source": "isolated_dcgm_cache_snapshot",
+        "summary": "GPU telemetry test: isolated DCGM Xid 95 and ECC snapshot",
+        "test_from": "test from Jeff Peng"
+      },
+      "status": "active",
+      "startsAt": "2026-10-31T13:41:02.799Z",
+      "endsAt": "2026-10-31T13:46:07.799Z",
+      "updatedAt": "2026-10-31T13:42:07.801Z",
+      "fingerprint": "9d039033924e9122",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22gpu-rca-20261031t121240z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1"
+    },
+    {
+      "id": "alertmanager:d1e25281f02cec92",
+      "payload": "MosaicGpuTelemetrySimulation: GPU telemetry test: isolated DCGM Xid 95 and ECC snapshot test from Jeff Peng. Run gpu-rca-20261031t121240z. GPU telemetry simulation, not a CPU crash or a physical hardware fault. Cluster target-lab, namespace mosaic-gpu-rca-20261031t121240z, Pod gpu-telemetry-fixture. In View mode read logs from telemetry, nvml-witness, kernel-witness; compare isolated DCGM cache with unchanged live NVML and production DCGM. Then consult iraop_query collection mosaic-gpu-validation-20261031 for generic GPU triage procedure; keep incident facts separate from knowledge. Do not reset, drain or repair any GPU. (severity=warning, namespace=mosaic-gpu-rca-20261031t121240z, pod=gpu-telemetry-fixture, node=target-node-1, instance=private-address-07.example.invalid:8080, job=gpu-telemetry-fixture)",
+      "source": "Alertmanager",
+      "createdAt": "2026-10-31T13:43:37.799Z",
+      "stage": "responding",
+      "labels": {
+        "alertname": "MosaicGpuTelemetrySimulation",
+        "container": "telemetry",
+        "endpoint": "metrics",
+        "evidence_source": "isolated_dcgm_cache_snapshot",
+        "experiment": "gpu-telemetry-cache",
+        "gpu": "0",
+        "gpu_uuid": "GPU-REDACTED-11",
+        "instance": "private-address-07.example.invalid:8080",
+        "job": "gpu-telemetry-fixture",
+        "mosaic_test": "true",
+        "namespace": "mosaic-gpu-rca-20261031t121240z",
+        "node": "target-node-1",
+        "pod": "gpu-telemetry-fixture",
+        "prometheus": "monitoring/kube-prometheus-stack-prometheus",
+        "run_id": "gpu-rca-20261031t121240z",
+        "service": "gpu-telemetry-fixture",
+        "severity": "warning",
+        "simulation": "true",
+        "test_namespace": "mosaic-gpu-rca-20261031t121240z",
+        "test_pod": "gpu-telemetry-fixture"
+      },
+      "annotations": {
+        "description": "test from Jeff Peng. Run gpu-rca-20261031t121240z. GPU telemetry simulation, not a CPU crash or a physical hardware fault. Cluster target-lab, namespace mosaic-gpu-rca-20261031t121240z, Pod gpu-telemetry-fixture. In View mode read logs from telemetry, nvml-witness, kernel-witness; compare isolated DCGM cache with unchanged live NVML and production DCGM. Then consult iraop_query collection mosaic-gpu-validation-20261031 for generic GPU triage procedure; keep incident facts separate from knowledge. Do not reset, drain or repair any GPU.",
+        "evidence_source": "isolated_dcgm_cache_snapshot",
+        "summary": "GPU telemetry test: isolated DCGM Xid 95 and ECC snapshot",
+        "test_from": "test from Jeff Peng"
+      },
+      "status": "active",
+      "startsAt": "2026-10-31T13:43:37.799Z",
+      "endsAt": "2026-10-31T13:59:32.799Z",
+      "updatedAt": "2026-10-31T13:55:32.801Z",
+      "fingerprint": "d1e25281f02cec92",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22gpu-rca-20261031t121240z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1"
+    }
+  ],
+  "mosaicPolling": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "status": {
+        "enabled": true,
+        "baseUrl": "http://target-node-1.example.invalid:30093",
+        "intervalMs": 30000,
+        "lastSyncAt": "2026-10-31T13:58:59.334Z",
+        "lastImported": 0,
+        "lastSeenCount": 26
+      }
+    },
+    "elapsedSeconds": 0.3014931249781512
+  },
+  "uiHealth": {
+    "path": "/api/health",
+    "httpStatus": 200,
+    "body": {
+      "status": "ok"
+    },
+    "elapsedSeconds": 0.28338349994737655
+  },
+  "uiUnauthenticated": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": 401,
+    "body": "Authentication required.",
+    "elapsedSeconds": 0.2853723330190405
+  },
+  "uiAuthenticated": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "status": {
+        "enabled": true,
+        "baseUrl": "http://target-node-1.example.invalid:30093",
+        "intervalMs": 30000,
+        "lastSyncAt": "2026-10-31T13:58:59.334Z",
+        "lastImported": 0,
+        "lastSeenCount": 26
+      }
+    },
+    "elapsedSeconds": 0.3052705840091221
+  }
+}

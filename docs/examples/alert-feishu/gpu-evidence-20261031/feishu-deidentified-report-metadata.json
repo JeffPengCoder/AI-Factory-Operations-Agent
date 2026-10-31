@@ -1,0 +1,19 @@
+{
+  "runId": "gpu-rca-20261031t121240z",
+  "researchSessionKey": "agent:default:alert-alertmanager-d1e25281f02cec92",
+  "payloadBytesBeforeSigning": 16073,
+  "payloadSha256": "92c06e74460ca4089c8129ede9f52390626e29740fefacbb8eef19dffb9abf5f",
+  "internalAddressesRemaining": 0,
+  "realGpuUuidsRemaining": 0,
+  "realPciBusIdsRemaining": 0,
+  "actualHostnamesOrAccountsRemaining": 0,
+  "identityDeidentified": true,
+  "semanticCorrectionsToOriginalQwenReport": false,
+  "originalInternalEvidenceRetainedLocally": true,
+  "unattendedAcceptance": "NOT_PASSED",
+  "evidenceLink": "Existing user-authorized repo PR1; full sanitized evidence appended there",
+  "inputs": [
+    "deidentified-feishu-alert.json",
+    "deidentified-feishu-validation-report.zh-CN.txt"
+  ]
+}

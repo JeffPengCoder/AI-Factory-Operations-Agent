@@ -1,0 +1,157 @@
+{
+  "at": "2026-10-31T14:04:07.419241+00:00",
+  "deployedHelmRevision": 15,
+  "pods": [
+    {
+      "name": "iraop-cb7877-nmpw7",
+      "uid": "7993d92e-bcb0-4ebc-992a-28608bbd5e95",
+      "phase": "Running",
+      "images": [
+        "nvcr.io/NGC_ORG_ID/afoa-release/iraop:f804535b"
+      ],
+      "containers": [
+        {
+          "name": "iraop",
+          "restartCount": 0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "name": "llm-openai-compat-58bd8857f4-d5f8k",
+      "uid": "2bd6c507-e9a1-4f30-84de-c23f47b8ad43",
+      "phase": "Running",
+      "images": [
+        "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8"
+      ],
+      "containers": [
+        {
+          "name": "proxy",
+          "restartCount": 0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "name": "mosaic-cluster-monitor-76fd6d7cb5-5l5m6",
+      "uid": "b973a853-ae9c-4270-8f91-bdd25548e248",
+      "phase": "Running",
+      "images": [
+        "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8"
+      ],
+      "containers": [
+        {
+          "name": "cluster-monitor",
+          "restartCount": 0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "name": "mosaic-openshell-0",
+      "uid": "43644e83-65d5-4fbb-a056-e1a15ffa5b98",
+      "phase": "Running",
+      "images": [
+        "ghcr.io/nvidia/openshell/gateway:0.0.75"
+      ],
+      "containers": [
+        {
+          "name": "openshell-gateway",
+          "restartCount": 0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "name": "mosaic-ui-877685d69-chxwr",
+      "uid": "5a69f229-f033-466e-8d3d-5da7efed7c12",
+      "phase": "Running",
+      "images": [
+        "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8"
+      ],
+      "containers": [
+        {
+          "name": "mosaic-ui",
+          "restartCount": 0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "name": "openclaw-79dd6456f8-8fpl4",
+      "uid": "b10741d7-e3dc-417a-b527-4762a32a5e9e",
+      "phase": "Running",
+      "images": [
+        "ghcr.io/openclaw/openclaw:2026.6.10"
+      ],
+      "containers": [
+        {
+          "name": "gateway",
+          "restartCount": 0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "name": "opensearch-0",
+      "uid": "27765858-cfcc-43a5-a8d5-6ae532edacec",
+      "phase": "Running",
+      "images": [
+        "opensearchproject/opensearch:2.17.0"
+      ],
+      "containers": [
+        {
+          "name": "opensearch",
+          "restartCount": 0,
+          "ready": true
+        }
+      ]
+    }
+  ],
+  "moduleEnabledFlags": {
+    "bcm": false,
+    "clusters": true,
+    "diagnostics": false,
+    "edit": true,
+    "execution": true,
+    "grafana": true,
+    "kubernetes": true,
+    "observability": true,
+    "research": true,
+    "slurm": false,
+    "terminal": false,
+    "ui": true
+  },
+  "sharedLlm": {
+    "Pid": 128852,
+    "StartedAt": "2026-09-15T07:17:31.481993911Z",
+    "Running": true,
+    "Restarting": false,
+    "OOMKilled": false,
+    "ExitCode": 0
+  },
+  "retainedCorpora": {
+    "collections": {
+      "mosaic-validation-20261031": {
+        "count": 4,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "skipped": 0,
+          "failed": 0
+        }
+      },
+      "mosaic-gpu-validation-20261031": {
+        "count": 5,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "skipped": 0,
+          "failed": 0
+        }
+      }
+    },
+    "gpuPdfBytes": 5909,
+    "gpuPdfSha256": "a5907d666fab963214deff3650b52b1c3774adf64226baf3f4b5134b2364363a"
+  }
+}

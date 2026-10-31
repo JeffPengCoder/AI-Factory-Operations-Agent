@@ -1,0 +1,81 @@
+{
+  "allEventCount": 41,
+  "selectedDate": "2026-10-31",
+  "events": [
+    {
+      "actor": "user",
+      "kind": "config_change",
+      "source": "session-access",
+      "summary": "Conversation switched to view",
+      "sessionKey": "agent:default:session-2026-10-31t02-29-24-691z",
+      "status": "view",
+      "metadata": {
+        "mode": "view"
+      },
+      "id": "7fdb4ab1-ebb7-4743-b2f9-f3601e3c5a5f",
+      "timestamp": "2026-10-31T02:29:43.399Z"
+    },
+    {
+      "actor": "user",
+      "kind": "config_change",
+      "source": "session-access",
+      "summary": "Conversation switched to auto",
+      "sessionKey": "agent:default:session-2026-10-31t02-29-24-691z",
+      "status": "auto",
+      "metadata": {
+        "mode": "auto"
+      },
+      "id": "2ff2121b-0c7f-4894-a422-74d71104ed14",
+      "timestamp": "2026-10-31T02:29:26.676Z"
+    },
+    {
+      "id": "plugin-approval:plugin:5ad3d0e3-6691-47c4-97cd-8b29481dd64a",
+      "actor": "user",
+      "kind": "user-approved",
+      "source": "openclaw",
+      "summary": "Approved Remote command on repair-demo",
+      "content": "[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"] on repair-demo (spark-user@spark-kind-bridge.example.invalid:22)",
+      "sessionKey": "agent:default:session-2026-10-31t02-27-16-251z",
+      "toolName": "run_remote_ssh",
+      "status": "allow-once",
+      "metadata": {
+        "approvalId": "plugin:5ad3d0e3-6691-47c4-97cd-8b29481dd64a",
+        "toolCallId": "call_ae6e5e3f7b5f4ce2a11b7fa1",
+        "severity": "critical",
+        "resolvedBy": "Approval client"
+      },
+      "timestamp": "2026-10-31T02:27:33.146Z"
+    },
+    {
+      "id": "plugin-approval:plugin:a1c51c40-9026-412f-a4e2-564aed791668",
+      "actor": "user",
+      "kind": "user-rejected",
+      "source": "openclaw",
+      "summary": "Denied Remote command on repair-demo",
+      "content": "[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"] on repair-demo (spark-user@spark-kind-bridge.example.invalid:22)",
+      "sessionKey": "agent:default:session-2026-10-31t02-27-16-251z",
+      "toolName": "run_remote_ssh",
+      "status": "deny",
+      "metadata": {
+        "approvalId": "plugin:a1c51c40-9026-412f-a4e2-564aed791668",
+        "toolCallId": "call_9b00eb375bbf443582d47ea3",
+        "severity": "critical",
+        "resolvedBy": "Approval client"
+      },
+      "timestamp": "2026-10-31T02:27:23.133Z"
+    },
+    {
+      "actor": "user",
+      "kind": "config_change",
+      "source": "session-access",
+      "summary": "Conversation switched to edit",
+      "sessionKey": "agent:default:session-2026-10-31t02-27-16-251z",
+      "status": "edit",
+      "metadata": {
+        "mode": "edit"
+      },
+      "id": "99a582a4-0f00-4520-a10a-2a58df9cfbb6",
+      "timestamp": "2026-10-31T02:27:17.832Z"
+    }
+  ]
+}

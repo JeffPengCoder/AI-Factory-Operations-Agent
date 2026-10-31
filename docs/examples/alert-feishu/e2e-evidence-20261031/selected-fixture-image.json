@@ -1,0 +1,12 @@
+{
+  "id": "sha256:aaef90e065235eb0b2d9938be85d1b81add2902cf89affe2cdfa19be33476ac0",
+  "repoTags": [
+    "docker.io/library/busybox:latest"
+  ],
+  "repoDigests": [
+    "docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e"
+  ],
+  "size": "2236767",
+  "username": "",
+  "pinned": false
+}

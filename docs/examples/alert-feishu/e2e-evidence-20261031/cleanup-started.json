@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-31T08:37:46.855995+00:00",
+  "expectedUids": {
+    "Namespace": "c49e70b7-674b-45fd-b7d7-39087b2e93e2",
+    "ConfigMap": "403b73e5-b19e-4276-bb0a-ff64c9dc0162",
+    "Pod": "82953a81-6578-4cbe-b638-ef3de927279a",
+    "PrometheusRule": "0faf5f01-a21e-439f-b4f6-c6da8d5c219d"
+  }
+}

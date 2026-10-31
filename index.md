@@ -44,6 +44,15 @@ Security model <docs/security_model>
 Tenant and operator deployments <docs/multitenancy>
 Use cases <docs/use_cases>
 Slurm root cause analysis <docs/slurm_rca>
+Spark alerts and Feishu runbook (Chinese) <docs/spark_alert_feishu_runbook.zh-CN>
+IRAOP alert validation (Chinese) <docs/spark_iraop_alert_validation.zh-CN>
+Edit/Auto repair validation (Chinese) <docs/spark_edit_auto_repair_validation.zh-CN>
+Spark live validation and evidence (Chinese) <docs/spark_live_validation_20261031.zh-CN>
+Spark follow-up validation (Chinese) <docs/spark_live_validation_20261031_followup.zh-CN>
+Spark research protocol validation (Chinese) <docs/spark_research_protocol_validation_20261031.zh-CN>
+New error to Feishu end-to-end validation (Chinese) <docs/spark_e2e_alert_research_feishu_20261031.zh-CN>
+GPU telemetry and unattended-analysis validation (Chinese) <docs/spark_gpu_alert_research_feishu_20261031.zh-CN>
+Research ingestion and Feishu follow-up (Chinese) <docs/spark_research_feishu_followup_20261031.zh-CN>
 Loki query reference <docs/loki>
 Headless integration <docs/skills/ai-factory-operations-agent-headless/SKILL>
 ```

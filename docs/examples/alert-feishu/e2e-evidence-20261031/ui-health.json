@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-31T07:59:42.443077+00:00",
+  "path": "/api/health",
+  "httpStatus": 200,
+  "body": {
+    "status": "ok"
+  },
+  "elapsedSeconds": 0.6038810409954749
+}

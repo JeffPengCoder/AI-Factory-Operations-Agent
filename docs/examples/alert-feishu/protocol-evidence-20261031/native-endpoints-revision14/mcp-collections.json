@@ -1,0 +1,21 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"name\": \"mosaic-validation-20261031\",\n  \"doc_count\": 4,\n  \"store_size\": \"36.2kb\"\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": {
+    "result": [
+      {
+        "name": "mosaic-validation-20261031",
+        "doc_count": 4,
+        "store_size": "36.2kb"
+      }
+    ]
+  },
+  "isError": false
+}

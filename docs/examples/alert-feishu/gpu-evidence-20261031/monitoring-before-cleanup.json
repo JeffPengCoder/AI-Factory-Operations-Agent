@@ -1,0 +1,135 @@
+{
+  "at": "2026-10-31T13:55:33.546138+00:00",
+  "requests": [
+    {
+      "at": "2026-10-31T13:55:33.330595+00:00",
+      "path": "/api/v1/query?query=count+by+%28__name__%29+%28%7B__name__%3D~%22DCGM_.%2A%22%7D%29",
+      "query": "count by (__name__) ({__name__=~\"DCGM_.*\"})",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"__name__\":\"DCGM_FI_DEV_SM_CLOCK\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_MEM_CLOCK\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_MEMORY_TEMP\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_GPU_TEMP\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_POWER_USAGE\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_TOTAL_ENERGY_CONSUMPTION\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_PCIE_REPLAY_COUNTER\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_MEM_COPY_UTIL\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_ENC_UTIL\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_DEC_UTIL\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_FB_FREE\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_FB_USED\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_FB_RESERVED\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_UNCORRECTABLE_REMAPPED_ROWS\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_CORRECTABLE_REMAPPED_ROWS\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_VGPU_LICENSE_STATUS\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_PROF_GR_ENGINE_ACTIVE\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_PROF_PIPE_TENSOR_ACTIVE\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_PROF_DRAM_ACTIVE\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_PROF_PCIE_TX_BYTES\"},\"value\":[1793454933.323,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_PROF_PCIE_RX_BYTES\"},\"value\":[1793454933.323,\"16\"]}]}}"
+    },
+    {
+      "at": "2026-10-31T13:55:33.350305+00:00",
+      "path": "/api/v1/query?query=up%7Bnamespace%3D%22mosaic-gpu-rca-20261031t121240z%22%7D",
+      "query": "up{namespace=\"mosaic-gpu-rca-20261031t121240z\"}",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"__name__\":\"up\",\"container\":\"telemetry\",\"endpoint\":\"metrics\",\"instance\":\"private-address-07.example.invalid:8080\",\"job\":\"gpu-telemetry-fixture\",\"namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"pod\":\"gpu-telemetry-fixture\",\"service\":\"gpu-telemetry-fixture\"},\"value\":[1793454933.345,\"1\"]}]}}"
+    },
+    {
+      "at": "2026-10-31T13:55:33.370826+00:00",
+      "path": "/api/v1/query?query=mosaic_test_dcgm_xid_error%7Brun_id%3D%22gpu-rca-20261031t121240z%22%7D",
+      "query": "mosaic_test_dcgm_xid_error{run_id=\"gpu-rca-20261031t121240z\"}",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"__name__\":\"mosaic_test_dcgm_xid_error\",\"container\":\"telemetry\",\"endpoint\":\"metrics\",\"evidence_source\":\"isolated_dcgm_cache_snapshot\",\"gpu\":\"0\",\"gpu_uuid\":\"GPU-REDACTED-11\",\"instance\":\"private-address-07.example.invalid:8080\",\"job\":\"gpu-telemetry-fixture\",\"namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"node\":\"target-node-1\",\"pod\":\"gpu-telemetry-fixture\",\"run_id\":\"gpu-rca-20261031t121240z\",\"service\":\"gpu-telemetry-fixture\",\"simulation\":\"true\"},\"value\":[1793454933.365,\"95\"]}]}}"
+    },
+    {
+      "at": "2026-10-31T13:55:33.392183+00:00",
+      "path": "/api/v1/query?query=ALERTS%7Brun_id%3D%22gpu-rca-20261031t121240z%22%7D",
+      "query": "ALERTS{run_id=\"gpu-rca-20261031t121240z\"}",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"__name__\":\"ALERTS\",\"alertname\":\"MosaicGpuTelemetrySimulation\",\"alertstate\":\"firing\",\"container\":\"telemetry\",\"endpoint\":\"metrics\",\"evidence_source\":\"isolated_dcgm_cache_snapshot\",\"experiment\":\"gpu-telemetry-cache\",\"gpu\":\"0\",\"gpu_uuid\":\"GPU-REDACTED-11\",\"instance\":\"private-address-07.example.invalid:8080\",\"job\":\"gpu-telemetry-fixture\",\"mosaic_test\":\"true\",\"namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"node\":\"target-node-1\",\"pod\":\"gpu-telemetry-fixture\",\"run_id\":\"gpu-rca-20261031t121240z\",\"service\":\"gpu-telemetry-fixture\",\"severity\":\"warning\",\"simulation\":\"true\",\"test_namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"test_pod\":\"gpu-telemetry-fixture\"},\"value\":[1793454933.386,\"1\"]}]}}"
+    },
+    {
+      "at": "2026-10-31T13:55:33.412362+00:00",
+      "path": "/api/v1/query?query=prometheus_config_last_reload_successful",
+      "query": "prometheus_config_last_reload_successful",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"__name__\":\"prometheus_config_last_reload_successful\",\"container\":\"prometheus\",\"endpoint\":\"http-web\",\"instance\":\"private-address-09.example.invalid:9090\",\"job\":\"kube-prometheus-stack-prometheus\",\"namespace\":\"monitoring\",\"pod\":\"prometheus-kube-prometheus-stack-prometheus-0\",\"service\":\"kube-prometheus-stack-prometheus\"},\"value\":[1793454933.407,\"1\"]}]}}"
+    },
+    {
+      "at": "2026-10-31T13:55:33.433142+00:00",
+      "path": "/api/v1/query?query=prometheus_config_last_reload_success_timestamp_seconds",
+      "query": "prometheus_config_last_reload_success_timestamp_seconds",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"__name__\":\"prometheus_config_last_reload_success_timestamp_seconds\",\"container\":\"prometheus\",\"endpoint\":\"http-web\",\"instance\":\"private-address-09.example.invalid:9090\",\"job\":\"kube-prometheus-stack-prometheus\",\"namespace\":\"monitoring\",\"pod\":\"prometheus-kube-prometheus-stack-prometheus-0\",\"service\":\"kube-prometheus-stack-prometheus\"},\"value\":[1793454933.428,\"1793454171.5273454\"]}]}}"
+    },
+    {
+      "at": "2026-10-31T13:55:33.545645+00:00",
+      "path": "/api/v1/query_range?query=ALERTS%7Brun_id%3D%22gpu-rca-20261031t121240z%22%7D&start=1793453520.0&end=1793454933.526165&step=5",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"matrix\",\"result\":[{\"metric\":{\"__name__\":\"ALERTS\",\"alertname\":\"InfoInhibitor\",\"alertstate\":\"firing\",\"container\":\"telemetry\",\"endpoint\":\"metrics\",\"evidence_source\":\"isolated_dcgm_cache_snapshot\",\"experiment\":\"gpu-telemetry-cache\",\"gpu\":\"0\",\"gpu_uuid\":\"GPU-REDACTED-11\",\"instance\":\"private-address-07.example.invalid:8080\",\"job\":\"gpu-telemetry-fixture\",\"mosaic_test\":\"true\",\"namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"node\":\"target-node-1\",\"pod\":\"gpu-telemetry-fixture\",\"run_id\":\"gpu-rca-20261031t121240z\",\"service\":\"gpu-telemetry-fixture\",\"severity\":\"none\",\"simulation\":\"true\",\"test_namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"test_pod\":\"gpu-telemetry-fixture\"},\"values\":[[1793454040,\"1\"],[1793454045,\"1\"],[1793454050,\"1\"],[1793454055,\"1\"],[1793454060,\"1\"],[1793454065,\"1\"],[1793454070,\"1\"],[1793454075,\"1\"],[1793454080,\"1\"],[1793454085,\"1\"],[1793454090,\"1\"],[1793454095,\"1\"],[1793454100,\"1\"],[1793454105,\"1\"],[1793454110,\"1\"],[1793454115,\"1\"],[1793454120,\"1\"],[1793454125,\"1\"],[1793454130,\"1\"],[1793454135,\"1\"],[1793454140,\"1\"],[1793454145,\"1\"],[1793454150,\"1\"],[1793454155,\"1\"],[1793454160,\"1\"],[1793454165,\"1\"],[1793454170,\"1\"],[1793454175,\"1\"],[1793454180,\"1\"],[1793454185,\"1\"]]},{\"metric\":{\"__name__\":\"ALERTS\",\"alertname\":\"MosaicGpuTelemetrySimulation\",\"alertstate\":\"firing\",\"container\":\"telemetry\",\"endpoint\":\"metrics\",\"evidence_source\":\"isolated_dcgm_cache_snapshot\",\"experiment\":\"gpu-telemetry-cache\",\"gpu\":\"0\",\"gpu_uuid\":\"GPU-REDACTED-11\",\"instance\":\"private-address-07.example.invalid:8080\",\"job\":\"gpu-telemetry-fixture\",\"mosaic_test\":\"true\",\"namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"node\":\"target-node-1\",\"pod\":\"gpu-telemetry-fixture\",\"run_id\":\"gpu-rca-20261031t121240z\",\"service\":\"gpu-telemetry-fixture\",\"severity\":\"info\",\"simulation\":\"true\",\"test_namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"test_pod\":\"gpu-telemetry-fixture\"},\"values\":[[1793454065,\"1\"],[1793454070,\"1\"],[1793454075,\"1\"],[1793454080,\"1\"],[1793454085,\"1\"],[1793454090,\"1\"],[1793454095,\"1\"],[1793454100,\"1\"],[1793454105,\"1\"],[1793454110,\"1\"],[1793454115,\"1\"],[1793454120,\"1\"],[1793454125,\"1\"],[1793454130,\"1\"],[1793454135,\"1\"],[1793454140,\"1\"],[1793454145,\"1\"],[1793454150,\"1\"],[1793454155,\"1\"],[1793454160,\"1\"],[1793454165,\"1\"],[1793454170,\"1\"]]},{\"metric\":{\"__name__\":\"ALERTS\",\"alertname\":\"MosaicGpuTelemetrySimulation\",\"alertstate\":\"firing\",\"container\":\"telemetry\",\"endpoint\":\"metrics\",\"evidence_source\":\"isolated_dcgm_cache_snapshot\",\"experiment\":\"gpu-telemetry-cache\",\"gpu\":\"0\",\"gpu_uuid\":\"GPU-REDACTED-11\",\"instance\":\"private-address-07.example.invalid:8080\",\"job\":\"gpu-telemetry-fixture\",\"mosaic_test\":\"true\",\"namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"node\":\"target-node-1\",\"pod\":\"gpu-telemetry-fixture\",\"run_id\":\"gpu-rca-20261031t121240z\",\"service\":\"gpu-telemetry-fixture\",\"severity\":\"warning\",\"simulation\":\"true\",\"test_namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"test_pod\":\"gpu-telemetry-fixture\"},\"values\":[[1793454220,\"1\"],[1793454225,\"1\"],[1793454230,\"1\"],[1793454235,\"1\"],[1793454240,\"1\"],[1793454245,\"1\"],[1793454250,\"1\"],[1793454255,\"1\"],[1793454260,\"1\"],[1793454265,\"1\"],[1793454270,\"1\"],[1793454275,\"1\"],[1793454280,\"1\"],[1793454285,\"1\"],[1793454290,\"1\"],[1793454295,\"1\"],[1793454300,\"1\"],[1793454305,\"1\"],[1793454310,\"1\"],[1793454315,\"1\"],[1793454320,\"1\"],[1793454325,\"1\"],[1793454330,\"1\"],[1793454335,\"1\"],[1793454340,\"1\"],[1793454345,\"1\"],[1793454350,\"1\"],[1793454355,\"1\"],[1793454360,\"1\"],[1793454365,\"1\"],[1793454370,\"1\"],[1793454375,\"1\"],[1793454380,\"1\"],[1793454385,\"1\"],[1793454390,\"1\"],[1793454395,\"1\"],[1793454400,\"1\"],[1793454405,\"1\"],[1793454410,\"1\"],[1793454415,\"1\"],[1793454420,\"1\"],[1793454425,\"1\"],[1793454430,\"1\"],[1793454435,\"1\"],[1793454440,\"1\"],[1793454445,\"1\"],[1793454450,\"1\"],[1793454455,\"1\"],[1793454460,\"1\"],[1793454465,\"1\"],[1793454470,\"1\"],[1793454475,\"1\"],[1793454480,\"1\"],[1793454485,\"1\"],[1793454490,\"1\"],[1793454495,\"1\"],[1793454500,\"1\"],[1793454505,\"1\"],[1793454510,\"1\"],[1793454515,\"1\"],[1793454520,\"1\"],[1793454525,\"1\"],[1793454530,\"1\"],[1793454535,\"1\"],[1793454540,\"1\"],[1793454545,\"1\"],[1793454550,\"1\"],[1793454555,\"1\"],[1793454560,\"1\"],[1793454565,\"1\"],[1793454570,\"1\"],[1793454575,\"1\"],[1793454580,\"1\"],[1793454585,\"1\"],[1793454590,\"1\"],[1793454595,\"1\"],[1793454600,\"1\"],[1793454605,\"1\"],[1793454610,\"1\"],[1793454615,\"1\"],[1793454620,\"1\"],[1793454625,\"1\"],[1793454630,\"1\"],[1793454635,\"1\"],[1793454640,\"1\"],[1793454645,\"1\"],[1793454650,\"1\"],[1793454655,\"1\"],[1793454660,\"1\"],[1793454665,\"1\"],[1793454670,\"1\"],[1793454675,\"1\"],[1793454680,\"1\"],[1793454685,\"1\"],[1793454690,\"1\"],[1793454695,\"1\"],[1793454700,\"1\"],[1793454705,\"1\"],[1793454710,\"1\"],[1793454715,\"1\"],[1793454720,\"1\"],[1793454725,\"1\"],[1793454730,\"1\"],[1793454735,\"1\"],[1793454740,\"1\"],[1793454745,\"1\"],[1793454750,\"1\"],[1793454755,\"1\"],[1793454760,\"1\"],[1793454765,\"1\"],[1793454770,\"1\"],[1793454775,\"1\"],[1793454780,\"1\"],[1793454785,\"1\"],[1793454790,\"1\"],[1793454795,\"1\"],[1793454800,\"1\"],[1793454805,\"1\"],[1793454810,\"1\"],[1793454815,\"1\"],[1793454820,\"1\"],[1793454825,\"1\"],[1793454830,\"1\"],[1793454835,\"1\"],[1793454840,\"1\"],[1793454845,\"1\"],[1793454850,\"1\"],[1793454855,\"1\"],[1793454860,\"1\"],[1793454865,\"1\"],[1793454870,\"1\"],[1793454875,\"1\"],[1793454880,\"1\"],[1793454885,\"1\"],[1793454890,\"1\"],[1793454895,\"1\"],[1793454900,\"1\"],[1793454905,\"1\"],[1793454910,\"1\"],[1793454915,\"1\"],[1793454920,\"1\"],[1793454925,\"1\"],[1793454930,\"1\"]]},{\"metric\":{\"__name__\":\"ALERTS\",\"alertname\":\"MosaicGpuTelemetrySimulation\",\"alertstate\":\"pending\",\"container\":\"telemetry\",\"endpoint\":\"metrics\",\"evidence_source\":\"isolated_dcgm_cache_snapshot\",\"experiment\":\"gpu-telemetry-cache\",\"gpu\":\"0\",\"gpu_uuid\":\"GPU-REDACTED-11\",\"instance\":\"private-address-07.example.invalid:8080\",\"job\":\"gpu-telemetry-fixture\",\"mosaic_test\":\"true\",\"namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"node\":\"target-node-1\",\"pod\":\"gpu-telemetry-fixture\",\"run_id\":\"gpu-rca-20261031t121240z\",\"service\":\"gpu-telemetry-fixture\",\"severity\":\"info\",\"simulation\":\"true\",\"test_namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"test_pod\":\"gpu-telemetry-fixture\"},\"values\":[[1793454020,\"1\"],[1793454025,\"1\"],[1793454030,\"1\"],[1793454035,\"1\"],[1793454040,\"1\"],[1793454045,\"1\"],[1793454050,\"1\"],[1793454055,\"1\"],[1793454060,\"1\"]]},{\"metric\":{\"__name__\":\"ALERTS\",\"alertname\":\"MosaicGpuTelemetrySimulation\",\"alertstate\":\"pending\",\"container\":\"telemetry\",\"endpoint\":\"metrics\",\"evidence_source\":\"isolated_dcgm_cache_snapshot\",\"experiment\":\"gpu-telemetry-cache\",\"gpu\":\"0\",\"gpu_uuid\":\"GPU-REDACTED-11\",\"instance\":\"private-address-07.example.invalid:8080\",\"job\":\"gpu-telemetry-fixture\",\"mosaic_test\":\"true\",\"namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"node\":\"target-node-1\",\"pod\":\"gpu-telemetry-fixture\",\"run_id\":\"gpu-rca-20261031t121240z\",\"service\":\"gpu-telemetry-fixture\",\"severity\":\"warning\",\"simulation\":\"true\",\"test_namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"test_pod\":\"gpu-telemetry-fixture\"},\"values\":[[1793454175,\"1\"],[1793454180,\"1\"],[1793454185,\"1\"],[1793454190,\"1\"],[1793454195,\"1\"],[1793454200,\"1\"],[1793454205,\"1\"],[1793454210,\"1\"],[1793454215,\"1\"]]}]}}"
+    }
+  ],
+  "selectedTargets": [
+    {
+      "discoveredLabels": {
+        "__address__": "private-address-07.example.invalid:8080",
+        "__meta_kubernetes_endpoint_address_target_kind": "Pod",
+        "__meta_kubernetes_endpoint_address_target_name": "gpu-telemetry-fixture",
+        "__meta_kubernetes_endpoint_node_name": "target-node-1",
+        "__meta_kubernetes_endpoint_port_name": "metrics",
+        "__meta_kubernetes_endpoint_port_protocol": "TCP",
+        "__meta_kubernetes_endpoint_ready": "true",
+        "__meta_kubernetes_endpoints_annotation_endpoints_kubernetes_io_last_change_trigger_time": "2026-10-31T13:33:09Z",
+        "__meta_kubernetes_endpoints_annotationpresent_endpoints_kubernetes_io_last_change_trigger_time": "true",
+        "__meta_kubernetes_endpoints_label_experiment": "gpu-telemetry-cache",
+        "__meta_kubernetes_endpoints_label_mosaic_test": "true",
+        "__meta_kubernetes_endpoints_label_run_id": "gpu-rca-20261031t121240z",
+        "__meta_kubernetes_endpoints_labelpresent_experiment": "true",
+        "__meta_kubernetes_endpoints_labelpresent_mosaic_test": "true",
+        "__meta_kubernetes_endpoints_labelpresent_run_id": "true",
+        "__meta_kubernetes_endpoints_name": "gpu-telemetry-fixture",
+        "__meta_kubernetes_namespace": "mosaic-gpu-rca-20261031t121240z",
+        "__meta_kubernetes_pod_annotation_cni_projectcalico_org_containerID": "070b95a67f3c7af9fdd20438c1c51d5e396bd9f6babcc99cd70188fafde52f3e",
+        "__meta_kubernetes_pod_annotation_cni_projectcalico_org_podIP": "private-address-07.example.invalid/32",
+        "__meta_kubernetes_pod_annotation_cni_projectcalico_org_podIPs": "private-address-07.example.invalid/32",
+        "__meta_kubernetes_pod_annotationpresent_cni_projectcalico_org_containerID": "true",
+        "__meta_kubernetes_pod_annotationpresent_cni_projectcalico_org_podIP": "true",
+        "__meta_kubernetes_pod_annotationpresent_cni_projectcalico_org_podIPs": "true",
+        "__meta_kubernetes_pod_container_image": "docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e",
+        "__meta_kubernetes_pod_container_init": "false",
+        "__meta_kubernetes_pod_container_name": "telemetry",
+        "__meta_kubernetes_pod_container_port_name": "metrics",
+        "__meta_kubernetes_pod_container_port_number": "8080",
+        "__meta_kubernetes_pod_container_port_protocol": "TCP",
+        "__meta_kubernetes_pod_host_ip": "target-node-1.example.invalid",
+        "__meta_kubernetes_pod_ip": "private-address-07.example.invalid",
+        "__meta_kubernetes_pod_label_experiment": "gpu-telemetry-cache",
+        "__meta_kubernetes_pod_label_mosaic_test": "true",
+        "__meta_kubernetes_pod_label_run_id": "gpu-rca-20261031t121240z",
+        "__meta_kubernetes_pod_labelpresent_experiment": "true",
+        "__meta_kubernetes_pod_labelpresent_mosaic_test": "true",
+        "__meta_kubernetes_pod_labelpresent_run_id": "true",
+        "__meta_kubernetes_pod_name": "gpu-telemetry-fixture",
+        "__meta_kubernetes_pod_node_name": "target-node-1",
+        "__meta_kubernetes_pod_phase": "Running",
+        "__meta_kubernetes_pod_ready": "true",
+        "__meta_kubernetes_pod_uid": "9fe844e0-2dc0-4634-b6a9-50f327bd645e",
+        "__meta_kubernetes_service_label_experiment": "gpu-telemetry-cache",
+        "__meta_kubernetes_service_label_mosaic_test": "true",
+        "__meta_kubernetes_service_label_run_id": "gpu-rca-20261031t121240z",
+        "__meta_kubernetes_service_labelpresent_experiment": "true",
+        "__meta_kubernetes_service_labelpresent_mosaic_test": "true",
+        "__meta_kubernetes_service_labelpresent_run_id": "true",
+        "__meta_kubernetes_service_name": "gpu-telemetry-fixture",
+        "__metrics_path__": "/metrics",
+        "__scheme__": "http",
+        "__scrape_interval__": "5s",
+        "__scrape_timeout__": "3s",
+        "job": "serviceMonitor/mosaic-gpu-rca-20261031t121240z/gpu-telemetry-fixture/0"
+      },
+      "labels": {
+        "container": "telemetry",
+        "endpoint": "metrics",
+        "instance": "private-address-07.example.invalid:8080",
+        "job": "gpu-telemetry-fixture",
+        "namespace": "mosaic-gpu-rca-20261031t121240z",
+        "pod": "gpu-telemetry-fixture",
+        "service": "gpu-telemetry-fixture"
+      },
+      "scrapePool": "serviceMonitor/mosaic-gpu-rca-20261031t121240z/gpu-telemetry-fixture/0",
+      "scrapeUrl": "http://private-address-07.example.invalid:8080/metrics",
+      "globalUrl": "http://private-address-07.example.invalid:8080/metrics",
+      "lastError": "",
+      "lastScrape": "2026-10-31T13:55:31.964804566Z",
+      "lastScrapeDuration": 0.001028371,
+      "health": "up",
+      "scrapeInterval": "5s",
+      "scrapeTimeout": "3s"
+    }
+  ],
+  "completeSelectedScrapeConfigBlocks": [
+    "- job_name: serviceMonitor/mosaic-gpu-rca-20261031t121240z/gpu-telemetry-fixture/0\n  honor_timestamps: true\n  track_timestamps_staleness: false\n  scrape_interval: 5s\n  scrape_timeout: 3s\n  scrape_protocols:\n  - OpenMetricsText1.0.0\n  - OpenMetricsText0.0.1\n  - PrometheusText1.0.0\n  - PrometheusText0.0.4\n  fallback_scrape_protocol: PrometheusText0.0.4\n  scrape_native_histograms: false\n  always_scrape_classic_histograms: false\n  convert_classic_histograms_to_nhcb: false\n  metrics_path: /metrics\n  scheme: http\n  enable_compression: true\n  metric_name_validation_scheme: utf8\n  metric_name_escaping_scheme: allow-utf-8\n  follow_redirects: true\n  enable_http2: true\n  relabel_configs:\n  - source_labels: [job]\n    separator: ;\n    target_label: __tmp_prometheus_job_name\n    replacement: $1\n    action: replace\n  - source_labels: [__meta_kubernetes_service_label_experiment, __meta_kubernetes_service_labelpresent_experiment]\n    separator: ;\n    regex: (gpu-telemetry-cache);true\n    replacement: $1\n    action: keep\n  - source_labels: [__meta_kubernetes_service_label_mosaic_test, __meta_kubernetes_service_labelpresent_mosaic_test]\n    separator: ;\n    regex: (true);true\n    replacement: $1\n    action: keep\n  - source_labels: [__meta_kubernetes_service_label_run_id, __meta_kubernetes_service_labelpresent_run_id]\n    separator: ;\n    regex: (gpu-rca-20261031t121240z);true\n    replacement: $1\n    action: keep\n  - source_labels: [__meta_kubernetes_endpoint_port_name]\n    separator: ;\n    regex: metrics\n    replacement: $1\n    action: keep\n  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]\n    separator: ;\n    regex: Node;(.*)\n    target_label: node\n    replacement: ${1}\n    action: replace\n  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]\n    separator: ;\n    regex: Pod;(.*)\n    target_label: pod\n    replacement: ${1}\n    action: replace\n  - source_labels: [__meta_kubernetes_namespace]\n    separator: ;\n    target_label: namespace\n    replacement: $1\n    action: replace\n  - source_labels: [__meta_kubernetes_service_name]\n    separator: ;\n    target_label: service\n    replacement: $1\n    action: replace\n  - source_labels: [__meta_kubernetes_pod_name]\n    separator: ;\n    target_label: pod\n    replacement: $1\n    action: replace\n  - source_labels: [__meta_kubernetes_pod_container_name]\n    separator: ;\n    target_label: container\n    replacement: $1\n    action: replace\n  - source_labels: [__meta_kubernetes_pod_phase]\n    separator: ;\n    regex: (Failed|Succeeded)\n    replacement: $1\n    action: drop\n  - source_labels: [__meta_kubernetes_service_name]\n    separator: ;\n    target_label: job\n    replacement: ${1}\n    action: replace\n  - separator: ;\n    target_label: endpoint\n    replacement: metrics\n    action: replace\n  - source_labels: [__address__, __tmp_hash]\n    separator: ;\n    regex: (.+);\n    target_label: __tmp_hash\n    replacement: $1\n    action: replace\n  - source_labels: [__tmp_hash]\n    separator: ;\n    modulus: 1\n    target_label: __tmp_hash\n    replacement: $1\n    action: hashmod\n  - source_labels: [__tmp_hash, __tmp_disable_sharding]\n    separator: ;\n    regex: 0;|.+;.+\n    replacement: $1\n    action: keep\n  kubernetes_sd_configs:\n  - role: endpoints\n    kubeconfig_file: \"\"\n    follow_redirects: true\n    enable_http2: true\n    namespaces:\n      own_namespace: false\n      names:\n      - mosaic-gpu-rca-20261031t121240z\n"
+  ],
+  "fullConfigSha256": "adcaf51da6b7fe743160ff1f55ce625ec2622965cdddde45b00c97c6c9281792"
+}

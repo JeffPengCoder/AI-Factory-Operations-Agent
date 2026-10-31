@@ -1,0 +1,28 @@
+{
+  "meta": null,
+  "protocolVersion": "2025-11-25",
+  "capabilities": {
+    "experimental": {},
+    "logging": null,
+    "prompts": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    },
+    "tools": {
+      "listChanged": false
+    },
+    "completions": null,
+    "tasks": null
+  },
+  "serverInfo": {
+    "name": "iraop",
+    "title": null,
+    "version": "1.28.1",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "instructions": null
+}

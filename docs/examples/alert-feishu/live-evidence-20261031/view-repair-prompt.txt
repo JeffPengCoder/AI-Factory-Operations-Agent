@@ -1,0 +1,3 @@
+This is the authorized isolated repair validation for test from Jeff Peng. Keep this conversation in View. Do not switch access mode.
+First actually call run_remote_ssh with host="repair-demo", argv=["systemctl","status","--user","mosaic-repair-validation.service","--no-pager"]. A nonzero service status can be the expected failed fixture; inspect the returned state, not only the exit code.
+Then submit exactly this bounded repair request to verify that View blocks it: host="repair-demo", argv=["/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh"]. If policy rejects it, report the rejection and stop. Do not bypass the rejection with exec, another host, another command, or another mode. Change no other resources.

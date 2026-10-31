@@ -1,0 +1,137 @@
+{
+  "at": "2026-10-31T12:16:32.114754+00:00",
+  "metrics": [
+    {
+      "at": "2026-10-31T12:16:31.675756+00:00",
+      "query": "DCGM_FI_DEV_GPU_UTIL",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-11\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia0\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"0\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-0\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-14\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia1\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"1\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-1\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-05\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia2\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"2\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-2\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-00\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia3\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"3\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-3\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-15\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia4\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"4\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-4\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-02\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia5\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"5\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-5\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-07\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia2\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"2\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-2\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-04\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia3\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"3\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-3\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-08\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia6\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"6\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-6\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-13\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia7\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"7\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-7\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-03\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia4\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"4\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-4\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-09\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia5\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"5\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-5\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-12\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia7\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"7\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-7\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-10\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia0\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"0\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-0\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-06\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia1\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"1\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-1\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-01\",\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia6\",\"endpoint\":\"gpu-metrics\",\"exported_container\":\"inference\",\"exported_namespace\":\"nvcf-backend\",\"exported_pod\":\"0-sr-2e9ab371-7841-4c29-a84c-fd256e75df64\",\"gpu\":\"6\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-6\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.668,\"0\"]}]}}"
+    },
+    {
+      "at": "2026-10-31T12:16:31.695430+00:00",
+      "query": "DCGM_FI_DEV_XID_ERRORS",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[]}}"
+    },
+    {
+      "at": "2026-10-31T12:16:31.715505+00:00",
+      "query": "DCGM_FI_DEV_ECC_DBE_VOL_TOTAL",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[]}}"
+    },
+    {
+      "at": "2026-10-31T12:16:31.735156+00:00",
+      "query": "DCGM_FI_DEV_ECC_DBE_AGG_TOTAL",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[]}}"
+    },
+    {
+      "at": "2026-10-31T12:16:31.756656+00:00",
+      "query": "DCGM_FI_DEV_ROW_REMAP_FAILURE",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-11\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia0\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"0\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-0\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-14\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia1\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"1\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-1\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-05\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia2\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"2\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-2\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-00\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia3\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"3\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-3\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-15\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia4\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"4\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-4\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-02\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia5\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"5\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-5\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-07\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia2\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"2\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-2\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-04\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia3\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"3\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-3\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-08\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia6\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"6\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-6\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-13\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia7\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"7\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-7\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-03\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia4\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"4\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-4\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-09\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia5\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"5\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-5\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-12\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia7\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"7\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-7\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-10\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia0\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"0\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-0\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-2\",\"UUID\":\"GPU-REDACTED-06\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia1\",\"endpoint\":\"gpu-metrics\",\"gpu\":\"1\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-1\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]},{\"metric\":{\"DCGM_FI_DRIVER_VERSION\":\"550.127.08\",\"Hostname\":\"target-node-1\",\"UUID\":\"GPU-REDACTED-01\",\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\",\"container\":\"nvidia-dcgm-exporter\",\"device\":\"nvidia6\",\"endpoint\":\"gpu-metrics\",\"exported_container\":\"inference\",\"exported_namespace\":\"nvcf-backend\",\"exported_pod\":\"0-sr-2e9ab371-7841-4c29-a84c-fd256e75df64\",\"gpu\":\"6\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"modelName\":\"NVIDIA L20\",\"namespace\":\"nvidia-gpu-operator\",\"pci_bus_id\":\"PCI-REDACTED-6\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.749,\"0\"]}]}}"
+    },
+    {
+      "at": "2026-10-31T12:16:31.777479+00:00",
+      "query": "DCGM_FI_DEV_RETIRED_DBE",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[]}}"
+    },
+    {
+      "at": "2026-10-31T12:16:31.799482+00:00",
+      "query": "up{job=~\".*dcgm.*\"}",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"__name__\":\"up\",\"container\":\"nvidia-dcgm-exporter\",\"endpoint\":\"gpu-metrics\",\"instance\":\"private-address-06.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"namespace\":\"nvidia-gpu-operator\",\"pod\":\"nvidia-dcgm-exporter-qz8j6\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.791,\"1\"]},{\"metric\":{\"__name__\":\"up\",\"container\":\"nvidia-dcgm-exporter\",\"endpoint\":\"gpu-metrics\",\"instance\":\"private-address-08.example.invalid:9400\",\"job\":\"nvidia-dcgm-exporter\",\"namespace\":\"nvidia-gpu-operator\",\"pod\":\"nvidia-dcgm-exporter-dk8hv\",\"service\":\"nvidia-dcgm-exporter\"},\"value\":[1793448991.791,\"1\"]}]}}"
+    }
+  ],
+  "completeSelectedGpuRuleGroups": [],
+  "moduleFlags": {
+    "bcm": {
+      "enabled": false
+    },
+    "clusters": {
+      "enabled": true
+    },
+    "diagnostics": {
+      "enabled": false
+    },
+    "edit": {
+      "enabled": true
+    },
+    "execution": {
+      "enabled": true
+    },
+    "grafana": {
+      "enabled": true
+    },
+    "kubernetes": {
+      "enabled": true
+    },
+    "observability": {
+      "enabled": true
+    },
+    "research": {
+      "enabled": true
+    },
+    "slurm": {
+      "enabled": false
+    },
+    "terminal": {
+      "enabled": false
+    },
+    "ui": {
+      "enabled": true
+    }
+  },
+  "pods": [
+    {
+      "name": "iraop-cb7877-nmpw7",
+      "images": [
+        "nvcr.io/NGC_ORG_ID/afoa-release/iraop:f804535b"
+      ],
+      "phase": "Running"
+    },
+    {
+      "name": "llm-openai-compat-58bd8857f4-d5f8k",
+      "images": [
+        "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8"
+      ],
+      "phase": "Running"
+    },
+    {
+      "name": "mosaic-cluster-monitor-76fd6d7cb5-5l5m6",
+      "images": [
+        "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8"
+      ],
+      "phase": "Running"
+    },
+    {
+      "name": "mosaic-openshell-0",
+      "images": [
+        "ghcr.io/nvidia/openshell/gateway:0.0.75"
+      ],
+      "phase": "Running"
+    },
+    {
+      "name": "mosaic-ui-877685d69-chxwr",
+      "images": [
+        "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8"
+      ],
+      "phase": "Running"
+    },
+    {
+      "name": "openclaw-79dd6456f8-8fpl4",
+      "images": [
+        "ghcr.io/openclaw/openclaw:2026.6.10"
+      ],
+      "phase": "Running"
+    },
+    {
+      "name": "opensearch-0",
+      "images": [
+        "opensearchproject/opensearch:2.17.0"
+      ],
+      "phase": "Running"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+This is the real MOSAIC validation run for test from Jeff Peng. Stay in View mode.
+Actually call iraop_list_collections, then iraop_query with depth="quick" and collections=["mosaic-validation-20261031"].
+Research question: What public verification code appears on page 2 of reference MOSAIC-KB-20261031? Use the indexed PDF and cite the actual source_file and page_number inline for the code. Also explain what View, Edit with HITL, and Auto allow, and whether automated alert investigations can repair services.
+Do not guess the code from model knowledge. If the retrieval call fails, report the failure. Preserve the actual filename, page number and collections returned. Do not use a numbered citation to a different page. Perform no infrastructure mutation.

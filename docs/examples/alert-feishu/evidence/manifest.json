@@ -1,0 +1,25 @@
+{
+  "scope": "One synthetic alert only; seven delivery samples, complete gateway history for its existing investigation, and current selected-alert snapshot. Not a new test run.",
+  "captureDate": "2026-10-30",
+  "redaction": "Private IPs replaced with stable .example.invalid hostnames; private target cluster/node aliases replaced. Fields, timestamps, metric series, individual values, errors and full assistant text preserved. The original AI text includes unverified inferences; see the runbook review notes.",
+  "pollSamples": 7,
+  "gatewayMessages": 19,
+  "toolResults": 11,
+  "sourceUiMessageCount": 4,
+  "sourceUiRawMessageCount": 19,
+  "sourceUiHasActiveRun": false,
+  "files": {
+    "current-test-alert-20261030.json": {
+      "bytes": 3089,
+      "sha256": "c0f4b2917b4990f80f2c14b9b1f9596b6b77e1a70018803f243433db9ffdbe17"
+    },
+    "investigation-gateway-20261029.json": {
+      "bytes": 63138,
+      "sha256": "21524d972f1d090a0b456fd22458dcdae7f018467936e7188ae51860f99fb023"
+    },
+    "poll-samples-20261029.jsonl": {
+      "bytes": 13378,
+      "sha256": "b228e4b155c4530f7a35f8d769abf2352116ddc9292f9cadfad62432c6b8a748"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="635" viewBox="0 0 1140 635" role="img" aria-labelledby="title desc">
+<!-- SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION &amp; AFFILIATES. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<title id="title">新故障经告警、调查与知识检索后发送飞书</title><desc id="desc">隔离Pod启动失败触发Prometheus和Alertmanager，由MOSAIC轮询捕捉；操作员点单条调查，OpenClaw调用现场读取工具和IRAOP，IRAOP查询OpenSearch。操作员审核事实后通过群机器人显式发送报告。本轮不是无人值守自动发布。</desc>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#52616e" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:Arial,'Noto Sans CJK SC','PingFang SC',sans-serif;fill:#1d2b35}.title{font-size:22px;font-weight:700}.head{font-size:18px;font-weight:600}.sub{font-size:14px}.note{font-size:14px;fill:#495a68}.edge{stroke:#52616e;stroke-width:2;fill:none;marker-end:url(#a)}.manual{stroke:#76a900;stroke-dasharray:6 4}</style>
+<rect width="1140" height="635" fill="white"/><text class="title" x="25" y="35">本轮实际链路：新错误 → 告警 → 日志与知识 → 审核 → 飞书</text>
+<rect x="20" y="75" width="245" height="100" rx="10" fill="#f1f6e8" stroke="#a8bd87"/>
+<text text-anchor="middle" class="head" x="142.5" y="103">隔离测试 Pod</text>
+<text text-anchor="middle" class="sub" x="142.5" y="126">ready 文件缺失 → exit 23</text>
+<text text-anchor="middle" class="sub" x="142.5" y="149">仅 CPU/内存，无 GPU 请求</text>
+<rect x="300" y="75" width="245" height="100" rx="10" fill="#f1f6e8" stroke="#a8bd87"/>
+<text text-anchor="middle" class="head" x="422.5" y="103">Prometheus</text>
+<text text-anchor="middle" class="sub" x="422.5" y="126">真实 CrashLoop 指标</text>
+<text text-anchor="middle" class="sub" x="422.5" y="149">新规则：pending → firing</text>
+<rect x="580" y="75" width="245" height="100" rx="10" fill="#f1f6e8" stroke="#a8bd87"/>
+<text text-anchor="middle" class="head" x="702.5" y="103">Alertmanager</text>
+<text text-anchor="middle" class="sub" x="702.5" y="126">fingerprint 一致</text>
+<text text-anchor="middle" class="sub" x="702.5" y="149">正常接收规则告警</text>
+<rect x="860" y="75" width="245" height="100" rx="10" fill="#f1f6e8" stroke="#a8bd87"/>
+<text text-anchor="middle" class="head" x="982.5" y="103">MOSAIC Alerts</text>
+<text text-anchor="middle" class="sub" x="982.5" y="126">Auto pull / 30 秒</text>
+<text text-anchor="middle" class="sub" x="982.5" y="149">自动捕获这条新告警</text>
+<path class="edge" d="M265 125 H300"/>
+<path class="edge" d="M545 125 H580"/>
+<path class="edge" d="M825 125 H860"/>
+<rect x="860" y="265" width="245" height="100" rx="10" fill="#f1f6e8" stroke="#a8bd87"/>
+<text text-anchor="middle" class="head" x="982.5" y="293">OpenClaw（View）</text>
+<text text-anchor="middle" class="sub" x="982.5" y="316">读取 Pod/日志/事件/配置</text>
+<text text-anchor="middle" class="sub" x="982.5" y="339">同一个告警调查会话</text>
+<rect x="580" y="265" width="245" height="100" rx="10" fill="#f1f6e8" stroke="#a8bd87"/>
+<text text-anchor="middle" class="head" x="702.5" y="293">IRAOP Research Agent</text>
+<text text-anchor="middle" class="sub" x="702.5" y="316">3 次实际咨询，返回来源</text>
+<text text-anchor="middle" class="sub" x="702.5" y="339">文档通用建议需与现场区分</text>
+<rect x="300" y="265" width="245" height="100" rx="10" fill="#f1f6e8" stroke="#a8bd87"/>
+<text text-anchor="middle" class="head" x="422.5" y="293">OpenSearch 知识库</text>
+<text text-anchor="middle" class="sub" x="422.5" y="316">复用控制 PDF：2 页 / 4 chunks</text>
+<text text-anchor="middle" class="sub" x="422.5" y="339">文本、向量和页码</text>
+<path class="edge manual" d="M982 175 V265"/>
+<text class="note" x="590" y="220">操作员点击单条 Start Investigating</text>
+<path class="edge" d="M860 295 H825"/>
+<path class="edge" d="M825 335 H860"/>
+<path class="edge" d="M580 295 H545"/>
+<path class="edge" d="M545 335 H580"/>
+<rect x="860" y="435" width="245" height="100" rx="10" fill="#f1f6e8" stroke="#a8bd87"/>
+<text text-anchor="middle" class="head" x="982.5" y="463">结合日志与知识给出结论</text>
+<text text-anchor="middle" class="sub" x="982.5" y="486">日志 + exit23 + ConfigMap</text>
+<text text-anchor="middle" class="sub" x="982.5" y="509">原稿与修正版均保留</text>
+<rect x="580" y="435" width="245" height="100" rx="10" fill="#fff7e6" stroke="#d5b77a"/>
+<text text-anchor="middle" class="head" x="702.5" y="463">操作员事实审核</text>
+<text text-anchor="middle" class="sub" x="702.5" y="486">纠正旧示例误套用和标识</text>
+<text text-anchor="middle" class="sub" x="702.5" y="509">保留完整原稿及修改 diff</text>
+<rect x="300" y="435" width="245" height="100" rx="10" fill="#f1f6e8" stroke="#a8bd87"/>
+<text text-anchor="middle" class="head" x="422.5" y="463">飞书群自定义机器人</text>
+<text text-anchor="middle" class="sub" x="422.5" y="486">完整审核报告：15481 bytes*</text>
+<text text-anchor="middle" class="sub" x="422.5" y="509">机器人响应 code = 0</text>
+<path class="edge" d="M982 365 V435"/>
+<path class="edge manual" d="M860 485 H825"/>
+<path class="edge manual" d="M580 485 H545"/>
+<text class="note" x="20" y="410">实线：程序执行；虚线：人工触发、审核或显式投递。当前未部署无人值守的完整自动发布器。</text>
+<text class="note" x="25" y="570">Run ID: e2e-20261031t075722z  ·  fingerprint: 1bdae10de10f472e  ·  原生对话：29 条消息 / 18 条工具结果</text>
+<text class="note" x="25" y="598">* 15481 为签名前 UTF-8 字节数，完整告警与报告未截断；群窗口收件由用户单独核对。</text>
+<text class="note" x="25" y="623">测试资源与两条相关 UI 项已清理；原有规则、Helm revision15 和共享模型保持。</text></svg>

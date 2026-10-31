@@ -1,0 +1,13 @@
+{
+  "name": "prometheus-alerts-before",
+  "at": "2026-10-31T07:59:47.184302+00:00",
+  "url": "http://target-node-1.example.invalid:30090/api/v1/alerts",
+  "status": 200,
+  "elapsedSeconds": 0.029890183825045824,
+  "body": "{\"status\": \"success\", \"data\": {\"alerts\": []}}",
+  "privacySelection": {
+    "originalAlertCount": 35,
+    "publishedRelatedAlertCount": 0,
+    "excludedUnrelatedAlertCount": 35
+  }
+}

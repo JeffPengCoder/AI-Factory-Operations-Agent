@@ -1,0 +1,81 @@
+{
+  "/api/alerts/alertmanager": {
+    "status": 200,
+    "data": {
+      "success": true,
+      "status": {
+        "enabled": true,
+        "baseUrl": "http://evidence-host-03.example.invalid:30093",
+        "intervalMs": 30000,
+        "lastSyncAt": "2026-10-30T05:59:42.536Z",
+        "lastImported": 0,
+        "lastSeenCount": 30
+      }
+    }
+  },
+  "/api/modules": {
+    "status": 200,
+    "data": {
+      "terminal": false,
+      "edit": false,
+      "hitl": true,
+      "clusters": true
+    }
+  },
+  "/api/alerts": {
+    "status": 200,
+    "data": {
+      "alerts": [
+        {
+          "id": "alertmanager:0fa8cbd733f54a5a",
+          "payload": "MosaicSyntheticAlert: MOSAIC synthetic alert delivery test test from Jeff Peng. This is a deliberately generated alert to verify Prometheus -> Alertmanager -> MOSAIC delivery and optional browser-triggered investigation. There is no underlying GPU, driver, node, or application fault. Do not perform remediation. Remove PrometheusRule monitoring/mosaic-alert-smoke-test after verification. (severity=warning)",
+          "source": "Alertmanager",
+          "createdAt": "2026-10-29T09:20:32.589Z",
+          "stage": "responding",
+          "labels": {
+            "alertname": "MosaicSyntheticAlert",
+            "mosaic_test": "true",
+            "prometheus": "monitoring/kube-prometheus-stack-prometheus",
+            "severity": "warning"
+          },
+          "annotations": {
+            "description": "test from Jeff Peng. This is a deliberately generated alert to verify Prometheus -> Alertmanager -> MOSAIC delivery and optional browser-triggered investigation. There is no underlying GPU, driver, node, or application fault. Do not perform remediation. Remove PrometheusRule monitoring/mosaic-alert-smoke-test after verification.",
+            "summary": "MOSAIC synthetic alert delivery test",
+            "test_from": "test from Jeff Peng"
+          },
+          "status": "active",
+          "startsAt": "2026-10-29T09:20:32.589Z",
+          "endsAt": "2026-10-30T06:03:32.589Z",
+          "updatedAt": "2026-10-30T05:59:32.592Z",
+          "fingerprint": "0fa8cbd733f54a5a",
+          "generatorURL": "http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=vector%281%29&g0.tab=1"
+        }
+      ]
+    }
+  },
+  "/api/openclaw/sessions": {
+    "status": 200,
+    "data": {
+      "keys": [
+        "success",
+        "sessions"
+      ],
+      "sessions": [
+        {
+          "id": "1192f07a-611e-4880-b59a-fdd43a41a0a0",
+          "sessionKey": "agent:default:alert-alertmanager-0fa8cbd733f54a5a",
+          "label": "Alert Alertmanager 0fa8cbd733f54a5a",
+          "updatedAt": 1793269433698,
+          "sessionId": "1192f07a-611e-4880-b59a-fdd43a41a0a0"
+        },
+        {
+          "id": "f55fbe0b-46c7-4e10-8686-723626dd65e7",
+          "sessionKey": "agent:default:alert-alertmanager-6f8da7f8a42b67e5",
+          "label": "Alert Alertmanager 6f8da7f8a42b67e5",
+          "updatedAt": 1793264638822,
+          "sessionId": "f55fbe0b-46c7-4e10-8686-723626dd65e7"
+        }
+      ]
+    }
+  }
+}

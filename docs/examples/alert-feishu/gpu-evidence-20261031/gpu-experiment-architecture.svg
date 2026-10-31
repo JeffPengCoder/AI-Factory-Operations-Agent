@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="820" viewBox="0 0 1600 820">
+<!-- SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION &amp; AFFILIATES. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#5b6572"/></marker></defs>
+<rect width="1600" height="820" fill="white"/>
+<g font-family="Arial, PingFang SC, sans-serif">
+<text x="45" y="47" font-size="31" font-weight="700" fill="#162536">GPU 实验：链路通过，无人值守分析未通过</text>
+<text x="45" y="80" font-size="19" fill="#4b5563">独立于 CPU Pod 退出实验；缓存注入与真实硬件证据分别核对</text>
+<rect x="45" y="120" width="340" height="110" rx="10" fill="#ecf5df" stroke="#c7cdd3"/>
+<text x="62" y="150" font-size="23" font-weight="700" fill="#162536">独立 DCGM 缓存</text>
+<text x="62" y="181" font-size="19" font-weight="400" fill="#162536">230=95 / 311=1 / 313=1</text>
+<text x="62" y="208" font-size="17" font-weight="400" fill="#162536">私有 socket；不注入生产实例</text>
+<rect x="435" y="120" width="340" height="110" rx="10" fill="#ecf5df" stroke="#c7cdd3"/>
+<text x="452" y="150" font-size="23" font-weight="700" fill="#162536">采样并关闭测试引擎</text>
+<text x="452" y="181" font-size="19" font-weight="400" fill="#162536">保留 dcgmi 完整输出</text>
+<text x="452" y="208" font-size="17" font-weight="400" fill="#162536">注入值未改变真实硬件计数</text>
+<rect x="825" y="120" width="340" height="110" rx="10" fill="#ecf5df" stroke="#c7cdd3"/>
+<text x="842" y="150" font-size="23" font-weight="700" fill="#162536">测试专用回放 Pod</text>
+<text x="842" y="181" font-size="19" font-weight="400" fill="#162536">mosaic_test_dcgm_*</text>
+<text x="842" y="208" font-size="17" font-weight="400" fill="#162536">不申请 GPU；显式快照来源</text>
+<rect x="1215" y="120" width="340" height="110" rx="10" fill="#ecf5df" stroke="#c7cdd3"/>
+<text x="1232" y="150" font-size="23" font-weight="700" fill="#162536">Prometheus</text>
+<text x="1232" y="181" font-size="19" font-weight="400" fill="#162536">ServiceMonitor 抓取指标</text>
+<text x="1232" y="208" font-size="17" font-weight="400" fill="#162536">真实规则求值，for=45s</text>
+<rect x="1215" y="290" width="340" height="110" rx="10" fill="#e9f1fa" stroke="#c7cdd3"/>
+<text x="1232" y="320" font-size="23" font-weight="700" fill="#162536">Alertmanager</text>
+<text x="1232" y="351" font-size="19" font-weight="400" fill="#162536">按 run_id / fingerprint 关联</text>
+<text x="1232" y="378" font-size="17" font-weight="400" fill="#162536">通知抑制与 API 拉取分别核对</text>
+<rect x="825" y="290" width="340" height="110" rx="10" fill="#e9f1fa" stroke="#c7cdd3"/>
+<text x="842" y="320" font-size="23" font-weight="700" fill="#162536">MOSAIC 界面</text>
+<text x="842" y="351" font-size="19" font-weight="400" fill="#162536">Auto pull = 30 秒</text>
+<text x="842" y="378" font-size="17" font-weight="400" fill="#162536">手动 Start Investigating</text>
+<rect x="435" y="290" width="340" height="110" rx="10" fill="#e9f1fa" stroke="#c7cdd3"/>
+<text x="452" y="320" font-size="23" font-weight="700" fill="#162536">OpenClaw · View</text>
+<text x="452" y="351" font-size="19" font-weight="400" fill="#162536">读取3个容器的证据日志</text>
+<text x="452" y="378" font-size="17" font-weight="400" fill="#162536">只读；记录每次工具请求/结果</text>
+<rect x="45" y="290" width="340" height="110" rx="10" fill="#e9f1fa" stroke="#c7cdd3"/>
+<text x="62" y="320" font-size="23" font-weight="700" fill="#162536">IRAOP Research</text>
+<text x="62" y="351" font-size="19" font-weight="400" fill="#162536">GPU PDF → OpenSearch</text>
+<text x="62" y="378" font-size="17" font-weight="400" fill="#162536">5 chunks；每个384维向量</text>
+<rect x="45" y="460" width="340" height="110" rx="10" fill="#f5f1e7" stroke="#c7cdd3"/>
+<text x="62" y="490" font-size="23" font-weight="700" fill="#162536">证据对照</text>
+<text x="62" y="521" font-size="19" font-weight="400" fill="#162536">知识提供通用诊断流程</text>
+<text x="62" y="548" font-size="17" font-weight="400" fill="#162536">现场数据来自带时间的采集输出</text>
+<rect x="435" y="460" width="340" height="110" rx="10" fill="#f5f1e7" stroke="#c7cdd3"/>
+<text x="452" y="490" font-size="23" font-weight="700" fill="#162536">完整分析 + Codex 交叉校验</text>
+<text x="452" y="521" font-size="19" font-weight="400" fill="#162536">区分模拟信号与硬件缺陷</text>
+<text x="452" y="548" font-size="17" font-weight="400" fill="#162536">保留原文、修改 diff 和发送版</text>
+<rect x="825" y="460" width="340" height="110" rx="10" fill="#f5f1e7" stroke="#c7cdd3"/>
+<text x="842" y="490" font-size="23" font-weight="700" fill="#162536">飞书群自定义机器人</text>
+<text x="842" y="521" font-size="19" font-weight="400" fill="#162536">带 Run ID 的完整报告</text>
+<text x="842" y="548" font-size="17" font-weight="400" fill="#162536">Webhook + 签名；不含投递密钥</text>
+<rect x="1215" y="460" width="340" height="110" rx="10" fill="#f5f1e7" stroke="#c7cdd3"/>
+<text x="1232" y="490" font-size="23" font-weight="700" fill="#162536">投递结果见证</text>
+<text x="1232" y="521" font-size="19" font-weight="400" fill="#162536">机器人 API 业务状态</text>
+<text x="1232" y="548" font-size="17" font-weight="400" fill="#162536">群内收件由收件人独立确认</text>
+<line x1="389" y1="175" x2="428" y2="175" stroke="#5b6572" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="779" y1="175" x2="818" y2="175" stroke="#5b6572" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="1169" y1="175" x2="1208" y2="175" stroke="#5b6572" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="428" y1="345" x2="389" y2="345" stroke="#5b6572" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="818" y1="345" x2="779" y2="345" stroke="#5b6572" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="1208" y1="345" x2="1169" y2="345" stroke="#5b6572" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="389" y1="515" x2="428" y2="515" stroke="#5b6572" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="779" y1="515" x2="818" y2="515" stroke="#5b6572" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="1169" y1="515" x2="1208" y2="515" stroke="#5b6572" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="1385.0" y1="234" x2="1385.0" y2="282" stroke="#5b6572" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="215.0" y1="404" x2="215.0" y2="452" stroke="#5b6572" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="45" y="635" width="1510" height="128" rx="10" fill="#fff4df" stroke="#d5a951"/>
+<text x="65" y="668" font-size="22" font-weight="700" fill="#634b19">独立硬件对照：8张真实 L20 GPU 的 NVML ECC / remap 前后不变；生产 DCGM 始终 0 / 0 / 0。</text>
+<text x="65" y="704" font-size="20" fill="#634b19">可用内核日志无对应 Xid，但日志窗口有限。本轮不能证明坏卡、物理损伤或 RMA 资格。</text>
+<text x="65" y="737" font-size="20" fill="#634b19">专用 Hardware Agent 未启用；未运行 NVDebug、压力诊断、GPU reset 或 Edit / Auto 修复。</text>
+<text x="45" y="799" font-size="17" fill="#6b7280">test from Jeff Peng | gpu-rca-20261031t121240z | 原始过程与失败记录保留于证据包</text>
+</g></svg>

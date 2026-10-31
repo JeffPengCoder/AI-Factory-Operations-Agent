@@ -1,0 +1,337 @@
+{
+  "success": true,
+  "deletedOnlyExactOriginalUids": {
+    "Namespace": "6d5c3b77-5524-43b3-b93b-51ebcd968251",
+    "ConfigMap": "6e37d906-ad8d-4fb1-8f57-b3c1dbdf2a04",
+    "Pod": "9fe844e0-2dc0-4634-b6a9-50f327bd645e",
+    "Service": "ee8f12b8-ac11-4d9f-b432-5f3d43e38ebb",
+    "ServiceMonitor": "3f990380-2497-4153-a290-9f3c00465f8c",
+    "PrometheusRule": "476cc14d-fc7f-4720-b5b1-cbc63528356b"
+  },
+  "commands": [
+    {
+      "at": "2026-10-31T13:55:51.612342+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "namespace",
+        "mosaic-gpu-rca-20261031t121240z",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n    \"apiVersion\": \"v1\",\n    \"kind\": \"Namespace\",\n    \"metadata\": {\n        \"creationTimestamp\": \"2026-10-31T13:33:04Z\",\n        \"labels\": {\n            \"experiment\": \"gpu-telemetry-cache\",\n            \"kubernetes.io/metadata.name\": \"mosaic-gpu-rca-20261031t121240z\",\n            \"mosaic_test\": \"true\",\n            \"run_id\": \"gpu-rca-20261031t121240z\"\n        },\n        \"name\": \"mosaic-gpu-rca-20261031t121240z\",\n        \"resourceVersion\": \"99679944\",\n        \"uid\": \"6d5c3b77-5524-43b3-b93b-51ebcd968251\"\n    },\n    \"spec\": {\n        \"finalizers\": [\n            \"kubernetes\"\n        ]\n    },\n    \"status\": {\n        \"phase\": \"Active\"\n    }\n}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:55:51.658008+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "configmap",
+        "gpu-evidence",
+        "-n",
+        "mosaic-gpu-rca-20261031t121240z",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n    \"apiVersion\": \"v1\",\n    \"data\": {\n        \"all-gpu-baseline.json\": \"{\\n  \\\"runId\\\": \\\"gpu-rca-20261031t121240z\\\",\\n  \\\"allEightGpuEccAndRemapBefore\\\": [\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-11\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-14\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-05\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-00\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-15\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-02\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-01\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-12\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    }\\n  ],\\n  \\\"allEightGpuEccAndRemapAfter\\\": [\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-11\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-14\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-05\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-00\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-15\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-02\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-01\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    },\\n    {\\n      \\\"uuid\\\": \\\"GPU-REDACTED-12\\\",\\n      \\\"ecc\\\": {\\n        \\\"volatile\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\"\\n        },\\n        \\\"aggregate\\\": {\\n          \\\"sram_correctable\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n          \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n          \\\"dram_correctable\\\": \\\"0\\\",\\n          \\\"dram_uncorrectable\\\": \\\"0\\\",\\n          \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n        },\\n        \\\"aggregate_uncorrectable_sram_sources\\\": {\\n          \\\"sram_l2\\\": \\\"0\\\",\\n          \\\"sram_sm\\\": \\\"0\\\",\\n          \\\"sram_microcontroller\\\": \\\"0\\\",\\n          \\\"sram_pcie\\\": \\\"0\\\",\\n          \\\"sram_other\\\": \\\"0\\\"\\n        }\\n      },\\n      \\\"remappedRows\\\": {\\n        \\\"remapped_row_corr\\\": \\\"0\\\",\\n        \\\"remapped_row_unc\\\": \\\"0\\\",\\n        \\\"remapped_row_pending\\\": \\\"No\\\",\\n        \\\"remapped_row_failure\\\": \\\"No\\\"\\n      }\\n    }\\n  ]\\n}\\n\",\n        \"dcgm.json\": \"{\\n  \\\"runId\\\": \\\"gpu-rca-20261031t121240z\\\",\\n  \\\"test_from\\\": \\\"test from Jeff Peng\\\",\\n  \\\"scope\\\": \\\"GPU telemetry simulation; not a CPU application crash and not a physical GPU defect\\\",\\n  \\\"evidence_source\\\": \\\"isolated_dcgm_cache_snapshot\\\",\\n  \\\"liveHardwareCountersWritten\\\": false,\\n  \\\"privateEngineAlreadyStopped\\\": true,\\n  \\\"cacheObservationAt\\\": \\\"2026-10-31T13:30:18.906832+00:00\\\",\\n  \\\"GPU\\\": {\\n    \\\"index\\\": 0,\\n    \\\"uuid\\\": \\\"GPU-REDACTED-11\\\",\\n    \\\"pciBusId\\\": \\\"PCI-REDACTED-0\\\",\\n    \\\"product\\\": \\\"NVIDIA L20\\\"\\n  },\\n  \\\"dcgmVersion\\\": \\\"3.3.9\\\",\\n  \\\"privateEngine\\\": {\\n    \\\"pid\\\": 1339392,\\n    \\\"argv\\\": [\\n      \\\"nv-hostengine\\\",\\n      \\\"--no-daemon\\\",\\n      \\\"--domain-socket\\\",\\n      \\\"/var/tmp/mosaic-gpu-rca-20261031t121240z-attempt3/engine.sock\\\",\\n      \\\"--pid\\\",\\n      \\\"/var/tmp/mosaic-gpu-rca-20261031t121240z-attempt3/engine.pid\\\",\\n      \\\"--log-filename\\\",\\n      \\\"/var/tmp/mosaic-gpu-rca-20261031t121240z-attempt3/engine.log\\\",\\n      \\\"--denylist-modules\\\",\\n      \\\"1,2,3,4,5,6,7,8,9\\\"\\n    ],\\n    \\\"protectedOperationEnvironment\\\": {\\n      \\\"DCGM_ENABLE_INJECTION_APIS\\\": \\\"1\\\"\\n    }\\n  },\\n  \\\"commands\\\": [\\n    {\\n      \\\"at\\\": \\\"2026-10-31T13:30:13.208958+00:00\\\",\\n      \\\"argv\\\": [\\n        \\\"dcgmi\\\",\\n        \\\"dmon\\\",\\n        \\\"--host\\\",\\n        \\\"127.0.0.1:5555\\\",\\n        \\\"-i\\\",\\n        \\\"0\\\",\\n        \\\"-e\\\",\\n        \\\"230,311,313\\\",\\n        \\\"-c\\\",\\n        \\\"2\\\"\\n      ],\\n      \\\"exitCode\\\": 0,\\n      \\\"stdout\\\": \\\"#Entity   XIDER        EDVTL        EDATL        \\\\nID                                               \\\\nGPU 0     0            0            0            \\\\nGPU 0     0            0            0            \\\\n\\\",\\n      \\\"stderr\\\": \\\"\\\",\\n      \\\"elapsedSeconds\\\": 1.0184540823101997\\n    },\\n    {\\n      \\\"at\\\": \\\"2026-10-31T13:30:16.869756+00:00\\\",\\n      \\\"argv\\\": [\\n        \\\"dcgmi\\\",\\n        \\\"dmon\\\",\\n        \\\"--host\\\",\\n        \\\"unix:///var/tmp/mosaic-gpu-rca-20261031t121240z-attempt3/engine.sock\\\",\\n        \\\"-i\\\",\\n        \\\"0\\\",\\n        \\\"-e\\\",\\n        \\\"230,311,313\\\",\\n        \\\"-c\\\",\\n        \\\"2\\\"\\n      ],\\n      \\\"exitCode\\\": 0,\\n      \\\"stdout\\\": \\\"#Entity   XIDER        EDVTL        EDATL        \\\\nID                                               \\\\nGPU 0     0            0            0            \\\\nGPU 0     0            0            0            \\\\n\\\",\\n      \\\"stderr\\\": \\\"\\\",\\n      \\\"elapsedSeconds\\\": 1.018680650740862\\n    },\\n    {\\n      \\\"at\\\": \\\"2026-10-31T13:30:16.873068+00:00\\\",\\n      \\\"argv\\\": [\\n        \\\"dcgmi\\\",\\n        \\\"test\\\",\\n        \\\"--host\\\",\\n        \\\"unix:///var/tmp/mosaic-gpu-rca-20261031t121240z-attempt3/engine.sock\\\",\\n        \\\"--inject\\\",\\n        \\\"--gpuid\\\",\\n        \\\"0\\\",\\n        \\\"-f\\\",\\n        \\\"230\\\",\\n        \\\"-v\\\",\\n        \\\"95\\\",\\n        \\\"--offset\\\",\\n        \\\"60\\\"\\n      ],\\n      \\\"exitCode\\\": 0,\\n      \\\"stdout\\\": \\\"Successfully injected field info.\\\\n\\\",\\n      \\\"stderr\\\": \\\"\\\",\\n      \\\"elapsedSeconds\\\": 0.0032901130616664886\\n    },\\n    {\\n      \\\"at\\\": \\\"2026-10-31T13:30:16.875947+00:00\\\",\\n      \\\"argv\\\": [\\n        \\\"dcgmi\\\",\\n        \\\"test\\\",\\n        \\\"--host\\\",\\n        \\\"unix:///var/tmp/mosaic-gpu-rca-20261031t121240z-attempt3/engine.sock\\\",\\n        \\\"--inject\\\",\\n        \\\"--gpuid\\\",\\n        \\\"0\\\",\\n        \\\"-f\\\",\\n        \\\"311\\\",\\n        \\\"-v\\\",\\n        \\\"1\\\",\\n        \\\"--offset\\\",\\n        \\\"60\\\"\\n      ],\\n      \\\"exitCode\\\": 0,\\n      \\\"stdout\\\": \\\"Successfully injected field info.\\\\n\\\",\\n      \\\"stderr\\\": \\\"\\\",\\n      \\\"elapsedSeconds\\\": 0.002874210476875305\\n    },\\n    {\\n      \\\"at\\\": \\\"2026-10-31T13:30:16.878738+00:00\\\",\\n      \\\"argv\\\": [\\n        \\\"dcgmi\\\",\\n        \\\"test\\\",\\n        \\\"--host\\\",\\n        \\\"unix:///var/tmp/mosaic-gpu-rca-20261031t121240z-attempt3/engine.sock\\\",\\n        \\\"--inject\\\",\\n        \\\"--gpuid\\\",\\n        \\\"0\\\",\\n        \\\"-f\\\",\\n        \\\"313\\\",\\n        \\\"-v\\\",\\n        \\\"1\\\",\\n        \\\"--offset\\\",\\n        \\\"60\\\"\\n      ],\\n      \\\"exitCode\\\": 0,\\n      \\\"stdout\\\": \\\"Successfully injected field info.\\\\n\\\",\\n      \\\"stderr\\\": \\\"\\\",\\n      \\\"elapsedSeconds\\\": 0.0027892068028450012\\n    },\\n    {\\n      \\\"at\\\": \\\"2026-10-31T13:30:18.906832+00:00\\\",\\n      \\\"argv\\\": [\\n        \\\"dcgmi\\\",\\n        \\\"dmon\\\",\\n        \\\"--host\\\",\\n        \\\"unix:///var/tmp/mosaic-gpu-rca-20261031t121240z-attempt3/engine.sock\\\",\\n        \\\"-i\\\",\\n        \\\"0\\\",\\n        \\\"-e\\\",\\n        \\\"230,311,313\\\",\\n        \\\"-c\\\",\\n        \\\"3\\\"\\n      ],\\n      \\\"exitCode\\\": 0,\\n      \\\"stdout\\\": \\\"#Entity   XIDER        EDVTL        EDATL        \\\\nID                                               \\\\nGPU 0     95           1            1            \\\\nGPU 0     95           1            1            \\\\nGPU 0     95           1            1            \\\\n\\\",\\n      \\\"stderr\\\": \\\"\\\",\\n      \\\"elapsedSeconds\\\": 2.0195355340838432\\n    },\\n    {\\n      \\\"at\\\": \\\"2026-10-31T13:30:20.027429+00:00\\\",\\n      \\\"argv\\\": [\\n        \\\"dcgmi\\\",\\n        \\\"dmon\\\",\\n        \\\"--host\\\",\\n        \\\"127.0.0.1:5555\\\",\\n        \\\"-i\\\",\\n        \\\"0\\\",\\n        \\\"-e\\\",\\n        \\\"230,311,313\\\",\\n        \\\"-c\\\",\\n        \\\"2\\\"\\n      ],\\n      \\\"exitCode\\\": 0,\\n      \\\"stdout\\\": \\\"#Entity   XIDER        EDVTL        EDATL        \\\\nID                                               \\\\nGPU 0     0            0            0            \\\\nGPU 0     0            0            0            \\\\n\\\",\\n      \\\"stderr\\\": \\\"\\\",\\n      \\\"elapsedSeconds\\\": 1.120593648403883\\n    }\\n  ]\\n}\\n\",\n        \"kernel.json\": \"{\\n  \\\"runId\\\": \\\"gpu-rca-20261031t121240z\\\",\\n  \\\"source\\\": \\\"operator-collected live available kernel ring\\\",\\n  \\\"capture\\\": {\\n    \\\"argv\\\": [\\n      \\\"dmesg\\\",\\n      \\\"--time-format\\\",\\n      \\\"iso\\\"\\n    ],\\n    \\\"selectionRegex\\\": \\\"NVRM|Xid|PCIe Bus Error|AER:|nvidia|ECC (case insensitive)\\\",\\n    \\\"exitCode\\\": 0,\\n    \\\"selectedLines\\\": [\\n      \\\"2026-10-28T12:07:16,980908+08:00 IPv6: ADDRCONF(NETDEV_CHANGE): calif75eeccbfcb: link becomes ready\\\"\\n    ],\\n    \\\"stderr\\\": \\\"\\\"\\n  },\\n  \\\"matchingXidLines\\\": [],\\n  \\\"limitations\\\": [\\n    \\\"Kernel ring may have rotated. No matching Xid in available records does not prove no historical error.\\\",\\n    \\\"Original broad selector also matched a network interface name containing ecc; that line is not an ECC event.\\\",\\n    \\\"This artifact is a collected snapshot; no NVDebug, BMC dump, stress test or production reset was performed.\\\"\\n  ]\\n}\\n\",\n        \"metrics\": \"# HELP mosaic_test_dcgm_xid_error Replayed isolated DCGM cache Xid, not a live hardware event\\n# TYPE mosaic_test_dcgm_xid_error gauge\\nmosaic_test_dcgm_xid_error{run_id=\\\"gpu-rca-20261031t121240z\\\",node=\\\"target-node-1\\\",gpu=\\\"0\\\",gpu_uuid=\\\"GPU-REDACTED-11\\\",simulation=\\\"true\\\",evidence_source=\\\"isolated_dcgm_cache_snapshot\\\"} 95\\n# HELP mosaic_test_dcgm_ecc_dbe_volatile_total Replayed isolated DCGM cache volatile DBE\\n# TYPE mosaic_test_dcgm_ecc_dbe_volatile_total gauge\\nmosaic_test_dcgm_ecc_dbe_volatile_total{run_id=\\\"gpu-rca-20261031t121240z\\\",node=\\\"target-node-1\\\",gpu=\\\"0\\\",gpu_uuid=\\\"GPU-REDACTED-11\\\",simulation=\\\"true\\\",evidence_source=\\\"isolated_dcgm_cache_snapshot\\\"} 1\\n# HELP mosaic_test_dcgm_ecc_dbe_aggregate_total Replayed isolated DCGM cache aggregate DBE\\n# TYPE mosaic_test_dcgm_ecc_dbe_aggregate_total gauge\\nmosaic_test_dcgm_ecc_dbe_aggregate_total{run_id=\\\"gpu-rca-20261031t121240z\\\",node=\\\"target-node-1\\\",gpu=\\\"0\\\",gpu_uuid=\\\"GPU-REDACTED-11\\\",simulation=\\\"true\\\",evidence_source=\\\"isolated_dcgm_cache_snapshot\\\"} 1\\n\",\n        \"nvml.json\": \"{\\n  \\\"runId\\\": \\\"gpu-rca-20261031t121240z\\\",\\n  \\\"source\\\": \\\"operator-collected live nvidia-smi/NVML, not a model inference\\\",\\n  \\\"beforeAt\\\": \\\"2026-10-31T13:30:15.555170+00:00\\\",\\n  \\\"afterAt\\\": \\\"2026-10-31T13:30:22.708637+00:00\\\",\\n  \\\"driverVersion\\\": \\\"550.127.08\\\",\\n  \\\"allEightGpuEccAndRemapUnchanged\\\": true,\\n  \\\"targetGpuBefore\\\": {\\n    \\\"uuid\\\": \\\"GPU-REDACTED-11\\\",\\n    \\\"ecc\\\": {\\n      \\\"volatile\\\": {\\n        \\\"sram_correctable\\\": \\\"0\\\",\\n        \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n        \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n        \\\"dram_correctable\\\": \\\"0\\\",\\n        \\\"dram_uncorrectable\\\": \\\"0\\\"\\n      },\\n      \\\"aggregate\\\": {\\n        \\\"sram_correctable\\\": \\\"0\\\",\\n        \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n        \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n        \\\"dram_correctable\\\": \\\"0\\\",\\n        \\\"dram_uncorrectable\\\": \\\"0\\\",\\n        \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n      },\\n      \\\"aggregate_uncorrectable_sram_sources\\\": {\\n        \\\"sram_l2\\\": \\\"0\\\",\\n        \\\"sram_sm\\\": \\\"0\\\",\\n        \\\"sram_microcontroller\\\": \\\"0\\\",\\n        \\\"sram_pcie\\\": \\\"0\\\",\\n        \\\"sram_other\\\": \\\"0\\\"\\n      }\\n    },\\n    \\\"remappedRows\\\": {\\n      \\\"remapped_row_corr\\\": \\\"0\\\",\\n      \\\"remapped_row_unc\\\": \\\"0\\\",\\n      \\\"remapped_row_pending\\\": \\\"No\\\",\\n      \\\"remapped_row_failure\\\": \\\"No\\\"\\n    }\\n  },\\n  \\\"targetGpuAfter\\\": {\\n    \\\"uuid\\\": \\\"GPU-REDACTED-11\\\",\\n    \\\"ecc\\\": {\\n      \\\"volatile\\\": {\\n        \\\"sram_correctable\\\": \\\"0\\\",\\n        \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n        \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n        \\\"dram_correctable\\\": \\\"0\\\",\\n        \\\"dram_uncorrectable\\\": \\\"0\\\"\\n      },\\n      \\\"aggregate\\\": {\\n        \\\"sram_correctable\\\": \\\"0\\\",\\n        \\\"sram_uncorrectable_parity\\\": \\\"0\\\",\\n        \\\"sram_uncorrectable_secded\\\": \\\"0\\\",\\n        \\\"dram_correctable\\\": \\\"0\\\",\\n        \\\"dram_uncorrectable\\\": \\\"0\\\",\\n        \\\"sram_threshold_exceeded\\\": \\\"No\\\"\\n      },\\n      \\\"aggregate_uncorrectable_sram_sources\\\": {\\n        \\\"sram_l2\\\": \\\"0\\\",\\n        \\\"sram_sm\\\": \\\"0\\\",\\n        \\\"sram_microcontroller\\\": \\\"0\\\",\\n        \\\"sram_pcie\\\": \\\"0\\\",\\n        \\\"sram_other\\\": \\\"0\\\"\\n      }\\n    },\\n    \\\"remappedRows\\\": {\\n      \\\"remapped_row_corr\\\": \\\"0\\\",\\n      \\\"remapped_row_unc\\\": \\\"0\\\",\\n      \\\"remapped_row_pending\\\": \\\"No\\\",\\n      \\\"remapped_row_failure\\\": \\\"No\\\"\\n    }\\n  },\\n  \\\"currentComputeProcessesCommand\\\": {\\n    \\\"at\\\": \\\"2026-10-31T13:30:12.190515+00:00\\\",\\n    \\\"argv\\\": [\\n      \\\"nvidia-smi\\\",\\n      \\\"--query-compute-apps=pid,gpu_uuid,process_name,used_gpu_memory\\\",\\n      \\\"--format=csv,noheader\\\"\\n    ],\\n    \\\"exitCode\\\": 0,\\n    \\\"stdout\\\": \\\"\\\",\\n    \\\"stderr\\\": \\\"\\\",\\n    \\\"elapsedSeconds\\\": 0.07713458687067032\\n  },\\n  \\\"limitations\\\": [\\n    \\\"Read-only sample comparison is not an active hardware diagnostic or RMA verdict.\\\",\\n    \\\"These are timestamped snapshots, not continuous GPU sampling.\\\"\\n  ]\\n}\\n\"\n    },\n    \"kind\": \"ConfigMap\",\n    \"metadata\": {\n        \"creationTimestamp\": \"2026-10-31T13:33:04Z\",\n        \"labels\": {\n            \"experiment\": \"gpu-telemetry-cache\",\n            \"mosaic_test\": \"true\",\n            \"run_id\": \"gpu-rca-20261031t121240z\"\n        },\n        \"name\": \"gpu-evidence\",\n        \"namespace\": \"mosaic-gpu-rca-20261031t121240z\",\n        \"resourceVersion\": \"99679958\",\n        \"uid\": \"6e37d906-ad8d-4fb1-8f57-b3c1dbdf2a04\"\n    }\n}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:55:51.702853+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "pod",
+        "gpu-telemetry-fixture",
+        "-n",
+        "mosaic-gpu-rca-20261031t121240z",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n    \"apiVersion\": \"v1\",\n    \"kind\": \"Pod\",\n    \"metadata\": {\n        \"annotations\": {\n            \"cni.projectcalico.org/containerID\": \"070b95a67f3c7af9fdd20438c1c51d5e396bd9f6babcc99cd70188fafde52f3e\",\n            \"cni.projectcalico.org/podIP\": \"private-address-07.example.invalid/32\",\n            \"cni.projectcalico.org/podIPs\": \"private-address-07.example.invalid/32\"\n        },\n        \"creationTimestamp\": \"2026-10-31T13:33:05Z\",\n        \"labels\": {\n            \"experiment\": \"gpu-telemetry-cache\",\n            \"mosaic_test\": \"true\",\n            \"run_id\": \"gpu-rca-20261031t121240z\"\n        },\n        \"name\": \"gpu-telemetry-fixture\",\n        \"namespace\": \"mosaic-gpu-rca-20261031t121240z\",\n        \"resourceVersion\": \"99680011\",\n        \"uid\": \"9fe844e0-2dc0-4634-b6a9-50f327bd645e\"\n    },\n    \"spec\": {\n        \"automountServiceAccountToken\": false,\n        \"containers\": [\n            {\n                \"command\": [\n                    \"sh\",\n                    \"-c\",\n                    \"cat /evidence/dcgm.json; exec httpd -f -p 8080 -h /evidence\"\n                ],\n                \"image\": \"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\",\n                \"imagePullPolicy\": \"Never\",\n                \"name\": \"telemetry\",\n                \"ports\": [\n                    {\n                        \"containerPort\": 8080,\n                        \"name\": \"metrics\",\n                        \"protocol\": \"TCP\"\n                    }\n                ],\n                \"readinessProbe\": {\n                    \"failureThreshold\": 3,\n                    \"httpGet\": {\n                        \"path\": \"/metrics\",\n                        \"port\": \"metrics\",\n                        \"scheme\": \"HTTP\"\n                    },\n                    \"periodSeconds\": 5,\n                    \"successThreshold\": 1,\n                    \"timeoutSeconds\": 1\n                },\n                \"resources\": {\n                    \"limits\": {\n                        \"cpu\": \"50m\",\n                        \"memory\": \"32Mi\"\n                    },\n                    \"requests\": {\n                        \"cpu\": \"5m\",\n                        \"memory\": \"8Mi\"\n                    }\n                },\n                \"securityContext\": {\n                    \"allowPrivilegeEscalation\": false,\n                    \"capabilities\": {\n                        \"drop\": [\n                            \"ALL\"\n                        ]\n                    },\n                    \"readOnlyRootFilesystem\": true\n                },\n                \"terminationMessagePath\": \"/dev/termination-log\",\n                \"terminationMessagePolicy\": \"File\",\n                \"volumeMounts\": [\n                    {\n                        \"mountPath\": \"/evidence\",\n                        \"name\": \"evidence\",\n                        \"readOnly\": true\n                    }\n                ]\n            },\n            {\n                \"command\": [\n                    \"sh\",\n                    \"-c\",\n                    \"cat /evidence/nvml.json; exec sleep 86400\"\n                ],\n                \"image\": \"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\",\n                \"imagePullPolicy\": \"Never\",\n                \"name\": \"nvml-witness\",\n                \"resources\": {\n                    \"limits\": {\n                        \"cpu\": \"50m\",\n                        \"memory\": \"32Mi\"\n                    },\n                    \"requests\": {\n                        \"cpu\": \"5m\",\n                        \"memory\": \"8Mi\"\n                    }\n                },\n                \"securityContext\": {\n                    \"allowPrivilegeEscalation\": false,\n                    \"capabilities\": {\n                        \"drop\": [\n                            \"ALL\"\n                        ]\n                    },\n                    \"readOnlyRootFilesystem\": true\n                },\n                \"terminationMessagePath\": \"/dev/termination-log\",\n                \"terminationMessagePolicy\": \"File\",\n                \"volumeMounts\": [\n                    {\n                        \"mountPath\": \"/evidence\",\n                        \"name\": \"evidence\",\n                        \"readOnly\": true\n                    }\n                ]\n            },\n            {\n                \"command\": [\n                    \"sh\",\n                    \"-c\",\n                    \"cat /evidence/kernel.json; exec sleep 86400\"\n                ],\n                \"image\": \"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\",\n                \"imagePullPolicy\": \"Never\",\n                \"name\": \"kernel-witness\",\n                \"resources\": {\n                    \"limits\": {\n                        \"cpu\": \"50m\",\n                        \"memory\": \"32Mi\"\n                    },\n                    \"requests\": {\n                        \"cpu\": \"5m\",\n                        \"memory\": \"8Mi\"\n                    }\n                },\n                \"securityContext\": {\n                    \"allowPrivilegeEscalation\": false,\n                    \"capabilities\": {\n                        \"drop\": [\n                            \"ALL\"\n                        ]\n                    },\n                    \"readOnlyRootFilesystem\": true\n                },\n                \"terminationMessagePath\": \"/dev/termination-log\",\n                \"terminationMessagePolicy\": \"File\",\n                \"volumeMounts\": [\n                    {\n                        \"mountPath\": \"/evidence\",\n                        \"name\": \"evidence\",\n                        \"readOnly\": true\n                    }\n                ]\n            }\n        ],\n        \"dnsPolicy\": \"ClusterFirst\",\n        \"enableServiceLinks\": true,\n        \"nodeName\": \"target-node-1\",\n        \"nodeSelector\": {\n            \"kubernetes.io/hostname\": \"target-node-1\"\n        },\n        \"preemptionPolicy\": \"PreemptLowerPriority\",\n        \"priority\": 0,\n        \"restartPolicy\": \"Never\",\n        \"schedulerName\": \"default-scheduler\",\n        \"securityContext\": {\n            \"runAsGroup\": 65534,\n            \"runAsNonRoot\": true,\n            \"runAsUser\": 65534,\n            \"seccompProfile\": {\n                \"type\": \"RuntimeDefault\"\n            }\n        },\n        \"serviceAccount\": \"default\",\n        \"serviceAccountName\": \"default\",\n        \"terminationGracePeriodSeconds\": 30,\n        \"tolerations\": [\n            {\n                \"effect\": \"NoSchedule\",\n                \"key\": \"node-role.kubernetes.io/control-plane\",\n                \"operator\": \"Exists\"\n            },\n            {\n                \"effect\": \"NoExecute\",\n                \"key\": \"node.kubernetes.io/not-ready\",\n                \"operator\": \"Exists\",\n                \"tolerationSeconds\": 300\n            },\n            {\n                \"effect\": \"NoExecute\",\n                \"key\": \"node.kubernetes.io/unreachable\",\n                \"operator\": \"Exists\",\n                \"tolerationSeconds\": 300\n            }\n        ],\n        \"volumes\": [\n            {\n                \"configMap\": {\n                    \"defaultMode\": 292,\n                    \"name\": \"gpu-evidence\"\n                },\n                \"name\": \"evidence\"\n            }\n        ]\n    },\n    \"status\": {\n        \"conditions\": [\n            {\n                \"lastProbeTime\": null,\n                \"lastTransitionTime\": \"2026-10-31T13:33:09Z\",\n                \"status\": \"True\",\n                \"type\": \"PodReadyToStartContainers\"\n            },\n            {\n                \"lastProbeTime\": null,\n                \"lastTransitionTime\": \"2026-10-31T13:33:05Z\",\n                \"status\": \"True\",\n                \"type\": \"Initialized\"\n            },\n            {\n                \"lastProbeTime\": null,\n                \"lastTransitionTime\": \"2026-10-31T13:33:09Z\",\n                \"status\": \"True\",\n                \"type\": \"Ready\"\n            },\n            {\n                \"lastProbeTime\": null,\n                \"lastTransitionTime\": \"2026-10-31T13:33:09Z\",\n                \"status\": \"True\",\n                \"type\": \"ContainersReady\"\n            },\n            {\n                \"lastProbeTime\": null,\n                \"lastTransitionTime\": \"2026-10-31T13:33:05Z\",\n                \"status\": \"True\",\n                \"type\": \"PodScheduled\"\n            }\n        ],\n        \"containerStatuses\": [\n            {\n                \"containerID\": \"containerd://69f659b2af08c7e61f1246d50309ca57f2498f76c34bd8f46681f88951360477\",\n                \"image\": \"docker.io/library/busybox:latest\",\n                \"imageID\": \"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\",\n                \"lastState\": {},\n                \"name\": \"kernel-witness\",\n                \"ready\": true,\n                \"restartCount\": 0,\n                \"started\": true,\n                \"state\": {\n                    \"running\": {\n                        \"startedAt\": \"2026-10-31T13:33:09Z\"\n                    }\n                },\n                \"volumeMounts\": [\n                    {\n                        \"mountPath\": \"/evidence\",\n                        \"name\": \"evidence\",\n                        \"readOnly\": true,\n                        \"recursiveReadOnly\": \"Disabled\"\n                    }\n                ]\n            },\n            {\n                \"containerID\": \"containerd://4a9d75006f8654069db198a82e58a89fe15bd6d6370825f9b8aec57817244a49\",\n                \"image\": \"docker.io/library/busybox:latest\",\n                \"imageID\": \"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\",\n                \"lastState\": {},\n                \"name\": \"nvml-witness\",\n                \"ready\": true,\n                \"restartCount\": 0,\n                \"started\": true,\n                \"state\": {\n                    \"running\": {\n                        \"startedAt\": \"2026-10-31T13:33:08Z\"\n                    }\n                },\n                \"volumeMounts\": [\n                    {\n                        \"mountPath\": \"/evidence\",\n                        \"name\": \"evidence\",\n                        \"readOnly\": true,\n                        \"recursiveReadOnly\": \"Disabled\"\n                    }\n                ]\n            },\n            {\n                \"containerID\": \"containerd://62967882b4a7a853465966962bf113f2cccf924df555c922d8674bc6fd297e2e\",\n                \"image\": \"docker.io/library/busybox:latest\",\n                \"imageID\": \"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\",\n                \"lastState\": {},\n                \"name\": \"telemetry\",\n                \"ready\": true,\n                \"restartCount\": 0,\n                \"started\": true,\n                \"state\": {\n                    \"running\": {\n                        \"startedAt\": \"2026-10-31T13:33:07Z\"\n                    }\n                },\n                \"volumeMounts\": [\n                    {\n                        \"mountPath\": \"/evidence\",\n                        \"name\": \"evidence\",\n                        \"readOnly\": true,\n                        \"recursiveReadOnly\": \"Disabled\"\n                    }\n                ]\n            }\n        ],\n        \"hostIP\": \"target-node-1.example.invalid\",\n        \"hostIPs\": [\n            {\n                \"ip\": \"target-node-1.example.invalid\"\n            }\n        ],\n        \"phase\": \"Running\",\n        \"podIP\": \"private-address-07.example.invalid\",\n        \"podIPs\": [\n            {\n                \"ip\": \"private-address-07.example.invalid\"\n            }\n        ],\n        \"qosClass\": \"Burstable\",\n        \"startTime\": \"2026-10-31T13:33:05Z\"\n    }\n}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:55:51.746201+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "service",
+        "gpu-telemetry-fixture",
+        "-n",
+        "mosaic-gpu-rca-20261031t121240z",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n    \"apiVersion\": \"v1\",\n    \"kind\": \"Service\",\n    \"metadata\": {\n        \"creationTimestamp\": \"2026-10-31T13:33:05Z\",\n        \"labels\": {\n            \"experiment\": \"gpu-telemetry-cache\",\n            \"mosaic_test\": \"true\",\n            \"run_id\": \"gpu-rca-20261031t121240z\"\n        },\n        \"name\": \"gpu-telemetry-fixture\",\n        \"namespace\": \"mosaic-gpu-rca-20261031t121240z\",\n        \"resourceVersion\": \"99679963\",\n        \"uid\": \"ee8f12b8-ac11-4d9f-b432-5f3d43e38ebb\"\n    },\n    \"spec\": {\n        \"clusterIP\": \"private-address-11.example.invalid\",\n        \"clusterIPs\": [\n            \"private-address-11.example.invalid\"\n        ],\n        \"internalTrafficPolicy\": \"Cluster\",\n        \"ipFamilies\": [\n            \"IPv4\"\n        ],\n        \"ipFamilyPolicy\": \"SingleStack\",\n        \"ports\": [\n            {\n                \"name\": \"metrics\",\n                \"port\": 8080,\n                \"protocol\": \"TCP\",\n                \"targetPort\": \"metrics\"\n            }\n        ],\n        \"selector\": {\n            \"experiment\": \"gpu-telemetry-cache\",\n            \"mosaic_test\": \"true\",\n            \"run_id\": \"gpu-rca-20261031t121240z\"\n        },\n        \"sessionAffinity\": \"None\",\n        \"type\": \"ClusterIP\"\n    },\n    \"status\": {\n        \"loadBalancer\": {}\n    }\n}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:55:51.792064+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "servicemonitor",
+        "gpu-telemetry-fixture",
+        "-n",
+        "mosaic-gpu-rca-20261031t121240z",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n    \"apiVersion\": \"monitoring.coreos.com/v1\",\n    \"kind\": \"ServiceMonitor\",\n    \"metadata\": {\n        \"creationTimestamp\": \"2026-10-31T13:33:05Z\",\n        \"generation\": 2,\n        \"labels\": {\n            \"experiment\": \"gpu-telemetry-cache\",\n            \"mosaic_test\": \"true\",\n            \"release\": \"kube-prometheus-stack\",\n            \"run_id\": \"gpu-rca-20261031t121240z\"\n        },\n        \"name\": \"gpu-telemetry-fixture\",\n        \"namespace\": \"mosaic-gpu-rca-20261031t121240z\",\n        \"resourceVersion\": \"99681776\",\n        \"uid\": \"3f990380-2497-4153-a290-9f3c00465f8c\"\n    },\n    \"spec\": {\n        \"endpoints\": [\n            {\n                \"interval\": \"5s\",\n                \"path\": \"/metrics\",\n                \"port\": \"metrics\",\n                \"scrapeTimeout\": \"3s\"\n            }\n        ],\n        \"fallbackScrapeProtocol\": \"PrometheusText0.0.4\",\n        \"namespaceSelector\": {\n            \"matchNames\": [\n                \"mosaic-gpu-rca-20261031t121240z\"\n            ]\n        },\n        \"selector\": {\n            \"matchLabels\": {\n                \"experiment\": \"gpu-telemetry-cache\",\n                \"mosaic_test\": \"true\",\n                \"run_id\": \"gpu-rca-20261031t121240z\"\n            }\n        }\n    }\n}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:55:51.836196+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "prometheusrule",
+        "mosaic-gpu-rca-20261031t121240z",
+        "-n",
+        "monitoring",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n    \"apiVersion\": \"monitoring.coreos.com/v1\",\n    \"kind\": \"PrometheusRule\",\n    \"metadata\": {\n        \"annotations\": {\n            \"prometheus-operator-validated\": \"true\"\n        },\n        \"creationTimestamp\": \"2026-10-31T13:33:05Z\",\n        \"generation\": 2,\n        \"labels\": {\n            \"experiment\": \"gpu-telemetry-cache\",\n            \"mosaic_test\": \"true\",\n            \"release\": \"kube-prometheus-stack\",\n            \"run_id\": \"gpu-rca-20261031t121240z\"\n        },\n        \"name\": \"mosaic-gpu-rca-20261031t121240z\",\n        \"namespace\": \"monitoring\",\n        \"resourceVersion\": \"99683361\",\n        \"uid\": \"476cc14d-fc7f-4720-b5b1-cbc63528356b\"\n    },\n    \"spec\": {\n        \"groups\": [\n            {\n                \"interval\": \"5s\",\n                \"name\": \"mosaic-gpu-rca-20261031t121240z\",\n                \"rules\": [\n                    {\n                        \"alert\": \"MosaicGpuTelemetrySimulation\",\n                        \"annotations\": {\n                            \"description\": \"test from Jeff Peng. Run gpu-rca-20261031t121240z. GPU telemetry simulation, not a CPU crash or a physical hardware fault. Cluster target-lab, namespace mosaic-gpu-rca-20261031t121240z, Pod gpu-telemetry-fixture. In View mode read logs from telemetry, nvml-witness, kernel-witness; compare isolated DCGM cache with unchanged live NVML and production DCGM. Then consult iraop_query collection mosaic-gpu-validation-20261031 for generic GPU triage procedure; keep incident facts separate from knowledge. Do not reset, drain or repair any GPU.\",\n                            \"evidence_source\": \"isolated_dcgm_cache_snapshot\",\n                            \"summary\": \"GPU telemetry test: isolated DCGM Xid 95 and ECC snapshot\",\n                            \"test_from\": \"test from Jeff Peng\"\n                        },\n                        \"expr\": \"mosaic_test_dcgm_xid_error{run_id=\\\"gpu-rca-20261031t121240z\\\",simulation=\\\"true\\\"} == 95\",\n                        \"for\": \"45s\",\n                        \"labels\": {\n                            \"experiment\": \"gpu-telemetry-cache\",\n                            \"mosaic_test\": \"true\",\n                            \"run_id\": \"gpu-rca-20261031t121240z\",\n                            \"severity\": \"warning\",\n                            \"simulation\": \"true\",\n                            \"test_namespace\": \"mosaic-gpu-rca-20261031t121240z\",\n                            \"test_pod\": \"gpu-telemetry-fixture\"\n                        }\n                    }\n                ]\n            }\n        ]\n    }\n}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:55:51.884759+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "delete",
+        "prometheusrule",
+        "mosaic-gpu-rca-20261031t121240z",
+        "-n",
+        "monitoring",
+        "--wait=true",
+        "--timeout=60s"
+      ],
+      "exitCode": 0,
+      "stdout": "prometheusrule.monitoring.coreos.com \"mosaic-gpu-rca-20261031t121240z\" deleted\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:55:51.931877+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "delete",
+        "servicemonitor",
+        "gpu-telemetry-fixture",
+        "-n",
+        "mosaic-gpu-rca-20261031t121240z",
+        "--wait=true",
+        "--timeout=60s"
+      ],
+      "exitCode": 0,
+      "stdout": "servicemonitor.monitoring.coreos.com \"gpu-telemetry-fixture\" deleted\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:55:51.982553+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "delete",
+        "service",
+        "gpu-telemetry-fixture",
+        "-n",
+        "mosaic-gpu-rca-20261031t121240z",
+        "--wait=true",
+        "--timeout=60s"
+      ],
+      "exitCode": 0,
+      "stdout": "service \"gpu-telemetry-fixture\" deleted\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:56:23.433322+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "delete",
+        "pod",
+        "gpu-telemetry-fixture",
+        "-n",
+        "mosaic-gpu-rca-20261031t121240z",
+        "--wait=true",
+        "--timeout=60s"
+      ],
+      "exitCode": 0,
+      "stdout": "pod \"gpu-telemetry-fixture\" deleted\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:56:23.480314+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "delete",
+        "configmap",
+        "gpu-evidence",
+        "-n",
+        "mosaic-gpu-rca-20261031t121240z",
+        "--wait=true",
+        "--timeout=60s"
+      ],
+      "exitCode": 0,
+      "stdout": "configmap \"gpu-evidence\" deleted\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:56:28.751025+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "delete",
+        "namespace",
+        "mosaic-gpu-rca-20261031t121240z",
+        "--wait=true",
+        "--timeout=60s"
+      ],
+      "exitCode": 0,
+      "stdout": "namespace \"mosaic-gpu-rca-20261031t121240z\" deleted\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:56:28.796115+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "namespace",
+        "mosaic-gpu-rca-20261031t121240z",
+        "--ignore-not-found",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:56:28.841440+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "configmap",
+        "gpu-evidence",
+        "-n",
+        "mosaic-gpu-rca-20261031t121240z",
+        "--ignore-not-found",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:56:28.888962+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "pod",
+        "gpu-telemetry-fixture",
+        "-n",
+        "mosaic-gpu-rca-20261031t121240z",
+        "--ignore-not-found",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:56:28.935550+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "service",
+        "gpu-telemetry-fixture",
+        "-n",
+        "mosaic-gpu-rca-20261031t121240z",
+        "--ignore-not-found",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:56:28.982300+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "servicemonitor",
+        "gpu-telemetry-fixture",
+        "-n",
+        "mosaic-gpu-rca-20261031t121240z",
+        "--ignore-not-found",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T13:56:29.028449+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "prometheusrule",
+        "mosaic-gpu-rca-20261031t121240z",
+        "-n",
+        "monitoring",
+        "--ignore-not-found",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

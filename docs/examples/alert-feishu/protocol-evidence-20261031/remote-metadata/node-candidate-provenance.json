@@ -1,0 +1,62 @@
+[
+  {
+    "auditId": "5eb43a76-4b46-41c9-8f0c-be97b025d9e8",
+    "seed": 101,
+    "normalizationPerformed": true,
+    "messagesUnchanged": true,
+    "messageRoles": [
+      "system",
+      "user"
+    ],
+    "firstQuestionContainsOracle": false,
+    "toolResultContainsOracle": false,
+    "toolCallId": "call_research_973b772aa0ba4829a173852a6139f944",
+    "upstreamResponseComplete": true
+  },
+  {
+    "auditId": "888291f4-5f90-4132-8763-b94286554dc8",
+    "seed": 202,
+    "normalizationPerformed": false,
+    "messagesUnchanged": true,
+    "messageRoles": [
+      "system",
+      "user",
+      "assistant",
+      "tool"
+    ],
+    "firstQuestionContainsOracle": false,
+    "toolResultContainsOracle": true,
+    "toolCallId": null,
+    "upstreamResponseComplete": true
+  },
+  {
+    "auditId": "8ede1ff6-3232-4561-9430-ad9e0b92e138",
+    "seed": 202,
+    "normalizationPerformed": true,
+    "messagesUnchanged": true,
+    "messageRoles": [
+      "system",
+      "user"
+    ],
+    "firstQuestionContainsOracle": false,
+    "toolResultContainsOracle": false,
+    "toolCallId": "call_research_40a4abaa28804796bbfffec3e3432fd7",
+    "upstreamResponseComplete": true
+  },
+  {
+    "auditId": "de1da186-f362-433d-a93d-87d53e82dc26",
+    "seed": 101,
+    "normalizationPerformed": false,
+    "messagesUnchanged": true,
+    "messageRoles": [
+      "system",
+      "user",
+      "assistant",
+      "tool"
+    ],
+    "firstQuestionContainsOracle": false,
+    "toolResultContainsOracle": true,
+    "toolCallId": null,
+    "upstreamResponseComplete": true
+  }
+]

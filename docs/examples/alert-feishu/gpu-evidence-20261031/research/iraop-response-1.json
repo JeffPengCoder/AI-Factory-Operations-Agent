@@ -1,0 +1,35 @@
+{
+  "toolCallId": "call_778a80c5b7a14661a71f5d88",
+  "requestAt": "2026-10-31T13:48:47.487Z",
+  "resultAt": "2026-10-31T13:48:58.400Z",
+  "arguments": {
+    "question": "What is the generic GPU triage procedure for investigating Xid 95 errors and GPU telemetry anomalies? What should be checked in NVML, DCGM, and kernel logs when an Xid 95 is reported?",
+    "collections": [
+      "mosaic-gpu-validation-20261031"
+    ]
+  },
+  "isError": false,
+  "response": {
+    "answer": "Based on the retrieved MOSAIC GPU Evidence Triage runbook (MOSAIC-GPU-KB-20261031), here is the generic procedure:\n\n---\n\n## Generic GPU Triage Procedure for Xid 95 Errors\n\n### What Xid 95 Means\n\n**Xid 95 denotes an uncontained memory error.** It is a serious error classification. Critically, an Xid 95 is **not by itself proof** of a particular failed memory chip, bank, or replaceable card. Treat it seriously, but do not immediately conclude a single component has failed without corroboration.\n\n### Evidence Collection Order\n\nWhen investigating an Xid 95 incident, collect evidence in this order:\n\n1. **Map GPU identity** — map each GPU index to its UUID and PCI bus ID\n2. **Record versions and timestamps** — retain the driver and DCGM versions along with their collection timestamps\n3. **Collect full GPU query** — `nvidia-smi -q -x` for the complete XML status dump\n4. **Compute process inventory** — enumerate running compute processes on the affected GPU(s)\n5. **Collect kernel logs** — relevant kernel NVRM/Xid/PCIe AER records from the time window of interest\n6. **Collect DCGM/Prometheus data** — gather existing DCGM and Prometheus telemetry observations\n7. **Document the time window** — state the observed time window and note any inaccessible or rotated logs\n\n---\n\n### NVML / `nvidia-smi` Checks\n\n- **Read volatile ECC counts** — check current (volatile) ECC error counters for the affected GPU\n- **Read aggregate (lifetime) ECC counts** — check aggregate lifetime ECC error counts\n  - **Important caveat:** A nonzero lifetime aggregate **does not prove** errors are growing now — it may reflect cumulative historical counts. Volatile counts are more indicative of active issues.\n- **Review the full `nvidia-smi -q -x` output** — examine all GPU telemetry fields (power, temperature, remapping status, FIFO hang indicators, etc.)\n- **Do not reset an occupied GPU** during read-only investigation\n\n---\n\n### DCGM Checks\n\n- **Review existing DCGM/Prometheus observations** — examine DCGM telemetry for anomalies around the time of the Xid 95 event\n- **Corroborate with live NVML data** — DCGM samples should be cross-referenced with unchanged live NVML ECC/remap counters\n- **If synthetic/injected DCGM samples exist**, they are stored in a host-engine cache and are **not independent NVML or kernel evidence**. Label such data as `isolated_dcgm_cache_snapshot` — they should not be treated as corroboration of a physical failure when live NVML and kernel logs do not show matching evidence\n- **Reference NVIDIA DCGM Error Injection documentation** and the `dcgmi test` reference for understanding injection boundaries\n\nReference URLs:\n- NVIDIA DCGM Error Injection: `https://docs.nvidia.com/datacenter/dcgm/latest/learn/dcgm-error-injection.html`\n- NVIDIA `dcgmi test` reference: `https://docs.nvidia.com/datacenter/dcgm/latest/reference/command-line-reference/dcgmi/dcgmi-test.html`\n\n---\n\n### Kernel Log Checks\n\n- **NVRM/Xid records** — search kernel logs for Xid error messages from the NVIDIA NVRM driver, particularly around the time window of the reported incident\n- **PCIe AER (Advanced Error Reporting)** — check for PCIe AER records that may indicate underlying bus-level errors correlating with the GPU memory error\n- **Correlate timing** — verify that kernel Xid messages appear in the available log window and match the timeframe of the DCGM anomaly\n\n---\n\n### Decision Framework (Insufficient Evidence Case)\n\nWhen **injected DCGM samples disagree with unchanged live NVML ECC/remap counters and no matching kernel Xid** appears in the available log window, report this as **simulated GPU telemetry with insufficient evidence of a live hardware defect**. Identify the injection source or fixture as the cause, and do not call injected counters corroboration of a physical failure.\n\n### When in Doubt\n\nFor a genuine incident, follow the applicable **NVIDIA recovery guidance** and the **site maintenance procedure**. Never assume an Xid 95 pinpoints a single replaceable component without full corroborating evidence.",
+    "depth": "quick",
+    "collections_searched": [
+      "mosaic-gpu-validation-20261031"
+    ],
+    "sources": [
+      {
+        "source_file": "mosaic-gpu-evidence-runbook.pdf",
+        "page_number": 1,
+        "collection": "mosaic-gpu-validation-20261031",
+        "doc_id": "mosaic-gpu-evidence-runbook.pdf",
+        "url": "/api/v1/documents/mosaic-gpu-evidence-runbook.pdf"
+      },
+      {
+        "source_file": "mosaic-gpu-evidence-runbook.pdf",
+        "page_number": 2,
+        "collection": "mosaic-gpu-validation-20261031",
+        "doc_id": "mosaic-gpu-evidence-runbook.pdf",
+        "url": "/api/v1/documents/mosaic-gpu-evidence-runbook.pdf"
+      }
+    ]
+  }
+}

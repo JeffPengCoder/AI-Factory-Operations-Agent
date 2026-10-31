@@ -1,0 +1,87 @@
+[
+  {
+    "case": "http-unauthenticated",
+    "elapsedSeconds": 0.003501749597489834,
+    "httpStatus": 401,
+    "answerContainsOracle": false,
+    "answerHasFilename": false,
+    "sources": [],
+    "sourceCount": 0
+  },
+  {
+    "case": "mcp-unauthenticated",
+    "elapsedSeconds": 0.0010154740884900093,
+    "httpStatus": 401,
+    "answerContainsOracle": false,
+    "answerHasFilename": false,
+    "sources": [],
+    "sourceCount": 0
+  },
+  {
+    "case": "http-invalid-depth",
+    "elapsedSeconds": 0.001058210153132677,
+    "httpStatus": 422,
+    "answerContainsOracle": false,
+    "answerHasFilename": false,
+    "sources": [],
+    "sourceCount": 0
+  },
+  {
+    "case": "http-query",
+    "elapsedSeconds": 3.7256418969482183,
+    "httpStatus": 200,
+    "answerContainsOracle": true,
+    "answerHasFilename": true,
+    "sources": [
+      {
+        "source_file": "mosaic-validation-control.pdf",
+        "page_number": 2,
+        "collection": "mosaic-validation-20261031",
+        "doc_id": "mosaic-validation-control.pdf",
+        "url": "/api/v1/documents/mosaic-validation-control.pdf"
+      },
+      {
+        "source_file": "mosaic-validation-control.pdf",
+        "page_number": 1,
+        "collection": "mosaic-validation-20261031",
+        "doc_id": "mosaic-validation-control.pdf",
+        "url": "/api/v1/documents/mosaic-validation-control.pdf"
+      }
+    ],
+    "sourceCount": 2
+  },
+  {
+    "case": "mcp-invalid-depth",
+    "elapsedSeconds": 0.001378465909510851,
+    "isError": true,
+    "answerContainsOracle": false,
+    "answerHasFilename": false,
+    "sources": [],
+    "sourceCount": 0
+  },
+  {
+    "case": "mcp-query",
+    "elapsedSeconds": 5.03515095077455,
+    "isError": false,
+    "answerContainsOracle": true,
+    "answerHasFilename": true,
+    "sources": [
+      {
+        "source_file": "mosaic-validation-control.pdf",
+        "page_number": 2,
+        "collection": "mosaic-validation-20261031",
+        "doc_id": "mosaic-validation-control.pdf",
+        "url": "/api/v1/documents/mosaic-validation-control.pdf"
+      },
+      {
+        "source_file": "mosaic-validation-control.pdf",
+        "page_number": 1,
+        "collection": "mosaic-validation-20261031",
+        "doc_id": "mosaic-validation-control.pdf",
+        "url": "/api/v1/documents/mosaic-validation-control.pdf"
+      }
+    ],
+    "sourceCount": 2
+  }
+]
+

@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-31T08:36:54.003742+00:00",
+  "group": "MOSAIC Alert Test",
+  "runId": "e2e-20261031t075722z",
+  "payloadFileSha256": "9086280f78642457332c3f24f08204c9ad6294e3b16aa49a180d66e82f3e7c89",
+  "payloadEncodedSha256BeforeSigning": "de1f678892b652a0e824c8b2a0991077418e11d2449b741aeb6be2ba4b9b75e2",
+  "credentialValuesSaved": false
+}

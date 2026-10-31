@@ -1,0 +1,25 @@
+{
+  "upstreamBase": "7cbca708bc536ff334316ad1011aa74455a95962",
+  "paths": [
+    "docs/_static/install-builder.mjs",
+    "docs/installation.md",
+    "docs/installation_builder.md",
+    "helm/mosaic-stack/files/agent-documentation.tar.gz",
+    "helm/mosaic-stack/files/llm-compat-server.mjs",
+    "helm/mosaic-stack/files/openclaw-seed/extensions/iraop/index.ts",
+    "helm/mosaic-stack/templates/llm-compat.yaml",
+    "helm/mosaic-stack/tests/chart-render.test.mjs",
+    "helm/mosaic-stack/tests/iraop-response.test.mjs",
+    "helm/mosaic-stack/tests/llm-compat.test.mjs",
+    "helm/mosaic-stack/values.yaml",
+    "tests/docs/install-builder.test.mjs"
+  ],
+  "privateCredentialMatches": 0,
+  "sharedIgnoreOrCiChanges": false,
+  "proxySourceSha256": "2148316a0dcd1a92e61c13519249f70be3439fdea0a9d772d40821ab2e146fc2",
+  "browserCases": 4,
+  "fullCiTests": 275,
+  "fullCiPassed": 273,
+  "fullCiSkipped": 2,
+  "inferenceTestsPassed": 4
+}

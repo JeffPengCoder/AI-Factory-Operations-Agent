@@ -1,0 +1,32 @@
+[
+  {
+    "name": "app_lib_0nseke0._.js",
+    "bytes": 2404,
+    "sha256": "a776878024e3e122064465c41f6a6937e90eafd90efe4714e8e1529da16429b6"
+  },
+  {
+    "name": "app_lib_0nseke0._.js.map",
+    "bytes": 10071,
+    "sha256": "3642f0498ba36eab6341b6ab88da3de633332056636ebd526a865458ab832857"
+  },
+  {
+    "sourceName": "../../../app/lib/subagentEvents.ts",
+    "extracted": "ui-chat-source-2.private.txt",
+    "bytes": 720
+  },
+  {
+    "name": "_1ior5y6._.js",
+    "bytes": 28700,
+    "sha256": "e1cc683829bea286aa2589e89d2c26f1f3d1eb1cf2ef34a8e53174b40cbe7c6c"
+  },
+  {
+    "name": "_1ior5y6._.js.map",
+    "bytes": 94973,
+    "sha256": "5391bc98dca53e230c76350fa8414f037c4f25bf274b0b489c072ee0890f8b8a"
+  },
+  {
+    "sourceName": "../../../app/api/openclaw/chat/stream/route.ts",
+    "extracted": "ui-chat-source-5.private.txt",
+    "bytes": 40747
+  }
+]

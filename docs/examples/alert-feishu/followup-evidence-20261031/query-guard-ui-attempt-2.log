@@ -1,0 +1,69 @@
+Traceback (most recent call last):
+  File "/Users/operator/workspace/system-sa/aiops/mosaic-run/alerts/research-debug-20261031/browser_query_guard.py", line 36, in <module>
+    expect(page.get_by_role('button', name='view', exact=True)).to_have_attribute('aria-pressed', 'true')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/mosaic-access-playwright-cache/archive-v0/eLAgIuzzqGMAEsjA/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 15122, in to_have_attribute
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_have_attribute(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "/private/tmp/mosaic-access-playwright-cache/archive-v0/eLAgIuzzqGMAEsjA/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/private/tmp/mosaic-access-playwright-cache/archive-v0/eLAgIuzzqGMAEsjA/lib/python3.13/site-packages/playwright/_impl/_assertions.py", line 349, in to_have_attribute
+    await self._expect_impl(
+    ...<7 lines>...
+    )
+  File "/private/tmp/mosaic-access-playwright-cache/archive-v0/eLAgIuzzqGMAEsjA/lib/python3.13/site-packages/playwright/_impl/_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/private/tmp/mosaic-access-playwright-cache/archive-v0/eLAgIuzzqGMAEsjA/lib/python3.13/site-packages/playwright/_impl/_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to have attribute 'true'
+Actual value: None
+Error: element(s) not found 
+Call log:
+  - Expect "to_have_attribute" get_by_role("button", name="view", exact=True) with timeout 5000ms
+  - waiting for get_by_role("button", name="view", exact=True)
+
+Aria snapshot:
+- main:
+  - button "Main"
+  - button "New Chat": +
+  - button "Reset Layout"
+  - button "Job Recovery Agent agent"
+  - button "Kubernetes agent"
+  - button "Cluster Management agent"
+  - button "Observability agent"
+  - button "AI Factory Operations Agent":
+    - img "AI Factory Operations Agent"
+  - text: AI Factory Operations Agent Loading session…
+  - textbox "Message the assistant. Type / for commands."
+  - text: Enter sends Shift+Enter adds a line / opens skills and commands Tokens 0 est operator
+  - button "Send" [disabled]
+  - separator
+  - button "Alerts"
+  - button "Dashboard"
+  - button "Conversations"
+  - button "Audit"
+  - button "Settings"
+  - text: Alerts
+  - button "Refresh"
+  - switch "Auto pull"
+  - switch "Auto investigate"
+  - button "Archive all"
+  - button "Resolve all"
+  - text: No alerts yet.
+- text: v0.0.1

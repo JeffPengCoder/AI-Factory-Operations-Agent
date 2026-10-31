@@ -1,0 +1,10 @@
+{
+  "status": "waiting_for_user_bot_creation",
+  "userConfirmedBotNotCreated": true,
+  "targetGroupKnown": false,
+  "credentialsProvided": false,
+  "messageSent": false,
+  "dryRunCompleted": true,
+  "unsignedPayloadOriginalUTF8Bytes": 8867,
+  "at": "2026-10-31T02:43:32.573875+00:00"
+}

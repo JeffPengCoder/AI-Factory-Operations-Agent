@@ -1,0 +1,18 @@
+{
+  "case": "direct-no-thinking",
+  "httpStatus": 200,
+  "elapsedSeconds": 0.8772225328721106,
+  "content": "I'll search the indexed document for the requested information.\n\nLet me start by locating the PDF and examining its contents.\n\n",
+  "reasoning": "",
+  "toolCalls": [
+    {
+      "id": "call_bba4fd4fed3a43f7acf771d1",
+      "name": "glob",
+      "arguments": "{}"
+    }
+  ],
+  "finishReasons": [
+    "tool_calls"
+  ],
+  "usage": null
+}

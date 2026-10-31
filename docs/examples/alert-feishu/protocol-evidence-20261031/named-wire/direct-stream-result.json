@@ -1,0 +1,13 @@
+{
+  "case": "direct-stream",
+  "url": "http://spark-kind-bridge.example.invalid:8000/v1",
+  "stream": true,
+  "httpStatus": 200,
+  "contentType": "text/event-stream; charset=utf-8",
+  "elapsedSeconds": 0.6698545948602259,
+  "fullContent": "{\n  \"query\": \"MOSAIC-KB-20261031 public verification code Operator Decision Evidence section page 2\"\n}",
+  "allToolCallDeltas": [],
+  "finishReasons": [
+    "stop"
+  ]
+}

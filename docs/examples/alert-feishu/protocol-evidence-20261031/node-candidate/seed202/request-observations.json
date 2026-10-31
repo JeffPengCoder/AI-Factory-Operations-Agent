@@ -1,0 +1,16 @@
+[
+  {
+    "sequence": 1,
+    "toolCount": 10,
+    "toolChoice": null,
+    "lastMessageRole": "user",
+    "intervention": null
+  },
+  {
+    "sequence": 2,
+    "toolCount": 10,
+    "toolChoice": null,
+    "lastMessageRole": "tool",
+    "intervention": null
+  }
+]

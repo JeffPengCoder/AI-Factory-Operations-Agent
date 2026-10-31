@@ -1,0 +1,1 @@
+{"runId": "e2e-20261031t075722z", "researchSessionKey": "agent:default:alert-alertmanager-1bdae10de10f472e", "group": "MOSAIC Alert Test", "payloadBytesBeforeSigning": 15481, "payloadSha256": "de1f678892b652a0e824c8b2a0991077418e11d2449b741aeb6be2ba4b9b75e2", "status": "prepared-not-sent", "credentialValuesSaved": false, "fullReportNotTruncated": true, "allToolIndexRows": 18}

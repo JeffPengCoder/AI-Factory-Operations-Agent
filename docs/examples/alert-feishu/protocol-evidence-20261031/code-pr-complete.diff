@@ -1,0 +1,985 @@
+diff --git a/docs/installation.md b/docs/installation.md
+index 9e0334f..576747d 100644
+--- a/docs/installation.md
++++ b/docs/installation.md
+@@ -504,6 +504,61 @@ helm upgrade mosaic "$MOSAIC_CHART" \
+ unset NVIDIA_API_KEY IRAOP_API_KEY
+ ```
+ 
++`iraop_query` requires a nonempty answer and at least one document reference with
++a filename and positive page number. A response without that evidence returns
++`status: "incomplete"` and an error event in the Research panel. Its unverified
++answer is withheld from model-visible content; the full original MCP response
++remains in the tool result's `details` in the OpenClaw session transcript. The
++chat history API may omit `details`. OpenClaw assigns its transport-level
++`isError` flag independently, so `isError: false` does not mean research passed.
++
++Missing sources can reflect an agent or model/tool execution problem even when
++the PDF is indexed and direct search works. Check collection metadata, the
++original PDF, actual search execution and citations separately. A source
++reference alone does not establish that every claim or inline citation is
++correct, or that a proposed cause matches the current cluster.
++
++#### Optional research tool compatibility
++
++Some inference configurations return a named search tool's JSON arguments as
++ordinary text, without an OpenAI `tool_calls` envelope. The research agent then
++never executes the search. An opt-in workaround is available in the existing
++LLM compatibility proxy:
++
++```bash
++helm upgrade mosaic "$MOSAIC_CHART" \
++  --devel -n mosaic --reuse-values \
++  --set modules.research.enabled=true \
++  --set llm.requestCompatibility.enabled=true \
++  --set llm.requestCompatibility.researchToolCalls.enabled=true \
++  --wait --timeout 12m
++```
++
++This setting is disabled by default. For an initial research request exposing
++`task` and the supported query-only `opensearch_search` schema, it explicitly
++selects that read-only search and disables thinking for this first generation.
++It wraps only a complete, validated JSON argument object into the named tool
++envelope; the original research agent must execute the actual search. Proper
++upstream tool calls pass through. Explicit selection of another tool, synthesis
++after a tool result, and unrelated OpenClaw requests retain their existing
++behavior. Malformed or unfinished arguments return an error, never a fabricated
++search result. Collection scope remains enforced by the research service.
++
++Use this workaround only after reproducing the protocol problem. For example,
++the installed vLLM `Qwen3CoderToolParser` may declare named/required tool calls
++unsupported; the checkpoint's documented parser configuration should also be
++checked. This proxy setting does not change or restart the model server, and
++does not certify document relevance, citation accuracy or general answer quality.
++
++For a controlled validation, additionally set
++`llm.requestCompatibility.researchToolCalls.auditEnabled=true`. Full research
++request bodies, raw upstream response bytes and returned response bytes are
++saved as Base64 in `/audit/records` inside the proxy Pod. Authentication/cookie
++headers are excluded. These traces can contain private prompts and documents;
++export them to the authorized evidence location before replacing the Pod.
++The volume is temporary and limited to 128 MiB; audit write failures fail the
++request. Disable this tracing setting after the required evidence is exported.
++
+ ### Hardware Agent
+ 
+ The Hardware Agent reuses the Base Command Manager head address and `bcm-host-ssh-key` configured above. The chart exposes the required Base Command Manager lookup inside the cluster and generates its internal credentials. It uses NVDebug evidence and generic analysis.
+diff --git a/helm/mosaic-stack/files/llm-compat-server.mjs b/helm/mosaic-stack/files/llm-compat-server.mjs
+new file mode 100644
+index 0000000..7624d1e
+--- /dev/null
++++ b/helm/mosaic-stack/files/llm-compat-server.mjs
+@@ -0,0 +1,228 @@
++// SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
++// SPDX-License-Identifier: Apache-2.0
++
++import http from 'node:http';
++import https from 'node:https';
++import { randomUUID } from 'node:crypto';
++import { mkdir, writeFile } from 'node:fs/promises';
++import { realpathSync } from 'node:fs';
++import { join, resolve } from 'node:path';
++import { fileURLToPath } from 'node:url';
++import { gunzipSync, inflateSync, brotliDecompressSync } from 'node:zlib';
++
++const SEARCH = 'opensearch_search';
++const textDecoder = new TextDecoder('utf-8', { fatal: true });
++
++function readBody(stream, limit = Infinity) {
++  return new Promise((resolveBody, reject) => {
++    const chunks = [];
++    let bytes = 0;
++    stream.on('data', chunk => {
++      bytes += chunk.length;
++      if (bytes > limit) {
++        reject(new Error('Research response exceeds the compatibility buffer limit.'));
++        stream.destroy();
++        return;
++      }
++      chunks.push(chunk);
++    });
++    stream.on('end', () => resolveBody(Buffer.concat(chunks)));
++    stream.on('error', reject);
++    stream.on('aborted', () => reject(new Error('Upstream response ended before completion.')));
++  });
++}
++
++function searchSchema(tools) {
++  const tool = tools?.find?.(item => item.type === 'function' && item.function?.name === SEARCH);
++  const parameters = tool?.function?.parameters;
++  return parameters?.type === 'object'
++    && parameters.properties?.query?.type === 'string'
++    && Object.keys(parameters.properties).length === 1
++    && parameters.required?.length === 1 && parameters.required[0] === 'query';
++}
++
++function prepare(method, path, raw, researchToolCalls) {
++  if (method !== 'POST' || !path.endsWith('/chat/completions')) return { body: raw };
++  let json;
++  try { json = JSON.parse(raw.toString('utf8')); } catch { return { body: raw }; }
++  if (!json || typeof json !== 'object' || Array.isArray(json)) return { body: raw };
++  json.reasoning_effort = 'none';
++  const research = searchSchema(json.tools);
++  const named = json.tool_choice?.type === 'function' && json.tool_choice.function?.name === SEARCH;
++  const automatic = json.tool_choice == null || json.tool_choice === 'auto';
++  const initial = json.messages?.at?.(-1)?.role === 'user'
++    && json.tools?.some?.(item => item.function?.name === 'task');
++  const normalize = researchToolCalls && research && (json.n == null || json.n === 1)
++    && (named || (automatic && initial));
++  const stream = json.stream === true;
++  if (normalize) {
++    json.tool_choice = { type: 'function', function: { name: SEARCH } };
++    json.chat_template_kwargs = { ...json.chat_template_kwargs, enable_thinking: false };
++    // Some affected providers discard named arguments in their nonstream path.
++    json.stream = true;
++    if (!stream) json.stream_options = { ...json.stream_options, include_usage: true };
++  }
++  return { body: Buffer.from(JSON.stringify(json)), research, normalize, stream };
++}
++
++function decodeBody(raw, headers) {
++  const encoding = String(headers['content-encoding'] || 'identity').toLowerCase();
++  if (encoding === 'gzip') raw = gunzipSync(raw);
++  else if (encoding === 'deflate') raw = inflateSync(raw);
++  else if (encoding === 'br') raw = brotliDecompressSync(raw);
++  else if (encoding !== 'identity') throw new Error('Unsupported upstream response encoding.');
++  return textDecoder.decode(raw);
++}
++
++function validArguments(text) {
++  let value;
++  try { value = JSON.parse(text); } catch { throw new Error('Named research tool arguments are not complete JSON.'); }
++  if (!value || typeof value !== 'object' || Array.isArray(value)
++      || Object.keys(value).length !== 1 || typeof value.query !== 'string' || !value.query.trim()) {
++    throw new Error('Named research tool arguments do not match the query-only schema.');
++  }
++}
++
++function normalizeResponse(raw, headers, stream) {
++  if (!String(headers['content-type']).includes('text/event-stream')) {
++    throw new Error('Expected a streaming named research response.');
++  }
++  const events = [];
++  let done = false;
++  for (const frame of decodeBody(raw, headers).replace(/\r\n/g, '\n').split('\n\n')) {
++    const data = frame.split('\n').filter(line => line.startsWith('data:')).map(line => line.slice(5).trimStart()).join('\n');
++    if (!data) continue;
++    if (data === '[DONE]') { done = true; continue; }
++    const event = JSON.parse(data);
++    if (event.error) throw new Error('Upstream reported an error in the research stream.');
++    if (event.choices?.length > 1) throw new Error('Expected one research completion choice.');
++    events.push(event);
++  }
++  const metadata = events.find(event => event.id && event.model);
++  if (!done || !metadata) throw new Error('Research stream did not complete.');
++  let content = '', reasoning = '', finish;
++  const calls = new Map();
++  for (const event of events) {
++    const choice = event.choices?.[0];
++    if (!choice) continue;
++    if (choice.index !== 0) throw new Error('Unexpected research completion choice.');
++    if (choice.finish_reason) finish = choice.finish_reason;
++    const delta = choice.delta || {};
++    content += delta.content || '';
++    reasoning += delta.reasoning || delta.reasoning_content || '';
++    for (const part of delta.tool_calls || []) {
++      const value = calls.get(part.index) || { id: '', type: 'function', function: { name: '', arguments: '' } };
++      if (part.id) value.id = part.id;
++      if (part.function?.name) value.function.name += part.function.name;
++      if (part.function?.arguments) value.function.arguments += part.function.arguments;
++      calls.set(part.index, value);
++    }
++  }
++  if (!['stop', 'tool_calls'].includes(finish)) throw new Error('Research tool generation did not finish normally.');
++  let call;
++  const performed = calls.size === 0;
++  if (calls.size) {
++    if (calls.size !== 1 || calls.get(0)?.function.name !== SEARCH || !calls.get(0).id) {
++      throw new Error('Upstream returned an unexpected research tool call.');
++    }
++    call = calls.get(0);
++    validArguments(call.function.arguments);
++    if (stream) return { body: raw, headers, performed: false, toolCallId: call.id };
++  } else {
++    validArguments(content);
++    call = { id: `call_research_${randomUUID().replaceAll('-', '')}`, type: 'function', function: { name: SEARCH, arguments: content } };
++    content = '';
++  }
++  const usage = events.findLast(event => event.usage)?.usage;
++  const meta = { id: metadata.id, created: metadata.created, model: metadata.model };
++  if (!stream) {
++    const message = { role: 'assistant', content: content || null, tool_calls: [call] };
++    if (reasoning) message.reasoning = reasoning;
++    const value = { ...meta, object: 'chat.completion', choices: [{ index: 0, message, finish_reason: 'tool_calls' }], usage: usage || null };
++    return { body: Buffer.from(JSON.stringify(value)), headers: { 'content-type': 'application/json' }, performed, toolCallId: call.id };
++  }
++  const first = { role: 'assistant', content: '' };
++  if (reasoning) first.reasoning = reasoning;
++  const chunks = [first, { tool_calls: [{ index: 0, ...call }] }, {}].map((delta, index) => ({
++    ...meta, object: 'chat.completion.chunk', choices: [{ index: 0, delta, finish_reason: index === 2 ? 'tool_calls' : null }],
++  }));
++  if (usage) chunks.push({ ...meta, object: 'chat.completion.chunk', choices: [], usage });
++  const body = Buffer.from(chunks.map(chunk => `data: ${JSON.stringify(chunk)}\n\n`).join('') + 'data: [DONE]\n\n');
++  return { body, headers: { 'content-type': 'text/event-stream' }, performed, toolCallId: call.id };
++}
++
++function sendBody(res, status, headers, body) {
++  const output = { ...headers, 'content-length': String(body.length) };
++  delete output['transfer-encoding'];
++  res.writeHead(status, output).end(body);
++}
++
++export function createCompatibilityServer({ upstreamBaseUrl, researchToolCalls = false, auditDirectory = '', timeoutMs = 180_000, maxBufferedBytes = 16 * 1024 * 1024, log = () => {} }) {
++  const upstream = new URL(upstreamBaseUrl);
++  if (!['http:', 'https:'].includes(upstream.protocol) || upstream.username || upstream.password) throw new Error('Invalid upstream URL.');
++  async function audit(id, record) {
++    if (!auditDirectory) return;
++    await mkdir(auditDirectory, { recursive: true, mode: 0o700 });
++    await writeFile(join(auditDirectory, `${id}.json`), JSON.stringify(record, null, 2) + '\n', { mode: 0o600, flag: 'wx' });
++  }
++  return http.createServer(async (req, res) => {
++    if (req.url === '/health') return res.writeHead(200).end('ok');
++    const id = randomUUID();
++    let record, audited = false;
++    try {
++      const target = new URL(req.url, upstream);
++      if (target.origin !== upstream.origin) throw new Error('Request must use the configured upstream.');
++      const original = await readBody(req);
++      const prepared = prepare(req.method, target.pathname, original, researchToolCalls);
++      const shouldAudit = researchToolCalls && prepared.research && Boolean(auditDirectory);
++      if (shouldAudit) record = { id, at: new Date().toISOString(), originalRequestBase64: original.toString('base64'), forwardedRequestBase64: prepared.body.toString('base64'), headersExcluded: 'Authentication and cookie headers are never recorded.' };
++      const headers = { ...req.headers, host: target.host, 'content-length': String(prepared.body.length) };
++      delete headers['transfer-encoding'];
++      if (prepared.normalize) headers['accept-encoding'] = 'identity';
++      const client = target.protocol === 'https:' ? https : http;
++      await new Promise((resolveRequest, reject) => {
++        const out = client.request(target, { method: req.method, headers }, async response => {
++          try {
++            if (!prepared.normalize && !shouldAudit) {
++              res.writeHead(response.statusCode || 502, response.headers);
++              response.on('error', reject);
++              response.on('end', resolveRequest);
++              response.pipe(res);
++              return;
++            }
++            const raw = await readBody(response, maxBufferedBytes);
++            if (record) Object.assign(record, { upstreamStatus: response.statusCode, upstreamResponseBase64: raw.toString('base64'), upstreamContentType: response.headers['content-type'], upstreamContentEncoding: response.headers['content-encoding'], upstreamResponseComplete: true });
++            let output = { body: raw, headers: response.headers, performed: false };
++            if (prepared.normalize && response.statusCode === 200) output = normalizeResponse(raw, response.headers, prepared.stream);
++            if (record) {
++              Object.assign(record, { normalizationPerformed: output.performed, toolCallId: output.toolCallId, returnedResponseBase64: output.body.toString('base64') });
++              await audit(id, record); audited = true;
++            }
++            if (output.performed) log({ event: 'research-tool-normalized', requestId: id, toolCallId: output.toolCallId, upstreamBytes: raw.length, returnedBytes: output.body.length });
++            sendBody(res, response.statusCode || 502, output.headers, output.body);
++            resolveRequest();
++          } catch (error) { reject(error); }
++        });
++        if (prepared.normalize || shouldAudit) out.setTimeout(timeoutMs, () => out.destroy(new Error('Research upstream request timed out.')));
++        out.on('error', reject);
++        out.end(prepared.body);
++      });
++    } catch (error) {
++      if (record && !audited) {
++        try { await audit(id, { ...record, error: String(error.message), returnedSuccess: false }); }
++        catch { /* The failed response below does not claim successful auditing. */ }
++      }
++      if (res.headersSent) return res.destroy();
++      sendBody(res, 502, { 'content-type': 'application/json' }, Buffer.from(JSON.stringify({ error: { message: String(error.message), type: 'research_tool_compatibility_error', request_id: id } })));
++    }
++  });
++}
++
++if (process.argv[1] && realpathSync(resolve(process.argv[1])) === fileURLToPath(import.meta.url)) {
++  createCompatibilityServer({
++    upstreamBaseUrl: process.env.UPSTREAM_BASE_URL,
++    researchToolCalls: process.env.RESEARCH_TOOL_CALLS_ENABLED === 'true',
++    auditDirectory: process.env.RESEARCH_TOOL_CALLS_AUDIT_DIR || '',
++    log: value => console.log(JSON.stringify(value)),
++  }).listen(Number(process.env.PORT || 8000), '0.0.0.0');
++}
+diff --git a/helm/mosaic-stack/files/openclaw-seed/extensions/iraop/index.ts b/helm/mosaic-stack/files/openclaw-seed/extensions/iraop/index.ts
+index cc800b3..14fb47d 100644
+--- a/helm/mosaic-stack/files/openclaw-seed/extensions/iraop/index.ts
++++ b/helm/mosaic-stack/files/openclaw-seed/extensions/iraop/index.ts
+@@ -297,7 +297,7 @@ function toOpenClawResult(mcpResult: unknown) {
+         .join("\n");
+       throw new Error(typeof text === "string" && text ? text : "iraop tool call reported isError");
+     }
+-    return { content: r.content, details: mcpResult };
++    return { content: [...r.content], details: mcpResult };
+   }
+   const text = typeof mcpResult === "string" ? mcpResult : JSON.stringify(mcpResult, null, 2);
+   return { content: [{ type: "text", text }], details: mcpResult };
+@@ -316,6 +316,37 @@ function firstTextContent(result: { content?: unknown[] }) {
+     .join("\n");
+ }
+ 
++function queryEvidenceProblem(mcpResult: unknown): string | null {
++  const candidates: unknown[] = [];
++  if (mcpResult && typeof mcpResult === "object") {
++    const raw = mcpResult as Record<string, unknown>;
++    candidates.push(raw.structuredContent, raw);
++    if (Array.isArray(raw.content)) {
++      for (const item of raw.content) {
++        if (!item || typeof item !== "object" || !("text" in item) || typeof item.text !== "string") continue;
++        try { candidates.push(JSON.parse(item.text)); } catch { /* Try the next content block. */ }
++      }
++    }
++  } else if (typeof mcpResult === "string") {
++    try { candidates.push(JSON.parse(mcpResult)); } catch { /* Report an unreadable research response below. */ }
++  }
++  const response = candidates.find((candidate) =>
++    candidate && typeof candidate === "object" && !Array.isArray(candidate)
++    && "answer" in candidate,
++  ) as Record<string, unknown> | undefined;
++  if (!response || typeof response.answer !== "string" || !response.answer.trim()) {
++    return "IRAOP did not return a readable, nonempty research answer with document sources.";
++  }
++  const hasSource = Array.isArray(response.sources) && response.sources.some((source) =>
++    source && typeof source === "object"
++    && typeof source.source_file === "string" && source.source_file.trim()
++    && Number.isInteger(source.page_number) && source.page_number > 0,
++  );
++  return hasSource ? null : "IRAOP returned no usable document sources. The research is incomplete. "
++    + "Do not present its answer as retrieved documentation or use it to justify a repair. "
++    + "Missing sources do not establish that a collection is empty.";
++}
++
+ function summarizeQueryResult(result: ReturnType<typeof toOpenClawResult>, elapsedMs: number) {
+   const text = firstTextContent(result).trim();
+   const elapsed = Math.max(1, Math.round(elapsedMs / 1000));
+@@ -398,6 +429,21 @@ export default definePluginEntry({
+             postSubagentEvent(subagent, "delta", message);
+           });
+           const openClawResult = toOpenClawResult(result);
++          const evidenceProblem = queryEvidenceProblem(result);
++          if (evidenceProblem) {
++            postSubagentEvent(subagent, "error", `IRA research incomplete: ${evidenceProblem}`);
++            return {
++              // The tool transport completed. Research completion is explicit in
++              // content; returning normally also preserves the raw MCP details.
++              // OpenClaw assigns its own isError flag to the resulting message.
++              content: [{ type: "text", text: JSON.stringify({
++                status: "incomplete",
++                error: evidenceProblem,
++                evidenceScope: "No document-grounded answer is available from this call. The full original response is retained in tool details for inspection.",
++              }) }],
++              details: result,
++            };
++          }
+           postSubagentEvent(subagent, "complete", summarizeQueryResult(openClawResult, Date.now() - startedAt));
+           openClawResult.content.unshift({ type: "text", text: "Evidence scope: documentation research. This service has not inspected the current workload. Proposed local causes remain hypotheses until checked against live evidence on the participating resources." });
+           return openClawResult;
+diff --git a/helm/mosaic-stack/templates/llm-compat.yaml b/helm/mosaic-stack/templates/llm-compat.yaml
+index e763a0d..c265d7e 100644
+--- a/helm/mosaic-stack/templates/llm-compat.yaml
++++ b/helm/mosaic-stack/templates/llm-compat.yaml
+@@ -2,6 +2,9 @@
+ # SPDX-License-Identifier: Apache-2.0
+ 
+ {{- $c := .Values.llm.requestCompatibility -}}
++{{- $r := $c.researchToolCalls | default dict -}}
++{{- $research := and .Values.modules.research.enabled ($r.enabled | default false) -}}
++{{- $audit := and $research ($r.auditEnabled | default false) -}}
+ {{- if and .Values.modules.execution.enabled $c.enabled }}
+ apiVersion: v1
+ kind: ConfigMap
+@@ -11,48 +14,8 @@ metadata:
+     app: {{ $c.name }}
+     {{- include "mosaic-stack.labels" . | nindent 4 }}
+ data:
+-  server.js: |
+-    const http = require('http');
+-    const https = require('https');
+-    const upstream = new URL(process.env.UPSTREAM_BASE_URL);
+-    const port = Number(process.env.PORT || {{ $c.port }});
+-
+-    function readBody(req) {
+-      return new Promise((resolve, reject) => {
+-        const chunks = [];
+-        req.on('data', chunk => chunks.push(chunk));
+-        req.on('end', () => resolve(Buffer.concat(chunks)));
+-        req.on('error', reject);
+-      });
+-    }
+-
+-    function patchBody(req, body) {
+-      if (req.method !== 'POST' || !req.url.endsWith('/chat/completions')) return body;
+-      try {
+-        const json = JSON.parse(body.toString('utf8'));
+-        json.reasoning_effort = 'none';
+-        return Buffer.from(JSON.stringify(json));
+-      } catch {
+-        return body;
+-      }
+-    }
+-
+-    http.createServer(async (req, res) => {
+-      if (req.url === '/health') return res.writeHead(200).end('ok');
+-      const body = patchBody(req, await readBody(req));
+-      const target = new URL(req.url, upstream);
+-      const headers = { ...req.headers, host: target.host, 'content-length': String(body.length) };
+-      const client = target.protocol === 'https:' ? https : http;
+-      const out = client.request(target, { method: req.method, headers }, upstreamRes => {
+-        res.writeHead(upstreamRes.statusCode || 502, upstreamRes.headers);
+-        upstreamRes.pipe(res);
+-      });
+-      out.on('error', error => {
+-        res.writeHead(502, { 'content-type': 'application/json' });
+-        res.end(JSON.stringify({ error: String(error.message || error) }));
+-      });
+-      out.end(body);
+-    }).listen(port, '0.0.0.0');
++  server.mjs: |
++    {{- .Files.Get "files/llm-compat-server.mjs" | nindent 4 }}
+ ---
+ apiVersion: apps/v1
+ kind: Deployment
+@@ -71,8 +34,12 @@ spec:
+       labels:
+         app: {{ $c.name }}
+       annotations:
+-        checksum/config: {{ printf "%s-%s-%s" .Chart.Version $c.name (include "mosaic-stack.llmUpstreamBaseUrl" .) | sha256sum }}
++        checksum/config: {{ printf "%s-%s-%s-%s-%v-%v" .Chart.Version $c.name (include "mosaic-stack.llmUpstreamBaseUrl" .) (.Files.Get "files/llm-compat-server.mjs" | sha256sum) $research $audit | sha256sum }}
+     spec:
++      {{- if $audit }}
++      securityContext:
++        fsGroup: 1000
++      {{- end }}
+       {{- include "mosaic-stack.imagePullSecrets" . | nindent 6 }}
+       {{- include "mosaic-stack.nodeSelector" . | nindent 6 }}
+       {{- include "mosaic-stack.tolerations" . | nindent 6 }}
+@@ -80,12 +47,18 @@ spec:
+         - name: proxy
+           image: {{ include "mosaic-stack.image" .Values.mosaicUi.image | quote }}
+           imagePullPolicy: {{ .Values.mosaicUi.image.pullPolicy }}
+-          command: ["node", "/config/server.js"]
++          command: ["node", "/config/server.mjs"]
+           env:
+             - name: PORT
+               value: {{ $c.port | quote }}
+             - name: UPSTREAM_BASE_URL
+               value: {{ include "mosaic-stack.llmUpstreamBaseUrl" . | quote }}
++            - name: RESEARCH_TOOL_CALLS_ENABLED
++              value: {{ $research | quote }}
++            {{- if $audit }}
++            - name: RESEARCH_TOOL_CALLS_AUDIT_DIR
++              value: /audit/records
++            {{- end }}
+             {{- if and (eq .Values.llm.mode "external") .Values.llm.external.caCertificateSecret }}
+             - name: NODE_EXTRA_CA_CERTS
+               value: /etc/llm-ca/ca.crt
+@@ -102,6 +75,10 @@ spec:
+             - name: config
+               mountPath: /config
+               readOnly: true
++            {{- if $audit }}
++            - name: research-audit
++              mountPath: /audit
++            {{- end }}
+             {{- if and (eq .Values.llm.mode "external") .Values.llm.external.caCertificateSecret }}
+             - name: llm-ca
+               mountPath: /etc/llm-ca
+@@ -111,6 +88,11 @@ spec:
+         - name: config
+           configMap:
+             name: {{ $c.name }}
++        {{- if $audit }}
++        - name: research-audit
++          emptyDir:
++            sizeLimit: 128Mi
++        {{- end }}
+         {{- if and (eq .Values.llm.mode "external") .Values.llm.external.caCertificateSecret }}
+         - name: llm-ca
+           secret:
+diff --git a/helm/mosaic-stack/tests/chart-render.test.mjs b/helm/mosaic-stack/tests/chart-render.test.mjs
+index f78ace1..35da37b 100644
+--- a/helm/mosaic-stack/tests/chart-render.test.mjs
++++ b/helm/mosaic-stack/tests/chart-render.test.mjs
+@@ -3,7 +3,7 @@
+ 
+ import assert from "node:assert/strict";
+ import { execFileSync, spawnSync } from "node:child_process";
+-import { mkdtempSync, readFileSync, readdirSync, existsSync, rmSync, writeFileSync } from "node:fs";
++import { cpSync, mkdtempSync, readFileSync, readdirSync, existsSync, rmSync, writeFileSync } from "node:fs";
+ import { tmpdir } from "node:os";
+ import { join } from "node:path";
+ import { fileURLToPath } from "node:url";
+@@ -392,7 +392,44 @@ test("uses one no-reasoning request contract for external endpoints", () => {
+     "--show-only", "templates/llm-compat.yaml",
+   );
+   assert.match(output, /json\.reasoning_effort = 'none'/);
+-  assert.doesNotMatch(output, /DISABLE_THINKING|VLLM_UPSTREAM|chat_template_kwargs|scrubVisibleThinking|pipeOpenAiStream/);
++  assert.doesNotMatch(output, /DISABLE_THINKING|VLLM_UPSTREAM|scrubVisibleThinking|pipeOpenAiStream/);
++  assert.match(output, /name: RESEARCH_TOOL_CALLS_ENABLED\s+value: "false"/);
++});
++
++test("research compatibility is opt-in and requires the research module", () => {
++  const args = ["--show-only", "templates/llm-compat.yaml"];
++  const disabled = render(...args, "--set", "llm.requestCompatibility.researchToolCalls.enabled=true");
++  assert.match(disabled, /name: RESEARCH_TOOL_CALLS_ENABLED\s+value: "false"/);
++  assert.doesNotMatch(disabled, /name: research-audit/);
++  const enabled = render(...args, "--set", "modules.research.enabled=true,llm.requestCompatibility.researchToolCalls.enabled=true,llm.requestCompatibility.researchToolCalls.auditEnabled=true");
++  assert.match(enabled, /name: RESEARCH_TOOL_CALLS_ENABLED\s+value: "true"/);
++  assert.match(enabled, /name: RESEARCH_TOOL_CALLS_AUDIT_DIR\s+value: \/audit\/records/);
++  assert.match(enabled, /fsGroup: 1000/);
++  assert.match(enabled, /sizeLimit: 128Mi/);
++});
++
++test("the rendered compatibility server is the tested source file", () => {
++  const output = render("--show-only", "templates/llm-compat.yaml");
++  const source = readFileSync(join(chart, "files/llm-compat-server.mjs"), "utf8");
++  assert.equal(configMapBlock(output, "server.mjs").trimEnd(), source.trimEnd());
++});
++
++test("a compatibility source change rolls the proxy without a chart version change", () => {
++  const directory = mkdtempSync(join(tmpdir(), "mosaic-compat-checksum-"));
++  try {
++    const copy = join(directory, "chart");
++    cpSync(chart, copy, { recursive: true });
++    const checksum = () => {
++      const output = execFileSync("helm", ["template", "mosaic", copy, "--show-only", "templates/llm-compat.yaml"], { encoding: "utf8" });
++      return output.match(/checksum\/config: ([a-f0-9]{64})/)[1];
++    };
++    const before = checksum();
++    const path = join(copy, "files/llm-compat-server.mjs");
++    writeFileSync(path, readFileSync(path, "utf8") + "\n// Independent test change.\n");
++    assert.notEqual(checksum(), before);
++  } finally {
++    rmSync(directory, { recursive: true, force: true });
++  }
+ });
+ 
+ test("configures chart-managed vLLM for non-thinking generation", () => {
+diff --git a/helm/mosaic-stack/tests/iraop-response.test.mjs b/helm/mosaic-stack/tests/iraop-response.test.mjs
+new file mode 100644
+index 0000000..44b6d8f
+--- /dev/null
++++ b/helm/mosaic-stack/tests/iraop-response.test.mjs
+@@ -0,0 +1,165 @@
++// SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
++// SPDX-License-Identifier: Apache-2.0
++
++import assert from "node:assert/strict";
++import { readFileSync } from "node:fs";
++import { createServer } from "node:http";
++import { stripTypeScriptTypes } from "node:module";
++import test from "node:test";
++
++const source = readFileSync(new URL("../files/openclaw-seed/extensions/iraop/index.ts", import.meta.url), "utf8")
++  .replace('import { definePluginEntry } from "openclaw/plugin-sdk/plugin-entry";', "const definePluginEntry = (entry) => entry;");
++const javascript = stripTypeScriptTypes(source, { mode: "strip", sourceUrl: "iraop-response-test.ts" });
++const { default: plugin } = await import(`data:text/javascript;base64,${Buffer.from(javascript).toString("base64")}`);
++
++const queryPayload = (answer, sources = []) => ({
++  answer, depth: "quick", collections_searched: ["validation"], sources,
++});
++const mcp = (payload) => ({ content: [{ type: "text", text: JSON.stringify(payload) }], isError: false });
++const sourceReference = { source_file: "control.pdf", page_number: 2, collection: "validation", doc_id: "control.pdf", url: "/api/v1/documents/control.pdf" };
++
++async function fixture(result, run) {
++  const sessions = new Map();
++  const events = [];
++  let nextSession = 0;
++  const server = createServer(async (req, res) => {
++    const url = new URL(req.url, "http://localhost");
++    if (req.method === "GET" && url.pathname === "/mcp/sse") {
++      const id = String(++nextSession);
++      res.writeHead(200, { "Content-Type": "text/event-stream", "Cache-Control": "no-cache" });
++      sessions.set(id, res);
++      res.write(`event: endpoint\ndata: /mcp/messages?session=${id}\n\n`);
++      req.on("close", () => sessions.delete(id));
++      return;
++    }
++    let text = "";
++    for await (const chunk of req) text += chunk;
++    const body = JSON.parse(text || "{}");
++    if (url.pathname === "/events") {
++      events.push(body);
++      res.writeHead(200, { "Content-Type": "application/json" }).end('{"success":true}');
++      return;
++    }
++    if (url.pathname === "/mcp/messages") {
++      const stream = sessions.get(url.searchParams.get("session"));
++      if (body.id !== undefined) {
++        const response = body.method === "initialize"
++          ? { protocolVersion: "2024-11-05", capabilities: {}, serverInfo: { name: "iraop-test", version: "1" } }
++          : result;
++        stream.write(`event: message\ndata: ${JSON.stringify({ jsonrpc: "2.0", id: body.id, result: response })}\n\n`);
++      }
++      res.writeHead(202).end();
++      return;
++    }
++    res.writeHead(404).end();
++  });
++  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
++  const base = `http://127.0.0.1:${server.address().port}`;
++  const tools = new Map();
++  plugin.register({
++    pluginConfig: { baseUrl: `${base}/mcp/sse`, timeoutMs: 3000, subagentEventsUrl: `${base}/events` },
++    registerTool: (tool) => tools.set(tool.name, tool),
++  });
++  try {
++    await run(tools, events);
++    for (let i = 0; i < 100 && !events.some((event) => ["complete", "error"].includes(event.phase)); i++) {
++      await new Promise((resolve) => setTimeout(resolve, 5));
++    }
++  } finally {
++    for (const stream of sessions.values()) stream.end();
++    server.closeAllConnections();
++    await new Promise((resolve) => server.close(resolve));
++  }
++  return events;
++}
++
++async function query(result) {
++  let value;
++  const events = await fixture(result, async (tools) => {
++    value = await tools.get("iraop_query").execute("validation-call", { question: "Read the indexed control document.", collections: ["validation"] });
++  });
++  return { value, events };
++}
++
++test("planning text without sources is incomplete and emits an error event", async () => {
++  const original = mcp(queryPayload("I will search for the document."));
++  const { value, events } = await query(original);
++  assert.equal(JSON.parse(value.content[0].text).status, "incomplete");
++  assert.deepEqual(value.details, original);
++  assert.ok(events.some((event) => event.phase === "error" && event.content.includes("incomplete")));
++  assert.ok(!events.some((event) => event.phase === "complete"));
++});
++
++test("fabricated source-free answer stays complete in details and is withheld from model content", async () => {
++  const answer = "Verified code: MVE-2026-1000002. " + "未经检索的原始输出。".repeat(600);
++  const original = mcp(queryPayload(answer));
++  const { value } = await query(original);
++  assert.equal(JSON.parse(value.content[0].text).status, "incomplete");
++  assert.ok(!value.content.map((item) => item.text).join("\n").includes("MVE-2026-1000002"));
++  assert.equal(JSON.parse(value.details.content[0].text).answer, answer);
++  assert.deepEqual(value.details, original);
++});
++
++for (const [label, sources] of [
++  ["missing", undefined], ["null", null], ["wrong type", "control.pdf"],
++  ["empty reference", [{}]], ["invalid page", [{ ...sourceReference, page_number: 0 }]],
++]) {
++  test(`research with ${label} sources is incomplete`, async () => {
++    const payload = queryPayload("A factual claim.", sources);
++    if (label === "missing") delete payload.sources;
++    const { value } = await query(mcp(payload));
++    assert.equal(JSON.parse(value.content[0].text).status, "incomplete");
++    assert.match(value.content[0].text, /incomplete/);
++  });
++}
++
++test("an empty answer is incomplete even when a source is present", async () => {
++  const { value } = await query(mcp(queryPayload("  ", [sourceReference])));
++  assert.equal(JSON.parse(value.content[0].text).status, "incomplete");
++});
++
++test("valid sourced answer remains complete and evidence notes do not mutate raw details", async () => {
++  const original = mcp(queryPayload("A documented statement. " + "完整原文。".repeat(700), [sourceReference]));
++  const { value, events } = await query(original);
++  assert.ok(!value.isError);
++  assert.deepEqual(value.details, original);
++  assert.equal(value.content.length, original.content.length + 1);
++  assert.notEqual(value.content, value.details.content);
++  assert.equal(value.content[1].text, original.content[0].text);
++  assert.ok(events.some((event) => event.phase === "complete"));
++  assert.ok(!events.some((event) => event.phase === "error"));
++});
++
++test("structured MCP query payload can carry the source references", async () => {
++  const payload = queryPayload("Documented answer.", [sourceReference]);
++  const original = { content: [{ type: "text", text: payload.answer }], structuredContent: payload };
++  const { value } = await query(original);
++  assert.ok(!value.isError);
++  assert.deepEqual(value.details, original);
++});
++
++test("unreadable research payload is incomplete with the raw response retained", async () => {
++  const original = { content: [{ type: "text", text: "Unstructured unsupported response." }] };
++  const { value } = await query(original);
++  assert.equal(JSON.parse(value.content[0].text).status, "incomplete");
++  assert.deepEqual(value.details, original);
++});
++
++test("MCP error remains a rejected tool call and error event", async () => {
++  const original = { content: [{ type: "text", text: "Backend query failed." }], isError: true };
++  const events = await fixture(original, async (tools) => {
++    await assert.rejects(tools.get("iraop_query").execute("error-call", { question: "Read the document." }), /Backend query failed/);
++  });
++  assert.ok(events.some((event) => event.phase === "error"));
++  assert.ok(!events.some((event) => event.phase === "complete"));
++});
++
++test("collection listing does not require answer or sources fields", async () => {
++  const original = { content: [{ type: "text", text: JSON.stringify([{ name: "validation", doc_count: 4 }]) }] };
++  await fixture(original, async (tools) => {
++    const value = await tools.get("iraop_list_collections").execute();
++    assert.deepEqual(value.details, original);
++    assert.deepEqual(value.content, original.content);
++    assert.ok(!value.isError);
++  });
++});
+diff --git a/helm/mosaic-stack/tests/llm-compat.test.mjs b/helm/mosaic-stack/tests/llm-compat.test.mjs
+new file mode 100644
+index 0000000..e6c8061
+--- /dev/null
++++ b/helm/mosaic-stack/tests/llm-compat.test.mjs
+@@ -0,0 +1,238 @@
++// SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
++// SPDX-License-Identifier: Apache-2.0
++
++import assert from 'node:assert/strict';
++import http from 'node:http';
++import { mkdtemp, readFile, readdir, rm, symlink } from 'node:fs/promises';
++import { spawn } from 'node:child_process';
++import { once } from 'node:events';
++import { tmpdir } from 'node:os';
++import { join } from 'node:path';
++import { gzipSync, deflateSync, brotliCompressSync } from 'node:zlib';
++import { fileURLToPath } from 'node:url';
++import { setTimeout as delay } from 'node:timers/promises';
++import test from 'node:test';
++import { createCompatibilityServer } from '../files/llm-compat-server.mjs';
++
++const search = { type: 'function', function: { name: 'opensearch_search', parameters: { type: 'object', properties: { query: { type: 'string' } }, required: ['query'] } } };
++const task = { type: 'function', function: { name: 'task', parameters: { type: 'object' } } };
++const input = () => ({ model: 'test-model', messages: [{ role: 'user', content: 'Search the indexed PDF.' }], tools: [search, task], stream: true, temperature: 1, max_completion_tokens: 4096 });
++function frames(content, { calls, finish = 'stop', done = true, usage, choices } = {}) {
++  const meta = { id: 'chatcmpl-real-upstream', model: 'test-model', created: 1793400000, object: 'chat.completion.chunk' };
++  const delta = calls ? { tool_calls: calls } : { content };
++  const result = [
++    { ...meta, choices: [{ index: 0, delta: { role: 'assistant', content: '' }, finish_reason: null }] },
++    { ...meta, choices: choices || [{ index: 0, delta, finish_reason: null }] },
++    { ...meta, choices: [{ index: 0, delta: {}, finish_reason: finish }] },
++  ];
++  if (usage) result.push({ ...meta, choices: [], usage });
++  return Buffer.from(result.map(value => `data: ${JSON.stringify(value)}\n\n`).join('') + (done ? 'data: [DONE]\n\n' : ''));
++}
++function parseFrames(body) {
++  return body.toString().split('\n').filter(line => line.startsWith('data: ') && line !== 'data: [DONE]').map(line => JSON.parse(line.slice(6)));
++}
++function returnedCall(body) {
++  return parseFrames(body).flatMap(event => event.choices || []).flatMap(choice => choice.delta?.tool_calls || [])[0];
++}
++async function request(base, body, path = '/v1/chat/completions') {
++  return new Promise((resolveRequest, reject) => {
++    const req = http.request(base + path, { method: body === undefined ? 'GET' : 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer never-record-this-auth-value' } }, res => {
++      const chunks = [];
++      res.on('data', chunk => chunks.push(chunk));
++      res.on('end', () => resolveRequest({ status: res.statusCode, headers: res.headers, body: Buffer.concat(chunks) }));
++      res.on('error', reject);
++    });
++    req.on('error', reject);
++    req.end(body === undefined ? undefined : JSON.stringify(body));
++  });
++}
++async function fixture(options, run) {
++  const upstreamRequests = [], events = [];
++  const auditDirectory = await mkdtemp(join(tmpdir(), 'mosaic-research-compat-'));
++  const upstream = http.createServer(async (req, res) => {
++    const chunks = [];
++    for await (const chunk of req) chunks.push(chunk);
++    upstreamRequests.push({ path: req.url, headers: req.headers, body: chunks.length ? JSON.parse(Buffer.concat(chunks)) : null });
++    if (options.handler) return options.handler(req, res);
++    const response = options.response || frames('{"query":"MOSAIC-KB page 2"}');
++    res.writeHead(options.status || 200, { 'Content-Type': 'text/event-stream', ...options.headers });
++    if (options.fragment) {
++      for (const byte of response) res.write(Buffer.from([byte]));
++      res.end();
++    } else res.end(response);
++  });
++  await new Promise(resolveListen => upstream.listen(0, '127.0.0.1', resolveListen));
++  const proxy = createCompatibilityServer({ upstreamBaseUrl: `http://127.0.0.1:${upstream.address().port}/v1`, researchToolCalls: options.enabled !== false, auditDirectory: options.audit ? auditDirectory : '', log: value => events.push(value), ...options.server });
++  await new Promise(resolveListen => proxy.listen(0, '127.0.0.1', resolveListen));
++  try {
++    await run(`http://127.0.0.1:${proxy.address().port}`, upstreamRequests, auditDirectory, events);
++  } finally {
++    upstream.closeAllConnections(); proxy.closeAllConnections();
++    await Promise.all([new Promise(resolveClose => upstream.close(resolveClose)), new Promise(resolveClose => proxy.close(resolveClose))]);
++    await rm(auditDirectory, { recursive: true });
++  }
++}
++
++test('disabled research compatibility preserves the existing no-reasoning contract and raw reply', async () => {
++  const raw = frames('{"query":"plain unexecuted text"}');
++  await fixture({ enabled: false, response: raw, audit: true }, async (base, requests, directory) => {
++    const body = input();
++    const result = await request(base, body);
++    assert.deepEqual(result.body, raw);
++    assert.deepEqual(requests[0].body, { ...body, reasoning_effort: 'none' });
++    assert.deepEqual(await readdir(directory), []);
++  });
++});
++
++test('normalizes only complete named query arguments and retains the full original audit', async () => {
++  const argumentsText = JSON.stringify({ query: '完整检索内容。'.repeat(1000) }, null, 2);
++  const raw = frames(argumentsText);
++  await fixture({ response: raw, audit: true, fragment: true }, async (base, requests, directory, events) => {
++    const body = input();body.chat_template_kwargs = { custom_setting: 'retained' };
++    const result = await request(base, body);
++    assert.equal(result.status, 200);
++    const call = returnedCall(result.body);
++    assert.equal(call.function.name, 'opensearch_search');
++    assert.equal(call.function.arguments, argumentsText);
++    assert.deepEqual(requests[0].body.chat_template_kwargs, { custom_setting: 'retained', enable_thinking: false });
++    assert.deepEqual(requests[0].body.tool_choice, { type: 'function', function: { name: 'opensearch_search' } });
++    assert.deepEqual(requests[0].body.messages, body.messages);
++    const files = await readdir(directory);assert.equal(files.length, 1);
++    const audit = JSON.parse(await readFile(join(directory, files[0]), 'utf8'));
++    assert.deepEqual(Buffer.from(audit.upstreamResponseBase64, 'base64'), raw);
++    assert.deepEqual(Buffer.from(audit.returnedResponseBase64, 'base64'), result.body);
++    assert.deepEqual(JSON.parse(Buffer.from(audit.originalRequestBase64, 'base64')), body);
++    assert.equal(audit.normalizationPerformed, true);
++    assert.equal(audit.upstreamResponseComplete, true);
++    assert.ok(!JSON.stringify(audit).includes('never-record-this-auth-value'));
++    assert.equal(events[0].toolCallId, call.id);
++  });
++});
++
++test('already structured named calls pass through byte for byte', async () => {
++  const raw = frames('', { calls: [{ index: 0, id: 'call_actual_provider', type: 'function', function: { name: 'opensearch_search', arguments: '{"query":"actual query"}' } }], finish: 'tool_calls' });
++  await fixture({ response: raw }, async (base, _requests, _directory, events) => {
++    const result = await request(base, input());assert.deepEqual(result.body, raw);assert.deepEqual(events, []);
++  });
++});
++
++for (const [name, modify] of [
++  ['explicit none', body => { body.tool_choice = 'none'; }],
++  ['another named tool', body => { body.tool_choice = { type: 'function', function: { name: 'task' } }; }],
++  ['post-search synthesis', body => { body.messages.push({ role: 'tool', tool_call_id: 'actual', content: 'Full retrieved document content.' }); }],
++  ['subagent without task', body => { body.tools = [search]; }],
++  ['unrelated OpenClaw tools', body => { body.tools = [task]; }],
++  ['multiple requested choices', body => { body.n = 2; }],
++  ['a different search schema', body => { body.tools = [{ ...search, function: { ...search.function, parameters: { ...search.function.parameters, required: ['query', 'collection'] } } }, task]; }],
++]) {
++  test(`${name} is forwarded without a forced search or response rewrite`, async () => {
++    const raw = frames('A complete ordinary response.');
++    await fixture({ response: raw }, async (base, requests) => {
++      const body = input();modify(body);
++      const result = await request(base, body);assert.deepEqual(result.body, raw);
++      assert.deepEqual(requests[0].body, { ...body, reasoning_effort: 'none' });
++    });
++  });
++}
++
++test('nonstream callers receive real tool arguments and complete provider usage', async () => {
++  const usage = { prompt_tokens: 17, completion_tokens: 8, total_tokens: 25, completion_tokens_details: { reasoning_tokens: 0 } };
++  await fixture({ response: frames('{"query":"indexed doc"}', { usage }) }, async (base, requests) => {
++    const body = input();body.stream = false;
++    const result = await request(base, body);const value = JSON.parse(result.body);
++    assert.equal(value.object, 'chat.completion');assert.deepEqual(value.usage, usage);
++    assert.equal(value.choices[0].message.tool_calls[0].function.arguments, '{"query":"indexed doc"}');
++    assert.equal(requests[0].body.stream, true);assert.equal(requests[0].body.stream_options.include_usage, true);
++  });
++});
++
++for (const [encoding, compress] of [['gzip', gzipSync], ['deflate', deflateSync], ['br', brotliCompressSync]]) {
++  test(`handles complete ${encoding} upstream frames`, async () => {
++    await fixture({ response: compress(frames('{"query":"GPU 文档"}')), headers: { 'Content-Encoding': encoding } }, async base => {
++      const result = await request(base, input());assert.equal(result.status, 200);
++      assert.deepEqual(JSON.parse(returnedCall(result.body).function.arguments), { query: 'GPU 文档' });
++      assert.equal(result.headers['content-encoding'], undefined);
++    });
++  });
++}
++
++for (const content of ['I will search. {"query":"a"}', '{"query":', '{"query":""}', '{"query":123}', '{}', '[]', '{"query":"a","unexpected":"b"}']) {
++  test(`rejects unsupported arguments without inventing a call: ${content}`, async () => {
++    const raw = frames(content);
++    await fixture({ response: raw, audit: true }, async (base, _requests, directory) => {
++      const result = await request(base, input());assert.equal(result.status, 502);
++      assert.ok(!result.body.toString().includes('call_research_'));
++      const files = await readdir(directory);assert.equal(files.length, 1);
++      const audit = JSON.parse(await readFile(join(directory, files[0]), 'utf8'));
++      assert.deepEqual(Buffer.from(audit.upstreamResponseBase64, 'base64'), raw);
++      assert.equal(audit.returnedSuccess, false);
++    });
++  });
++}
++
++for (const [name, options] of [['missing terminator', { done: false }], ['token exhaustion', { finish: 'length' }], ['filtered output', { finish: 'content_filter' }]]) {
++  test(`${name} cannot become a successful tool call`, async () => {
++    await fixture({ response: frames('{"query":"valid but incomplete generation"}', options) }, async base => {
++      assert.equal((await request(base, input())).status, 502);
++    });
++  });
++}
++
++test('upstream failures preserve their status and complete body', async () => {
++  const body = Buffer.from('{"error":{"message":"upstream denied"}}');
++  await fixture({ status: 401, response: body, headers: { 'Content-Type': 'application/json' } }, async base => {
++    const result = await request(base, input());assert.equal(result.status, 401);assert.deepEqual(result.body, body);
++  });
++});
++
++test('unexpected tools cannot replace the explicitly selected read-only search', async () => {
++  const raw = frames('', { calls: [{ index: 0, id: 'wrong', type: 'function', function: { name: 'task', arguments: '{}' } }], finish: 'tool_calls' });
++  await fixture({ response: raw }, async base => { assert.equal((await request(base, input())).status, 502); });
++});
++
++test('oversized buffered responses fail instead of truncating arguments', async () => {
++  await fixture({ response: frames(JSON.stringify({ query: 'a'.repeat(4096) })), server: { maxBufferedBytes: 1024 } }, async base => {
++    assert.equal((await request(base, input())).status, 502);
++  });
++});
++
++test('an upstream timeout returns an error rather than a fabricated tool result', async () => {
++  await fixture({ server: { timeoutMs: 25 }, handler: (_req, res) => { setTimeout(() => { if (!res.destroyed) res.end('late'); }, 100); } }, async base => {
++    assert.equal((await request(base, input())).status, 502);
++  });
++});
++
++test('health does not call the model or create an audit', async () => {
++  await fixture({ audit: true }, async (base, requests, directory) => {
++    const result = await request(base, undefined, '/health');assert.equal(result.status, 200);assert.equal(result.body.toString(), 'ok');
++    assert.deepEqual(requests, []);assert.deepEqual(await readdir(directory), []);
++  });
++});
++
++test('the CLI starts through a ConfigMap-style symbolic link', { timeout: 10000 }, async () => {
++  const directory = await mkdtemp(join(tmpdir(), 'mosaic-research-entrypoint-'));
++  const link = join(directory, 'server.mjs');
++  await symlink(fileURLToPath(new URL('../files/llm-compat-server.mjs', import.meta.url)), link);
++  const reserve = http.createServer();
++  await new Promise(resolveListen => reserve.listen(0, '127.0.0.1', resolveListen));
++  const port = reserve.address().port;
++  await new Promise(resolveClose => reserve.close(resolveClose));
++  const child = spawn(process.execPath, [link], { env: { ...process.env, PORT: String(port), UPSTREAM_BASE_URL: 'http://127.0.0.1:1/v1', RESEARCH_TOOL_CALLS_ENABLED: 'true' }, stdio: ['ignore', 'pipe', 'pipe'] });
++  const closed = once(child, 'close');
++  let stderr = '';
++  child.stderr.on('data', chunk => { stderr += chunk; });
++  try {
++    let result;
++    for (let attempt = 0; attempt < 100; attempt++) {
++      assert.equal(child.exitCode, null, stderr || 'CLI exited before listening');
++      try { result = await request(`http://127.0.0.1:${port}`, undefined, '/health'); break; }
++      catch { await delay(25); }
++    }
++    assert.equal(result?.status, 200, stderr || 'CLI did not listen');
++    assert.equal(result.body.toString(), 'ok');
++  } finally {
++    if (child.exitCode === null) child.kill('SIGTERM');
++    await closed;
++    await rm(directory, { recursive: true });
++  }
++});
+diff --git a/helm/mosaic-stack/values.yaml b/helm/mosaic-stack/values.yaml
+index 4d910b9..77bae2d 100644
+--- a/helm/mosaic-stack/values.yaml
++++ b/helm/mosaic-stack/values.yaml
+@@ -118,6 +118,11 @@ llm:
+     enabled: true
+     name: llm-openai-compat
+     port: 8000
++    researchToolCalls:
++      # Opt in only for affected research backends returning named arguments as text.
++      enabled: false
++      # Temporary full body traces contain private prompts; export before Pod replacement.
++      auditEnabled: false
+   external:
+     baseUrl: ""
+     model: ""

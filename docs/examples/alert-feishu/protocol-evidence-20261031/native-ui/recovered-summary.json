@@ -1,0 +1,13 @@
+{
+  "sessionKey": "agent:default:session-2026-10-31t06-35-56-982z",
+  "sessionId": "976cddf9-ca87-440c-a7fa-f329f9f654f0",
+  "toolCallId": "call_0f869566d22c4987a9289b2b",
+  "gatewayToolIsError": false,
+  "sourceCount": 2,
+  "answerContainsOracle": true,
+  "pageTextContainsOracle": true,
+  "selectedFetchEvents": 0,
+  "recorderExitCode": 1,
+  "recorderFailure": "Expected first content block to be JSON; actual first block is the unchanged evidence-scope note. Complete actual query succeeded, and was recovered from full saved history.",
+  "requeryPerformedForRecovery": false
+}

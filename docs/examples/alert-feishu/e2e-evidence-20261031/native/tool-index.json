@@ -1,0 +1,810 @@
+[
+  {
+    "toolCallId": "call_95f49e4b1b3440f5b44b0fd1",
+    "requestAt": "2026-10-31T08:23:40.918Z",
+    "toolName": "run_kubectl",
+    "arguments": {
+      "args": [
+        "get",
+        "pod",
+        "mosaic-log-fixture",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "-o",
+        "yaml"
+      ]
+    },
+    "resultAt": "2026-10-31T08:23:41.892Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_95f49e4b1b3440f5b44b0fd1",
+      "toolName": "run_kubectl",
+      "content": [
+        {
+          "type": "text",
+          "text": "kubectl get pod mosaic-log-fixture -n mosaic-e2e-20261031t075722z -o yaml\n{\n  \"cluster\": \"target-lab\",\n  \"mutating\": false,\n  \"targets\": [],\n  \"exitCode\": 0,\n  \"stdout\": \"apiVersion: v1\\nkind: Pod\\nmetadata:\\n  annotations:\\n    cni.projectcalico.org/containerID: 019999de620c6328efcb05a7f33d8fc46ed9fcec97d034f916815848372cfc21\\n    cni.projectcalico.org/podIP: continued-private-address-07.example.invalid/32\\n    cni.projectcalico.org/podIPs: continued-private-address-07.example.invalid/32\\n  creationTimestamp: \\\"2026-10-31T08:21:42Z\\\"\\n  labels:\\n    app.kubernetes.io/part-of: mosaic-e2e-validation\\n    mosaic_test: \\\"true\\\"\\n    run_id: e2e-20261031t075722z\\n  name: mosaic-log-fixture\\n  namespace: mosaic-e2e-20261031t075722z\\n  resourceVersion: \\\"99565119\\\"\\n  uid: 82953a81-6578-4cbe-b638-ef3de927279a\\nspec:\\n  automountServiceAccountToken: false\\n  containers:\\n  - command:\\n    - /bin/sh\\n    - -c\\n    - |\\n      printf 'timestamp=%s run_id=%s component=mosaic-log-fixture event=startup test_from=\\\"test from Jeff Peng\\\"\\\\n' \\\"$(date -u +%FT%TZ)\\\" \\\"$RUN_ID\\\"\\n      if [ ! -f /fixture/ready ]; then\\n        printf 'timestamp=%s run_id=%s event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\\\"test from Jeff Peng\\\"\\\\n' \\\"$(date -u +%FT%TZ)\\\" \\\"$RUN_ID\\\"\\n        exit 23\\n      fi\\n      printf 'timestamp=%s run_id=%s event=ready\\\\n' \\\"$(date -u +%FT%TZ)\\\" \\\"$RUN_ID\\\"\\n      while :; do sleep 3600; done\\n    env:\\n    - name: RUN_ID\\n      value: e2e-20261031t075722z\\n    image: docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\\n    imagePullPolicy: Never\\n    name: fixture\\n    resources:\\n      limits:\\n        cpu: 50m\\n        memory: 32Mi\\n      requests:\\n        cpu: 5m\\n        memory: 8Mi\\n    securityContext:\\n      allowPrivilegeEscalation: false\\n      capabilities:\\n        drop:\\n        - ALL\\n      readOnlyRootFilesystem: true\\n    terminationMessagePath: /dev/termination-log\\n    terminationMessagePolicy: File\\n    volumeMounts:\\n    - mountPath: /fixture\\n      name: input\\n      readOnly: true\\n  dnsPolicy: ClusterFirst\\n  enableServiceLinks: true\\n  nodeName: target-node-1\\n  nodeSelector:\\n    kubernetes.io/hostname: target-node-1\\n  preemptionPolicy: PreemptLowerPriority\\n  priority: 0\\n  restartPolicy: Always\\n  schedulerName: default-scheduler\\n  securityContext:\\n    runAsGroup: 65534\\n    runAsNonRoot: true\\n    runAsUser: 65534\\n    seccompProfile:\\n      type: RuntimeDefault\\n  serviceAccount: default\\n  serviceAccountName: default\\n  terminationGracePeriodSeconds: 5\\n  tolerations:\\n  - effect: NoSchedule\\n    key: node-role.kubernetes.io/control-plane\\n    operator: Exists\\n  - effect: NoExecute\\n    key: node.kubernetes.io/not-ready\\n    operator: Exists\\n    tolerationSeconds: 300\\n  - effect: NoExecute\\n    key: node.kubernetes.io/unreachable\\n    operator: Exists\\n    tolerationSeconds: 300\\n  volumes:\\n  - configMap:\\n      defaultMode: 420\\n      name: fixture-input\\n    name: input\\nstatus:\\n  conditions:\\n  - lastProbeTime: null\\n    lastTransitionTime: \\\"2026-10-31T08:21:45Z\\\"\\n    status: \\\"True\\\"\\n    type: PodReadyToStartContainers\\n  - lastProbeTime: null\\n    lastTransitionTime: \\\"2026-10-31T08:21:42Z\\\"\\n    status: \\\"True\\\"\\n    type: Initialized\\n  - lastProbeTime: null\\n    lastTransitionTime: \\\"2026-10-31T08:23:14Z\\\"\\n    message: 'containers with unready status: [fixture]'\\n    reason: ContainersNotReady\\n    status: \\\"False\\\"\\n    type: Ready\\n  - lastProbeTime: null\\n    lastTransitionTime: \\\"2026-10-31T08:23:14Z\\\"\\n    message: 'containers with unready status: [fixture]'\\n    reason: ContainersNotReady\\n    status: \\\"False\\\"\\n    type: ContainersReady\\n  - lastProbeTime: null\\n    lastTransitionTime: \\\"2026-10-31T08:21:42Z\\\"\\n    status: \\\"True\\\"\\n    type: PodScheduled\\n  containerStatuses:\\n  - containerID: containerd://0e378cd8b89ef4bf2334a4a65233a6e23a462b79061ab09255ba88bb182b1a56\\n    image: docker.io/library/busybox:latest\\n    imageID: docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\\n    lastState:\\n      terminated:\\n        containerID: containerd://0e378cd8b89ef4bf2334a4a65233a6e23a462b79061ab09255ba88bb182b1a56\\n        exitCode: 23\\n        finishedAt: \\\"2026-10-31T08:23:13Z\\\"\\n        reason: Error\\n        startedAt: \\\"2026-10-31T08:23:13Z\\\"\\n    name: fixture\\n    ready: false\\n    restartCount: 4\\n    started: false\\n    state:\\n      waiting:\\n        message: back-off 1m20s restarting failed container=fixture pod=mosaic-log-fixture_mosaic-e2e-20261031t075722z(82953a81-6578-4cbe-b638-ef3de927279a)\\n        reason: CrashLoopBackOff\\n    volumeMounts:\\n    - mountPath: /fixture\\n      name: input\\n      readOnly: true\\n      recursiveReadOnly: Disabled\\n  hostIP: target-node-1.example.invalid\\n  hostIPs:\\n  - ip: target-node-1.example.invalid\\n  phase: Running\\n  podIP: continued-private-address-07.example.invalid\\n  podIPs:\\n  - ip: continued-private-address-07.example.invalid\\n  qosClass: Burstable\\n  startTime: \\\"2026-10-31T08:21:42Z\\\"\\n\",\n  \"stderr\": \"\"\n}"
+        }
+      ],
+      "details": {
+        "cluster": "target-lab",
+        "command": [
+          "kubectl",
+          "get",
+          "pod",
+          "mosaic-log-fixture",
+          "-n",
+          "mosaic-e2e-20261031t075722z",
+          "-o",
+          "yaml"
+        ],
+        "mutating": false,
+        "targets": [],
+        "exitCode": 0,
+        "stdout": "apiVersion: v1\nkind: Pod\nmetadata:\n  annotations:\n    cni.projectcalico.org/containerID: 019999de620c6328efcb05a7f33d8fc46ed9fcec97d034f916815848372cfc21\n    cni.projectcalico.org/podIP: continued-private-address-07.example.invalid/32\n    cni.projectcalico.org/podIPs: continued-private-address-07.example.invalid/32\n  creationTimestamp: \"2026-10-31T08:21:42Z\"\n  labels:\n    app.kubernetes.io/part-of: mosaic-e2e-validation\n    mosaic_test: \"true\"\n    run_id: e2e-20261031t075722z\n  name: mosaic-log-fixture\n  namespace: mosaic-e2e-20261031t075722z\n  resourceVersion: \"99565119\"\n  uid: 82953a81-6578-4cbe-b638-ef3de927279a\nspec:\n  automountServiceAccountToken: false\n  containers:\n  - command:\n    - /bin/sh\n    - -c\n    - |\n      printf 'timestamp=%s run_id=%s component=mosaic-log-fixture event=startup test_from=\"test from Jeff Peng\"\\n' \"$(date -u +%FT%TZ)\" \"$RUN_ID\"\n      if [ ! -f /fixture/ready ]; then\n        printf 'timestamp=%s run_id=%s event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\"test from Jeff Peng\"\\n' \"$(date -u +%FT%TZ)\" \"$RUN_ID\"\n        exit 23\n      fi\n      printf 'timestamp=%s run_id=%s event=ready\\n' \"$(date -u +%FT%TZ)\" \"$RUN_ID\"\n      while :; do sleep 3600; done\n    env:\n    - name: RUN_ID\n      value: e2e-20261031t075722z\n    image: docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\n    imagePullPolicy: Never\n    name: fixture\n    resources:\n      limits:\n        cpu: 50m\n        memory: 32Mi\n      requests:\n        cpu: 5m\n        memory: 8Mi\n    securityContext:\n      allowPrivilegeEscalation: false\n      capabilities:\n        drop:\n        - ALL\n      readOnlyRootFilesystem: true\n    terminationMessagePath: /dev/termination-log\n    terminationMessagePolicy: File\n    volumeMounts:\n    - mountPath: /fixture\n      name: input\n      readOnly: true\n  dnsPolicy: ClusterFirst\n  enableServiceLinks: true\n  nodeName: target-node-1\n  nodeSelector:\n    kubernetes.io/hostname: target-node-1\n  preemptionPolicy: PreemptLowerPriority\n  priority: 0\n  restartPolicy: Always\n  schedulerName: default-scheduler\n  securityContext:\n    runAsGroup: 65534\n    runAsNonRoot: true\n    runAsUser: 65534\n    seccompProfile:\n      type: RuntimeDefault\n  serviceAccount: default\n  serviceAccountName: default\n  terminationGracePeriodSeconds: 5\n  tolerations:\n  - effect: NoSchedule\n    key: node-role.kubernetes.io/control-plane\n    operator: Exists\n  - effect: NoExecute\n    key: node.kubernetes.io/not-ready\n    operator: Exists\n    tolerationSeconds: 300\n  - effect: NoExecute\n    key: node.kubernetes.io/unreachable\n    operator: Exists\n    tolerationSeconds: 300\n  volumes:\n  - configMap:\n      defaultMode: 420\n      name: fixture-input\n    name: input\nstatus:\n  conditions:\n  - lastProbeTime: null\n    lastTransitionTime: \"2026-10-31T08:21:45Z\"\n    status: \"True\"\n    type: PodReadyToStartContainers\n  - lastProbeTime: null\n    lastTransitionTime: \"2026-10-31T08:21:42Z\"\n    status: \"True\"\n    type: Initialized\n  - lastProbeTime: null\n    lastTransitionTime: \"2026-10-31T08:23:14Z\"\n    message: 'containers with unready status: [fixture]'\n    reason: ContainersNotReady\n    status: \"False\"\n    type: Ready\n  - lastProbeTime: null\n    lastTransitionTime: \"2026-10-31T08:23:14Z\"\n    message: 'containers with unready status: [fixture]'\n    reason: ContainersNotReady\n    status: \"False\"\n    type: ContainersReady\n  - lastProbeTime: null\n    lastTransitionTime: \"2026-10-31T08:21:42Z\"\n    status: \"True\"\n    type: PodScheduled\n  containerStatuses:\n  - containerID: containerd://0e378cd8b89ef4bf2334a4a65233a6e23a462b79061ab09255ba88bb182b1a56\n    image: docker.io/library/busybox:latest\n    imageID: docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\n    lastState:\n      terminated:\n        containerID: containerd://0e378cd8b89ef4bf2334a4a65233a6e23a462b79061ab09255ba88bb182b1a56\n        exitCode: 23\n        finishedAt: \"2026-10-31T08:23:13Z\"\n        reason: Error\n        startedAt: \"2026-10-31T08:23:13Z\"\n    name: fixture\n    ready: false\n    restartCount: 4\n    started: false\n    state:\n      waiting:\n        message: back-off 1m20s restarting failed container=fixture pod=mosaic-log-fixture_mosaic-e2e-20261031t075722z(82953a81-6578-4cbe-b638-ef3de927279a)\n        reason: CrashLoopBackOff\n    volumeMounts:\n    - mountPath: /fixture\n      name: input\n      readOnly: true\n      recursiveReadOnly: Disabled\n  hostIP: target-node-1.example.invalid\n  hostIPs:\n  - ip: target-node-1.example.invalid\n  phase: Running\n  podIP: continued-private-address-07.example.invalid\n  podIPs:\n  - ip: continued-private-address-07.example.invalid\n  qosClass: Burstable\n  startTime: \"2026-10-31T08:21:42Z\"\n",
+        "stderr": ""
+      },
+      "isError": false,
+      "timestamp": 1793435021889
+    }
+  },
+  {
+    "toolCallId": "call_e4b8e9037e384f98b4b2e74e",
+    "requestAt": "2026-10-31T08:23:40.918Z",
+    "toolName": "run_kubectl",
+    "arguments": {
+      "args": [
+        "logs",
+        "mosaic-log-fixture",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "--previous"
+      ]
+    },
+    "resultAt": "2026-10-31T08:23:41.894Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_e4b8e9037e384f98b4b2e74e",
+      "toolName": "run_kubectl",
+      "content": [
+        {
+          "type": "text",
+          "text": "kubectl logs mosaic-log-fixture -n mosaic-e2e-20261031t075722z --previous\n{\n  \"cluster\": \"target-lab\",\n  \"mutating\": false,\n  \"targets\": [],\n  \"exitCode\": 0,\n  \"stdout\": \"timestamp=2026-10-31T08:23:13Z run_id=e2e-20261031t075722z component=mosaic-log-fixture event=startup test_from=\\\"test from Jeff Peng\\\"\\ntimestamp=2026-10-31T08:23:13Z run_id=e2e-20261031t075722z event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\\\"test from Jeff Peng\\\"\\n\",\n  \"stderr\": \"\"\n}"
+        }
+      ],
+      "details": {
+        "cluster": "target-lab",
+        "command": [
+          "kubectl",
+          "logs",
+          "mosaic-log-fixture",
+          "-n",
+          "mosaic-e2e-20261031t075722z",
+          "--previous"
+        ],
+        "mutating": false,
+        "targets": [],
+        "exitCode": 0,
+        "stdout": "timestamp=2026-10-31T08:23:13Z run_id=e2e-20261031t075722z component=mosaic-log-fixture event=startup test_from=\"test from Jeff Peng\"\ntimestamp=2026-10-31T08:23:13Z run_id=e2e-20261031t075722z event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\"test from Jeff Peng\"\n",
+        "stderr": ""
+      },
+      "isError": false,
+      "timestamp": 1793435021893
+    }
+  },
+  {
+    "toolCallId": "call_edadd5e0c13b46018edde9d4",
+    "requestAt": "2026-10-31T08:23:40.918Z",
+    "toolName": "run_kubectl",
+    "arguments": {
+      "args": [
+        "logs",
+        "mosaic-log-fixture",
+        "-n",
+        "mosaic-e2e-20261031t075722z"
+      ]
+    },
+    "resultAt": "2026-10-31T08:23:41.895Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_edadd5e0c13b46018edde9d4",
+      "toolName": "run_kubectl",
+      "content": [
+        {
+          "type": "text",
+          "text": "kubectl logs mosaic-log-fixture -n mosaic-e2e-20261031t075722z\n{\n  \"cluster\": \"target-lab\",\n  \"mutating\": false,\n  \"targets\": [],\n  \"exitCode\": 0,\n  \"stdout\": \"timestamp=2026-10-31T08:23:13Z run_id=e2e-20261031t075722z component=mosaic-log-fixture event=startup test_from=\\\"test from Jeff Peng\\\"\\ntimestamp=2026-10-31T08:23:13Z run_id=e2e-20261031t075722z event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\\\"test from Jeff Peng\\\"\\n\",\n  \"stderr\": \"\"\n}"
+        }
+      ],
+      "details": {
+        "cluster": "target-lab",
+        "command": [
+          "kubectl",
+          "logs",
+          "mosaic-log-fixture",
+          "-n",
+          "mosaic-e2e-20261031t075722z"
+        ],
+        "mutating": false,
+        "targets": [],
+        "exitCode": 0,
+        "stdout": "timestamp=2026-10-31T08:23:13Z run_id=e2e-20261031t075722z component=mosaic-log-fixture event=startup test_from=\"test from Jeff Peng\"\ntimestamp=2026-10-31T08:23:13Z run_id=e2e-20261031t075722z event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\"test from Jeff Peng\"\n",
+        "stderr": ""
+      },
+      "isError": false,
+      "timestamp": 1793435021894
+    }
+  },
+  {
+    "toolCallId": "call_dd2491e6bef34164be582cca",
+    "requestAt": "2026-10-31T08:23:40.918Z",
+    "toolName": "run_kubectl",
+    "arguments": {
+      "args": [
+        "get",
+        "pod",
+        "mosaic-log-fixture",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "-w",
+        "--watch-only",
+        "--timeout=5s"
+      ]
+    },
+    "resultAt": "2026-10-31T08:23:41.896Z",
+    "isError": true,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_dd2491e6bef34164be582cca",
+      "toolName": "run_kubectl",
+      "content": [
+        {
+          "type": "text",
+          "text": "kubectl get pod mosaic-log-fixture -n mosaic-e2e-20261031t075722z -w --watch-only --timeout=5s\n{\n  \"cluster\": \"target-lab\",\n  \"mutating\": false,\n  \"targets\": [],\n  \"exitCode\": 1,\n  \"stdout\": \"\",\n  \"stderr\": \"error: unknown flag: --timeout\\nSee 'kubectl get --help' for usage.\\n\"\n}"
+        }
+      ],
+      "details": {
+        "cluster": "target-lab",
+        "command": [
+          "kubectl",
+          "get",
+          "pod",
+          "mosaic-log-fixture",
+          "-n",
+          "mosaic-e2e-20261031t075722z",
+          "-w",
+          "--watch-only",
+          "--timeout=5s"
+        ],
+        "mutating": false,
+        "targets": [],
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "error: unknown flag: --timeout\nSee 'kubectl get --help' for usage.\n"
+      },
+      "isError": true,
+      "timestamp": 1793435021896
+    }
+  },
+  {
+    "toolCallId": "call_20669143584443f3ad33e626",
+    "requestAt": "2026-10-31T08:23:40.918Z",
+    "toolName": "memory_search",
+    "arguments": {
+      "query": "MosaicInjectedWorkloadFailure runbook e2e test failure"
+    },
+    "resultAt": "2026-10-31T08:23:41.897Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_20669143584443f3ad33e626",
+      "toolName": "memory_search",
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"results\": [],\n  \"provider\": \"none\",\n  \"citations\": \"auto\",\n  \"debug\": {\n    \"backend\": \"builtin\",\n    \"effectiveMode\": \"n/a\",\n    \"searchMs\": 518,\n    \"hits\": 0\n  }\n}"
+        }
+      ],
+      "details": {
+        "results": [],
+        "provider": "none",
+        "citations": "auto",
+        "debug": {
+          "backend": "builtin",
+          "effectiveMode": "n/a",
+          "searchMs": 518,
+          "hits": 0
+        }
+      },
+      "isError": false,
+      "timestamp": 1793435021897
+    }
+  },
+  {
+    "toolCallId": "call_b805957079994687bf9eab69",
+    "requestAt": "2026-10-31T08:23:40.918Z",
+    "toolName": "iraop_list_collections",
+    "arguments": {},
+    "resultAt": "2026-10-31T08:23:41.898Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_b805957079994687bf9eab69",
+      "toolName": "iraop_list_collections",
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"name\": \"mosaic-validation-20261031\",\n  \"doc_count\": 4,\n  \"store_size\": \"36.2kb\"\n}"
+        }
+      ],
+      "details": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"name\": \"mosaic-validation-20261031\",\n  \"doc_count\": 4,\n  \"store_size\": \"36.2kb\"\n}"
+          }
+        ],
+        "structuredContent": {
+          "result": [
+            {
+              "name": "mosaic-validation-20261031",
+              "doc_count": 4,
+              "store_size": "36.2kb"
+            }
+          ]
+        },
+        "isError": false
+      },
+      "isError": false,
+      "timestamp": 1793435021897
+    }
+  },
+  {
+    "toolCallId": "call_ff08d966f1bb4d458fde7084",
+    "requestAt": "2026-10-31T08:23:45.783Z",
+    "toolName": "run_kubectl",
+    "arguments": {
+      "args": [
+        "get",
+        "events",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "--field-selector",
+        "reason=BackOff",
+        "--sort-by=.lastTimestamp"
+      ]
+    },
+    "resultAt": "2026-10-31T08:25:19.295Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_ff08d966f1bb4d458fde7084",
+      "toolName": "run_kubectl",
+      "content": [
+        {
+          "type": "text",
+          "text": "kubectl get events -n mosaic-e2e-20261031t075722z --field-selector reason=BackOff --sort-by=.lastTimestamp\n{\n  \"cluster\": \"target-lab\",\n  \"mutating\": false,\n  \"targets\": [],\n  \"exitCode\": 0,\n  \"stdout\": \"LAST SEEN   TYPE      REASON    OBJECT                   MESSAGE\\n4s          Warning   BackOff   pod/mosaic-log-fixture   Back-off restarting failed container fixture in pod mosaic-log-fixture_mosaic-e2e-20261031t075722z(82953a81-6578-4cbe-b638-ef3de927279a)\\n\",\n  \"stderr\": \"\"\n}"
+        }
+      ],
+      "details": {
+        "cluster": "target-lab",
+        "command": [
+          "kubectl",
+          "get",
+          "events",
+          "-n",
+          "mosaic-e2e-20261031t075722z",
+          "--field-selector",
+          "reason=BackOff",
+          "--sort-by=.lastTimestamp"
+        ],
+        "mutating": false,
+        "targets": [],
+        "exitCode": 0,
+        "stdout": "LAST SEEN   TYPE      REASON    OBJECT                   MESSAGE\n4s          Warning   BackOff   pod/mosaic-log-fixture   Back-off restarting failed container fixture in pod mosaic-log-fixture_mosaic-e2e-20261031t075722z(82953a81-6578-4cbe-b638-ef3de927279a)\n",
+        "stderr": ""
+      },
+      "isError": false,
+      "timestamp": 1793435119294
+    }
+  },
+  {
+    "toolCallId": "call_7724176251464e59b136a5a8",
+    "requestAt": "2026-10-31T08:23:45.783Z",
+    "toolName": "run_kubectl",
+    "arguments": {
+      "args": [
+        "get",
+        "configmap",
+        "fixture-input",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "-o",
+        "yaml"
+      ]
+    },
+    "resultAt": "2026-10-31T08:25:19.298Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_7724176251464e59b136a5a8",
+      "toolName": "run_kubectl",
+      "content": [
+        {
+          "type": "text",
+          "text": "kubectl get configmap fixture-input -n mosaic-e2e-20261031t075722z -o yaml\n{\n  \"cluster\": \"target-lab\",\n  \"mutating\": false,\n  \"targets\": [],\n  \"exitCode\": 0,\n  \"stdout\": \"apiVersion: v1\\ndata:\\n  README: Deliberately omit ready for a bounded startup-failure test. No production\\n    service is modified.\\nkind: ConfigMap\\nmetadata:\\n  creationTimestamp: \\\"2026-10-31T08:21:42Z\\\"\\n  labels:\\n    app.kubernetes.io/part-of: mosaic-e2e-validation\\n    mosaic_test: \\\"true\\\"\\n    run_id: e2e-20261031t075722z\\n  name: fixture-input\\n  namespace: mosaic-e2e-20261031t075722z\\n  resourceVersion: \\\"99564431\\\"\\n  uid: 403b73e5-b19e-4276-bb0a-ff64c9dc0162\\n\",\n  \"stderr\": \"\"\n}"
+        }
+      ],
+      "details": {
+        "cluster": "target-lab",
+        "command": [
+          "kubectl",
+          "get",
+          "configmap",
+          "fixture-input",
+          "-n",
+          "mosaic-e2e-20261031t075722z",
+          "-o",
+          "yaml"
+        ],
+        "mutating": false,
+        "targets": [],
+        "exitCode": 0,
+        "stdout": "apiVersion: v1\ndata:\n  README: Deliberately omit ready for a bounded startup-failure test. No production\n    service is modified.\nkind: ConfigMap\nmetadata:\n  creationTimestamp: \"2026-10-31T08:21:42Z\"\n  labels:\n    app.kubernetes.io/part-of: mosaic-e2e-validation\n    mosaic_test: \"true\"\n    run_id: e2e-20261031t075722z\n  name: fixture-input\n  namespace: mosaic-e2e-20261031t075722z\n  resourceVersion: \"99564431\"\n  uid: 403b73e5-b19e-4276-bb0a-ff64c9dc0162\n",
+        "stderr": ""
+      },
+      "isError": false,
+      "timestamp": 1793435119296
+    }
+  },
+  {
+    "toolCallId": "call_f1022a1955e84f868de2e10b",
+    "requestAt": "2026-10-31T08:23:45.783Z",
+    "toolName": "iraop_query",
+    "arguments": {
+      "question": "MosaicInjectedWorkloadFailure runbook — what causes a log-fixture pod to exit 23 with REQUIRED_FILE_MISSING error on /fixture/ready, and how to remediate?"
+    },
+    "resultAt": "2026-10-31T08:25:19.300Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_f1022a1955e84f868de2e10b",
+      "toolName": "iraop_query",
+      "content": [
+        {
+          "type": "text",
+          "text": "Evidence scope: documentation research. This service has not inspected the current workload. Proposed local causes remain hypotheses until checked against live evidence on the participating resources."
+        },
+        {
+          "type": "text",
+          "text": "{\n  \"answer\": \"# MosaicInjectedWorkloadFailure: log-fixture EXIT 23 / REQUIRED_FILE_MISSING / /fixture/ready — Runbook\\n\\n## 1. Overview\\n\\nThe **MosaicInjectedWorkloadFailure** scenario is a deliberate test within the MOSAIC validation framework (reference: MOSAIC-KB-20261031). A **log-fixture** pod is injected as a controlled workload failure to exercise the monitoring, alerting, and automated remediation delivery pipeline. The pod's exit with code 23 and error `REQUIRED_FILE_MISSING` on `/fixture/ready` is **by design** — it is a **validation delivery-path test** (a \\\"vector(1) alert\\\"), not a genuine GPU, driver, or application fault.\\n\\nThis scenario validates that:\\n\\n- Alerts injected through the Alertmanager API propagate correctly through the pipeline.\\n- Automated investigation, diagnosis, and repair workflows function end-to-end.\\n- Completion evidence is captured (tool arguments, `toolCallId`, exit status, service state before and after, logs, independently observed restored condition).\\n\\n## 2. Root Cause: Why the Pod Exits with Code 23\\n\\n### 2.1 Deliberate Test Design\\n\\nThe MOSAIC Validation Runbook explicitly states that \\\"the named service fails when its ready marker is absent\\\" [1]. In this scenario, the **ready marker** is the file at path **`/fixture/ready`**. The log-fixture container is programmed to:\\n\\n1. Check for the existence of the file `/fixture/ready` during startup or readiness probing.\\n2. If the file does **not** exist, exit with **exit code 23** and emit the error `REQUIRED_FILE_MISSING` referencing `/fixture/ready`.\\n\\nThis is not a system fault. The missing file is **deliberately absent** as part of the test scenario to simulate a service that cannot reach a ready state due to a missing dependency.\\n\\n### 2.2 How the Alert Is Injected\\n\\nThe alert is injected directly through the **Alertmanager API**, which bypasses Prometheus rule evaluation entirely [1]. As a result:\\n\\n- **Missing Prometheus `ALERTS` samples** for the injected run ID are expected and normal [1].\\n- Do **not** claim that a new `PrometheusRule` was evaluated — the alert bypasses Prometheus rules entirely [1].\\n- The alert is a \\\"deliberate delivery-path test\\\" and does not indicate any underlying infrastructure problem [1].\\n\\n### 2.3 Test Corpus Information\\n\\n- The scenario is authored as a **control corpus** for the Spark validation run [1].\\n- The test is authored by **Jeff Peng** [2].\\n- A public verification code is associated with this test: **`CEDAR-NEBULA-E720C8C9`** [2]. This code is an oracle for the retrieval test and grants no additional access.\\n\\n## 3. Remediation Procedure\\n\\n### 3.1 Pre-Repair: Gather State\\n\\nBefore performing any remediation, the MOSAIC framework requires documenting the **exact service state and logs** [1]. Collect:\\n\\n1. **Pod state**: `kubectl describe pod <log-fixture-pod-name>` — capture the full output showing the container state, exit code 23, and the `REQUIRED_FILE_MISSING` error.\\n2. **Pod logs**: `kubectl logs <log-fixture-pod-name>` — capture the application-level error output referencing `/fixture/ready`.\\n3. **Container state**: Note the exact exit status `23` and the error message `REQUIRED_FILE_MISSING` at path `/fixture/ready`.\\n4. **Alert state**: Verify the Alertmanager fingerprint for the injected alert.\\n\\n### 3.2 Repair: Create the Missing Ready Marker\\n\\nThe fix is straightforward — **create the missing ready marker file** at `/fixture/ready`. This is what the MOSAIC framework refers to as repairing \\\"the registered demo wrapper\\\" [1].\\n\\nDepending on how the log-fixture is deployed, there are two approaches:\\n\\n**Approach A: In-place fix (if you have exec access to the pod):**\\n\\n```bash\\nkubectl exec -it <log-fixture-pod-name> -- touch /fixture/ready\\n```\\n\\nThen restart the container or trigger the readiness check so the container can detect the newly created file.\\n\\n**Approach B: Patch the pod spec (if the fixture file is specified in the Pod spec or a ConfigMap/Volume):**\\n\\nIf the `/fixture/ready` file is supposed to come from a volume mount or ConfigMap, verify that the volume is correctly mounted and that the file exists on the source. Then ensure the file is present in the correct location within the pod's filesystem.\\n\\n### 3.3 Post-Repair: Verification\\n\\nAfter creating the ready marker, verify:\\n\\n1. **Container restarts successfully** — the container should no longer exit with code 23.\\n2. **Readiness probe passes** — the pod transitions to `Ready` state.\\n3. **Service result is restored** — the pod is running normally and producing expected output.\\n4. **Completion evidence is captured** — record the exact tool arguments, `toolCallId`, exit status, full service state before and after, logs, and the independently observed restored condition [2].\\n\\n### 3.4 Operator Mode Considerations\\n\\nThe repair execution depends on the configured operator mode:\\n\\n| Mode | Behavior |\\n|------|----------|\\n| **View mode** | Blocks the repair operation — read-only, no changes are made [2]. |\\n| **Edit mode with HITL** | Awaits a specific human-in-the-loop approval before executing the repair [2]. |\\n| **Auto mode** | Executes the same authorized demo repair without per-operation approval [2]. |\\n| **Automatic alert investigations** | Remain read-only — use a separate authorized interactive repair conversation [2]. |\\n\\nWhen operating in a separate authorized interactive repair conversation, preserve the **alert ID**, **investigation session key**, **research sources**, and **repair session key** [2].\\n\\n## 4. Important Caveats\\n\\n- **Do not treat this as a real fault.** The alert does not show a GPU, driver, or application fault [1].\\n- **Do not claim PrometheusRule evaluation.** Since the alert is injected directly through the Alertmanager API, missing Prometheus `ALERTS` samples for the injected run ID are expected [1].\\n- **Documentation alone does not constitute repair.** The framework requires evidence of an actual repair — exact tool arguments, toolCallId, exit status, full service state before and after, logs, and an independently observed restored condition [2].\\n\\n## 5. Summary\\n\\nThe MosaicInjectedWorkloadFailure scenario is a **controlled, intentional test** designed to validate the full alert-to-remediation pipeline. The log-fixture pod exits with code 23 because the ready marker file at `/fixture/ready` is deliberately absent. The remediation is to create that file and verify the pod recovers. This confirms the entire MOSAIC alerting, investigation, and repair workflow functions correctly.\\n\\n### Sources\\n\\n[1] MOSAIC Validation Runbook (Page 1) — MOSAIC-KB-20261031: Describes the vector(1) alert as a deliberate delivery-path test, the missing ready marker failure mode, the need to read service state before repair, and repair of the demo wrapper.\\n\\n[2] MOSAIC Validation Runbook (Page 2) — MOSAIC-KB-20261031: Covers operator decision modes (View/Edit/Auto), HITL requirements, session key preservation, and completion evidence requirements (tool arguments, toolCallId, exit status, service state before and after, logs, independently observed restored condition). Verification code: CEDAR-NEBULA-E720C8C9.\\n\",\n  \"depth\": \"quick\",\n  \"collections_searched\": null,\n  \"sources\": [\n    {\n      \"source_file\": \"mosaic-validation-control.pdf\",\n      \"page_number\": 2,\n      \"collection\": \"mosaic-validation-20261031\",\n      \"doc_id\": \"mosaic-validation-control.pdf\",\n      \"url\": \"/api/v1/documents/mosaic-validation-control.pdf\"\n    },\n    {\n      \"source_file\": \"mosaic-validation-control.pdf\",\n      \"page_number\": 1,\n      \"collection\": \"mosaic-validation-20261031\",\n      \"doc_id\": \"mosaic-validation-control.pdf\",\n      \"url\": \"/api/v1/documents/mosaic-validation-control.pdf\"\n    }\n  ]\n}"
+        }
+      ],
+      "details": {
+        "persistedDetailsTruncated": true,
+        "originalDetailsBytesAtLeast": 8193,
+        "originalDetailKeys": [
+          "content",
+          "structuredContent",
+          "isError"
+        ]
+      },
+      "isError": false,
+      "timestamp": 1793435119298
+    }
+  },
+  {
+    "toolCallId": "call_3c20b34249a04614922759b9",
+    "requestAt": "2026-10-31T08:25:34.632Z",
+    "toolName": "run_kubectl",
+    "arguments": {
+      "args": [
+        "get",
+        "pod",
+        "mosaic-log-fixture",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "-o",
+        "json"
+      ]
+    },
+    "resultAt": "2026-10-31T08:25:35.510Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_3c20b34249a04614922759b9",
+      "toolName": "run_kubectl",
+      "content": [
+        {
+          "type": "text",
+          "text": "kubectl get pod mosaic-log-fixture -n mosaic-e2e-20261031t075722z -o json\n{\n  \"cluster\": \"target-lab\",\n  \"mutating\": false,\n  \"targets\": [],\n  \"exitCode\": 0,\n  \"stdout\": \"{\\n    \\\"apiVersion\\\": \\\"v1\\\",\\n    \\\"kind\\\": \\\"Pod\\\",\\n    \\\"metadata\\\": {\\n        \\\"annotations\\\": {\\n            \\\"cni.projectcalico.org/containerID\\\": \\\"019999de620c6328efcb05a7f33d8fc46ed9fcec97d034f916815848372cfc21\\\",\\n            \\\"cni.projectcalico.org/podIP\\\": \\\"continued-private-address-07.example.invalid/32\\\",\\n            \\\"cni.projectcalico.org/podIPs\\\": \\\"continued-private-address-07.example.invalid/32\\\"\\n        },\\n        \\\"creationTimestamp\\\": \\\"2026-10-31T08:21:42Z\\\",\\n        \\\"labels\\\": {\\n            \\\"app.kubernetes.io/part-of\\\": \\\"mosaic-e2e-validation\\\",\\n            \\\"mosaic_test\\\": \\\"true\\\",\\n            \\\"run_id\\\": \\\"e2e-20261031t075722z\\\"\\n        },\\n        \\\"name\\\": \\\"mosaic-log-fixture\\\",\\n        \\\"namespace\\\": \\\"mosaic-e2e-20261031t075722z\\\",\\n        \\\"resourceVersion\\\": \\\"99565656\\\",\\n        \\\"uid\\\": \\\"82953a81-6578-4cbe-b638-ef3de927279a\\\"\\n    },\\n    \\\"spec\\\": {\\n        \\\"automountServiceAccountToken\\\": false,\\n        \\\"containers\\\": [\\n            {\\n                \\\"command\\\": [\\n                    \\\"/bin/sh\\\",\\n                    \\\"-c\\\",\\n                    \\\"printf 'timestamp=%s run_id=%s component=mosaic-log-fixture event=startup test_from=\\\\\\\"test from Jeff Peng\\\\\\\"\\\\\\\\n' \\\\\\\"$(date -u +%FT%TZ)\\\\\\\" \\\\\\\"$RUN_ID\\\\\\\"\\\\nif [ ! -f /fixture/ready ]; then\\\\n  printf 'timestamp=%s run_id=%s event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\\\\\\\"test from Jeff Peng\\\\\\\"\\\\\\\\n' \\\\\\\"$(date -u +%FT%TZ)\\\\\\\" \\\\\\\"$RUN_ID\\\\\\\"\\\\n  exit 23\\\\nfi\\\\nprintf 'timestamp=%s run_id=%s event=ready\\\\\\\\n' \\\\\\\"$(date -u +%FT%TZ)\\\\\\\" \\\\\\\"$RUN_ID\\\\\\\"\\\\nwhile :; do sleep 3600; done\\\\n\\\"\\n                ],\\n                \\\"env\\\": [\\n                    {\\n                        \\\"name\\\": \\\"RUN_ID\\\",\\n                        \\\"value\\\": \\\"e2e-20261031t075722z\\\"\\n                    }\\n                ],\\n                \\\"image\\\": \\\"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\\\",\\n                \\\"imagePullPolicy\\\": \\\"Never\\\",\\n                \\\"name\\\": \\\"fixture\\\",\\n                \\\"resources\\\": {\\n                    \\\"limits\\\": {\\n                        \\\"cpu\\\": \\\"50m\\\",\\n                        \\\"memory\\\": \\\"32Mi\\\"\\n                    },\\n                    \\\"requests\\\": {\\n                        \\\"cpu\\\": \\\"5m\\\",\\n                        \\\"memory\\\": \\\"8Mi\\\"\\n                    }\\n                },\\n                \\\"securityContext\\\": {\\n                    \\\"allowPrivilegeEscalation\\\": false,\\n                    \\\"capabilities\\\": {\\n                        \\\"drop\\\": [\\n                            \\\"ALL\\\"\\n                        ]\\n                    },\\n                    \\\"readOnlyRootFilesystem\\\": true\\n                },\\n                \\\"terminationMessagePath\\\": \\\"/dev/termination-log\\\",\\n                \\\"terminationMessagePolicy\\\": \\\"File\\\",\\n                \\\"volumeMounts\\\": [\\n                    {\\n                        \\\"mountPath\\\": \\\"/fixture\\\",\\n                        \\\"name\\\": \\\"input\\\",\\n                        \\\"readOnly\\\": true\\n                    }\\n                ]\\n            }\\n        ],\\n        \\\"dnsPolicy\\\": \\\"ClusterFirst\\\",\\n        \\\"enableServiceLinks\\\": true,\\n        \\\"nodeName\\\": \\\"target-node-1\\\",\\n        \\\"nodeSelector\\\": {\\n            \\\"kubernetes.io/hostname\\\": \\\"target-node-1\\\"\\n        },\\n        \\\"preemptionPolicy\\\": \\\"PreemptLowerPriority\\\",\\n        \\\"priority\\\": 0,\\n        \\\"restartPolicy\\\": \\\"Always\\\",\\n        \\\"schedulerName\\\": \\\"default-scheduler\\\",\\n        \\\"securityContext\\\": {\\n            \\\"runAsGroup\\\": 65534,\\n            \\\"runAsNonRoot\\\": true,\\n            \\\"runAsUser\\\": 65534,\\n            \\\"seccompProfile\\\": {\\n                \\\"type\\\": \\\"RuntimeDefault\\\"\\n            }\\n        },\\n        \\\"serviceAccount\\\": \\\"default\\\",\\n        \\\"serviceAccountName\\\": \\\"default\\\",\\n        \\\"terminationGracePeriodSeconds\\\": 5,\\n        \\\"tolerations\\\": [\\n            {\\n                \\\"effect\\\": \\\"NoSchedule\\\",\\n                \\\"key\\\": \\\"node-role.kubernetes.io/control-plane\\\",\\n                \\\"operator\\\": \\\"Exists\\\"\\n            },\\n            {\\n                \\\"effect\\\": \\\"NoExecute\\\",\\n                \\\"key\\\": \\\"node.kubernetes.io/not-ready\\\",\\n                \\\"operator\\\": \\\"Exists\\\",\\n                \\\"tolerationSeconds\\\": 300\\n            },\\n            {\\n                \\\"effect\\\": \\\"NoExecute\\\",\\n                \\\"key\\\": \\\"node.kubernetes.io/unreachable\\\",\\n                \\\"operator\\\": \\\"Exists\\\",\\n                \\\"tolerationSeconds\\\": 300\\n            }\\n        ],\\n        \\\"volumes\\\": [\\n            {\\n                \\\"configMap\\\": {\\n                    \\\"defaultMode\\\": 420,\\n                    \\\"name\\\": \\\"fixture-input\\\"\\n                },\\n                \\\"name\\\": \\\"input\\\"\\n            }\\n        ]\\n    },\\n    \\\"status\\\": {\\n        \\\"conditions\\\": [\\n            {\\n                \\\"lastProbeTime\\\": null,\\n                \\\"lastTransitionTime\\\": \\\"2026-10-31T08:21:45Z\\\",\\n                \\\"status\\\": \\\"True\\\",\\n                \\\"type\\\": \\\"PodReadyToStartContainers\\\"\\n            },\\n            {\\n                \\\"lastProbeTime\\\": null,\\n                \\\"lastTransitionTime\\\": \\\"2026-10-31T08:21:42Z\\\",\\n                \\\"status\\\": \\\"True\\\",\\n                \\\"type\\\": \\\"Initialized\\\"\\n            },\\n            {\\n                \\\"lastProbeTime\\\": null,\\n                \\\"lastTransitionTime\\\": \\\"2026-10-31T08:23:14Z\\\",\\n                \\\"message\\\": \\\"containers with unready status: [fixture]\\\",\\n                \\\"reason\\\": \\\"ContainersNotReady\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"Ready\\\"\\n            },\\n            {\\n                \\\"lastProbeTime\\\": null,\\n                \\\"lastTransitionTime\\\": \\\"2026-10-31T08:23:14Z\\\",\\n                \\\"message\\\": \\\"containers with unready status: [fixture]\\\",\\n                \\\"reason\\\": \\\"ContainersNotReady\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"ContainersReady\\\"\\n            },\\n            {\\n                \\\"lastProbeTime\\\": null,\\n                \\\"lastTransitionTime\\\": \\\"2026-10-31T08:21:42Z\\\",\\n                \\\"status\\\": \\\"True\\\",\\n                \\\"type\\\": \\\"PodScheduled\\\"\\n            }\\n        ],\\n        \\\"containerStatuses\\\": [\\n            {\\n                \\\"containerID\\\": \\\"containerd://cbaad94d8b13439cfb2c7c6e3ef462a020882eb5a5faf561a0eb34114bc49a38\\\",\\n                \\\"image\\\": \\\"docker.io/library/busybox:latest\\\",\\n                \\\"imageID\\\": \\\"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\\\",\\n                \\\"lastState\\\": {\\n                    \\\"terminated\\\": {\\n                        \\\"containerID\\\": \\\"containerd://cbaad94d8b13439cfb2c7c6e3ef462a020882eb5a5faf561a0eb34114bc49a38\\\",\\n                        \\\"exitCode\\\": 23,\\n                        \\\"finishedAt\\\": \\\"2026-10-31T08:24:38Z\\\",\\n                        \\\"reason\\\": \\\"Error\\\",\\n                        \\\"startedAt\\\": \\\"2026-10-31T08:24:38Z\\\"\\n                    }\\n                },\\n                \\\"name\\\": \\\"fixture\\\",\\n                \\\"ready\\\": false,\\n                \\\"restartCount\\\": 5,\\n                \\\"started\\\": false,\\n                \\\"state\\\": {\\n                    \\\"waiting\\\": {\\n                        \\\"message\\\": \\\"back-off 2m40s restarting failed container=fixture pod=mosaic-log-fixture_mosaic-e2e-20261031t075722z(82953a81-6578-4cbe-b638-ef3de927279a)\\\",\\n                        \\\"reason\\\": \\\"CrashLoopBackOff\\\"\\n                    }\\n                },\\n                \\\"volumeMounts\\\": [\\n                    {\\n                        \\\"mountPath\\\": \\\"/fixture\\\",\\n                        \\\"name\\\": \\\"input\\\",\\n                        \\\"readOnly\\\": true,\\n                        \\\"recursiveReadOnly\\\": \\\"Disabled\\\"\\n                    }\\n                ]\\n            }\\n        ],\\n        \\\"hostIP\\\": \\\"target-node-1.example.invalid\\\",\\n        \\\"hostIPs\\\": [\\n            {\\n                \\\"ip\\\": \\\"target-node-1.example.invalid\\\"\\n            }\\n        ],\\n        \\\"phase\\\": \\\"Running\\\",\\n        \\\"podIP\\\": \\\"continued-private-address-07.example.invalid\\\",\\n        \\\"podIPs\\\": [\\n            {\\n                \\\"ip\\\": \\\"continued-private-address-07.example.invalid\\\"\\n            }\\n        ],\\n        \\\"qosClass\\\": \\\"Burstable\\\",\\n        \\\"startTime\\\": \\\"2026-10-31T08:21:42Z\\\"\\n    }\\n}\\n\",\n  \"stderr\": \"\"\n}"
+        }
+      ],
+      "details": {
+        "persistedDetailsTruncated": true,
+        "originalDetailsBytesAtLeast": 8551,
+        "originalDetailKeys": [
+          "cluster",
+          "command",
+          "mutating",
+          "idempotencyKey",
+          "targets",
+          "stdinSha256",
+          "exitCode",
+          "stdout",
+          "stderr"
+        ],
+        "exitCode": 0
+      },
+      "isError": false,
+      "timestamp": 1793435135509
+    }
+  },
+  {
+    "toolCallId": "call_5ef19b1844d24b0892eab6f7",
+    "requestAt": "2026-10-31T08:25:34.632Z",
+    "toolName": "run_kubectl",
+    "arguments": {
+      "args": [
+        "describe",
+        "pod",
+        "mosaic-log-fixture",
+        "-n",
+        "mosaic-e2e-20261031t075722z"
+      ]
+    },
+    "resultAt": "2026-10-31T08:25:35.513Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_5ef19b1844d24b0892eab6f7",
+      "toolName": "run_kubectl",
+      "content": [
+        {
+          "type": "text",
+          "text": "kubectl describe pod mosaic-log-fixture -n mosaic-e2e-20261031t075722z\n{\n  \"cluster\": \"target-lab\",\n  \"mutating\": false,\n  \"targets\": [],\n  \"exitCode\": 0,\n  \"stdout\": \"Name:             mosaic-log-fixture\\nNamespace:        mosaic-e2e-20261031t075722z\\nPriority:         0\\nService Account:  default\\nNode:             target-node-1/target-node-1.example.invalid\\nStart Time:       Sat, 31 Oct 2026 08:21:42 +0000\\nLabels:           app.kubernetes.io/part-of=mosaic-e2e-validation\\n                  mosaic_test=true\\n                  run_id=e2e-20261031t075722z\\nAnnotations:      cni.projectcalico.org/containerID: 019999de620c6328efcb05a7f33d8fc46ed9fcec97d034f916815848372cfc21\\n                  cni.projectcalico.org/podIP: continued-private-address-07.example.invalid/32\\n                  cni.projectcalico.org/podIPs: continued-private-address-07.example.invalid/32\\nStatus:           Running\\nSeccompProfile:   RuntimeDefault\\nIP:               continued-private-address-07.example.invalid\\nIPs:\\n  IP:  continued-private-address-07.example.invalid\\nContainers:\\n  fixture:\\n    Container ID:  containerd://cbaad94d8b13439cfb2c7c6e3ef462a020882eb5a5faf561a0eb34114bc49a38\\n    Image:         docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\\n    Image ID:      docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\\n    Port:          <none>\\n    Host Port:     <none>\\n    Command:\\n      /bin/sh\\n      -c\\n      printf 'timestamp=%s run_id=%s component=mosaic-log-fixture event=startup test_from=\\\"test from Jeff Peng\\\"\\\\n' \\\"$(date -u +%FT%TZ)\\\" \\\"$RUN_ID\\\"\\n      if [ ! -f /fixture/ready ]; then\\n        printf 'timestamp=%s run_id=%s event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\\\"test from Jeff Peng\\\"\\\\n' \\\"$(date -u +%FT%TZ)\\\" \\\"$RUN_ID\\\"\\n        exit 23\\n      fi\\n      printf 'timestamp=%s run_id=%s event=ready\\\\n' \\\"$(date -u +%FT%TZ)\\\" \\\"$RUN_ID\\\"\\n      while :; do sleep 3600; done\\n      \\n    State:          Waiting\\n      Reason:       CrashLoopBackOff\\n    Last State:     Terminated\\n      Reason:       Error\\n      Exit Code:    23\\n      Started:      Sat, 31 Oct 2026 08:24:38 +0000\\n      Finished:     Sat, 31 Oct 2026 08:24:38 +0000\\n    Ready:          False\\n    Restart Count:  5\\n    Limits:\\n      cpu:     50m\\n      memory:  32Mi\\n    Requests:\\n      cpu:     5m\\n      memory:  8Mi\\n    Environment:\\n      RUN_ID:  e2e-20261031t075722z\\n    Mounts:\\n      /fixture from input (ro)\\nConditions:\\n  Type                        Status\\n  PodReadyToStartContainers   True \\n  Initialized                 True \\n  Ready                       False \\n  ContainersReady             False \\n  PodScheduled                True \\nVolumes:\\n  input:\\n    Type:        ConfigMap (a volume populated by a ConfigMap)\\n    Name:        fixture-input\\n    Optional:    false\\nQoS Class:       Burstable\\nNode-Selectors:  kubernetes.io/hostname=target-node-1\\nTolerations:     node-role.kubernetes.io/control-plane:NoSchedule op=Exists\\n                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s\\n                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s\\nEvents:\\n  Type     Reason     Age                   From               Message\\n  ----     ------     ----                  ----               -------\\n  Normal   Scheduled  3m53s                 default-scheduler  Successfully assigned mosaic-e2e-20261031t075722z/mosaic-log-fixture to target-node-1\\n  Normal   Pulled     58s (x6 over 3m52s)   kubelet            Container image \\\"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\\\" already present on machine\\n  Normal   Created    58s (x6 over 3m52s)   kubelet            Created container: fixture\\n  Normal   Started    57s (x6 over 3m51s)   kubelet            Started container fixture\\n  Warning  BackOff    13s (x17 over 3m46s)  kubelet            Back-off restarting failed container fixture in pod mosaic-log-fixture_mosaic-e2e-20261031t075722z(82953a81-6578-4cbe-b638-ef3de927279a)\\n\",\n  \"stderr\": \"\"\n}"
+        }
+      ],
+      "details": {
+        "cluster": "target-lab",
+        "command": [
+          "kubectl",
+          "describe",
+          "pod",
+          "mosaic-log-fixture",
+          "-n",
+          "mosaic-e2e-20261031t075722z"
+        ],
+        "mutating": false,
+        "targets": [],
+        "exitCode": 0,
+        "stdout": "Name:             mosaic-log-fixture\nNamespace:        mosaic-e2e-20261031t075722z\nPriority:         0\nService Account:  default\nNode:             target-node-1/target-node-1.example.invalid\nStart Time:       Sat, 31 Oct 2026 08:21:42 +0000\nLabels:           app.kubernetes.io/part-of=mosaic-e2e-validation\n                  mosaic_test=true\n                  run_id=e2e-20261031t075722z\nAnnotations:      cni.projectcalico.org/containerID: 019999de620c6328efcb05a7f33d8fc46ed9fcec97d034f916815848372cfc21\n                  cni.projectcalico.org/podIP: continued-private-address-07.example.invalid/32\n                  cni.projectcalico.org/podIPs: continued-private-address-07.example.invalid/32\nStatus:           Running\nSeccompProfile:   RuntimeDefault\nIP:               continued-private-address-07.example.invalid\nIPs:\n  IP:  continued-private-address-07.example.invalid\nContainers:\n  fixture:\n    Container ID:  containerd://cbaad94d8b13439cfb2c7c6e3ef462a020882eb5a5faf561a0eb34114bc49a38\n    Image:         docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\n    Image ID:      docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\n    Port:          <none>\n    Host Port:     <none>\n    Command:\n      /bin/sh\n      -c\n      printf 'timestamp=%s run_id=%s component=mosaic-log-fixture event=startup test_from=\"test from Jeff Peng\"\\n' \"$(date -u +%FT%TZ)\" \"$RUN_ID\"\n      if [ ! -f /fixture/ready ]; then\n        printf 'timestamp=%s run_id=%s event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\"test from Jeff Peng\"\\n' \"$(date -u +%FT%TZ)\" \"$RUN_ID\"\n        exit 23\n      fi\n      printf 'timestamp=%s run_id=%s event=ready\\n' \"$(date -u +%FT%TZ)\" \"$RUN_ID\"\n      while :; do sleep 3600; done\n      \n    State:          Waiting\n      Reason:       CrashLoopBackOff\n    Last State:     Terminated\n      Reason:       Error\n      Exit Code:    23\n      Started:      Sat, 31 Oct 2026 08:24:38 +0000\n      Finished:     Sat, 31 Oct 2026 08:24:38 +0000\n    Ready:          False\n    Restart Count:  5\n    Limits:\n      cpu:     50m\n      memory:  32Mi\n    Requests:\n      cpu:     5m\n      memory:  8Mi\n    Environment:\n      RUN_ID:  e2e-20261031t075722z\n    Mounts:\n      /fixture from input (ro)\nConditions:\n  Type                        Status\n  PodReadyToStartContainers   True \n  Initialized                 True \n  Ready                       False \n  ContainersReady             False \n  PodScheduled                True \nVolumes:\n  input:\n    Type:        ConfigMap (a volume populated by a ConfigMap)\n    Name:        fixture-input\n    Optional:    false\nQoS Class:       Burstable\nNode-Selectors:  kubernetes.io/hostname=target-node-1\nTolerations:     node-role.kubernetes.io/control-plane:NoSchedule op=Exists\n                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s\n                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s\nEvents:\n  Type     Reason     Age                   From               Message\n  ----     ------     ----                  ----               -------\n  Normal   Scheduled  3m53s                 default-scheduler  Successfully assigned mosaic-e2e-20261031t075722z/mosaic-log-fixture to target-node-1\n  Normal   Pulled     58s (x6 over 3m52s)   kubelet            Container image \"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\" already present on machine\n  Normal   Created    58s (x6 over 3m52s)   kubelet            Created container: fixture\n  Normal   Started    57s (x6 over 3m51s)   kubelet            Started container fixture\n  Warning  BackOff    13s (x17 over 3m46s)  kubelet            Back-off restarting failed container fixture in pod mosaic-log-fixture_mosaic-e2e-20261031t075722z(82953a81-6578-4cbe-b638-ef3de927279a)\n",
+        "stderr": ""
+      },
+      "isError": false,
+      "timestamp": 1793435135511
+    }
+  },
+  {
+    "toolCallId": "call_ee1dab0918ef4910936741b0",
+    "requestAt": "2026-10-31T08:25:34.632Z",
+    "toolName": "run_kubectl",
+    "arguments": {
+      "args": [
+        "logs",
+        "mosaic-log-fixture",
+        "-c",
+        "fixture",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "--previous",
+        "--timestamps"
+      ]
+    },
+    "resultAt": "2026-10-31T08:25:35.514Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_ee1dab0918ef4910936741b0",
+      "toolName": "run_kubectl",
+      "content": [
+        {
+          "type": "text",
+          "text": "kubectl logs mosaic-log-fixture -c fixture -n mosaic-e2e-20261031t075722z --previous --timestamps\n{\n  \"cluster\": \"target-lab\",\n  \"mutating\": false,\n  \"targets\": [],\n  \"exitCode\": 0,\n  \"stdout\": \"2026-10-31T16:24:38.333639096+08:00 timestamp=2026-10-31T08:24:38Z run_id=e2e-20261031t075722z component=mosaic-log-fixture event=startup test_from=\\\"test from Jeff Peng\\\"\\n2026-10-31T16:24:38.334391932+08:00 timestamp=2026-10-31T08:24:38Z run_id=e2e-20261031t075722z event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\\\"test from Jeff Peng\\\"\\n\",\n  \"stderr\": \"\"\n}"
+        }
+      ],
+      "details": {
+        "cluster": "target-lab",
+        "command": [
+          "kubectl",
+          "logs",
+          "mosaic-log-fixture",
+          "-c",
+          "fixture",
+          "-n",
+          "mosaic-e2e-20261031t075722z",
+          "--previous",
+          "--timestamps"
+        ],
+        "mutating": false,
+        "targets": [],
+        "exitCode": 0,
+        "stdout": "2026-10-31T16:24:38.333639096+08:00 timestamp=2026-10-31T08:24:38Z run_id=e2e-20261031t075722z component=mosaic-log-fixture event=startup test_from=\"test from Jeff Peng\"\n2026-10-31T16:24:38.334391932+08:00 timestamp=2026-10-31T08:24:38Z run_id=e2e-20261031t075722z event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\"test from Jeff Peng\"\n",
+        "stderr": ""
+      },
+      "isError": false,
+      "timestamp": 1793435135513
+    }
+  },
+  {
+    "toolCallId": "call_aaf3236af6934910aa3c3d1d",
+    "requestAt": "2026-10-31T08:25:34.632Z",
+    "toolName": "run_kubectl",
+    "arguments": {
+      "args": [
+        "logs",
+        "mosaic-log-fixture",
+        "-c",
+        "fixture",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "--timestamps"
+      ]
+    },
+    "resultAt": "2026-10-31T08:25:35.516Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_aaf3236af6934910aa3c3d1d",
+      "toolName": "run_kubectl",
+      "content": [
+        {
+          "type": "text",
+          "text": "kubectl logs mosaic-log-fixture -c fixture -n mosaic-e2e-20261031t075722z --timestamps\n{\n  \"cluster\": \"target-lab\",\n  \"mutating\": false,\n  \"targets\": [],\n  \"exitCode\": 0,\n  \"stdout\": \"2026-10-31T16:24:38.333639096+08:00 timestamp=2026-10-31T08:24:38Z run_id=e2e-20261031t075722z component=mosaic-log-fixture event=startup test_from=\\\"test from Jeff Peng\\\"\\n2026-10-31T16:24:38.334391932+08:00 timestamp=2026-10-31T08:24:38Z run_id=e2e-20261031t075722z event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\\\"test from Jeff Peng\\\"\\n\",\n  \"stderr\": \"\"\n}"
+        }
+      ],
+      "details": {
+        "cluster": "target-lab",
+        "command": [
+          "kubectl",
+          "logs",
+          "mosaic-log-fixture",
+          "-c",
+          "fixture",
+          "-n",
+          "mosaic-e2e-20261031t075722z",
+          "--timestamps"
+        ],
+        "mutating": false,
+        "targets": [],
+        "exitCode": 0,
+        "stdout": "2026-10-31T16:24:38.333639096+08:00 timestamp=2026-10-31T08:24:38Z run_id=e2e-20261031t075722z component=mosaic-log-fixture event=startup test_from=\"test from Jeff Peng\"\n2026-10-31T16:24:38.334391932+08:00 timestamp=2026-10-31T08:24:38Z run_id=e2e-20261031t075722z event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\"test from Jeff Peng\"\n",
+        "stderr": ""
+      },
+      "isError": false,
+      "timestamp": 1793435135515
+    }
+  },
+  {
+    "toolCallId": "call_a3ea30a1b25b4f2bb7421a62",
+    "requestAt": "2026-10-31T08:25:34.632Z",
+    "toolName": "run_kubectl",
+    "arguments": {
+      "args": [
+        "get",
+        "events",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "-o",
+        "json"
+      ]
+    },
+    "resultAt": "2026-10-31T08:25:35.518Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_a3ea30a1b25b4f2bb7421a62",
+      "toolName": "run_kubectl",
+      "content": [
+        {
+          "type": "text",
+          "text": "kubectl get events -n mosaic-e2e-20261031t075722z -o json\n{\n  \"cluster\": \"target-lab\",\n  \"mutating\": false,\n  \"targets\": [],\n  \"exitCode\": 0,\n  \"stdout\": \"{\\n    \\\"apiVersion\\\": \\\"v1\\\",\\n    \\\"items\\\": [\\n        {\\n            \\\"action\\\": \\\"Binding\\\",\\n            \\\"apiVersion\\\": \\\"v1\\\",\\n            \\\"eventTime\\\": \\\"2026-10-31T08:21:42.084332Z\\\",\\n            \\\"firstTimestamp\\\": null,\\n            \\\"involvedObject\\\": {\\n                \\\"apiVersion\\\": \\\"v1\\\",\\n                \\\"kind\\\": \\\"Pod\\\",\\n                \\\"name\\\": \\\"mosaic-log-fixture\\\",\\n                \\\"namespace\\\": \\\"mosaic-e2e-20261031t075722z\\\",\\n                \\\"resourceVersion\\\": \\\"99564432\\\",\\n                \\\"uid\\\": \\\"82953a81-6578-4cbe-b638-ef3de927279a\\\"\\n            },\\n            \\\"kind\\\": \\\"Event\\\",\\n            \\\"lastTimestamp\\\": null,\\n            \\\"message\\\": \\\"Successfully assigned mosaic-e2e-20261031t075722z/mosaic-log-fixture to target-node-1\\\",\\n            \\\"metadata\\\": {\\n                \\\"creationTimestamp\\\": \\\"2026-10-31T08:21:42Z\\\",\\n                \\\"name\\\": \\\"mosaic-log-fixture.18e38f8a9a8653ce\\\",\\n                \\\"namespace\\\": \\\"mosaic-e2e-20261031t075722z\\\",\\n                \\\"resourceVersion\\\": \\\"99564434\\\",\\n                \\\"uid\\\": \\\"1dd26ec5-196a-40c6-87b3-d722bf3c4bfc\\\"\\n            },\\n            \\\"reason\\\": \\\"Scheduled\\\",\\n            \\\"reportingComponent\\\": \\\"default-scheduler\\\",\\n            \\\"reportingInstance\\\": \\\"default-scheduler-target-node-1\\\",\\n            \\\"source\\\": {},\\n            \\\"type\\\": \\\"Normal\\\"\\n        },\\n        {\\n            \\\"apiVersion\\\": \\\"v1\\\",\\n            \\\"count\\\": 6,\\n            \\\"eventTime\\\": null,\\n            \\\"firstTimestamp\\\": \\\"2026-10-31T08:21:43Z\\\",\\n            \\\"involvedObject\\\": {\\n                \\\"apiVersion\\\": \\\"v1\\\",\\n                \\\"fieldPath\\\": \\\"spec.containers{fixture}\\\",\\n                \\\"kind\\\": \\\"Pod\\\",\\n                \\\"name\\\": \\\"mosaic-log-fixture\\\",\\n                \\\"namespace\\\": \\\"mosaic-e2e-20261031t075722z\\\",\\n                \\\"resourceVersion\\\": \\\"99564433\\\",\\n                \\\"uid\\\": \\\"82953a81-6578-4cbe-b638-ef3de927279a\\\"\\n            },\\n            \\\"kind\\\": \\\"Event\\\",\\n            \\\"lastTimestamp\\\": \\\"2026-10-31T08:24:37Z\\\",\\n            \\\"message\\\": \\\"Container image \\\\\\\"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\\\\\\\" already present on machine\\\",\\n            \\\"metadata\\\": {\\n                \\\"creationTimestamp\\\": \\\"2026-10-31T08:21:43Z\\\",\\n                \\\"name\\\": \\\"mosaic-log-fixture.18e38f8aeb9512e3\\\",\\n                \\\"namespace\\\": \\\"mosaic-e2e-20261031t075722z\\\",\\n                \\\"resourceVersion\\\": \\\"99565541\\\",\\n                \\\"uid\\\": \\\"82cb9cfe-4118-410f-88bb-09ebd0d55e8e\\\"\\n            },\\n            \\\"reason\\\": \\\"Pulled\\\",\\n            \\\"reportingComponent\\\": \\\"kubelet\\\",\\n            \\\"reportingInstance\\\": \\\"target-node-1\\\",\\n            \\\"source\\\": {\\n                \\\"component\\\": \\\"kubelet\\\",\\n                \\\"host\\\": \\\"target-node-1\\\"\\n            },\\n            \\\"type\\\": \\\"Normal\\\"\\n        },\\n        {\\n            \\\"apiVersion\\\": \\\"v1\\\",\\n            \\\"count\\\": 6,\\n            \\\"eventTime\\\": null,\\n            \\\"firstTimestamp\\\": \\\"2026-10-31T08:21:43Z\\\",\\n            \\\"involvedObject\\\": {\\n                \\\"apiVersion\\\": \\\"v1\\\",\\n                \\\"fieldPath\\\": \\\"spec.containers{fixture}\\\",\\n                \\\"kind\\\": \\\"Pod\\\",\\n                \\\"name\\\": \\\"mosaic-log-fixture\\\",\\n                \\\"namespace\\\": \\\"mosaic-e2e-20261031t075722z\\\",\\n                \\\"resourceVersion\\\": \\\"99564433\\\",\\n                \\\"uid\\\": \\\"82953a81-6578-4cbe-b638-ef3de927279a\\\"\\n            },\\n            \\\"kind\\\": \\\"Event\\\",\\n            \\\"lastTimestamp\\\": \\\"2026-10-31T08:24:37Z\\\",\\n            \\\"message\\\": \\\"Created container: fixture\\\",\\n            \\\"metadata\\\": {\\n                \\\"creationTimestamp\\\": \\\"2026-10-31T08:21:43Z\\\",\\n                \\\"name\\\": \\\"mosaic-log-fixture.18e38f8aec04de56\\\",\\n                \\\"namespace\\\": \\\"mosaic-e2e-20261031t075722z\\\",\\n                \\\"resourceVersion\\\": \\\"99565542\\\",\\n                \\\"uid\\\": \\\"28ce7813-1bc0-48e3-87a3-c2275d06bbd5\\\"\\n            },\\n            \\\"reason\\\": \\\"Created\\\",\\n            \\\"reportingComponent\\\": \\\"kubelet\\\",\\n            \\\"reportingInstance\\\": \\\"target-node-1\\\",\\n            \\\"source\\\": {\\n                \\\"component\\\": \\\"kubelet\\\",\\n                \\\"host\\\": \\\"target-node-1\\\"\\n            },\\n            \\\"type\\\": \\\"Normal\\\"\\n        },\\n        {\\n            \\\"apiVersion\\\": \\\"v1\\\",\\n            \\\"count\\\": 6,\\n            \\\"eventTime\\\": null,\\n            \\\"firstTimestamp\\\": \\\"2026-10-31T08:21:44Z\\\",\\n            \\\"involvedObject\\\": {\\n                \\\"apiVersion\\\": \\\"v1\\\",\\n                \\\"fieldPath\\\": \\\"spec.containers{fixture}\\\",\\n                \\\"kind\\\": \\\"Pod\\\",\\n                \\\"name\\\": \\\"mosaic-log-fixture\\\",\\n                \\\"namespace\\\": \\\"mosaic-e2e-20261031t075722z\\\",\\n                \\\"resourceVersion\\\": \\\"99564433\\\",\\n                \\\"uid\\\": \\\"82953a81-6578-4cbe-b638-ef3de927279a\\\"\\n            },\\n            \\\"kind\\\": \\\"Event\\\",\\n            \\\"lastTimestamp\\\": \\\"2026-10-31T08:24:38Z\\\",\\n            \\\"message\\\": \\\"Started container fixture\\\",\\n            \\\"metadata\\\": {\\n                \\\"creationTimestamp\\\": \\\"2026-10-31T08:21:44Z\\\",\\n                \\\"name\\\": \\\"mosaic-log-fixture.18e38f8b3f1bde6b\\\",\\n                \\\"namespace\\\": \\\"mosaic-e2e-20261031t075722z\\\",\\n                \\\"resourceVersion\\\": \\\"99565554\\\",\\n                \\\"uid\\\": \\\"836399c6-853f-4daa-93c2-54811502bac2\\\"\\n            },\\n            \\\"reason\\\": \\\"Started\\\",\\n            \\\"reportingComponent\\\": \\\"kubelet\\\",\\n            \\\"reportingInstance\\\": \\\"target-node-1\\\",\\n            \\\"source\\\": {\\n                \\\"component\\\": \\\"kubelet\\\",\\n                \\\"host\\\": \\\"target-node-1\\\"\\n            },\\n            \\\"type\\\": \\\"Normal\\\"\\n        },\\n        {\\n            \\\"apiVersion\\\": \\\"v1\\\",\\n            \\\"count\\\": 17,\\n            \\\"eventTime\\\": null,\\n            \\\"firstTimestamp\\\": \\\"2026-10-31T08:21:49Z\\\",\\n            \\\"involvedObject\\\": {\\n                \\\"apiVersion\\\": \\\"v1\\\",\\n                \\\"fieldPath\\\": \\\"spec.containers{fixture}\\\",\\n                \\\"kind\\\": \\\"Pod\\\",\\n                \\\"name\\\": \\\"mosaic-log-fixture\\\",\\n                \\\"namespace\\\": \\\"mosaic-e2e-20261031t075722z\\\",\\n                \\\"resourceVersion\\\": \\\"99564433\\\",\\n                \\\"uid\\\": \\\"82953a81-6578-4cbe-b638-ef3de927279a\\\"\\n            },\\n            \\\"kind\\\": \\\"Event\\\",\\n            \\\"lastTimestamp\\\": \\\"2026-10-31T08:25:22Z\\\",\\n            \\\"message\\\": \\\"Back-off restarting failed container fixture in pod mosaic-log-fixture_mosaic-e2e-20261031t075722z(82953a81-6578-4cbe-b638-ef3de927279a)\\\",\\n            \\\"metadata\\\": {\\n                \\\"creationTimestamp\\\": \\\"2026-10-31T08:21:49Z\\\",\\n                \\\"name\\\": \\\"mosaic-log-fixture.18e38f8c4c15598e\\\",\\n                \\\"namespace\\\": \\\"mosaic-e2e-20261031t075722z\\\",\\n                \\\"resourceVersion\\\": \\\"99565827\\\",\\n                \\\"uid\\\": \\\"c7dd5a18-a3cd-429c-9690-db186ae25d28\\\"\\n            },\\n            \\\"reason\\\": \\\"BackOff\\\",\\n            \\\"reportingComponent\\\": \\\"kubelet\\\",\\n            \\\"reportingInstance\\\": \\\"target-node-1\\\",\\n            \\\"source\\\": {\\n                \\\"component\\\": \\\"kubelet\\\",\\n                \\\"host\\\": \\\"target-node-1\\\"\\n            },\\n            \\\"type\\\": \\\"Warning\\\"\\n        }\\n    ],\\n    \\\"kind\\\": \\\"List\\\",\\n    \\\"metadata\\\": {\\n        \\\"resourceVersion\\\": \\\"\\\"\\n    }\\n}\\n\",\n  \"stderr\": \"\"\n}"
+        }
+      ],
+      "details": {
+        "cluster": "target-lab",
+        "command": [
+          "kubectl",
+          "get",
+          "events",
+          "-n",
+          "mosaic-e2e-20261031t075722z",
+          "-o",
+          "json"
+        ],
+        "mutating": false,
+        "targets": [],
+        "exitCode": 0,
+        "stdout": "{\n    \"apiVersion\": \"v1\",\n    \"items\": [\n        {\n            \"action\": \"Binding\",\n            \"apiVersion\": \"v1\",\n            \"eventTime\": \"2026-10-31T08:21:42.084332Z\",\n            \"firstTimestamp\": null,\n            \"involvedObject\": {\n                \"apiVersion\": \"v1\",\n                \"kind\": \"Pod\",\n                \"name\": \"mosaic-log-fixture\",\n                \"namespace\": \"mosaic-e2e-20261031t075722z\",\n                \"resourceVersion\": \"99564432\",\n                \"uid\": \"82953a81-6578-4cbe-b638-ef3de927279a\"\n            },\n            \"kind\": \"Event\",\n            \"lastTimestamp\": null,\n            \"message\": \"Successfully assigned mosaic-e2e-20261031t075722z/mosaic-log-fixture to target-node-1\",\n            \"metadata\": {\n                \"creationTimestamp\": \"2026-10-31T08:21:42Z\",\n                \"name\": \"mosaic-log-fixture.18e38f8a9a8653ce\",\n                \"namespace\": \"mosaic-e2e-20261031t075722z\",\n                \"resourceVersion\": \"99564434\",\n                \"uid\": \"1dd26ec5-196a-40c6-87b3-d722bf3c4bfc\"\n            },\n            \"reason\": \"Scheduled\",\n            \"reportingComponent\": \"default-scheduler\",\n            \"reportingInstance\": \"default-scheduler-target-node-1\",\n            \"source\": {},\n            \"type\": \"Normal\"\n        },\n        {\n            \"apiVersion\": \"v1\",\n            \"count\": 6,\n            \"eventTime\": null,\n            \"firstTimestamp\": \"2026-10-31T08:21:43Z\",\n            \"involvedObject\": {\n                \"apiVersion\": \"v1\",\n                \"fieldPath\": \"spec.containers{fixture}\",\n                \"kind\": \"Pod\",\n                \"name\": \"mosaic-log-fixture\",\n                \"namespace\": \"mosaic-e2e-20261031t075722z\",\n                \"resourceVersion\": \"99564433\",\n                \"uid\": \"82953a81-6578-4cbe-b638-ef3de927279a\"\n            },\n            \"kind\": \"Event\",\n            \"lastTimestamp\": \"2026-10-31T08:24:37Z\",\n            \"message\": \"Container image \\\"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\\\" already present on machine\",\n            \"metadata\": {\n                \"creationTimestamp\": \"2026-10-31T08:21:43Z\",\n                \"name\": \"mosaic-log-fixture.18e38f8aeb9512e3\",\n                \"namespace\": \"mosaic-e2e-20261031t075722z\",\n                \"resourceVersion\": \"99565541\",\n                \"uid\": \"82cb9cfe-4118-410f-88bb-09ebd0d55e8e\"\n            },\n            \"reason\": \"Pulled\",\n            \"reportingComponent\": \"kubelet\",\n            \"reportingInstance\": \"target-node-1\",\n            \"source\": {\n                \"component\": \"kubelet\",\n                \"host\": \"target-node-1\"\n            },\n            \"type\": \"Normal\"\n        },\n        {\n            \"apiVersion\": \"v1\",\n            \"count\": 6,\n            \"eventTime\": null,\n            \"firstTimestamp\": \"2026-10-31T08:21:43Z\",\n            \"involvedObject\": {\n                \"apiVersion\": \"v1\",\n                \"fieldPath\": \"spec.containers{fixture}\",\n                \"kind\": \"Pod\",\n                \"name\": \"mosaic-log-fixture\",\n                \"namespace\": \"mosaic-e2e-20261031t075722z\",\n                \"resourceVersion\": \"99564433\",\n                \"uid\": \"82953a81-6578-4cbe-b638-ef3de927279a\"\n            },\n            \"kind\": \"Event\",\n            \"lastTimestamp\": \"2026-10-31T08:24:37Z\",\n            \"message\": \"Created container: fixture\",\n            \"metadata\": {\n                \"creationTimestamp\": \"2026-10-31T08:21:43Z\",\n                \"name\": \"mosaic-log-fixture.18e38f8aec04de56\",\n                \"namespace\": \"mosaic-e2e-20261031t075722z\",\n                \"resourceVersion\": \"99565542\",\n                \"uid\": \"28ce7813-1bc0-48e3-87a3-c2275d06bbd5\"\n            },\n            \"reason\": \"Created\",\n            \"reportingComponent\": \"kubelet\",\n            \"reportingInstance\": \"target-node-1\",\n            \"source\": {\n                \"component\": \"kubelet\",\n                \"host\": \"target-node-1\"\n            },\n            \"type\": \"Normal\"\n        },\n        {\n            \"apiVersion\": \"v1\",\n            \"count\": 6,\n            \"eventTime\": null,\n            \"firstTimestamp\": \"2026-10-31T08:21:44Z\",\n            \"involvedObject\": {\n                \"apiVersion\": \"v1\",\n                \"fieldPath\": \"spec.containers{fixture}\",\n                \"kind\": \"Pod\",\n                \"name\": \"mosaic-log-fixture\",\n                \"namespace\": \"mosaic-e2e-20261031t075722z\",\n                \"resourceVersion\": \"99564433\",\n                \"uid\": \"82953a81-6578-4cbe-b638-ef3de927279a\"\n            },\n            \"kind\": \"Event\",\n            \"lastTimestamp\": \"2026-10-31T08:24:38Z\",\n            \"message\": \"Started container fixture\",\n            \"metadata\": {\n                \"creationTimestamp\": \"2026-10-31T08:21:44Z\",\n                \"name\": \"mosaic-log-fixture.18e38f8b3f1bde6b\",\n                \"namespace\": \"mosaic-e2e-20261031t075722z\",\n                \"resourceVersion\": \"99565554\",\n                \"uid\": \"836399c6-853f-4daa-93c2-54811502bac2\"\n            },\n            \"reason\": \"Started\",\n            \"reportingComponent\": \"kubelet\",\n            \"reportingInstance\": \"target-node-1\",\n            \"source\": {\n                \"component\": \"kubelet\",\n                \"host\": \"target-node-1\"\n            },\n            \"type\": \"Normal\"\n        },\n        {\n            \"apiVersion\": \"v1\",\n            \"count\": 17,\n            \"eventTime\": null,\n            \"firstTimestamp\": \"2026-10-31T08:21:49Z\",\n            \"involvedObject\": {\n                \"apiVersion\": \"v1\",\n                \"fieldPath\": \"spec.containers{fixture}\",\n                \"kind\": \"Pod\",\n                \"name\": \"mosaic-log-fixture\",\n                \"namespace\": \"mosaic-e2e-20261031t075722z\",\n                \"resourceVersion\": \"99564433\",\n                \"uid\": \"82953a81-6578-4cbe-b638-ef3de927279a\"\n            },\n            \"kind\": \"Event\",\n            \"lastTimestamp\": \"2026-10-31T08:25:22Z\",\n            \"message\": \"Back-off restarting failed container fixture in pod mosaic-log-fixture_mosaic-e2e-20261031t075722z(82953a81-6578-4cbe-b638-ef3de927279a)\",\n            \"metadata\": {\n                \"creationTimestamp\": \"2026-10-31T08:21:49Z\",\n                \"name\": \"mosaic-log-fixture.18e38f8c4c15598e\",\n                \"namespace\": \"mosaic-e2e-20261031t075722z\",\n                \"resourceVersion\": \"99565827\",\n                \"uid\": \"c7dd5a18-a3cd-429c-9690-db186ae25d28\"\n            },\n            \"reason\": \"BackOff\",\n            \"reportingComponent\": \"kubelet\",\n            \"reportingInstance\": \"target-node-1\",\n            \"source\": {\n                \"component\": \"kubelet\",\n                \"host\": \"target-node-1\"\n            },\n            \"type\": \"Warning\"\n        }\n    ],\n    \"kind\": \"List\",\n    \"metadata\": {\n        \"resourceVersion\": \"\"\n    }\n}\n",
+        "stderr": ""
+      },
+      "isError": false,
+      "timestamp": 1793435135516
+    }
+  },
+  {
+    "toolCallId": "call_9a514b9ae4cc433d9ec68294",
+    "requestAt": "2026-10-31T08:25:34.632Z",
+    "toolName": "run_kubectl",
+    "arguments": {
+      "args": [
+        "get",
+        "configmap",
+        "fixture-input",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "-o",
+        "json"
+      ]
+    },
+    "resultAt": "2026-10-31T08:25:35.520Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_9a514b9ae4cc433d9ec68294",
+      "toolName": "run_kubectl",
+      "content": [
+        {
+          "type": "text",
+          "text": "kubectl get configmap fixture-input -n mosaic-e2e-20261031t075722z -o json\n{\n  \"cluster\": \"target-lab\",\n  \"mutating\": false,\n  \"targets\": [],\n  \"exitCode\": 0,\n  \"stdout\": \"{\\n    \\\"apiVersion\\\": \\\"v1\\\",\\n    \\\"data\\\": {\\n        \\\"README\\\": \\\"Deliberately omit ready for a bounded startup-failure test. No production service is modified.\\\"\\n    },\\n    \\\"kind\\\": \\\"ConfigMap\\\",\\n    \\\"metadata\\\": {\\n        \\\"creationTimestamp\\\": \\\"2026-10-31T08:21:42Z\\\",\\n        \\\"labels\\\": {\\n            \\\"app.kubernetes.io/part-of\\\": \\\"mosaic-e2e-validation\\\",\\n            \\\"mosaic_test\\\": \\\"true\\\",\\n            \\\"run_id\\\": \\\"e2e-20261031t075722z\\\"\\n        },\\n        \\\"name\\\": \\\"fixture-input\\\",\\n        \\\"namespace\\\": \\\"mosaic-e2e-20261031t075722z\\\",\\n        \\\"resourceVersion\\\": \\\"99564431\\\",\\n        \\\"uid\\\": \\\"403b73e5-b19e-4276-bb0a-ff64c9dc0162\\\"\\n    }\\n}\\n\",\n  \"stderr\": \"\"\n}"
+        }
+      ],
+      "details": {
+        "cluster": "target-lab",
+        "command": [
+          "kubectl",
+          "get",
+          "configmap",
+          "fixture-input",
+          "-n",
+          "mosaic-e2e-20261031t075722z",
+          "-o",
+          "json"
+        ],
+        "mutating": false,
+        "targets": [],
+        "exitCode": 0,
+        "stdout": "{\n    \"apiVersion\": \"v1\",\n    \"data\": {\n        \"README\": \"Deliberately omit ready for a bounded startup-failure test. No production service is modified.\"\n    },\n    \"kind\": \"ConfigMap\",\n    \"metadata\": {\n        \"creationTimestamp\": \"2026-10-31T08:21:42Z\",\n        \"labels\": {\n            \"app.kubernetes.io/part-of\": \"mosaic-e2e-validation\",\n            \"mosaic_test\": \"true\",\n            \"run_id\": \"e2e-20261031t075722z\"\n        },\n        \"name\": \"fixture-input\",\n        \"namespace\": \"mosaic-e2e-20261031t075722z\",\n        \"resourceVersion\": \"99564431\",\n        \"uid\": \"403b73e5-b19e-4276-bb0a-ff64c9dc0162\"\n    }\n}\n",
+        "stderr": ""
+      },
+      "isError": false,
+      "timestamp": 1793435135519
+    }
+  },
+  {
+    "toolCallId": "call_9ec4548521ba41a49f570485",
+    "requestAt": "2026-10-31T08:25:34.632Z",
+    "toolName": "run_kubectl",
+    "arguments": {
+      "args": [
+        "get",
+        "node",
+        "target-node-1",
+        "-o",
+        "json"
+      ]
+    },
+    "resultAt": "2026-10-31T08:25:35.523Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_9ec4548521ba41a49f570485",
+      "toolName": "run_kubectl",
+      "content": [
+        {
+          "type": "text",
+          "text": "kubectl get node target-node-1 -o json\n{\n  \"cluster\": \"target-lab\",\n  \"mutating\": false,\n  \"targets\": [],\n  \"exitCode\": 0,\n  \"stdout\": \"{\\n    \\\"apiVersion\\\": \\\"v1\\\",\\n    \\\"kind\\\": \\\"Node\\\",\\n    \\\"metadata\\\": {\\n        \\\"annotations\\\": {\\n            \\\"kubeadm.alpha.kubernetes.io/cri-socket\\\": \\\"unix:///var/run/containerd/containerd.sock\\\",\\n            \\\"nfd.node.kubernetes.io/feature-labels\\\": \\\"cpu-cpuid.ADX,cpu-cpuid.AESNI,cpu-cpuid.AMXBF16,cpu-cpuid.AMXFP8,cpu-cpuid.AMXINT8,cpu-cpuid.AMXTILE,cpu-cpuid.AVX,cpu-cpuid.AVX2,cpu-cpuid.AVX512BF16,cpu-cpuid.AVX512BITALG,cpu-cpuid.AVX512BW,cpu-cpuid.AVX512CD,cpu-cpuid.AVX512DQ,cpu-cpuid.AVX512F,cpu-cpuid.AVX512FP16,cpu-cpuid.AVX512IFMA,cpu-cpuid.AVX512VBMI,cpu-cpuid.AVX512VBMI2,cpu-cpuid.AVX512VL,cpu-cpuid.AVX512VNNI,cpu-cpuid.AVX512VPOPCNTDQ,cpu-cpuid.AVXVNNI,cpu-cpuid.BHI_CTRL,cpu-cpuid.CETIBT,cpu-cpuid.CETSS,cpu-cpuid.CLDEMOTE,cpu-cpuid.CMPSB_SCADBS_SHORT,cpu-cpuid.CMPXCHG8,cpu-cpuid.ENQCMD,cpu-cpuid.FLUSH_L1D,cpu-cpuid.FMA3,cpu-cpuid.FSRM,cpu-cpuid.FXSR,cpu-cpuid.FXSROPT,cpu-cpuid.GFNI,cpu-cpuid.IA32_ARCH_CAP,cpu-cpuid.IA32_CORE_CAP,cpu-cpuid.IBPB,cpu-cpuid.IDPRED_CTRL,cpu-cpuid.LAHF,cpu-cpuid.MD_CLEAR,cpu-cpuid.MOVBE,cpu-cpuid.MOVDIR64B,cpu-cpuid.MOVDIRI,cpu-cpuid.MOVSB_ZL,cpu-cpuid.OSXSAVE,cpu-cpuid.PCONFIG,cpu-cpuid.PMU_FIXEDCOUNTER_CYCLES,cpu-cpuid.PMU_FIXEDCOUNTER_INSTRUCTIONS,cpu-cpuid.PMU_FIXEDCOUNTER_REFCYCLES,cpu-cpuid.PMU_FIXEDCOUNTER_TOPDOWN_SLOTS,cpu-cpuid.PSFD,cpu-cpuid.RRSBA_CTRL,cpu-cpuid.SERIALIZE,cpu-cpuid.SHA,cpu-cpuid.SPEC_CTRL_SSBD,cpu-cpuid.STIBP,cpu-cpuid.STOSB_SHORT,cpu-cpuid.SYSCALL,cpu-cpuid.SYSEE,cpu-cpuid.TME,cpu-cpuid.TSXLDTRK,cpu-cpuid.VAES,cpu-cpuid.VMX,cpu-cpuid.VPCLMULQDQ,cpu-cpuid.WAITPKG,cpu-cpuid.WBNOINVD,cpu-cpuid.X87,cpu-cpuid.XGETBV1,cpu-cpuid.XSAVE,cpu-cpuid.XSAVEC,cpu-cpuid.XSAVEOPT,cpu-cpuid.XSAVES,cpu-hardware_multithreading,cpu-model.family,cpu-model.id,cpu-model.vendor_id,kernel-config.NO_HZ,kernel-config.NO_HZ_IDLE,kernel-version.full,kernel-version.major,kernel-version.minor,kernel-version.revision,memory-numa,network-sriov.capable,nvidia.com/cuda.driver-version.full,nvidia.com/cuda.driver-version.major,nvidia.com/cuda.driver-version.minor,nvidia.com/cuda.driver-version.revision,nvidia.com/cuda.driver.major,nvidia.com/cuda.driver.minor,nvidia.com/cuda.driver.rev,nvidia.com/cuda.runtime-version.full,nvidia.com/cuda.runtime-version.major,nvidia.com/cuda.runtime-version.minor,nvidia.com/cuda.runtime.major,nvidia.com/cuda.runtime.minor,nvidia.com/gfd.timestamp,nvidia.com/gpu.compute.major,nvidia.com/gpu.compute.minor,nvidia.com/gpu.count,nvidia.com/gpu.family,nvidia.com/gpu.machine,nvidia.com/gpu.memory,nvidia.com/gpu.mode,nvidia.com/gpu.product,nvidia.com/gpu.replicas,nvidia.com/gpu.sharing-strategy,nvidia.com/mig.capable,nvidia.com/mig.strategy,nvidia.com/mps.capable,nvidia.com/vgpu.present,pci-10de.present,pci-10de.sriov.capable,pci-15b3.present,pci-15b3.sriov.capable,pci-1a03.present,rdma.available,rdma.capable,storage-nonrotationaldisk,system-os_release.ID,system-os_release.VERSION_ID,system-os_release.VERSION_ID.major,system-os_release.VERSION_ID.minor\\\",\\n            \\\"node.alpha.kubernetes.io/ttl\\\": \\\"0\\\",\\n            \\\"nvidia.com/gpu-driver-upgrade-enabled\\\": \\\"true\\\",\\n            \\\"projectcalico.org/IPv4Address\\\": \\\"target-node-1.example.invalid/24\\\",\\n            \\\"projectcalico.org/IPv4IPIPTunnelAddr\\\": \\\"continued-private-address-06.example.invalid\\\",\\n            \\\"volumes.kubernetes.io/controller-managed-attach-detach\\\": \\\"true\\\"\\n        },\\n        \\\"creationTimestamp\\\": \\\"2026-01-28T07:05:34Z\\\",\\n        \\\"labels\\\": {\\n            \\\"beta.kubernetes.io/arch\\\": \\\"amd64\\\",\\n            \\\"beta.kubernetes.io/os\\\": \\\"linux\\\",\\n            \\\"demo.grove/role\\\": \\\"profile\\\",\\n            \\\"dgxc.nvidia.com/nvsentinel-state\\\": \\\"remediation-failed\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.ADX\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AESNI\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AMXBF16\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AMXFP8\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AMXINT8\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AMXTILE\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX2\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX512BF16\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX512BITALG\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX512BW\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX512CD\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX512DQ\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX512F\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX512FP16\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX512IFMA\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX512VBMI\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX512VBMI2\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX512VL\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX512VNNI\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVX512VPOPCNTDQ\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.AVXVNNI\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.BHI_CTRL\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.CETIBT\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.CETSS\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.CLDEMOTE\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.CMPSB_SCADBS_SHORT\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.CMPXCHG8\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.ENQCMD\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.FLUSH_L1D\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.FMA3\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.FSRM\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.FXSR\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.FXSROPT\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.GFNI\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.IA32_ARCH_CAP\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.IA32_CORE_CAP\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.IBPB\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.IDPRED_CTRL\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.LAHF\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.MD_CLEAR\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.MOVBE\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.MOVDIR64B\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.MOVDIRI\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.MOVSB_ZL\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.OSXSAVE\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.PCONFIG\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.PMU_FIXEDCOUNTER_CYCLES\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.PMU_FIXEDCOUNTER_INSTRUCTIONS\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.PMU_FIXEDCOUNTER_REFCYCLES\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.PMU_FIXEDCOUNTER_TOPDOWN_SLOTS\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.PSFD\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.RRSBA_CTRL\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.SERIALIZE\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.SHA\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.SPEC_CTRL_SSBD\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.STIBP\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.STOSB_SHORT\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.SYSCALL\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.SYSEE\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.TME\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.TSXLDTRK\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.VAES\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.VMX\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.VPCLMULQDQ\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.WAITPKG\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.WBNOINVD\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.X87\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.XGETBV1\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.XSAVE\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.XSAVEC\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.XSAVEOPT\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-cpuid.XSAVES\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-hardware_multithreading\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/cpu-model.family\\\": \\\"6\\\",\\n            \\\"feature.node.kubernetes.io/cpu-model.id\\\": \\\"143\\\",\\n            \\\"feature.node.kubernetes.io/cpu-model.vendor_id\\\": \\\"Intel\\\",\\n            \\\"feature.node.kubernetes.io/kernel-config.NO_HZ\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/kernel-config.NO_HZ_IDLE\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/kernel-version.full\\\": \\\"5.15.0-1069-nvidia\\\",\\n            \\\"feature.node.kubernetes.io/kernel-version.major\\\": \\\"5\\\",\\n            \\\"feature.node.kubernetes.io/kernel-version.minor\\\": \\\"15\\\",\\n            \\\"feature.node.kubernetes.io/kernel-version.revision\\\": \\\"0\\\",\\n            \\\"feature.node.kubernetes.io/memory-numa\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/network-sriov.capable\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/pci-10de.present\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/pci-10de.sriov.capable\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/pci-15b3.present\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/pci-15b3.sriov.capable\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/pci-1a03.present\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/rdma.available\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/rdma.capable\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/storage-nonrotationaldisk\\\": \\\"true\\\",\\n            \\\"feature.node.kubernetes.io/system-os_release.ID\\\": \\\"ubuntu\\\",\\n            \\\"feature.node.kubernetes.io/system-os_release.VERSION_ID\\\": \\\"22.04\\\",\\n            \\\"feature.node.kubernetes.io/system-os_release.VERSION_ID.major\\\": \\\"22\\\",\\n            \\\"feature.node.kubernetes.io/system-os_release.VERSION_ID.minor\\\": \\\"04\\\",\\n            \\\"gpu-pool\\\": \\\"prefill-l20\\\",\\n            \\\"k8saas.nvidia.com/uncordon-by\\\": \\\"NVSentinel\\\",\\n            \\\"k8saas.nvidia.com/uncordon-reason\\\": \\\"GPU-fatal-error-ruleset-removed\\\",\\n            \\\"k8saas.nvidia.com/uncordon-timestamp\\\": \\\"2026-07-07T06-56-36Z\\\",\\n            \\\"kubernetes.io/arch\\\": \\\"amd64\\\",\\n            \\\"kubernetes.io/hostname\\\": \\\"target-node-1\\\",\\n            \\\"kubernetes.io/os\\\": \\\"linux\\\",\\n            \\\"node-role.kubernetes.io/control-plane\\\": \\\"\\\",\\n            \\\"node.kubernetes.io/exclude-from-external-load-balancers\\\": \\\"\\\",\\n            \\\"nvca.nvcf.nvidia.io/instance-type\\\": \\\"NCP.GPU.L20\\\",\\n            \\\"nvidia.com/cuda.driver-version.full\\\": \\\"550.127.08\\\",\\n            \\\"nvidia.com/cuda.driver-version.major\\\": \\\"550\\\",\\n            \\\"nvidia.com/cuda.driver-version.minor\\\": \\\"127\\\",\\n            \\\"nvidia.com/cuda.driver-version.revision\\\": \\\"08\\\",\\n            \\\"nvidia.com/cuda.driver.major\\\": \\\"550\\\",\\n            \\\"nvidia.com/cuda.driver.minor\\\": \\\"127\\\",\\n            \\\"nvidia.com/cuda.driver.rev\\\": \\\"08\\\",\\n            \\\"nvidia.com/cuda.runtime-version.full\\\": \\\"12.4\\\",\\n            \\\"nvidia.com/cuda.runtime-version.major\\\": \\\"12\\\",\\n            \\\"nvidia.com/cuda.runtime-version.minor\\\": \\\"4\\\",\\n            \\\"nvidia.com/cuda.runtime.major\\\": \\\"12\\\",\\n            \\\"nvidia.com/cuda.runtime.minor\\\": \\\"4\\\",\\n            \\\"nvidia.com/gfd.timestamp\\\": \\\"1775582414\\\",\\n            \\\"nvidia.com/gpu.compute.major\\\": \\\"8\\\",\\n            \\\"nvidia.com/gpu.compute.minor\\\": \\\"9\\\",\\n            \\\"nvidia.com/gpu.count\\\": \\\"8\\\",\\n            \\\"nvidia.com/gpu.deploy.container-toolkit\\\": \\\"true\\\",\\n            \\\"nvidia.com/gpu.deploy.dcgm\\\": \\\"true\\\",\\n            \\\"nvidia.com/gpu.deploy.dcgm-exporter\\\": \\\"true\\\",\\n            \\\"nvidia.com/gpu.deploy.device-plugin\\\": \\\"true\\\",\\n            \\\"nvidia.com/gpu.deploy.driver\\\": \\\"true\\\",\\n            \\\"nvidia.com/gpu.deploy.gpu-feature-discovery\\\": \\\"true\\\",\\n            \\\"nvidia.com/gpu.deploy.node-status-exporter\\\": \\\"true\\\",\\n            \\\"nvidia.com/gpu.deploy.operator-validator\\\": \\\"true\\\",\\n            \\\"nvidia.com/gpu.family\\\": \\\"ada-lovelace\\\",\\n            \\\"nvidia.com/gpu.machine\\\": \\\"H8230\\\",\\n            \\\"nvidia.com/gpu.memory\\\": \\\"46068\\\",\\n            \\\"nvidia.com/gpu.mode\\\": \\\"compute\\\",\\n            \\\"nvidia.com/gpu.present\\\": \\\"true\\\",\\n            \\\"nvidia.com/gpu.product\\\": \\\"NVIDIA-L20\\\",\\n            \\\"nvidia.com/gpu.replicas\\\": \\\"1\\\",\\n            \\\"nvidia.com/gpu.sharing-strategy\\\": \\\"none\\\",\\n            \\\"nvidia.com/mig.capable\\\": \\\"false\\\",\\n            \\\"nvidia.com/mig.strategy\\\": \\\"single\\\",\\n            \\\"nvidia.com/mps.capable\\\": \\\"false\\\",\\n            \\\"nvidia.com/vgpu.present\\\": \\\"false\\\",\\n            \\\"nvsentinel.dgxc.nvidia.com/dcgm.version\\\": \\\"3.x\\\",\\n            \\\"nvsentinel.dgxc.nvidia.com/driver.installed\\\": \\\"true\\\",\\n            \\\"nvsentinel.dgxc.nvidia.com/kata.enabled\\\": \\\"false\\\"\\n        },\\n        \\\"name\\\": \\\"target-node-1\\\",\\n        \\\"resourceVersion\\\": \\\"99565630\\\",\\n        \\\"uid\\\": \\\"redacted-node-1-object-uid\\\"\\n    },\\n    \\\"spec\\\": {\\n        \\\"podCIDR\\\": \\\"continued-private-address-05.example.invalid/24\\\",\\n        \\\"podCIDRs\\\": [\\n            \\\"continued-private-address-05.example.invalid/24\\\"\\n        ]\\n    },\\n    \\\"status\\\": {\\n        \\\"addresses\\\": [\\n            {\\n                \\\"address\\\": \\\"target-node-1.example.invalid\\\",\\n                \\\"type\\\": \\\"InternalIP\\\"\\n            },\\n            {\\n                \\\"address\\\": \\\"target-node-1\\\",\\n                \\\"type\\\": \\\"Hostname\\\"\\n            }\\n        ],\\n        \\\"allocatable\\\": {\\n            \\\"cpu\\\": \\\"176\\\",\\n            \\\"ephemeral-storage\\\": \\\"845551848482\\\",\\n            \\\"hugepages-1Gi\\\": \\\"0\\\",\\n            \\\"hugepages-2Mi\\\": \\\"0\\\",\\n            \\\"memory\\\": \\\"1055816920Ki\\\",\\n            \\\"nvidia.com/gpu\\\": \\\"8\\\",\\n            \\\"pods\\\": \\\"110\\\"\\n        },\\n        \\\"capacity\\\": {\\n            \\\"cpu\\\": \\\"176\\\",\\n            \\\"ephemeral-storage\\\": \\\"917482476Ki\\\",\\n            \\\"hugepages-1Gi\\\": \\\"0\\\",\\n            \\\"hugepages-2Mi\\\": \\\"0\\\",\\n            \\\"memory\\\": \\\"1055919320Ki\\\",\\n            \\\"nvidia.com/gpu\\\": \\\"8\\\",\\n            \\\"pods\\\": \\\"110\\\"\\n        },\\n        \\\"conditions\\\": [\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-02-14T00:39:03Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-02-14T00:39:03Z\\\",\\n                \\\"message\\\": \\\"Calico is running on this node\\\",\\n                \\\"reason\\\": \\\"CalicoIsUp\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"NetworkUnavailable\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-31T08:24:50Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-01-28T07:05:34Z\\\",\\n                \\\"message\\\": \\\"kubelet has sufficient memory available\\\",\\n                \\\"reason\\\": \\\"KubeletHasSufficientMemory\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"MemoryPressure\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-31T08:24:50Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-10-20T06:43:53Z\\\",\\n                \\\"message\\\": \\\"kubelet has no disk pressure\\\",\\n                \\\"reason\\\": \\\"KubeletHasNoDiskPressure\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"DiskPressure\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-31T08:24:50Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-01-28T07:05:34Z\\\",\\n                \\\"message\\\": \\\"kubelet has sufficient PID available\\\",\\n                \\\"reason\\\": \\\"KubeletHasSufficientPID\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"PIDPressure\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-31T08:24:50Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-02-02T02:24:58Z\\\",\\n                \\\"message\\\": \\\"kubelet is posting ready status\\\",\\n                \\\"reason\\\": \\\"KubeletReady\\\",\\n                \\\"status\\\": \\\"True\\\",\\n                \\\"type\\\": \\\"Ready\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-03-18T05:10:26Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuDcgmConnectivityFailureIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuDcgmConnectivityFailure\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-03-18T05:10:26Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuPmuWatchIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuPmuWatch\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-03-18T05:10:26Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuSmWatchIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuSmWatch\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-03-18T05:10:26Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuDriverWatchIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuDriverWatch\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-07-07T06:56:35Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuInforomWatchIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuInforomWatch\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-03-18T05:10:26Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuMcuWatchIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuMcuWatch\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-03-18T05:10:26Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuMemWatchIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuMemWatch\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-03-18T05:10:26Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuNvlinkWatchIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuNvlinkWatch\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-03-18T05:10:26Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuPcieWatchIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuPcieWatch\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-03-18T05:10:26Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuNvswitchFatalWatchIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuNvswitchFatalWatch\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-03-18T05:10:29Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-03-18T05:10:29Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"SysLogsXIDErrorIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"SysLogsXIDError\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-03-18T05:10:29Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-03-18T05:10:29Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"SysLogsSXIDErrorIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"SysLogsSXIDError\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-03-18T05:10:29Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-03-18T05:10:29Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"SysLogsGPUFallenOffIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"SysLogsGPUFallenOff\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-03-19T10:11:58Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuAllWatchIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuAllWatch\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-04-28T07:51:16Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuThermalWatchIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuThermalWatch\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-04-28T07:51:16Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuNvswitchNonfatalWatchIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuNvswitchNonfatalWatch\\\"\\n            },\\n            {\\n                \\\"lastHeartbeatTime\\\": \\\"2026-10-20T07:41:07Z\\\",\\n                \\\"lastTransitionTime\\\": \\\"2026-04-28T07:51:16Z\\\",\\n                \\\"message\\\": \\\"No Health Failures\\\",\\n                \\\"reason\\\": \\\"GpuPowerWatchIsHealthy\\\",\\n                \\\"status\\\": \\\"False\\\",\\n                \\\"type\\\": \\\"GpuPowerWatch\\\"\\n            }\\n        ],\\n        \\\"daemonEndpoints\\\": {\\n            \\\"kubeletEndpoint\\\": {\\n                \\\"Port\\\": 10250\\n            }\\n        },\\n        \\\"images\\\": [\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/nvidia/pytorch@sha256:ace9a848c0ae543317e3c4763b6b4248961c47902625abfe3c77a0fb931c50fb\\\",\\n                    \\\"nvcr.io/nvidia/pytorch:25.08-py3\\\"\\n                ],\\n                \\\"sizeBytes\\\": 11039785398\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/nvidia/pytorch@sha256:38ed2ecb2c16d10677006d73fb0a150855d6ec81db8fc66e800b5ae92741007e\\\",\\n                    \\\"nvcr.io/nvidia/pytorch:26.01-py3\\\"\\n                ],\\n                \\\"sizeBytes\\\": 9108129521\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/nvidia/dgx-cloud-lepton/gpud@sha256:7a407176749378ce1ea0944c5cdb92450c69f17f6b45f07d4f739d7b37162de0\\\",\\n                    \\\"nvcr.io/nvidia/dgx-cloud-lepton/gpud:v0.10.0\\\"\\n                ],\\n                \\\"sizeBytes\\\": 1598511465\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"ghcr.io/nvidia/nvsentinel/gpu-health-monitor@sha256:7e52c0c6e8002843b787479ee1e783a778022c1c93e17545f3d731e4cefb89fb\\\",\\n                    \\\"ghcr.io/nvidia/nvsentinel/gpu-health-monitor:v1.3.0-dcgm-3.x\\\"\\n                ],\\n                \\\"sizeBytes\\\": 1082566386\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-service-oss@sha256:8a88e4e7d3d3d9b96b3116e5318094b87d1f04677e1b42788457f2c77ce42786\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-service-oss:1.27.1\\\"\\n                ],\\n                \\\"sizeBytes\\\": 483125509\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvct-service-oss@sha256:c6bc68ae51abef729452d7cf71a3aaa48b8f1e77001411bb02686f0ca5727728\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvct-service-oss:1.69.4\\\"\\n                ],\\n                \\\"sizeBytes\\\": 469177194\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-ess@sha256:4919118e6f5779827a7b1a48e1740fb34beb10c0209144b06b62ee452d6a1e90\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-ess:0.5.1\\\"\\n                ],\\n                \\\"sizeBytes\\\": 418868018\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/load_tester_supreme@sha256:ddf2d5dc3687f67bcf8bd2a4c728cbf4ca4d04435f215f0d34e40d3aded3e926\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/load_tester_supreme:0.0.8\\\"\\n                ],\\n                \\\"sizeBytes\\\": 401480737\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-api-keys-service@sha256:e8ee42cfee8da9b45a2916fb26e6526de30234fbb868095ab3f4838a3d0c2bf7\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-api-keys-service:1.9.1\\\"\\n                ],\\n                \\\"sizeBytes\\\": 397035155\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-notary@sha256:7775c713b5fd38c16be4cdf57bde0fe155a0a5074c134e0c0ee08a65ed8fbe2c\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-notary:1.14.1\\\"\\n                ],\\n                \\\"sizeBytes\\\": 383448960\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/bitnamilegacy/mongodb@sha256:5b1b1409240696cf687f894c553f1ff6b98d4508f23e76aafc7e3d05871cb114\\\",\\n                    \\\"docker.io/bitnamilegacy/mongodb:8.0.3-debian-12-r0\\\"\\n                ],\\n                \\\"sizeBytes\\\": 258792040\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/library/mysql@sha256:0f51e63e537a1f176423fa03ef559aabe6fa4372a53160a44bc7e75da7d15364\\\",\\n                    \\\"docker.io/library/mysql:8.4\\\"\\n                ],\\n                \\\"sizeBytes\\\": 238283219\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/cassandra@sha256:393ef2d6d560364ba2e2098b85771e40b73b1e9247eafa63b7efdd1ade85ba4e\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/cassandra:5.0.9-nv-2.0.5\\\"\\n                ],\\n                \\\"sizeBytes\\\": 193182165\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/local/vc-webhook-manager:dev\\\"\\n                ],\\n                \\\"sizeBytes\\\": 180382286\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/nvidia/gpu-operator@sha256:634471cdfedcc3bd6b4412a905a9fbc9a9bf91df7f436aa00454b088d087c60a\\\",\\n                    \\\"nvcr.io/nvidia/gpu-operator:v25.10.1\\\"\\n                ],\\n                \\\"sizeBytes\\\": 170527515\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-openbao@sha256:7fed989adba49572d4a939e5c1ae1ad3bc514ebd19224ee70c3e1de36c1a4f47\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-openbao:2.6.2-nv-1.3.4\\\"\\n                ],\\n                \\\"sizeBytes\\\": 147031532\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/calico/node@sha256:0d00b1f4235652b370f3897803d7c8ef5a7059a081ab8d69ae02b7ca0cb0193b\\\",\\n                    \\\"docker.io/calico/node:v3.27.2\\\"\\n                ],\\n                \\\"sizeBytes\\\": 117437822\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/bitnamilegacy/kubectl@sha256:41eecd058e5c54c60de1cfed5f3fb8c9e9186b3cfc9be956ae2c9593faff1dd3\\\",\\n                    \\\"docker.io/bitnamilegacy/kubectl:1.30.6\\\"\\n                ],\\n                \\\"sizeBytes\\\": 111726534\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"ghcr.io/matrixhub-ai/matrixhub:main-4b49765-cache-proto9\\\"\\n                ],\\n                \\\"sizeBytes\\\": 103766756\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"ghcr.io/matrixhub-ai/matrixhub:main-4b49765-cache-proto8\\\"\\n                ],\\n                \\\"sizeBytes\\\": 103756005\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"ghcr.io/matrixhub-ai/matrixhub:main-4b49765-cache-proto7\\\"\\n                ],\\n                \\\"sizeBytes\\\": 103756005\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"ghcr.io/matrixhub-ai/matrixhub:main-4b49765-cache-proto12\\\"\\n                ],\\n                \\\"sizeBytes\\\": 97605857\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"ghcr.io/matrixhub-ai/matrixhub:main-4b49765-cache-proto11\\\"\\n                ],\\n                \\\"sizeBytes\\\": 97605349\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"ghcr.io/matrixhub-ai/matrixhub:main-4b49765-cache-proto10\\\"\\n                ],\\n                \\\"sizeBytes\\\": 97604836\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"ghcr.io/matrixhub-ai/matrixhub:main-835a031-cache-job1\\\"\\n                ],\\n                \\\"sizeBytes\\\": 97324261\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/calico/cni@sha256:d17e907f27956d82e978f4aee8c21f876230955f3fba51da621c7c49e71f2ece\\\",\\n                    \\\"docker.io/calico/cni:v3.27.2\\\"\\n                ],\\n                \\\"sizeBytes\\\": 88207522\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"registry.k8s.io/nfd/node-feature-discovery@sha256:9fb5b0764076a7e9c9a93579ef062dd7283b2db0253fa9f793a6931a2c88385e\\\",\\n                    \\\"registry.k8s.io/nfd/node-feature-discovery:v0.18.2\\\"\\n                ],\\n                \\\"sizeBytes\\\": 84011971\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/local/vc-scheduler:dev\\\"\\n                ],\\n                \\\"sizeBytes\\\": 74710031\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/bitnamilegacy/nginx@sha256:43933dcafcf90f34d249c84c11e3d0a77a056a183c4f91bdcacb8ad029706e2c\\\",\\n                    \\\"docker.io/bitnamilegacy/nginx:1.27.2-debian-12-r2\\\"\\n                ],\\n                \\\"sizeBytes\\\": 67055416\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/nvidia/k8s/dcgm-exporter@sha256:7c0ac4430bb0a5868b7404a0e06c47e02b0375b61aadd614385ad0bc2d43815a\\\",\\n                    \\\"nvcr.io/nvidia/k8s/dcgm-exporter:4.4.2-4.7.0-distroless\\\"\\n                ],\\n                \\\"sizeBytes\\\": 65642707\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/local/vc-controller-manager:dev\\\"\\n                ],\\n                \\\"sizeBytes\\\": 64717876\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-state-metrics-service@sha256:c7f32c67345fa3144dc62cb5685d989e0fc360a56a95507c81e4bfb7bfd95b07\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-state-metrics-service:1.24.1\\\"\\n                ],\\n                \\\"sizeBytes\\\": 59796913\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/nvidia/k8s-device-plugin@sha256:50ac011ab941ab0140d52f56aa0e2fdc553bca96836ab3b26be394fc823fd9e7\\\",\\n                    \\\"nvcr.io/nvidia/k8s-device-plugin:v0.18.1\\\"\\n                ],\\n                \\\"sizeBytes\\\": 54200542\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/bitnamilegacy/mongodb-exporter@sha256:07fdf441f19a5fad2f291f779a662cd1c21caf416bd9c6e954ec6267e08636f6\\\",\\n                    \\\"docker.io/bitnamilegacy/mongodb-exporter:0.41.2-debian-12-r1\\\"\\n                ],\\n                \\\"sizeBytes\\\": 52576685\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/library/grove-operator:v0.1.0-dev\\\"\\n                ],\\n                \\\"sizeBytes\\\": 51406767\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/library/grove-install-crds:v0.1.0-dev\\\"\\n                ],\\n                \\\"sizeBytes\\\": 44391871\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"ghcr.io/nvidia/nvsentinel/syslog-health-monitor@sha256:fa41fec06a599248afd82a94c2484200fecba770d4d255d9132003f3b0d661d3\\\",\\n                    \\\"ghcr.io/nvidia/nvsentinel/syslog-health-monitor:v1.3.0\\\"\\n                ],\\n                \\\"sizeBytes\\\": 43991593\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nats-box@sha256:e86b9681f330ab1aa45744dd5cb367d44205b28fac2519a2f74ca0255803161a\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nats-box:0.19.7-nonroot\\\"\\n                ],\\n                \\\"sizeBytes\\\": 43908789\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/library/grove-initc:latest\\\",\\n                    \\\"docker.io/library/grove-initc:v0.1.0-dev\\\"\\n                ],\\n                \\\"sizeBytes\\\": 42573219\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"docker.io/calico/kube-controllers@sha256:d8a7bd92a38119c69ffce5152ffbdd59393be836bb66d572767ba1c3d21d97fa\\\",\\n                    \\\"docker.io/calico/kube-controllers:v3.27.2\\\"\\n                ],\\n                \\\"sizeBytes\\\": 33374691\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"registry.k8s.io/jobset/jobset@sha256:f21cab7d33574502684095b53114fc1b6cb3d83a2d84cd124712899670eab6da\\\",\\n                    \\\"registry.k8s.io/jobset/jobset:v0.11.0\\\"\\n                ],\\n                \\\"sizeBytes\\\": 33207006\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-ratelimiter@sha256:8ed4281fee8005ff7febb6fb790dd1f5eb15a45e66c4321827210aab97ceb6cb\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-ratelimiter:1.17.3\\\"\\n                ],\\n                \\\"sizeBytes\\\": 32117011\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"registry.k8s.io/kube-proxy@sha256:e3dda1c7b384f9eb5b2fa1c27493b23b80e6204b9fa2ee8791b2de078f468cbf\\\",\\n                    \\\"registry.k8s.io/kube-proxy:v1.32.10\\\"\\n                ],\\n                \\\"sizeBytes\\\": 31160442\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-invocation-service@sha256:e9623528c3b5f9a1f465474c79308c835b1840e7c10e16a6c4b44f2bbc238b97\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-invocation-service:0.14.1\\\"\\n                ],\\n                \\\"sizeBytes\\\": 30471314\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"registry.k8s.io/kube-apiserver@sha256:af4ee57c047e31a7f58422b94a9ec4c62221d3deebb16755bdeff720df796189\\\",\\n                    \\\"registry.k8s.io/kube-apiserver:v1.32.10\\\"\\n                ],\\n                \\\"sizeBytes\\\": 29068782\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-nats-auth-callout-service@sha256:3522392146503cbd702f351c3cb9206eb1156341ec2b790033b77c70210245e5\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-nats-auth-callout-service:0.8.7\\\"\\n                ],\\n                \\\"sizeBytes\\\": 27257817\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"registry.k8s.io/kube-controller-manager@sha256:efbd9d1dfcd2940e1c73a1476c880c3c2cdf04cc60722d329b21cd48745c8660\\\",\\n                    \\\"registry.k8s.io/kube-controller-manager:v1.32.10\\\"\\n                ],\\n                \\\"sizeBytes\\\": 26649046\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-worker-utils-oss@sha256:cfe10173b791b0affa470a2d3af519534e22ca98208ec14ba3b082c13ccf09d7\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-worker-utils-oss:1.3.2\\\"\\n                ],\\n                \\\"sizeBytes\\\": 25162445\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-worker-init-oss@sha256:aa784bcbfb3bc34ff1c25a8a1d3c254dbda110c46170162b9b3595bc2648ce4a\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-worker-init-oss:1.3.1\\\"\\n                ],\\n                \\\"sizeBytes\\\": 24393262\\n            },\\n            {\\n                \\\"names\\\": [\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-image-credential-helper@sha256:2196a51ba82c0aeeb8d15f1244da8a3ba20da6147d3c86f578c4ca8c43f95589\\\",\\n                    \\\"nvcr.io/0651155215864979/ncp-dev/nvcf-image-credential-helper:0.11.1\\\"\\n                ],\\n                \\\"sizeBytes\\\": 24194442\\n            }\\n        ],\\n        \\\"nodeInfo\\\": {\\n            \\\"architecture\\\": \\\"amd64\\\",\\n            \\\"bootID\\\": \\\"redacted-node-1-bootid\\\",\\n            \\\"containerRuntimeVersion\\\": \\\"containerd://1.7.25\\\",\\n            \\\"kernelVersion\\\": \\\"5.15.0-1069-nvidia\\\",\\n            \\\"kubeProxyVersion\\\": \\\"v1.32.11\\\",\\n            \\\"kubeletVersion\\\": \\\"v1.32.11\\\",\\n            \\\"machineID\\\": \\\"redacted-node-1-machineid\\\",\\n            \\\"operatingSystem\\\": \\\"linux\\\",\\n            \\\"osImage\\\": \\\"Ubuntu 22.04.4 LTS\\\",\\n            \\\"systemUUID\\\": \\\"redacted-node-1-systemuuid\\\"\\n        }\\n    }\\n}\\n\",\n  \"stderr\": \"\"\n}"
+        }
+      ],
+      "details": {
+        "persistedDetailsTruncated": true,
+        "originalDetailsBytesAtLeast": 8193,
+        "originalDetailKeys": [
+          "cluster",
+          "command",
+          "mutating",
+          "idempotencyKey",
+          "targets",
+          "stdinSha256",
+          "exitCode",
+          "stdout",
+          "stderr"
+        ],
+        "exitCode": 0
+      },
+      "isError": false,
+      "timestamp": 1793435135520
+    }
+  },
+  {
+    "toolCallId": "call_bbc78e57c1f140f4aa85dba9",
+    "requestAt": "2026-10-31T08:25:44.414Z",
+    "toolName": "iraop_query",
+    "arguments": {
+      "question": "Pod \"mosaic-log-fixture\" in namespace \"mosaic-e2e-20261031t075722z\", container \"fixture\", exits with exit code 23 and error \"REQUIRED_FILE_MISSING\" at path \"/fixture/ready\". The ConfigMap \"fixture-input\" has only a README key (value: \"Deliberately omit ready for a bounded startup-failure test. No production service is modified.\"). The pod spec mounts this ConfigMap read-only at /fixture. The startup script checks: if [ ! -f /fixture/ready ]; then exit 23. This pod is a MOSAIC e2e validation test (run_id=e2e-20261031t075722z). According to mosaic-validation-control.pdf (MOSAIC-KB-20261031), what is the applicable diagnostic procedure for this error? What are the read-only investigation limits for this scenario? Distinguish between generic runbook advice and direct evidence specific to this Pod.",
+      "depth": "quick",
+      "collections": [
+        "mosaic-validation-20261031"
+      ]
+    },
+    "resultAt": "2026-10-31T08:26:33.637Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_bbc78e57c1f140f4aa85dba9",
+      "toolName": "iraop_query",
+      "content": [
+        {
+          "type": "text",
+          "text": "Evidence scope: documentation research. This service has not inspected the current workload. Proposed local causes remain hypotheses until checked against live evidence on the participating resources."
+        },
+        {
+          "type": "text",
+          "text": "{\n  \"answer\": \"# Diagnostic Report: Pod \\\"mosaic-log-fixture\\\" — Exit Code 23 / REQUIRED_FILE_MISSING\\n\\n## 1. Incident Summary\\n\\n| Field | Value |\\n|---|---|\\n| Pod | `mosaic-log-fixture` |\\n| Namespace | `mosaic-e2e-20261031t075722z` |\\n| Container | `fixture` |\\n| Exit Code | 23 |\\n| Error | `REQUIRED_FILE_MISSING` at path `/fixture/ready` |\\n| ConfigMap | `fixture-input` (mounted read-only at `/fixture`) |\\n| ConfigMap Content | Only a `README` key with value: *\\\"Deliberately omit ready for a bounded startup-failure test. No production service is modified.\\\"* |\\n| Startup Script | `if [ ! -f /fixture/ready ]; then exit 23` |\\n| Run ID | `e2e-20261031t075722z` |\\n| Reference | MOSAIC-KB-20261031 (`mosaic-validation-control.pdf`) |\\n\\n## 2. Applicable Diagnostic Procedure per MOSAIC-KB-20261031\\n\\nThe `mosaic-validation-control.pdf` (MOSAIC-KB-20261031) describes this exact scenario and prescribes a specific diagnostic procedure.\\n\\n### 2.1 Nature of the Alert\\n\\nThe document explicitly states:\\n\\n> *\\\"A vector(1) alert is a deliberate delivery-path test. It does not show a GPU, driver or application fault.\\\"* [1]\\n\\nThis is a deliberately injected alert via the Alertmanager API, which \\\"bypasses Prometheus rule evaluation.\\\" Missing Prometheus `ALERTS` samples for this run ID are expected — one must not claim a `PrometheusRule` was evaluated. [1]\\n\\n### 2.2 Diagnostic Steps\\n\\nPer the runbook, the diagnostic procedure is:\\n\\n1. **Read the exact service state and logs before repair.** [1]\\n2. **Repair only the registered demo wrapper.** [1]\\n3. **Verify the marker and service result afterward.** [1]\\n\\nThe document confirms the mechanism: *\\\"For an isolated user-level repair demo, the named service fails when its ready marker is absent.\\\"* [1] In this case, the \\\"ready marker\\\" is the file `/fixture/ready`. Its absence is the intentional trigger — this is by design, not an anomaly.\\n\\n### 2.3 Completion Evidence Requirements\\n\\nThe runbook specifies that valid completion evidence must include:\\n\\n- Exact tool arguments and `toolCallId`\\n- Exit status\\n- Full service state before and after repair\\n- Logs\\n- An independently observed restored condition\\n\\n> *\\\"Documentation advice alone does not establish the root cause or a completed repair.\\\"* [2]\\n\\n## 3. Read-Only Investigation Limits\\n\\n### 3.1 Automatic Alert Investigations Are Read-Only\\n\\nThe document states directly:\\n\\n> *\\\"Automatic alert investigations remain read-only. Use a separate authorized interactive repair conversation, preserving the alert ID, investigation session key, research sources and repair session key.\\\"* [2]\\n\\nThis means that as an automatic/read-only diagnostic investigation, we are limited to:\\n\\n- Reading service state and logs\\n- Observing and documenting the failure condition\\n- Reporting the evidence\\n\\nWe **cannot**:\\n- Modify any service configuration\\n- Create or alter the missing `/fixture/ready` file\\n- Perform any repair operation\\n\\n### 3.2 Mode-Based Restrictions\\n\\nThe document defines three operational modes with different permissions:\\n\\n| Mode | Repair Allowed? | Conditions |\\n|---|---|---|\\n| **View** | No | View mode must block the repair operation |\\n| **Edit (HITL)** | Conditional | Must await specific approval; refusal or expiration leaves the failed service unchanged |\\n| **Auto** | Yes | Executes the same authorized demo repair without per-operation approval |\\n\\nIn a pure read-only investigation context, none of the repair modes are invoked. The investigation stays in the \\\"automatic alert investigation\\\" read-only state.\\n\\n### 3.3 Verification Code\\n\\nThe document provides a verification code:\\n\\n> **CEDAR-NEBULA-E720C8C9**\\n\\nThis code is \\\"an oracle for this retrieval test and grants no access. An answer must cite this source file and page 2 when reporting the code.\\\" [2]\\n\\n## 4. Distinguishing Generic Runbook Advice from Direct Evidence\\n\\n### 4.1 Generic Runbook Advice (Framework-Level)\\n\\nThese are general principles from the MOSAIC-KB-20261031 document that apply to the overall framework but are not specific to this pod:\\n\\n- *\\\"A vector(1) alert is a deliberate delivery-path test. It does not show a GPU, driver or application fault.\\\"* — General framework statement about injected alerts [1]\\n- *\\\"Automatic alert investigations remain read-only. Use a separate authorized interactive repair conversation...\\\"* — General mode restriction [2]\\n- *\\\"Completion evidence includes exact tool arguments, toolCallId, exit status...\\\"* — General evidence requirements [2]\\n- *\\\"Documentation advice alone does not establish the root cause or a completed repair.\\\"* — General evidentiary standard [2]\\n- *\\\"An alert injected directly through the Alertmanager API bypasses Prometheus rule evaluation. Missing Prometheus ALERTS samples for that injected run ID are expected.\\\"* — General behavior of injected alerts [1]\\n- The mode-based framework (view/edit/auto) and HITL approval process [2]\\n\\n### 4.2 Direct Evidence Specific to This Pod\\n\\nThese findings are specific to the actual pod, namespace, ConfigMap, and test scenario:\\n\\n- **The pod name** `mosaic-log-fixture` matches the \\\"named service\\\" referenced in the document that \\\"fails when its ready marker is absent.\\\" [1]\\n- **The namespace** `mosaic-e2e-20261031t075722z` and **run ID** `e2e-20261031t075722z` identify this as a specific e2e test execution [1]\\n- **The ConfigMap name** `fixture-input` with a `README` key containing the value *\\\"Deliberately omit ready for a bounded startup-failure test. No production service is modified.\\\"* — This confirms the test is intentional and bounded [1]\\n- **The exit code 23** with error `REQUIRED_FILE_MISSING` at `/fixture/ready` — This is the exact failure condition the document describes for the \\\"ready marker\\\" absence scenario [1]\\n- **The startup script** `if [ ! -f /fixture/ready ]; then exit 23` is the implementation of the ready-marker check the document references [1]\\n- **The read-only ConfigMap mount at `/fixture`** — The ConfigMap being read-only at the mount path is the mechanism that prevents the fixture from creating the ready file, which is by design [1]\\n- **No production service is modified** — The README confirms this is an isolated test, aligning with the document's statement that it \\\"does not show a GPU, driver or application fault.\\\" [1]\\n\\n## 5. Conclusion\\n\\nThis pod failure is a **deliberate, expected outcome** of a MOSAIC e2e validation test. The exit code 23 with `REQUIRED_FILE_MISSING` at `/fixture/ready` is the intended behavior of the \\\"bounded startup-failure test.\\\"\\n\\nThe diagnostic procedure per MOSAIC-KB-20261031 is straightforward:\\n1. Read the service state and logs (which we have done)\\n2. Confirm the ready marker (`/fixture/ready`) is absent (confirmed)\\n3. The failure is by design — no production fault exists [1]\\n\\nAs a read-only investigation:\\n- We can read and report the state [2]\\n- We cannot perform repair operations [2]\\n- A separate authorized interactive repair conversation (view/edit/auto mode) would be required to create the missing marker and validate the repair path [2]\\n\\nThe evidence is conclusive: this is a controlled test scenario with the expected failure mode. No production services, GPUs, drivers, or application logic are affected.\\n\\n### Sources\\n\\n[1] mosaic-validation-control.pdf (Page 1) — MOSAIC Validation Runrun, reference to vector(1) alert as deliberate delivery-path test, service failure when ready marker absent, read service state and logs before repair.\\n\\n[2] mosaic-validation-control.pdf (Page 2) — Operator Decision and Evidence, verification code CEDAR-NEBULA-E720C8C9, automatic alert investigations remain read-only, view/edit/auto mode restrictions, completion evidence requirements, \\\"documentation advice alone does not establish the root cause.\\\"\\n\",\n  \"depth\": \"quick\",\n  \"collections_searched\": [\n    \"mosaic-validation-20261031\"\n  ],\n  \"sources\": [\n    {\n      \"source_file\": \"mosaic-validation-control.pdf\",\n      \"page_number\": 1,\n      \"collection\": \"mosaic-validation-20261031\",\n      \"doc_id\": \"mosaic-validation-control.pdf\",\n      \"url\": \"/api/v1/documents/mosaic-validation-control.pdf\"\n    },\n    {\n      \"source_file\": \"mosaic-validation-control.pdf\",\n      \"page_number\": 2,\n      \"collection\": \"mosaic-validation-20261031\",\n      \"doc_id\": \"mosaic-validation-control.pdf\",\n      \"url\": \"/api/v1/documents/mosaic-validation-control.pdf\"\n    }\n  ]\n}"
+        }
+      ],
+      "details": {
+        "persistedDetailsTruncated": true,
+        "originalDetailsBytesAtLeast": 8193,
+        "originalDetailKeys": [
+          "content",
+          "structuredContent",
+          "isError"
+        ]
+      },
+      "isError": false,
+      "timestamp": 1793435193635
+    }
+  },
+  {
+    "toolCallId": "call_6d4b768ae3c14fe4bcd1e4c8",
+    "requestAt": "2026-10-31T08:32:34.648Z",
+    "toolName": "iraop_query",
+    "arguments": {
+      "collections": [
+        "mosaic-validation-20261031"
+      ],
+      "depth": "quick",
+      "question": "In mosaic-validation-control.pdf (MOSAIC-KB-20261031), retrieve the exact general instructions about: (a) reading service state and logs before repair, (b) automatic alert investigations being read-only, and (c) required completion evidence (e.g. what items must be recorded). Cite the exact file name, section headings, and page numbers. Also note any older examples the PDF discusses (such as vector(1) alert injection or direct Alertmanager posting) — explicitly label those as different examples that are not the current live Kubernetes Pod case. Do NOT attempt to diagnose any specific live Pod; the current live case is a separate Kubernetes example with a Pod named \"mosaic-log-fixture\" in namespace \"mosaic-e2e-20261031t075722z\" that exits with code 23."
+    },
+    "resultAt": "2026-10-31T08:33:10.043Z",
+    "isError": false,
+    "completeResult": {
+      "role": "toolResult",
+      "toolCallId": "call_6d4b768ae3c14fe4bcd1e4c8",
+      "toolName": "iraop_query",
+      "content": [
+        {
+          "type": "text",
+          "text": "Evidence scope: documentation research. This service has not inspected the current workload. Proposed local causes remain hypotheses until checked against live evidence on the participating resources."
+        },
+        {
+          "type": "text",
+          "text": "{\n  \"answer\": \"# MOSAIC Validation Runbook: General Instructions from mosaic-validation-control.pdf\\n\\n## Source Document\\n\\n- **File:** mosaic-validation-control.pdf\\n- **Reference ID:** MOSAIC-KB-20261031\\n- **Collections:** mosaic-validation-20261031\\n\\n---\\n\\n## Section 1 — Page 1: Service State and Logs Before Repair\\n\\n**Section heading:** \\\"MOSAIC Validation Runbook\\\" (page header / title section)\\n\\nThe document states (Page 1):\\n\\n> For an isolated user-level repair demo, the named service fails when its ready marker is absent.\\n> Read the exact service state and logs before repair. Repair only the registered demo wrapper;\\n> verify the marker and service result afterward.\\n\\nThis is the general instruction for part (a): before any repair operation, the operator must read the **exact service state** and **logs**. Only after this observation should the repair be attempted, and only on the registered demo wrapper. After repair, the ready marker and service result must be verified.\\n\\n---\\n\\n## Section 2 — Page 2: Operator Decision and Evidence\\n\\n**Section heading:** \\\"Operator Decision and Evidence\\\"\\n\\nThis section (Page 2) contains all three requested items:\\n\\n### (b) Automatic Alert Investigations — Read-Only\\n\\nThe document states (Page 2):\\n\\n> Automatic alert investigations remain read-only. Use a separate authorized interactive repair\\n> conversation, preserving the alert ID, investigation session key, research sources and repair\\n> session key.\\n\\nAutomatic alert investigations are strictly read-only. A separate, authorized interactive repair conversation must be used to perform any repair actions. The operator must preserve:\\n- The alert ID\\n- The investigation session key\\n- Research sources\\n- The repair session key\\n\\n### (c) Required Completion Evidence\\n\\nThe document states (Page 2):\\n\\n> Completion evidence includes exact tool arguments, toolCallId, exit status, full service state before\\n> and after, logs, and an independently observed restored condition.\\n> Documentation advice alone does not establish the root cause or a completed repair.\\n\\nRequired completion evidence items:\\n\\n1. **Exact tool arguments** — every tool call's arguments as executed\\n2. **toolCallId** — the unique identifier for the tool call\\n3. **Exit status** — the return/exits status of the repair\\n4. **Full service state before and after** — complete pre- and post-repair service state\\n5. **Logs** — all relevant log output\\n6. **Independently observed restored condition** — confirmation of restoration via independent observation\\n\\nNote: Merely documenting advice does not constitute establishing a root cause or proving a completed repair.\\n\\n### Additional Guidance on Repair Modes (Page 2)\\n\\n> View mode must block the repair operation. Edit mode with HITL enabled must await a specific approval. Refusal or expiration must leave the failed service unchanged. Auto mode executes the same authorized demo repair without per-operation approval.\\n\\n---\\n\\n## Older Examples Discussed in the PDF (NOT the current live Kubernetes Pod case)\\n\\nThe PDF discusses two older/demonstration examples that are separate from the current live Kubernetes Pod scenario. These are **control corpus examples** used for validation testing, not diagnoses of the live case.\\n\\n### Example 1: vector(1) Alert Injection (Page 1)\\n\\n> A vector(1) alert is a deliberate delivery-path test. It does not show a GPU, driver or application fault. Verify the Prometheus state, Alertmanager fingerprint and the same MOSAIC alert before interpreting it.\\n\\n**Label:** Different example — a deliberate delivery-path test using vector(1) alert injection. This is NOT related to the live \\\"mosaic-log-fixture\\\" Pod case.\\n\\n### Example 2: Direct Alertmanager API Injection (Page 1)\\n\\n> An alert injected directly through the Alertmanager API bypasses Prometheus rule evaluation. Missing Prometheus ALERTS samples for that injected run ID are expected. Do not claim a new PrometheusRule was evaluated.\\n\\n**Label:** Different example — an alert injected directly through the Alertmanager API, bypassing Prometheus rule evaluation entirely. This is NOT related to the live \\\"mosaic-log-fixture\\\" Pod case.\\n\\n### Example 3: Isolated User-Level Repair Demo (Page 1)\\n\\n> For an isolated user-level repair demo, the named service fails when its ready marker is absent. Read the exact service state and logs before repair. Repair only the registered demo wrapper; verify the marker and service result afterward.\\n\\n**Label:** Different example — an isolated demo wrapper where the service fails due to an absent ready marker. This is NOT related to the live \\\"mosaic-log-fixture\\\" Pod case.\\n\\n---\\n\\n### Important Distinction\\n\\nThe current live case being investigated (Pod named \\\"mosaic-log-fixture\\\" in namespace \\\"mosaic-e2e-20261031t075722z\\\" exiting with code 23) is **not** one of the above examples. The PDF is a validation runbook / control corpus. Its examples are deliberate test scenarios. The live Pod case is separate and should not be confused with these documented test cases.\\n\\n---\\n\\n### Sources\\n\\n[1] mosaic-validation-control.pdf (Page 1) — Section \\\"MOSAIC Validation Runbook\\\": instructions on reading service state and logs before repair, vector(1) alert injection example, direct Alertmanager API injection example, and the demo wrapper repair example.\\n\\n[2] mosaic-validation-control.pdf (Page 2) — Section \\\"Operator Decision and Evidence\\\": read-only automatic alert investigations, required completion evidence items, repair mode behaviors (View/Edit/Auto/HITL), and preservation of session keys.\\n\",\n  \"depth\": \"quick\",\n  \"collections_searched\": [\n    \"mosaic-validation-20261031\"\n  ],\n  \"sources\": [\n    {\n      \"source_file\": \"mosaic-validation-control.pdf\",\n      \"page_number\": 2,\n      \"collection\": \"mosaic-validation-20261031\",\n      \"doc_id\": \"mosaic-validation-control.pdf\",\n      \"url\": \"/api/v1/documents/mosaic-validation-control.pdf\"\n    },\n    {\n      \"source_file\": \"mosaic-validation-control.pdf\",\n      \"page_number\": 1,\n      \"collection\": \"mosaic-validation-20261031\",\n      \"doc_id\": \"mosaic-validation-control.pdf\",\n      \"url\": \"/api/v1/documents/mosaic-validation-control.pdf\"\n    }\n  ]\n}"
+        }
+      ],
+      "details": {
+        "persistedDetailsTruncated": true,
+        "originalDetailsBytesAtLeast": 8193,
+        "originalDetailKeys": [
+          "content",
+          "structuredContent",
+          "isError"
+        ]
+      },
+      "isError": false,
+      "timestamp": 1793435590041
+    }
+  }
+]

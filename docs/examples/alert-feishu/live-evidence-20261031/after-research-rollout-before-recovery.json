@@ -1,0 +1,41 @@
+{
+  "phase": "after-research-rollout-before-recovery",
+  "checkedAt": "2026-10-31T02:00:09.807088+00:00",
+  "localListener": {
+    "argv": [
+      "lsof",
+      "-nP",
+      "-iTCP:13000",
+      "-sTCP:LISTEN"
+    ],
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "sparkListener": {
+    "argv": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=10",
+      "spark-user@spark.example.invalid",
+      "ss -ltnp \"( sport = :13000 )\""
+    ],
+    "exitCode": 0,
+    "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+    "stderr": ""
+  },
+  "health": {
+    "path": "/api/health",
+    "httpStatus": null,
+    "error": "<urlopen error [Errno 61] Connection refused>",
+    "elapsedSeconds": 0.011570333008421585
+  },
+  "unauthenticatedApi": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": null,
+    "error": "<urlopen error [Errno 61] Connection refused>",
+    "elapsedSeconds": 0.006065541005227715
+  }
+}

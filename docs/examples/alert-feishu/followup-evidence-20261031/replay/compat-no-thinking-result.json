@@ -1,0 +1,12 @@
+{
+  "case": "compat-no-thinking",
+  "httpStatus": 200,
+  "elapsedSeconds": 0.991499706171453,
+  "content": "I'll search the indexed document for the requested information.\n\nLet me start by locating the PDF and examining its contents.\n\ngrep(pattern=\"MOSAIC-KB-20261031\", output_mode=\"content\", path=/var/task/data)",
+  "reasoning": "",
+  "toolCalls": [],
+  "finishReasons": [
+    "stop"
+  ],
+  "usage": null
+}

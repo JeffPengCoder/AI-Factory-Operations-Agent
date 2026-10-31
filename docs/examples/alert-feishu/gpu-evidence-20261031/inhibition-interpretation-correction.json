@@ -1,0 +1,7 @@
+{
+  "source": "Observed UI import after tunnel restoration; exact raw samples retain timestamps",
+  "correction": "InfoInhibitor inhibits notification; it did not prevent API import into MOSAIC. Prior lack of import coincided with browser/bridge failure. Both info and warning fingerprints were imported; investigate only warning fingerprint d1e25281f02cec92.",
+  "infoFingerprint": "9d039033924e9122",
+  "warningFingerprint": "d1e25281f02cec92",
+  "recordedAt": "2026-10-31T13:49:16.542636+00:00"
+}

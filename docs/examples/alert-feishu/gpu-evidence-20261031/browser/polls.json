@@ -1,0 +1,296 @@
+[
+  {
+    "at": "2026-10-31T13:48:40.427801+00:00",
+    "phase": "initial",
+    "rawMessageCount": 0,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:41.533629+00:00",
+    "phase": "initial",
+    "rawMessageCount": 0,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:42.614929+00:00",
+    "phase": "initial",
+    "rawMessageCount": 0,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:43.704565+00:00",
+    "phase": "initial",
+    "rawMessageCount": 0,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:44.852360+00:00",
+    "phase": "initial",
+    "rawMessageCount": 0,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:45.992587+00:00",
+    "phase": "initial",
+    "rawMessageCount": 0,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:47.101139+00:00",
+    "phase": "initial",
+    "rawMessageCount": 0,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:48.183407+00:00",
+    "phase": "initial",
+    "rawMessageCount": 2,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:49.245647+00:00",
+    "phase": "initial",
+    "rawMessageCount": 2,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:50.322917+00:00",
+    "phase": "initial",
+    "rawMessageCount": 2,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:51.402352+00:00",
+    "phase": "initial",
+    "rawMessageCount": 2,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:52.525992+00:00",
+    "phase": "initial",
+    "rawMessageCount": 2,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:53.710068+00:00",
+    "phase": "initial",
+    "rawMessageCount": 2,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:54.930276+00:00",
+    "phase": "initial",
+    "rawMessageCount": 2,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:56.056815+00:00",
+    "phase": "initial",
+    "rawMessageCount": 2,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:57.176312+00:00",
+    "phase": "initial",
+    "rawMessageCount": 2,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:58.346124+00:00",
+    "phase": "initial",
+    "rawMessageCount": 2,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:48:59.558177+00:00",
+    "phase": "initial",
+    "rawMessageCount": 7,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:00.647361+00:00",
+    "phase": "initial",
+    "rawMessageCount": 7,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:01.751961+00:00",
+    "phase": "initial",
+    "rawMessageCount": 7,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:02.983820+00:00",
+    "phase": "initial",
+    "rawMessageCount": 7,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:04.185262+00:00",
+    "phase": "initial",
+    "rawMessageCount": 7,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:05.440265+00:00",
+    "phase": "initial",
+    "rawMessageCount": 14,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:06.645707+00:00",
+    "phase": "initial",
+    "rawMessageCount": 14,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:08.892133+00:00",
+    "phase": "initial",
+    "rawMessageCount": 14,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:12.164269+00:00",
+    "phase": "initial",
+    "rawMessageCount": 14,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:14.390205+00:00",
+    "phase": "initial",
+    "rawMessageCount": 14,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:15.616057+00:00",
+    "phase": "initial",
+    "rawMessageCount": 14,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:16.823397+00:00",
+    "phase": "initial",
+    "rawMessageCount": 14,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:18.055151+00:00",
+    "phase": "initial",
+    "rawMessageCount": 14,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:20.429519+00:00",
+    "phase": "initial",
+    "rawMessageCount": 15,
+    "hasActiveRun": false
+  },
+  {
+    "at": "2026-10-31T13:49:22.751482+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 16,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:24.019999+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 16,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:25.437920+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 16,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:26.807165+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 16,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:28.258943+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 17,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:49:29.862424+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 23,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:50:22.951404+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 33,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:50:24.469441+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 33,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:50:26.016272+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 33,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:50:27.575880+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 33,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:50:29.081667+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 33,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:50:30.574948+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 33,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:50:32.087567+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 33,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:50:33.540519+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 33,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:50:34.930278+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 33,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:50:36.373554+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 33,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:50:37.793215+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 33,
+    "hasActiveRun": true
+  },
+  {
+    "at": "2026-10-31T13:50:39.117310+00:00",
+    "phase": "evidence-research",
+    "rawMessageCount": 34,
+    "hasActiveRun": false
+  }
+]

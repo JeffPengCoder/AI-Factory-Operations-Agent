@@ -1,0 +1,52 @@
+{
+  "name": "iraop-cb7877-nmpw7",
+  "uid": "7993d92e-bcb0-4ebc-992a-28608bbd5e95",
+  "containerStatuses": [
+    {
+      "allocatedResources": {
+        "cpu": "500m",
+        "memory": "2Gi"
+      },
+      "containerID": "containerd://ba5e6c06db08fd19ba8990bc1586b889f6296d3fe7001276a2ed08869aaf9df6",
+      "image": "nvcr.io/NGC_ORG_ID/afoa-release/iraop:f804535b",
+      "imageID": "nvcr.io/NGC_ORG_ID/afoa-release/iraop@sha256:0ebc807d13891938d6d992675d29dc5c802ed5e9d6e8a10e87b9239feee80617",
+      "lastState": {},
+      "name": "iraop",
+      "ready": true,
+      "resources": {
+        "limits": {
+          "cpu": "2",
+          "memory": "8Gi"
+        },
+        "requests": {
+          "cpu": "500m",
+          "memory": "2Gi"
+        }
+      },
+      "restartCount": 0,
+      "started": true,
+      "state": {
+        "running": {
+          "startedAt": "2026-10-31T03:18:15Z"
+        }
+      },
+      "user": {
+        "linux": {
+          "gid": 10001,
+          "supplementalGroups": [
+            10001
+          ],
+          "uid": 10001
+        }
+      },
+      "volumeMounts": [
+        {
+          "mountPath": "/cm/shared/iraop-corpus",
+          "name": "corpus",
+          "readOnly": true,
+          "recursiveReadOnly": "Disabled"
+        }
+      ]
+    }
+  ]
+}

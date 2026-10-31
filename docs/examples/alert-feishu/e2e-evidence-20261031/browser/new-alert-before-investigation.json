@@ -1,0 +1,36 @@
+{
+  "id": "alertmanager:1bdae10de10f472e",
+  "payload": "MosaicInjectedWorkloadFailure: Isolated test workload repeatedly fails to start test from Jeff Peng. Run e2e-20261031t075722z. Read the actual Pod status, previous/current logs and events in mosaic-e2e-20261031t075722z; correlate with this exact alert and consult the indexed runbook. This is a bounded validation workload; no GPU fault was injected. (severity=warning, namespace=mosaic-e2e-20261031t075722z, pod=mosaic-log-fixture, instance=continued-private-address-08.example.invalid:8080, job=kube-state-metrics)",
+  "source": "Alertmanager",
+  "createdAt": "2026-10-31T08:23:06.295Z",
+  "stage": "active",
+  "labels": {
+    "alertname": "MosaicInjectedWorkloadFailure",
+    "container": "fixture",
+    "endpoint": "http",
+    "instance": "continued-private-address-08.example.invalid:8080",
+    "job": "kube-state-metrics",
+    "mosaic_test": "true",
+    "namespace": "mosaic-e2e-20261031t075722z",
+    "pod": "mosaic-log-fixture",
+    "prometheus": "monitoring/kube-prometheus-stack-prometheus",
+    "reason": "CrashLoopBackOff",
+    "run_id": "e2e-20261031t075722z",
+    "service": "kube-prometheus-stack-kube-state-metrics",
+    "severity": "warning",
+    "test_namespace": "mosaic-e2e-20261031t075722z",
+    "test_pod": "mosaic-log-fixture",
+    "uid": "82953a81-6578-4cbe-b638-ef3de927279a"
+  },
+  "annotations": {
+    "description": "test from Jeff Peng. Run e2e-20261031t075722z. Read the actual Pod status, previous/current logs and events in mosaic-e2e-20261031t075722z; correlate with this exact alert and consult the indexed runbook. This is a bounded validation workload; no GPU fault was injected.",
+    "summary": "Isolated test workload repeatedly fails to start",
+    "test_from": "test from Jeff Peng"
+  },
+  "status": "active",
+  "startsAt": "2026-10-31T08:23:06.295Z",
+  "endsAt": "2026-10-31T08:27:06.295Z",
+  "updatedAt": "2026-10-31T08:23:06.299Z",
+  "fingerprint": "1bdae10de10f472e",
+  "generatorURL": "http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=max_over_time%28kube_pod_container_status_waiting_reason%7Bcontainer%3D%22fixture%22%2Cnamespace%3D%22mosaic-e2e-20261031t075722z%22%2Cpod%3D%22mosaic-log-fixture%22%2Creason%3D%22CrashLoopBackOff%22%7D%5B2m%5D%29+%3E+0&g0.tab=1"
+}

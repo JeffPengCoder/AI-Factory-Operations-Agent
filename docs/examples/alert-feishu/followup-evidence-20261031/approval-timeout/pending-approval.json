@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "approvals": [
+    {
+      "id": "plugin:b8a395e2-a0eb-4ab3-a9f6-ce9684ecece0",
+      "request": {
+        "title": "Remote command on repair-demo",
+        "description": "[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"] on repair-demo (spark-user@spark-kind-bridge.example.invalid:22)",
+        "severity": "critical",
+        "toolName": "run_remote_ssh",
+        "toolCallId": "call_1760a54e800243a5a0134095",
+        "sessionKey": "agent:default:session-2026-10-31t03-16-01-838z"
+      },
+      "createdAtMs": 1793416567863,
+      "expiresAtMs": 1793416687863
+    }
+  ]
+}

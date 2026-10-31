@@ -1,0 +1,54 @@
+✔ generated selection renders in Helm: {"modules":[]} (51.816292ms)
+✔ generated selection renders in Helm: {"modules":["terminal"]} (55.203458ms)
+✔ generated selection renders in Helm: {"modules":["slurm"]} (51.70475ms)
+✔ generated selection renders in Helm: {"modules":["slurm"],"slurmBackend":"vanilla"} (49.323167ms)
+✔ generated selection renders in Helm: {"modules":["kubernetes","prometheus","alertmanager","loki","grafana","bcm","slurm","diagnostics","research","terminal","edit","clusters"]} (60.773541ms)
+✔ generated selection renders in Helm: {"inference":"super","modules":["terminal"]} (61.023916ms)
+✔ generated selection renders in Helm: {"inference":"ultra","modules":["grafana"]} (63.920708ms)
+✔ dependencies are derived without changing requested modules (0.414708ms)
+✔ shell metacharacters remain literal arguments and Helm list separators are escaped (8.234208ms)
+✔ pinning replaces the development selector (3.817916ms)
+✔ Loki connection settings remain optional and use Secret references (9.764084ms)
+✔ builder covers every module toggle and observability connection setting (31.254375ms)
+✔ each observability service is independently selectable and clears other endpoints (14.160167ms)
+✔ Kubernetes quantities preserve decimal and binary units (0.291792ms)
+✔ pod scheduling footprint sums app containers and takes init peak before replicas (0.129375ms)
+✔ selection deduplicates dependencies and merges shared workload init containers (0.140708ms)
+✖ composed footprints match direct Helm renders across inference and module selections (9.648875ms)
+✔ Grafana datasource type preserves the default or configured selection: undefined (4.032416ms)
+✔ Grafana datasource type preserves the default or configured selection: victoriametrics-metrics-datasource (3.674583ms)
+✔ tracked source files carry the approved NVIDIA SPDX header (3.199334ms)
+✔ tracked Markdown outside Helm does not use the cluster manager acronym (0.877667ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 20
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 516.923708
+
+✖ failing tests:
+
+test at tests/docs/install-builder.test.mjs:135:1
+✖ composed footprints match direct Helm renders across inference and module selections (9.648875ms)
+  AssertionError [ERR_ASSERTION]: error: Failed to initialize cache at `/Users/operator/.cache/uv`
+    Caused by: failed to open file `/Users/operator/.cache/uv/sdists-v9/.git`: Operation not permitted (os error 1)
+  
+  
+  2 !== 0
+  
+      at TestContext.<anonymous> (file:///private/tmp/afoa-iraop-query-evidence-20261031/tests/docs/install-builder.test.mjs:148:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

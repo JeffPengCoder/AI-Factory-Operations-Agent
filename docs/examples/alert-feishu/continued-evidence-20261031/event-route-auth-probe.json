@@ -1,0 +1,2 @@
+{"subagentEventsUrl":"http://mosaic-ui:3000/api/subagents/events","configuredKeys":["apiKey","baseUrl","timeoutMs"],"probePurpose":"Invalid empty body must be rejected without publishing a synthetic event.","status":400,"body":"{\"success\":false,\"message\":\"Invalid subagent event.\"}"}
+

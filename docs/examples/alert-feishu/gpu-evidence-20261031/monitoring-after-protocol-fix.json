@@ -1,0 +1,117 @@
+{
+  "at": "2026-10-31T13:39:15.905561+00:00",
+  "requests": [
+    {
+      "at": "2026-10-31T13:39:15.771560+00:00",
+      "path": "/api/v1/query?query=count+by+%28__name__%29+%28%7B__name__%3D~%22DCGM_.%2A%22%7D%29",
+      "query": "count by (__name__) ({__name__=~\"DCGM_.*\"})",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"__name__\":\"DCGM_FI_DEV_SM_CLOCK\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_MEM_CLOCK\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_MEMORY_TEMP\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_GPU_TEMP\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_POWER_USAGE\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_TOTAL_ENERGY_CONSUMPTION\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_PCIE_REPLAY_COUNTER\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_GPU_UTIL\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_MEM_COPY_UTIL\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_ENC_UTIL\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_DEC_UTIL\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_FB_FREE\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_FB_USED\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_FB_RESERVED\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_UNCORRECTABLE_REMAPPED_ROWS\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_CORRECTABLE_REMAPPED_ROWS\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_ROW_REMAP_FAILURE\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_DEV_VGPU_LICENSE_STATUS\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_PROF_GR_ENGINE_ACTIVE\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_PROF_PIPE_TENSOR_ACTIVE\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_PROF_DRAM_ACTIVE\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_PROF_PCIE_TX_BYTES\"},\"value\":[1793453955.763,\"16\"]},{\"metric\":{\"__name__\":\"DCGM_FI_PROF_PCIE_RX_BYTES\"},\"value\":[1793453955.763,\"16\"]}]}}"
+    },
+    {
+      "at": "2026-10-31T13:39:15.793285+00:00",
+      "path": "/api/v1/query?query=up%7Bnamespace%3D%22mosaic-gpu-rca-20261031t121240z%22%7D",
+      "query": "up{namespace=\"mosaic-gpu-rca-20261031t121240z\"}",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"__name__\":\"up\",\"container\":\"telemetry\",\"endpoint\":\"metrics\",\"instance\":\"private-address-07.example.invalid:8080\",\"job\":\"gpu-telemetry-fixture\",\"namespace\":\"mosaic-gpu-rca-20261031t121240z\",\"pod\":\"gpu-telemetry-fixture\",\"service\":\"gpu-telemetry-fixture\"},\"value\":[1793453955.786,\"0\"]}]}}"
+    },
+    {
+      "at": "2026-10-31T13:39:15.813906+00:00",
+      "path": "/api/v1/query?query=mosaic_test_dcgm_xid_error%7Brun_id%3D%22gpu-rca-20261031t121240z%22%7D",
+      "query": "mosaic_test_dcgm_xid_error{run_id=\"gpu-rca-20261031t121240z\"}",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[]}}"
+    },
+    {
+      "at": "2026-10-31T13:39:15.835249+00:00",
+      "path": "/api/v1/query?query=ALERTS%7Brun_id%3D%22gpu-rca-20261031t121240z%22%7D",
+      "query": "ALERTS{run_id=\"gpu-rca-20261031t121240z\"}",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[]}}"
+    },
+    {
+      "at": "2026-10-31T13:39:15.905527+00:00",
+      "path": "/api/v1/query_range?query=ALERTS%7Brun_id%3D%22gpu-rca-20261031t121240z%22%7D&start=1793453520.0&end=1793453955.884406&step=5",
+      "httpStatus": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"matrix\",\"result\":[]}}"
+    }
+  ],
+  "selectedTargets": [
+    {
+      "discoveredLabels": {
+        "__address__": "private-address-07.example.invalid:8080",
+        "__meta_kubernetes_endpoint_address_target_kind": "Pod",
+        "__meta_kubernetes_endpoint_address_target_name": "gpu-telemetry-fixture",
+        "__meta_kubernetes_endpoint_node_name": "target-node-1",
+        "__meta_kubernetes_endpoint_port_name": "metrics",
+        "__meta_kubernetes_endpoint_port_protocol": "TCP",
+        "__meta_kubernetes_endpoint_ready": "true",
+        "__meta_kubernetes_endpoints_annotation_endpoints_kubernetes_io_last_change_trigger_time": "2026-10-31T13:33:09Z",
+        "__meta_kubernetes_endpoints_annotationpresent_endpoints_kubernetes_io_last_change_trigger_time": "true",
+        "__meta_kubernetes_endpoints_label_experiment": "gpu-telemetry-cache",
+        "__meta_kubernetes_endpoints_label_mosaic_test": "true",
+        "__meta_kubernetes_endpoints_label_run_id": "gpu-rca-20261031t121240z",
+        "__meta_kubernetes_endpoints_labelpresent_experiment": "true",
+        "__meta_kubernetes_endpoints_labelpresent_mosaic_test": "true",
+        "__meta_kubernetes_endpoints_labelpresent_run_id": "true",
+        "__meta_kubernetes_endpoints_name": "gpu-telemetry-fixture",
+        "__meta_kubernetes_namespace": "mosaic-gpu-rca-20261031t121240z",
+        "__meta_kubernetes_pod_annotation_cni_projectcalico_org_containerID": "070b95a67f3c7af9fdd20438c1c51d5e396bd9f6babcc99cd70188fafde52f3e",
+        "__meta_kubernetes_pod_annotation_cni_projectcalico_org_podIP": "private-address-07.example.invalid/32",
+        "__meta_kubernetes_pod_annotation_cni_projectcalico_org_podIPs": "private-address-07.example.invalid/32",
+        "__meta_kubernetes_pod_annotationpresent_cni_projectcalico_org_containerID": "true",
+        "__meta_kubernetes_pod_annotationpresent_cni_projectcalico_org_podIP": "true",
+        "__meta_kubernetes_pod_annotationpresent_cni_projectcalico_org_podIPs": "true",
+        "__meta_kubernetes_pod_container_image": "docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e",
+        "__meta_kubernetes_pod_container_init": "false",
+        "__meta_kubernetes_pod_container_name": "telemetry",
+        "__meta_kubernetes_pod_container_port_name": "metrics",
+        "__meta_kubernetes_pod_container_port_number": "8080",
+        "__meta_kubernetes_pod_container_port_protocol": "TCP",
+        "__meta_kubernetes_pod_host_ip": "target-node-1.example.invalid",
+        "__meta_kubernetes_pod_ip": "private-address-07.example.invalid",
+        "__meta_kubernetes_pod_label_experiment": "gpu-telemetry-cache",
+        "__meta_kubernetes_pod_label_mosaic_test": "true",
+        "__meta_kubernetes_pod_label_run_id": "gpu-rca-20261031t121240z",
+        "__meta_kubernetes_pod_labelpresent_experiment": "true",
+        "__meta_kubernetes_pod_labelpresent_mosaic_test": "true",
+        "__meta_kubernetes_pod_labelpresent_run_id": "true",
+        "__meta_kubernetes_pod_name": "gpu-telemetry-fixture",
+        "__meta_kubernetes_pod_node_name": "target-node-1",
+        "__meta_kubernetes_pod_phase": "Running",
+        "__meta_kubernetes_pod_ready": "true",
+        "__meta_kubernetes_pod_uid": "9fe844e0-2dc0-4634-b6a9-50f327bd645e",
+        "__meta_kubernetes_service_label_experiment": "gpu-telemetry-cache",
+        "__meta_kubernetes_service_label_mosaic_test": "true",
+        "__meta_kubernetes_service_label_run_id": "gpu-rca-20261031t121240z",
+        "__meta_kubernetes_service_labelpresent_experiment": "true",
+        "__meta_kubernetes_service_labelpresent_mosaic_test": "true",
+        "__meta_kubernetes_service_labelpresent_run_id": "true",
+        "__meta_kubernetes_service_name": "gpu-telemetry-fixture",
+        "__metrics_path__": "/metrics",
+        "__scheme__": "http",
+        "__scrape_interval__": "5s",
+        "__scrape_timeout__": "3s",
+        "job": "serviceMonitor/mosaic-gpu-rca-20261031t121240z/gpu-telemetry-fixture/0"
+      },
+      "labels": {
+        "container": "telemetry",
+        "endpoint": "metrics",
+        "instance": "private-address-07.example.invalid:8080",
+        "job": "gpu-telemetry-fixture",
+        "namespace": "mosaic-gpu-rca-20261031t121240z",
+        "pod": "gpu-telemetry-fixture",
+        "service": "gpu-telemetry-fixture"
+      },
+      "scrapePool": "serviceMonitor/mosaic-gpu-rca-20261031t121240z/gpu-telemetry-fixture/0",
+      "scrapeUrl": "http://private-address-07.example.invalid:8080/metrics",
+      "globalUrl": "http://private-address-07.example.invalid:8080/metrics",
+      "lastError": "non-compliant scrape target sending blank Content-Type and no fallback_scrape_protocol specified for target",
+      "lastScrape": "2026-10-31T13:39:11.96500474Z",
+      "lastScrapeDuration": 0.001150567,
+      "health": "down",
+      "scrapeInterval": "5s",
+      "scrapeTimeout": "3s"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "path": "/api/alerts",
+    "method": "DELETE",
+    "body": null
+  },
+  {
+    "path": "/api/alerts",
+    "method": "DELETE",
+    "body": null
+  }
+]

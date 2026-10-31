@@ -1,0 +1,19 @@
+[
+  {
+    "labels": {
+      "alertname": "MosaicLiveValidationAlert",
+      "severity": "warning",
+      "mosaic_test": "true",
+      "run_id": "mosaic-live-20261031t020612z",
+      "injection_path": "alertmanager_api"
+    },
+    "annotations": {
+      "test_from": "test from Jeff Peng",
+      "summary": "MOSAIC live delivery and evidence validation",
+      "description": "test from Jeff Peng. Live run mosaic-live-20261031t020612z. Deliberately injected through Alertmanager API. No new PrometheusRule is created for this run. There is no GPU or production workload fault. This test validates delivery and read-only investigation."
+    },
+    "startsAt": "2026-10-31T02:06:12.441393+00:00",
+    "endsAt": "2026-10-31T03:08:21.732359+00:00",
+    "generatorURL": "https://example.invalid/mosaic-validation/mosaic-live-20261031t020612z"
+  }
+]

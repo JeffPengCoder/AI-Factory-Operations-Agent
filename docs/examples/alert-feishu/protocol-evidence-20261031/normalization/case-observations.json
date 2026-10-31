@@ -1,0 +1,65 @@
+[
+  {
+    "at": "2026-10-31T05:57:52.762788+00:00",
+    "mode": "baseline-seeded",
+    "case": "baseline",
+    "seed": 101,
+    "hostElapsedSeconds": 3.222819644957781,
+    "exitCode": 0,
+    "elapsedSeconds": 1.9678172781132162,
+    "messageCount": 2,
+    "toolEvents": [],
+    "sourceCount": 0,
+    "sourceSinkCount": 0,
+    "answerContainsOracle": false,
+    "answerHasSourceFilename": false
+  },
+  {
+    "at": "2026-10-31T05:58:00.062823+00:00",
+    "mode": "normalize-first-search",
+    "case": "normalized-101",
+    "seed": 101,
+    "hostElapsedSeconds": 7.162959179840982,
+    "exitCode": 0,
+    "elapsedSeconds": 5.990955532062799,
+    "messageCount": 4,
+    "toolEvents": [
+      {
+        "event": "on_tool_start",
+        "name": "opensearch_search"
+      },
+      {
+        "event": "on_tool_end",
+        "name": "opensearch_search"
+      }
+    ],
+    "sourceCount": 2,
+    "sourceSinkCount": 3,
+    "answerContainsOracle": true,
+    "answerHasSourceFilename": true
+  },
+  {
+    "at": "2026-10-31T05:58:04.854529+00:00",
+    "mode": "normalize-first-search",
+    "case": "normalized-202",
+    "seed": 202,
+    "hostElapsedSeconds": 4.645771892275661,
+    "exitCode": 0,
+    "elapsedSeconds": 3.371415846981108,
+    "messageCount": 4,
+    "toolEvents": [
+      {
+        "event": "on_tool_start",
+        "name": "opensearch_search"
+      },
+      {
+        "event": "on_tool_end",
+        "name": "opensearch_search"
+      }
+    ],
+    "sourceCount": 2,
+    "sourceSinkCount": 3,
+    "answerContainsOracle": true,
+    "answerHasSourceFilename": true
+  }
+]

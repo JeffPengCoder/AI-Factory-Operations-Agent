@@ -1,0 +1,106 @@
+[
+  {
+    "index": 0,
+    "pci": "PCI-REDACTED-0",
+    "uuid": "GPU-REDACTED-11",
+    "product": "NVIDIA L20",
+    "ecc_mode": {
+      "current_ecc": "Enabled",
+      "pending_ecc": "Enabled"
+    },
+    "ecc_errors": "<ecc_errors>\n\t\t\t<volatile>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t</volatile>\n\t\t\t<aggregate>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t\t<sram_threshold_exceeded>No</sram_threshold_exceeded>\n\t\t\t</aggregate>\n\t\t\t<aggregate_uncorrectable_sram_sources>\n\t\t\t\t<sram_l2>0</sram_l2>\n\t\t\t\t<sram_sm>0</sram_sm>\n\t\t\t\t<sram_microcontroller>0</sram_microcontroller>\n\t\t\t\t<sram_pcie>0</sram_pcie>\n\t\t\t\t<sram_other>0</sram_other>\n\t\t\t</aggregate_uncorrectable_sram_sources>\n\t\t</ecc_errors>\n\t\t",
+    "retired_pages": "<retired_pages>\n\t\t\t<multiple_single_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</multiple_single_bit_retirement>\n\t\t\t<double_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</double_bit_retirement>\n\t\t\t<pending_blacklist>N/A</pending_blacklist>\n\t\t\t<pending_retirement>N/A</pending_retirement>\n\t\t</retired_pages>\n\t\t",
+    "remapped_rows": "<remapped_rows>\n\t\t\t<remapped_row_corr>0</remapped_row_corr>\n\t\t\t<remapped_row_unc>0</remapped_row_unc>\n\t\t\t<remapped_row_pending>No</remapped_row_pending>\n\t\t\t<remapped_row_failure>No</remapped_row_failure>\n\t\t\t<row_remapper_histogram>\n\t\t\t\t<row_remapper_histogram_max>192 bank(s)</row_remapper_histogram_max>\n\t\t\t\t<row_remapper_histogram_high>0 bank(s)</row_remapper_histogram_high>\n\t\t\t\t<row_remapper_histogram_partial>0 bank(s)</row_remapper_histogram_partial>\n\t\t\t\t<row_remapper_histogram_low>0 bank(s)</row_remapper_histogram_low>\n\t\t\t\t<row_remapper_histogram_none>0 bank(s)</row_remapper_histogram_none>\n\t\t\t</row_remapper_histogram>\n\t\t</remapped_rows>\n\t\t"
+  },
+  {
+    "index": 1,
+    "pci": "PCI-REDACTED-1",
+    "uuid": "GPU-REDACTED-14",
+    "product": "NVIDIA L20",
+    "ecc_mode": {
+      "current_ecc": "Enabled",
+      "pending_ecc": "Enabled"
+    },
+    "ecc_errors": "<ecc_errors>\n\t\t\t<volatile>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t</volatile>\n\t\t\t<aggregate>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t\t<sram_threshold_exceeded>No</sram_threshold_exceeded>\n\t\t\t</aggregate>\n\t\t\t<aggregate_uncorrectable_sram_sources>\n\t\t\t\t<sram_l2>0</sram_l2>\n\t\t\t\t<sram_sm>0</sram_sm>\n\t\t\t\t<sram_microcontroller>0</sram_microcontroller>\n\t\t\t\t<sram_pcie>0</sram_pcie>\n\t\t\t\t<sram_other>0</sram_other>\n\t\t\t</aggregate_uncorrectable_sram_sources>\n\t\t</ecc_errors>\n\t\t",
+    "retired_pages": "<retired_pages>\n\t\t\t<multiple_single_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</multiple_single_bit_retirement>\n\t\t\t<double_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</double_bit_retirement>\n\t\t\t<pending_blacklist>N/A</pending_blacklist>\n\t\t\t<pending_retirement>N/A</pending_retirement>\n\t\t</retired_pages>\n\t\t",
+    "remapped_rows": "<remapped_rows>\n\t\t\t<remapped_row_corr>0</remapped_row_corr>\n\t\t\t<remapped_row_unc>0</remapped_row_unc>\n\t\t\t<remapped_row_pending>No</remapped_row_pending>\n\t\t\t<remapped_row_failure>No</remapped_row_failure>\n\t\t\t<row_remapper_histogram>\n\t\t\t\t<row_remapper_histogram_max>192 bank(s)</row_remapper_histogram_max>\n\t\t\t\t<row_remapper_histogram_high>0 bank(s)</row_remapper_histogram_high>\n\t\t\t\t<row_remapper_histogram_partial>0 bank(s)</row_remapper_histogram_partial>\n\t\t\t\t<row_remapper_histogram_low>0 bank(s)</row_remapper_histogram_low>\n\t\t\t\t<row_remapper_histogram_none>0 bank(s)</row_remapper_histogram_none>\n\t\t\t</row_remapper_histogram>\n\t\t</remapped_rows>\n\t\t"
+  },
+  {
+    "index": 2,
+    "pci": "PCI-REDACTED-2",
+    "uuid": "GPU-REDACTED-05",
+    "product": "NVIDIA L20",
+    "ecc_mode": {
+      "current_ecc": "Enabled",
+      "pending_ecc": "Enabled"
+    },
+    "ecc_errors": "<ecc_errors>\n\t\t\t<volatile>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t</volatile>\n\t\t\t<aggregate>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t\t<sram_threshold_exceeded>No</sram_threshold_exceeded>\n\t\t\t</aggregate>\n\t\t\t<aggregate_uncorrectable_sram_sources>\n\t\t\t\t<sram_l2>0</sram_l2>\n\t\t\t\t<sram_sm>0</sram_sm>\n\t\t\t\t<sram_microcontroller>0</sram_microcontroller>\n\t\t\t\t<sram_pcie>0</sram_pcie>\n\t\t\t\t<sram_other>0</sram_other>\n\t\t\t</aggregate_uncorrectable_sram_sources>\n\t\t</ecc_errors>\n\t\t",
+    "retired_pages": "<retired_pages>\n\t\t\t<multiple_single_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</multiple_single_bit_retirement>\n\t\t\t<double_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</double_bit_retirement>\n\t\t\t<pending_blacklist>N/A</pending_blacklist>\n\t\t\t<pending_retirement>N/A</pending_retirement>\n\t\t</retired_pages>\n\t\t",
+    "remapped_rows": "<remapped_rows>\n\t\t\t<remapped_row_corr>0</remapped_row_corr>\n\t\t\t<remapped_row_unc>0</remapped_row_unc>\n\t\t\t<remapped_row_pending>No</remapped_row_pending>\n\t\t\t<remapped_row_failure>No</remapped_row_failure>\n\t\t\t<row_remapper_histogram>\n\t\t\t\t<row_remapper_histogram_max>192 bank(s)</row_remapper_histogram_max>\n\t\t\t\t<row_remapper_histogram_high>0 bank(s)</row_remapper_histogram_high>\n\t\t\t\t<row_remapper_histogram_partial>0 bank(s)</row_remapper_histogram_partial>\n\t\t\t\t<row_remapper_histogram_low>0 bank(s)</row_remapper_histogram_low>\n\t\t\t\t<row_remapper_histogram_none>0 bank(s)</row_remapper_histogram_none>\n\t\t\t</row_remapper_histogram>\n\t\t</remapped_rows>\n\t\t"
+  },
+  {
+    "index": 3,
+    "pci": "PCI-REDACTED-3",
+    "uuid": "GPU-REDACTED-00",
+    "product": "NVIDIA L20",
+    "ecc_mode": {
+      "current_ecc": "Enabled",
+      "pending_ecc": "Enabled"
+    },
+    "ecc_errors": "<ecc_errors>\n\t\t\t<volatile>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t</volatile>\n\t\t\t<aggregate>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t\t<sram_threshold_exceeded>No</sram_threshold_exceeded>\n\t\t\t</aggregate>\n\t\t\t<aggregate_uncorrectable_sram_sources>\n\t\t\t\t<sram_l2>0</sram_l2>\n\t\t\t\t<sram_sm>0</sram_sm>\n\t\t\t\t<sram_microcontroller>0</sram_microcontroller>\n\t\t\t\t<sram_pcie>0</sram_pcie>\n\t\t\t\t<sram_other>0</sram_other>\n\t\t\t</aggregate_uncorrectable_sram_sources>\n\t\t</ecc_errors>\n\t\t",
+    "retired_pages": "<retired_pages>\n\t\t\t<multiple_single_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</multiple_single_bit_retirement>\n\t\t\t<double_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</double_bit_retirement>\n\t\t\t<pending_blacklist>N/A</pending_blacklist>\n\t\t\t<pending_retirement>N/A</pending_retirement>\n\t\t</retired_pages>\n\t\t",
+    "remapped_rows": "<remapped_rows>\n\t\t\t<remapped_row_corr>0</remapped_row_corr>\n\t\t\t<remapped_row_unc>0</remapped_row_unc>\n\t\t\t<remapped_row_pending>No</remapped_row_pending>\n\t\t\t<remapped_row_failure>No</remapped_row_failure>\n\t\t\t<row_remapper_histogram>\n\t\t\t\t<row_remapper_histogram_max>192 bank(s)</row_remapper_histogram_max>\n\t\t\t\t<row_remapper_histogram_high>0 bank(s)</row_remapper_histogram_high>\n\t\t\t\t<row_remapper_histogram_partial>0 bank(s)</row_remapper_histogram_partial>\n\t\t\t\t<row_remapper_histogram_low>0 bank(s)</row_remapper_histogram_low>\n\t\t\t\t<row_remapper_histogram_none>0 bank(s)</row_remapper_histogram_none>\n\t\t\t</row_remapper_histogram>\n\t\t</remapped_rows>\n\t\t"
+  },
+  {
+    "index": 4,
+    "pci": "PCI-REDACTED-4",
+    "uuid": "GPU-REDACTED-15",
+    "product": "NVIDIA L20",
+    "ecc_mode": {
+      "current_ecc": "Enabled",
+      "pending_ecc": "Enabled"
+    },
+    "ecc_errors": "<ecc_errors>\n\t\t\t<volatile>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t</volatile>\n\t\t\t<aggregate>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t\t<sram_threshold_exceeded>No</sram_threshold_exceeded>\n\t\t\t</aggregate>\n\t\t\t<aggregate_uncorrectable_sram_sources>\n\t\t\t\t<sram_l2>0</sram_l2>\n\t\t\t\t<sram_sm>0</sram_sm>\n\t\t\t\t<sram_microcontroller>0</sram_microcontroller>\n\t\t\t\t<sram_pcie>0</sram_pcie>\n\t\t\t\t<sram_other>0</sram_other>\n\t\t\t</aggregate_uncorrectable_sram_sources>\n\t\t</ecc_errors>\n\t\t",
+    "retired_pages": "<retired_pages>\n\t\t\t<multiple_single_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</multiple_single_bit_retirement>\n\t\t\t<double_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</double_bit_retirement>\n\t\t\t<pending_blacklist>N/A</pending_blacklist>\n\t\t\t<pending_retirement>N/A</pending_retirement>\n\t\t</retired_pages>\n\t\t",
+    "remapped_rows": "<remapped_rows>\n\t\t\t<remapped_row_corr>0</remapped_row_corr>\n\t\t\t<remapped_row_unc>0</remapped_row_unc>\n\t\t\t<remapped_row_pending>No</remapped_row_pending>\n\t\t\t<remapped_row_failure>No</remapped_row_failure>\n\t\t\t<row_remapper_histogram>\n\t\t\t\t<row_remapper_histogram_max>192 bank(s)</row_remapper_histogram_max>\n\t\t\t\t<row_remapper_histogram_high>0 bank(s)</row_remapper_histogram_high>\n\t\t\t\t<row_remapper_histogram_partial>0 bank(s)</row_remapper_histogram_partial>\n\t\t\t\t<row_remapper_histogram_low>0 bank(s)</row_remapper_histogram_low>\n\t\t\t\t<row_remapper_histogram_none>0 bank(s)</row_remapper_histogram_none>\n\t\t\t</row_remapper_histogram>\n\t\t</remapped_rows>\n\t\t"
+  },
+  {
+    "index": 5,
+    "pci": "PCI-REDACTED-5",
+    "uuid": "GPU-REDACTED-02",
+    "product": "NVIDIA L20",
+    "ecc_mode": {
+      "current_ecc": "Enabled",
+      "pending_ecc": "Enabled"
+    },
+    "ecc_errors": "<ecc_errors>\n\t\t\t<volatile>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t</volatile>\n\t\t\t<aggregate>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t\t<sram_threshold_exceeded>No</sram_threshold_exceeded>\n\t\t\t</aggregate>\n\t\t\t<aggregate_uncorrectable_sram_sources>\n\t\t\t\t<sram_l2>0</sram_l2>\n\t\t\t\t<sram_sm>0</sram_sm>\n\t\t\t\t<sram_microcontroller>0</sram_microcontroller>\n\t\t\t\t<sram_pcie>0</sram_pcie>\n\t\t\t\t<sram_other>0</sram_other>\n\t\t\t</aggregate_uncorrectable_sram_sources>\n\t\t</ecc_errors>\n\t\t",
+    "retired_pages": "<retired_pages>\n\t\t\t<multiple_single_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</multiple_single_bit_retirement>\n\t\t\t<double_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</double_bit_retirement>\n\t\t\t<pending_blacklist>N/A</pending_blacklist>\n\t\t\t<pending_retirement>N/A</pending_retirement>\n\t\t</retired_pages>\n\t\t",
+    "remapped_rows": "<remapped_rows>\n\t\t\t<remapped_row_corr>0</remapped_row_corr>\n\t\t\t<remapped_row_unc>0</remapped_row_unc>\n\t\t\t<remapped_row_pending>No</remapped_row_pending>\n\t\t\t<remapped_row_failure>No</remapped_row_failure>\n\t\t\t<row_remapper_histogram>\n\t\t\t\t<row_remapper_histogram_max>192 bank(s)</row_remapper_histogram_max>\n\t\t\t\t<row_remapper_histogram_high>0 bank(s)</row_remapper_histogram_high>\n\t\t\t\t<row_remapper_histogram_partial>0 bank(s)</row_remapper_histogram_partial>\n\t\t\t\t<row_remapper_histogram_low>0 bank(s)</row_remapper_histogram_low>\n\t\t\t\t<row_remapper_histogram_none>0 bank(s)</row_remapper_histogram_none>\n\t\t\t</row_remapper_histogram>\n\t\t</remapped_rows>\n\t\t"
+  },
+  {
+    "index": 6,
+    "pci": "PCI-REDACTED-6",
+    "uuid": "GPU-REDACTED-01",
+    "product": "NVIDIA L20",
+    "ecc_mode": {
+      "current_ecc": "Enabled",
+      "pending_ecc": "Enabled"
+    },
+    "ecc_errors": "<ecc_errors>\n\t\t\t<volatile>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t</volatile>\n\t\t\t<aggregate>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t\t<sram_threshold_exceeded>No</sram_threshold_exceeded>\n\t\t\t</aggregate>\n\t\t\t<aggregate_uncorrectable_sram_sources>\n\t\t\t\t<sram_l2>0</sram_l2>\n\t\t\t\t<sram_sm>0</sram_sm>\n\t\t\t\t<sram_microcontroller>0</sram_microcontroller>\n\t\t\t\t<sram_pcie>0</sram_pcie>\n\t\t\t\t<sram_other>0</sram_other>\n\t\t\t</aggregate_uncorrectable_sram_sources>\n\t\t</ecc_errors>\n\t\t",
+    "retired_pages": "<retired_pages>\n\t\t\t<multiple_single_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</multiple_single_bit_retirement>\n\t\t\t<double_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</double_bit_retirement>\n\t\t\t<pending_blacklist>N/A</pending_blacklist>\n\t\t\t<pending_retirement>N/A</pending_retirement>\n\t\t</retired_pages>\n\t\t",
+    "remapped_rows": "<remapped_rows>\n\t\t\t<remapped_row_corr>0</remapped_row_corr>\n\t\t\t<remapped_row_unc>0</remapped_row_unc>\n\t\t\t<remapped_row_pending>No</remapped_row_pending>\n\t\t\t<remapped_row_failure>No</remapped_row_failure>\n\t\t\t<row_remapper_histogram>\n\t\t\t\t<row_remapper_histogram_max>192 bank(s)</row_remapper_histogram_max>\n\t\t\t\t<row_remapper_histogram_high>0 bank(s)</row_remapper_histogram_high>\n\t\t\t\t<row_remapper_histogram_partial>0 bank(s)</row_remapper_histogram_partial>\n\t\t\t\t<row_remapper_histogram_low>0 bank(s)</row_remapper_histogram_low>\n\t\t\t\t<row_remapper_histogram_none>0 bank(s)</row_remapper_histogram_none>\n\t\t\t</row_remapper_histogram>\n\t\t</remapped_rows>\n\t\t"
+  },
+  {
+    "index": 7,
+    "pci": "PCI-REDACTED-7",
+    "uuid": "GPU-REDACTED-12",
+    "product": "NVIDIA L20",
+    "ecc_mode": {
+      "current_ecc": "Enabled",
+      "pending_ecc": "Enabled"
+    },
+    "ecc_errors": "<ecc_errors>\n\t\t\t<volatile>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t</volatile>\n\t\t\t<aggregate>\n\t\t\t\t<sram_correctable>0</sram_correctable>\n\t\t\t\t<sram_uncorrectable_parity>0</sram_uncorrectable_parity>\n\t\t\t\t<sram_uncorrectable_secded>0</sram_uncorrectable_secded>\n\t\t\t\t<dram_correctable>0</dram_correctable>\n\t\t\t\t<dram_uncorrectable>0</dram_uncorrectable>\n\t\t\t\t<sram_threshold_exceeded>No</sram_threshold_exceeded>\n\t\t\t</aggregate>\n\t\t\t<aggregate_uncorrectable_sram_sources>\n\t\t\t\t<sram_l2>0</sram_l2>\n\t\t\t\t<sram_sm>0</sram_sm>\n\t\t\t\t<sram_microcontroller>0</sram_microcontroller>\n\t\t\t\t<sram_pcie>0</sram_pcie>\n\t\t\t\t<sram_other>0</sram_other>\n\t\t\t</aggregate_uncorrectable_sram_sources>\n\t\t</ecc_errors>\n\t\t",
+    "retired_pages": "<retired_pages>\n\t\t\t<multiple_single_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</multiple_single_bit_retirement>\n\t\t\t<double_bit_retirement>\n\t\t\t\t<retired_count>N/A</retired_count>\n\t\t\t\t<retired_pagelist>N/A</retired_pagelist>\n\t\t\t</double_bit_retirement>\n\t\t\t<pending_blacklist>N/A</pending_blacklist>\n\t\t\t<pending_retirement>N/A</pending_retirement>\n\t\t</retired_pages>\n\t\t",
+    "remapped_rows": "<remapped_rows>\n\t\t\t<remapped_row_corr>0</remapped_row_corr>\n\t\t\t<remapped_row_unc>0</remapped_row_unc>\n\t\t\t<remapped_row_pending>No</remapped_row_pending>\n\t\t\t<remapped_row_failure>No</remapped_row_failure>\n\t\t\t<row_remapper_histogram>\n\t\t\t\t<row_remapper_histogram_max>192 bank(s)</row_remapper_histogram_max>\n\t\t\t\t<row_remapper_histogram_high>0 bank(s)</row_remapper_histogram_high>\n\t\t\t\t<row_remapper_histogram_partial>0 bank(s)</row_remapper_histogram_partial>\n\t\t\t\t<row_remapper_histogram_low>0 bank(s)</row_remapper_histogram_low>\n\t\t\t\t<row_remapper_histogram_none>0 bank(s)</row_remapper_histogram_none>\n\t\t\t</row_remapper_histogram>\n\t\t</remapped_rows>\n\t\t"
+  }
+]

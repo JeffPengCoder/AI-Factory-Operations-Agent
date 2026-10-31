@@ -1,0 +1,10 @@
+{
+  "recordedAt": "2026-10-31T13:49:16.543147+00:00",
+  "localUrl": "http://127.0.0.1:13000",
+  "sparkLoopbackPort": 13001,
+  "uiService": "svc/mosaic-ui 13001:3000",
+  "sshControlSocket": "/private/tmp/mosaic-gpu-spark-20261031/ssh.sock",
+  "activeToolSession": 22648,
+  "reason": "Existing remote13000 forward gave connection resets; new dedicated13001 forward in persistent foreground SSH session returns health200.",
+  "command": "ssh -M -S /private/tmp/mosaic-gpu-spark-20261031/ssh.sock -o BatchMode=yes -o ConnectTimeout=20 -o ControlMaster=yes -o ControlPersist=0 -o ExitOnForwardFailure=yes -o ServerAliveInterval=20 -o ServerAliveCountMax=10 -L 127.0.0.1:13000:127.0.0.1:13001 spark-user@spark.example.invalid '$HOME/.local/bin/kubectl --context kind-mosaic-poc -n mosaic port-forward --address=127.0.0.1 svc/mosaic-ui 13001:3000'"
+}

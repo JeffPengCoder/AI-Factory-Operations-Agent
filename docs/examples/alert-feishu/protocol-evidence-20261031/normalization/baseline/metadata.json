@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-31T05:57:50.336048+00:00",
+  "question": "Using only the indexed mosaic-validation-control.pdf, reference MOSAIC-KB-20261031, what public verification code is printed in the Operator Decision and Evidence section on page 2? Cite the exact filename and page inline. Explain whether an automated alert investigation may directly repair a service. Perform the document search and return evidence.",
+  "collection": "mosaic-validation-20261031",
+  "modelMode": "baseline-seeded",
+  "seed": 101,
+  "packages": {
+    "deepagents": "0.6.12",
+    "langchain": "1.3.13",
+    "langchain-openai": "1.3.5",
+    "langgraph": "1.2.9",
+    "httpx": "0.28.1"
+  }
+}

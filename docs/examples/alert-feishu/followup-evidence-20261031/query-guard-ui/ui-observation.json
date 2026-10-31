@@ -1,0 +1,8 @@
+{
+  "uiErrorResultVisible": true,
+  "structuredIncompleteVisible": true,
+  "originalSubstringCheck": "IRA research incomplete",
+  "originalSubstringPresent": false,
+  "selectedEventSourceMessages": 0,
+  "note": "The initial phrase check targeted subagent event wording. The page actually displays ERROR / Result iraop_query and full structured incomplete content. CDP recorded zero EventSource events; the live subagent POST is not independently verified by this capture. A GET /api/subagents/events returned 405 and GET /api/ui/events timed out waiting for headers; neither is treated as proof that the plugin POST failed."
+}

@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-31T07:27:42.584307+00:00",
+  "group": "MOSAIC Alert Test",
+  "runId": "feishu-continued-validation-20261031T071049Z",
+  "botApiAccepted": true,
+  "groupReceiptConfirmed": true,
+  "completeResponseFile": "feishu-response-attempt1.json",
+  "credentialValuesSaved": false,
+  "confirmationSource": "Explicit user reply: 已看到，Run ID 一致",
+  "confirmationAt": "2026-10-31T07:30:35.253520+00:00"
+}

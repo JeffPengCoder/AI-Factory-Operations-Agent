@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/spark-user/.local/share/mosaic-validation-20261031/research-debug/prepare_query_guard.py", line 66, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/spark-user/.local/share/mosaic-validation-20261031/research-debug/prepare_query_guard.py", line 54, in main
+    docs=json.loads(command(K+['create','--dry-run=client','--validate=false','-f',str(preview_manifest),'-o','json'],'preview-objects'))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/spark-user/.local/share/mosaic-validation-20261031/research-debug/prepare_query_guard.py", line 17, in command
+    assert p.returncode==0,{'stage':name,'exitCode':p.returncode,'details':'See protected output files.'}
+           ^^^^^^^^^^^^^^^
+AssertionError: {'stage': 'preview-objects', 'exitCode': 1, 'details': 'See protected output files.'}

@@ -1,0 +1,3 @@
+Review payload: /Users/operator/workspace/system-sa/aiops/mosaic-run/alerts/e2e-20261031t075722z/feishu-payload-reviewed.json (15481 UTF-8 bytes before signing)
+Bot API accepted the message. Verify the matching run ID in the destination group.
+{"at": "2026-10-31T08:36:54.952359+00:00", "group": "MOSAIC Alert Test", "runId": "e2e-20261031t075722z", "botApiAccepted": true, "groupReceiptConfirmed": false, "completeResponseFile": "feishu-response-attempt1.json", "credentialValuesSaved": false}

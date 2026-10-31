@@ -1,0 +1,82 @@
+[
+  {
+    "revision": 6,
+    "updated": "2026-10-13T17:37:19.81278701+08:00",
+    "status": "superseded",
+    "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75",
+    "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+    "description": "Upgrade complete"
+  },
+  {
+    "revision": 7,
+    "updated": "2026-10-13T17:54:21.919946607+08:00",
+    "status": "superseded",
+    "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75",
+    "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+    "description": "Upgrade complete"
+  },
+  {
+    "revision": 8,
+    "updated": "2026-10-29T11:46:16.025971491+08:00",
+    "status": "superseded",
+    "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029",
+    "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+    "description": "Persistent Teams PR 71 backport; bot registration pending"
+  },
+  {
+    "revision": 9,
+    "updated": "2026-10-31T09:55:36.342796159+08:00",
+    "status": "superseded",
+    "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029",
+    "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+    "description": "Upgrade complete"
+  },
+  {
+    "revision": 10,
+    "updated": "2026-10-31T10:13:36.263473659+08:00",
+    "status": "superseded",
+    "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029",
+    "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+    "description": "Upgrade complete"
+  },
+  {
+    "revision": 11,
+    "updated": "2026-10-31T11:35:34.003088898+08:00",
+    "status": "superseded",
+    "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031",
+    "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+    "description": "Upgrade complete"
+  },
+  {
+    "revision": 12,
+    "updated": "2026-10-31T11:46:32.490772184+08:00",
+    "status": "superseded",
+    "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2",
+    "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+    "description": "Upgrade complete"
+  },
+  {
+    "revision": 13,
+    "updated": "2026-10-31T14:28:38.343138998+08:00",
+    "status": "superseded",
+    "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031",
+    "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+    "description": "Upgrade complete"
+  },
+  {
+    "revision": 14,
+    "updated": "2026-10-31T14:34:29.358747404+08:00",
+    "status": "superseded",
+    "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031.startup2",
+    "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+    "description": "Upgrade complete"
+  },
+  {
+    "revision": 15,
+    "updated": "2026-10-31T14:38:59.443735558+08:00",
+    "status": "deployed",
+    "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031.startup2",
+    "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+    "description": "Upgrade complete"
+  }
+]

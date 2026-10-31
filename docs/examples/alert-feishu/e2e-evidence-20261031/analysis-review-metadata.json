@@ -1,0 +1,9 @@
+{
+  "modelReportBytes": 9894,
+  "modelReportSha256": "dd73e8077863def5078ecfbfa9e649ba9611b129aa4d5417f146d2453c2de7c9",
+  "reviewedReportBytes": 12334,
+  "reviewedReportSha256": "5f8106be88f3ecdd03ecc6bcfc3f1afc2c83e0a7c2bc4fdd19c1d244b9bf974a",
+  "fullDiff": "analysis-review.full.diff",
+  "allToolRows": 18,
+  "operatorReview": true
+}

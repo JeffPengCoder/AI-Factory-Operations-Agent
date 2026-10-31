@@ -1,0 +1,225 @@
+{
+  "success": true,
+  "deletedOnlyExactOriginalUids": {
+    "Namespace": "c49e70b7-674b-45fd-b7d7-39087b2e93e2",
+    "ConfigMap": "403b73e5-b19e-4276-bb0a-ff64c9dc0162",
+    "Pod": "82953a81-6578-4cbe-b638-ef3de927279a",
+    "PrometheusRule": "0faf5f01-a21e-439f-b4f6-c6da8d5c219d"
+  },
+  "commands": [
+    {
+      "at": "2026-10-31T08:37:47.333617+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "namespace",
+        "mosaic-e2e-20261031t075722z",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n    \"apiVersion\": \"v1\",\n    \"kind\": \"Namespace\",\n    \"metadata\": {\n        \"creationTimestamp\": \"2026-10-31T08:21:41Z\",\n        \"labels\": {\n            \"app.kubernetes.io/part-of\": \"mosaic-e2e-validation\",\n            \"kubernetes.io/metadata.name\": \"mosaic-e2e-20261031t075722z\",\n            \"mosaic_test\": \"true\",\n            \"run_id\": \"e2e-20261031t075722z\"\n        },\n        \"name\": \"mosaic-e2e-20261031t075722z\",\n        \"resourceVersion\": \"99564428\",\n        \"uid\": \"c49e70b7-674b-45fd-b7d7-39087b2e93e2\"\n    },\n    \"spec\": {\n        \"finalizers\": [\n            \"kubernetes\"\n        ]\n    },\n    \"status\": {\n        \"phase\": \"Active\"\n    }\n}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T08:37:47.378796+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "configmap",
+        "fixture-input",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n    \"apiVersion\": \"v1\",\n    \"data\": {\n        \"README\": \"Deliberately omit ready for a bounded startup-failure test. No production service is modified.\"\n    },\n    \"kind\": \"ConfigMap\",\n    \"metadata\": {\n        \"creationTimestamp\": \"2026-10-31T08:21:42Z\",\n        \"labels\": {\n            \"app.kubernetes.io/part-of\": \"mosaic-e2e-validation\",\n            \"mosaic_test\": \"true\",\n            \"run_id\": \"e2e-20261031t075722z\"\n        },\n        \"name\": \"fixture-input\",\n        \"namespace\": \"mosaic-e2e-20261031t075722z\",\n        \"resourceVersion\": \"99564431\",\n        \"uid\": \"403b73e5-b19e-4276-bb0a-ff64c9dc0162\"\n    }\n}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T08:37:47.424673+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "pod",
+        "mosaic-log-fixture",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n    \"apiVersion\": \"v1\",\n    \"kind\": \"Pod\",\n    \"metadata\": {\n        \"annotations\": {\n            \"cni.projectcalico.org/containerID\": \"019999de620c6328efcb05a7f33d8fc46ed9fcec97d034f916815848372cfc21\",\n            \"cni.projectcalico.org/podIP\": \"continued-private-address-07.example.invalid/32\",\n            \"cni.projectcalico.org/podIPs\": \"continued-private-address-07.example.invalid/32\"\n        },\n        \"creationTimestamp\": \"2026-10-31T08:21:42Z\",\n        \"labels\": {\n            \"app.kubernetes.io/part-of\": \"mosaic-e2e-validation\",\n            \"mosaic_test\": \"true\",\n            \"run_id\": \"e2e-20261031t075722z\"\n        },\n        \"name\": \"mosaic-log-fixture\",\n        \"namespace\": \"mosaic-e2e-20261031t075722z\",\n        \"resourceVersion\": \"99570397\",\n        \"uid\": \"82953a81-6578-4cbe-b638-ef3de927279a\"\n    },\n    \"spec\": {\n        \"automountServiceAccountToken\": false,\n        \"containers\": [\n            {\n                \"command\": [\n                    \"/bin/sh\",\n                    \"-c\",\n                    \"printf 'timestamp=%s run_id=%s component=mosaic-log-fixture event=startup test_from=\\\"test from Jeff Peng\\\"\\\\n' \\\"$(date -u +%FT%TZ)\\\" \\\"$RUN_ID\\\"\\nif [ ! -f /fixture/ready ]; then\\n  printf 'timestamp=%s run_id=%s event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\\\"test from Jeff Peng\\\"\\\\n' \\\"$(date -u +%FT%TZ)\\\" \\\"$RUN_ID\\\"\\n  exit 23\\nfi\\nprintf 'timestamp=%s run_id=%s event=ready\\\\n' \\\"$(date -u +%FT%TZ)\\\" \\\"$RUN_ID\\\"\\nwhile :; do sleep 3600; done\\n\"\n                ],\n                \"env\": [\n                    {\n                        \"name\": \"RUN_ID\",\n                        \"value\": \"e2e-20261031t075722z\"\n                    }\n                ],\n                \"image\": \"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\",\n                \"imagePullPolicy\": \"Never\",\n                \"name\": \"fixture\",\n                \"resources\": {\n                    \"limits\": {\n                        \"cpu\": \"50m\",\n                        \"memory\": \"32Mi\"\n                    },\n                    \"requests\": {\n                        \"cpu\": \"5m\",\n                        \"memory\": \"8Mi\"\n                    }\n                },\n                \"securityContext\": {\n                    \"allowPrivilegeEscalation\": false,\n                    \"capabilities\": {\n                        \"drop\": [\n                            \"ALL\"\n                        ]\n                    },\n                    \"readOnlyRootFilesystem\": true\n                },\n                \"terminationMessagePath\": \"/dev/termination-log\",\n                \"terminationMessagePolicy\": \"File\",\n                \"volumeMounts\": [\n                    {\n                        \"mountPath\": \"/fixture\",\n                        \"name\": \"input\",\n                        \"readOnly\": true\n                    }\n                ]\n            }\n        ],\n        \"dnsPolicy\": \"ClusterFirst\",\n        \"enableServiceLinks\": true,\n        \"nodeName\": \"target-node-1\",\n        \"nodeSelector\": {\n            \"kubernetes.io/hostname\": \"target-node-1\"\n        },\n        \"preemptionPolicy\": \"PreemptLowerPriority\",\n        \"priority\": 0,\n        \"restartPolicy\": \"Always\",\n        \"schedulerName\": \"default-scheduler\",\n        \"securityContext\": {\n            \"runAsGroup\": 65534,\n            \"runAsNonRoot\": true,\n            \"runAsUser\": 65534,\n            \"seccompProfile\": {\n                \"type\": \"RuntimeDefault\"\n            }\n        },\n        \"serviceAccount\": \"default\",\n        \"serviceAccountName\": \"default\",\n        \"terminationGracePeriodSeconds\": 5,\n        \"tolerations\": [\n            {\n                \"effect\": \"NoSchedule\",\n                \"key\": \"node-role.kubernetes.io/control-plane\",\n                \"operator\": \"Exists\"\n            },\n            {\n                \"effect\": \"NoExecute\",\n                \"key\": \"node.kubernetes.io/not-ready\",\n                \"operator\": \"Exists\",\n                \"tolerationSeconds\": 300\n            },\n            {\n                \"effect\": \"NoExecute\",\n                \"key\": \"node.kubernetes.io/unreachable\",\n                \"operator\": \"Exists\",\n                \"tolerationSeconds\": 300\n            }\n        ],\n        \"volumes\": [\n            {\n                \"configMap\": {\n                    \"defaultMode\": 420,\n                    \"name\": \"fixture-input\"\n                },\n                \"name\": \"input\"\n            }\n        ]\n    },\n    \"status\": {\n        \"conditions\": [\n            {\n                \"lastProbeTime\": null,\n                \"lastTransitionTime\": \"2026-10-31T08:21:45Z\",\n                \"status\": \"True\",\n                \"type\": \"PodReadyToStartContainers\"\n            },\n            {\n                \"lastProbeTime\": null,\n                \"lastTransitionTime\": \"2026-10-31T08:21:42Z\",\n                \"status\": \"True\",\n                \"type\": \"Initialized\"\n            },\n            {\n                \"lastProbeTime\": null,\n                \"lastTransitionTime\": \"2026-10-31T08:37:42Z\",\n                \"message\": \"containers with unready status: [fixture]\",\n                \"reason\": \"ContainersNotReady\",\n                \"status\": \"False\",\n                \"type\": \"Ready\"\n            },\n            {\n                \"lastProbeTime\": null,\n                \"lastTransitionTime\": \"2026-10-31T08:37:42Z\",\n                \"message\": \"containers with unready status: [fixture]\",\n                \"reason\": \"ContainersNotReady\",\n                \"status\": \"False\",\n                \"type\": \"ContainersReady\"\n            },\n            {\n                \"lastProbeTime\": null,\n                \"lastTransitionTime\": \"2026-10-31T08:21:42Z\",\n                \"status\": \"True\",\n                \"type\": \"PodScheduled\"\n            }\n        ],\n        \"containerStatuses\": [\n            {\n                \"containerID\": \"containerd://0ca4edafe82960510d6876925f200316dd5ba47e2a5ac7c2ba53d38f6b604aaa\",\n                \"image\": \"docker.io/library/busybox:latest\",\n                \"imageID\": \"docker.io/library/busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e\",\n                \"lastState\": {\n                    \"terminated\": {\n                        \"containerID\": \"containerd://6d2d1bedb8c414dd359fcfff5005b36b821437afa936b2ae3b7a4b8da3851e9b\",\n                        \"exitCode\": 23,\n                        \"finishedAt\": \"2026-10-31T08:32:35Z\",\n                        \"reason\": \"Error\",\n                        \"startedAt\": \"2026-10-31T08:32:35Z\"\n                    }\n                },\n                \"name\": \"fixture\",\n                \"ready\": false,\n                \"restartCount\": 8,\n                \"started\": false,\n                \"state\": {\n                    \"terminated\": {\n                        \"containerID\": \"containerd://0ca4edafe82960510d6876925f200316dd5ba47e2a5ac7c2ba53d38f6b604aaa\",\n                        \"exitCode\": 23,\n                        \"finishedAt\": \"2026-10-31T08:37:41Z\",\n                        \"reason\": \"Error\",\n                        \"startedAt\": \"2026-10-31T08:37:40Z\"\n                    }\n                },\n                \"volumeMounts\": [\n                    {\n                        \"mountPath\": \"/fixture\",\n                        \"name\": \"input\",\n                        \"readOnly\": true,\n                        \"recursiveReadOnly\": \"Disabled\"\n                    }\n                ]\n            }\n        ],\n        \"hostIP\": \"target-node-1.example.invalid\",\n        \"hostIPs\": [\n            {\n                \"ip\": \"target-node-1.example.invalid\"\n            }\n        ],\n        \"phase\": \"Running\",\n        \"podIP\": \"continued-private-address-07.example.invalid\",\n        \"podIPs\": [\n            {\n                \"ip\": \"continued-private-address-07.example.invalid\"\n            }\n        ],\n        \"qosClass\": \"Burstable\",\n        \"startTime\": \"2026-10-31T08:21:42Z\"\n    }\n}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T08:37:47.469768+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "prometheusrule",
+        "mosaic-e2e-20261031t075722z",
+        "-n",
+        "monitoring",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n    \"apiVersion\": \"monitoring.coreos.com/v1\",\n    \"kind\": \"PrometheusRule\",\n    \"metadata\": {\n        \"annotations\": {\n            \"prometheus-operator-validated\": \"true\"\n        },\n        \"creationTimestamp\": \"2026-10-31T08:21:42Z\",\n        \"generation\": 1,\n        \"labels\": {\n            \"app.kubernetes.io/part-of\": \"mosaic-e2e-validation\",\n            \"mosaic_test\": \"true\",\n            \"release\": \"kube-prometheus-stack\",\n            \"run_id\": \"e2e-20261031t075722z\"\n        },\n        \"name\": \"mosaic-e2e-20261031t075722z\",\n        \"namespace\": \"monitoring\",\n        \"resourceVersion\": \"99564435\",\n        \"uid\": \"0faf5f01-a21e-439f-b4f6-c6da8d5c219d\"\n    },\n    \"spec\": {\n        \"groups\": [\n            {\n                \"interval\": \"10s\",\n                \"name\": \"e2e-20261031t075722z\",\n                \"rules\": [\n                    {\n                        \"alert\": \"MosaicInjectedWorkloadFailure\",\n                        \"annotations\": {\n                            \"description\": \"test from Jeff Peng. Run e2e-20261031t075722z. Read the actual Pod status, previous/current logs and events in mosaic-e2e-20261031t075722z; correlate with this exact alert and consult the indexed runbook. This is a bounded validation workload; no GPU fault was injected.\",\n                            \"summary\": \"Isolated test workload repeatedly fails to start\",\n                            \"test_from\": \"test from Jeff Peng\"\n                        },\n                        \"expr\": \"max_over_time(kube_pod_container_status_waiting_reason{namespace=\\\"mosaic-e2e-20261031t075722z\\\",pod=\\\"mosaic-log-fixture\\\",container=\\\"fixture\\\",reason=\\\"CrashLoopBackOff\\\"}[2m]) \\u003e 0\",\n                        \"for\": \"10s\",\n                        \"labels\": {\n                            \"mosaic_test\": \"true\",\n                            \"run_id\": \"e2e-20261031t075722z\",\n                            \"severity\": \"warning\",\n                            \"test_namespace\": \"mosaic-e2e-20261031t075722z\",\n                            \"test_pod\": \"mosaic-log-fixture\"\n                        }\n                    }\n                ]\n            }\n        ]\n    }\n}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T08:37:47.517982+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "delete",
+        "prometheusrule",
+        "mosaic-e2e-20261031t075722z",
+        "-n",
+        "monitoring",
+        "--wait=true",
+        "--timeout=60s"
+      ],
+      "exitCode": 0,
+      "stdout": "prometheusrule.monitoring.coreos.com \"mosaic-e2e-20261031t075722z\" deleted\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T08:37:48.095836+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "delete",
+        "pod",
+        "mosaic-log-fixture",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "--wait=true",
+        "--timeout=60s"
+      ],
+      "exitCode": 0,
+      "stdout": "pod \"mosaic-log-fixture\" deleted\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T08:37:48.147215+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "delete",
+        "configmap",
+        "fixture-input",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "--wait=true",
+        "--timeout=60s"
+      ],
+      "exitCode": 0,
+      "stdout": "configmap \"fixture-input\" deleted\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T08:37:53.425298+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "delete",
+        "namespace",
+        "mosaic-e2e-20261031t075722z",
+        "--wait=true",
+        "--timeout=60s"
+      ],
+      "exitCode": 0,
+      "stdout": "namespace \"mosaic-e2e-20261031t075722z\" deleted\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T08:37:53.470854+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "namespace",
+        "mosaic-e2e-20261031t075722z",
+        "--ignore-not-found",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T08:37:53.515111+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "configmap",
+        "fixture-input",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "--ignore-not-found",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T08:37:53.560922+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "pod",
+        "mosaic-log-fixture",
+        "-n",
+        "mosaic-e2e-20261031t075722z",
+        "--ignore-not-found",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-10-31T08:37:53.604591+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "prometheusrule",
+        "mosaic-e2e-20261031t075722z",
+        "-n",
+        "monitoring",
+        "--ignore-not-found",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

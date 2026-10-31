@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-31T02:08:36.019640+00:00",
+  "sessionKey": "agent:default:validation-research-retry-20261031",
+  "httpStatus": 200,
+  "elapsedSeconds": 18.938413457974093,
+  "rawMessages": 10,
+  "tools": [
+    {
+      "name": "iraop_query",
+      "toolCallId": "call_4edbab4cf8144ca3bbec1ead",
+      "isError": false
+    },
+    {
+      "name": "iraop_list_collections",
+      "toolCallId": "call_16da93d1930a4214898f2aca",
+      "isError": false
+    },
+    {
+      "name": "iraop_list_documents",
+      "toolCallId": "call_fce72cdf13134574b3032a22",
+      "isError": false
+    },
+    {
+      "name": "iraop_query",
+      "toolCallId": "call_e9aac0b3fb33488ca536ae99",
+      "isError": false
+    }
+  ],
+  "hasActiveRun": false
+}

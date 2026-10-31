@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-31T02:05:30.150892+00:00",
+  "sessionKey": "agent:default:validation-research-20261031",
+  "httpStatus": 200,
+  "elapsedSeconds": 33.68068774999119,
+  "rawMessages": 16,
+  "tools": [
+    {
+      "name": "iraop_list_collections",
+      "toolCallId": "call_459bfad6778d425a8321b87b",
+      "isError": false
+    },
+    {
+      "name": "iraop_query",
+      "toolCallId": "call_aaa28bfb334343979c265584",
+      "isError": false
+    },
+    {
+      "name": "iraop_list_documents",
+      "toolCallId": "call_3b8eeddb37cd48a9a2ccd0ee",
+      "isError": false
+    },
+    {
+      "name": "iraop_get_document",
+      "toolCallId": "call_4d12cb89e67a49da909ca1a8",
+      "isError": false
+    },
+    {
+      "name": "exec",
+      "toolCallId": "call_136d85f45a0244a38a5d0a6f",
+      "isError": true
+    },
+    {
+      "name": "read",
+      "toolCallId": "call_1e89da1003e8456fa9d75d3d",
+      "isError": true
+    },
+    {
+      "name": "exec",
+      "toolCallId": "call_e29b37622b6b455aa7855104",
+      "isError": true
+    }
+  ],
+  "hasActiveRun": false
+}

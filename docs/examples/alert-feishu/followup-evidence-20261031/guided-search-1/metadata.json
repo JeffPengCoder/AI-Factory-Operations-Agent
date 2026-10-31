@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-31T03:12:15.685395+00:00",
+  "question": "This question targets documents already indexed in OpenSearch, not the agent virtual filesystem. Follow the Research Workflow: delegate to research-agent using task; the researcher must actually call opensearch_search with a keyword-rich query. Do not use ls, glob, grep or read_file to locate the indexed PDF. Only claim a document match after a real search result. Using only the indexed mosaic-validation-control.pdf, reference MOSAIC-KB-20261031, what public verification code is printed in the Operator Decision and Evidence section on page 2? Cite the exact filename and page inline. Explain whether an automated alert investigation may directly repair a service. Perform the document search and return evidence. For the verification code, write the exact source filename and page directly alongside the code, not only a numeric reference.",
+  "collection": "mosaic-validation-20261031",
+  "modelMode": "guided-search",
+  "seed": null,
+  "packages": {
+    "deepagents": "0.6.12",
+    "langchain": "1.3.13",
+    "langchain-openai": "1.3.5",
+    "langgraph": "1.2.9"
+  }
+}

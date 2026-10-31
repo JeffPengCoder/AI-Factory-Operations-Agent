@@ -1,0 +1,1 @@
+[{"pid": 128852, "executable": "/usr/bin/python", "flags": {"--trust-remote-code": true, "--max-model-len": "262144", "--gpu-memory-utilization": "0.4", "--dtype": "auto", "--quantization": "modelopt", "--enable-auto-tool-choice": true, "--tool-call-parser": "qwen3_coder", "--reasoning-parser": "qwen3"}}]

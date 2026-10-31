@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-31T06:37:27.985457+00:00",
+  "sessionKey": "agent:default:session-2026-10-31t06-37-11-544z",
+  "sessionId": "81afed9a-ae3f-4f0c-a8ce-be0a3e66eb2a",
+  "toolCallId": "call_3e26d2480fcf45768f4e006b",
+  "elapsedSeconds": 16.31540804199176,
+  "rawMessages": 4,
+  "gatewayToolIsError": false,
+  "status": "answer-with-sources",
+  "sourceCount": 2,
+  "sources": [
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    }
+  ],
+  "toolAnswerContainsOracle": true,
+  "toolAnswerHasFilename": true,
+  "uiBodyContainsOracle": true,
+  "selectedFetchEventCount": 0,
+  "selectedEventSourceCount": 0,
+  "viewMode": true
+}

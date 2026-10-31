@@ -1,0 +1,87 @@
+Running Sphinx v9.1.0
+loading translations [en]... done
+making output directory... done
+myst v5.1.0: MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions={'colon_fence', 'strikethrough', 'tasklist'}, disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=('http', 'https', 'mailto', 'ftp'), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=4, heading_slug_func=None, html_meta={}, footnote_sort=True, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes='tex2jax_process|mathjax_process|math|output_area', enable_checkboxes=False, strikethrough_single_tilde=False, colon_fence_exact_match=False, suppress_warnings=[], highlight_code_blocks=True)
+building [mo]: targets for 0 po files that are out of date
+writing output... 
+building [html]: targets for 23 source files that are out of date
+updating environment: [new config] 23 added, 0 changed, 0 removed
+reading sources... [  4%] CHANGELOG
+reading sources... [  9%] CODE_OF_CONDUCT
+reading sources... [ 13%] CONTRIBUTING
+reading sources... [ 17%] DCO
+reading sources... [ 22%] GOVERNANCE
+reading sources... [ 26%] IP_REVIEW
+reading sources... [ 30%] MAINTAINERS
+reading sources... [ 35%] README
+reading sources... [ 39%] SECURITY
+reading sources... [ 43%] SUPPORT
+reading sources... [ 48%] docs/bcm
+reading sources... [ 52%] docs/building
+reading sources... [ 57%] docs/installation
+reading sources... [ 61%] docs/installation_builder
+reading sources... [ 65%] docs/kind_installation
+reading sources... [ 70%] docs/loki
+reading sources... [ 74%] docs/multitenancy
+reading sources... [ 78%] docs/nmc_installation
+reading sources... [ 83%] docs/security_model
+reading sources... [ 87%] docs/skills/ai-factory-operations-agent-headless/SKILL
+reading sources... [ 91%] docs/slurm_rca
+reading sources... [ 96%] docs/use_cases
+reading sources... [100%] index
+
+looking for now-outdated files... none found
+pickling environment... done
+checking consistency... done
+preparing documents... done
+copying assets... 
+copying downloadable files... [ 14%] LICENSE-3rd-party.txt
+copying downloadable files... [ 29%] .github/CODEOWNERS
+copying downloadable files... [ 43%] LICENSE
+copying downloadable files... [ 57%] NOTICE
+copying downloadable files... [ 71%] docs/examples/multitenancy/tenant-values.yaml
+copying downloadable files... [ 86%] docs/examples/multitenancy/tenant-reader.yaml
+copying downloadable files... [100%] docs/examples/multitenancy/operator-values.yaml
+
+copying static files... 
+Writing evaluated template result to /private/tmp/iraop-compat-code-docs-20261031/_static/basic.css
+Writing evaluated template result to /private/tmp/iraop-compat-code-docs-20261031/_static/language_data.js
+Writing evaluated template result to /private/tmp/iraop-compat-code-docs-20261031/_static/documentation_options.js
+Writing evaluated template result to /private/tmp/iraop-compat-code-docs-20261031/_static/copybutton.js
+copying static files: done
+copying extra files... 
+copying extra files: done
+copying assets: done
+writing output... [  4%] CHANGELOG
+writing output... [  9%] CODE_OF_CONDUCT
+writing output... [ 13%] CONTRIBUTING
+writing output... [ 17%] DCO
+writing output... [ 22%] GOVERNANCE
+writing output... [ 26%] IP_REVIEW
+writing output... [ 30%] MAINTAINERS
+writing output... [ 35%] README
+writing output... [ 39%] SECURITY
+writing output... [ 43%] SUPPORT
+writing output... [ 48%] docs/bcm
+writing output... [ 52%] docs/building
+writing output... [ 57%] docs/installation
+writing output... [ 61%] docs/installation_builder
+writing output... [ 65%] docs/kind_installation
+writing output... [ 70%] docs/loki
+writing output... [ 74%] docs/multitenancy
+writing output... [ 78%] docs/nmc_installation
+writing output... [ 83%] docs/security_model
+writing output... [ 87%] docs/skills/ai-factory-operations-agent-headless/SKILL
+writing output... [ 91%] docs/slurm_rca
+writing output... [ 96%] docs/use_cases
+writing output... [100%] index
+
+generating indices... genindex done
+writing additional pages... search done
+copying images... [100%] docs/images/tenant-operator-instances.svg
+
+dumping search index in English (code: en)... done
+dumping object inventory... done
+build succeeded.
+
+The HTML pages are in ../iraop-compat-code-docs-20261031.

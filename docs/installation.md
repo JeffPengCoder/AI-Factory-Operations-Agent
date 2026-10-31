@@ -504,6 +504,20 @@ helm upgrade mosaic "$MOSAIC_CHART" \
 unset NVIDIA_API_KEY IRAOP_API_KEY
 ```
 
+`iraop_query` requires a nonempty answer and at least one document reference with
+a filename and positive page number. A response without that evidence returns
+`status: "incomplete"` and an error event in the Research panel. Its unverified
+answer is withheld from model-visible content; the full original MCP response
+remains in the tool result's `details` in the OpenClaw session transcript. The
+chat history API may omit `details`. OpenClaw assigns its transport-level
+`isError` flag independently, so `isError: false` does not mean research passed.
+
+Missing sources can reflect an agent or model/tool execution problem even when
+the PDF is indexed and direct search works. Check collection metadata, the
+original PDF, actual search execution and citations separately. A source
+reference alone does not establish that every claim or inline citation is
+correct, or that a proposed cause matches the current cluster.
+
 ### Hardware Agent
 
 The Hardware Agent reuses the Base Command Manager head address and `bcm-host-ssh-key` configured above. The chart exposes the required Base Command Manager lookup inside the cluster and generates its internal credentials. It uses NVDebug evidence and generic analysis.

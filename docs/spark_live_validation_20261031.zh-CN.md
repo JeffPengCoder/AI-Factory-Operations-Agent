@@ -350,7 +350,9 @@ PY
 
 保留 Research、CPU embedding 和 SSH-only Edit 供后续验证；普通新会话默认 View。只读告警调查与交互修复使用不同 session。接手人须取得自己的 Spark SSH 授权、UI 登录方式、部署映射/凭据库授权、这次 chart 与回滚备份的位置；可执行旧操作者的命令不代表可借用其私钥。
 
-在 Spark 用本人有权限的账号检查本轮服务与日志：
+下面的用户服务命令必须由 **fixture 所属的 `spark-user` 账号**或经授权的维护入口执行。接手人可以使用自己获授权的公钥登录该账号；如果另有个人 Linux 账号，其 `$HOME` 和 `systemctl --user` 指向的是另一套用户目录/服务，不能直接当成本轮 fixture。交付者须明确维护账号和执行方式，不靠复制前任私钥取得访问。现场已读回该服务所属用户 `Linger=yes`、embedding unit=`enabled`；主机重启后的恢复仍未实测。
+
+在正确维护身份下检查本轮服务与日志：
 
 ```bash
 export PATH="$HOME/.local/bin:$PATH"

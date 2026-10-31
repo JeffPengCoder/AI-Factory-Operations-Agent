@@ -1,0 +1,41 @@
+{
+  "phase": "after-edit-old-tunnel-check",
+  "checkedAt": "2026-10-31T02:17:23.126561+00:00",
+  "localListener": {
+    "argv": [
+      "lsof",
+      "-nP",
+      "-iTCP:13000",
+      "-sTCP:LISTEN"
+    ],
+    "exitCode": 0,
+    "stdout": "COMMAND   PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nssh     46189 operator    4u  IPv4 0x57e3a544b85a975d      0t0  TCP 127.0.0.1:13000 (LISTEN)\n",
+    "stderr": ""
+  },
+  "sparkListener": {
+    "argv": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=10",
+      "spark-user@spark.example.invalid",
+      "ss -ltnp \"( sport = :13000 )\""
+    ],
+    "exitCode": 0,
+    "stdout": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess\nLISTEN 0      4096       127.0.0.1:13000      0.0.0.0:*    users:((\"kubectl\",pid=1646052,fd=7))\n",
+    "stderr": ""
+  },
+  "health": {
+    "path": "/api/health",
+    "httpStatus": null,
+    "error": "Remote end closed connection without response",
+    "elapsedSeconds": 0.26134133400046267
+  },
+  "unauthenticatedApi": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": null,
+    "error": "[Errno 54] Connection reset by peer",
+    "elapsedSeconds": 0.14200666701071896
+  }
+}

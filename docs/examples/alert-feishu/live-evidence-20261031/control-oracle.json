@@ -1,0 +1,9 @@
+{
+  "reference": "MOSAIC-KB-20261031",
+  "verificationCode": "CEDAR-NEBULA-E720C8C9",
+  "expectedPage": 2,
+  "pdf": "mosaic-validation-control.pdf",
+  "pages": 2,
+  "bytes": 3781,
+  "sha256": "e65f46b9daa87b4420336d989b0951ac6d2d6fd0a479bdcaeda42862cd92e820"
+}

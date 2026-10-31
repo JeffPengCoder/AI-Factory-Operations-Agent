@@ -1,0 +1,4 @@
+Real validation for test from Jeff Peng. Stay View-only.
+Call ONLY iraop_query for this request, with exactly this scope:
+depth="quick", collections=["mosaic-validation-20261031"], question="Search the indexed contents of mosaic-validation-control.pdf, reference MOSAIC-KB-20261031. Read the Operator Decision and Evidence section on page 2. What public verification code is printed there? Return the code and the exact filename/page inline, using the actual retrieved text. Do not stop at announcing that you will search; perform the document search and report the evidence."
+Do not use exec, read, or download tools to bypass a failed research call. If the tool supplies no sources, report an incomplete research result, not an empty collection. The collection contains four chunks of one PDF. Automated alert sessions remain read-only regardless of interactive Auto capabilities.

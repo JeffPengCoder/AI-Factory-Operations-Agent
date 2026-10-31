@@ -1,0 +1,41 @@
+{
+  "phase": "remote-only",
+  "checkedAt": "2026-10-31T01:48:16.661520+00:00",
+  "localListener": {
+    "argv": [
+      "lsof",
+      "-nP",
+      "-iTCP:13000",
+      "-sTCP:LISTEN"
+    ],
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "sparkListener": {
+    "argv": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=10",
+      "spark-user@spark.example.invalid",
+      "ss -ltnp \"( sport = :13000 )\""
+    ],
+    "exitCode": 0,
+    "stdout": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess\nLISTEN 0      4096       127.0.0.1:13000      0.0.0.0:*    users:((\"kubectl\",pid=1618819,fd=7))\n",
+    "stderr": ""
+  },
+  "health": {
+    "path": "/api/health",
+    "httpStatus": null,
+    "error": "<urlopen error [Errno 61] Connection refused>",
+    "elapsedSeconds": 0.017167874990263954
+  },
+  "unauthenticatedApi": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": null,
+    "error": "<urlopen error [Errno 61] Connection refused>",
+    "elapsedSeconds": 0.008694167016074061
+  }
+}

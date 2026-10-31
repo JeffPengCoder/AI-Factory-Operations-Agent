@@ -1,0 +1,107 @@
+[
+  {
+    "path": "evidence/iraop-current.log",
+    "bytes": 123219,
+    "sha256": "de02b4310f28d32e93ca6cbadb1843f899cb3d384a1e879bb5e12780c1b5de96"
+  },
+  {
+    "path": "evidence/init-job.log",
+    "bytes": 98,
+    "sha256": "8f3815fdbf2b4b73f3ddfd578485463fcb9c8ad721901800f5a1da85eb4f2567"
+  },
+  {
+    "path": "evidence/documents-after-refresh.json",
+    "bytes": 194,
+    "sha256": "9600e785340479e388a8def01e65fa44148453028723dcb246972d61f8bf6936"
+  },
+  {
+    "path": "evidence/model-tool-protocol.jsonl",
+    "bytes": 3068,
+    "sha256": "71a436e538fa5d3f726a62166a3e75a67b608cb613a2c7397690d993f072073d"
+  },
+  {
+    "path": "evidence/iraop-direct-validation.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "evidence/live-alert-request.json",
+    "bytes": 844,
+    "sha256": "19f672d10475c11bc64d709aecc327e5f58c92d2d678b7fd9c57e2af0ab4416f"
+  },
+  {
+    "path": "evidence/research-direct-model-experiment.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "evidence/init-pods.json",
+    "bytes": 119,
+    "sha256": "7a779468a2dde976a9b896541df1e4ef805e813093bd5edb40ef1a6eea588edf"
+  },
+  {
+    "path": "evidence/live-alert-create.json",
+    "bytes": 1388,
+    "sha256": "b7d4632440c52bb5c6599be9768f44b5001e443f9b9808b82f333a15b4f01709"
+  },
+  {
+    "path": "evidence/research-direct-model-experiment.json",
+    "bytes": 886,
+    "sha256": "acf485cc917dace231a769ffd84e5c14a5f0ae9c9be8cdab18fc0e1ff79f8a98"
+  },
+  {
+    "path": "evidence/iraop-direct-validation.jsonl",
+    "bytes": 10868,
+    "sha256": "5d6cb078dd18141a371bc94ff8859a11a8457b7eae95fdfd72b73e6f41bd6309"
+  },
+  {
+    "path": "evidence/embedding-probe.json",
+    "bytes": 26701,
+    "sha256": "149b60144371f4459168e33f90689264ab81b274c1c073d679d0417c97c0a77b"
+  },
+  {
+    "path": "evidence/iraop-before-protocol-diag.log",
+    "bytes": 138320,
+    "sha256": "d8786aa9f50e4d4d457821dfbf60a32664f83081942e7f9d72fc140a6315bb61"
+  },
+  {
+    "path": "evidence/model-tool-protocol.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "embedding/model-manifest.json",
+    "bytes": 1117,
+    "sha256": "89720e58d95234bb79c3afc820fc9af5307de9b39dbde115ca7f1c675d8e26f9"
+  },
+  {
+    "path": "repair/provision-evidence.json",
+    "bytes": 2857,
+    "sha256": "33024d4e9531a2ea96a4a9e9b2e75afb8a2bb57e8c0433e28370b11b4f38cf53"
+  },
+  {
+    "path": "repair/ssh-audit.jsonl",
+    "bytes": 3611,
+    "sha256": "266fcaad7444ff9fc78c7251e4a2699647207b1f2b08078cf8fe5478e730829d"
+  },
+  {
+    "path": "research-upgrade-exit.txt",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "edit-upgrade-exit.txt",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "upgrade-research.log",
+    "bytes": 350,
+    "sha256": "a8c4381ea430c181e72f548d338e056df6a3c7f9bd8a12fb82c5be19e2bcc311"
+  },
+  {
+    "path": "upgrade-edit.log",
+    "bytes": 359,
+    "sha256": "b47be2fb7aa8fc7fff96f6e7eb0a3e001b0af2c3b6ba80e3291dd1c03aaa2a44"
+  }
+]

@@ -85,8 +85,9 @@ Invoke the installed skill when an agent needs to discover an AI Factory Operati
 - Use cases: [docs/use_cases.md](docs/use_cases.md)
 - Slurm RCA reference: [docs/slurm_rca.md](docs/slurm_rca.md)
 - Spark alert investigation and Feishu delivery (Chinese): [docs/spark_alert_feishu_runbook.zh-CN.md](docs/spark_alert_feishu_runbook.zh-CN.md)
-- IRAOP alert validation draft (Chinese): [docs/spark_iraop_alert_validation.zh-CN.md](docs/spark_iraop_alert_validation.zh-CN.md)
-- Edit/Auto repair validation draft (Chinese): [docs/spark_edit_auto_repair_validation.zh-CN.md](docs/spark_edit_auto_repair_validation.zh-CN.md)
+- IRAOP alert validation (Chinese): [docs/spark_iraop_alert_validation.zh-CN.md](docs/spark_iraop_alert_validation.zh-CN.md)
+- Edit/Auto repair validation (Chinese): [docs/spark_edit_auto_repair_validation.zh-CN.md](docs/spark_edit_auto_repair_validation.zh-CN.md)
+- Spark live validation results and complete evidence (Chinese): [docs/spark_live_validation_20261031.zh-CN.md](docs/spark_live_validation_20261031.zh-CN.md)
 - Headless agent integration: [docs/skills/ai-factory-operations-agent-headless/SKILL.md](docs/skills/ai-factory-operations-agent-headless/SKILL.md)
 
 ## Releases & Roadmap

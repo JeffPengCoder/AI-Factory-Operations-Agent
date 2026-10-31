@@ -3,25 +3,26 @@
 
 # Spark 上的告警、调查取证与飞书投递操作手册
 
-核验日期：2026-10-30。目标是完成一轮可以回放的操作：登录 Spark → 打开 MOSAIC → 开启 Alertmanager 轮询 → 创建合成告警 → 启动只读调查 → 导出告警、工具结果和分析 → 将审核后的报告发到飞书 → 清理测试规则。IRAOP 的后续启用与对照实验见[下一步草案](spark_iraop_alert_validation.zh-CN.md)，其后是[Edit/Auto 修复草案](spark_edit_auto_repair_validation.zh-CN.md)。
+核验日期：2026-10-31。目标是完成一轮可以回放的操作：登录 Spark → 打开 MOSAIC → 开启 Alertmanager 轮询 → 创建合成告警 → 启动只读调查 → 导出告警、工具结果和分析 → 将审核后的报告发到飞书 → 清理测试规则。IRAOP 的配置与对照实验见[Research 操作说明](spark_iraop_alert_validation.zh-CN.md)，其后是[Edit/Auto 修复说明](spark_edit_auto_repair_validation.zh-CN.md)。
 
-2026-10-31 补充了第 3 章的本机访问路径、隧道生命周期和断线恢复说明；第 1/9 节的部署/业务链路证据仍以各自记录日期为准。
+**先读[2026-10-31 完整实测记录](spark_live_validation_20261031.zh-CN.md)。** 已实际完成隧道中断/恢复、现有告警轮询/调查、真实 PDF 入库和隔离用户服务的 View/Edit/Auto；Research 原生检索质量未通过，飞书尚待用户创建群机器人。新 Alertmanager API 注入返回 403，不能把本轮使用旧合成规则写成新注入成功。第 9 章保留 2026-10-30 历史证据，不覆盖本轮原始记录。
 
 这是公开仓库版本。实际 Spark 地址、SSH 用户、目标集群地址和密码由部署方单独提供；下文变量必须按现场填写。证据中的私网地址已替换为稳定的 `*.example.invalid` 占位符，私有集群别名替换为 `target-lab`。所有时间、指标数值、序列、错误和工具结果均保留，脱敏说明与校验值见 [manifest.json](examples/alert-feishu/evidence/manifest.json)。占位地址不能用于连接。
 
 ## 1. 先明确当前状态和每一步的验收标准
 
-本手册核验的现场版本：Helm revision `8`，chart `mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029`，MOSAIC UI image tag `a011dcc8`，OpenClaw `2026.6.10`。这是现有 Spark 部署的记录，不代表仓库 `main` 或后续安装的默认版本。
+当前实测现场版本：Helm revision `10`（基线 `8`；`9` 启用 Research；`10` 启用 SSH-only Edit），沿用 chart `mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029`，MOSAIC UI image tag `a011dcc8`，OpenClaw `2026.6.10`。这是现有 Spark 部署的记录，不代表仓库 `main` 或后续安装的默认版本。
 
 | 环节 | 已有证据 | 本次操作应观察什么 |
 | --- | --- | --- |
 | Prometheus 产生合成告警 | 2026-10-29 已验证 `vector(1)` 从 pending 变为 firing | 新 `run_id` 的规则和 `ALERTS` 时序 |
-| Alertmanager → MOSAIC | 已验证 Auto pull，间隔 `30000 ms`；2026-10-30 仍为 enabled | 同一 fingerprint、完整 labels/annotations、更新的 `lastSyncAt` |
-| 调查与信息收集 | 现有手动调查会话有 19 条原始消息、11 个工具结果；模型已结束 | 同一 sessionKey 下的工具名、参数/查询、完整结果及错误 |
+| Alertmanager → MOSAIC | 2026-10-31 在 UI 恢复 Auto pull，导入 30 条现有告警，选定合成条目字段匹配 | 同一 fingerprint、完整 labels/annotations、更新的 `lastSyncAt` |
+| 调查与信息收集 | 本轮选定告警会话最终 25 条消息、14 个工具结果；2 节点、10 Pod、31 指标点完整保留；PrometheusRule 读取 Forbidden | 同一 sessionKey 下的工具名、参数/查询、完整结果及错误 |
 | 页面阶段 | 当前测试条目仍显示 `responding`，但历史接口 `hasActiveRun=false` | 分开核对页面阶段与模型运行状态 |
-| 飞书 Webhook 发送 | 本手册提供脚本，已做离线验证；现场尚无真实投递记录 | API 成功响应 + 目标群中同一 `run_id` 的消息 |
-| OpenClaw 飞书原生通道 | [PR #74](https://github.com/NVIDIA/AI-Factory-Operations-Agent/pull/74) 截至核验日 OPEN，Spark 未启用 | 选装后验收私聊/群 @、白名单、重启后的连接 |
-| IRAOP / 文档检索 | `modules.research.enabled=false`，未部署服务 | 按草案启用后，必须看到真实 `iraop_query` 与文档页码 |
+| 飞书 Webhook 发送 | 脚本已做离线验证；用户确认尚未创建群机器人；尚无真实投递记录 | API 成功响应 + 目标群中同一 `run_id` 的消息 |
+| OpenClaw 飞书原生通道 | [PR #74](https://github.com/NVIDIA/AI-Factory-Operations-Agent/pull/74) 截至 2026-10-31 OPEN，Spark 未启用 | 选装后验收私聊/群 @、白名单、重启后的连接 |
+| IRAOP / 文档检索 | 已部署并入库 1 PDF / 4 chunks；直接查询命中但引用编号错误；原生查询多次空 sources，未通过质量验收 | 必须看到真实 `iraop_query` 命中和正确页码，不能以 200 代替 |
+| View / Edit / Auto | SSH-only 隔离用户服务实测：View 拒绝；Edit Deny/Approve once 生效；Auto 执行、越界命令拒绝；已恢复 View | exact argv、审批/工具结果、独立主机状态与审计 |
 
 当前全部模块开关如下，避免把默认子配置误读成实际运行的服务：
 
@@ -30,17 +31,17 @@
 | bcm | false |
 | clusters | true |
 | diagnostics | false |
-| edit | false |
+| edit | true |
 | execution | true |
 | grafana | true |
 | kubernetes | true |
 | observability | true |
-| research | false |
+| research | true |
 | slurm | false |
 | terminal | false |
 | ui | true |
 
-当前聊天/分析使用模型推理、skills/工具说明和实际调用取得的现场证据。Research 关闭意味着本部署没有通过 IRAOP 查询 PDF/OpenSearch 知识库。Hardware Agent 也关闭，不能把普通告警调查描述成已做 NVDebug 硬件采集。
+当前聊天/分析使用模型推理、skills/工具说明和实际调用取得的现场证据。Research 现已开启并被实际调用，但本轮原生 query 没有提供文档来源，不能称为已稳定取得知识增强。Hardware Agent 仍关闭，不能把普通告警调查描述成已做 NVDebug 硬件采集。
 
 ```text
 目标集群：PrometheusRule → Prometheus → Alertmanager
@@ -50,7 +51,7 @@ Spark / Kind：MOSAIC UI 服务端 Auto pull ←───┘
 操作员浏览器：Alerts → 手动 Start Investigating / Auto investigate
                   │ 调查会话与 prompt
                OpenClaw → 只读 Kubernetes / Prometheus / Grafana 工具
-                  │                └→ 后续可选 IRAOP → OpenSearch + PDF + 模型
+                  │                └→ IRAOP → OpenSearch + PDF + 模型（本轮原生研究未通过）
                   └→ 分析与工具结果 → 操作员审核 → 发送脚本 → 飞书群机器人
 ```
 
@@ -622,7 +623,7 @@ openclaw:
       - oc_REPLACE_WITH_ALLOWED_GROUP
 ```
 
-必须先选择包含该 PR 的 chart，并核对已有 Teams 等现场定制后，按正常 upgrade 流程合入；当前 `main`/现场 revision 8 不能只增加这些 values 就认为插件已安装。验收允许用户私聊、允许群中 @、未授权用户/群拒绝、不 @ 不触发、Pod 重启后仍可回复。该 PR 关闭飞书文档/网盘等额外工具；飞书消息接入也不等于 IRAOP 文档入库。
+必须先选择包含该 PR 的 chart，并核对已有 Teams 等现场定制后，按正常 upgrade 流程合入；本轮沿用的现场 chart（revision 8→10）不能只增加这些 values 就认为飞书插件已安装。验收允许用户私聊、允许群中 @、未授权用户/群拒绝、不 @ 不触发、Pod 重启后仍可回复。该 PR 关闭飞书文档/网盘等额外工具；飞书消息接入也不等于 IRAOP 文档入库。
 
 **调查结束后的自动投递仍是下一步开发项。** 需建立持久化的“运行完成事件 → 报告发布器”，记录 fingerprint/sessionKey/run ID、消息目的地、发送响应、幂等键和失败重试状态，并用服务端采集/调度取代依赖浏览器的发起。普通飞书聊天回复不会自动订阅网页 Alert 会话的报告。不要把手动脚本、原生 IM 通道和自动告警报告器写成同一种已完成功能。
 

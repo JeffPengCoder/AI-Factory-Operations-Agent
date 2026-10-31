@@ -1,9 +1,11 @@
 <!-- SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved. -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
-# 下一步草案：启用 IRAOP，并观察它在告警调查中的作用
+# 启用 IRAOP，并观察它在告警调查中的作用
 
-状态：**待实施与验收**。本次整理只做只读核验，没有在 Spark 启用 Research、部署 OpenSearch、导入 PDF 或发起新研究。前置流程和变量见[告警到飞书操作手册](spark_alert_feishu_runbook.zh-CN.md)。以下命令供下一次部署窗口执行，不能将这份草案当作已经完成的安装记录。
+状态更新（2026-10-31）：**已实际部署和入库，原生研究质量未通过。** 本轮 Helm revision9 启用 IRAOP/OpenSearch，使用真实本地 CPU embedding 384d；控制 PDF 为2页/4 chunks/0 errors，下载 SHA256 一致。直接查询命中但行内引用页码错误；独立 OpenClaw 及实际告警会话多次 `iraop_query` 为空 sources。完整配置、原始响应和失败样本见[实测记录第5章](spark_live_validation_20261031.zh-CN.md#5-research-实际部署入库和失败点)。前置流程和变量见[主操作手册](spark_alert_feishu_runbook.zh-CN.md)。
+
+以下保留完整的通用部署/验收步骤；第2章描述的是实施前 revision8 基线。不要在当前已部署的环境重复生成 token、覆盖 Secret 或沿用2048维旧配置；本轮使用的实际 overlay、CPU 服务及受控 corpus 见实测记录。后续需先解决模型/工具循环及引用问题，再验收告警中的稳定知识增强。
 
 ## 1. 要验证的行为
 
@@ -29,7 +31,7 @@
 
 ## 2. 当前基线和部署前检查
 
-2026-10-30 现场 `modules.research.enabled=false`，历史 Helm revision 1–8 均关闭 Research。子配置 `researchAgent.iraop.enabled=true`、`researchAgent.opensearch.enabled=true` 是合并后的默认值，父开关关闭时不会部署它们。当前普通调查中没有 IRAOP 工具结果。
+实施前（2026-10-30）现场 `modules.research.enabled=false`，历史 Helm revision 1–8 均关闭 Research。子配置 `researchAgent.iraop.enabled=true`、`researchAgent.opensearch.enabled=true` 是合并后的默认值，父开关关闭时不会部署它们。当时普通调查中没有 IRAOP 工具结果；2026-10-31 revision9 起已改变，结果见上方实测链接。
 
 拟使用版本和现有资源配置如下。它们是配置值，不是已经占用的资源：
 
@@ -93,7 +95,7 @@ kind get nodes --name mosaic-poc
 3. OpenClaw 和 UI 的 Deployment 都通过 `secretKeyRef` 取得同一 `iraop-secrets/IRAOP_API_KEY`。
 4. IRAOP 服务本身启用认证并使用同一 token；未认证的业务接口应返回 401。不要通过关闭 `IRAOP_AUTH_REQUIRED` 规避旧调用端问题。
 
-本文基于 fork main commit `6b823775e8cd90e4c1eaaced7fac19f9340ff725` 的公开 chart/plugin 说明；该源码已有 Bearer 支持。当前 Spark 的 Research 关闭，运行配置中没有为 IRAOP 配置 apiKey，不能因此假定“只切开关”就具备完整认证链路。若保留的旧 chart 缺少上述支持，先补齐并做 render/兼容检查，再执行本草案。
+通用步骤基于 fork main commit `6b823775e8cd90e4c1eaaced7fac19f9340ff725` 的公开 chart/plugin；该源码已有 Bearer 支持。实施前 Spark 的 Research 关闭，未配置 IRAOP apiKey；本轮核对保留 chart 也已具备认证支持，启用后实际验证了无认证401和带凭据查询。若其他现场保留的旧 chart 缺少上述支持，先补齐并做 render/兼容检查。
 
 在源码目录先检查，不输出具体凭据：
 
@@ -427,6 +429,6 @@ rm -f "$IRA_HEADERS"
 
 不要删除共享 OpenSearch PVC、其他 collections 或现有原始 PDF。单独清理合成 PrometheusRule 按主手册第 8 节执行。
 
-下一次实施应交付：完整 Helm 前后记录、资源/健康/认证检查、PDF 哈希、入库全部明细、独立 query 全响应、同一 Alert 会话的 A/B 完整消息和工具结果、IRAOP/OpenClaw 日志、引用逐项核验、飞书群收件证据、资源清理/回滚结果。在拿到这些证据之前，保持本文件状态为“待实施”。
+完整验收应交付：Helm 前后记录、资源/健康/认证检查、PDF 哈希、入库全部明细、独立 query 全响应、同一 Alert 会话的完整消息和工具结果、IRAOP/OpenClaw 日志、引用逐项核验、飞书群收件证据、资源清理/回滚结果。2026-10-31 已有的部署、入库、直接查询及原生失败结果见[完整实测记录](spark_live_validation_20261031.zh-CN.md)；原生检索/引用质量、飞书收件和回滚仍待完成，不能因为部署成功就把整体验收标为通过。
 
 完成 Research 验证后，再进入 [Edit/Auto 修复草案](spark_edit_auto_repair_validation.zh-CN.md)，验证从只读调查到获授权修复的人工交接、审批、执行、恢复确认和审计。

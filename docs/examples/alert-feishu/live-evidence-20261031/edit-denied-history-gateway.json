@@ -1,0 +1,167 @@
+{
+  "sessionKey": "agent:default:session-2026-10-31t02-27-16-251z",
+  "sessionId": "d4f6dcd8-f122-4a2a-99f2-00c07e09606a",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Authorized isolated test from Jeff Peng. Use only run_remote_ssh with host=\"repair-demo\", argv=[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"]. Submit the exact request and await approval. Do not change mode, use another tool, or touch another service.\n\n",
+      "timestamp": 1793413638503,
+      "idempotencyKey": "mosaic-1793413638423:user",
+      "__openclaw": {
+        "id": "9d28c412",
+        "recordTimestampMs": 1793413639256,
+        "seq": 1
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\n"
+        },
+        {
+          "type": "toolCall",
+          "id": "call_9b00eb375bbf443582d47ea3",
+          "name": "run_remote_ssh",
+          "arguments": {
+            "host": "repair-demo",
+            "argv": [
+              "/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh"
+            ]
+          },
+          "partialArgs": "{\"host\": \"repair-demo\", \"argv\": [\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"]}"
+        }
+      ],
+      "api": "openai-completions",
+      "provider": "llm",
+      "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "totalTokens": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "cost": {
+          "total": 0
+        }
+      },
+      "stopReason": "toolUse",
+      "timestamp": 1793413639269,
+      "responseId": "chatcmpl-aa3dfc8a9de06bb8",
+      "__openclaw": {
+        "id": "47a88bbc",
+        "recordTimestampMs": 1793413643074,
+        "seq": 2
+      }
+    },
+    {
+      "role": "toolResult",
+      "toolCallId": "call_9b00eb375bbf443582d47ea3",
+      "toolName": "run_remote_ssh",
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"status\": \"error\",\n  \"tool\": \"run_remote_ssh\",\n  \"error\": \"Denied by user\"\n}"
+        }
+      ],
+      "isError": true,
+      "timestamp": 1793413645638,
+      "__openclaw": {
+        "id": "28efb0ea",
+        "recordTimestampMs": 1793413645640,
+        "seq": 3
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nThe `run_remote_ssh` call with host `repair-demo` and argv `[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"]` was submitted, but was denied by the user. No further action was taken."
+        }
+      ],
+      "api": "openai-completions",
+      "provider": "llm",
+      "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "totalTokens": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "cost": {
+          "total": 0
+        }
+      },
+      "stopReason": "stop",
+      "timestamp": 1793413645645,
+      "responseId": "chatcmpl-817347a6c5d95461",
+      "__openclaw": {
+        "id": "c0e6229a",
+        "recordTimestampMs": 1793413648025,
+        "seq": 4
+      }
+    }
+  ],
+  "defaults": {
+    "modelProvider": "llm",
+    "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+    "contextTokens": 262144,
+    "thinkingLevels": [
+      {
+        "id": "off",
+        "label": "off"
+      }
+    ],
+    "thinkingOptions": [
+      "off"
+    ],
+    "thinkingDefault": "off"
+  },
+  "sessionInfo": {
+    "key": "agent:default:session-2026-10-31t02-27-16-251z",
+    "kind": "direct",
+    "chatType": "direct",
+    "origin": {
+      "provider": "webchat",
+      "surface": "webchat",
+      "chatType": "direct"
+    },
+    "updatedAt": 1793413648146,
+    "sessionId": "d4f6dcd8-f122-4a2a-99f2-00c07e09606a",
+    "systemSent": true,
+    "abortedLastRun": false,
+    "thinkingLevels": [
+      {
+        "id": "off",
+        "label": "off"
+      }
+    ],
+    "thinkingOptions": [
+      "off"
+    ],
+    "thinkingDefault": "off",
+    "effectiveFastMode": false,
+    "effectiveFastModeSource": "default",
+    "fastAutoOnSeconds": 60,
+    "totalTokensFresh": false,
+    "status": "done",
+    "startedAt": 1793413639243,
+    "endedAt": 1793413648043,
+    "runtimeMs": 8800,
+    "modelProvider": "llm",
+    "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+    "agentRuntime": {
+      "id": "auto",
+      "source": "implicit"
+    },
+    "contextTokens": 262144,
+    "deliveryContext": {
+      "channel": "webchat"
+    },
+    "lastChannel": "webchat",
+    "hasActiveRun": false
+  },
+  "thinkingLevel": "off"
+}

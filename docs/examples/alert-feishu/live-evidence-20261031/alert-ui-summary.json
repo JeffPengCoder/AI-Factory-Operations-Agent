@@ -1,0 +1,44 @@
+{
+  "at": "2026-10-31T02:34:04.478275+00:00",
+  "sessionKey": "agent:default:alert-alertmanager-0fa8cbd733f54a5a",
+  "beforeSessionId": "1192f07a-611e-4880-b59a-fdd43a41a0a0",
+  "sessionId": "1e50b9f3-cb5a-4a67-ae5b-532f24b379ab",
+  "beforeMessageCount": 19,
+  "afterMessageCount": 10,
+  "sessionReplaced": true,
+  "hasActiveRun": false,
+  "stage": "responding",
+  "tools": [
+    {
+      "toolCallId": "call_2bfe5d27711648568a1e329a",
+      "toolName": "run_kubectl",
+      "isError": true
+    },
+    {
+      "toolCallId": "call_d3a615c5941c42bca27379dd",
+      "toolName": "observability_query",
+      "isError": false
+    },
+    {
+      "toolCallId": "call_22fdb2f03e5e4e14b3dcc363",
+      "toolName": "run_kubectl",
+      "isError": false
+    },
+    {
+      "toolCallId": "call_9e50d6937fcf435f9d03e375",
+      "toolName": "observability_query",
+      "isError": false
+    },
+    {
+      "toolCallId": "call_c355e58377fa464b9ca5f793",
+      "toolName": "run_kubectl",
+      "isError": false
+    },
+    {
+      "toolCallId": "call_11f6618bca5a4df39bc6512e",
+      "toolName": "run_kubectl",
+      "isError": false
+    }
+  ],
+  "harnessNote": "Original poll expected message growth from 19; UI created a new session with 10 messages. Poll-only browser harness was interrupted after independent API confirmed completion; it did not abort the already completed model run."
+}

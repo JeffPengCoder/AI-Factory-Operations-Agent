@@ -1,0 +1,1386 @@
+2026-10-31T01:56:03.344429827Z INFO:     Started server process [1]
+2026-10-31T01:56:03.344476547Z INFO:     Waiting for application startup.
+2026-10-31T01:56:03.344479331Z INFO:     Application startup complete.
+2026-10-31T01:56:03.344824259Z INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-10-31T01:56:13.864902549Z GET http://opensearch:9200/ [status:N/A request:0.002s]
+2026-10-31T01:56:13.864927317Z Traceback (most recent call last):
+2026-10-31T01:56:13.864930021Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:13.864933461Z     sock = connection.create_connection(
+2026-10-31T01:56:13.864935589Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.864937701Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:13.864939541Z     raise err
+2026-10-31T01:56:13.864941589Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:13.864943733Z     sock.connect(sa)
+2026-10-31T01:56:13.864945413Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:13.864947029Z 
+2026-10-31T01:56:13.864949077Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:13.864950581Z 
+2026-10-31T01:56:13.864952293Z Traceback (most recent call last):
+2026-10-31T01:56:13.864954133Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:13.864955909Z     response = self.pool.urlopen(
+2026-10-31T01:56:13.864957509Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.864959125Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:13.864961205Z     retries = retries.increment(
+2026-10-31T01:56:13.864962949Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.864964677Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:13.864966421Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:13.864968021Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.864969589Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:13.864971365Z     raise value
+2026-10-31T01:56:13.864973285Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:13.864975125Z     response = self._make_request(
+2026-10-31T01:56:13.864976965Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.864978837Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:13.864980581Z     conn.request(
+2026-10-31T01:56:13.864982197Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:13.864984037Z     self.endheaders()
+2026-10-31T01:56:13.864985701Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:13.864987413Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:13.864989013Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:13.864990757Z     self.send(msg)
+2026-10-31T01:56:13.864992341Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:13.864994069Z     self.connect()
+2026-10-31T01:56:13.864995813Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:13.864997445Z     self.sock = self._new_conn()
+2026-10-31T01:56:13.865011653Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.865012981Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:13.865014165Z     raise NewConnectionError(
+2026-10-31T01:56:13.865015749Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:13.866581383Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:56:13.866605223Z Traceback (most recent call last):
+2026-10-31T01:56:13.866607303Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:13.866609079Z     sock = connection.create_connection(
+2026-10-31T01:56:13.866610631Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.866614919Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:13.866616407Z     raise err
+2026-10-31T01:56:13.866617911Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:13.866619639Z     sock.connect(sa)
+2026-10-31T01:56:13.866620999Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:13.866622311Z 
+2026-10-31T01:56:13.866623991Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:13.866625191Z 
+2026-10-31T01:56:13.866626727Z Traceback (most recent call last):
+2026-10-31T01:56:13.866628343Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:13.866629943Z     response = self.pool.urlopen(
+2026-10-31T01:56:13.866631239Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.866632599Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:13.866634279Z     retries = retries.increment(
+2026-10-31T01:56:13.866635623Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.866637015Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:13.866638391Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:13.866639719Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.866641207Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:13.866642583Z     raise value
+2026-10-31T01:56:13.866643911Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:13.866645335Z     response = self._make_request(
+2026-10-31T01:56:13.866646679Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.866648055Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:13.866649399Z     conn.request(
+2026-10-31T01:56:13.866650935Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:13.866652359Z     self.endheaders()
+2026-10-31T01:56:13.866653783Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:13.866655175Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:13.866656599Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:13.866657959Z     self.send(msg)
+2026-10-31T01:56:13.866660167Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:13.866661623Z     self.connect()
+2026-10-31T01:56:13.866662999Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:13.866680087Z     self.sock = self._new_conn()
+2026-10-31T01:56:13.866681703Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.866682999Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:13.866684311Z     raise NewConnectionError(
+2026-10-31T01:56:13.866685815Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:13.868547608Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:56:13.868570665Z Traceback (most recent call last):
+2026-10-31T01:56:13.868573113Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:13.868574537Z     sock = connection.create_connection(
+2026-10-31T01:56:13.868575913Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.868577641Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:13.868579049Z     raise err
+2026-10-31T01:56:13.868580569Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:13.868582921Z     sock.connect(sa)
+2026-10-31T01:56:13.868587081Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:13.868588313Z 
+2026-10-31T01:56:13.868590025Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:13.868591241Z 
+2026-10-31T01:56:13.868592457Z Traceback (most recent call last):
+2026-10-31T01:56:13.868593993Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:13.868595545Z     response = self.pool.urlopen(
+2026-10-31T01:56:13.868601225Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.868603593Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:13.868605769Z     retries = retries.increment(
+2026-10-31T01:56:13.868606985Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.868608281Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:13.868609657Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:13.868610889Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.868612169Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:13.868613497Z     raise value
+2026-10-31T01:56:13.868614809Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:13.868616153Z     response = self._make_request(
+2026-10-31T01:56:13.868617385Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.868618649Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:13.868619945Z     conn.request(
+2026-10-31T01:56:13.868621129Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:13.868622505Z     self.endheaders()
+2026-10-31T01:56:13.868623769Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:13.868625017Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:13.868626425Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:13.868627609Z     self.send(msg)
+2026-10-31T01:56:13.868628921Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:13.868642537Z     self.connect()
+2026-10-31T01:56:13.868644313Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:13.868645561Z     self.sock = self._new_conn()
+2026-10-31T01:56:13.868646697Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.868648809Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:13.868650361Z     raise NewConnectionError(
+2026-10-31T01:56:13.868651881Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:13.870061098Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:56:13.870074266Z Traceback (most recent call last):
+2026-10-31T01:56:13.870076682Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:13.870078250Z     sock = connection.create_connection(
+2026-10-31T01:56:13.870079674Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.870081562Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:13.870082970Z     raise err
+2026-10-31T01:56:13.870085962Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:13.870087674Z     sock.connect(sa)
+2026-10-31T01:56:13.870088986Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:13.870090186Z 
+2026-10-31T01:56:13.870091610Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:13.870092842Z 
+2026-10-31T01:56:13.870094106Z Traceback (most recent call last):
+2026-10-31T01:56:13.870095562Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:13.870096826Z     response = self.pool.urlopen(
+2026-10-31T01:56:13.870098138Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.870099434Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:13.870111690Z     retries = retries.increment(
+2026-10-31T01:56:13.870114154Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.870115514Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:13.870116922Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:13.870118202Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.870119434Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:13.870120666Z     raise value
+2026-10-31T01:56:13.870122010Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:13.870123242Z     response = self._make_request(
+2026-10-31T01:56:13.870124442Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.870125738Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:13.870127002Z     conn.request(
+2026-10-31T01:56:13.870128442Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:13.870129674Z     self.endheaders()
+2026-10-31T01:56:13.870130874Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:13.870132090Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:13.870134122Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:13.870135386Z     self.send(msg)
+2026-10-31T01:56:13.870147242Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:13.870149082Z     self.connect()
+2026-10-31T01:56:13.870150362Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:13.870151578Z     self.sock = self._new_conn()
+2026-10-31T01:56:13.870152906Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:13.870154106Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:13.870155306Z     raise NewConnectionError(
+2026-10-31T01:56:13.870156810Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:13.870260554Z INFO:     private-address-24.example.invalid:51484 - "GET /api/v1/health HTTP/1.1" 503 Service Unavailable
+2026-10-31T01:56:23.861153626Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:56:23.861182522Z Traceback (most recent call last):
+2026-10-31T01:56:23.861184746Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:23.861186282Z     sock = connection.create_connection(
+2026-10-31T01:56:23.861187594Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.861189466Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:23.861190858Z     raise err
+2026-10-31T01:56:23.861192186Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:23.861194106Z     sock.connect(sa)
+2026-10-31T01:56:23.861195354Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:23.861196490Z 
+2026-10-31T01:56:23.861198266Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:23.861199578Z 
+2026-10-31T01:56:23.861200842Z Traceback (most recent call last):
+2026-10-31T01:56:23.861202618Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:23.861203978Z     response = self.pool.urlopen(
+2026-10-31T01:56:23.861205178Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.861206458Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:23.861208058Z     retries = retries.increment(
+2026-10-31T01:56:23.861209370Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.861210666Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:23.861211994Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:23.861213226Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.861214730Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:23.861215978Z     raise value
+2026-10-31T01:56:23.861217226Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:23.861218426Z     response = self._make_request(
+2026-10-31T01:56:23.861222426Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.861223930Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:23.861225338Z     conn.request(
+2026-10-31T01:56:23.861227290Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:23.861228698Z     self.endheaders()
+2026-10-31T01:56:23.861230218Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:23.861245386Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:23.861246794Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:23.861248074Z     self.send(msg)
+2026-10-31T01:56:23.861249242Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:23.861250394Z     self.connect()
+2026-10-31T01:56:23.861251546Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:23.861252666Z     self.sock = self._new_conn()
+2026-10-31T01:56:23.861253914Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.861255146Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:23.861256362Z     raise NewConnectionError(
+2026-10-31T01:56:23.861258010Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:23.862434763Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:56:23.862454427Z Traceback (most recent call last):
+2026-10-31T01:56:23.862456491Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:23.862458171Z     sock = connection.create_connection(
+2026-10-31T01:56:23.862459483Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.862461003Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:23.862462299Z     raise err
+2026-10-31T01:56:23.862463563Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:23.862465147Z     sock.connect(sa)
+2026-10-31T01:56:23.862466491Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:23.862467595Z 
+2026-10-31T01:56:23.862469195Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:23.862470299Z 
+2026-10-31T01:56:23.862471499Z Traceback (most recent call last):
+2026-10-31T01:56:23.862472939Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:23.862474155Z     response = self.pool.urlopen(
+2026-10-31T01:56:23.862475355Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.862476539Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:23.862477867Z     retries = retries.increment(
+2026-10-31T01:56:23.862479067Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.862480283Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:23.862481499Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:23.862482699Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.862483851Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:23.862485067Z     raise value
+2026-10-31T01:56:23.862486347Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:23.862487547Z     response = self._make_request(
+2026-10-31T01:56:23.862488731Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.862490011Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:23.862491195Z     conn.request(
+2026-10-31T01:56:23.862492939Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:23.862494123Z     self.endheaders()
+2026-10-31T01:56:23.862505275Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:23.862506843Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:23.862508011Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:23.862509243Z     self.send(msg)
+2026-10-31T01:56:23.862510507Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:23.862511675Z     self.connect()
+2026-10-31T01:56:23.862512955Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:23.862514091Z     self.sock = self._new_conn()
+2026-10-31T01:56:23.862515323Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.862516571Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:23.862517755Z     raise NewConnectionError(
+2026-10-31T01:56:23.862519179Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:23.863600252Z GET http://opensearch:9200/ [status:N/A request:0.000s]
+2026-10-31T01:56:23.863617292Z Traceback (most recent call last):
+2026-10-31T01:56:23.863619564Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:23.863621036Z     sock = connection.create_connection(
+2026-10-31T01:56:23.863622348Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.863624156Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:23.863625676Z     raise err
+2026-10-31T01:56:23.863626924Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:23.863628460Z     sock.connect(sa)
+2026-10-31T01:56:23.863629756Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:23.863630956Z 
+2026-10-31T01:56:23.863632604Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:23.863633708Z 
+2026-10-31T01:56:23.863634924Z Traceback (most recent call last):
+2026-10-31T01:56:23.863636492Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:23.863637708Z     response = self.pool.urlopen(
+2026-10-31T01:56:23.863638956Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.863640252Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:23.863641932Z     retries = retries.increment(
+2026-10-31T01:56:23.863643100Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.863644284Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:23.863645516Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:23.863646716Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.863647868Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:23.863649068Z     raise value
+2026-10-31T01:56:23.863650860Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:23.863652060Z     response = self._make_request(
+2026-10-31T01:56:23.863653244Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.863654508Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:23.863655692Z     conn.request(
+2026-10-31T01:56:23.863656972Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:23.863667468Z     self.endheaders()
+2026-10-31T01:56:23.863668844Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:23.863670028Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:23.863671180Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:23.863672332Z     self.send(msg)
+2026-10-31T01:56:23.863673484Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:23.863674620Z     self.connect()
+2026-10-31T01:56:23.863675964Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:23.863677164Z     self.sock = self._new_conn()
+2026-10-31T01:56:23.863678556Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.863679740Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:23.863680972Z     raise NewConnectionError(
+2026-10-31T01:56:23.863682604Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:23.864656221Z GET http://opensearch:9200/ [status:N/A request:0.000s]
+2026-10-31T01:56:23.864672269Z Traceback (most recent call last):
+2026-10-31T01:56:23.864674093Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:23.864675581Z     sock = connection.create_connection(
+2026-10-31T01:56:23.864676925Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.864678301Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:23.864679549Z     raise err
+2026-10-31T01:56:23.864680717Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:23.864682269Z     sock.connect(sa)
+2026-10-31T01:56:23.864683597Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:23.864684749Z 
+2026-10-31T01:56:23.864686349Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:23.864687469Z 
+2026-10-31T01:56:23.864688653Z Traceback (most recent call last):
+2026-10-31T01:56:23.864690125Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:23.864691341Z     response = self.pool.urlopen(
+2026-10-31T01:56:23.864692525Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.864693709Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:23.864694989Z     retries = retries.increment(
+2026-10-31T01:56:23.864696141Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.864698269Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:23.864699517Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:23.864700733Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.864701917Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:23.864703149Z     raise value
+2026-10-31T01:56:23.864714749Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:23.864715997Z     response = self._make_request(
+2026-10-31T01:56:23.864717165Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.864718301Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:23.864728285Z     conn.request(
+2026-10-31T01:56:23.864729693Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:23.864731021Z     self.endheaders()
+2026-10-31T01:56:23.864732221Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:23.864733741Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:23.864735101Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:23.864736301Z     self.send(msg)
+2026-10-31T01:56:23.864737517Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:23.864738669Z     self.connect()
+2026-10-31T01:56:23.864739997Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:23.864741165Z     self.sock = self._new_conn()
+2026-10-31T01:56:23.864742365Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:23.864743709Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:23.864744925Z     raise NewConnectionError(
+2026-10-31T01:56:23.864746301Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:23.864763325Z INFO:     private-address-24.example.invalid:48434 - "GET /api/v1/health HTTP/1.1" 503 Service Unavailable
+2026-10-31T01:56:33.860829808Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:56:33.860853936Z Traceback (most recent call last):
+2026-10-31T01:56:33.860856624Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:33.860858576Z     sock = connection.create_connection(
+2026-10-31T01:56:33.860860816Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.860862912Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:33.860864752Z     raise err
+2026-10-31T01:56:33.860866640Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:33.860868992Z     sock.connect(sa)
+2026-10-31T01:56:33.860870976Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:33.860872640Z 
+2026-10-31T01:56:33.860874752Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:33.860876624Z 
+2026-10-31T01:56:33.860878272Z Traceback (most recent call last):
+2026-10-31T01:56:33.860880304Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:33.860882032Z     response = self.pool.urlopen(
+2026-10-31T01:56:33.860883824Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.860885600Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:33.860887776Z     retries = retries.increment(
+2026-10-31T01:56:33.860889600Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.860891360Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:33.860893152Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:33.860894800Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.860896656Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:33.860898400Z     raise value
+2026-10-31T01:56:33.860900048Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:33.860912976Z     response = self._make_request(
+2026-10-31T01:56:33.860914592Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.860915856Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:33.860916992Z     conn.request(
+2026-10-31T01:56:33.860919040Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:33.860920240Z     self.endheaders()
+2026-10-31T01:56:33.860921536Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:33.860922720Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:33.860923904Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:33.860925088Z     self.send(msg)
+2026-10-31T01:56:33.860926320Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:33.860927504Z     self.connect()
+2026-10-31T01:56:33.860928736Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:33.860929936Z     self.sock = self._new_conn()
+2026-10-31T01:56:33.860931120Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.860932304Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:33.860933488Z     raise NewConnectionError(
+2026-10-31T01:56:33.860935040Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:33.862601426Z GET http://opensearch:9200/ [status:N/A request:0.000s]
+2026-10-31T01:56:33.862610418Z Traceback (most recent call last):
+2026-10-31T01:56:33.862611714Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:33.862612546Z     sock = connection.create_connection(
+2026-10-31T01:56:33.862613458Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.862614514Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:33.862615330Z     raise err
+2026-10-31T01:56:33.862616226Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:33.862617218Z     sock.connect(sa)
+2026-10-31T01:56:33.862617986Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:33.862618754Z 
+2026-10-31T01:56:33.862619986Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:33.862620706Z 
+2026-10-31T01:56:33.862621458Z Traceback (most recent call last):
+2026-10-31T01:56:33.862622514Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:33.862623490Z     response = self.pool.urlopen(
+2026-10-31T01:56:33.862624322Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.862625154Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:33.862626098Z     retries = retries.increment(
+2026-10-31T01:56:33.862628690Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.862629474Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:33.862630386Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:33.862631154Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.862632018Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:33.862632786Z     raise value
+2026-10-31T01:56:33.862637026Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:33.862637810Z     response = self._make_request(
+2026-10-31T01:56:33.862638546Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.862639410Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:33.862640434Z     conn.request(
+2026-10-31T01:56:33.862641362Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:33.862642178Z     self.endheaders()
+2026-10-31T01:56:33.862643026Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:33.862643778Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:33.862644674Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:33.862645458Z     self.send(msg)
+2026-10-31T01:56:33.862646306Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:33.862647074Z     self.connect()
+2026-10-31T01:56:33.862647842Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:33.862648754Z     self.sock = self._new_conn()
+2026-10-31T01:56:33.862649490Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.862650338Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:33.862651282Z     raise NewConnectionError(
+2026-10-31T01:56:33.862652322Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:33.863297682Z GET http://opensearch:9200/ [status:N/A request:0.000s]
+2026-10-31T01:56:33.863299506Z Traceback (most recent call last):
+2026-10-31T01:56:33.863300514Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:33.863301314Z     sock = connection.create_connection(
+2026-10-31T01:56:33.863302098Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.863302994Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:33.863303778Z     raise err
+2026-10-31T01:56:33.863304562Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:33.863305346Z     sock.connect(sa)
+2026-10-31T01:56:33.863306226Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:33.863306962Z 
+2026-10-31T01:56:33.863307874Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:33.863308626Z 
+2026-10-31T01:56:33.863309378Z Traceback (most recent call last):
+2026-10-31T01:56:33.863310274Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:33.863311154Z     response = self.pool.urlopen(
+2026-10-31T01:56:33.863312002Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.863312882Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:33.863313762Z     retries = retries.increment(
+2026-10-31T01:56:33.863314626Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.863315394Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:33.863316162Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:33.863316930Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.863317794Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:33.863320210Z     raise value
+2026-10-31T01:56:33.863324130Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:33.863325042Z     response = self._make_request(
+2026-10-31T01:56:33.863325970Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.863327106Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:33.863327890Z     conn.request(
+2026-10-31T01:56:33.863328674Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:33.863329442Z     self.endheaders()
+2026-10-31T01:56:33.863330290Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:33.863331170Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:33.863332050Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:33.863332946Z     self.send(msg)
+2026-10-31T01:56:33.863333714Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:33.863334498Z     self.connect()
+2026-10-31T01:56:33.863335346Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:33.863336370Z     self.sock = self._new_conn()
+2026-10-31T01:56:33.863337138Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.863337986Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:33.863338866Z     raise NewConnectionError(
+2026-10-31T01:56:33.863339650Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:33.864919796Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:56:33.864932644Z Traceback (most recent call last):
+2026-10-31T01:56:33.864934708Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:33.864936436Z     sock = connection.create_connection(
+2026-10-31T01:56:33.864937844Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.864939716Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:33.864941076Z     raise err
+2026-10-31T01:56:33.864942388Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:33.864944164Z     sock.connect(sa)
+2026-10-31T01:56:33.864945524Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:33.864946692Z 
+2026-10-31T01:56:33.864948276Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:33.864949524Z 
+2026-10-31T01:56:33.864950788Z Traceback (most recent call last):
+2026-10-31T01:56:33.864952340Z INFO:     private-address-24.example.invalid:42154 - "GET /api/v1/health HTTP/1.1" 503 Service Unavailable
+2026-10-31T01:56:33.864952740Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:33.864955572Z     response = self.pool.urlopen(
+2026-10-31T01:56:33.864956436Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.864957300Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:33.864958116Z     retries = retries.increment(
+2026-10-31T01:56:33.864958948Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.864959924Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:33.864962180Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:33.864962980Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.864963860Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:33.864964644Z     raise value
+2026-10-31T01:56:33.864965524Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:33.864966548Z     response = self._make_request(
+2026-10-31T01:56:33.864967460Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.864968356Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:33.864969124Z     conn.request(
+2026-10-31T01:56:33.864970196Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:33.864970964Z     self.endheaders()
+2026-10-31T01:56:33.864971748Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:33.864972612Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:33.864973476Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:33.864974244Z     self.send(msg)
+2026-10-31T01:56:33.864975076Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:33.864975844Z     self.connect()
+2026-10-31T01:56:33.864976692Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:33.864977476Z     self.sock = self._new_conn()
+2026-10-31T01:56:33.864978228Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:33.864979108Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:33.864979876Z     raise NewConnectionError(
+2026-10-31T01:56:33.864980708Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:43.860758326Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:56:43.860779094Z Traceback (most recent call last):
+2026-10-31T01:56:43.860780390Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:43.860781478Z     sock = connection.create_connection(
+2026-10-31T01:56:43.860782502Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.860783862Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:43.860784822Z     raise err
+2026-10-31T01:56:43.860786230Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:43.860787606Z     sock.connect(sa)
+2026-10-31T01:56:43.860788630Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:43.860789414Z 
+2026-10-31T01:56:43.860790550Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:43.860791398Z 
+2026-10-31T01:56:43.860792294Z Traceback (most recent call last):
+2026-10-31T01:56:43.860793558Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:43.860794470Z     response = self.pool.urlopen(
+2026-10-31T01:56:43.860795574Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.860796582Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:43.860797846Z     retries = retries.increment(
+2026-10-31T01:56:43.860798934Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.860812470Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:43.860813398Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:43.860815014Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.860815990Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:43.860817062Z     raise value
+2026-10-31T01:56:43.860817910Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:43.860818758Z     response = self._make_request(
+2026-10-31T01:56:43.860819718Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.860820598Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:43.860821478Z     conn.request(
+2026-10-31T01:56:43.860822342Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:43.860823238Z     self.endheaders()
+2026-10-31T01:56:43.860824102Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:43.860824934Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:43.860825990Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:43.860826870Z     self.send(msg)
+2026-10-31T01:56:43.860827734Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:43.860828614Z     self.connect()
+2026-10-31T01:56:43.860829542Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:43.860830294Z     self.sock = self._new_conn()
+2026-10-31T01:56:43.860831190Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.860832054Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:43.860832934Z     raise NewConnectionError(
+2026-10-31T01:56:43.860834070Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:43.862140679Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:56:43.862158135Z Traceback (most recent call last):
+2026-10-31T01:56:43.862160327Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:43.862161287Z     sock = connection.create_connection(
+2026-10-31T01:56:43.862162183Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.862163431Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:43.862164247Z     raise err
+2026-10-31T01:56:43.862165111Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:43.862166375Z     sock.connect(sa)
+2026-10-31T01:56:43.862167223Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:43.862167991Z 
+2026-10-31T01:56:43.862169287Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:43.862170087Z 
+2026-10-31T01:56:43.862170935Z Traceback (most recent call last):
+2026-10-31T01:56:43.862172871Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:43.862173815Z     response = self.pool.urlopen(
+2026-10-31T01:56:43.862174743Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.862175671Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:43.862176695Z     retries = retries.increment(
+2026-10-31T01:56:43.862187847Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.862188855Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:43.862189751Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:43.862190967Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.862191847Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:43.862192711Z     raise value
+2026-10-31T01:56:43.862193559Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:43.862194439Z     response = self._make_request(
+2026-10-31T01:56:43.862195399Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.862196295Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:43.862197143Z     conn.request(
+2026-10-31T01:56:43.862197975Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:43.862198935Z     self.endheaders()
+2026-10-31T01:56:43.862199687Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:43.862200423Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:43.862201351Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:43.862202231Z     self.send(msg)
+2026-10-31T01:56:43.862203063Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:43.862203911Z     self.connect()
+2026-10-31T01:56:43.862204743Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:43.862205687Z     self.sock = self._new_conn()
+2026-10-31T01:56:43.862206551Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.862207511Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:43.862208375Z     raise NewConnectionError(
+2026-10-31T01:56:43.862209623Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:43.863422073Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:56:43.863437081Z Traceback (most recent call last):
+2026-10-31T01:56:43.863438345Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:43.863439385Z     sock = connection.create_connection(
+2026-10-31T01:56:43.863440281Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.863441561Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:43.863442553Z     raise err
+2026-10-31T01:56:43.863443513Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:43.863444553Z     sock.connect(sa)
+2026-10-31T01:56:43.863445513Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:43.863446265Z 
+2026-10-31T01:56:43.863447305Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:43.863448089Z 
+2026-10-31T01:56:43.863448953Z Traceback (most recent call last):
+2026-10-31T01:56:43.863450185Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:43.863451225Z     response = self.pool.urlopen(
+2026-10-31T01:56:43.863452233Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.863453881Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:43.863465849Z     retries = retries.increment(
+2026-10-31T01:56:43.863466761Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.863467593Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:43.863468473Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:43.863469449Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.863470313Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:43.863471097Z     raise value
+2026-10-31T01:56:43.863471961Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:43.863472841Z     response = self._make_request(
+2026-10-31T01:56:43.863473705Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.863474553Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:43.863475545Z     conn.request(
+2026-10-31T01:56:43.863476409Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:43.863477177Z     self.endheaders()
+2026-10-31T01:56:43.863478009Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:43.863478969Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:43.863479817Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:43.863480665Z     self.send(msg)
+2026-10-31T01:56:43.863481625Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:43.863482585Z     self.connect()
+2026-10-31T01:56:43.863483433Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:43.863484201Z     self.sock = self._new_conn()
+2026-10-31T01:56:43.863485065Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.863486041Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:43.863486937Z     raise NewConnectionError(
+2026-10-31T01:56:43.863487961Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:43.864664090Z INFO:     private-address-24.example.invalid:52482 - "GET /api/v1/health HTTP/1.1" 503 Service Unavailable
+2026-10-31T01:56:43.864673690Z GET http://opensearch:9200/ [status:N/A request:0.000s]
+2026-10-31T01:56:43.864696522Z Traceback (most recent call last):
+2026-10-31T01:56:43.864698266Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:43.864699770Z     sock = connection.create_connection(
+2026-10-31T01:56:43.864701082Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.864702698Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:43.864704026Z     raise err
+2026-10-31T01:56:43.864705482Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:43.864707194Z     sock.connect(sa)
+2026-10-31T01:56:43.864709482Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:43.864710586Z 
+2026-10-31T01:56:43.864712266Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:43.864713466Z 
+2026-10-31T01:56:43.864714682Z Traceback (most recent call last):
+2026-10-31T01:56:43.864717130Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:43.864734314Z     response = self.pool.urlopen(
+2026-10-31T01:56:43.864735930Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.864737242Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:43.864739322Z     retries = retries.increment(
+2026-10-31T01:56:43.864740490Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.864741706Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:43.864742906Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:43.864744058Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.864745386Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:43.864746586Z     raise value
+2026-10-31T01:56:43.864747818Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:43.864749018Z     response = self._make_request(
+2026-10-31T01:56:43.864750218Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.864751450Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:43.864752650Z     conn.request(
+2026-10-31T01:56:43.864753930Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:43.864755146Z     self.endheaders()
+2026-10-31T01:56:43.864756330Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:43.864757610Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:43.864758874Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:43.864759994Z     self.send(msg)
+2026-10-31T01:56:43.864761194Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:43.864762346Z     self.connect()
+2026-10-31T01:56:43.864763610Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:43.864764794Z     self.sock = self._new_conn()
+2026-10-31T01:56:43.864766042Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:43.864767162Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:43.864768378Z     raise NewConnectionError(
+2026-10-31T01:56:43.864769898Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:44.485492327Z INFO:     private-address-24.example.invalid:52498 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T01:56:53.861160958Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:56:53.861184718Z Traceback (most recent call last):
+2026-10-31T01:56:53.861186926Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:53.861188478Z     sock = connection.create_connection(
+2026-10-31T01:56:53.861189758Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.861191230Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:53.861192718Z     raise err
+2026-10-31T01:56:53.861193998Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:53.861195390Z     sock.connect(sa)
+2026-10-31T01:56:53.861196622Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:53.861197678Z 
+2026-10-31T01:56:53.861199406Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:53.861214078Z 
+2026-10-31T01:56:53.861215022Z Traceback (most recent call last):
+2026-10-31T01:56:53.861216414Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:53.861217406Z     response = self.pool.urlopen(
+2026-10-31T01:56:53.861218318Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.861219150Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:53.861220462Z     retries = retries.increment(
+2026-10-31T01:56:53.861221454Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.861222318Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:53.861223166Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:53.861223998Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.861225102Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:53.861225982Z     raise value
+2026-10-31T01:56:53.861226942Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:53.861227966Z     response = self._make_request(
+2026-10-31T01:56:53.861228830Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.861230126Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:53.861230990Z     conn.request(
+2026-10-31T01:56:53.861231966Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:53.861232750Z     self.endheaders()
+2026-10-31T01:56:53.861233614Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:53.861234462Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:53.861235518Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:53.861236398Z     self.send(msg)
+2026-10-31T01:56:53.861237278Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:53.861238142Z     self.connect()
+2026-10-31T01:56:53.861239134Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:53.861239966Z     self.sock = self._new_conn()
+2026-10-31T01:56:53.861240846Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.861241694Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:53.861242654Z     raise NewConnectionError(
+2026-10-31T01:56:53.861243822Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:53.862779584Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:56:53.862801504Z Traceback (most recent call last):
+2026-10-31T01:56:53.862803232Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:53.862804304Z     sock = connection.create_connection(
+2026-10-31T01:56:53.862805312Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.862806784Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:53.862807760Z     raise err
+2026-10-31T01:56:53.862808688Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:53.862809840Z     sock.connect(sa)
+2026-10-31T01:56:53.862810800Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:53.862822720Z 
+2026-10-31T01:56:53.862824128Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:53.862824880Z 
+2026-10-31T01:56:53.862825632Z Traceback (most recent call last):
+2026-10-31T01:56:53.862826976Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:53.862827792Z     response = self.pool.urlopen(
+2026-10-31T01:56:53.862828864Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.862829728Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:53.862830944Z     retries = retries.increment(
+2026-10-31T01:56:53.862831808Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.862832704Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:53.862833552Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:53.862834544Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.862835488Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:53.862836224Z     raise value
+2026-10-31T01:56:53.862837184Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:53.862838048Z     response = self._make_request(
+2026-10-31T01:56:53.862838912Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.862839776Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:53.862840992Z     conn.request(
+2026-10-31T01:56:53.862841856Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:53.862842768Z     self.endheaders()
+2026-10-31T01:56:53.862843648Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:53.862844624Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:53.862845488Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:53.862846320Z     self.send(msg)
+2026-10-31T01:56:53.862847344Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:53.862848192Z     self.connect()
+2026-10-31T01:56:53.862849024Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:53.862849872Z     self.sock = self._new_conn()
+2026-10-31T01:56:53.862850624Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.862851616Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:53.862852464Z     raise NewConnectionError(
+2026-10-31T01:56:53.862853808Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:53.864018177Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:56:53.864049809Z Traceback (most recent call last):
+2026-10-31T01:56:53.864051937Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:53.864053569Z     sock = connection.create_connection(
+2026-10-31T01:56:53.864054881Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.864056433Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:53.864057841Z     raise err
+2026-10-31T01:56:53.864059201Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:53.864080961Z     sock.connect(sa)
+2026-10-31T01:56:53.864082385Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:53.864083473Z 
+2026-10-31T01:56:53.864085233Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:53.864086321Z 
+2026-10-31T01:56:53.864087553Z Traceback (most recent call last):
+2026-10-31T01:56:53.864089265Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:53.864090497Z     response = self.pool.urlopen(
+2026-10-31T01:56:53.864091713Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.864093633Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:53.864095201Z     retries = retries.increment(
+2026-10-31T01:56:53.864096305Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.864097569Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:53.864098737Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:53.864099969Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.864113793Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:53.864115409Z     raise value
+2026-10-31T01:56:53.864116769Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:53.864117905Z     response = self._make_request(
+2026-10-31T01:56:53.864119057Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.864120289Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:53.864121473Z     conn.request(
+2026-10-31T01:56:53.864122705Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:53.864123889Z     self.endheaders()
+2026-10-31T01:56:53.864125105Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:53.864126433Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:53.864127713Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:53.864128865Z     self.send(msg)
+2026-10-31T01:56:53.864130001Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:53.864131153Z     self.connect()
+2026-10-31T01:56:53.864132369Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:53.864133553Z     self.sock = self._new_conn()
+2026-10-31T01:56:53.864134689Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.864135841Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:53.864136977Z     raise NewConnectionError(
+2026-10-31T01:56:53.864138433Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:56:53.864915666Z GET http://opensearch:9200/ [status:N/A request:0.000s]
+2026-10-31T01:56:53.864926546Z Traceback (most recent call last):
+2026-10-31T01:56:53.864915714Z INFO:     private-address-24.example.invalid:45480 - "GET /api/v1/health HTTP/1.1" 503 Service Unavailable
+2026-10-31T01:56:53.864928098Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:56:53.864936562Z     sock = connection.create_connection(
+2026-10-31T01:56:53.864937986Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.864939778Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:56:53.864953970Z     raise err
+2026-10-31T01:56:53.864955666Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:56:53.864960754Z     sock.connect(sa)
+2026-10-31T01:56:53.864962610Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:56:53.864963762Z 
+2026-10-31T01:56:53.864965538Z The above exception was the direct cause of the following exception:
+2026-10-31T01:56:53.864966498Z 
+2026-10-31T01:56:53.864967554Z Traceback (most recent call last):
+2026-10-31T01:56:53.864968994Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:56:53.864970050Z     response = self.pool.urlopen(
+2026-10-31T01:56:53.864971138Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.864972290Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:56:53.864973746Z     retries = retries.increment(
+2026-10-31T01:56:53.864974914Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.864975938Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:56:53.864977026Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:56:53.864978242Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.864979346Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:56:53.864982066Z     raise value
+2026-10-31T01:56:53.864983202Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:56:53.864984418Z     response = self._make_request(
+2026-10-31T01:56:53.864985522Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.864986658Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:56:53.864987762Z     conn.request(
+2026-10-31T01:56:53.864989090Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:56:53.864990258Z     self.endheaders()
+2026-10-31T01:56:53.864991394Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:56:53.864992418Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:56:53.864993490Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:56:53.864994530Z     self.send(msg)
+2026-10-31T01:56:53.864995554Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:56:53.864996690Z     self.connect()
+2026-10-31T01:56:53.864997730Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:56:53.864998770Z     self.sock = self._new_conn()
+2026-10-31T01:56:53.864999794Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:56:53.865000898Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:56:53.865001938Z     raise NewConnectionError(
+2026-10-31T01:56:53.865003570Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:57:03.861139257Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:57:03.861161129Z Traceback (most recent call last):
+2026-10-31T01:57:03.861163097Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:57:03.861164217Z     sock = connection.create_connection(
+2026-10-31T01:57:03.861165273Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.861183081Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:57:03.861183929Z     raise err
+2026-10-31T01:57:03.861184825Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:57:03.861186201Z     sock.connect(sa)
+2026-10-31T01:57:03.861187113Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:57:03.861187849Z 
+2026-10-31T01:57:03.861189609Z The above exception was the direct cause of the following exception:
+2026-10-31T01:57:03.861190457Z 
+2026-10-31T01:57:03.861191209Z Traceback (most recent call last):
+2026-10-31T01:57:03.861192713Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:57:03.861194185Z     response = self.pool.urlopen(
+2026-10-31T01:57:03.861195065Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.861196009Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:57:03.861197545Z     retries = retries.increment(
+2026-10-31T01:57:03.861198297Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.861199289Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:57:03.861200153Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:57:03.861201017Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.861201881Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:57:03.861202729Z     raise value
+2026-10-31T01:57:03.861203625Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:57:03.861204393Z     response = self._make_request(
+2026-10-31T01:57:03.861205257Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.861206153Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:57:03.861207049Z     conn.request(
+2026-10-31T01:57:03.861207929Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:57:03.861208969Z     self.endheaders()
+2026-10-31T01:57:03.861209865Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:57:03.861210745Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:57:03.861211609Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:57:03.861212617Z     self.send(msg)
+2026-10-31T01:57:03.861213497Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:57:03.861214361Z     self.connect()
+2026-10-31T01:57:03.861215241Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:57:03.861216233Z     self.sock = self._new_conn()
+2026-10-31T01:57:03.861217081Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.861217977Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:57:03.861218857Z     raise NewConnectionError(
+2026-10-31T01:57:03.861220281Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:57:03.861837882Z GET http://opensearch:9200/ [status:N/A request:0.000s]
+2026-10-31T01:57:03.861848426Z Traceback (most recent call last):
+2026-10-31T01:57:03.861850138Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:57:03.861862426Z     sock = connection.create_connection(
+2026-10-31T01:57:03.861863466Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.861864986Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:57:03.861865802Z     raise err
+2026-10-31T01:57:03.861866842Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:57:03.861868250Z     sock.connect(sa)
+2026-10-31T01:57:03.861869722Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:57:03.861870442Z 
+2026-10-31T01:57:03.861872218Z The above exception was the direct cause of the following exception:
+2026-10-31T01:57:03.861873050Z 
+2026-10-31T01:57:03.861873898Z Traceback (most recent call last):
+2026-10-31T01:57:03.861875658Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:57:03.861876682Z     response = self.pool.urlopen(
+2026-10-31T01:57:03.861877546Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.861878410Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:57:03.861879930Z     retries = retries.increment(
+2026-10-31T01:57:03.861880906Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.861881786Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:57:03.861882698Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:57:03.861883658Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.861884490Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:57:03.861885274Z     raise value
+2026-10-31T01:57:03.861886138Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:57:03.861886922Z     response = self._make_request(
+2026-10-31T01:57:03.861887786Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.861888682Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:57:03.861889562Z     conn.request(
+2026-10-31T01:57:03.861890410Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:57:03.861891258Z     self.endheaders()
+2026-10-31T01:57:03.861892122Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:57:03.861893082Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:57:03.861893930Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:57:03.861894682Z     self.send(msg)
+2026-10-31T01:57:03.861895546Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:57:03.861896410Z     self.connect()
+2026-10-31T01:57:03.861897258Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:57:03.861898026Z     self.sock = self._new_conn()
+2026-10-31T01:57:03.861898906Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.861899834Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:57:03.861900650Z     raise NewConnectionError(
+2026-10-31T01:57:03.861902330Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:57:03.862637355Z GET http://opensearch:9200/ [status:N/A request:0.000s]
+2026-10-31T01:57:03.862655035Z Traceback (most recent call last):
+2026-10-31T01:57:03.862667819Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:57:03.862669323Z     sock = connection.create_connection(
+2026-10-31T01:57:03.862670203Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.862672043Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:57:03.862672843Z     raise err
+2026-10-31T01:57:03.862673723Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:57:03.862674731Z     sock.connect(sa)
+2026-10-31T01:57:03.862675611Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:57:03.862676347Z 
+2026-10-31T01:57:03.862677467Z The above exception was the direct cause of the following exception:
+2026-10-31T01:57:03.862678203Z 
+2026-10-31T01:57:03.862679163Z Traceback (most recent call last):
+2026-10-31T01:57:03.862680331Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:57:03.862681195Z     response = self.pool.urlopen(
+2026-10-31T01:57:03.862682363Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.862683275Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:57:03.862684411Z     retries = retries.increment(
+2026-10-31T01:57:03.862685179Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.862686027Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:57:03.862687035Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:57:03.862687899Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.862688763Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:57:03.862689627Z     raise value
+2026-10-31T01:57:03.862690507Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:57:03.862691355Z     response = self._make_request(
+2026-10-31T01:57:03.862692139Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.862693163Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:57:03.862694043Z     conn.request(
+2026-10-31T01:57:03.862694891Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:57:03.862695787Z     self.endheaders()
+2026-10-31T01:57:03.862696843Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:57:03.862697723Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:57:03.862698603Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:57:03.862699467Z     self.send(msg)
+2026-10-31T01:57:03.862700379Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:57:03.862701243Z     self.connect()
+2026-10-31T01:57:03.862702107Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:57:03.862703115Z     self.sock = self._new_conn()
+2026-10-31T01:57:03.862703867Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.862704715Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:57:03.862705579Z     raise NewConnectionError(
+2026-10-31T01:57:03.862706763Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:57:03.863528508Z INFO:     private-address-24.example.invalid:44336 - "GET /api/v1/health HTTP/1.1" 503 Service Unavailable
+2026-10-31T01:57:03.863561340Z GET http://opensearch:9200/ [status:N/A request:0.000s]
+2026-10-31T01:57:03.863562844Z Traceback (most recent call last):
+2026-10-31T01:57:03.863563788Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:57:03.863564780Z     sock = connection.create_connection(
+2026-10-31T01:57:03.863565676Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.863566748Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:57:03.863567580Z     raise err
+2026-10-31T01:57:03.863568460Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:57:03.863569548Z     sock.connect(sa)
+2026-10-31T01:57:03.863570444Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:57:03.863571164Z 
+2026-10-31T01:57:03.863572252Z The above exception was the direct cause of the following exception:
+2026-10-31T01:57:03.863573084Z 
+2026-10-31T01:57:03.863573964Z Traceback (most recent call last):
+2026-10-31T01:57:03.863575148Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:57:03.863576316Z     response = self.pool.urlopen(
+2026-10-31T01:57:03.863577308Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.863578188Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:57:03.863579260Z     retries = retries.increment(
+2026-10-31T01:57:03.863580028Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.863581020Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:57:03.863581916Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:57:03.863582796Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.863583708Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:57:03.863584572Z     raise value
+2026-10-31T01:57:03.863585452Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:57:03.863586476Z     response = self._make_request(
+2026-10-31T01:57:03.863587340Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.863588236Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:57:03.863589116Z     conn.request(
+2026-10-31T01:57:03.863589996Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:57:03.863591004Z     self.endheaders()
+2026-10-31T01:57:03.863591884Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:57:03.863592748Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:57:03.863593756Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:57:03.863594524Z     self.send(msg)
+2026-10-31T01:57:03.863595372Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:57:03.863596236Z     self.connect()
+2026-10-31T01:57:03.863597404Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:57:03.863598412Z     self.sock = self._new_conn()
+2026-10-31T01:57:03.863599308Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:57:03.863600172Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:57:03.863601148Z     raise NewConnectionError(
+2026-10-31T01:57:03.863603836Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:57:08.584425796Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:57:08.584446596Z Traceback (most recent call last):
+2026-10-31T01:57:08.584447988Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:57:08.584449204Z     sock = connection.create_connection(
+2026-10-31T01:57:08.584450196Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.584451492Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:57:08.584454964Z     raise err
+2026-10-31T01:57:08.584455940Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:57:08.584457028Z     sock.connect(sa)
+2026-10-31T01:57:08.584457956Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:57:08.584458772Z 
+2026-10-31T01:57:08.584459940Z The above exception was the direct cause of the following exception:
+2026-10-31T01:57:08.584460708Z 
+2026-10-31T01:57:08.584461604Z Traceback (most recent call last):
+2026-10-31T01:57:08.584462884Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:57:08.584463908Z     response = self.pool.urlopen(
+2026-10-31T01:57:08.584464788Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.584465684Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:57:08.584466916Z     retries = retries.increment(
+2026-10-31T01:57:08.584467892Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.584468900Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:57:08.584469924Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:57:08.584470996Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.584472020Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:57:08.584472980Z     raise value
+2026-10-31T01:57:08.584473988Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:57:08.584475012Z     response = self._make_request(
+2026-10-31T01:57:08.584475796Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.584477156Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:57:08.584478212Z     conn.request(
+2026-10-31T01:57:08.584479108Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:57:08.584480036Z     self.endheaders()
+2026-10-31T01:57:08.584480916Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:57:08.584481940Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:57:08.584482884Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:57:08.584483748Z     self.send(msg)
+2026-10-31T01:57:08.584484628Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:57:08.584485716Z     self.connect()
+2026-10-31T01:57:08.584486740Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:57:08.584487780Z     self.sock = self._new_conn()
+2026-10-31T01:57:08.584488676Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.584489828Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:57:08.584503604Z     raise NewConnectionError(
+2026-10-31T01:57:08.584504820Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:57:08.585618389Z GET http://opensearch:9200/ [status:N/A request:0.000s]
+2026-10-31T01:57:08.585633669Z Traceback (most recent call last):
+2026-10-31T01:57:08.585634933Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:57:08.585635845Z     sock = connection.create_connection(
+2026-10-31T01:57:08.585636805Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.585638005Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:57:08.585638949Z     raise err
+2026-10-31T01:57:08.585640117Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:57:08.585641637Z     sock.connect(sa)
+2026-10-31T01:57:08.585642533Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:57:08.585643285Z 
+2026-10-31T01:57:08.585644501Z The above exception was the direct cause of the following exception:
+2026-10-31T01:57:08.585645285Z 
+2026-10-31T01:57:08.585646293Z Traceback (most recent call last):
+2026-10-31T01:57:08.585649445Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:57:08.585650357Z     response = self.pool.urlopen(
+2026-10-31T01:57:08.585651189Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.585652181Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:57:08.585653301Z     retries = retries.increment(
+2026-10-31T01:57:08.585658373Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.585659349Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:57:08.585660869Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:57:08.585661845Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.585662805Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:57:08.585663765Z     raise value
+2026-10-31T01:57:08.585664677Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:57:08.585665653Z     response = self._make_request(
+2026-10-31T01:57:08.585666581Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.585667589Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:57:08.585668389Z     conn.request(
+2026-10-31T01:57:08.585669285Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:57:08.585670117Z     self.endheaders()
+2026-10-31T01:57:08.585671109Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:57:08.585672021Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:57:08.585672917Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:57:08.585673813Z     self.send(msg)
+2026-10-31T01:57:08.585674837Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:57:08.585675669Z     self.connect()
+2026-10-31T01:57:08.585676645Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:57:08.585677509Z     self.sock = self._new_conn()
+2026-10-31T01:57:08.585689749Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.585690677Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:57:08.585691461Z     raise NewConnectionError(
+2026-10-31T01:57:08.585692565Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:57:08.586550214Z GET http://opensearch:9200/ [status:N/A request:0.001s]
+2026-10-31T01:57:08.586565302Z Traceback (most recent call last):
+2026-10-31T01:57:08.586566758Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:57:08.586567814Z     sock = connection.create_connection(
+2026-10-31T01:57:08.586568758Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.586570102Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:57:08.586571078Z     raise err
+2026-10-31T01:57:08.586572310Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:57:08.586573478Z     sock.connect(sa)
+2026-10-31T01:57:08.586574406Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:57:08.586575190Z 
+2026-10-31T01:57:08.586576310Z The above exception was the direct cause of the following exception:
+2026-10-31T01:57:08.586577126Z 
+2026-10-31T01:57:08.586578134Z Traceback (most recent call last):
+2026-10-31T01:57:08.586579382Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:57:08.586580374Z     response = self.pool.urlopen(
+2026-10-31T01:57:08.586581766Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.586582790Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:57:08.586583782Z     retries = retries.increment(
+2026-10-31T01:57:08.586584774Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.586585718Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:57:08.586586774Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:57:08.586587718Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.586588678Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:57:08.586589830Z     raise value
+2026-10-31T01:57:08.586590758Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:57:08.586591702Z     response = self._make_request(
+2026-10-31T01:57:08.586592630Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.586593686Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:57:08.586594678Z     conn.request(
+2026-10-31T01:57:08.586595574Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:57:08.586596454Z     self.endheaders()
+2026-10-31T01:57:08.586597542Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:57:08.586598406Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:57:08.586599382Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:57:08.586600342Z     self.send(msg)
+2026-10-31T01:57:08.586601382Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:57:08.586602358Z     self.connect()
+2026-10-31T01:57:08.586603302Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:57:08.586615126Z     self.sock = self._new_conn()
+2026-10-31T01:57:08.586616150Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.586616998Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:57:08.586617798Z     raise NewConnectionError(
+2026-10-31T01:57:08.586618838Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:57:08.587307350Z INFO:     private-address-24.example.invalid:44350 - "GET /api/v1/health HTTP/1.1" 503 Service Unavailable
+2026-10-31T01:57:08.587329222Z GET http://opensearch:9200/ [status:N/A request:0.000s]
+2026-10-31T01:57:08.587330758Z Traceback (most recent call last):
+2026-10-31T01:57:08.587331734Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 204, in _new_conn
+2026-10-31T01:57:08.587332694Z     sock = connection.create_connection(
+2026-10-31T01:57:08.587333654Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.587334806Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+2026-10-31T01:57:08.587335734Z     raise err
+2026-10-31T01:57:08.587337126Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+2026-10-31T01:57:08.587338278Z     sock.connect(sa)
+2026-10-31T01:57:08.587339302Z ConnectionRefusedError: [Errno 111] Connection refused
+2026-10-31T01:57:08.587340102Z 
+2026-10-31T01:57:08.587341222Z The above exception was the direct cause of the following exception:
+2026-10-31T01:57:08.587341990Z 
+2026-10-31T01:57:08.587342886Z Traceback (most recent call last):
+2026-10-31T01:57:08.587344102Z   File "/opt/venv/lib/python3.12/site-packages/opensearchpy/connection/http_urllib3.py", line 280, in perform_request
+2026-10-31T01:57:08.587345014Z     response = self.pool.urlopen(
+2026-10-31T01:57:08.587345814Z                ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.587346774Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+2026-10-31T01:57:08.587347926Z     retries = retries.increment(
+2026-10-31T01:57:08.587348838Z               ^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.587349734Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 473, in increment
+2026-10-31T01:57:08.587350614Z     raise reraise(type(error), error, _stacktrace)
+2026-10-31T01:57:08.587351622Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.587352518Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+2026-10-31T01:57:08.587353558Z     raise value
+2026-10-31T01:57:08.587354486Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+2026-10-31T01:57:08.587355446Z     response = self._make_request(
+2026-10-31T01:57:08.587356422Z                ^^^^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.587357350Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+2026-10-31T01:57:08.587358422Z     conn.request(
+2026-10-31T01:57:08.587359398Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 500, in request
+2026-10-31T01:57:08.587360246Z     self.endheaders()
+2026-10-31T01:57:08.587361222Z   File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+2026-10-31T01:57:08.587362326Z     self._send_output(message_body, encode_chunked=encode_chunked)
+2026-10-31T01:57:08.587363270Z   File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+2026-10-31T01:57:08.587364230Z     self.send(msg)
+2026-10-31T01:57:08.587375766Z   File "/usr/lib/python3.12/http/client.py", line 1064, in send
+2026-10-31T01:57:08.587376566Z     self.connect()
+2026-10-31T01:57:08.587377446Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 331, in connect
+2026-10-31T01:57:08.587378310Z     self.sock = self._new_conn()
+2026-10-31T01:57:08.587379174Z                 ^^^^^^^^^^^^^^^^
+2026-10-31T01:57:08.587380150Z   File "/opt/venv/lib/python3.12/site-packages/urllib3/connection.py", line 219, in _new_conn
+2026-10-31T01:57:08.587381014Z     raise NewConnectionError(
+2026-10-31T01:57:08.587382198Z urllib3.exceptions.NewConnectionError: HTTPConnection(host='opensearch', port=9200): Failed to establish a new connection: [Errno 111] Connection refused
+2026-10-31T01:57:14.485848474Z INFO:     private-address-24.example.invalid:36264 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T01:57:18.606247053Z GET http://opensearch:9200/ [status:200 request:0.023s]
+2026-10-31T01:57:18.660163677Z INFO:     private-address-24.example.invalid:36276 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:57:28.585159832Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T01:57:28.585563896Z INFO:     private-address-24.example.invalid:45464 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:57:38.585751503Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T01:57:38.586209616Z INFO:     private-address-24.example.invalid:53916 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:57:44.485437930Z INFO:     private-address-24.example.invalid:55794 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T01:57:48.584499568Z GET http://opensearch:9200/ [status:200 request:0.001s]
+2026-10-31T01:57:48.584968033Z INFO:     private-address-24.example.invalid:55798 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:57:58.585066144Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T01:57:58.585436528Z INFO:     private-address-24.example.invalid:33992 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:58:08.584688733Z GET http://opensearch:9200/ [status:200 request:0.001s]
+2026-10-31T01:58:08.584912765Z INFO:     private-address-24.example.invalid:38296 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:58:14.485328391Z INFO:     private-address-24.example.invalid:36404 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T01:58:18.585077659Z GET http://opensearch:9200/ [status:200 request:0.001s]
+2026-10-31T01:58:18.585414891Z INFO:     private-address-24.example.invalid:36408 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:58:28.585055898Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T01:58:28.585098234Z INFO:     private-address-24.example.invalid:57526 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:58:38.585425916Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T01:58:38.585696460Z INFO:     private-address-24.example.invalid:56638 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:58:44.485660621Z INFO:     private-address-24.example.invalid:39220 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T01:58:48.585543410Z GET http://opensearch:9200/ [status:200 request:0.001s]
+2026-10-31T01:58:48.585898595Z INFO:     private-address-24.example.invalid:39226 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:58:58.584365150Z GET http://opensearch:9200/ [status:200 request:0.001s]
+2026-10-31T01:58:58.584568766Z INFO:     private-address-24.example.invalid:60696 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:59:08.584619378Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T01:59:08.585774867Z INFO:     private-address-24.example.invalid:35842 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:59:14.486263988Z INFO:     private-address-24.example.invalid:49214 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T01:59:18.585241776Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T01:59:18.585780112Z INFO:     private-address-24.example.invalid:49218 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:59:28.585765703Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T01:59:28.586397751Z INFO:     private-address-24.example.invalid:50384 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:59:38.584431033Z GET http://opensearch:9200/ [status:200 request:0.001s]
+2026-10-31T01:59:38.584695897Z INFO:     private-address-24.example.invalid:46958 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:59:44.485335344Z INFO:     private-address-24.example.invalid:32920 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T01:59:48.585255385Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T01:59:48.585484841Z INFO:     private-address-24.example.invalid:32922 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T01:59:58.585052854Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T01:59:58.585265382Z INFO:     private-address-24.example.invalid:35040 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:00:08.585339843Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:00:08.585566531Z INFO:     private-address-24.example.invalid:46980 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:00:14.485608919Z INFO:     private-address-24.example.invalid:55178 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T02:00:18.584873616Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:00:18.585261904Z INFO:     private-address-24.example.invalid:55188 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:00:28.585763008Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:00:28.586261936Z INFO:     private-address-24.example.invalid:57308 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:00:38.585161571Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:00:38.585624051Z INFO:     private-address-24.example.invalid:39496 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:00:44.486159067Z INFO:     private-address-24.example.invalid:54306 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T02:00:48.585928554Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:00:48.586397003Z INFO:     private-address-24.example.invalid:54308 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:00:58.586269735Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:00:58.586634232Z INFO:     private-address-24.example.invalid:47532 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:01:08.585539690Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:01:08.585813802Z INFO:     private-address-24.example.invalid:51478 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:01:14.486110380Z INFO:     private-address-24.example.invalid:42952 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T02:01:18.584769364Z GET http://opensearch:9200/ [status:200 request:0.001s]
+2026-10-31T02:01:18.585020500Z INFO:     private-address-24.example.invalid:42966 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:01:28.585289240Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:01:28.585614904Z INFO:     private-address-24.example.invalid:49268 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:01:36.341459718Z INFO:     127.0.0.1:41914 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T02:01:36.344285000Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:01:36.344609272Z INFO:     127.0.0.1:41916 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:01:36.345080937Z reject GET /api/v1/collections from 127.0.0.1:41926 (no valid token)
+2026-10-31T02:01:36.345084409Z INFO:     127.0.0.1:41926 - "GET /api/v1/collections HTTP/1.1" 401 Unauthorized
+2026-10-31T02:01:36.354500111Z GET http://opensearch:9200/_cat/indices/collection_*?format=json [status:200 request:0.009s]
+2026-10-31T02:01:36.354536015Z INFO:     127.0.0.1:41930 - "GET /api/v1/collections HTTP/1.1" 200 OK
+2026-10-31T02:01:36.545069159Z PUT http://opensearch:9200/collection_mosaic-validation-20261031 [status:200 request:0.187s]
+2026-10-31T02:01:36.613120136Z POST http://opensearch:9200/collection_mosaic-validation-20261031/_delete_by_query?refresh=true [status:200 request:0.023s]
+2026-10-31T02:01:36.887783612Z POST http://opensearch:9200/_bulk [status:200 request:0.274s]
+2026-10-31T02:01:36.888283052Z mutation POST /api/v1/ingest/file from 127.0.0.1:41932 -> 200
+2026-10-31T02:01:36.888283100Z INFO:     127.0.0.1:41932 - "POST /api/v1/ingest/file HTTP/1.1" 200 OK
+2026-10-31T02:01:36.901512518Z GET http://opensearch:9200/_cat/indices/collection_*?format=json [status:200 request:0.012s]
+2026-10-31T02:01:36.901538262Z INFO:     127.0.0.1:41948 - "GET /api/v1/collections HTTP/1.1" 200 OK
+2026-10-31T02:01:36.910998396Z POST http://opensearch:9200/collection_mosaic-validation-20261031/_search [status:200 request:0.008s]
+2026-10-31T02:01:36.911033132Z INFO:     127.0.0.1:41950 - "GET /api/v1/collections/mosaic-validation-20261031/documents HTTP/1.1" 200 OK
+2026-10-31T02:01:36.912308045Z INFO:     127.0.0.1:41956 - "GET /api/v1/documents/mosaic-validation-control.pdf HTTP/1.1" 200 OK
+2026-10-31T02:01:38.420799264Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:01:38.588697272Z GET http://opensearch:9200/ [status:200 request:0.004s]
+2026-10-31T02:01:38.589598601Z INFO:     private-address-24.example.invalid:58474 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:01:41.080174661Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:01:43.896024869Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:01:44.487020232Z INFO:     private-address-24.example.invalid:34404 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T02:01:45.672733616Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:01:46.294706457Z GET http://opensearch:9200/collection_mosaic-validation-20261031/_mapping [status:200 request:0.007s]
+2026-10-31T02:01:46.346734030Z POST http://opensearch:9200/collection_mosaic-validation-20261031/_search?search_pipeline=hybrid_search_pipeline [status:200 request:0.047s]
+2026-10-31T02:01:46.988804693Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:01:48.585967326Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:01:48.586688127Z INFO:     private-address-24.example.invalid:34414 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:01:54.577947010Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:01:56.297734907Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:01:58.429594101Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:01:58.587057108Z GET http://opensearch:9200/ [status:200 request:0.004s]
+2026-10-31T02:01:58.587765300Z INFO:     private-address-24.example.invalid:59818 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:02:00.188128407Z GET http://opensearch:9200/collection_mosaic-validation-20261031/_mapping [status:200 request:0.004s]
+2026-10-31T02:02:00.188580439Z Connection pool is full, discarding connection: opensearch. Connection pool size: 1
+2026-10-31T02:02:00.189119335Z Connection pool is full, discarding connection: opensearch. Connection pool size: 1
+2026-10-31T02:02:00.189378023Z GET http://opensearch:9200/collection_mosaic-validation-20261031/_mapping [status:200 request:0.004s]
+2026-10-31T02:02:00.189390583Z GET http://opensearch:9200/collection_mosaic-validation-20261031/_mapping [status:200 request:0.004s]
+2026-10-31T02:02:00.190876601Z Connection pool is full, discarding connection: opensearch. Connection pool size: 1
+2026-10-31T02:02:00.190879017Z GET http://opensearch:9200/collection_mosaic-validation-20261031/_mapping [status:200 request:0.005s]
+2026-10-31T02:02:00.209796438Z POST http://opensearch:9200/collection_mosaic-validation-20261031/_search?search_pipeline=hybrid_search_pipeline [status:200 request:0.012s]
+2026-10-31T02:02:00.210848295Z Connection pool is full, discarding connection: opensearch. Connection pool size: 1
+2026-10-31T02:02:00.210879927Z POST http://opensearch:9200/collection_mosaic-validation-20261031/_search?search_pipeline=hybrid_search_pipeline [status:200 request:0.014s]
+2026-10-31T02:02:00.211931719Z Connection pool is full, discarding connection: opensearch. Connection pool size: 1
+2026-10-31T02:02:00.211960471Z Connection pool is full, discarding connection: opensearch. Connection pool size: 1
+2026-10-31T02:02:00.212016359Z POST http://opensearch:9200/collection_mosaic-validation-20261031/_search?search_pipeline=hybrid_search_pipeline [status:200 request:0.014s]
+2026-10-31T02:02:00.212155816Z POST http://opensearch:9200/collection_mosaic-validation-20261031/_search?search_pipeline=hybrid_search_pipeline [status:200 request:0.014s]
+2026-10-31T02:02:01.189899877Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:02:03.008889182Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:02:07.349469270Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:02:08.588251606Z GET http://opensearch:9200/ [status:200 request:0.004s]
+2026-10-31T02:02:08.588852902Z INFO:     private-address-24.example.invalid:38968 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:02:12.660204103Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:02:14.486471259Z INFO:     private-address-24.example.invalid:38626 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T02:02:14.578804347Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:02:16.524752880Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:02:18.586054083Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:02:18.587151508Z INFO:     private-address-24.example.invalid:38630 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:02:21.947260150Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:02:23.664192886Z HTTP Request: POST http://llm-openai-compat:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-31T02:02:27.690053834Z INFO:     127.0.0.1:41972 - "POST /api/v1/query HTTP/1.1" 200 OK
+2026-10-31T02:02:27.690055802Z mutation POST /api/v1/query from 127.0.0.1:41972 -> 200
+2026-10-31T02:02:28.584803985Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:02:28.590824357Z INFO:     private-address-24.example.invalid:36554 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:02:38.584755534Z GET http://opensearch:9200/ [status:200 request:0.001s]
+2026-10-31T02:02:38.585287727Z INFO:     private-address-24.example.invalid:51872 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:02:44.485301392Z INFO:     private-address-24.example.invalid:36672 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T02:02:48.584090205Z GET http://opensearch:9200/ [status:200 request:0.001s]
+2026-10-31T02:02:48.584478861Z INFO:     private-address-24.example.invalid:36682 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:02:58.585001341Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:02:58.585487613Z INFO:     private-address-24.example.invalid:36054 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:03:08.586043105Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:03:08.586610273Z INFO:     private-address-24.example.invalid:36632 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:03:14.485749313Z INFO:     private-address-24.example.invalid:37978 - "GET /api/v1/live HTTP/1.1" 200 OK
+2026-10-31T02:03:18.584910231Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:03:18.585274343Z INFO:     private-address-24.example.invalid:37988 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:03:28.585429825Z GET http://opensearch:9200/ [status:200 request:0.002s]
+2026-10-31T02:03:28.585652721Z INFO:     private-address-24.example.invalid:32998 - "GET /api/v1/health HTTP/1.1" 200 OK
+2026-10-31T02:03:38.584934337Z GET http://opensearch:9200/ [status:200 request:0.001s]
+2026-10-31T02:03:38.585301937Z INFO:     private-address-24.example.invalid:55580 - "GET /api/v1/health HTTP/1.1" 200 OK

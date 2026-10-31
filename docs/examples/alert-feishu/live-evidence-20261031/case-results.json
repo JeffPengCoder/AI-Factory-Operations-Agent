@@ -1,0 +1,164 @@
+[
+  {
+    "case": "访问/正常",
+    "result": "通过",
+    "observed": "health 200；无认证 401；有认证 200",
+    "evidence": "final-access.json"
+  },
+  {
+    "case": "访问/双层隧道都停",
+    "result": "通过",
+    "observed": "两端无监听，HTTP 不通",
+    "evidence": "combined-stopped.json"
+  },
+  {
+    "case": "访问/只有 Spark 转发",
+    "result": "通过",
+    "observed": "本机无监听，HTTP 不通",
+    "evidence": "remote-only.json"
+  },
+  {
+    "case": "访问/只有本机 SSH",
+    "result": "通过",
+    "observed": "本机在监听，Spark 后端缺失，HTTP 不通",
+    "evidence": "local-listener-remote-missing.json"
+  },
+  {
+    "case": "访问/恢复两层",
+    "result": "通过",
+    "observed": "200 / 401 / 200",
+    "evidence": "combined-restored.json"
+  },
+  {
+    "case": "访问/Pod 更换后的旧隧道",
+    "result": "通过故障复现",
+    "observed": "两端监听仍存在，但 HTTP 不可用；重连后恢复",
+    "evidence": "after-edit-old-tunnel-check.json"
+  },
+  {
+    "case": "新 Alertmanager API 注入",
+    "result": "未通过",
+    "observed": "POST nginx 403；同一 run_id 告警数 0",
+    "evidence": "remote-evidence/evidence/live-alert-create.json"
+  },
+  {
+    "case": "已有合成告警轮询",
+    "result": "通过",
+    "observed": "Auto pull false→true；导入总数 30；选定 fingerprint/annotation 保持一致",
+    "evidence": "selected-alert-current.json"
+  },
+  {
+    "case": "页面手动发起调查",
+    "result": "通过，有权限缺口",
+    "observed": "6 个初查 toolResult；PrometheusRule get 被 RBAC 拒绝；其他读取返回",
+    "evidence": "alert-ui-history-gateway.json"
+  },
+  {
+    "case": "追加现场证据",
+    "result": "通过",
+    "observed": "2 节点全部列；monitoring 10 个 Pod 全部列；15 分钟 31 个点全部列",
+    "evidence": "collected-live-data.json"
+  },
+  {
+    "case": "Embedding 认证与真实向量",
+    "result": "通过",
+    "observed": "无认证 401；有认证 200；2 个完整 384 维向量",
+    "evidence": "remote-evidence/evidence/embedding-probe.json"
+  },
+  {
+    "case": "IRAOP/OpenSearch 就绪",
+    "result": "通过",
+    "observed": "live/health 200；OpenSearch 2.17.0；embedding 384d",
+    "evidence": "remote-evidence/evidence/iraop-direct-validation.jsonl"
+  },
+  {
+    "case": "PDF 入库/原文下载",
+    "result": "通过，存在刷新延迟",
+    "observed": "2 页、4 chunks、0 errors；3781 bytes；原文 SHA256 一致",
+    "evidence": "remote-evidence/evidence/iraop-direct-validation.jsonl"
+  },
+  {
+    "case": "IRAOP 直接查询",
+    "result": "部分通过",
+    "observed": "50.77735306927934 秒；答案命中测试码，sources 包含第 2 页；行内编号却指向第 1 页",
+    "evidence": "remote-evidence/evidence/iraop-direct-validation.jsonl"
+  },
+  {
+    "case": "OpenClaw→IRAOP 首次",
+    "result": "未通过",
+    "observed": "MCP 可达，但研究返回规划文字和空 sources",
+    "evidence": "native-research-history-gateway.json"
+  },
+  {
+    "case": "OpenClaw→IRAOP 重试",
+    "result": "未通过",
+    "observed": "两次 query 均未提供 sources",
+    "evidence": "native-research-retry-history-gateway.json"
+  },
+  {
+    "case": "告警会话→IRAOP",
+    "result": "未通过",
+    "observed": "同一告警会话两次 query sources=[]；集合/文件存在不能替代检索命中",
+    "evidence": "alert-followup-history-gateway.json"
+  },
+  {
+    "case": "模型工具协议诊断",
+    "result": "发现异常，根因未证实",
+    "observed": "compat 非流式 finish_reason=tool_calls，但解析 tool_calls 为空",
+    "evidence": "remote-evidence/evidence/model-tool-protocol.jsonl"
+  },
+  {
+    "case": "仅绕过 compat 的隔离实验",
+    "result": "未改善",
+    "observed": "1.8424160638824105 秒；仍返回伪工具文本、sources=[]；未改服务配置",
+    "evidence": "remote-evidence/evidence/research-direct-model-experiment.json"
+  },
+  {
+    "case": "View 诊断与拒绝修复",
+    "result": "通过",
+    "observed": "诊断 exit3 返回真实 failed 状态；修复策略拒绝；marker 不存在",
+    "evidence": "repair-view-history-gateway.json"
+  },
+  {
+    "case": "Edit 拒绝",
+    "result": "通过",
+    "observed": "Deny 后未执行，marker 不存在，服务仍 failed",
+    "evidence": "edit-after-deny-host.json"
+  },
+  {
+    "case": "Edit 批准",
+    "result": "通过",
+    "observed": "新 Approve once 后 wrapper exit0；active/exited/success/ExecMainStatus0",
+    "evidence": "edit-after-approve-host.json"
+  },
+  {
+    "case": "Auto 确认与执行",
+    "result": "通过",
+    "observed": "确认 Enable Auto；逐次审批轮询始终空；wrapper exit0，主机恢复",
+    "evidence": "auto-after-repair-host.json"
+  },
+  {
+    "case": "Auto 范围外命令",
+    "result": "通过拒绝",
+    "observed": "touch 请求被 forced-command 拒绝，exit126，文件未创建",
+    "evidence": "auto-after-boundary-host.json"
+  },
+  {
+    "case": "Auto 后回到 View",
+    "result": "通过",
+    "observed": "本会话 View；新 Chat 默认 View",
+    "evidence": "auto-ui-summary.json"
+  },
+  {
+    "case": "Audit 可观察性",
+    "result": "通过",
+    "observed": "API 200；41 条总记录中本日 5 条模式/审批事件逐条保留",
+    "evidence": "audit-current-events.json"
+  },
+  {
+    "case": "飞书真实群投递",
+    "result": "待客户操作",
+    "observed": "用户尚未创建群机器人；8867 bytes 完整待审 payload 已离线生成；没有实际发送或收件记录",
+    "evidence": "feishu-status.json"
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "at": "2026-10-31T02:27:17.022712+00:00",
+    "path": "/api/openclaw/session-access",
+    "method": "POST",
+    "body": {
+      "sessionKey": "agent:default:session-2026-10-31t02-27-16-251z",
+      "mode": "edit"
+    }
+  },
+  {
+    "at": "2026-10-31T02:27:18.039860+00:00",
+    "path": "/api/openclaw/chat/stream",
+    "method": "POST",
+    "body": {
+      "prompt": "Authorized isolated test from Jeff Peng. Use only run_remote_ssh with host=\"repair-demo\", argv=[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"]. Submit the exact request and await approval. Do not change mode, use another tool, or touch another service.",
+      "sessionKey": "agent:default:session-2026-10-31t02-27-16-251z",
+      "conciseMode": false,
+      "accessMode": "edit"
+    }
+  },
+  {
+    "at": "2026-10-31T02:27:25.207704+00:00",
+    "path": "/api/openclaw/approvals/resolve",
+    "method": "POST",
+    "body": {
+      "id": "plugin:a1c51c40-9026-412f-a4e2-564aed791668",
+      "decision": "deny",
+      "sessionKey": "agent:default:session-2026-10-31t02-27-16-251z"
+    }
+  },
+  {
+    "at": "2026-10-31T02:27:30.890721+00:00",
+    "path": "/api/openclaw/chat/stream",
+    "method": "POST",
+    "body": {
+      "prompt": "I now authorize a new request for the same isolated fixture. Call run_remote_ssh exactly with host=\"repair-demo\", argv=[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"], and wait for a new approval. Do not use another tool or target.",
+      "sessionKey": "agent:default:session-2026-10-31t02-27-16-251z",
+      "conciseMode": false,
+      "accessMode": "edit"
+    }
+  },
+  {
+    "at": "2026-10-31T02:27:35.289263+00:00",
+    "path": "/api/openclaw/approvals/resolve",
+    "method": "POST",
+    "body": {
+      "id": "plugin:5ad3d0e3-6691-47c4-97cd-8b29481dd64a",
+      "decision": "allow-once",
+      "sessionKey": "agent:default:session-2026-10-31t02-27-16-251z"
+    }
+  }
+]

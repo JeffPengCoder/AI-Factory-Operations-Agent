@@ -45,8 +45,9 @@ Tenant and operator deployments <docs/multitenancy>
 Use cases <docs/use_cases>
 Slurm root cause analysis <docs/slurm_rca>
 Spark alerts and Feishu runbook (Chinese) <docs/spark_alert_feishu_runbook.zh-CN>
-IRAOP alert validation draft (Chinese) <docs/spark_iraop_alert_validation.zh-CN>
-Edit/Auto repair validation draft (Chinese) <docs/spark_edit_auto_repair_validation.zh-CN>
+IRAOP alert validation (Chinese) <docs/spark_iraop_alert_validation.zh-CN>
+Edit/Auto repair validation (Chinese) <docs/spark_edit_auto_repair_validation.zh-CN>
+Spark live validation and evidence (Chinese) <docs/spark_live_validation_20261031.zh-CN>
 Loki query reference <docs/loki>
 Headless integration <docs/skills/ai-factory-operations-agent-headless/SKILL>
 ```

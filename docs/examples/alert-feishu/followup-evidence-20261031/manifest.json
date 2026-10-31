@@ -1,0 +1,1387 @@
+{
+  "scope": "Complete selected follow-up outputs, all direct-search hits and scores, every selected message/tool result, all generated output token IDs, full comparison responses, failure attempts, actual scripts and patches. The tables in the companion document are additional summaries.",
+  "redactions": [
+    "Private addresses, actual OS/SSH account/hostnames and private registry organization replaced consistently.",
+    "Actual Secret values scanned in memory only; matches, if any, replaced and counted per file.",
+    "Raw completion input token IDs encode proprietary system prompts and are explicitly replaced. All 32 generated output token IDs remain."
+  ],
+  "excludedFromPublic": [
+    "Credentials, raw Helm values/manifests/server render and private child-chart package stay on Spark under protected permissions.",
+    "Complete agent event/request traces, original raw-completion inputs and tokenizer IDs include proprietary system prompts and remain in the internal evidence bundle.",
+    "Whole browser DOM/screenshots, full all-alert snapshots and unrelated private events stay in the internal bundle. Complete selected query page text, selected test alert and session/tool records are included."
+  ],
+  "files": [
+    {
+      "path": "access-after-query-guard-attempt-1.log",
+      "originalBytes": 297,
+      "originalSha256": "d80c13a6959913f88ec4a12ddd609b65b062539780e8e4d101ed63d93647f864",
+      "publishedBytes": 299,
+      "publishedSha256": "5965e6f998dd946ddbb00fd9b75070eb62f530163b53512519493e4223ce1c3f",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "access/after-final-guard-old-tunnel.json",
+      "originalBytes": 1170,
+      "originalSha256": "b350abc73f7f86ec78b449ea94a838aa8b4fc2de22335d4a283bf814079b4c7c",
+      "publishedBytes": 1185,
+      "publishedSha256": "a69b586830b36f555300166f32b6b4e24e1fcd9273f68f1fb8ec3aa1f150d29f",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "access/after-final-guard-restored.json",
+      "originalBytes": 1603,
+      "originalSha256": "f54158603cc6287527e60ee8fee38f16e62e219ae2591879b4b29eecd4a291c9",
+      "publishedBytes": 1636,
+      "publishedSha256": "45836b72410a3a8640b1be25edecb6326dd9a36196d9c2c9984f91ee8f9e3b41",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "access/after-query-guard-check.json",
+      "originalBytes": 1275,
+      "originalSha256": "e090f7ce114365c588b41fbe85ef2d2e667c3bcd5812c9029e579bec8766127e",
+      "publishedBytes": 1290,
+      "publishedSha256": "bbaa2092d773d52eb718607fd43947454b127f18f7311648051726632c70078d",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "access/after-query-guard-restored.json",
+      "originalBytes": 1603,
+      "originalSha256": "dfd07d6fa0bb3fca62bc770bd587ee3e9e303e36efc747ecb1737e5a21817efa",
+      "publishedBytes": 1636,
+      "publishedSha256": "30d571e0ac564fcf035d3c535e31328429561760c7ec165f83805f5b38e7feac",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "alerts-restored/alerts-pull-ui-requests.json",
+      "originalBytes": 295,
+      "originalSha256": "915b7147d2c73147e6b3f943bfa50e93650bcb3ba97647b4749ee2fd4d632341",
+      "publishedBytes": 295,
+      "publishedSha256": "915b7147d2c73147e6b3f943bfa50e93650bcb3ba97647b4749ee2fd4d632341",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "alerts-restored/selected-alert-current.json",
+      "originalBytes": 1508,
+      "originalSha256": "925d38ff53a57db8847a8dc8241a20a44b94765be6a866815d65e894ab57085d",
+      "publishedBytes": 1508,
+      "publishedSha256": "925d38ff53a57db8847a8dc8241a20a44b94765be6a866815d65e894ab57085d",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "alerts-restored/summary.json",
+      "originalBytes": 258,
+      "originalSha256": "71dbe93eb5394bec0f6eb81809af4f28a31997ff6faef6037b7c2d32e8fb39c1",
+      "publishedBytes": 258,
+      "publishedSha256": "71dbe93eb5394bec0f6eb81809af4f28a31997ff6faef6037b7c2d32e8fb39c1",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "apply_query_guard.py",
+      "originalBytes": 4404,
+      "originalSha256": "a36ff5becebaa7c358263c0fdaa55aa0f61efcff3b25f9666a08902dcf48dfac",
+      "publishedBytes": 4541,
+      "publishedSha256": "7bec0731f6087935c130f78f5362533f8a4f3bbb6c1af945b016ce6e8e7bf4e4",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "apply_query_guard_final.py",
+      "originalBytes": 4665,
+      "originalSha256": "f05460085f6b7c7d26e1c4efe6992a7824f13a82627bc1e9cfe4f1a132945cec",
+      "publishedBytes": 4802,
+      "publishedSha256": "085f284fc3344c57585901f8fb97239d0a62ffebc4b6959703008dacb47f54b4",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "approval-timeout-attempt-1.log",
+      "originalBytes": 406,
+      "originalSha256": "9825197b6b8dc1727f049e62f8ebc14158891fe5feb39524159dbbe01f5fea51",
+      "publishedBytes": 406,
+      "publishedSha256": "9825197b6b8dc1727f049e62f8ebc14158891fe5feb39524159dbbe01f5fea51",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "approval-timeout/after-expiry-host.json",
+      "originalBytes": 4442,
+      "originalSha256": "c5f2d37f9b3775b6d5f23a0fb354bdf8b91d9c2febaac5ffcb4ed54aa81c5daa",
+      "publishedBytes": 4474,
+      "publishedSha256": "8611e2735ff77a8670e3614e2c165151fef923ba955c0858a1a4c3c1397af7f5",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "approval-timeout/before-test-host.json",
+      "originalBytes": 4466,
+      "originalSha256": "18af3345b560d8201812edb569382a0cd95d800cdb96cc9dcc521c90c762ab02",
+      "publishedBytes": 4498,
+      "publishedSha256": "eb78bd20370cd00f8d7b3df5842673e55a54d102b15a84f4b7e8788bf51b78d7",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "approval-timeout/completion-polls.json",
+      "originalBytes": 8696,
+      "originalSha256": "2be5c095007a1238a070a95f94362960f56c68344f2198d831d2bacf7895905a",
+      "publishedBytes": 8696,
+      "publishedSha256": "2be5c095007a1238a070a95f94362960f56c68344f2198d831d2bacf7895905a",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "approval-timeout/history-api.json",
+      "originalBytes": 8955,
+      "originalSha256": "aa20853e30e6996b8403cade21064e7dd8ecf7033ba4aebeb6014fa5ed9dff89",
+      "publishedBytes": 8975,
+      "publishedSha256": "e6f02d9c39f937db63b8590d8dddd1039be20679edbc7aa6aa0d81a49f620ca9",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "approval-timeout/history-gateway.json",
+      "originalBytes": 4731,
+      "originalSha256": "3bab2b67c27d281b5dac4e1c9429e6df84defde17b4d4971bb8ef296f3457aac",
+      "publishedBytes": 4743,
+      "publishedSha256": "87034ab2caba52b0f81138f79d89b999f26da6b521b2366124df5f2e529e4fc2",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "approval-timeout/maintenance-restored-host.json",
+      "originalBytes": 4815,
+      "originalSha256": "7129b87cc8eec2d6c36b4eb119974bc4a5114d6171d3192d122fcbaf9028ae35",
+      "publishedBytes": 4851,
+      "publishedSha256": "d640ba4e052e56141e9d1bc99e919655a4b593cfe16036b5cfd95afb7ee816df",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "approval-timeout/pending-approval.json",
+      "originalBytes": 600,
+      "originalSha256": "3b9b73b2a33656b98e4fd74c72222e38933af8c7f353d3cc7252fc2a464669fe",
+      "publishedBytes": 631,
+      "publishedSha256": "aae10210372f6201fb13367a4d9d3f12a53a4b3a5631cd46760914c1e5c2318e",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "approval-timeout/reset-host.json",
+      "originalBytes": 5406,
+      "originalSha256": "10a61ec025812b9c023344dcc5a91f43407a74419a4b5b6bd6a287b5e919eed1",
+      "publishedBytes": 5438,
+      "publishedSha256": "f2fb0a4b9013498b64824b65e522b7a9ea64762a7566cd292232c88c1216a64d",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "approval-timeout/summary.json",
+      "originalBytes": 348,
+      "originalSha256": "0039c20157562c322dd5d47e32fc27ce29cf7185076b77fc62d4ee8606227958",
+      "publishedBytes": 348,
+      "publishedSha256": "0039c20157562c322dd5d47e32fc27ce29cf7185076b77fc62d4ee8606227958",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "approval-timeout/ui-requests.json",
+      "originalBytes": 1096,
+      "originalSha256": "f3cdf26394fc0e2e9b2bc102ef4b43fe737d4c1288c27ab6a03a67f83e4baf7c",
+      "publishedBytes": 1100,
+      "publishedSha256": "26c35ee840a1d4267f41f6017b3065678071f170ac2e2d3e2a243fd3a8316efb",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "approval-timeout/while-pending-host.json",
+      "originalBytes": 4442,
+      "originalSha256": "c5f2d37f9b3775b6d5f23a0fb354bdf8b91d9c2febaac5ffcb4ed54aa81c5daa",
+      "publishedBytes": 4474,
+      "publishedSha256": "8611e2735ff77a8670e3614e2c165151fef923ba955c0858a1a4c3c1397af7f5",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "approval_timeout.py",
+      "originalBytes": 7722,
+      "originalSha256": "b0978adc85677af9d7438135ba09180cee1c8e44b28754f18bacf5d228d0c891",
+      "publishedBytes": 7863,
+      "publishedSha256": "bb28738fe75f2da378798e0e3e93af6f73bf63818a1521c6b505afd806e291bb",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "baseline/agent-state.json",
+      "originalBytes": 1141,
+      "originalSha256": "af88a9a841e120a6ddc551e5446f9591a247a74c23ca7942ed97a08e2f39684c",
+      "publishedBytes": 1141,
+      "publishedSha256": "af88a9a841e120a6ddc551e5446f9591a247a74c23ca7942ed97a08e2f39684c",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "baseline/direct-hybrid-search.json",
+      "originalBytes": 2802,
+      "originalSha256": "235bf2e3937b27c7b6882a2b97687ed87518fba77d99551c406c8cb7c14659ab",
+      "publishedBytes": 2802,
+      "publishedSha256": "235bf2e3937b27c7b6882a2b97687ed87518fba77d99551c406c8cb7c14659ab",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "baseline/metadata.json",
+      "originalBytes": 596,
+      "originalSha256": "33dc7b7aed1b84d0af68b271a3cd31be86fcb6851f0000448246fa0461918d98",
+      "publishedBytes": 596,
+      "publishedSha256": "33dc7b7aed1b84d0af68b271a3cd31be86fcb6851f0000448246fa0461918d98",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "baseline/trace-summary.json",
+      "originalBytes": 238,
+      "originalSha256": "624a41843b4648ed4542ead3954ae61f8a8175d27aa719c2ecdc7803a6458cfc",
+      "publishedBytes": 238,
+      "publishedSha256": "624a41843b4648ed4542ead3954ae61f8a8175d27aa719c2ecdc7803a6458cfc",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "browser_query_guard.py",
+      "originalBytes": 4155,
+      "originalSha256": "1bcd10ce8925aef7058bf1700e77f0d9a7b9d5bb236ab0f5ce572b238fcbcd65",
+      "publishedBytes": 4292,
+      "publishedSha256": "06f51bffd442e11d29680eeb177e62c9833b05e252a3564625a4a210dc8b286a",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "build_followup_doc.py",
+      "originalBytes": 25255,
+      "originalSha256": "607669b32230ac397dd89ffe9995b78d736525e40bad95045fa2927757dfca3e",
+      "publishedBytes": 25392,
+      "publishedSha256": "b8614834fdceb3829b4c5404266901dd49fd54b4142ee74a19975d2aa2fbe146",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "capture_and_replay.py",
+      "originalBytes": 5995,
+      "originalSha256": "852148833d5d2d88d07ffd9db90c54fbc1433e49ee0b8b5a8285a0948f98b9e3",
+      "publishedBytes": 6155,
+      "publishedSha256": "7c15552bacdaeed3cb0973b0d58d800418ad35bf4aaf2204f0eb58db9a9e1336",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "capture_runtime_final.py",
+      "originalBytes": 3292,
+      "originalSha256": "e1cca1ed7a4fe14eeae1b6b8acfe66c3c8cfbada92a19e9aca509669e5157c59",
+      "publishedBytes": 3429,
+      "publishedSha256": "ff15b99b73139c71c43c713f20cc8461561eb558fca23db65ec1d6c3c4570ba7",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "code-pr-validation.json",
+      "originalBytes": 1148,
+      "originalSha256": "a6fba4a7945b3e776e00a60719632006175a3547942cee39a4186c99dab6a286",
+      "publishedBytes": 1148,
+      "publishedSha256": "a6fba4a7945b3e776e00a60719632006175a3547942cee39a4186c99dab6a286",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "collect_guard_evidence.py",
+      "originalBytes": 1822,
+      "originalSha256": "4d85187ce2fc52572197e2eec2e89cce77bdf088605adb191f81a696cea1e364",
+      "publishedBytes": 1959,
+      "publishedSha256": "0808733a40796e9359dbaa31cf5a164fa08f2a97bbe2a04d74eb43565522512e",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "direct-no-thinking-1/agent-state.json",
+      "originalBytes": 1198,
+      "originalSha256": "ea3936146542eed02c47219862710b25fdc96abcec40516954b7f728766db957",
+      "publishedBytes": 1198,
+      "publishedSha256": "ea3936146542eed02c47219862710b25fdc96abcec40516954b7f728766db957",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "direct-no-thinking-1/direct-hybrid-search.json",
+      "originalBytes": 2801,
+      "originalSha256": "80bcf2e9a5fc7acd9dda5eae13115717afec2888004885255c71d6b40f37f0a5",
+      "publishedBytes": 2801,
+      "publishedSha256": "80bcf2e9a5fc7acd9dda5eae13115717afec2888004885255c71d6b40f37f0a5",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "direct-no-thinking-1/metadata.json",
+      "originalBytes": 648,
+      "originalSha256": "d0ff03866a0481ff6020edaffb35e46061f5e881a272489a59d2a67efc2667f3",
+      "publishedBytes": 648,
+      "publishedSha256": "d0ff03866a0481ff6020edaffb35e46061f5e881a272489a59d2a67efc2667f3",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "direct-no-thinking-1/trace-summary.json",
+      "originalBytes": 304,
+      "originalSha256": "06c9a80a707ebbb512af063a85a9c7124d3fb67c09f308f78981a95fa6093fd6",
+      "publishedBytes": 304,
+      "publishedSha256": "06c9a80a707ebbb512af063a85a9c7124d3fb67c09f308f78981a95fa6093fd6",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "docs-pr-sphinx.log",
+      "originalBytes": 19235,
+      "originalSha256": "69414f5ba1012d5ac811667a81cdecacf08645efb41e8bf039c6ee6547417a92",
+      "publishedBytes": 19235,
+      "publishedSha256": "69414f5ba1012d5ac811667a81cdecacf08645efb41e8bf039c6ee6547417a92",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "docs-pr-tests.log",
+      "originalBytes": 17917,
+      "originalSha256": "4ba70ab5e9f008451ce42f391ffa53870ca6eb65059641f9ee4474f0ffb9b5cd",
+      "publishedBytes": 17917,
+      "publishedSha256": "4ba70ab5e9f008451ce42f391ffa53870ca6eb65059641f9ee4474f0ffb9b5cd",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "fetch_trace.py",
+      "originalBytes": 2558,
+      "originalSha256": "582deb2803338de99b4f66ec5010342fe92086519a3400535a9990debbe220fe",
+      "publishedBytes": 2708,
+      "publishedSha256": "baac84daf7307880f621b487c8c71134125c24b2e4c44221265a0d5bb1a3d662",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "fix-chart-lint.log",
+      "originalBytes": 107,
+      "originalSha256": "12cc2ea90b549113a805fc41bdbfeded2931ef6503a234af6d124389c2bf46d2",
+      "publishedBytes": 107,
+      "publishedSha256": "12cc2ea90b549113a805fc41bdbfeded2931ef6503a234af6d124389c2bf46d2",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "fix-ci-tests-final.log",
+      "originalBytes": 23434,
+      "originalSha256": "9002ab97c186d6b58168134fae015af3e2908c3ec91fd0e8bfa54f302cfb23da",
+      "publishedBytes": 23434,
+      "publishedSha256": "9002ab97c186d6b58168134fae015af3e2908c3ec91fd0e8bfa54f302cfb23da",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "fix-documentation-checks-retry.log",
+      "originalBytes": 2102,
+      "originalSha256": "0fc27e609b1d67031acefc818ee241a2ab413e0fb9dbad1c590737fc36ec5780",
+      "publishedBytes": 2102,
+      "publishedSha256": "0fc27e609b1d67031acefc818ee241a2ab413e0fb9dbad1c590737fc36ec5780",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "fix-documentation-checks.log",
+      "originalBytes": 3177,
+      "originalSha256": "4b25dcc107f4da41d862d304cdcf3a408d9833896e99f04648c4fef4bd4d244f",
+      "publishedBytes": 3181,
+      "publishedSha256": "2ecc5525649f85e720225879634cfa5f18c9b73299a91ded50740fe58ced8c64",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "fix-repo-tests-final.log",
+      "originalBytes": 21312,
+      "originalSha256": "fcd5642c03424a31ff8d4a20b66e0f19ce56370aae6181e6a1aa6a7271a19e61",
+      "publishedBytes": 21312,
+      "publishedSha256": "fcd5642c03424a31ff8d4a20b66e0f19ce56370aae6181e6a1aa6a7271a19e61",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "fix-repo-tests.log",
+      "originalBytes": 23440,
+      "originalSha256": "9d9aeb35bb8253779d225b7aec241b1ddaa7fbed22381f1dd79ba533c0f2d44a",
+      "publishedBytes": 23440,
+      "publishedSha256": "9d9aeb35bb8253779d225b7aec241b1ddaa7fbed22381f1dd79ba533c0f2d44a",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "fix-source-policy.log",
+      "originalBytes": 277,
+      "originalSha256": "ab1579114af8b189b308b91d9bc606764a6c0b3e53e853d54d61d47933544ab0",
+      "publishedBytes": 277,
+      "publishedSha256": "ab1579114af8b189b308b91d9bc606764a6c0b3e53e853d54d61d47933544ab0",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "guided-search-1/agent-state.json",
+      "originalBytes": 4068,
+      "originalSha256": "ef00595fcad6d2ef0c6545be18524c273fcfcdaa14da335a6ec4ce0547a916d0",
+      "publishedBytes": 4068,
+      "publishedSha256": "ef00595fcad6d2ef0c6545be18524c273fcfcdaa14da335a6ec4ce0547a916d0",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "guided-search-1/direct-hybrid-search.json",
+      "originalBytes": 2802,
+      "originalSha256": "ebdfa209fa9da3e3ff27326816145f0e33d09ca01b087b503970cf654ffc806c",
+      "publishedBytes": 2802,
+      "publishedSha256": "ebdfa209fa9da3e3ff27326816145f0e33d09ca01b087b503970cf654ffc806c",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "guided-search-1/metadata.json",
+      "originalBytes": 1138,
+      "originalSha256": "2f6b220be0741781e860f902daa79445de1c825de4133b5f6a6cad5a98ac8ab8",
+      "publishedBytes": 1138,
+      "publishedSha256": "2f6b220be0741781e860f902daa79445de1c825de4133b5f6a6cad5a98ac8ab8",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "guided-search-1/trace-summary.json",
+      "originalBytes": 2675,
+      "originalSha256": "7b02e00d7db931004c645a92eb5607a6add158d93dd4bc2b3ecfe419ce39a180",
+      "publishedBytes": 2675,
+      "publishedSha256": "7b02e00d7db931004c645a92eb5607a6add158d93dd4bc2b3ecfe419ce39a180",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "iraop-response-tests-final.log",
+      "originalBytes": 6763,
+      "originalSha256": "ec7c8f2a682064818398050e7ae97c6fa52d782b9fb87471ed06043bb5fa6129",
+      "publishedBytes": 6763,
+      "publishedSha256": "ec7c8f2a682064818398050e7ae97c6fa52d782b9fb87471ed06043bb5fa6129",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "iraop-response-tests.log",
+      "originalBytes": 6774,
+      "originalSha256": "17a9e853bf8376413ac6978f6d811452b13c04d809ca8431561fbf0c39ce41be",
+      "publishedBytes": 6774,
+      "publishedSha256": "17a9e853bf8376413ac6978f6d811452b13c04d809ca8431561fbf0c39ce41be",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "iraop-restart/after-data.json",
+      "originalBytes": 9365,
+      "originalSha256": "ccf43b0c3db42e53b635a83c47759b0d939387d2500f9a1e0b01e6e3ac6a817e",
+      "publishedBytes": 9365,
+      "publishedSha256": "ccf43b0c3db42e53b635a83c47759b0d939387d2500f9a1e0b01e6e3ac6a817e",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "iraop-restart/after-exec.json",
+      "originalBytes": 10449,
+      "originalSha256": "2ffc365a15afb426b23adfe399a2fbff99db5b41903c9ea8cc008317a16e1b84",
+      "publishedBytes": 10453,
+      "publishedSha256": "db49ca266d6775a0215f2b3bb8842da8dd55fa8c82312a2738ada56edf5ac5d0",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "iraop-restart/before-data.json",
+      "originalBytes": 9364,
+      "originalSha256": "e572c991b5151479226f191a780212206ce1160bd7c54ed427208b4f3df9224b",
+      "publishedBytes": 9364,
+      "publishedSha256": "e572c991b5151479226f191a780212206ce1160bd7c54ed427208b4f3df9224b",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "iraop-restart/before-exec.json",
+      "originalBytes": 10446,
+      "originalSha256": "4a23d8b2003e6e1ee39ab0181498df925dfe97b89072dc191d99b4069a69d2e2",
+      "publishedBytes": 10450,
+      "publishedSha256": "477f106614558fb750653e4cbc5a9137459f6b4f2b67d58cda7cb51f749686df",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "iraop-restart/before-pod.log",
+      "originalBytes": 230220,
+      "originalSha256": "64e3e67ce500008cfe03891c34dc52e6ca94499cdb93e49499ea3e3d9b95ce3a",
+      "publishedBytes": 253565,
+      "publishedSha256": "511bc640c9a1bdc88a02654532dd71358ea8ee33208d4cf8d4c104b5cd67b20c",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "iraop-restart/delete-result.json",
+      "originalBytes": 360,
+      "originalSha256": "680e98ac09575d2ea7c326c40144989da763179fb768dffe88f948a68554f93b",
+      "publishedBytes": 364,
+      "publishedSha256": "2134c379a2ea526134a1c25b8a126e44189e9954503324490b21b7f153d412fc",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "iraop-restart/deployment-before.json",
+      "originalBytes": 5058,
+      "originalSha256": "a4d8214f8d560a0675b7a2d059e54f3c9dde5f769a23141f4262219b2eeefaf7",
+      "publishedBytes": 5052,
+      "publishedSha256": "5f193035e5059aa1c8356835f7205a847b1104c85e4c1da52965c2d827d483cc",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "iraop-restart/pods-after.json",
+      "originalBytes": 7714,
+      "originalSha256": "745d00d3436be6b39f294e2173abff0b71d0a73bb36cb8c6d5f18499e3ea1188",
+      "publishedBytes": 7826,
+      "publishedSha256": "0eeb91475d22378919f36ad35e6233d06fea5876db06990fc4c8f8625cc8bf66",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "iraop-restart/pods-before.json",
+      "originalBytes": 7714,
+      "originalSha256": "65a70159dc22ec1dfb5e7100660b0288bb2096b6279703bc874dfebe1ca2f717",
+      "publishedBytes": 7826,
+      "publishedSha256": "e55ef4cdc6b40432944df3d3d8fe4934876a0353f37dff3b5926a04fccf9d4c3",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "iraop-restart/rollout-result.json",
+      "originalBytes": 425,
+      "originalSha256": "f9f0ece7056788e3136955473df5940ab6e8f9a1bd78f96b53713acf4cc14495",
+      "publishedBytes": 429,
+      "publishedSha256": "fba9acc56e0199d51551affc44f33232307ed263f7f2004bb2e8a3498376eaba",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "iraop-restart/summary.json",
+      "originalBytes": 540,
+      "originalSha256": "12845b82397c1406d1d1923255ba465838a48f75bea96f0f4624fc0ae2e194a9",
+      "publishedBytes": 540,
+      "publishedSha256": "12845b82397c1406d1d1923255ba465838a48f75bea96f0f4624fc0ae2e194a9",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "mosaic_chat_request.py",
+      "originalBytes": 2382,
+      "originalSha256": "e05656ca14e7045d8c62749e9440a94b08b5997380fa08d9b828c2f0ca3489ab",
+      "publishedBytes": 2519,
+      "publishedSha256": "16c8bd0ea2635dac44ae4fa69b04c8834e3b831a6d2ab5992a40d383d15d10dd",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "prepare_query_guard.attempt1.py",
+      "originalBytes": 5149,
+      "originalSha256": "59cab9015f86460d0a1f4a26e210752fd004fd230b6cea2b797390e7479dc031",
+      "publishedBytes": 5286,
+      "publishedSha256": "323aabc6c4d54355dccd14a0cbc72bd96358bef061d19efb49daf77946abd5a2",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "prepare_query_guard.py",
+      "originalBytes": 5531,
+      "originalSha256": "049f036ab08ea520e16005b3afc216b05f7a9556e79000749db267a7459889ad",
+      "publishedBytes": 5668,
+      "publishedSha256": "9b4e434c91a93ea21501794d3747de2c67c0ab5561528d7fefaa53ed4c08c291",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "prepare_query_guard_final.py",
+      "originalBytes": 5553,
+      "originalSha256": "e71c5a49fe9ca4c4ebc132161122e4d3e12aa9afb05bc2bdacf4468b182dd54c",
+      "publishedBytes": 5690,
+      "publishedSha256": "bcb730079dc42c9642726923b975f6b9eb3595efc3f4aa791ba1b0cbdea3d5f4",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "publication-attempt-2.log",
+      "originalBytes": 69,
+      "originalSha256": "7dc6ab31263ea027c53283988c0e56927319ac79859fa515ab149448505b0b86",
+      "publishedBytes": 69,
+      "publishedSha256": "7dc6ab31263ea027c53283988c0e56927319ac79859fa515ab149448505b0b86",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "publish_followup_evidence.py",
+      "originalBytes": 8195,
+      "originalSha256": "c97c1eb2152a263dbed277d67625cd277b0fd9c8428977a26da9ebdacdc5b0f8",
+      "publishedBytes": 8417,
+      "publishedSha256": "cf8114ae838b169bbde59d062ea75a56c01fbf91b9235b139b8df3bfa035dc8f",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-2/apply-exit.json",
+      "originalBytes": 15,
+      "originalSha256": "ca4b50a6aabd8c09a9998c501233e663a1a779dee115f77beed1cc4e481ab5c3",
+      "publishedBytes": 15,
+      "publishedSha256": "ca4b50a6aabd8c09a9998c501233e663a1a779dee115f77beed1cc4e481ab5c3",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-2/apply-verification-summary.json",
+      "originalBytes": 1605,
+      "originalSha256": "3f26565de686fb44b4345aa24050e9881f669a6f967531776ded4fd6d38bbe0f",
+      "publishedBytes": 1605,
+      "publishedSha256": "3f26565de686fb44b4345aa24050e9881f669a6f967531776ded4fd6d38bbe0f",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-2/loaded-plugin.json",
+      "originalBytes": 176,
+      "originalSha256": "1558c371b666e89e2adb02ddc846f3c2798381c08cef955123767374c0825441",
+      "publishedBytes": 176,
+      "publishedSha256": "1558c371b666e89e2adb02ddc846f3c2798381c08cef955123767374c0825441",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-2/native-tool-results.jsonl",
+      "originalBytes": 1188,
+      "originalSha256": "7bbdcbe6208e4ba0e67e5fbc9fc7275422e891c639e61cbb36fd3c58a4bc509c",
+      "publishedBytes": 1188,
+      "publishedSha256": "7bbdcbe6208e4ba0e67e5fbc9fc7275422e891c639e61cbb36fd3c58a4bc509c",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-2/prepare-summary.json",
+      "originalBytes": 5246,
+      "originalSha256": "8d78ae91bafa9f8d0c435fb0ac8caccf9f648361d4cc0c08b363c12735f2f2a4",
+      "publishedBytes": 5250,
+      "publishedSha256": "9440b6eb16a830cc90a6a5eb2b3de1ddb4dbafc5c732eb99008ae98e83921943",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-final-prepare.log",
+      "originalBytes": 4070,
+      "originalSha256": "9971e395ae8a6dad8666e3040daf471de3d596b3ba290120c280c1f9364eeb74",
+      "publishedBytes": 4074,
+      "publishedSha256": "3aaa5c4e8e5796087f2e8f72fbce356ee4252b3fdd5b49bda9b98d93e7c8cba4",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-final/apply-exit.json",
+      "originalBytes": 15,
+      "originalSha256": "3edd82d4e49f89c30270dee752ac018539f4dc6848d7a33b1553404e6f8b58af",
+      "publishedBytes": 15,
+      "publishedSha256": "3edd82d4e49f89c30270dee752ac018539f4dc6848d7a33b1553404e6f8b58af",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-final/apply-host.stderr",
+      "originalBytes": 0,
+      "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publishedBytes": 0,
+      "publishedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-final/apply-summary.json",
+      "originalBytes": 897,
+      "originalSha256": "c03dfe8a557396cb5ac10179d06b5453081d7977ef1135a47f6f8f81f471a5ad",
+      "publishedBytes": 901,
+      "publishedSha256": "f766fb29ffc24fdd35cd1a8d8c1f81151711a01b3b4fe3e01f04a55fba0150ba",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-final/final-vs-original.diff",
+      "originalBytes": 4577,
+      "originalSha256": "07b5a668417d4775f97c56a6d141f54fcb6fd776f8150418b4cfe1075ef1b020",
+      "publishedBytes": 4585,
+      "publishedSha256": "f8564eea6f60f64be4484a9a60a322617991fd0a96f70a9bd9dbc58773cd6ce0",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-final/final-vs-revision11.diff",
+      "originalBytes": 853,
+      "originalSha256": "7bf7c4dddd891e79aa1de293188dd3edf2ce9415f71a92843f58cbf9b1b6d6c3",
+      "publishedBytes": 861,
+      "publishedSha256": "e2b36719e407744546075004a8300caf19ddd432e7bbebf4f112f5a2e0553784",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-final/history-after.json",
+      "originalBytes": 2898,
+      "originalSha256": "59240e90567bece18c2fd667bc440ec3b99e3a97f0784df16ac1d3e18a424205",
+      "publishedBytes": 2898,
+      "publishedSha256": "59240e90567bece18c2fd667bc440ec3b99e3a97f0784df16ac1d3e18a424205",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-final/loaded-plugin.json",
+      "originalBytes": 176,
+      "originalSha256": "5a89038ac4a53cfbf4d2e153266ce9c168b640e69765deef7d1924b5940c6541",
+      "publishedBytes": 176,
+      "publishedSha256": "5a89038ac4a53cfbf4d2e153266ce9c168b640e69765deef7d1924b5940c6541",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-final/native-tool-results.jsonl",
+      "originalBytes": 1210,
+      "originalSha256": "316b7760acb37a5da13e4cb8cf3e862f6b39ef41196ac4be58f251c3f7659e62",
+      "publishedBytes": 1210,
+      "publishedSha256": "316b7760acb37a5da13e4cb8cf3e862f6b39ef41196ac4be58f251c3f7659e62",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-final/prepare-summary.json",
+      "originalBytes": 5278,
+      "originalSha256": "4e32c30881d26cc30ad3b6f53dbbae68b2cd3ac4ef777e43bb37af5ebb543213",
+      "publishedBytes": 5282,
+      "publishedSha256": "3a449f60e73832c78fccab797526a5e1ed71b870bb694e87283ef1aedc726698",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-native-history-api.json",
+      "originalBytes": 12601,
+      "originalSha256": "33bbaf7d9aa1f31bcaad8d0e1aa588cac89542e8ad414803772729cadfdd64b7",
+      "publishedBytes": 12601,
+      "publishedSha256": "33bbaf7d9aa1f31bcaad8d0e1aa588cac89542e8ad414803772729cadfdd64b7",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-native-history-gateway.json",
+      "originalBytes": 6896,
+      "originalSha256": "8974df986b046882add1d4616e1a47e8a8fab3305a57990a9535cf50e06dbb1f",
+      "publishedBytes": 6896,
+      "publishedSha256": "8974df986b046882add1d4616e1a47e8a8fab3305a57990a9535cf50e06dbb1f",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-native-request.json",
+      "originalBytes": 914,
+      "originalSha256": "16ef1065e2540ce41125844891d089406ba9ae0b308e8e5c633b2303ca1a9e1d",
+      "publishedBytes": 914,
+      "publishedSha256": "16ef1065e2540ce41125844891d089406ba9ae0b308e8e5c633b2303ca1a9e1d",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-native-stream.jsonl",
+      "originalBytes": 25539,
+      "originalSha256": "4b3e895b92eedac443c39c45564b073845ba413fc7f58516439b2367a5f565ec",
+      "publishedBytes": 25539,
+      "publishedSha256": "4b3e895b92eedac443c39c45564b073845ba413fc7f58516439b2367a5f565ec",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-native-summary.json",
+      "originalBytes": 362,
+      "originalSha256": "f2025f1023a14f05d44675fe0f0bc0db676ed15837a4e7f0041690220d196185",
+      "publishedBytes": 362,
+      "publishedSha256": "f2025f1023a14f05d44675fe0f0bc0db676ed15837a4e7f0041690220d196185",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-prepare-attempt-1.log",
+      "originalBytes": 976,
+      "originalSha256": "2b9c855af25c4d085726ce43b66870918cd5bf0c2bcf0e13d70114221a587a25",
+      "publishedBytes": 988,
+      "publishedSha256": "dac4d9a74bb7d58a8ab1fb8580a72bf61f6dad6aaffc11388464b7090289be64",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-prepare-attempt-2.log",
+      "originalBytes": 4038,
+      "originalSha256": "911e67b67d63d6b6038ebb044832c9b03b5c3db399cedb3d796fc56500db774e",
+      "publishedBytes": 4042,
+      "publishedSha256": "d94ff048fecf343e89738496d2f6692a55ed8b0f641ce353ea19726ec8428733",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-prompt.txt",
+      "originalBytes": 766,
+      "originalSha256": "c3c829b3c4f1f0df810eeadcc89edf1bf90363db49abe56807b60d555d5fc5ea",
+      "publishedBytes": 766,
+      "publishedSha256": "c3c829b3c4f1f0df810eeadcc89edf1bf90363db49abe56807b60d555d5fc5ea",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-ui-attempt-1.log",
+      "originalBytes": 2097,
+      "originalSha256": "1a733be1bd40ff026b484eca0850dc460189fa8edb6d604dda743faf20e657e0",
+      "publishedBytes": 2099,
+      "publishedSha256": "3c47199bba54ef79c7d11bfed71b698bb9cad5a843bca6efd717fb0777b897d0",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-ui-attempt-2.log",
+      "originalBytes": 2848,
+      "originalSha256": "f5d9b8dc4ba67f6128f049b0ce430bcbaa99b77fcc34ecd693c51b516423fee6",
+      "publishedBytes": 2850,
+      "publishedSha256": "b5e3f7864dc77982e97a1a31cd6d3a0e2f4bbe86fe9e7897c8176ab658fecf82",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-ui-attempt-3.log",
+      "originalBytes": 403,
+      "originalSha256": "64c14859bb3b5ec414d5c2785cff245924d29f7c7d31b4993ce55cc308c3c958",
+      "publishedBytes": 403,
+      "publishedSha256": "64c14859bb3b5ec414d5c2785cff245924d29f7c7d31b4993ce55cc308c3c958",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-ui/after.txt",
+      "originalBytes": 2979,
+      "originalSha256": "5d67a72cc77fca59321f8a80db61470f45c8dd54553b36cc67775e53f61a7ad9",
+      "publishedBytes": 2979,
+      "publishedSha256": "5d67a72cc77fca59321f8a80db61470f45c8dd54553b36cc67775e53f61a7ad9",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-ui/history-api.json",
+      "originalBytes": 13604,
+      "originalSha256": "5283fba9349771b31bc55315d128a4839ca5d52c0348e5392bc128e879c01505",
+      "publishedBytes": 13604,
+      "publishedSha256": "5283fba9349771b31bc55315d128a4839ca5d52c0348e5392bc128e879c01505",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-ui/history-gateway.json",
+      "originalBytes": 7257,
+      "originalSha256": "d81334a4869f336fa344675a86345f3786f8588fbc3e3c9ac3c4e58367c32330",
+      "publishedBytes": 7257,
+      "publishedSha256": "d81334a4869f336fa344675a86345f3786f8588fbc3e3c9ac3c4e58367c32330",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-ui/polls.json",
+      "originalBytes": 1064,
+      "originalSha256": "621de4e0e1d6a5f2198c082218fcd069eeb46aa28b101c54ca026aa85b0c1c61",
+      "publishedBytes": 1064,
+      "publishedSha256": "621de4e0e1d6a5f2198c082218fcd069eeb46aa28b101c54ca026aa85b0c1c61",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-ui/requests.json",
+      "originalBytes": 1011,
+      "originalSha256": "7aea3bab1097bcbfe0e60efec09f83fd69fa84d170e6d4eacae5ad1cdb36769d",
+      "publishedBytes": 1011,
+      "publishedSha256": "7aea3bab1097bcbfe0e60efec09f83fd69fa84d170e6d4eacae5ad1cdb36769d",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-ui/selected-sse-events.json",
+      "originalBytes": 3,
+      "originalSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "publishedBytes": 3,
+      "publishedSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-ui/summary.json",
+      "originalBytes": 427,
+      "originalSha256": "c0493871529342337a9ee3819291042b8fe70d5979cbf8e5d3f00e8c76042312",
+      "publishedBytes": 427,
+      "publishedSha256": "c0493871529342337a9ee3819291042b8fe70d5979cbf8e5d3f00e8c76042312",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-ui/ui-observation.json",
+      "originalBytes": 627,
+      "originalSha256": "734deaf9a5a8ce57b2844d22ed40296fb1fcacf197e8831e3f233236c313c9f4",
+      "publishedBytes": 627,
+      "publishedSha256": "734deaf9a5a8ce57b2844d22ed40296fb1fcacf197e8831e3f233236c313c9f4",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "query-guard-vs-spark.diff",
+      "originalBytes": 4356,
+      "originalSha256": "8f7eac59b2f2c48bd752f1f7b31e5224f506943e93b60fbf0bf9a43b0fb23016",
+      "publishedBytes": 4356,
+      "publishedSha256": "8f7eac59b2f2c48bd752f1f7b31e5224f506943e93b60fbf0bf9a43b0fb23016",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "raw/raw-summary.json",
+      "originalBytes": 124422,
+      "originalSha256": "40819f582bdae044858ea9413cc14f7f15d04ac7495e8d54e3eb050abe3b21de",
+      "publishedBytes": 1621,
+      "publishedSha256": "5895b54b0f2e0356acec8a33e894fbb236da80016e1d9f3161747930aa6b7bb4",
+      "changed": true,
+      "explicitFieldRedactions": [
+        "response.choices[*].prompt_token_ids: complete input preserved privately; all generated token IDs and all other fields retained."
+      ],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "raw_completion.py",
+      "originalBytes": 1895,
+      "originalSha256": "a2b84fc01c290ff18a9b97170302a2f343f28179ce3c5bc0150ff0d5c4f4213d",
+      "publishedBytes": 2055,
+      "publishedSha256": "05d9d2f1bafa7e6235ef14e7c13d624c7b8f97e20e68d87aab1f883796b91c7a",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "replay/capture-agent-summary.json",
+      "originalBytes": 357,
+      "originalSha256": "4d336b0e3ec112f42080ee4ec3f758f5cc2cb654d1965f071649fc572622a2e2",
+      "publishedBytes": 357,
+      "publishedSha256": "4d336b0e3ec112f42080ee4ec3f758f5cc2cb654d1965f071649fc572622a2e2",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "replay/compat-default-response.sse",
+      "originalBytes": 10361,
+      "originalSha256": "6a01b0868558f1f58cb5c8314b613d8617efc990eb64d2a8c70197cd3e9d9519",
+      "publishedBytes": 10361,
+      "publishedSha256": "6a01b0868558f1f58cb5c8314b613d8617efc990eb64d2a8c70197cd3e9d9519",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "replay/compat-default-result.json",
+      "originalBytes": 685,
+      "originalSha256": "e20a26c3c742381371a95d79a056f0f85644d97822d5371637c4b1df8dc21453",
+      "publishedBytes": 685,
+      "publishedSha256": "e20a26c3c742381371a95d79a056f0f85644d97822d5371637c4b1df8dc21453",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "replay/compat-no-thinking-response.sse",
+      "originalBytes": 6014,
+      "originalSha256": "61bc75f0afe33eb807df2ee3d332d87633653cad992d768cb4969e7928804f2c",
+      "publishedBytes": 6014,
+      "publishedSha256": "61bc75f0afe33eb807df2ee3d332d87633653cad992d768cb4969e7928804f2c",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "replay/compat-no-thinking-result.json",
+      "originalBytes": 417,
+      "originalSha256": "6802c2f0c6f271f09e10804f44ec9fa26659a564b083428355abdf1a63da216a",
+      "publishedBytes": 417,
+      "publishedSha256": "6802c2f0c6f271f09e10804f44ec9fa26659a564b083428355abdf1a63da216a",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "replay/completed.json",
+      "originalBytes": 55,
+      "originalSha256": "f4ee75144a22edf05e289096f4503462a67a31ba85e56ebe33f9145332ae9830",
+      "publishedBytes": 55,
+      "publishedSha256": "f4ee75144a22edf05e289096f4503462a67a31ba85e56ebe33f9145332ae9830",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "replay/direct-default-response.sse",
+      "originalBytes": 10406,
+      "originalSha256": "945903f3f2a97b84189fe23556d18c3eb5d85c8bda47b07710e39f2df6ed676b",
+      "publishedBytes": 10406,
+      "publishedSha256": "945903f3f2a97b84189fe23556d18c3eb5d85c8bda47b07710e39f2df6ed676b",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "replay/direct-default-result.json",
+      "originalBytes": 738,
+      "originalSha256": "b7a6bcd1f3f1d939a3bbe651893c0aa931c297b26055a34fe3a788418fe243a7",
+      "publishedBytes": 738,
+      "publishedSha256": "b7a6bcd1f3f1d939a3bbe651893c0aa931c297b26055a34fe3a788418fe243a7",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "replay/direct-no-thinking-response.sse",
+      "originalBytes": 4045,
+      "originalSha256": "7dbb829e74814897083028c78a98198a6bf508c77808ba7b920a4656a54e880c",
+      "publishedBytes": 4045,
+      "publishedSha256": "7dbb829e74814897083028c78a98198a6bf508c77808ba7b920a4656a54e880c",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "replay/direct-no-thinking-result.json",
+      "originalBytes": 448,
+      "originalSha256": "a1eaba6e46878c165966d31100c61df195adfd5813897ac9a22728eda7f784a7",
+      "publishedBytes": 448,
+      "publishedSha256": "a1eaba6e46878c165966d31100c61df195adfd5813897ac9a22728eda7f784a7",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "restart-mcp-attempt-1.log",
+      "originalBytes": 417,
+      "originalSha256": "db3314347b3d26d7606e96d37b0c1f6376be343a4390a99ecc7360d5c7aea810",
+      "publishedBytes": 417,
+      "publishedSha256": "db3314347b3d26d7606e96d37b0c1f6376be343a4390a99ecc7360d5c7aea810",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "restart-mcp-history-api.json",
+      "originalBytes": 10717,
+      "originalSha256": "2d03d03e08b1eec2ad42d182c5a5193fae49d1b308195a4cb32b5b0e7d308e8a",
+      "publishedBytes": 10717,
+      "publishedSha256": "2d03d03e08b1eec2ad42d182c5a5193fae49d1b308195a4cb32b5b0e7d308e8a",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "restart-mcp-history-gateway.json",
+      "originalBytes": 5957,
+      "originalSha256": "82c45f6bf19a81a2afc62cffff80cf3e147202c66c6f9e9aca8f554a73164e5c",
+      "publishedBytes": 5957,
+      "publishedSha256": "82c45f6bf19a81a2afc62cffff80cf3e147202c66c6f9e9aca8f554a73164e5c",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "restart-mcp-prompt.txt",
+      "originalBytes": 445,
+      "originalSha256": "e780c6d6e928f339756b9a0912411c8e9b0b514074bf6597b6a741075f218341",
+      "publishedBytes": 445,
+      "publishedSha256": "e780c6d6e928f339756b9a0912411c8e9b0b514074bf6597b6a741075f218341",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "restart-mcp-request.json",
+      "originalBytes": 582,
+      "originalSha256": "a2f10079ff0cd7f560e7a2e1bff7882875afcd933fe77afb897c3ef255cea91e",
+      "publishedBytes": 582,
+      "publishedSha256": "a2f10079ff0cd7f560e7a2e1bff7882875afcd933fe77afb897c3ef255cea91e",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "restart-mcp-stream.jsonl",
+      "originalBytes": 20408,
+      "originalSha256": "75b431b680e4c18d6c35a0d0eccbfdd162ac6e3f9b3a8bf99df90d32602b242d",
+      "publishedBytes": 20408,
+      "publishedSha256": "75b431b680e4c18d6c35a0d0eccbfdd162ac6e3f9b3a8bf99df90d32602b242d",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "restart-mcp-summary.json",
+      "originalBytes": 493,
+      "originalSha256": "ab0a09a4625c3d86df6d9cbc6c033b87bc479f42d5151bafb106e761bf158ce3",
+      "publishedBytes": 493,
+      "publishedSha256": "ab0a09a4625c3d86df6d9cbc6c033b87bc479f42d5151bafb106e761bf158ce3",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "restart_iraop.py",
+      "originalBytes": 5067,
+      "originalSha256": "eb2617d538949dc360c38827a2648715d462786421702c1ab8553ff74b138b7b",
+      "publishedBytes": 5204,
+      "publishedSha256": "4fe28fdc9befbd4ab44ea2ef8bd7cca943566669bcfe4d390834837d039a7ecf",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "restore-alert-polling.log",
+      "originalBytes": 240,
+      "originalSha256": "e922212ee7f93d66c9709343e382475ac48a8c7a629012349c553900a8d21f1e",
+      "publishedBytes": 240,
+      "publishedSha256": "e922212ee7f93d66c9709343e382475ac48a8c7a629012349c553900a8d21f1e",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "restore_alert_polling.py",
+      "originalBytes": 3425,
+      "originalSha256": "dc92fa28440ba105265975368fa88316944c1783ba854b0adf68d4070ee97cab",
+      "publishedBytes": 3562,
+      "publishedSha256": "37245a27024040463119a892d6734b542f0834e2120a09246017d212ef6c7593",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "runtime-final.json",
+      "originalBytes": 196798,
+      "originalSha256": "41aff27d13457b1ef0569d4a29e50775afa6af2722dd4c8199ab147ce614e927",
+      "publishedBytes": 198306,
+      "publishedSha256": "b9af79ed14abd4b88568357957a65e69e3021dfb94d6bede4144d085cf14da1a",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "temperature-zero-1/agent-state.json",
+      "originalBytes": 1151,
+      "originalSha256": "cdde89e1fd97748ca726ac114241d1ad8a7a3039229ab6c9f6d37982d5f643ce",
+      "publishedBytes": 1151,
+      "publishedSha256": "cdde89e1fd97748ca726ac114241d1ad8a7a3039229ab6c9f6d37982d5f643ce",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "temperature-zero-1/direct-hybrid-search.json",
+      "originalBytes": 2802,
+      "originalSha256": "c86b282d5e499da341d818134bee2d863c657dcf492f73615c0aef90aaa081b3",
+      "publishedBytes": 2802,
+      "publishedSha256": "c86b282d5e499da341d818134bee2d863c657dcf492f73615c0aef90aaa081b3",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "temperature-zero-1/metadata.json",
+      "originalBytes": 647,
+      "originalSha256": "5a25d6e6546e7ebc175c33a7c7513b65a1ab167face46c450c245a72cf10322a",
+      "publishedBytes": 647,
+      "publishedSha256": "5a25d6e6546e7ebc175c33a7c7513b65a1ab167face46c450c245a72cf10322a",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "temperature-zero-1/trace-summary.json",
+      "originalBytes": 248,
+      "originalSha256": "3c8a4e3ce37c7e09f9f65103c2528919fd157597060f2c1461556aa08bbfb062",
+      "publishedBytes": 248,
+      "publishedSha256": "3c8a4e3ce37c7e09f9f65103c2528919fd157597060f2c1461556aa08bbfb062",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "tokenizer-generation.json",
+      "originalBytes": 429,
+      "originalSha256": "8e3746413431c8764602520252d6442767717b4258e4243f7d6430a0c74e9967",
+      "publishedBytes": 429,
+      "publishedSha256": "8e3746413431c8764602520252d6442767717b4258e4243f7d6430a0c74e9967",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "trace_research.py",
+      "originalBytes": 5512,
+      "originalSha256": "15793ec4281867dd4cad4efb0a5534fe96fa2de5980a1b779b80f454cf872ecb",
+      "publishedBytes": 5672,
+      "publishedSha256": "fb3bb92384f4b67396345706ac619816f57db27ea91d52cf8d25f8433ef090c0",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "verify_query_guard.py",
+      "originalBytes": 3884,
+      "originalSha256": "cf2ae8a9d201613a98a829a74ed0ed5f4af1bb521d6264d5f89366076c094945",
+      "publishedBytes": 4021,
+      "publishedSha256": "0ed04ae42049a742bdac65e60145f0263b4f0b6aff850d06a6a291a12e1b35a5",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "vllm-container-profile.json",
+      "originalBytes": 1018,
+      "originalSha256": "163c72ed544ecac3997b1e292d4ab6de83a1c99720984877157f45d35d08c0b9",
+      "publishedBytes": 1018,
+      "publishedSha256": "163c72ed544ecac3997b1e292d4ab6de83a1c99720984877157f45d35d08c0b9",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "vllm-flags.json",
+      "originalBytes": 307,
+      "originalSha256": "f9cb1b0053beb181e0b7b8fc3037166c36a9f4948e36c8e5fb247b31a75fc8c4",
+      "publishedBytes": 307,
+      "publishedSha256": "f9cb1b0053beb181e0b7b8fc3037166c36a9f4948e36c8e5fb247b31a75fc8c4",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    }
+  ]
+}

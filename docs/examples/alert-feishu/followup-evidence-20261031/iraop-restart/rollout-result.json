@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "/home/spark-user/.local/bin/kubectl",
+    "--context",
+    "kind-mosaic-poc",
+    "-n",
+    "mosaic",
+    "rollout",
+    "status",
+    "deployment/iraop",
+    "--timeout=180s"
+  ],
+  "exitCode": 0,
+  "stdout": "Waiting for deployment \"iraop\" rollout to finish: 0 of 1 updated replicas are available...\ndeployment \"iraop\" successfully rolled out\n",
+  "stderr": "",
+  "elapsedSeconds": 11.02576270326972
+}

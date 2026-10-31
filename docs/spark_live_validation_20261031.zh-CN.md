@@ -5,6 +5,8 @@
 
 这次已在现有 Spark/Kind 上实际执行验证。**访问恢复、已有告警轮询、现场只读采集、PDF 入库，以及隔离服务的 View/Edit/Auto 修复控制已验证；Research 的原生检索质量未通过，飞书尚待群机器人创建。** 本记录同时保存失败结果，不能将“Pod Running”“API 200”或模型的成功措辞当成业务验收通过。
 
+**后续状态见[追加实测](spark_live_validation_20261031_followup.zh-CN.md)：当前 revision 12，已补测审批过期和 IRAOP Pod 重建，并部署无来源回答的 incomplete 处理。** 下列 27 项、部署表和工具索引保留 revision 10 时的原始快照；追加证据单独保存，没有覆盖原件。原生研究质量和飞书投递仍待通过。
+
 这是脱敏公开版。真实地址/账号及凭据取用入口由部署方单独交接；`*.example.invalid`、`spark-user`、`target-lab`、`NGC_ORG_ID` 均为占位符。所有选定会话、工具结果、节点/Pod 行、指标点和向量在原始附件中完整保留。脱敏规则、全部文件大小与双份 SHA256 见 [完整证据清单](examples/alert-feishu/live-evidence-20261031/manifest.json)。
 
 ## 1. 验收结果逐项列明
@@ -40,11 +42,11 @@
 | 飞书真实群投递 | 待客户操作 | 用户尚未创建群机器人；8867 bytes 完整待审 payload 已离线生成；没有实际发送或收件记录 | [feishu-status.json](examples/alert-feishu/live-evidence-20261031/feishu-status.json) |
 
 
-未执行的边界：新的 PrometheusRule 创建/删除、真实 GPU/NVDebug 采集、Edit 审批过期、部署回滚、重建后的资料恢复、飞书原生双向通道与真实群投递、所有生产故障的自动修复。未改变 L20 集群 RBAC 来绕过读取失败，也没有绕过 Alertmanager 的 403 写限制。
+当前仍未执行的边界：新的 PrometheusRule 创建/删除、真实 GPU/NVDebug 采集、部署回滚、整机/Kind/OpenSearch PVC 重建后的资料恢复、飞书原生双向通道与真实群投递、所有生产故障的自动修复。Edit 审批过期和仅 IRAOP 无状态 Pod 重建已在[追加实测](spark_live_validation_20261031_followup.zh-CN.md)通过。未改变 L20 集群 RBAC 来绕过读取失败，也没有绕过 Alertmanager 的 403 写限制。
 
 ## 2. 当前部署和实际变更
 
-开始基线为 Helm revision 8；启用 Research 后 revision 9；启用 SSH-only Edit 后 **revision 10 deployed**。沿用原有包含 Teams 定制及真实 IRAOP 子 chart 的 chart 包，没有用文档 CI 的依赖 stub 部署。[全部 Helm history](examples/alert-feishu/live-evidence-20261031/helm-history-after.json)保留每个 revision 的原始时间和状态。原始 values、manifest 和 Secret 不进入公开证据。
+本记录快照：开始基线为 Helm revision 8；启用 Research 后 revision 9；启用 SSH-only Edit 后 **revision 10 deployed**。沿用原有包含 Teams 定制及真实 IRAOP 子 chart 的 chart 包，没有用文档 CI 的依赖 stub 部署。[本快照全部 Helm history](examples/alert-feishu/live-evidence-20261031/helm-history-after.json)保留当时每个 revision 的原始时间和状态。当前已到 revision 12，见追加记录；原始 values、manifest 和 Secret 不进入公开证据。
 
 所有模块开关如下：
 

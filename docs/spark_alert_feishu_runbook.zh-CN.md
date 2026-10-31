@@ -7,6 +7,8 @@
 
 **先读[2026-10-31 完整实测记录](spark_live_validation_20261031.zh-CN.md)。** 已实际完成隧道中断/恢复、现有告警轮询/调查、真实 PDF 入库和隔离用户服务的 View/Edit/Auto；Research 原生检索质量未通过，飞书尚待用户创建群机器人。新 Alertmanager API 注入返回 403，不能把本轮使用旧合成规则写成新注入成功。第 9 章保留 2026-10-30 历史证据，不覆盖本轮原始记录。
 
+再读[追加实测与当前交接状态](spark_live_validation_20261031_followup.zh-CN.md)：revision 12 已补测 Edit 审批过期、IRAOP Pod 重建，以及无证据 query 的 incomplete 呈现；当前使用独立 UI SSH 转发。研究质量仍未通过。Spark 已回填 [PR #2](https://github.com/JeffPengCoder/AI-Factory-Operations-Agent/pull/2) 的补丁；新环境若要复现这项处理，须使用该补丁或交付的真实 chart，单独切到本 PR 的文档分支不会获得该代码。
+
 这是公开仓库版本。实际 Spark 地址、SSH 用户、目标集群地址和密码由部署方单独提供；下文变量必须按现场填写。证据中的私网地址已替换为稳定的 `*.example.invalid` 占位符，私有集群别名替换为 `target-lab`。所有时间、指标数值、序列、错误和工具结果均保留，脱敏说明与校验值见 [manifest.json](examples/alert-feishu/evidence/manifest.json)。占位地址不能用于连接。
 
 ## 1. 先明确当前状态和每一步的验收标准

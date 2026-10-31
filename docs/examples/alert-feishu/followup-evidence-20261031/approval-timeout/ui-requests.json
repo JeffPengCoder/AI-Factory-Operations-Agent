@@ -1,0 +1,31 @@
+[
+  {
+    "at": "2026-10-31T03:16:02.865682+00:00",
+    "path": "/api/openclaw/session-access",
+    "method": "POST",
+    "body": {
+      "sessionKey": "agent:default:session-2026-10-31t03-16-01-838z",
+      "mode": "edit"
+    }
+  },
+  {
+    "at": "2026-10-31T03:16:03.741674+00:00",
+    "path": "/api/openclaw/chat/stream",
+    "method": "POST",
+    "body": {
+      "prompt": "test from Jeff Peng: isolated approval EXPIRY test. Call only run_remote_ssh with host=\"repair-demo\", argv=[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"]. Submit once and wait for the approval. I will deliberately leave it unanswered to verify the configured timeout; do not retry, use another tool, or change mode.",
+      "sessionKey": "agent:default:session-2026-10-31t03-16-01-838z",
+      "conciseMode": false,
+      "accessMode": "edit"
+    }
+  },
+  {
+    "at": "2026-10-31T03:18:10.582114+00:00",
+    "path": "/api/openclaw/session-access",
+    "method": "POST",
+    "body": {
+      "sessionKey": "agent:default:session-2026-10-31t03-16-01-838z",
+      "mode": "view"
+    }
+  }
+]

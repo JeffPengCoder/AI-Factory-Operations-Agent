@@ -3,7 +3,7 @@
 
 # Research 之后：Edit / Auto 修复操作与实测
 
-状态更新（2026-10-31）：**已完成 SSH-only 隔离服务的真实 View / Edit / Auto 验证**，顺序在 [IRAOP 验证](spark_iraop_alert_validation.zh-CN.md)之后。当前 Helm revision10 的 `modules.edit.enabled=true`、`hitl=true`，Kubernetes/Base Command Manager 写后端关闭。View 拒绝修复，Edit 的 Deny 和新的 Approve once 生效；Auto 确认后执行相同 wrapper，范围外 touch 被 SSH identity 拒绝（126），测试后恢复 View。主机状态与完整审计见[实测记录第6章](spark_live_validation_20261031.zh-CN.md#6-view--edit--auto-的实际隔离修复)。
+状态更新（2026-10-31）：**已完成 SSH-only 隔离服务的真实 View / Edit / Auto 验证**，顺序在 [IRAOP 验证](spark_iraop_alert_validation.zh-CN.md)之后。revision10 启用的 `modules.edit.enabled=true`、`hitl=true` 在当前 revision12 保留，Kubernetes/Base Command Manager 写后端关闭。View 拒绝修复，Edit 的 Deny 和新的 Approve once 生效；Auto 确认后执行相同 wrapper，范围外 touch 被 SSH identity 拒绝（126），测试后恢复 View。主机状态与完整审计见[实测记录第6章](spark_live_validation_20261031.zh-CN.md#6-view--edit--auto-的实际隔离修复)。**审批过期已追加实测通过**：不批准/不拒绝，等待120000 ms 后未执行，主机仍failed，完整 SSH 审计未变，见[追加记录第4章](spark_live_validation_20261031_followup.zh-CN.md#4-edit-审批过期实际怎么验证)。
 
 **本轮采用 Spark 用户服务 `mosaic-repair-validation.service` + restrict/forced-command SSH key，没有使用 sudo/root。** 真实 exact argv、设置/重置方法和代码见实测记录。以下保留的是另一种管理员预置的 system-level fixture 完整方案，不是本轮已经执行过的 root/sudo 操作；审批过期和回滚也仍待独立验收。不要混用两套服务名、路径或身份。
 

@@ -1,0 +1,43 @@
+{
+  "phase": "after-final-guard-old-tunnel",
+  "checkedAt": "2026-10-31T03:48:41.298193+00:00",
+  "localListener": {
+    "argv": [
+      "lsof",
+      "-nP",
+      "-iTCP:13000",
+      "-sTCP:LISTEN"
+    ],
+    "exitCode": 0,
+    "stdout": "COMMAND   PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nssh     49878 operator    6u  IPv4 0xc6c3965140d2883c      0t0  TCP 127.0.0.1:13000 (LISTEN)\n",
+    "stderr": ""
+  },
+  "sparkListener": {
+    "argv": [
+      "ssh",
+      "-S",
+      "/private/tmp/mosaic-live-20261031/ssh.sock",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=20",
+      "spark-user@spark.example.invalid",
+      "ss -ltnp \"( sport = :13000 )\""
+    ],
+    "exitCode": 0,
+    "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+    "stderr": ""
+  },
+  "health": {
+    "path": "/api/health",
+    "httpStatus": null,
+    "error": "[Errno 54] Connection reset by peer",
+    "elapsedSeconds": 0.16512412499287166
+  },
+  "unauthenticatedApi": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": null,
+    "error": "[Errno 54] Connection reset by peer",
+    "elapsedSeconds": 0.15280270902439952
+  }
+}

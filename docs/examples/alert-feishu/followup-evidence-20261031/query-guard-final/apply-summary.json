@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-31T03:47:30.484767+00:00",
+  "beforeRevision": 11,
+  "afterRevision": 12,
+  "status": "deployed",
+  "chartVersion": "0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2",
+  "elapsedSeconds": 57.0623339000158,
+  "plugin": {
+    "path": "/home/node/.openclaw/extensions/iraop/index.ts",
+    "sha256": "8202bf605765fe0d2de2631313458f768c80a71605b951c5051ea018a6833e43",
+    "hasQueryEvidenceGuard": true
+  },
+  "applicationSecretChanges": [],
+  "applicationSecretsCompared": 12,
+  "chartPath": "/home/spark-user/.local/share/mosaic-validation-20261031/research-debug/query-guard-final/mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.tgz",
+  "nativeQueryValidation": "pending",
+  "scope": "Original real chart/dependencies and existing values retained; only IRAOP plugin source and chart build metadata changed."
+}

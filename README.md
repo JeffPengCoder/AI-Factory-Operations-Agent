@@ -88,6 +88,7 @@ Invoke the installed skill when an agent needs to discover an AI Factory Operati
 - IRAOP alert validation (Chinese): [docs/spark_iraop_alert_validation.zh-CN.md](docs/spark_iraop_alert_validation.zh-CN.md)
 - Edit/Auto repair validation (Chinese): [docs/spark_edit_auto_repair_validation.zh-CN.md](docs/spark_edit_auto_repair_validation.zh-CN.md)
 - Spark live validation results and complete evidence (Chinese): [docs/spark_live_validation_20261031.zh-CN.md](docs/spark_live_validation_20261031.zh-CN.md)
+- Spark follow-up validation, approval expiry and IRAOP evidence handling (Chinese): [docs/spark_live_validation_20261031_followup.zh-CN.md](docs/spark_live_validation_20261031_followup.zh-CN.md)
 - Headless agent integration: [docs/skills/ai-factory-operations-agent-headless/SKILL.md](docs/skills/ai-factory-operations-agent-headless/SKILL.md)
 
 ## Releases & Roadmap

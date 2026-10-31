@@ -5,6 +5,8 @@
 
 状态更新（2026-10-31）：**已实际部署和入库，原生研究质量未通过。** 本轮 Helm revision9 启用 IRAOP/OpenSearch，使用真实本地 CPU embedding 384d；控制 PDF 为2页/4 chunks/0 errors，下载 SHA256 一致。直接查询命中但行内引用页码错误；独立 OpenClaw 及实际告警会话多次 `iraop_query` 为空 sources。完整配置、原始响应和失败样本见[实测记录第5章](spark_live_validation_20261031.zh-CN.md#5-research-实际部署入库和失败点)。前置流程和变量见[主操作手册](spark_alert_feishu_runbook.zh-CN.md)。
 
+[追加实测](spark_live_validation_20261031_followup.zh-CN.md)已验证 IRAOP Pod 重建后无需重新入库，1 PDF/4 chunks 可读；四种完整 agent 对照仍未通过研究质量验收。当前 revision12 回填无来源 query 的 incomplete 处理：不把未核验答案传给主模型，完整原始 MCP 留在会话 JSONL 的 details；chat.history API 会省略 details。新环境需要 [PR #2](https://github.com/JeffPengCoder/AI-Factory-Operations-Agent/pull/2) 或交付的补丁 chart；这些呈现改进不代表后端检索质量已修复。
+
 以下保留完整的通用部署/验收步骤；第2章描述的是实施前 revision8 基线。不要在当前已部署的环境重复生成 token、覆盖 Secret 或沿用2048维旧配置；本轮使用的实际 overlay、CPU 服务及受控 corpus 见实测记录。后续需先解决模型/工具循环及引用问题，再验收告警中的稳定知识增强。
 
 ## 1. 要验证的行为

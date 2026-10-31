@@ -3,6 +3,8 @@
 
 # Spark 上的告警、调查取证与飞书投递操作手册
 
+**后续完整链路实测：** [新故障→新告警→日志→IRAOP→审核报告→飞书](spark_e2e_alert_research_feishu_20261031.zh-CN.md)已实际执行；新规则由CrashLoop指标触发，报告API成功，原始研究误归因及人工纠正完整保留。当前仍需要单条调查触发、审核和显式发送；本轮群内收件状态见新记录。
+
 核验日期：2026-10-31。目标是完成一轮可以回放的操作：登录 Spark → 打开 MOSAIC → 开启 Alertmanager 轮询 → 创建合成告警 → 启动只读调查 → 导出告警、工具结果和分析 → 将审核后的报告发到飞书 → 清理测试规则。IRAOP 的配置与对照实验见[Research 操作说明](spark_iraop_alert_validation.zh-CN.md)，其后是[Edit/Auto 修复说明](spark_edit_auto_repair_validation.zh-CN.md)。
 
 **先读最新的[Research补测、自动入库与飞书真实收件](spark_research_feishu_followup_20261031.zh-CN.md)。** 当前revision15保留；原生HTTP/MCP/UI检索和全部4条384维向量已核验，飞书API成功且用户确认同一run ID收件。直接上传API自动完成切片/入库，但发现原PDF下载404，客户继续采用持久corpus+file入库。通用业务文档质量、deep研究、旧UI独立进度及生产修复仍待验收。此前完整对照见[协议实测](spark_research_protocol_validation_20261031.zh-CN.md)，最初隧道/告警/受限修复见[完整记录](spark_live_validation_20261031.zh-CN.md)。新Alertmanager写入403仍是已有缺口，不能把旧合成规则写成本轮新注入；历史数据不覆盖。

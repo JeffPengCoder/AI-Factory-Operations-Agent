@@ -1,0 +1,159 @@
+{
+  "selectedConversationButton": [
+    "Alert Alertmanager 1bdae10de10f472eagent:default:alert-alertmanager-1bdae10de10f472eOct 31, 4:33 PM"
+  ],
+  "sourceDiscoveryBytes": 9730,
+  "sourceDiscoverySha256": "0fa81a4261b4c4870e2f388ce33297b8d73ac8402b88aedf8b3980d12ea51287",
+  "verifiedReportVisible": "MOSAIC 注入式工作负载故障（MosaicInjectedWorkloadFailure）修正调查报告",
+  "interaction": "Conversations -> focus exact alert session button -> Enter; avoids notification toast pointer overlap",
+  "sourceResponses": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/light_job-recovery.png",
+      "status": 200
+    },
+    {
+      "path": "/light_k8s.png",
+      "status": 200
+    },
+    {
+      "path": "/light_bcm.png",
+      "status": 200
+    },
+    {
+      "path": "/light_observability.png",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/42x_0tvgvtycd.css",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/1vb6-djtp9257.css",
+      "status": 200
+    },
+    {
+      "path": "/light_nemoclaw.png",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/3l04zcqx63h3y.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/0cegfsgm6lvdz.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/3byuobrkyz9bj.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/291fzrtmqq49h.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3eyf67d9t5dl9.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/2lygyhso3tp3n.js",
+      "status": 200
+    },
+    {
+      "path": "/api/alerts/alertmanager",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/approvals",
+      "status": 200
+    },
+    {
+      "path": "/api/modules",
+      "status": 200
+    },
+    {
+      "path": "/api/dashboard/feedback",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/chat",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/commands",
+      "status": 200
+    },
+    {
+      "path": "/api/agents",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/sessions",
+      "status": 200
+    },
+    {
+      "path": "/favicon.ico",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/session-access",
+      "status": 200
+    },
+    {
+      "path": "/api/alerts/events",
+      "status": 200
+    },
+    {
+      "path": "/api/settings/llm",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/approvals",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/approvals",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/approvals",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/approvals",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/session-access",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/commands",
+      "status": 200
+    },
+    {
+      "path": "/api/dashboard/feedback",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/approvals",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/chat",
+      "status": 200
+    },
+    {
+      "path": "/light_observability.png",
+      "status": 200
+    },
+    {
+      "path": "/light_bcm.png",
+      "status": 200
+    }
+  ]
+}

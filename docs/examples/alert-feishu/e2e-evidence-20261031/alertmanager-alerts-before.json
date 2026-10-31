@@ -1,0 +1,13 @@
+{
+  "name": "alertmanager-alerts-before",
+  "at": "2026-10-31T07:59:47.222929+00:00",
+  "url": "http://target-node-1.example.invalid:30093/api/v2/alerts",
+  "status": 200,
+  "elapsedSeconds": 0.03853439865633845,
+  "body": "[]",
+  "privacySelection": {
+    "originalAlertCount": 35,
+    "publishedRelatedAlertCount": 0,
+    "excludedUnrelatedAlertCount": 35
+  }
+}

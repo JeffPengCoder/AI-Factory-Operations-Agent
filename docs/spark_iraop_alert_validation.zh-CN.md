@@ -3,6 +3,8 @@
 
 # 启用 IRAOP，并观察它在告警调查中的作用
 
+**后续完整链路实测：** [新故障→新告警→日志→IRAOP→审核报告→飞书](spark_e2e_alert_research_feishu_20261031.zh-CN.md)已实际执行；新规则由CrashLoop指标触发，报告API成功，原始研究误归因及人工纠正完整保留。当前仍需要单条调查触发、审核和显式发送；本轮群内收件状态见新记录。
+
 **后续补测：** 已直接读回全部4条记录及每条384维向量；原生“文档缺答案”和“集合不存在”路径、页面真实错误、上传自动切片/索引已验证。直接上传接口的原件下载返回404，因此继续使用下文持久corpus+file入库；向量索引和原件可下载分别验收。飞书报告已实发并由用户确认收件，运行修复提交到[NVIDIA PR #86](https://github.com/NVIDIA/AI-Factory-Operations-Agent/pull/86)。全部新原件和角色分工见[最新补测](spark_research_feishu_followup_20261031.zh-CN.md)，旧失败快照保留。
 
 **最新进展（revision15）：** 默认关闭的Research工具协议兼容选项已回填并在Spark启用；原生HTTP/MCP和三次MOSAIC View查询从控制PDF返回正确code、文件及页码，最后一次携带现有测试告警。追踪已完整导出并关闭，共享模型未重启。完整实验、实际命令、原始返回和限制见[最新检索实测](spark_research_protocol_validation_20261031.zh-CN.md)。以下revision9/12的失败结果保留为历史快照；通用业务文档质量仍需另验。

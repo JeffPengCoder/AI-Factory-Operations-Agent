@@ -3,6 +3,8 @@
 
 # Research 补测、自动入库、飞书收件与上游 PR
 
+**后续完整链路实测：** [新故障→新告警→日志→IRAOP→审核报告→飞书](spark_e2e_alert_research_feishu_20261031.zh-CN.md)已实际执行；新规则由CrashLoop指标触发，报告API成功，原始研究误归因及人工纠正完整保留。当前仍需要单条调查触发、审核和显式发送；本轮群内收件状态见新记录。
+
 2026-10-31。当前Spark继续使用revision15。**本篇新增验证：全部4条实际向量记录、文档无答案时拒绝编造、缺失集合的真实错误、上传自动入库，以及飞书群实际收件。运行修复已提交[NVIDIA PR #86](https://github.com/NVIDIA/AI-Factory-Operations-Agent/pull/86)，远端Tests/build成功，尚未合并。**
 
 前一份[完整协议实测](spark_research_protocol_validation_20261031.zh-CN.md)的235份证据、[revision12记录](spark_live_validation_20261031_followup.zh-CN.md)和[最初27项记录](spark_live_validation_20261031.zh-CN.md)全部保留。下列表格作为索引，原始完整响应、全部字段/文本/向量、全部选定消息和真实脚本均在本篇附件，不以汇总代替原件。

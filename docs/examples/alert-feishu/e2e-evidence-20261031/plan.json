@@ -1,0 +1,10 @@
+{
+  "runId": "e2e-20261031t075722z",
+  "createdAt": "2026-10-31T07:57:22.472868+00:00",
+  "target": "L20 existing Prometheus/Alertmanager/MOSAIC polling",
+  "scope": "isolated new fixture only",
+  "injection": "new Pod missing readiness marker -> exit -> kube-state-metrics CrashLoopBackOff -> exact-pod rule",
+  "investigation": "View mode, read-only, same alert/session, logs first then IRAOP then synthesis",
+  "delivery": "existing custom Feishu bot; operator explicit dispatch, not a deployed automatic publisher",
+  "status": "waiting-for-target-admin-authentication"
+}

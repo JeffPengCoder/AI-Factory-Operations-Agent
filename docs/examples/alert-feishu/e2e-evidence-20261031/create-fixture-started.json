@@ -1,0 +1,5 @@
+{
+  "at": "2026-10-31T08:21:40.955334+00:00",
+  "runId": "e2e-20261031t075722z",
+  "scope": "only exact labelled objects; no production/Secret/RBAC/GPU changes"
+}

@@ -1,0 +1,11 @@
+# Prepared only: new error/alert end-to-end test
+
+Run ID: `e2e-20261031t075722z`. These resources have not been created. Root key authentication failed; waiting for an authorized administrator login or administrator execution.
+
+Planned injection: a new non-root, CPU-only Pod in `mosaic-e2e-20261031t075722z` exits23 because its dedicated ConfigMap lacks `/fixture/ready`. The Pod logs the exact error and run ID. A new PrometheusRule in `monitoring` selects only this Pod's actual kube-state-metrics CrashLoopBackOff series. This is not vector(1) and not a direct Alertmanager API injection.
+
+The new rule may also follow existing Alertmanager notification routes. Keep test labels and record the actual receiving routes. MOSAIC Auto pull is already enabled at30s; Auto investigate remains disabled to avoid launching investigations for unrelated existing alerts. Start only this new alert's read-only investigation from its own card, then request logs/IRAOP in the same session. Feishu remains an explicit operation after review.
+
+Before creation, confirm target cluster identity, PrometheusRule selector, current image availability and that no planned exact resource names exist. Use `isolated-error-fixture.prepared.json` only after those checks; its busybox image is a prepared candidate, not yet a verified running image. Save full create/readback/Pod UID/spec and full Prometheus/Alertmanager/MOSAIC snapshots.
+
+Cleanup only this run's exact Pod/ConfigMap/namespace and PrometheusRule after report dispatch; verify absence and alert resolution. Do not delete old smoke-test resources, alter RBAC, or use the model for administrator writes.

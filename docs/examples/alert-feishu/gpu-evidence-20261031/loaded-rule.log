@@ -1,0 +1,1 @@
+{"groups": 1, "rules": [{"name": "MosaicGpuTelemetrySimulation", "state": "inactive", "health": "ok", "lastError": null, "query": "mosaic_test_dcgm_xid_error{run_id=\"gpu-rca-20261031t121240z\",simulation=\"true\"} == 95"}]}

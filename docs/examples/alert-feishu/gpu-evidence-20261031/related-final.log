@@ -1,0 +1,1 @@
+{"phase": "final", "remote": [{"name": "prometheus", "count": 0}, {"name": "alertmanager", "count": 1}], "mosaicHistoricalAlerts": 2, "access": [200, 401, 200]}

@@ -21,35 +21,20 @@ Run ID：`e2e-20261031t075722z`；主fingerprint：`1bdae10de10f472e`。此前�
 
 
 | 环节 | 实际结果 | 完整证据 |
-
 | --- | --- | --- |
-
 | 隔离错误 | 新Pod因/fixture/ready缺失而exit23；只申请CPU/内存，无GPU资源请求 | [isolated-error-fixture.applied-input.json](examples/alert-feishu/e2e-evidence-20261031/isolated-error-fixture.applied-input.json) |
-
 | 规则发现与执行 | 真实新规则已加载，health=ok；采样记录pending和firing | [prometheus-loaded-test-group.json](examples/alert-feishu/e2e-evidence-20261031/prometheus-loaded-test-group.json)；[chain-samples.jsonl](examples/alert-feishu/e2e-evidence-20261031/chain-samples.jsonl) |
-
 | Alertmanager→MOSAIC | 同run_id、Pod UID和fingerprint关联，MOSAIC自动轮询30秒 | [first-mosaic-alert.json](examples/alert-feishu/e2e-evidence-20261031/first-mosaic-alert.json)；[e2e-verification.json](examples/alert-feishu/e2e-evidence-20261031/e2e-verification.json) |
-
 | 只读调查 | 点击单条Start Investigating后agent自行采集并调用IRAOP；后续同会话补充取证 | [browser/posts.json](examples/alert-feishu/e2e-evidence-20261031/browser/posts.json)；[browser/initial-history-gateway.json](examples/alert-feishu/e2e-evidence-20261031/browser/initial-history-gateway.json) |
-
 | 现场采集 | 13次run_kubectl：12次成功，1次get --timeout参数错误；全部请求和输出保留 | [native/tool-index.json](examples/alert-feishu/e2e-evidence-20261031/native/tool-index.json) |
-
 | 知识调用 | 3次实际iraop_query，每次2个来源；日志先返回，才提交首个研究问题 | [research/iraop-response-1.json](examples/alert-feishu/e2e-evidence-20261031/research/iraop-response-1.json)；[research/iraop-response-2.json](examples/alert-feishu/e2e-evidence-20261031/research/iraop-response-2.json)；[research/iraop-response-3.json](examples/alert-feishu/e2e-evidence-20261031/research/iraop-response-3.json) |
-
 | 研究内容质量 | 前两次错误地把当前实现归因PDF/套用旧注入方法；第三次限定文档通用指令后分开 | [knowledge-grounding-check.json](examples/alert-feishu/e2e-evidence-20261031/knowledge-grounding-check.json) |
-
 | 完整报告审核 | 原始模型全文、完整操作员修改diff和完整发送版都保留 | [review-api/model-corrected-report.zh-CN.txt](examples/alert-feishu/e2e-evidence-20261031/review-api/model-corrected-report.zh-CN.txt)；[analysis-review.full.diff](examples/alert-feishu/e2e-evidence-20261031/analysis-review.full.diff)；[analysis-reviewed.zh-CN.txt](examples/alert-feishu/e2e-evidence-20261031/analysis-reviewed.zh-CN.txt) |
-
 | 飞书发送 | 仅一次；签名前15481bytes；StatusCode=0、code=0，无截断 | [feishu-payload-reviewed.json](examples/alert-feishu/e2e-evidence-20261031/feishu-payload-reviewed.json)；[feishu-response-attempt1.json](examples/alert-feishu/e2e-evidence-20261031/feishu-response-attempt1.json) |
-
 | 群内收件 | 机器人API成功；本轮群窗口收件确认仍待用户回复 | [feishu-send-result.json](examples/alert-feishu/e2e-evidence-20261031/feishu-send-result.json) |
-
 | 清理 | 按原UID删除本轮4资源；旧smoke rule UID未变，源Prometheus/AM最终均0 | [cleanup-result.json](examples/alert-feishu/e2e-evidence-20261031/cleanup-result.json)；[root-final-preservation.json](examples/alert-feishu/e2e-evidence-20261031/root-final-preservation.json)；[related-final.json](examples/alert-feishu/e2e-evidence-20261031/related-final.json) |
-
 | UI历史与访问 | 源头清理后仅Resolve本轮两条UI卡；29条消息仍可读取，访问200/401/200 | [ui-cleanup/summary.json](examples/alert-feishu/e2e-evidence-20261031/ui-cleanup/summary.json)；[ui-cleanup/retained-history-api.json](examples/alert-feishu/e2e-evidence-20261031/ui-cleanup/retained-history-api.json) |
-
 | 共享部署 | 仍为Helm revision15、7个Pod；共享模型PID128852及StartedAt不变；root连接已关闭 | [spark-final-runtime.json](examples/alert-feishu/e2e-evidence-20261031/spark-final-runtime.json)；[root-control-closed.json](examples/alert-feishu/e2e-evidence-20261031/root-control-closed.json) |
-
 
 
 **自动步骤：** 容器重启、指标采集、规则评估、Alertmanager接收、MOSAIC Auto pull；单条调查提交后，agent运行读取工具和IRAOP。**人工/操作员编排步骤：** 创建隔离资源、点击单条调查、补充取证与事实审核、显式调用飞书发送脚本、清理。当前没有后台无人值守的“告警→研究→审核→发布”调度器；Auto investigate本轮保持false，避免为其他既有告警启动调查。
@@ -59,21 +44,13 @@ Run ID：`e2e-20261031t075722z`；主fingerprint：`1bdae10de10f472e`。此前�
 
 
 | 交接项 | 本次现状 | 交付者需要交给接手人的内容 |
-
 | --- | --- | --- |
-
 | Spark访问 | 维护者自己的SSH key可用；UI沿用两层转发 | 接手人本人的SSH授权、实际地址/账号、网络/主机指纹、转发责任人；不能借用前任的私钥 |
-
 | 目标集群管理员 | 本轮由用户单独提供root密码完成一次SSH认证，密码不保存，连接已关闭 | 可创建/清理隔离资源的管理员登录方式，或明确由谁代执行；地址/context/测试节点从内部映射取得 |
-
 | MOSAIC UI | 已有mosaic-ui-auth Secret；界面仍可访问 | UI账号及受控密码取用授权，或指定管理员代取；公开文档不交密码值 |
-
 | 飞书 | MOSAIC Alert Test群及自定义机器人已有，本次已投递 | 把接手人加入群，提供机器人维护人及Webhook/签名密钥的凭据库授权。维护者本机文件路径不等于接手人已有访问权 |
-
 | Research/模型 | IRAOP/OpenSearch/CPU embedding及模型已部署，无需再注册服务或下载新模型 | 允许查询现有控制集合和读取来源PDF的权限。业务PDF与使用许可是后续独立输入 |
-
 | 制品与证据 | 真实chart/values留在Spark保护目录，完整内网证据在内部包 | 授予接手人制品/值文件、内部证据包和长期共享位置的访问权限；公开PR单独不能代替运行修复或凭据 |
-
 
 
 基础访问和断线恢复完整命令见[操作手册第3章](spark_alert_feishu_runbook.zh-CN.md)。本轮代码部署仍沿用fork代码PR #2的回填chart；上游[PR #86](https://github.com/NVIDIA/AI-Factory-Operations-Agent/pull/86)尚未合并，文档PR本身不安装运行修复。
@@ -86,17 +63,11 @@ Run ID：`e2e-20261031t075722z`；主fingerprint：`1bdae10de10f472e`。此前�
 
 
 | kind | namespace | name | UID | creationTimestamp |
-
 | --- | --- | --- | --- | --- |
-
 | Namespace | cluster-scoped | mosaic-e2e-20261031t075722z | c49e70b7-674b-45fd-b7d7-39087b2e93e2 | 2026-10-31T08:21:41Z |
-
 | ConfigMap | mosaic-e2e-20261031t075722z | fixture-input | 403b73e5-b19e-4276-bb0a-ff64c9dc0162 | 2026-10-31T08:21:42Z |
-
 | Pod | mosaic-e2e-20261031t075722z | mosaic-log-fixture | 82953a81-6578-4cbe-b638-ef3de927279a | 2026-10-31T08:21:42Z |
-
 | PrometheusRule | monitoring | mosaic-e2e-20261031t075722z | 0faf5f01-a21e-439f-b4f6-c6da8d5c219d | 2026-10-31T08:21:42Z |
-
 
 
 实际完整创建输入（4对象，无省略）：
@@ -338,19 +309,12 @@ kubectl --context "$TARGET_CONTEXT" get prometheusrule "mosaic-$RUN_ID" -n monit
 
 
 | 阶段 | 首次采样观察时间（UTC） | 证据值 |
-
 | --- | --- | --- |
-
 | CrashLoop指标 | 2026-10-31T08:22:54.542782+00:00 | value=1，Pod UID=82953a81-6578-4cbe-b638-ef3de927279a |
-
 | Prometheus pending | 2026-10-31T08:23:05.488306+00:00 | ALERTS{alertstate="pending",run_id="e2e-20261031t075722z"} |
-
 | Prometheus firing | 2026-10-31T08:23:16.572684+00:00 | ALERTS{alertstate="firing"} |
-
 | Alertmanager | 2026-10-31T08:23:16.593723+00:00 | fingerprint=1bdae10de10f472e |
-
 | MOSAIC首次含该对象的采样起点 | 2026-10-31T08:23:36.895519+00:00 | Alertmanager来源、相同fingerprint/run_id/Pod UID |
-
 
 
 时间表中的观察时刻是采样记录，不是各服务内部收包时刻；MOSAIC对象createdAt与来源startsAt相同，本轮不据此推算网络延迟。完整105条样本含全部查询、series labels/数值、选定告警和失败信息，见[chain-samples.jsonl](examples/alert-feishu/e2e-evidence-20261031/chain-samples.jsonl)。公开副本仅剔除无关告警，逐样本保留原总数与选定数，原始全量响应保留内部。
@@ -380,23 +344,14 @@ curl -u仅给用户名时会提示隐藏输入密码；不把完整Basic Auth或
 
 
 | 字段 | 完整值 |
-
 | --- | --- |
-
 | sessionKey | agent:default:alert-alertmanager-1bdae10de10f472e |
-
 | sessionId | ed4679e0-f8b4-494c-852e-f63d2f9b76ab |
-
 | 原生消息数 | 29 |
-
 | 工具结果数 | 18 |
-
 | 首轮秒 | 113.56239837501198 |
-
 | 补充取证/研究秒 | 98.34070049994625 |
-
 | 人工纠正后研究秒 | 86.42817416699836 |
-
 
 
 需要机器可核验的过程时，从聊天API读取同sessionKey；chat.history会省略assistant toolCall详情，完整参数和持久化details应从选定原生JSONL导出。
@@ -412,45 +367,25 @@ curl -fsS -u "$MOSAIC_USER" -G "$MOSAIC_URL/api/openclaw/chat" --data-urlencode 
 
 
 | # | toolName | toolCallId | requestAt | resultAt | isError | exitCode | details缩为元数据 | originalDetailsBytesAtLeast |
-
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-
 | 1 | run_kubectl | call_95f49e4b1b3440f5b44b0fd1 | 2026-10-31T08:23:40.918Z | 2026-10-31T08:23:41.892Z | False | 0 | False | 无该字段 |
-
 | 2 | run_kubectl | call_e4b8e9037e384f98b4b2e74e | 2026-10-31T08:23:40.918Z | 2026-10-31T08:23:41.894Z | False | 0 | False | 无该字段 |
-
 | 3 | run_kubectl | call_edadd5e0c13b46018edde9d4 | 2026-10-31T08:23:40.918Z | 2026-10-31T08:23:41.895Z | False | 0 | False | 无该字段 |
-
 | 4 | run_kubectl | call_dd2491e6bef34164be582cca | 2026-10-31T08:23:40.918Z | 2026-10-31T08:23:41.896Z | True | 1 | False | 无该字段 |
-
 | 5 | memory_search | call_20669143584443f3ad33e626 | 2026-10-31T08:23:40.918Z | 2026-10-31T08:23:41.897Z | False | 非进程结果 | False | 无该字段 |
-
 | 6 | iraop_list_collections | call_b805957079994687bf9eab69 | 2026-10-31T08:23:40.918Z | 2026-10-31T08:23:41.898Z | False | 非进程结果 | False | 无该字段 |
-
 | 7 | run_kubectl | call_ff08d966f1bb4d458fde7084 | 2026-10-31T08:23:45.783Z | 2026-10-31T08:25:19.295Z | False | 0 | False | 无该字段 |
-
 | 8 | run_kubectl | call_7724176251464e59b136a5a8 | 2026-10-31T08:23:45.783Z | 2026-10-31T08:25:19.298Z | False | 0 | False | 无该字段 |
-
 | 9 | iraop_query | call_f1022a1955e84f868de2e10b | 2026-10-31T08:23:45.783Z | 2026-10-31T08:25:19.300Z | False | 非进程结果 | True | 8193 |
-
 | 10 | run_kubectl | call_3c20b34249a04614922759b9 | 2026-10-31T08:25:34.632Z | 2026-10-31T08:25:35.510Z | False | 0 | True | 8551 |
-
 | 11 | run_kubectl | call_5ef19b1844d24b0892eab6f7 | 2026-10-31T08:25:34.632Z | 2026-10-31T08:25:35.513Z | False | 0 | False | 无该字段 |
-
 | 12 | run_kubectl | call_ee1dab0918ef4910936741b0 | 2026-10-31T08:25:34.632Z | 2026-10-31T08:25:35.514Z | False | 0 | False | 无该字段 |
-
 | 13 | run_kubectl | call_aaf3236af6934910aa3c3d1d | 2026-10-31T08:25:34.632Z | 2026-10-31T08:25:35.516Z | False | 0 | False | 无该字段 |
-
 | 14 | run_kubectl | call_a3ea30a1b25b4f2bb7421a62 | 2026-10-31T08:25:34.632Z | 2026-10-31T08:25:35.518Z | False | 0 | False | 无该字段 |
-
 | 15 | run_kubectl | call_9a514b9ae4cc433d9ec68294 | 2026-10-31T08:25:34.632Z | 2026-10-31T08:25:35.520Z | False | 0 | False | 无该字段 |
-
 | 16 | run_kubectl | call_9ec4548521ba41a49f570485 | 2026-10-31T08:25:34.632Z | 2026-10-31T08:25:35.523Z | False | 0 | True | 8193 |
-
 | 17 | iraop_query | call_bbc78e57c1f140f4aa85dba9 | 2026-10-31T08:25:44.414Z | 2026-10-31T08:26:33.637Z | False | 非进程结果 | True | 8193 |
-
 | 18 | iraop_query | call_6d4b768ae3c14fe4bcd1e4c8 | 2026-10-31T08:32:34.648Z | 2026-10-31T08:33:10.043Z | False | 非进程结果 | True | 8193 |
-
 
 
 ### 第1条：call_95f49e4b1b3440f5b44b0fd1
@@ -761,13 +696,9 @@ OpenSearch是文档/向量检索后端，IRAOP是Research应用；本轮复用�
 
 
 | source_file | page_number | collection | doc_id | url |
-
 | --- | --- | --- | --- | --- |
-
 | mosaic-validation-control.pdf | 2 | mosaic-validation-20261031 | mosaic-validation-control.pdf | /api/v1/documents/mosaic-validation-control.pdf |
-
 | mosaic-validation-control.pdf | 1 | mosaic-validation-20261031 | mosaic-validation-control.pdf | /api/v1/documents/mosaic-validation-control.pdf |
-
 
 
 [完整原始answer、全部字段及来源](examples/alert-feishu/e2e-evidence-20261031/research/iraop-response-1.json)。
@@ -788,13 +719,9 @@ OpenSearch是文档/向量检索后端，IRAOP是Research应用；本轮复用�
 
 
 | source_file | page_number | collection | doc_id | url |
-
 | --- | --- | --- | --- | --- |
-
 | mosaic-validation-control.pdf | 1 | mosaic-validation-20261031 | mosaic-validation-control.pdf | /api/v1/documents/mosaic-validation-control.pdf |
-
 | mosaic-validation-control.pdf | 2 | mosaic-validation-20261031 | mosaic-validation-control.pdf | /api/v1/documents/mosaic-validation-control.pdf |
-
 
 
 [完整原始answer、全部字段及来源](examples/alert-feishu/e2e-evidence-20261031/research/iraop-response-2.json)。
@@ -815,36 +742,23 @@ OpenSearch是文档/向量检索后端，IRAOP是Research应用；本轮复用�
 
 
 | source_file | page_number | collection | doc_id | url |
-
 | --- | --- | --- | --- | --- |
-
 | mosaic-validation-control.pdf | 2 | mosaic-validation-20261031 | mosaic-validation-control.pdf | /api/v1/documents/mosaic-validation-control.pdf |
-
 | mosaic-validation-control.pdf | 1 | mosaic-validation-20261031 | mosaic-validation-control.pdf | /api/v1/documents/mosaic-validation-control.pdf |
-
 
 
 [完整原始answer、全部字段及来源](examples/alert-feishu/e2e-evidence-20261031/research/iraop-response-3.json)。
 
 
 | 被声称来自PDF的具体内容 | 实际索引文本出现次数 |
-
 | --- | --- |
-
 | mosaic-log-fixture | 0 |
-
 | fixture-input | 0 |
-
 | REQUIRED_FILE_MISSING | 0 |
-
 | /fixture/ready | 0 |
-
 | e2e-20261031t075722z | 0 |
-
 | vector(1) | 1 |
-
 | Alertmanager API | 1 |
-
 
 
 前两次回答将输入问题中的Pod/ConfigMap/错误/路径说成PDF记载，并把本轮真实规则错说成vector(1)/直接AM注入。来源存在不等于每个结论被来源支持。[knowledge-grounding-check.json](examples/alert-feishu/e2e-evidence-20261031/knowledge-grounding-check.json)包含全部4个原文chunk，[mosaic-validation-control.pdf](examples/alert-feishu/e2e-evidence-20261031/mosaic-validation-control.pdf)为同SHA256的完整源PDF；向量全部坐标保留在[先前完整向量证据](examples/alert-feishu/continued-evidence-20261031/vector-storage-proof.json)。第三次限定只问文档通用指令，才将旧例子与当前故障分开。
@@ -896,46 +810,28 @@ OpenSearch是文档/向量检索后端，IRAOP是Research应用；本轮复用�
 
 
 | alertname | fingerprint | MOSAIC id | namespace | pod |
-
 | --- | --- | --- | --- | --- |
-
 | MosaicInjectedWorkloadFailure | 1bdae10de10f472e | alertmanager:1bdae10de10f472e | mosaic-e2e-20261031t075722z | mosaic-log-fixture |
-
 | KubePodCrashLooping | b2ee16df078aed62 | alertmanager:b2ee16df078aed62 | mosaic-e2e-20261031t075722z | mosaic-log-fixture |
-
 
 
 清理脚本[cleanup_fixture.py](examples/alert-feishu/e2e-evidence-20261031/cleanup_fixture.py)先检查4个原始UID/run_id，只删除本轮对象。完整12条命令/readback均在[cleanup-result.json](examples/alert-feishu/e2e-evidence-20261031/cleanup-result.json)：
 
 
 | # | UTC | argv | exitCode |
-
 | --- | --- | --- | --- |
-
 | 1 | 2026-10-31T08:37:47.333617+00:00 | kubectl --context kubernetes-admin@kubernetes get namespace mosaic-e2e-20261031t075722z -o json | 0 |
-
 | 2 | 2026-10-31T08:37:47.378796+00:00 | kubectl --context kubernetes-admin@kubernetes get configmap fixture-input -n mosaic-e2e-20261031t075722z -o json | 0 |
-
 | 3 | 2026-10-31T08:37:47.424673+00:00 | kubectl --context kubernetes-admin@kubernetes get pod mosaic-log-fixture -n mosaic-e2e-20261031t075722z -o json | 0 |
-
 | 4 | 2026-10-31T08:37:47.469768+00:00 | kubectl --context kubernetes-admin@kubernetes get prometheusrule mosaic-e2e-20261031t075722z -n monitoring -o json | 0 |
-
 | 5 | 2026-10-31T08:37:47.517982+00:00 | kubectl --context kubernetes-admin@kubernetes delete prometheusrule mosaic-e2e-20261031t075722z -n monitoring --wait=true --timeout=60s | 0 |
-
 | 6 | 2026-10-31T08:37:48.095836+00:00 | kubectl --context kubernetes-admin@kubernetes delete pod mosaic-log-fixture -n mosaic-e2e-20261031t075722z --wait=true --timeout=60s | 0 |
-
 | 7 | 2026-10-31T08:37:48.147215+00:00 | kubectl --context kubernetes-admin@kubernetes delete configmap fixture-input -n mosaic-e2e-20261031t075722z --wait=true --timeout=60s | 0 |
-
 | 8 | 2026-10-31T08:37:53.425298+00:00 | kubectl --context kubernetes-admin@kubernetes delete namespace mosaic-e2e-20261031t075722z --wait=true --timeout=60s | 0 |
-
 | 9 | 2026-10-31T08:37:53.470854+00:00 | kubectl --context kubernetes-admin@kubernetes get namespace mosaic-e2e-20261031t075722z --ignore-not-found -o json | 0 |
-
 | 10 | 2026-10-31T08:37:53.515111+00:00 | kubectl --context kubernetes-admin@kubernetes get configmap fixture-input -n mosaic-e2e-20261031t075722z --ignore-not-found -o json | 0 |
-
 | 11 | 2026-10-31T08:37:53.560922+00:00 | kubectl --context kubernetes-admin@kubernetes get pod mosaic-log-fixture -n mosaic-e2e-20261031t075722z --ignore-not-found -o json | 0 |
-
 | 12 | 2026-10-31T08:37:53.604591+00:00 | kubectl --context kubernetes-admin@kubernetes get prometheusrule mosaic-e2e-20261031t075722z -n monitoring --ignore-not-found -o json | 0 |
-
 
 
 源头全部清理后才对这两条UI卡点Resolve，页面中本轮相关项为0，29条对话仍可由Conversations/API查看。Resolve仅处理UI项，不代替源头清理或故障修复。本轮UI记录器保留DELETE /api/alerts的method/path而未记录query字符串；精确对象通过操作前ID/命名空间筛选和操作后结果确认，这项观测限制不补造为线级请求。[ui-cleanup/before.json](examples/alert-feishu/e2e-evidence-20261031/ui-cleanup/before.json)、[ui-cleanup/posts.json](examples/alert-feishu/e2e-evidence-20261031/ui-cleanup/posts.json)、[ui-cleanup/after.json](examples/alert-feishu/e2e-evidence-20261031/ui-cleanup/after.json)和[ui-cleanup/retained-history-api.json](examples/alert-feishu/e2e-evidence-20261031/ui-cleanup/retained-history-api.json)保留全过程。
@@ -948,23 +844,14 @@ OpenSearch是文档/向量检索后端，IRAOP是Research应用；本轮复用�
 
 
 | 问题 | 实际影响 | 证据/处理 |
-
 | --- | --- | --- |
-
 | kubectl get --timeout=5s | 1条只读工具失败；不能写成18条全部成功 | [native/tool-index.json](examples/alert-feishu/e2e-evidence-20261031/native/tool-index.json)；后续用一次性get/限定次数轮询 |
-
 | 新浏览器没有Open Chat按钮 | 人工复核首次UI尝试0提交，未重启调查 | [browser-review.log](examples/alert-feishu/e2e-evidence-20261031/browser-review.log)；[review/posts.json](examples/alert-feishu/e2e-evidence-20261031/review/posts.json) |
-
 | Spark新SSH连接超时 | 第一次补充API复核0提交，恢复ControlMaster后重试成功 | [review-native-api-attempt1.log](examples/alert-feishu/e2e-evidence-20261031/review-native-api-attempt1.log)；[review-native-api-attempt2.log](examples/alert-feishu/e2e-evidence-20261031/review-native-api-attempt2.log) |
-
 | 会话条目被toast遮挡 | 鼠标打开失败，改聚焦条目+Enter成功；无新模型调用 | [reopened-session.log](examples/alert-feishu/e2e-evidence-20261031/reopened-session.log)；[conversations-reopen-proof.json](examples/alert-feishu/e2e-evidence-20261031/conversations-reopen-proof.json) |
-
 | 研究事实误归因 | 2份有来源回答仍误用旧案例；需要事实审核/限制引用归属 | [knowledge-grounding-check.json](examples/alert-feishu/e2e-evidence-20261031/knowledge-grounding-check.json)及3份完整research响应 |
-
 | 大details持久化裁剪 | 5条仅保留元数据；content完整可取，但不能宣称全部wire细节 | [native/tool-index.json](examples/alert-feishu/e2e-evidence-20261031/native/tool-index.json) |
-
 | 自动化范围 | 需要单条调查触发、审核和显式投递；未验无人值守服务 | [browser/posts.json](examples/alert-feishu/e2e-evidence-20261031/browser/posts.json)；[send_reviewed_feishu_once.py](examples/alert-feishu/e2e-evidence-20261031/send_reviewed_feishu_once.py) |
-
 
 
 建议下一步为服务器侧告警订阅/工作流、明确现场事实与文档证据的来源归属、发布前核验规则/UID/权限、实际业务PDF验证，以及按会话保存必要的原始MCP响应。Research生成质量问题属于后续工作，不把上游PR #86的无来源/工具协议修复描述成已解决这些问题。

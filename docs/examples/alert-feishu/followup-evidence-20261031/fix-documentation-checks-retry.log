@@ -1,0 +1,29 @@
+✔ generated selection renders in Helm: {"modules":[]} (71.208875ms)
+✔ generated selection renders in Helm: {"modules":["terminal"]} (51.926167ms)
+✔ generated selection renders in Helm: {"modules":["slurm"]} (53.139375ms)
+✔ generated selection renders in Helm: {"modules":["slurm"],"slurmBackend":"vanilla"} (49.612ms)
+✔ generated selection renders in Helm: {"modules":["kubernetes","prometheus","alertmanager","loki","grafana","bcm","slurm","diagnostics","research","terminal","edit","clusters"]} (61.109083ms)
+✔ generated selection renders in Helm: {"inference":"super","modules":["terminal"]} (68.319625ms)
+✔ generated selection renders in Helm: {"inference":"ultra","modules":["grafana"]} (67.940833ms)
+✔ dependencies are derived without changing requested modules (0.48275ms)
+✔ shell metacharacters remain literal arguments and Helm list separators are escaped (8.942167ms)
+✔ pinning replaces the development selector (3.856792ms)
+✔ Loki connection settings remain optional and use Secret references (10.157166ms)
+✔ builder covers every module toggle and observability connection setting (32.6545ms)
+✔ each observability service is independently selectable and clears other endpoints (17.087333ms)
+✔ Kubernetes quantities preserve decimal and binary units (0.256334ms)
+✔ pod scheduling footprint sums app containers and takes init peak before replicas (0.12075ms)
+✔ selection deduplicates dependencies and merges shared workload init containers (0.150291ms)
+✔ composed footprints match direct Helm renders across inference and module selections (17674.182ms)
+✔ Grafana datasource type preserves the default or configured selection: undefined (5.855792ms)
+✔ Grafana datasource type preserves the default or configured selection: victoriametrics-metrics-datasource (4.424292ms)
+✔ tracked source files carry the approved NVIDIA SPDX header (10.755667ms)
+✔ tracked Markdown outside Helm does not use the cluster manager acronym (3.716666ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18221.306542

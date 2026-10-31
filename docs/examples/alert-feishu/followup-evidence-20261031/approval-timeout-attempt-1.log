@@ -1,0 +1,2 @@
+{"at": "2026-10-31T03:18:11.460044+00:00", "sessionKey": "agent:default:session-2026-10-31t03-16-01-838z", "approvalId": "plugin:b8a395e2-a0eb-4ab3-a9f6-ce9684ecece0", "elapsedAfterPendingObservedSeconds": 121.77978608300327, "timeoutObserved": true, "noSSHExecution": true, "fixtureStayedFailed": true, "modeRestoredView": true}
+Test controller separately restored its own fixture after the expiry trial.

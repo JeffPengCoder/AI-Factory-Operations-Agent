@@ -1,0 +1,10 @@
+✔ tracked source files carry the approved NVIDIA SPDX header (3.649584ms)
+✔ tracked Markdown outside Helm does not use the cluster manager acronym (0.575709ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 63.84375

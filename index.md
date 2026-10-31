@@ -49,6 +49,7 @@ IRAOP alert validation (Chinese) <docs/spark_iraop_alert_validation.zh-CN>
 Edit/Auto repair validation (Chinese) <docs/spark_edit_auto_repair_validation.zh-CN>
 Spark live validation and evidence (Chinese) <docs/spark_live_validation_20261031.zh-CN>
 Spark follow-up validation (Chinese) <docs/spark_live_validation_20261031_followup.zh-CN>
+Spark research protocol validation (Chinese) <docs/spark_research_protocol_validation_20261031.zh-CN>
 Loki query reference <docs/loki>
 Headless integration <docs/skills/ai-factory-operations-agent-headless/SKILL>
 ```

@@ -1,0 +1,14 @@
+{
+  "pod": "llm-openai-compat-5d44fc4bf7-pc7rk",
+  "podUid": "d34e8ef7-0a1a-444a-bc80-59603a5cf838",
+  "candidatePid": 44,
+  "baseUrl": "http://protocol-private-address-16.example.invalid:18082/v1",
+  "sourceSha256": "224c39f2da1a8162580194d7795286afa8925c6b4f43f98f7dc2cb1efddd4a36",
+  "health": {
+    "status": 200,
+    "body": "ok"
+  },
+  "originalServicePort": 8000,
+  "originalServiceChanged": false,
+  "auditPath": "/tmp/research-compat-candidate-audit"
+}

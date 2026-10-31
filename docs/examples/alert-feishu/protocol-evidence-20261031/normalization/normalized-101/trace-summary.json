@@ -1,0 +1,55 @@
+{
+  "elapsedSeconds": 5.990955532062799,
+  "messageCount": 4,
+  "toolEvents": [
+    {
+      "event": "on_tool_start",
+      "name": "opensearch_search"
+    },
+    {
+      "event": "on_tool_end",
+      "name": "opensearch_search"
+    }
+  ],
+  "sourceSink": [
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "chunk_index": 2,
+      "score": 1.0
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "collection": "mosaic-validation-20261031",
+      "chunk_index": 0,
+      "score": 0.28266123
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "chunk_index": 3,
+      "score": 0.001
+    }
+  ],
+  "answer": "## Results\n\n### Public Verification Code\n\n**Citation:** `mosaic-validation-control.pdf`, page 2\n\n**Code:** `CEDAR-NEBULA-E720C8C9`\n\nThis is explicitly printed under the **Operator Decision and Evidence** section on page 2, referenced against **MOSAIC-KB-20261031**.\n\n---\n\n### Can an Automated Alert Investigation Directly Repair a Service?\n\n**No.** Per the document:\n\n> *\"Automatic alert investigations remain read-only.\"*\n\nThe indexed text makes a clear separation between investigation and repair:\n\n1. **Alert investigation** \u2014 read-only. An automated alert investigation can gather evidence, review Prometheus state, Alertmanager fingerprints, logs, and service state, but it cannot alter anything.\n\n2. **Repair** \u2014 requires a *separate authorized interactive repair conversation*. The document instructs:\n\n   > *\"Use a separate authorized interactive repair conversation, preserving the alert ID, investigation session key, research sources and repair session key.\"*\n\n3. **Access mode gating** \u2014 different modes behave differently:\n   - **View mode** must block the repair operation entirely.\n   - **Edit mode** with Human-in-the-Loop (HITL) enabled must await specific approval.\n   - **Auto mode** executes the same authorized demo repair *without per-operation approval*, but this still operates in a separate context from the read-only investigation.\n\n4. **Completion evidence** \u2014 any repair must be documented with exact tool arguments, `toolCallId`, exit status, full service state before and after, logs, and an independently observed restored condition.\n\nIn short: an automated alert investigation is strictly read-only. A separate, authorized repair session (subject to the mode's approval gating) is required to actually repair a service.",
+  "sources": [
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    }
+  ],
+  "resultPresent": true
+}

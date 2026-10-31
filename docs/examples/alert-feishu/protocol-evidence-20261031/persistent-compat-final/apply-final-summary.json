@@ -1,0 +1,34 @@
+{
+  "at": "2026-10-31T06:39:15.236916+00:00",
+  "beforeRevision": 14,
+  "afterRevision": 15,
+  "status": "deployed",
+  "elapsedSeconds": 14.950359022244811,
+  "chartPath": "/home/spark-user/.local/share/mosaic-validation-20261031/research-protocol-20261031/persistent-compat-attempt3/mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031.startup2.tgz",
+  "chartVersion": "0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031.startup2",
+  "proxyPod": "llm-openai-compat-58bd8857f4-d5f8k",
+  "proxyPodUid": "2bd6c507-e9a1-4f30-84de-c23f47b8ad43",
+  "loadedProxy": {
+    "sha256": "2148316a0dcd1a92e61c13519249f70be3439fdea0a9d772d40821ab2e146fc2",
+    "researchEnabled": "true",
+    "auditDirectory": null,
+    "auditVolumeExists": false
+  },
+  "applicationSecretsCompared": 12,
+  "applicationSecretChanges": [],
+  "sharedModelBefore": {
+    "Running": true,
+    "Pid": 128852,
+    "StartedAt": "2026-09-15T07:17:31.481993911Z"
+  },
+  "sharedModelAfter": {
+    "Running": true,
+    "Pid": 128852,
+    "StartedAt": "2026-09-15T07:17:31.481993911Z"
+  },
+  "sharedModelRestarted": false,
+  "auditRecordsExported": 8,
+  "auditArchiveSha256": "6441545dbe547ef60098cbc44f2ddf5d35e6c6617ab5383e69eada6462bbf0d6",
+  "researchToolCallsEnabled": true,
+  "auditEnabled": false
+}

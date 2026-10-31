@@ -1,0 +1,2 @@
+{"case": "direct-default-thinking-stream", "url": "http://spark-kind-bridge.example.invalid:8000/v1", "stream": true, "httpStatus": 200, "contentType": "text/event-stream; charset=utf-8", "elapsedSeconds": 3.39587530400604, "finishReasons": ["stop"]}
+{"case": "direct-default-thinking-nonstream", "url": "http://spark-kind-bridge.example.invalid:8000/v1", "stream": false, "httpStatus": 200, "contentType": "application/json", "elapsedSeconds": 1.6729872319847345}

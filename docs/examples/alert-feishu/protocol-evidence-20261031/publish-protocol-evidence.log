@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/operator/workspace/system-sa/aiops/mosaic-run/alerts/research-protocol-20261031/publish_protocol_evidence.py", line 46, in <module>
+    for src in (R/directory).iterdir():
+               ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 836, in iterdir
+    with os.scandir(root_dir) as scandir_it:
+         ~~~~~~~~~~^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/operator/workspace/system-sa/aiops/mosaic-run/alerts/research-protocol-20261031/remote-export/persistent-compat'

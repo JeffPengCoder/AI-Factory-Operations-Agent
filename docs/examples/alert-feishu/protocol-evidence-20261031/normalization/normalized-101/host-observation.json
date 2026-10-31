@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-31T05:58:00.062823+00:00",
+  "mode": "normalize-first-search",
+  "case": "normalized-101",
+  "seed": 101,
+  "hostElapsedSeconds": 7.162959179840982,
+  "exitCode": 0,
+  "elapsedSeconds": 5.990955532062799,
+  "messageCount": 4,
+  "toolEvents": [
+    {
+      "event": "on_tool_start",
+      "name": "opensearch_search"
+    },
+    {
+      "event": "on_tool_end",
+      "name": "opensearch_search"
+    }
+  ],
+  "sourceCount": 2,
+  "sourceSinkCount": 3,
+  "answerContainsOracle": true,
+  "answerHasSourceFilename": true
+}

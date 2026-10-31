@@ -1,0 +1,22 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"filename\": \"mosaic-validation-control.pdf\",\n  \"doc_id\": \"mosaic-validation-control.pdf\",\n  \"url\": \"/api/v1/documents/mosaic-validation-control.pdf\",\n  \"chunk_count\": 4\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": {
+    "result": [
+      {
+        "filename": "mosaic-validation-control.pdf",
+        "doc_id": "mosaic-validation-control.pdf",
+        "url": "/api/v1/documents/mosaic-validation-control.pdf",
+        "chunk_count": 4
+      }
+    ]
+  },
+  "isError": false
+}

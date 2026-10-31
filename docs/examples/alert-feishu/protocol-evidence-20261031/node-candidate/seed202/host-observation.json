@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-31T06:17:53.578141+00:00",
+  "mode": "node-candidate",
+  "case": "seed202",
+  "seed": 202,
+  "hostElapsedSeconds": 5.830929333809763,
+  "exitCode": 0,
+  "elapsedSeconds": 4.627059806138277,
+  "messageCount": 4,
+  "toolEvents": [
+    {
+      "event": "on_tool_start",
+      "name": "opensearch_search"
+    },
+    {
+      "event": "on_tool_end",
+      "name": "opensearch_search"
+    }
+  ],
+  "sourceCount": 2,
+  "sourceSinkCount": 3,
+  "answerContainsOracle": true,
+  "answerHasSourceFilename": true
+}

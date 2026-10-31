@@ -1,0 +1,1 @@
+{"phase": "after-research-final", "localListenerExit": 0, "remoteHasListener": true, "healthHttp": 200, "unauthenticatedApiHttp": 401, "authenticatedApiHttp": 200, "evidence": "/Users/operator/workspace/system-sa/aiops/mosaic-run/alerts/research-protocol-20261031/after-research-final.json"}

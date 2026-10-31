@@ -1,0 +1,55 @@
+{
+  "elapsedSeconds": 6.0805488880723715,
+  "messageCount": 4,
+  "toolEvents": [
+    {
+      "event": "on_tool_start",
+      "name": "opensearch_search"
+    },
+    {
+      "event": "on_tool_end",
+      "name": "opensearch_search"
+    }
+  ],
+  "sourceSink": [
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "chunk_index": 2,
+      "score": 1.0
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "collection": "mosaic-validation-20261031",
+      "chunk_index": 0,
+      "score": 0.11430011
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "chunk_index": 3,
+      "score": 0.01522181
+    }
+  ],
+  "answer": "## Answer\n\nBased on the indexed document **mosaic-validation-control.pdf**, here is the evidence:\n\n### 1. Public Verification Code\n\n**Filename:** `mosaic-validation-control.pdf`  \n**Page:** 2\n\nThe public verification code printed in the **Operator Decision and Evidence** section on page 2 is:\n\n> **CEDAR-NEBULA-E720C8C9**\n\nExact text from the document:\n\n> \"Public verification code: CEDAR-NEBULA-E720C8C9\"\n\n### 2. Can an Automated Alert Investigation Directly Repair a Service?\n\n**No.** An automated alert investigation **may not** directly repair a service. The document on page 2 of `mosaic-validation-control.pdf` explicitly states:\n\n> \"Automatic alert investigations remain read-only. Use a separate authorized interactive repair conversation, preserving the alert ID, investigation session key, research sources and repair session key.\"\n\n**Explanation:**\n\n- Automated alert investigations are **read-only by design**. They can gather evidence, analyze root causes, and investigate the condition of services \u2014 but they cannot execute repair actions.\n- To actually repair a service, a **separate authorized interactive repair conversation** must be initiated. This separate session must preserve:\n  - The alert ID\n  - The investigation session key\n  - Research sources\n  - The repair session key\n- Completion evidence for a repair requires tool arguments, `toolCallId`, exit status, full service state before and after, logs, and an independently observed restored condition \u2014 which further confirms that repair is a distinct, separate operation from automated investigation.\n\nThis separation enforces a critical operational safety boundary: automation investigates, humans (or authorized interactive sessions) authorize and execute repairs.",
+  "sources": [
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    }
+  ],
+  "resultPresent": true
+}

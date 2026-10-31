@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-31T05:39:44.984668+00:00",
+  "mode": "baseline-seeded",
+  "hostElapsedSeconds": 5.115088055841625,
+  "exitCode": 0,
+  "elapsedSeconds": 3.8851402080617845,
+  "messageCount": 2,
+  "toolEvents": [],
+  "sourceCount": 0,
+  "sourceSinkCount": 0,
+  "answerContainsOracle": false,
+  "answerHasSourceFilename": true
+}

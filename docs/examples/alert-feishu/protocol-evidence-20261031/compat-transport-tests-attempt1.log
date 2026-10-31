@@ -1,0 +1,37 @@
+✔ disabled research compatibility preserves the existing no-reasoning contract and raw reply (15.2905ms)
+✔ normalizes only complete named query arguments and retains the full original audit (42.934167ms)
+✔ already structured named calls pass through byte for byte (2.471708ms)
+✔ explicit none is forwarded without a forced search or response rewrite (2.677709ms)
+✔ another named tool is forwarded without a forced search or response rewrite (4.190542ms)
+✔ post-search synthesis is forwarded without a forced search or response rewrite (2.482ms)
+✔ subagent without task is forwarded without a forced search or response rewrite (2.212167ms)
+✔ unrelated OpenClaw tools is forwarded without a forced search or response rewrite (2.172625ms)
+✔ multiple requested choices is forwarded without a forced search or response rewrite (2.316125ms)
+✔ a different search schema is forwarded without a forced search or response rewrite (1.741916ms)
+✔ nonstream callers receive real tool arguments and complete provider usage (2.255541ms)
+✔ handles complete gzip upstream frames (2.840291ms)
+✔ handles complete deflate upstream frames (2.186792ms)
+✔ handles complete br upstream frames (3.2285ms)
+✔ rejects unsupported arguments without inventing a call: I will search. {"query":"a"} (6.621459ms)
+✔ rejects unsupported arguments without inventing a call: {"query": (5.880208ms)
+✔ rejects unsupported arguments without inventing a call: {"query":""} (5.796167ms)
+✔ rejects unsupported arguments without inventing a call: {"query":123} (5.973417ms)
+✔ rejects unsupported arguments without inventing a call: {} (5.693958ms)
+✔ rejects unsupported arguments without inventing a call: [] (7.722917ms)
+✔ rejects unsupported arguments without inventing a call: {"query":"a","unexpected":"b"} (6.068584ms)
+✔ missing terminator cannot become a successful tool call (1.836458ms)
+✔ token exhaustion cannot become a successful tool call (1.508709ms)
+✔ filtered output cannot become a successful tool call (1.747708ms)
+✔ upstream failures preserve their status and complete body (1.807167ms)
+✔ unexpected tools cannot replace the explicitly selected read-only search (1.600666ms)
+✔ oversized buffered responses fail instead of truncating arguments (1.768125ms)
+✔ an upstream timeout returns an error rather than a fabricated tool result (28.452042ms)
+✔ health does not call the model or create an audit (1.93675ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 289.770666

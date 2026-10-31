@@ -3,6 +3,8 @@
 
 # Spark 追加实测：审批过期、IRAOP 重建、模型诊断与无证据回答处理
 
+**后续更新：** 本文保留revision12的完整失败/改进快照。当前revision15已完成控制集合的原生HTTP/MCP和MOSAIC页面带来源检索，临时追踪已关闭，见[协议修复续篇](spark_research_protocol_validation_20261031.zh-CN.md)。下文“当前”均指本文原记录时点，不覆盖后续事实。
+
 核验日期：2026-10-31。**当前 Spark 为 Helm revision 12；审批过期不执行、IRAOP Pod 重建后资料仍可读、无来源研究在页面显示不完整，均已实测。IRAOP 原生研究质量仍未通过，飞书真实投递仍待创建群机器人。** 这份追加记录与[先前完整实测](spark_live_validation_20261031.zh-CN.md)一起使用，保留先前 27 项验收、6 个历史和 31 个工具结果的原始快照。
 
 这是脱敏公开版。实际连接映射、维护账号授权和受保护证据入口由交付者单独交接。下列汇总不替代原文：全部选定输出、消息、工具详情、检索命中、分数、生成 token、失败尝试、采集脚本和真实补丁均在附件中逐项保留；私有系统提示及其输入 token 仅保留在内部证据包。
@@ -75,6 +77,8 @@ ssh -S '/private/tmp/mosaic-live-20261031/ssh.sock' -O cancel   -L 127.0.0.1:130
 [access/after-final-guard-restored.json](examples/alert-feishu/followup-evidence-20261031/access/after-final-guard-restored.json)。
 
 升级也重建了 UI Pod，其内存告警列表和轮询开关复位。2026-10-31T04:09:28.958340+00:00 已在真实页面恢复 Auto pull=true，保持 Auto investigate=false，收到25条现有告警，并再次确认 fingerprint=0fa8cbd733f54a5a、test_from="test from Jeff Peng"。前一快照收到30条，两个时点的原始结果分别保留；不能据此推断少掉的5条已修复。本轮没有新建规则或对这些告警启动额外调查。见 [alerts-restored/summary.json](examples/alert-feishu/followup-evidence-20261031/alerts-restored/summary.json)、[alerts-restored/selected-alert-current.json](examples/alert-feishu/followup-evidence-20261031/alerts-restored/selected-alert-current.json) 和 [restore_alert_polling.py](examples/alert-feishu/followup-evidence-20261031/restore_alert_polling.py)。
+
+<a id="4-edit-审批过期实际怎么验证"></a>
 
 ## 4. Edit 审批过期：实际怎么验证
 

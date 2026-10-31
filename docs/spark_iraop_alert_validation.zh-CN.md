@@ -3,11 +3,13 @@
 
 # 启用 IRAOP，并观察它在告警调查中的作用
 
+**最新进展（revision15）：** 默认关闭的Research工具协议兼容选项已回填并在Spark启用；原生HTTP/MCP和三次MOSAIC View查询从控制PDF返回正确code、文件及页码，最后一次携带现有测试告警。追踪已完整导出并关闭，共享模型未重启。完整实验、实际命令、原始返回和限制见[最新检索实测](spark_research_protocol_validation_20261031.zh-CN.md)。以下revision9/12的失败结果保留为历史快照；通用业务文档质量仍需另验。
+
 状态更新（2026-10-31）：**已实际部署和入库，原生研究质量未通过。** 本轮 Helm revision9 启用 IRAOP/OpenSearch，使用真实本地 CPU embedding 384d；控制 PDF 为2页/4 chunks/0 errors，下载 SHA256 一致。直接查询命中但行内引用页码错误；独立 OpenClaw 及实际告警会话多次 `iraop_query` 为空 sources。完整配置、原始响应和失败样本见[实测记录第5章](spark_live_validation_20261031.zh-CN.md#5-research-实际部署入库和失败点)。前置流程和变量见[主操作手册](spark_alert_feishu_runbook.zh-CN.md)。
 
 [追加实测](spark_live_validation_20261031_followup.zh-CN.md)已验证 IRAOP Pod 重建后无需重新入库，1 PDF/4 chunks 可读；四种完整 agent 对照仍未通过研究质量验收。当前 revision12 回填无来源 query 的 incomplete 处理：不把未核验答案传给主模型，完整原始 MCP 留在会话 JSONL 的 details；chat.history API 会省略 details。新环境需要 [PR #2](https://github.com/JeffPengCoder/AI-Factory-Operations-Agent/pull/2) 或交付的补丁 chart；这些呈现改进不代表后端检索质量已修复。
 
-以下保留完整的通用部署/验收步骤；第2章描述的是实施前 revision8 基线。不要在当前已部署的环境重复生成 token、覆盖 Secret 或沿用2048维旧配置；本轮使用的实际 overlay、CPU 服务及受控 corpus 见实测记录。后续需先解决模型/工具循环及引用问题，再验收告警中的稳定知识增强。
+以下保留完整的通用部署/验收步骤；第2章描述的是实施前revision8基线。不要在当前已部署的环境重复生成token、覆盖Secret或沿用2048维旧配置；实际overlay、CPU服务及受控corpus见实测记录。当前控制集合的工具执行/引用已按最新实测验收，后续针对获准业务语料和实际故障扩大验证。
 
 ## 1. 要验证的行为
 
@@ -431,6 +433,6 @@ rm -f "$IRA_HEADERS"
 
 不要删除共享 OpenSearch PVC、其他 collections 或现有原始 PDF。单独清理合成 PrometheusRule 按主手册第 8 节执行。
 
-完整验收应交付：Helm 前后记录、资源/健康/认证检查、PDF 哈希、入库全部明细、独立 query 全响应、同一 Alert 会话的完整消息和工具结果、IRAOP/OpenClaw 日志、引用逐项核验、飞书群收件证据、资源清理/回滚结果。2026-10-31 已有的部署、入库、直接查询及原生失败结果见[完整实测记录](spark_live_validation_20261031.zh-CN.md)；原生检索/引用质量、飞书收件和回滚仍待完成，不能因为部署成功就把整体验收标为通过。
+完整验收应交付：Helm前后记录、资源/健康/认证检查、PDF哈希、入库全部明细、独立query全响应、同一Alert会话的完整消息和工具结果、IRAOP/OpenClaw日志、引用逐项核验、飞书群收件证据、资源清理/回滚结果。已有部署、入库、直接查询及原生失败见[最初完整实测](spark_live_validation_20261031.zh-CN.md)；后续控制集合原生HTTP/MCP/UI的正确检索及手工告警上下文复核见[最新记录](spark_research_protocol_validation_20261031.zh-CN.md)。业务语料质量、飞书收件及回滚仍待完成，不能把控制PDF通过写成整体验收通过。
 
 完成 Research 验证后，再进入 [Edit/Auto 修复草案](spark_edit_auto_repair_validation.zh-CN.md)，验证从只读调查到获授权修复的人工交接、审批、执行、恢复确认和审计。

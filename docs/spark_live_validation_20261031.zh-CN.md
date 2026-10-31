@@ -5,7 +5,7 @@
 
 这次已在现有 Spark/Kind 上实际执行验证。**访问恢复、已有告警轮询、现场只读采集、PDF 入库，以及隔离服务的 View/Edit/Auto 修复控制已验证；Research 的原生检索质量未通过，飞书尚待群机器人创建。** 本记录同时保存失败结果，不能将“Pod Running”“API 200”或模型的成功措辞当成业务验收通过。
 
-**后续状态见[追加实测](spark_live_validation_20261031_followup.zh-CN.md)：当前 revision 12，已补测审批过期和 IRAOP Pod 重建，并部署无来源回答的 incomplete 处理。** 下列 27 项、部署表和工具索引保留 revision 10 时的原始快照；追加证据单独保存，没有覆盖原件。原生研究质量和飞书投递仍待通过。
+**后续状态：** [revision12追加实测](spark_live_validation_20261031_followup.zh-CN.md)补测审批过期、IRAOP Pod重建和无来源回答incomplete处理；[最新revision15记录](spark_research_protocol_validation_20261031.zh-CN.md)已完成控制PDF的原生HTTP/MCP/UI正确检索，追踪已关闭。下列27项、部署表和工具索引保留revision10原始快照，失败原件没有覆盖。业务文档质量、飞书真实收件与生产修复仍待验收。
 
 这是脱敏公开版。真实地址/账号及凭据取用入口由部署方单独交接；`*.example.invalid`、`spark-user`、`target-lab`、`NGC_ORG_ID` 均为占位符。所有选定会话、工具结果、节点/Pod 行、指标点和向量在原始附件中完整保留。脱敏规则、全部文件大小与双份 SHA256 见 [完整证据清单](examples/alert-feishu/live-evidence-20261031/manifest.json)。
 
@@ -187,6 +187,8 @@ query=`ALERTS{alertname="MosaicSyntheticAlert",alertstate="firing"}`，start=`17
 
 这证明选定窗口内该合成规则持续 firing。Alertmanager 轮询入库的对应对象才是 MOSAIC 接收的证据；不能仅凭 Prometheus ALERTS 或 Alertmanager Pod Running 推断所有后续链路都通。
 
+<a id="5-research-实际部署入库和失败点"></a>
+
 ## 5. Research 实际部署、入库和失败点
 
 本轮使用独立本地 CPU embedding，没有要求用户先提供 SaaS key。模型为 `sentence-transformers/all-MiniLM-L6-v2`，固定 revision `1110a243fdf4706b3f48f1d95db1a4f5529b4d41`，ONNX CPUExecutionProvider，384 维，最多 256 tokens，mean pooling + L2 normalize；超长输入返回 422，不静默截断。用户服务 `mosaic-embedding-validation.service` 绑定 Kind 可达的主机桥接地址 `:18081`，有独立 Bearer，CPUQuota=200%，MemoryMax=2Gi。未改 GPU 推理和内核参数；原有 vm.max_map_count=1048576。
@@ -228,6 +230,8 @@ query=`ALERTS{alertname="MosaicSyntheticAlert",alertstate="firing"}`，start=`17
 
 
 compat 非流式的 finish_reason=tool_calls，但解析 tool_calls 为空，是实际异常线索。独立进程只把 IRAOP 的 chat base URL 改为直连模型后，仍用 **1.8424160638824105 秒**返回伪工具文本和空 sources，见 [remote-evidence/evidence/research-direct-model-experiment.json](examples/alert-feishu/live-evidence-20261031/remote-evidence/evidence/research-direct-model-experiment.json)。因此没有把“绕过 compat”作为已证实修复，也未持久修改服务 endpoint。下一步需用经过 IRAOP 研究流程验证的模型/工具协议配置做对照，先要求原生 iraop_query 稳定命中和页码正确，再验收告警知识增强。
+
+<a id="6-view--edit--auto-的实际隔离修复"></a>
 
 ## 6. View / Edit / Auto 的实际隔离修复
 

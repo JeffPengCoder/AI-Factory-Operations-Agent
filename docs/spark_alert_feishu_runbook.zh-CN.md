@@ -5,6 +5,8 @@
 
 核验日期：2026-10-30。目标是完成一轮可以回放的操作：登录 Spark → 打开 MOSAIC → 开启 Alertmanager 轮询 → 创建合成告警 → 启动只读调查 → 导出告警、工具结果和分析 → 将审核后的报告发到飞书 → 清理测试规则。IRAOP 的后续启用与对照实验见[下一步草案](spark_iraop_alert_validation.zh-CN.md)，其后是[Edit/Auto 修复草案](spark_edit_auto_repair_validation.zh-CN.md)。
 
+2026-10-31 补充了第 3 章的本机访问路径、隧道生命周期和断线恢复说明；第 1/9 节的部署/业务链路证据仍以各自记录日期为准。
+
 这是公开仓库版本。实际 Spark 地址、SSH 用户、目标集群地址和密码由部署方单独提供；下文变量必须按现场填写。证据中的私网地址已替换为稳定的 `*.example.invalid` 占位符，私有集群别名替换为 `target-lab`。所有时间、指标数值、序列、错误和工具结果均保留，脱敏说明与校验值见 [manifest.json](examples/alert-feishu/evidence/manifest.json)。占位地址不能用于连接。
 
 ## 1. 先明确当前状态和每一步的验收标准
@@ -76,7 +78,7 @@ Spark / Kind：MOSAIC UI 服务端 Auto pull ←───┘
 | 当前演示必需 | Spark 地址、SSH 端口、登录用户名 | 填 SPARK_HOST/SPARK_SSH_PORT/SPARK_USER；说明跳板机/VPN要求 | 用自己的登录方式执行第 2.2 节，确认是预期 Spark |
 | 当前演示必需 | Spark SSH 登录授权 | 为接手人的账号/公钥授权，或授予其凭据库中相应密码的取用权限；已有操作者的登录能力不能代替这一步 | 本人从自己的电脑成功 SSH，不依赖他人临时连接 |
 | 当前演示必需 | 网络入口、VPN/跳板和 SSH host key 指纹 | 提供接入流程、所需组/角色及经管理员核对的主机指纹 | 能到达 Spark；主机指纹与交接值一致 |
-| 当前演示必需 | MOSAIC 访问方法、UI 用户和密码取得方式 | 提供隧道端口、UI 用户；交付可读取的凭据库条目，或明确授权人代取 `mosaic-ui-auth` 的流程 | 在自己的浏览器登录，并成功 GET `/api/alerts/alertmanager`；不能假定他能读取 K8s Secret |
+| 当前演示必需 | MOSAIC 访问方法、UI 用户和密码取得方式 | 提供两层转发命令、端口、前台/常驻方式及断线恢复方法；交付 UI 凭据库条目或授权人代取 `mosaic-ui-auth` 的流程 | 接手人在自己的电脑建立隧道、登录并成功 GET `/api/alerts/alertmanager`，记录监听者/HTTP 响应；不能假定他能读取 K8s Secret |
 | 当前演示必需 | 目标集群管理地址、管理员用户/context、MOSAIC 集群别名 | 填 TARGET_HOST/TARGET_SSH_PORT/TARGET_ADMIN/TARGET_CONTEXT/TARGET_CLUSTER；明确 Kind 是管理集群 | 读回目标集群身份与 Prometheus selector，确认不是在 Kind 上注入 |
 | 当前演示必需 | 创建/清理测试规则的授权人和凭据 | 二选一：授予接手人适当的管理员登录方式；或指定会执行第 5/8 节命令的集群管理员与联系方法 | `apply --dry-run=server` 成功，且测试结束时有人能删除同一规则；不是只交一个只读账号 |
 | 当前演示必需 | Prometheus/Alertmanager 地址、端口、认证/CA | 填监控变量、namespace、ruleSelector 标签；若另有认证，交付其取用方式 | 经 Spark 的隧道读取两个 API；Auto pull 的 baseUrl 指向同一环境 |
@@ -155,7 +157,24 @@ kubectl --context kind-mosaic-poc -n mosaic get deploy openclaw mosaic-ui \
 
 ### 3.1 本机终端 A：打开 UI 隧道
 
-保留此终端运行：
+这里使用 **SSH 本地端口转发 + Kubernetes port-forward** 两层连接。`127.0.0.1` 是执行命令/打开浏览器的那台机器自身的回环地址；同样的地址出现在本机和 Spark 上，指向各自的本机。
+
+```text
+接手人电脑上的浏览器
+  http://127.0.0.1:13000
+        │ 本机 SSH 进程监听 127.0.0.1:13000
+        │ SSH -L：通过 SPARK_HOST:SPARK_SSH_PORT 的加密连接转发
+        ▼
+Spark 的 127.0.0.1:13000
+        │ Spark 上 kubectl port-forward 监听此端口
+        │ Kubernetes API → Kind 中的 Service/Pod
+        ▼
+svc/mosaic-ui → MOSAIC UI Pod 的 3000 端口
+```
+
+下面一条命令同时建立本机 SSH 转发，并在 Spark 启动 kubectl 转发。`-L` 后第一个 `127.0.0.1:13000` 是本机监听地址，第二个是 **SSH 服务端 Spark 这一侧**连接的目标地址；末尾远程命令把 Spark 的该端口接到 UI 服务。
+
+先在终端 A 载入第 2.1 节变量或填写好的 `connections.env`，然后运行并保留此终端：
 
 ```bash
 ssh -t -p "$SPARK_SSH_PORT" -o ExitOnForwardFailure=yes \
@@ -183,6 +202,10 @@ ssh -N -p "$SPARK_SSH_PORT" -o ExitOnForwardFailure=yes \
 ```
 
 不要终止不明进程来抢端口。关闭隧道用 `Ctrl+C`；SSH 中断后若需重开，先检查远端端口。
+
+这是前台访问命令，需要 SSH 连接和两端转发进程持续运行。它本身没有安装开机启动、后台常驻或自动重连服务；关闭 SSH 终端会结束本机访问，电脑休眠、网络中断、Spark/相关 Pod 重启也可能使转发失效。恢复步骤见第 3.4 节。单独关闭浏览器通常不结束仍在运行的终端隧道，但会停止由该浏览器发起的新自动调查。
+
+每位接手人需要在**自己的电脑**上用自己的访问授权建立隧道。把 `http://127.0.0.1:13000` 发给同事，会让他的浏览器访问他自己的电脑；交付者的 SSH 隧道不会随链接转给对方。如果现场另行部署了常驻访问服务，交接时应补充其名称、运行主机/用户、启停方法、日志位置和维护人。
 
 ### 3.2 本机终端 B：准备 Basic Auth 文件
 
@@ -220,6 +243,49 @@ ssh -N -p "$SPARK_SSH_PORT" -o ExitOnForwardFailure=yes \
 ```
 
 这些目标是 **从 Spark 可以访问**的监控地址，不是浏览器中的 localhost。在当前现场监控接口不要求单独认证；客户若配置了认证/TLS，应使用其提供的凭据和 CA，不能把 UI 的 operator 凭据当作监控凭据。
+
+### 3.4 确认连接有效，并在断线后恢复
+
+已经渲染的页面可以在后端连接失效后继续显示。应发起新的 HTTP 请求，或刷新页面并检查新的 API 响应；看到旧页面内容不能证明隧道、UI API 或模型仍然可用。
+
+保留终端 A，在终端 B 逐层检查。第一条在 macOS 执行；Linux 接手人可用本机的 `ss -ltnp '( sport = :13000 )'` 替代 lsof：
+
+```bash
+# 1. 本机端口：预期监听者为本轮 SSH 转发进程。
+lsof -nP -iTCP:13000 -sTCP:LISTEN
+
+# 2. Spark 端口：预期监听者为对应 UI 的 kubectl port-forward。
+ssh -p "$SPARK_SSH_PORT" "$SPARK_USER@$SPARK_HOST" \
+  'ss -ltnp "( sport = :13000 )"'
+
+# 3. 新 HTTP 请求：绕过本机代理，直接验证这条回环连接。
+curl --noproxy '*' --connect-timeout 3 --max-time 5 -sS \
+  -o /dev/null -w 'HTTP %{http_code}\n' "$MOSAIC_URL/api/health"
+```
+
+本机无监听时 lsof 通常无输出并以非零退出；Spark 的 ss 仅有表头表示该端口无监听。`/api/health` 正常应返回 HTTP 200；HTTP 401/403 表示已有 HTTP 服务响应，需要核对所请求接口的认证/授权；`curl: (7)` 和 `HTTP 000` 表示本次没有建立成功的 HTTP 连接，先排查隧道。
+
+完成第 3.2 节认证设置后，还要验证实际 MOSAIC API，而不是只检查任意进程占用了 13000：
+
+```bash
+curl --noproxy '*' --fail-with-body -sS --netrc-file "$MOSAIC_NETRC" \
+  --connect-timeout 3 --max-time 10 \
+  "$MOSAIC_URL/api/alerts/alertmanager" \
+  | tee "$EVIDENCE_DIR/access-pull-status.json"
+```
+
+预期 `success=true`，并核对 baseUrl 指向本次交接的监控环境。保存本机/Spark 监听检查的完整输出与时间，以及这次新 API 响应，作为接手人自己建立连接的证据。UI API 可访问后，聊天/模型可用性仍按第 6 节实际回复和工具结果验证。
+
+| 检查结果 | 恢复操作 | 恢复后验收 |
+| --- | --- | --- |
+| 本机和 Spark 均无 13000 监听 | 在终端 A 重跑第 3.1 节第一条 SSH + kubectl 命令 | 两端有预期监听者，新 HTTP/API 请求成功 |
+| Spark 有正确的 UI port-forward，本机无监听 | 复用第 3.1 节的 `ssh -N -L ...` 命令，保留终端 | 本机 SSH 监听，认证 API 返回本环境状态 |
+| 本机有 SSH 监听，Spark 无转发 | 对自己这次的 SSH 终端按 Ctrl+C，确认远端端口状态后重跑完整两层命令 | 两端检查都恢复；只重开浏览器不能恢复缺失的远端转发 |
+| 13000 被不明进程或另一环境占用 | 先核对进程身份、目标与运行所有者；联系维护人处理，避免连接错环境 | 确认实际监听者和 API 环境后再测试告警 |
+| 端口和 HTTP 正常，但业务接口 401/403 | 核对 UI 用户/密码取得方式及权限 | 认证 API 返回成功；反复重建隧道不会修正凭据 |
+| 页面还显示内容，新请求失败 | 按上述监听检查定位断点，恢复后刷新页面 | 新请求成功；截图中的旧内容不作为连接成功证据 |
+
+上述操作只维护访问通道，不重装 MOSAIC 或创建新告警。断线后还应重新检查 Auto pull 状态；需要自动调查时，重新打开浏览器并确认 Auto investigate 设置。
 
 ## 4. 在界面打开告警轮询
 

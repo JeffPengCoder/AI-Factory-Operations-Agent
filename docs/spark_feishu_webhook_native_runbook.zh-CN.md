@@ -724,3 +724,42 @@ revision 18 的 chart SHA-256 为 `111501cb26eb26028ef604b1df3662e2eda7379bf08eb
 本轮在用户完成 `1.0.1` 的实际发布后再次查询：bot 名称与应用名称都为 `Jeff's AI Assistant`，线上版本 ID 已变化；App ID 保持，36 项权限、全部事件订阅和可用范围均与 `1.0.0` 一致。完整结果见[应用名称最终核对](examples/alert-feishu/rename-evidence-20261101/application-name-verification.json)。此前旧名仍在线的诊断结果继续保留，不能用最终成功覆盖当时发布尚未生效的事实。
 
 随后通过同一 OpenClaw 原生通道额外发送一条明确标注「OpenClaw 主动发送，非模型回复」的改名核对消息，Run ID 为 `feishu-rename-20261101-01`，供群里观察新的应用身份。完整[源消息](examples/alert-feishu/rename-evidence-20261101/rename-message-request.private.json)及[发送返回](examples/alert-feishu/rename-evidence-20261101/rename-message-result.private.json)均留存。这次没有再执行故障注入或新调查。
+
+### 16.5 源码回提：通用显示名与飞书初始化分开评审
+
+2026-11-02 将现场已经使用的配置能力回提到 upstream。agent 显示名属于
+OpenClaw agent 的通用配置，飞书是本轮已经实际验证过其展示效果的通道。
+两个源码提交入口如下；运行现场继续使用第 16.3 节的 revision 18。
+
+| 源码 PR | fork 分支 | 提交范围 | 本地完整验证 |
+| --- | --- | --- | --- |
+| [upstream #87：通用 agent 显示名](https://github.com/NVIDIA/AI-Factory-Operations-Agent/pull/87) | `feat/openclaw-agent-display-name` | 新增可选 `openclaw.agentDisplayName`；非空时同时设置 `name` 和 `identity.name`，内部 ID 保持 `default`；含类型校验、安装/升级命令、回归测试和重新生成的文档包 | 主测试 230 项：228 通过、0 失败、2 项可选集成测试跳过；独立推理测试 4 项全部通过；两个 chart 的 Helm lint、文档包新鲜度、Sphinx 严格构建和 diff 检查通过 |
+| [upstream #74：飞书原生通道及初始化兼容](https://github.com/NVIDIA/AI-Factory-Operations-Agent/pull/74) | `feat/feishu-channel` | 在原飞书 PR 内补充共享凭据引用 helper，供 gateway 以及现有 Feishu、Slack、Brave、OpenShell CLI 初始化容器使用；兼容双通道与自定义 Secret 名称/键名；合并最新 main 并解决校验模板和生成文档包冲突 | 主测试 232 项：230 通过、0 失败、2 项可选集成测试跳过；独立推理测试 4 项全部通过；两个 chart 的 Helm lint、文档包新鲜度、Sphinx 严格构建和 diff 检查通过 |
+
+两个 PR 的可选跳过项均为需要额外运行环境的 OpenClaw 原生 memory 集成测试和
+真实 VictoriaMetrics 集成测试。PR #87 的源码 commit 为
+`569c1979b6c36d3740fd36a37b1f5bee575023db`；它直接基于 upstream main，
+可独立评审、合并。PR #74 的当前 head 为
+`2b224a2339de551b21d89d38b81d32dc7154c50b`，初始化修正 commit 为
+`6d4ba4db3413f4a8cc4a2d6a9bafa1162e9e0c47`。完整源码、测试和每一处补丁
+可在对应 PR 的 Files changed 中查看。两者的 upstream Tests 与文档 build 检查
+均已成功；文档站点 deploy 检查按 PR 工作流跳过。
+
+PR #87 的默认值为 `agentDisplayName: ""`。没有配置或显式留空时，保留当前
+upstream seed 的 `AI Factory Operations Agent` 名称，且不新增 `identity`。
+只有提供非空字符串才写入显式 identity；引号、反斜杠、中文、控制字符及
+`{{ .Release.Name }}` 一类文本按 JSON 字符串处理。内部 ID、路由和其他配置
+通过完整配置比较确认保持原样。第 16.2 节的实际现场补丁及当时默认名
+`OpenClaw Assistant` 继续作为历史执行证据保留。
+
+PR #74 的新增回归测试先复现 OpenShell 初始化容器缺少 `FEISHU_APP_ID` 和
+`FEISHU_APP_SECRET` 引用，再逐个解析真实渲染的 CLI 容器，检查启用通道配置
+中的全部凭据变量是否具有对应的 `secretKeyRef`。覆盖：两个通道关闭、仅飞书、
+仅 Slack、两者同时启用，以及两者加 Brave 并使用自定义 Secret 名称与键名。
+两个通道关闭时，完整 OpenClaw JSON 与 Pod spec 均与当前 upstream main 相同。
+该 PR 的验证说明也已补充第 14–15 节的真实群消息与完整报告投递结果，
+并保留尚未执行的私聊、未授权身份/群、不 @ 和专门重启后收发验收项。
+
+本轮提交源码、测试及文档；没有再次升级 Spark，也没有再次执行故障注入。
+飞书平台的应用名称、应用发布和 Webhook 机器人名称仍按第 16.1、16.4 节
+分别在平台管理界面维护。

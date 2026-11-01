@@ -623,6 +623,8 @@ API 接受、群中可见、用户能打开附件是三个检查点。自定义�
 
 ### 7.4 需要飞书内双向交互时：原生插件
 
+飞书两种接入方式的完整操作、Agent-Ready 新入口、客户/实施者分工、凭据交接、长连接顺序及 2026-11-01 接入记录，统一见[飞书 Webhook 与原生通道操作手册](spark_feishu_webhook_native_runbook.zh-CN.md)。本节及前面 Webhook 的历史命令、实测和原始证据继续保留。
+
 [PR #74](https://github.com/NVIDIA/AI-Factory-Operations-Agent/pull/74) 使用与 OpenClaw `2026.6.10` 匹配的 `@openclaw/feishu`，不是要求升级到任意最新版。应用配置应参照[该版本指南](https://github.com/openclaw/openclaw/blob/v2026.6.10/docs/channels/feishu.md)，当前官网的[飞书概览](https://docs.openclaw.ai/channels/feishu)仅用于理解通道机制。
 
 客户需要：创建飞书企业自建应用、启用机器人、配置接收/发送消息权限、以长连接订阅 `im.message.receive_v1`、发布并允许目标用户使用、取得 App ID/App Secret 和真实 `ou_...` 用户/`oc_...` 群 ID。PR 采用出站 WebSocket，无需公网回调。按该分支部署时的配置如下：
@@ -646,7 +648,7 @@ openclaw:
       - oc_REPLACE_WITH_ALLOWED_GROUP
 ```
 
-必须先选择包含该 PR 的 chart，并核对已有 Teams 等现场定制后，按正常 upgrade 流程合入；本轮沿用的现场 chart（revision 8→10）不能只增加这些 values 就认为飞书插件已安装。验收允许用户私聊、允许群中 @、未授权用户/群拒绝、不 @ 不触发、Pod 重启后仍可回复。该 PR 关闭飞书文档/网盘等额外工具；飞书消息接入也不等于 IRAOP 文档入库。
+必须先选择包含该 PR 的 chart，并核对已有 Teams 等现场定制后，按正常 upgrade 流程合入。2026-10-30 初期现场 chart（revision 8→10）尚未含此改动，不能只增加 values 就认为插件已安装；2026-11-01 已从现场 revision 15 回填补丁，完成 revision 16/17 的持久部署，并验证群中 @ 回复、主动发送及完整旧报告重投，详见[新操作手册第 13–15 节](spark_feishu_webhook_native_runbook.zh-CN.md#13-本轮如何把原生通道和测试群白名单部署到-spark)。允许用户私聊、未授权用户/群拒绝、不 @ 不触发和进一步 Pod 重启后的收发仍需分别验收。该 PR 关闭飞书文档/网盘等额外工具；飞书消息接入也不等于 IRAOP 文档入库。
 
 **调查结束后的自动投递仍是下一步开发项。** 需建立持久化的“运行完成事件 → 报告发布器”，记录 fingerprint/sessionKey/run ID、消息目的地、发送响应、幂等键和失败重试状态，并用服务端采集/调度取代依赖浏览器的发起。普通飞书聊天回复不会自动订阅网页 Alert 会话的报告。不要把手动脚本、原生 IM 通道和自动告警报告器写成同一种已完成功能。
 

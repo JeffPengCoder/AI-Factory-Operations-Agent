@@ -1,0 +1,56 @@
+{
+  "at": "2026-11-01T12:53:24.337064+00:00",
+  "baseRevision": 15,
+  "sourcePR": 74,
+  "sourceCommit": "e280d159a2745d7a1b459b8c4b06d4c741b5234c",
+  "chartPath": "$SPARK_HOME/.local/share/mosaic-feishu-native-20261101/mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031.startup2.tgz",
+  "originalChartSha256": "7442198e4a3c79b95ea4f019268fc4dd36b9ec8aac347e00e60a355891a9be62",
+  "preparedChartSha256": "0ca66fe1c23da0f52db31d0a0ac2d9e744f23cf8269422b0fac3cc5a1347a43e",
+  "changeScope": [
+    {
+      "path": "values.yaml",
+      "beforeSha256": "2122ce4752ffe103a34e962060f75cab8db5744f29d2dcfb92e5079a817bea06",
+      "afterSha256": "035bf563ad0ae5b883c26fc16896b74d22c190d91a3bdcc4af6415412c6d0543"
+    },
+    {
+      "path": "templates/validation.yaml",
+      "beforeSha256": "428b14df4e66cbda0b9f0d21dfb2682250cbcb96f193a422f4638c19cc7bfe52",
+      "afterSha256": "2dd99faf4fc8a593fb2b166c1f22986e8d0157fa8c2029fc15f27292a7f2a96a"
+    },
+    {
+      "path": "files/openclaw-seed/nemoclaw.json",
+      "beforeSha256": "d54f48e8e4323b73814e276f25cdd3324c570bb24d722a3a1e01c668877ceb77",
+      "afterSha256": "365a433b63bb8fefd5150d513968e400524e29b725774e1d244750a8a4a843c8"
+    },
+    {
+      "path": "templates/openclaw.yaml",
+      "beforeSha256": "956105baf49e58f41e52cb3f439055a1a3205cd230a662c5704a311fd830b053",
+      "afterSha256": "74dd369b8728bc03ce3704c2c29285c20f652b16cfa812c51eb8b77f2d59f2a4"
+    }
+  ],
+  "dryRunPassed": true,
+  "changedWorkloads": [
+    {
+      "kind": "Deployment",
+      "namespace": "mosaic",
+      "name": "mosaic-ui"
+    },
+    {
+      "kind": "Deployment",
+      "namespace": "mosaic",
+      "name": "openclaw"
+    }
+  ],
+  "resourceIdentitySetUnchanged": true,
+  "rbacUnchanged": true,
+  "checkedExistingSecretNames": [
+    "mosaic-cluster-monitor-auth",
+    "mosaic-ui-auth",
+    "openclaw-secrets"
+  ],
+  "existingSecretDataUnchanged": true,
+  "allApplicationSecretCount": 13,
+  "allowedUserCount": 1,
+  "allowedGroupCount": 0,
+  "deployed": false
+}

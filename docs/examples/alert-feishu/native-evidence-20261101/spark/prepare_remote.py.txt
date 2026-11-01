@@ -1,0 +1,193 @@
+#!/usr/bin/env python3
+"""Backport Feishu into the exact deployed chart, retaining private children."""
+from datetime import datetime, timezone
+import base64
+import difflib
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import tarfile
+
+os.umask(0o077)
+ROOT = Path.home() / '.local/share/mosaic-feishu-native-20261101'
+ROOT.mkdir(mode=0o700, parents=True, exist_ok=True)
+H = [str(Path.home()/'.local/bin/helm'), '--kube-context', 'kind-mosaic-poc', '-n', 'mosaic']
+K = [str(Path.home()/'.local/bin/kubectl'), '--context', 'kind-mosaic-poc', '-n', 'mosaic']
+
+
+def protected(name, data):
+    path = ROOT/name
+    path.write_bytes(data)
+    path.chmod(0o600)
+    return path
+
+
+def run(args, name):
+    result = subprocess.run(args, capture_output=True)
+    protected(name+'.stdout.private', result.stdout)
+    protected(name+'.stderr.private', result.stderr)
+    if result.returncode:
+        raise SystemExit(f'{name} failed; see protected output on Spark (exit {result.returncode}).')
+    return result.stdout
+
+
+def replace_once(text, before, after):
+    if text.count(before) != 1:
+        raise SystemExit(f'Backport anchor must occur exactly once: {before[:90]!r}')
+    return text.replace(before, after, 1)
+
+
+def sha(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def secret_digest(obj):
+    data = dict(obj.get('data', {}))
+    data.update({k: base64.b64encode(v.encode()).decode() for k,v in obj.get('stringData', {}).items()})
+    return sha(json.dumps(data, sort_keys=True).encode())
+
+
+def objects(raw, name):
+    path = protected(name+'.private.yaml', raw)
+    python = str(Path.home()/'.local/share/mosaic-validation-20261031/embedding/.venv/bin/python')
+    code = 'import json,yaml,sys; print(json.dumps([o for o in yaml.safe_load_all(open(sys.argv[1])) if o]))'
+    return json.loads(run([python, '-c', code, str(path)], name+'-objects'))
+
+
+def main():
+    history = json.loads(run(H+['history','mosaic','-o','json'], 'history-before'))
+    assert history[-1]['revision'] == 15 and history[-1]['status'] == 'deployed', 'Review changed release before continuing.'
+    parts = json.loads((ROOT/'backport-parts.private.json').read_text())
+    previous = Path.home()/'.local/share/mosaic-validation-20261031/research-protocol-20261031/persistent-compat-attempt3/prepare-summary.json'
+    original = Path(json.loads(previous.read_text())['chartPath'])
+    protected('original-chart.tgz', original.read_bytes())
+    extract = ROOT/'chart-attempt5'
+    assert not extract.exists(), 'Preparation already exists; inspect it instead of overwriting.'
+    extract.mkdir(mode=0o700)
+    with tarfile.open(original) as archive:
+        archive.extractall(extract, filter='data')
+    chart = extract/'mosaic-stack'
+    changes = []
+
+    def edit(relative, transform):
+        path = chart/relative
+        before = path.read_text()
+        after = transform(before)
+        assert before != after, 'No change for '+relative
+        path.write_text(after)
+        changes.append({'path':relative, 'beforeSha256':sha(before.encode()), 'afterSha256':sha(after.encode())})
+        protected('diff-'+path.name+'.patch', ''.join(difflib.unified_diff(before.splitlines(True), after.splitlines(True), fromfile='before/'+relative, tofile='after/'+relative)).encode())
+
+    edit('values.yaml', lambda s: replace_once(s, '  slack:\n', parts['values']+'  slack:\n'))
+    edit('templates/validation.yaml', lambda s: s+'\n'+parts['validation'])
+
+    def seed(text):
+        text = replace_once(text, '{{- if and .Values.openclaw.msteams.enabled (not .Values.openclaw.slack.enabled) }}', '{{- if and (or .Values.openclaw.msteams.enabled .Values.openclaw.feishu.enabled) (not .Values.openclaw.slack.enabled) }}')
+        text = replace_once(text, '{{- if or .Values.openclaw.slack.enabled .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled }}', '{{- if or .Values.openclaw.slack.enabled .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled .Values.openclaw.feishu.enabled }}')
+        text = replace_once(text, '\n  "channels": {\n', '\n  "channels": {\n'+parts['channel'])
+        text = replace_once(text, '      "llm"{{- if or .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled }},', '      "llm"{{- if .Values.openclaw.feishu.enabled }},\n      "feishu"{{- end }}{{- if or .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled }},')
+        text = replace_once(text, '      }{{- if or .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled }},', '      }{{- if .Values.openclaw.feishu.enabled }},\n      "feishu": {\n        "enabled": true\n      }{{- end }}{{- if or .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled }},')
+        return text
+
+    edit('files/openclaw-seed/nemoclaw.json', seed)
+
+    def deployment(text):
+        text = replace_once(text, '        {{- if .Values.openclaw.slack.enabled }}\n        - name: init-slack-plugin', parts['init']+'        {{- if .Values.openclaw.slack.enabled }}\n        - name: init-slack-plugin')
+        text = replace_once(text, '            {{- if .Values.openclaw.slack.enabled }}\n            - name: SLACK_BOT_TOKEN', parts['env']+'            {{- if .Values.openclaw.slack.enabled }}\n            - name: SLACK_BOT_TOKEN')
+        # Existing CLI init containers also read the shared config with these env refs.
+        init_env = parts['env']
+        for init_name in ['init-msteams-plugin', 'init-slack-plugin', 'init-openshell-plugin']:
+            start = text.index('        - name: '+init_name+'\n')
+            end = text.index('          securityContext:\n', start)
+            chunk = text[start:end]
+            assert 'FEISHU_APP_ID' not in chunk
+            addition = init_env if '          env:\n' in chunk else '          env:\n'+init_env
+            text = text[:end]+addition+text[end:]
+        return text
+
+    edit('templates/openclaw.yaml', deployment)
+    # The old chart includes chart-version labels in unrelated ConfigMap hashes.
+    # Preserve its version; identify this backport by source commit + archive hash.
+
+    user_values = run(H+['get','values','mosaic','-o','json'], 'user-values-before')
+    values_raw = run(H+['get','values','mosaic','--all','-o','json'], 'values-before')
+    values = json.loads(values_raw)
+    assert values['modules']['research']['enabled'] and values['openclaw']['msteams']['install']
+    values['openclaw']['feishu'] = {
+        'enabled':True, 'pluginVersion':'2026.6.10', 'domain':'feishu',
+        'existingSecret':'mosaic-feishu', 'appIdKey':'FEISHU_APP_ID', 'appSecretKey':'FEISHU_APP_SECRET',
+        'allowedUserIds':parts['allowedUserIds'], 'allowedGroupIds':parts['allowedGroupIds'],
+    }
+    values_path = protected('values-feishu.private.json', json.dumps(values,indent=2).encode()+b'\n')
+    before_raw = run(H+['get','manifest','mosaic'], 'manifest-before')
+    before = objects(before_raw, 'manifest-before')
+    secret_items = json.loads(subprocess.check_output(K+['get','secrets','-o','json']))['items']
+    secrets = {s['metadata']['name']:s for s in secret_items if s.get('type') != 'helm.sh/release.v1'}
+    fingerprints = {n:{'uid':s['metadata']['uid'], 'keys':sorted(s.get('data',{})), 'digest':secret_digest(s)} for n,s in secrets.items()}
+    protected('secret-fingerprints-before.private.json', json.dumps(fingerprints,indent=2).encode()+b'\n')
+    run([str(Path.home()/'.local/bin/helm'),'lint',str(chart),'-f',str(values_path)], 'lint')
+    preview = json.loads(run(H+['upgrade','mosaic',str(chart),'-f',str(values_path),'--dry-run=server','-o','json'], 'preview'))
+    after = objects(preview['manifest'].encode(), 'manifest-preview')
+    checked = []
+    for obj in after:
+        if obj.get('kind') == 'Secret' and obj['metadata']['name'] in secrets:
+            name = obj['metadata']['name']
+            assert secret_digest(obj) == secret_digest(secrets[name]), 'Existing Secret data would change: '+name
+            checked.append(name)
+    assert len(checked) >= 3
+    def identity(obj):
+        return (obj['kind'], obj.get('metadata',{}).get('namespace') or 'mosaic', obj['metadata']['name'])
+    before_map = {identity(o):o for o in before}
+    after_map = {identity(o):o for o in after}
+    assert before_map.keys() == after_map.keys(), 'Unexpected resource additions/deletions in chart.'
+    workload_changes = []
+    for key, obj in after_map.items():
+        if key[0] in ('Deployment','StatefulSet','DaemonSet'):
+            changed = before_map[key]['spec']['template'] != obj['spec']['template']
+            if changed:
+                workload_changes.append({'kind':key[0], 'namespace':key[1], 'name':key[2]})
+    assert workload_changes == [
+        {'kind':'Deployment','namespace':'mosaic','name':'mosaic-ui'},
+        {'kind':'Deployment','namespace':'mosaic','name':'openclaw'},
+    ], workload_changes
+    # The installed chart deliberately shares the seed checksum with mosaic-ui.
+    # Verify that this checksum is the UI's only pod-template change.
+    ui_key = ('Deployment','mosaic','mosaic-ui')
+    old_ui = json.loads(json.dumps(before_map[ui_key]['spec']['template']))
+    new_ui = json.loads(json.dumps(after_map[ui_key]['spec']['template']))
+    old_ui['metadata']['annotations'].pop('checksum/config')
+    new_ui['metadata']['annotations'].pop('checksum/config')
+    assert old_ui == new_ui, 'Unexpected UI runtime configuration change.'
+    for key, obj in after_map.items():
+        if key[0] in ('Role','ClusterRole','RoleBinding','ClusterRoleBinding'):
+            old = {k:v for k,v in before_map[key].items() if k != 'metadata'}
+            new = {k:v for k,v in obj.items() if k != 'metadata'}
+            assert old == new, 'Unexpected RBAC change: '+str(key)
+    cm = next(o for o in after if o['kind']=='ConfigMap' and o['metadata']['name']=='openclaw-seed')
+    configs = [json.loads(v) for k,v in cm.get('data',{}).items() if k.endswith('.json') and '"channels"' in v]
+    config = next(c for c in configs if 'feishu' in c.get('channels',{}))
+    assert config['channels']['msteams']['enabled'] == json.loads(values_raw)['openclaw']['msteams']['enabled']
+    assert config['channels']['feishu']['allowFrom'] == parts['allowedUserIds']
+    assert config['channels']['feishu']['groupPolicy'] == ('allowlist' if parts['allowedGroupIds'] else 'disabled')
+    assert 'feishu' in config['plugins']['allow']
+    run([str(Path.home()/'.local/bin/helm'),'package',str(chart),'--destination',str(ROOT)], 'package')
+    packages = list(ROOT.glob('mosaic-stack-*.tgz'))
+    assert len(packages)==1
+    summary = {
+        'at':datetime.now(timezone.utc).isoformat(), 'baseRevision':15,
+        'sourcePR':74, 'sourceCommit':parts['sourceCommit'], 'chartPath':str(packages[0]),
+        'originalChartSha256':sha(original.read_bytes()), 'preparedChartSha256':sha(packages[0].read_bytes()),
+        'changeScope':changes, 'dryRunPassed':True, 'changedWorkloads':workload_changes,
+        'resourceIdentitySetUnchanged':True, 'rbacUnchanged':True,
+        'checkedExistingSecretNames':checked, 'existingSecretDataUnchanged':True,
+        'allApplicationSecretCount':len(secrets), 'allowedUserCount':len(parts['allowedUserIds']),
+        'allowedGroupCount':len(parts['allowedGroupIds']), 'deployed':False,
+    }
+    protected('prepare-summary.json', json.dumps(summary,indent=2).encode()+b'\n')
+    print(json.dumps(summary))
+
+
+if __name__ == '__main__':
+    main()

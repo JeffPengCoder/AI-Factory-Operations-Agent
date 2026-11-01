@@ -1,0 +1,58 @@
+│
+◇  Config warnings ───────────────────────────────────────────────────────╮
+│                                                                         │
+│  - plugins.entries.llm: plugin not found: llm (stale config entry       │
+│    ignored; remove it from plugins config)                              │
+│  - plugins.entries.hardware-agent: plugin not found: hardware-agent     │
+│    (stale config entry ignored; remove it from plugins config)          │
+│  - plugins.entries.bcm: plugin not found: bcm (stale config entry       │
+│    ignored; remove it from plugins config)                              │
+│  - plugins.entries.grafana: plugin not found: grafana (stale config     │
+│    entry ignored; remove it from plugins config)                        │
+│  - plugins.entries.slurm: plugin not found: slurm (stale config entry   │
+│    ignored; remove it from plugins config)                              │
+│  - plugins.allow: plugin not found: bcm (stale config entry ignored;    │
+│    remove it from plugins config)                                       │
+│  - plugins.allow: plugin not found: hardware-agent (stale config entry  │
+│    ignored; remove it from plugins config)                              │
+│  - plugins.allow: plugin not found: grafana (stale config entry         │
+│    ignored; remove it from plugins config)                              │
+│  - plugins.allow: plugin not found: slurm (stale config entry ignored;  │
+│    remove it from plugins config)                                       │
+│  - plugins.allow: plugin not found: llm (stale config entry ignored;    │
+│    remove it from plugins config)                                       │
+│                                                                         │
+├─────────────────────────────────────────────────────────────────────────╯
+2026-11-01T12:58:32.150+00:00 [gateway] loading configuration…
+2026-11-01T12:58:32.265+00:00 [gateway] resolving authentication…
+2026-11-01T12:58:32.270+00:00 [gateway] starting...
+2026-11-01T12:58:32.495+00:00 [gateway] starting HTTP server...
+2026-11-01T12:58:32.497+00:00 [gateway] ⚠️  Gateway is binding to a non-loopback address. Ensure authentication is configured before exposing to public networks.
+2026-11-01T12:58:32.509+00:00 [health-monitor] started (interval: 300s, startup-grace: 60s, channel-connect-grace: 120s)
+2026-11-01T12:58:33.203+00:00 [gateway] agent model: llm/nvidia/Qwen3.6-35B-A3B-NVFP4 (thinking=off, fast=off)
+2026-11-01T12:58:33.204+00:00 [gateway] http server listening (5 plugins: automation-guard, feishu, kubernetes, openshell, remote-ssh; 0.9s)
+2026-11-01T12:58:33.205+00:00 [gateway] log file: /tmp/openclaw/openclaw-2026-11-01.log
+2026-11-01T12:58:33.291+00:00 [gateway] security warning: dangerous config flags enabled: gateway.controlUi.dangerouslyDisableDeviceAuth=true. Run `openclaw security audit`.
+2026-11-01T12:58:33.292+00:00 [gateway] starting channels and sidecars...
+2026-11-01T12:58:33.340+00:00 [gateway] ready
+2026-11-01T12:58:33.444+00:00 [feishu] starting feishu[default] (mode: websocket)
+2026-11-01T12:58:33.491+00:00 [heartbeat] started
+2026-11-01T12:58:33.501+00:00 [info]: [ 'client ready' ]
+2026-11-01T12:58:35.249+00:00 [feishu] feishu[default]: bot open_id resolved: ou_APPLICATION_BOT
+2026-11-01T12:58:35.261+00:00 [info]: [ 'event-dispatch is ready' ]
+2026-11-01T12:58:35.263+00:00 [feishu] feishu[default]: starting WebSocket connection...
+2026-11-01T12:58:35.263+00:00 [info]: [
+  '[ws]',
+  'receive events or callbacks through persistent connection only available in self-build & Feishu app, Configured in:\n' +
+    '        Developer Console(开发者后台)\n' +
+    '          ->\n' +
+    '        Events and Callbacks(事件与回调)\n' +
+    '          ->\n' +
+    '        Mode of event/callback subscription(订阅方式)\n' +
+    '          ->\n' +
+    '        Receive events/callbacks through persistent connection(使用 长连接 接收事件/回调)'
+]
+2026-11-01T12:58:35.268+00:00 [feishu] feishu[default]: WebSocket client started
+2026-11-01T12:58:36.508+00:00 [info]: [ '[ws]', 'ws client ready' ]
+2026-11-01T12:58:39.766+00:00 [gateway] provider auth state pre-warmed in 1320ms eventLoopMax=90.3ms
+2026-11-01T12:58:43.370+00:00 [gateway] agent runtime plugins pre-warmed in 50ms

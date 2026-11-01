@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+"""Capture native-channel evidence; preserve fields while redacting credentials."""
+from datetime import datetime, timezone
+import base64
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import subprocess
+
+os.umask(0o077)
+ROOT=Path.home()/'.local/share/mosaic-feishu-native-20261101'
+K=[str(Path.home()/'.local/bin/kubectl'),'--request-timeout=15s','--context','kind-mosaic-poc','-n','mosaic']
+H=[str(Path.home()/'.local/bin/helm'),'--kube-context','kind-mosaic-poc','-n','mosaic']
+
+
+def main():
+    stamp=datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+    out=ROOT/'captures'/stamp;out.mkdir(mode=0o700,parents=True)
+    secrets=json.loads(subprocess.check_output(K+['get','secrets','-o','json']))['items']
+    app_secrets=[s for s in secrets if s.get('type')!='helm.sh/release.v1']
+    values=[base64.b64decode(v).decode(errors='replace') for s in app_secrets for v in s.get('data',{}).values()]
+    values=[v for v in values if len(v)>=8]
+    def redact(text):
+        for v in sorted(values,key=len,reverse=True):text=text.replace(v,'<credential-redacted>')
+        text=re.sub(r'(?i)(Bearer\s+)[A-Za-z0-9._~+/-]+',r'\1<credential-redacted>',text)
+        return text
+    def save(name,text):
+        p=out/name;p.write_text(redact(text));p.chmod(0o600)
+    pods=json.loads(subprocess.check_output(K+['get','pods','-o','json']))
+    pod=next(p['metadata']['name'] for p in pods['items'] if p['metadata']['name'].startswith('openclaw-'))
+    logs=subprocess.check_output(K+['logs',pod,'-c','gateway','--since-time=2026-11-01T12:58:00Z']).decode()
+    save('gateway.redacted.log',logs)
+    target=json.loads((ROOT/'target-group.private.json').read_text())
+    script=r'''const fs=require('node:fs'),path=require('node:path');
+const root='/home/node/.openclaw',c=JSON.parse(fs.readFileSync(root+'/openclaw.json','utf8'));
+const f=c.channels.feishu,group=process.argv[1],sessions=[];
+for(const a of fs.readdirSync(root+'/agents')){
+ const dir=path.join(root,'agents',a,'sessions'),store=path.join(dir,'sessions.json');
+ if(!fs.existsSync(store))continue;
+ const records=JSON.parse(fs.readFileSync(store,'utf8'));
+ for(const [key,v]of Object.entries(records)){
+  if(!key.includes('feishu')||!key.includes(group))continue;
+  const file=v.sessionFile||path.join(dir,v.sessionId+'.jsonl');
+  sessions.push({key,storeEntry:v,transcript:fs.existsSync(file)?fs.readFileSync(file,'utf8'):null});
+ }
+}
+const pick=['enabled','domain','connectionMode','configWrites','dmPolicy','allowFrom','groupPolicy','groupAllowFrom','groupSenderAllowFrom','groupSessionScope','requireMention','tools'];
+let install=c.plugins?.installs?.feishu,version=null;
+const npmRoot=path.join(root,'npm/projects');
+const npmPaths=fs.existsSync(npmRoot)?fs.readdirSync(npmRoot).filter(n=>n.startsWith('openclaw-feishu-')).map(n=>path.join(npmRoot,n,'node_modules/@openclaw/feishu')):[];
+for(const dir of [install?.installPath,path.join(root,'extensions/feishu'),...npmPaths].filter(Boolean)){
+ try{version=JSON.parse(fs.readFileSync(path.join(dir,'package.json'),'utf8')).version;break;}catch{}
+}
+console.log(JSON.stringify({channel:Object.fromEntries(pick.map(k=>[k,f[k]])),session:c.session,
+ plugin:{allowed:c.plugins?.allow?.includes('feishu'),version,install},
+ credentialsPresent:!!process.env.FEISHU_APP_ID&&!!process.env.FEISHU_APP_SECRET,sessions}));'''
+    run=subprocess.run(K+['exec',pod,'-c','gateway','--','node','-e',script,target['chat_id']],capture_output=True,timeout=45)
+    save('runtime-and-sessions.json',run.stdout.decode());save('runtime-and-sessions.stderr.log',run.stderr.decode())
+    config=json.loads(run.stdout) if run.returncode==0 else {}
+    before=json.loads((ROOT/'secret-fingerprints-before.private.json').read_text())
+    current={s['metadata']['name']:{'uid':s['metadata']['uid'],'keys':sorted(s.get('data',{})),
+              'digest':hashlib.sha256(json.dumps(s.get('data',{}),sort_keys=True).encode()).hexdigest()} for s in app_secrets}
+    save('secret-fingerprints.json',json.dumps(current,indent=2)+'\n')
+    assert before==current,'Application Secret changed since preparation.'
+    baseline=json.loads((ROOT/'runtime-before.json').read_text())
+    simple={'at':datetime.now(timezone.utc).isoformat(),'pods':[
+      {'name':p['metadata']['name'],'uid':p['metadata']['uid'],'phase':p['status']['phase'],
+       'containers':[{k:c.get(k) for k in ['name','ready','restartCount','image','containerID']} for c in p['status'].get('containerStatuses',[])]}
+      for p in pods['items']]}
+    model=json.loads(subprocess.check_output(['docker','inspect','nemoclaw-vllm','--format','{{json .State}}']))
+    simple['sharedModel']={k:model.get(k) for k in ['Status','Running','Pid','StartedAt','Restarting']}
+    assert simple['sharedModel']==baseline['sharedModel'],'Shared model state changed.'
+    save('runtime.json',json.dumps(simple,indent=2)+'\n')
+    history=json.loads(subprocess.check_output(H+['history','mosaic','-o','json']))
+    save('helm-history.json',json.dumps(history,indent=2)+'\n')
+    result={'at':simple['at'],'capturePath':str(out),'revision':history[-1]['revision'],'releaseStatus':history[-1]['status'],
+            'podCount':len(pods['items']),'allContainersReady':all(c.get('ready') for p in pods['items'] for c in p['status'].get('containerStatuses',[])),
+            'appSecretCount':len(current),'applicationSecretsUnchanged':True,'sharedModelUnchanged':True,
+            'pluginVersion':config.get('plugin',{}).get('version'),'allowedUserCount':len(config.get('channel',{}).get('allowFrom',[])),
+            'allowedGroupCount':len(config.get('channel',{}).get('groupAllowFrom',[])),
+            'sessions':[{'key':s['key'],'sessionId':s['storeEntry'].get('sessionId'),'transcriptLines':len((s.get('transcript') or '').splitlines())} for s in config.get('sessions',[])],
+            'feishuLogLines':[l for l in logs.splitlines() if '[feishu]' in l or 'ws client ready' in l]}
+    save('summary.json',json.dumps(result,indent=2)+'\n')
+    (ROOT/'latest-capture-path.txt').write_text(str(out)+'\n')
+    print(redact(json.dumps(result)),flush=True)
+
+
+if __name__=='__main__':
+    main()

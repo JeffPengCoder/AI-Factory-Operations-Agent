@@ -1,0 +1,14 @@
+{
+  "auth_code": 0,
+  "auth_msg": "ok",
+  "expires_in_seconds": 7200,
+  "bot_info_code": 0,
+  "bot_info_msg": "ok",
+  "bot": {
+    "activate_status": 2,
+    "app_name": "APPLICATION_BOT",
+    "avatar_url": "https://s3-imfile.feishucdn.com/static-resource/v1/v3_00171_0539a98f-8399-499d-bfae-8ff3b13badcg",
+    "ip_white_list": [],
+    "open_id": "ou_APPLICATION_BOT"
+  }
+}

@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+"""Apply only a reviewed revision-15 backport; keep the run alive across SSH."""
+from datetime import datetime, timezone
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+
+os.umask(0o077)
+ROOT = Path.home()/'.local/share/mosaic-feishu-native-20261101'
+H = [str(Path.home()/'.local/bin/helm'), '--kube-context', 'kind-mosaic-poc', '-n', 'mosaic']
+K = [str(Path.home()/'.local/bin/kubectl'), '--context', 'kind-mosaic-poc', '-n', 'mosaic']
+
+
+def save(name, data):
+    path = ROOT/name
+    path.write_text(json.dumps(data,indent=2)+'\n')
+    path.chmod(0o600)
+
+
+def snapshot(name):
+    pods = json.loads(subprocess.check_output(K+['get','pods','-o','json']))
+    data = {'at':datetime.now(timezone.utc).isoformat(), 'pods':[
+        {'name':p['metadata']['name'], 'uid':p['metadata']['uid'], 'phase':p['status'].get('phase'),
+         'containers':[{k:c.get(k) for k in ('name','image','ready','restartCount','containerID')} for c in p['status'].get('containerStatuses',[])],
+         'initContainers':[{k:c.get(k) for k in ('name','ready','restartCount','state')} for c in p['status'].get('initContainerStatuses',[])]}
+        for p in pods['items']]}
+    docker = subprocess.run(['docker','inspect','nemoclaw-vllm','--format','{{json .State}}'],capture_output=True)
+    if docker.returncode == 0:
+        state = json.loads(docker.stdout)
+        data['sharedModel'] = {k:state.get(k) for k in ('Status','Running','Pid','StartedAt','Restarting')}
+    else:
+        data['sharedModel'] = {'inspectExitCode':docker.returncode}
+    save(name,data)
+    return data
+
+
+def main():
+    history = json.loads(subprocess.check_output(H+['history','mosaic','-o','json']))
+    assert history[-1]['revision']==15 and history[-1]['status']=='deployed'
+    review = json.loads((ROOT/'prepare-summary.json').read_text())
+    assert review['dryRunPassed'] and review['existingSecretDataUnchanged'] and review['rbacUnchanged']
+    chart = Path(review['chartPath'])
+    assert hashlib.sha256(chart.read_bytes()).hexdigest()==review['preparedChartSha256']
+    assert not (ROOT/'apply-result.json').exists(), 'Existing result must be reviewed before rerun.'
+    snapshot('runtime-before.json')
+    command = H+['upgrade','mosaic',str(chart),'-f',str(ROOT/'values-feishu.private.json'),
+                 '--atomic','--wait','--timeout','12m',
+                 '--description','Feishu PR74 backport; explicit app-owner allowlist; group onboarding pending']
+    save('helm-command.json',command)
+    with (ROOT/'upgrade.stdout.private').open('wb') as out, (ROOT/'upgrade.stderr.private').open('wb') as err:
+        result = subprocess.run(command,stdout=out,stderr=err)
+    save('apply-result.json',{'at':datetime.now(timezone.utc).isoformat(),'exitCode':result.returncode})
+    after = snapshot('runtime-after-upgrade.json')
+    history = json.loads(subprocess.check_output(H+['history','mosaic','-o','json']))
+    save('history-after.json',history)
+    print(json.dumps({'exitCode':result.returncode,'revision':history[-1]['revision'],'status':history[-1]['status'],'podCount':len(after['pods'])}),flush=True)
+
+
+if __name__ == '__main__':
+    main()

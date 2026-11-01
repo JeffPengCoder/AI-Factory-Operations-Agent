@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+"""Enable exactly the user-confirmed Feishu test group in the Helm release."""
+from datetime import datetime, timezone
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import prepare_remote as review
+
+os.umask(0o077)
+PARENT = Path.home()/'.local/share/mosaic-feishu-native-20261101'
+ROOT = PARENT/'group-enable'
+ROOT.mkdir(mode=0o700,exist_ok=True)
+review.ROOT = ROOT
+H,K = review.H,review.K
+
+
+def main():
+    target = json.loads((PARENT/'target-group.private.json').read_text())
+    assert target['name']=='MOSAIC Alert Test' and target['confirmedByUser'] is True
+    assert target['chat_id'].startswith('oc_')
+    history = json.loads(review.run(H+['history','mosaic','-o','json'],'history-before'))
+    assert history[-1]['revision']==16 and history[-1]['status']=='deployed'
+    values = json.loads(review.run(H+['get','values','mosaic','--all','-o','json'],'values-before'))
+    assert values['openclaw']['feishu']['enabled'] and values['openclaw']['feishu']['allowedGroupIds']==[]
+    values['openclaw']['feishu']['allowedGroupIds']=[target['chat_id']]
+    path = review.protected('values-with-test-group.private.json',json.dumps(values,indent=2).encode()+b'\n')
+    chart = Path(json.loads((PARENT/'prepare-summary.json').read_text())['chartPath'])
+    before = review.objects(review.run(H+['get','manifest','mosaic'],'manifest-before'),'manifest-before')
+    preview = json.loads(review.run(H+['upgrade','mosaic',str(chart),'-f',str(path),'--dry-run=server','-o','json'],'preview'))
+    after = review.objects(preview['manifest'].encode(),'manifest-preview')
+    def key(obj):return (obj['kind'],obj.get('metadata',{}).get('namespace') or 'mosaic',obj['metadata']['name'])
+    old = {key(o):o for o in before};new={key(o):o for o in after}
+    assert old.keys()==new.keys()
+    changed=[]
+    for identity,obj in new.items():
+        if obj['kind']=='Secret':
+            assert review.secret_digest(obj)==review.secret_digest(old[identity])
+        if obj['kind'] in ('Deployment','StatefulSet','DaemonSet') and obj['spec']['template']!=old[identity]['spec']['template']:
+            changed.append(identity[2])
+        if obj['kind'] in ('Role','RoleBinding','ClusterRole','ClusterRoleBinding'):
+            assert {k:v for k,v in obj.items() if k!='metadata'}=={k:v for k,v in old[identity].items() if k!='metadata'}
+    assert sorted(changed)==['mosaic-ui','openclaw'],changed
+    summary={'at':datetime.now(timezone.utc).isoformat(),'baseRevision':16,'allowedGroupCount':1,
+             'allowedUserCount':len(values['openclaw']['feishu']['allowedUserIds']),
+             'dryRunPassed':True,'secretDataUnchanged':True,'rbacUnchanged':True,'changedWorkloads':changed,
+             'chartSha256':hashlib.sha256(chart.read_bytes()).hexdigest()}
+    review.protected('prepare-summary.json',json.dumps(summary,indent=2).encode()+b'\n')
+    command=H+['upgrade','mosaic',str(chart),'-f',str(path),'--atomic','--wait','--timeout','12m',
+               '--description','Feishu PR74: enable the user-confirmed test group and app-owner allowlist']
+    review.protected('helm-command.json',json.dumps(command,indent=2).encode()+b'\n')
+    result=subprocess.run(command,capture_output=True)
+    review.protected('upgrade.stdout.private',result.stdout);review.protected('upgrade.stderr.private',result.stderr)
+    history=json.loads(subprocess.check_output(H+['history','mosaic','-o','json']))
+    final={'at':datetime.now(timezone.utc).isoformat(),'exitCode':result.returncode,
+           'revision':history[-1]['revision'],'status':history[-1]['status']}
+    review.protected('apply-result.json',json.dumps(final,indent=2).encode()+b'\n')
+    print(json.dumps(final),flush=True)
+
+
+if __name__=='__main__':
+    main()

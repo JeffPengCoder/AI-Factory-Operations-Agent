@@ -45,6 +45,7 @@ Tenant and operator deployments <docs/multitenancy>
 Use cases <docs/use_cases>
 Slurm root cause analysis <docs/slurm_rca>
 Spark alerts and Feishu runbook (Chinese) <docs/spark_alert_feishu_runbook.zh-CN>
+Feishu Webhook and native channel operations (Chinese) <docs/spark_feishu_webhook_native_runbook.zh-CN>
 IRAOP alert validation (Chinese) <docs/spark_iraop_alert_validation.zh-CN>
 Edit/Auto repair validation (Chinese) <docs/spark_edit_auto_repair_validation.zh-CN>
 Spark live validation and evidence (Chinese) <docs/spark_live_validation_20261031.zh-CN>

@@ -1,0 +1,230 @@
+{
+  "at": "2026-11-01T12:53:59.130941+00:00",
+  "pods": [
+    {
+      "name": "iraop-cb7877-nmpw7",
+      "uid": "UUID_REDACTED_004",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "iraop",
+          "image": "nvcr.io/PRIVATE_ORG/afoa-release/iraop:f804535b",
+          "ready": true,
+          "restartCount": 0,
+          "containerID": "containerd://ba5e6c06db08fd19ba8990bc1586b889f6296d3fe7001276a2ed08869aaf9df6"
+        }
+      ],
+      "initContainers": []
+    },
+    {
+      "name": "llm-openai-compat-58bd8857f4-d5f8k",
+      "uid": "UUID_REDACTED_005",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "proxy",
+          "image": "nvcr.io/PRIVATE_ORG/afoa-release/mosaic-ui:a011dcc8",
+          "ready": true,
+          "restartCount": 0,
+          "containerID": "containerd://97cc293f4882becaad9971ec2453d504b3382c9087c31e807b520caf822f29c0"
+        }
+      ],
+      "initContainers": []
+    },
+    {
+      "name": "mosaic-cluster-monitor-76fd6d7cb5-5l5m6",
+      "uid": "UUID_REDACTED_006",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "cluster-monitor",
+          "image": "nvcr.io/PRIVATE_ORG/afoa-release/mosaic-ui:a011dcc8",
+          "ready": true,
+          "restartCount": 0,
+          "containerID": "containerd://4eb75f1be661c37ef05fde8017874e7f312bd2e020b79050afc57faff7027005"
+        }
+      ],
+      "initContainers": []
+    },
+    {
+      "name": "mosaic-openshell-0",
+      "uid": "UUID_REDACTED_007",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "openshell-gateway",
+          "image": "ghcr.io/nvidia/openshell/gateway:0.0.75",
+          "ready": true,
+          "restartCount": 0,
+          "containerID": "containerd://156839a27a71a6206fcf751d2ff5d069ac04a636f50ed91a3320614e39b602e6"
+        }
+      ],
+      "initContainers": []
+    },
+    {
+      "name": "mosaic-ui-877685d69-chxwr",
+      "uid": "UUID_REDACTED_030",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "mosaic-ui",
+          "image": "nvcr.io/PRIVATE_ORG/afoa-release/mosaic-ui:a011dcc8",
+          "ready": true,
+          "restartCount": 0,
+          "containerID": "containerd://84288ca40c4d6349226cf3e5bb375fdff910482deea7a21bd12125f58441265a"
+        }
+      ],
+      "initContainers": []
+    },
+    {
+      "name": "openclaw-79dd6456f8-8fpl4",
+      "uid": "UUID_REDACTED_031",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "gateway",
+          "image": "ghcr.io/openclaw/openclaw:2026.6.10",
+          "ready": true,
+          "restartCount": 0,
+          "containerID": "containerd://1de5cc6006e95b0d7c1305937528b8020dea7ad2c620a3e7c75429f68d2ca7ef"
+        }
+      ],
+      "initContainers": [
+        {
+          "name": "install-kubectl",
+          "ready": true,
+          "restartCount": 0,
+          "state": {
+            "terminated": {
+              "containerID": "containerd://6eae52fc9615f98c55213bdf5f8ba43a9752743e3e005a15ccbd047eed3e2d7a",
+              "exitCode": 0,
+              "finishedAt": "2026-10-31T03:46:43Z",
+              "reason": "Completed",
+              "startedAt": "2026-10-31T03:46:41Z"
+            }
+          }
+        },
+        {
+          "name": "install-openssh-client",
+          "ready": true,
+          "restartCount": 0,
+          "state": {
+            "terminated": {
+              "containerID": "containerd://f78d8b0bb9213f0cf8f667d311fcc78d88ade5d6c8a5bc96c0588ec7d3d09f51",
+              "exitCode": 0,
+              "finishedAt": "2026-10-31T03:46:44Z",
+              "reason": "Completed",
+              "startedAt": "2026-10-31T03:46:44Z"
+            }
+          }
+        },
+        {
+          "name": "init-perms",
+          "ready": true,
+          "restartCount": 0,
+          "state": {
+            "terminated": {
+              "containerID": "containerd://6f2ff046b053939bbe5f73c69e14e1e8a7a349ae8998ddfcd1dbb083c4587b7d",
+              "exitCode": 0,
+              "finishedAt": "2026-10-31T03:46:45Z",
+              "reason": "Completed",
+              "startedAt": "2026-10-31T03:46:45Z"
+            }
+          }
+        },
+        {
+          "name": "init-config",
+          "ready": true,
+          "restartCount": 0,
+          "state": {
+            "terminated": {
+              "containerID": "containerd://34e2e3cd455db9dd6ff74b544507876d32c483758cb43da03f1e10d4d721f565",
+              "exitCode": 0,
+              "finishedAt": "2026-10-31T03:46:46Z",
+              "reason": "Completed",
+              "startedAt": "2026-10-31T03:46:46Z"
+            }
+          }
+        },
+        {
+          "name": "init-remote-ssh-credentials",
+          "ready": true,
+          "restartCount": 0,
+          "state": {
+            "terminated": {
+              "containerID": "containerd://9281ef6f68ff327cce02cff82e7860a0237d8237d454a31e6518f31ba1814759",
+              "exitCode": 0,
+              "finishedAt": "2026-10-31T03:46:47Z",
+              "reason": "Completed",
+              "startedAt": "2026-10-31T03:46:47Z"
+            }
+          }
+        },
+        {
+          "name": "init-msteams-plugin",
+          "ready": true,
+          "restartCount": 0,
+          "state": {
+            "terminated": {
+              "containerID": "containerd://1e0dd577b7db1be6298b94b9f1f51c51cb18cee43c3876cef6021ab3898b5332",
+              "exitCode": 0,
+              "finishedAt": "2026-10-31T03:46:56Z",
+              "reason": "Completed",
+              "startedAt": "2026-10-31T03:46:48Z"
+            }
+          }
+        },
+        {
+          "name": "install-openshell-assets",
+          "ready": true,
+          "restartCount": 0,
+          "state": {
+            "terminated": {
+              "containerID": "containerd://dbc178fb046fb5a4460e9a2e09201623d5acba6bed9504a81a2783bd2a0356be",
+              "exitCode": 0,
+              "finishedAt": "2026-10-31T03:46:59Z",
+              "reason": "Completed",
+              "startedAt": "2026-10-31T03:46:57Z"
+            }
+          }
+        },
+        {
+          "name": "init-openshell-plugin",
+          "ready": true,
+          "restartCount": 0,
+          "state": {
+            "terminated": {
+              "containerID": "containerd://5205ce227a1059a35b6ea2118e09bb830b08029ca4eb89e14bcbd9950941b9f2",
+              "exitCode": 0,
+              "finishedAt": "2026-10-31T03:47:02Z",
+              "reason": "Completed",
+              "startedAt": "2026-10-31T03:47:00Z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "opensearch-0",
+      "uid": "UUID_REDACTED_010",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "opensearch",
+          "image": "docker.io/opensearchproject/opensearch:2.17.0",
+          "ready": true,
+          "restartCount": 0,
+          "containerID": "containerd://cd597897e3c5c29ea1983dded8e1a121f45d65b41c724c26b330f28d0bef400c"
+        }
+      ],
+      "initContainers": []
+    }
+  ],
+  "sharedModel": {
+    "Status": "running",
+    "Running": true,
+    "Pid": 128852,
+    "StartedAt": "2026-09-15T07:17:31.481993911Z",
+    "Restarting": false
+  }
+}

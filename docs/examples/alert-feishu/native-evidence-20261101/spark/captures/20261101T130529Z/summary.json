@@ -1,0 +1,41 @@
+{
+  "at": "2026-11-01T13:05:29.999680+00:00",
+  "capturePath": "$SPARK_HOME/.local/share/mosaic-feishu-native-20261101/captures/20261101T130529Z",
+  "revision": 17,
+  "releaseStatus": "deployed",
+  "podCount": 7,
+  "allContainersReady": true,
+  "appSecretCount": 13,
+  "applicationSecretsUnchanged": true,
+  "sharedModelUnchanged": true,
+  "pluginVersion": "2026.6.10",
+  "allowedUserCount": 1,
+  "allowedGroupCount": 1,
+  "sessions": [
+    {
+      "key": "agent:default:feishu:direct:oc_TEST_GROUP",
+      "sessionId": "UUID_REDACTED_001",
+      "transcriptLines": 3
+    },
+    {
+      "key": "agent:default:feishu:group:oc_TEST_GROUP:sender:ou_ALLOWED_USER",
+      "sessionId": "UUID_REDACTED_003",
+      "transcriptLines": 6
+    }
+  ],
+  "feishuLogLines": [
+    "2026-11-01T12:58:33.444+00:00 [feishu] starting feishu[default] (mode: websocket)",
+    "2026-11-01T12:58:35.249+00:00 [feishu] feishu[default]: bot open_id resolved: ou_APPLICATION_BOT",
+    "2026-11-01T12:58:35.263+00:00 [feishu] feishu[default]: starting WebSocket connection...",
+    "2026-11-01T12:58:35.268+00:00 [feishu] feishu[default]: WebSocket client started",
+    "2026-11-01T12:58:36.508+00:00 [info]: [ '[ws]', 'ws client ready' ]",
+    "2026-11-01T13:00:28.409+00:00 [feishu] feishu[default]: bot added to chat oc_TEST_GROUP",
+    "2026-11-01T13:02:09.388+00:00 [feishu] feishu[default]: received message from ou_ALLOWED_USER in oc_TEST_GROUP (group)",
+    "2026-11-01T13:02:09.392+00:00 [feishu] feishu[default]: group session scope=group_sender, peer=oc_TEST_GROUP:sender:ou_ALLOWED_USER",
+    "2026-11-01T13:02:09.394+00:00 [feishu] feishu[default]: Feishu[default] message in group oc_TEST_GROUP: test from Jeff Peng；Run ID：feishu-native-20261101-01",
+    "2026-11-01T13:02:09.970+00:00 [feishu] feishu[default]: dispatching to agent (session=agent:default:feishu:group:oc_TEST_GROUP:sender:ou_ALLOWED_USER)",
+    "2026-11-01T13:02:16.525+00:00 [feishu] feishu[default] Started streaming: cardId=7703187632448556313, messageId=om_REDACTED_001",
+    "2026-11-01T13:02:16.535+00:00 [feishu] feishu[default]: dispatch complete (queuedFinal=true, replies=1)",
+    "2026-11-01T13:02:26.792+00:00 [feishu] feishu[default] Closed streaming: cardId=7703187632448556313"
+  ]
+}

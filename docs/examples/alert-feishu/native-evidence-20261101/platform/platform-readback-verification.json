@@ -1,0 +1,36 @@
+[
+  {
+    "case": "connectivity",
+    "runId": "feishu-native-20261101-outbound-01",
+    "messageType": "post",
+    "expectedUtf8Bytes": 147,
+    "expectedCharacters": 97,
+    "storedMarkdownUtf8Bytes": 147,
+    "storedMarkdownCharacters": 97,
+    "markdownExactMatch": true,
+    "sourceSha256": "82f09f060f8d5cc177006bde6e3938e011975ce35466caf3041d74d77d539c3f",
+    "storedMarkdownSha256": "82f09f060f8d5cc177006bde6e3938e011975ce35466caf3041d74d77d539c3f",
+    "richtextDiffCount": 0,
+    "nonFormattingSourceTextPreserved": true,
+    "removedLanguageHints": [],
+    "conversionNote": "Feishu returns post rich text; use content_v2 markdown rather than nonexistent body.text. Original report text retained separately; rich-text whitespace, links and fence-language formatting can differ."
+  },
+  {
+    "case": "full-report",
+    "runId": "feishu-native-20261101-report-01",
+    "messageType": "post",
+    "expectedUtf8Bytes": 15168,
+    "expectedCharacters": 11504,
+    "storedMarkdownUtf8Bytes": 20718,
+    "storedMarkdownCharacters": 16988,
+    "markdownExactMatch": false,
+    "sourceSha256": "9d2960cd846c65e0b6d5dc0c3490e9279c35a8da0b2259cff7a3553aee094b5d",
+    "storedMarkdownSha256": "3aa22360e392a90a1ce525f4c82264891451a81b5f945540aa15772927a574b8",
+    "richtextDiffCount": 346,
+    "nonFormattingSourceTextPreserved": true,
+    "removedLanguageHints": [
+      "sh"
+    ],
+    "conversionNote": "Feishu returns post rich text; use content_v2 markdown rather than nonexistent body.text. Original report text retained separately; rich-text whitespace, links and fence-language formatting can differ."
+  }
+]

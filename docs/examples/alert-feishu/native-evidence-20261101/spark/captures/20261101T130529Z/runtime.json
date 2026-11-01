@@ -1,0 +1,110 @@
+{
+  "at": "2026-11-01T13:05:29.999680+00:00",
+  "pods": [
+    {
+      "name": "iraop-cb7877-nmpw7",
+      "uid": "UUID_REDACTED_004",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "iraop",
+          "ready": true,
+          "restartCount": 0,
+          "image": "nvcr.io/PRIVATE_ORG/afoa-release/iraop:f804535b",
+          "containerID": "containerd://ba5e6c06db08fd19ba8990bc1586b889f6296d3fe7001276a2ed08869aaf9df6"
+        }
+      ]
+    },
+    {
+      "name": "llm-openai-compat-58bd8857f4-d5f8k",
+      "uid": "UUID_REDACTED_005",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "proxy",
+          "ready": true,
+          "restartCount": 0,
+          "image": "nvcr.io/PRIVATE_ORG/afoa-release/mosaic-ui:a011dcc8",
+          "containerID": "containerd://97cc293f4882becaad9971ec2453d504b3382c9087c31e807b520caf822f29c0"
+        }
+      ]
+    },
+    {
+      "name": "mosaic-cluster-monitor-76fd6d7cb5-5l5m6",
+      "uid": "UUID_REDACTED_006",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "cluster-monitor",
+          "ready": true,
+          "restartCount": 0,
+          "image": "nvcr.io/PRIVATE_ORG/afoa-release/mosaic-ui:a011dcc8",
+          "containerID": "containerd://4eb75f1be661c37ef05fde8017874e7f312bd2e020b79050afc57faff7027005"
+        }
+      ]
+    },
+    {
+      "name": "mosaic-openshell-0",
+      "uid": "UUID_REDACTED_007",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "openshell-gateway",
+          "ready": true,
+          "restartCount": 0,
+          "image": "ghcr.io/nvidia/openshell/gateway:0.0.75",
+          "containerID": "containerd://156839a27a71a6206fcf751d2ff5d069ac04a636f50ed91a3320614e39b602e6"
+        }
+      ]
+    },
+    {
+      "name": "mosaic-ui-6db65cbb94-6xtg2",
+      "uid": "UUID_REDACTED_008",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "mosaic-ui",
+          "ready": true,
+          "restartCount": 0,
+          "image": "nvcr.io/PRIVATE_ORG/afoa-release/mosaic-ui:a011dcc8",
+          "containerID": "containerd://72875852aa4e3f6c59f4ad4a451831618f02a1cd8561cd9bc0cf96cd44cd0bba"
+        }
+      ]
+    },
+    {
+      "name": "openclaw-686bb66b6c-5jx4h",
+      "uid": "UUID_REDACTED_009",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "gateway",
+          "ready": true,
+          "restartCount": 0,
+          "image": "ghcr.io/openclaw/openclaw:2026.6.10",
+          "containerID": "containerd://07294f7c6988763759e22ef9ae5d738f89a2f03e5778c751cbdb7c0d4123e2ee"
+        }
+      ]
+    },
+    {
+      "name": "opensearch-0",
+      "uid": "UUID_REDACTED_010",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "opensearch",
+          "ready": true,
+          "restartCount": 0,
+          "image": "docker.io/opensearchproject/opensearch:2.17.0",
+          "containerID": "containerd://cd597897e3c5c29ea1983dded8e1a121f45d65b41c724c26b330f28d0bef400c"
+        }
+      ]
+    }
+  ],
+  "sharedModel": {
+    "Status": "running",
+    "Running": true,
+    "Pid": 128852,
+    "StartedAt": "2026-09-15T07:17:31.481993911Z",
+    "Restarting": false
+  }
+}

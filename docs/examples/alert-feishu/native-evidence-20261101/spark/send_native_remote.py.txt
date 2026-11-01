@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+"""Send one explicit test through OpenClaw's native Feishu outbound adapter."""
+from datetime import datetime, timezone
+import base64
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+
+os.umask(0o077)
+ROOT=Path.home()/'.local/share/mosaic-feishu-native-20261101'
+K=[str(Path.home()/'.local/bin/kubectl'),'--request-timeout=20s','--context','kind-mosaic-poc','-n','mosaic']
+
+
+def main():
+    request=json.load(sys.stdin)
+    run_id=request['run_id']
+    assert all(c.isalnum() or c in '-_' for c in run_id)
+    target=json.loads((ROOT/'target-group.private.json').read_text())
+    assert request['chat_id']==target['chat_id'] and target['confirmedByUser']
+    out=ROOT/'outbound'/run_id
+    out.mkdir(mode=0o700,parents=True,exist_ok=False)
+    text=request['text']
+    assert 'test from Jeff Peng' in text and run_id in text
+    (out/'message.txt').write_text(text)
+    pods=json.loads(subprocess.check_output(K+['get','pods','-o','json']))
+    pod=next(p['metadata']['name'] for p in pods['items'] if p['metadata']['name'].startswith('openclaw-'))
+    command=K+['exec',pod,'-c','gateway','--','node','/app/dist/index.js','message','send',
+               '--channel','feishu','--target','chat:'+target['chat_id'],'--message',text,'--json']
+    intent={'at':datetime.now(timezone.utc).isoformat(),'channel':'feishu','pod':pod,
+            'runId':run_id,'textBytes':len(text.encode()),'textSha256':hashlib.sha256(text.encode()).hexdigest(),
+            'commandWithoutBody':command[:-2]+['<full text saved as message.txt>','--json']}
+    (out/'send-intent.json').write_text(json.dumps(intent,indent=2)+'\n')
+    result=subprocess.run(command,capture_output=True,timeout=150)
+    secret=json.loads(subprocess.check_output(K+['get','secret','mosaic-feishu','-o','json']))
+    credentials=[base64.b64decode(v).decode() for v in secret['data'].values()]
+    def redact(raw):
+        text=raw.decode(errors='replace')
+        for v in credentials:text=text.replace(v,'<application-credential-redacted>')
+        return text
+    stdout=redact(result.stdout);stderr=redact(result.stderr)
+    (out/'stdout.redacted.log').write_text(stdout);(out/'stderr.redacted.log').write_text(stderr)
+    decoded=[]
+    decoder=json.JSONDecoder()
+    for i,c in enumerate(stdout):
+        if c=='{':
+            try:
+                obj,_=decoder.raw_decode(stdout[i:])
+                if isinstance(obj,dict) and any(k in obj for k in ('action','messageId','payload')):decoded.append(obj)
+            except ValueError:pass
+    receipt={'at':datetime.now(timezone.utc).isoformat(),'exitCode':result.returncode,'results':decoded}
+    (out/'send-result.json').write_text(json.dumps(receipt,indent=2)+'\n')
+    print(json.dumps(receipt),flush=True)
+
+
+if __name__=='__main__':
+    main()

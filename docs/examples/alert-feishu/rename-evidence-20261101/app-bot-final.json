@@ -1,0 +1,11 @@
+{
+  "bot": {
+    "activate_status": 2,
+    "app_name": "Jeff's AI Assistant",
+    "avatar_url": "<avatar-url-redacted>",
+    "ip_white_list": [],
+    "open_id": "ou_REDACTED_02"
+  },
+  "code": 0,
+  "msg": "ok"
+}

@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-01T13:50:43.697623+00:00",
+  "botInfoCode": 0,
+  "applicationBotName": "Jeff's AI Assistant",
+  "applicationName": "Jeff's AI Assistant",
+  "onlineVersion": "1.0.1",
+  "onlineVersionIdChanged": true,
+  "nameMatchesRequested": true,
+  "appIdMatchesExistingCredential": true,
+  "scopeCount": 36,
+  "scopesUnchanged": true,
+  "eventsUnchanged": true,
+  "visibilityUnchanged": true
+}

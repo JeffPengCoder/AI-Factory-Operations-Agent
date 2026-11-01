@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+"""Persist a display/identity rename while retaining agent ID and history."""
+from datetime import datetime, timezone
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import tarfile
+
+os.umask(0o077)
+ORIGINAL=Path.home()/'.local/share/mosaic-feishu-native-20261101'
+ROOT=Path.home()/'.local/share/mosaic-agent-rename-20261101'
+ROOT.mkdir(mode=0o700,parents=True,exist_ok=True)
+sys.path.insert(0,str(ORIGINAL))
+import prepare_remote as review
+import apply_remote as runtime
+review.ROOT=ROOT
+runtime.ROOT=ROOT
+H,K=review.H,review.K
+NAME="Jeff's Mosaic Agent"
+
+
+def main():
+    assert not (ROOT/'apply-result.json').exists(),'Existing rename result requires review.'
+    history=json.loads(review.run(H+['history','mosaic','-o','json'],'history-before'))
+    assert history[-1]['revision']==17 and history[-1]['status']=='deployed'
+    before_values=json.loads(review.run(H+['get','values','mosaic','--all','-o','json'],'values-before'))
+    values=json.loads(json.dumps(before_values));values['openclaw']['agentDisplayName']=NAME
+    vp=review.protected('values-renamed.private.json',json.dumps(values,indent=2).encode()+b'\n')
+    source=Path(json.loads((ORIGINAL/'prepare-summary.json').read_text())['chartPath'])
+    assert review.sha(source.read_bytes())=='0ca66fe1c23da0f52db31d0a0ac2d9e744f23cf8269422b0fac3cc5a1347a43e'
+    review.protected('original-chart.tgz',source.read_bytes())
+    directory=ROOT/'chart';assert not directory.exists();directory.mkdir(mode=0o700)
+    with tarfile.open(source) as archive:archive.extractall(directory,filter='data')
+    chart=directory/'mosaic-stack'
+    seed=chart/'files/openclaw-seed/nemoclaw.json';text=seed.read_text()
+    before='        "name": "OpenClaw Assistant",\n'
+    after='        "name": {{ default "OpenClaw Assistant" .Values.openclaw.agentDisplayName | quote }},\n        "identity": {\n          "name": {{ default "OpenClaw Assistant" .Values.openclaw.agentDisplayName | quote }}\n        },\n'
+    seed.write_text(review.replace_once(text,before,after))
+    path=chart/'values.yaml';text=path.read_text();lines=text.splitlines(True);index=next(i for i,l in enumerate(lines) if l=='openclaw:\n')
+    lines.insert(index+1,'  # Optional display/identity name; internal agent ID remains default.\n  agentDisplayName: ""\n');path.write_text(''.join(lines))
+    old=review.objects(review.run(H+['get','manifest','mosaic'],'manifest-before'),'manifest-before')
+    old_secrets=json.loads(subprocess.check_output(K+['get','secrets','-o','json']))['items']
+    fingerprints={s['metadata']['name']:{'uid':s['metadata']['uid'],'digest':review.secret_digest(s),'keys':sorted(s.get('data',{}))} for s in old_secrets if s.get('type')!='helm.sh/release.v1'}
+    review.protected('secret-fingerprints-before.private.json',json.dumps(fingerprints,indent=2).encode()+b'\n')
+    before_runtime=runtime.snapshot('runtime-before.json')
+    review.run([str(Path.home()/'.local/bin/helm'),'lint',str(chart),'-f',str(vp)],'lint')
+    preview=json.loads(review.run(H+['upgrade','mosaic',str(chart),'-f',str(vp),'--dry-run=server','-o','json'],'preview'))
+    new=review.objects(preview['manifest'].encode(),'manifest-preview')
+    def identity(o):return(o['kind'],o.get('metadata',{}).get('namespace') or 'mosaic',o['metadata']['name'])
+    oldmap={identity(o):o for o in old};newmap={identity(o):o for o in new};assert oldmap.keys()==newmap.keys()
+    changed=[]
+    for key,o in newmap.items():
+        previous=oldmap[key]
+        if o['kind']=='Secret':assert review.secret_digest(o)==review.secret_digest(previous)
+        if o['kind'] in ['Role','ClusterRole','RoleBinding','ClusterRoleBinding']:
+            assert {k:v for k,v in o.items() if k!='metadata'}=={k:v for k,v in previous.items() if k!='metadata'}
+        if o['kind'] in ['Deployment','StatefulSet','DaemonSet'] and o['spec']['template']!=previous['spec']['template']:changed.append(o['metadata']['name'])
+    assert sorted(changed)==['mosaic-ui','openclaw']
+    def config(objects):
+        cm=next(o for o in objects if o['kind']=='ConfigMap' and o['metadata']['name']=='openclaw-seed')
+        return next(json.loads(v) for k,v in cm['data'].items() if k.endswith('.json') and '"channels"' in v)
+    oldconfig=config(old);newconfig=config(new);expected=json.loads(json.dumps(oldconfig))
+    agent=next(a for a in expected['agents']['list'] if a['id']=='default');agent['name']=NAME;agent['identity']={'name':NAME}
+    assert newconfig==expected,'Rename must only change display name and identity.'
+    review.run([str(Path.home()/'.local/bin/helm'),'package',str(chart),'--destination',str(ROOT)],'package')
+    archives=list(ROOT.glob('mosaic-stack-*.tgz'));assert len(archives)==1
+    review.protected('prepare-summary.json',json.dumps({'at':datetime.now(timezone.utc).isoformat(),'baseRevision':17,'agentId':'default','agentDisplayName':NAME,'identityName':NAME,'chartPath':str(archives[0]),'chartSha256':review.sha(archives[0].read_bytes()),'changedWorkloads':changed,'onlyNameAndIdentityChanged':True,'rbacUnchanged':True,'existingSecretDataUnchanged':True},indent=2).encode()+b'\n')
+    command=H+['upgrade','mosaic',str(archives[0]),'-f',str(vp),'--atomic','--wait','--timeout','12m','--description',"Rename default agent display/identity to Jeff's Mosaic Agent; preserve routes and sessions"]
+    review.protected('helm-command.json',json.dumps(command,indent=2).encode()+b'\n')
+    result=subprocess.run(command,capture_output=True);review.protected('upgrade.stdout.private',result.stdout);review.protected('upgrade.stderr.private',result.stderr)
+    history=json.loads(subprocess.check_output(H+['history','mosaic','-o','json']))
+    after_runtime=runtime.snapshot('runtime-after.json')
+    current=json.loads(subprocess.check_output(K+['get','secrets','-o','json']))['items']
+    current={s['metadata']['name']:{'uid':s['metadata']['uid'],'digest':review.secret_digest(s),'keys':sorted(s.get('data',{}))} for s in current if s.get('type')!='helm.sh/release.v1'}
+    assert fingerprints==current and before_runtime['sharedModel']==after_runtime['sharedModel']
+    final={'at':datetime.now(timezone.utc).isoformat(),'exitCode':result.returncode,'revision':history[-1]['revision'],'releaseStatus':history[-1]['status'],'agentId':'default','agentDisplayName':NAME,'identityName':NAME,'appSecretsUnchanged':True,'sharedModelUnchanged':True}
+    review.protected('apply-result.json',json.dumps(final,indent=2).encode()+b'\n');print(json.dumps(final),flush=True)
+
+
+if __name__=='__main__':main()

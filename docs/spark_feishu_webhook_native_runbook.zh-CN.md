@@ -321,6 +321,8 @@ MOSAIC 网页中的 Auto investigate 当前由前端触发；打开飞书原生�
 
 以下状态随本轮操作更新。完整原始记录留在受保护目录；公开版本替换用户、群、地址等现场标识，保留全部字段、权限行、时间和结果。
 
+本节记录的是初次接入验证结束时的 revision 17；后续显示名调整已升级至 revision 18，见第 16 节。旧记录、旧消息和原始证据保留当时的名称。
+
 | 步骤 | 当前结果 | 证据 |
 | --- | --- | --- |
 | 用户创建 Agent-Ready 应用 | 已完成，用户在聊天确认 | 创建入口截图及用户确认 |
@@ -639,3 +641,86 @@ SDK 错误日志可能包含请求对象，因此复制诊断日志时先替换�
 字节数、源哈希和差异偏移对应去标识前的传输记录；公开副本替换了现场标识，不能把公开文件重新求哈希后与原始源哈希混为一谈。要求配置文件/代码等字节级不变时，应另做原文文件附件及下载哈希验收，本轮未把富文本转换等同于文件传输验证。
 
 本轮原生通道验证覆盖消息最后一跳和群内互动；新的告警从发现、自动调查、日志采集、IRAOP 咨询直到原生通道投递，仍需按第 8 节编排后单独验收。此前已经完成的 Webhook 全链路证据继续保留。
+
+## 16. 三个名称的调整与线上发布核对
+
+### 16.1 三个名称对应三个对象
+
+| 对象 | 用户指定的最终名称 | 配置位置 | 当前验证 |
+| --- | --- | --- | --- |
+| Spark 上的 MOSAIC/OpenClaw agent | `Jeff's Mosaic Agent` | `agents.list[].name` 和该 agent 的 `identity.name` | revision 18 已部署，运行配置与出站身份函数均读回相同名称 |
+| 飞书群自定义机器人 | `Jeff's Webhook Bot` | 群设置 → 群机器人 → 原自定义机器人 → 编辑 | 用户保存确认，群内截图可见新名称 |
+| 飞书应用机器人 | `Jeff's AI Assistant` | 飞书开发者后台的应用名称，以及包含新名称的线上版本 | 线上 `1.0.1` 已生效；bot 信息和应用信息 API 均返回新名称 |
+
+agent 的内部 ID 继续为 `default`，不迁移已有 sessionKey，也不通过改 ID 新建另一个 agent。显示名和飞书应用机器人名称属于两个配置层次，分别维护。
+
+### 16.2 为什么要同时改 name 和 identity.name
+
+本部署原配置的 `name` 是 `OpenClaw Assistant`，但没有设置 `identity.name`。安装版本的飞书插件生成卡片标题和页脚时，优先使用 `identity.name`，缺省时回退到内部 agent ID，所以此前卡片显示 `default`。
+
+本轮在 Spark 的真实 chart 新增可选值：
+
+```yaml
+openclaw:
+  agentDisplayName: "Jeff's Mosaic Agent"
+```
+
+配套 seed 模板同时生成：
+
+```json
+{
+  "id": "default",
+  "name": "Jeff's Mosaic Agent",
+  "identity": {
+    "name": "Jeff's Mosaic Agent"
+  }
+}
+```
+
+此 value 与模板改动是一组现场补丁；不能只往不含配套模板的原版 chart 添加 value 就认定生效。完整实际补丁见 [values](examples/alert-feishu/rename-evidence-20261101/diff-values.yaml.patch) 和 [seed](examples/alert-feishu/rename-evidence-20261101/diff-nemoclaw.json.patch)，历史执行脚本见 [rename_spark_remote.py](examples/alert-feishu/rename-evidence-20261101/rename_spark_remote.py.txt)。
+
+### 16.3 revision 17→18 的实际部署和验证
+
+本轮从原来的真实 chart 回填上述两处补丁，保留 chart 版本号。服务端 dry run 断言生成配置仅变化显示名与 identity 两项，内部 ID、会话隔离、飞书白名单、Teams/IRAOP 配置、RBAC、应用 Secret 数据均保留。原 chart 的 seed 校验值设计仍导致 OpenClaw 和 UI 两个 Pod 重建。
+
+实际升级使用：
+
+```bash
+export RENAME_ROOT="$HOME/.local/share/mosaic-agent-rename-20261101"
+export CHART_PATH="$RENAME_ROOT/mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031.startup2.tgz"
+
+"$HOME/.local/bin/helm" --kube-context kind-mosaic-poc -n mosaic \
+  upgrade mosaic "$CHART_PATH" \
+  -f "$RENAME_ROOT/values-renamed.private.json" \
+  --atomic --wait --timeout 12m \
+  --description "Rename default agent display/identity to Jeff's Mosaic Agent; preserve routes and sessions"
+```
+
+revision 18 的 chart SHA-256 为 `111501cb26eb26028ef604b1df3662e2eda7379bf08eb6867168c40ccfdc44d2`。完整准备结果、命令、部署结果和运行配置保存在[改名证据清单](examples/alert-feishu/rename-evidence-20261101/manifest.json)。这个 chart 取代第 13 节初次接入时的制品作为最新现场版本。
+
+验证不仅检查配置字段，也在运行中的 gateway 调用飞书插件使用的同一个 `resolveAgentOutboundIdentity(cfg, 'default')`，返回：
+
+```json
+{"name":"Jeff's Mosaic Agent"}
+```
+
+同时确认 7 个 Pod 的普通容器 Ready、飞书仍为 1 个允许用户和 1 个允许群，应用 Secret 与共享模型状态保持。已有旧卡片保留历史标题；新生成的卡片使用新的 identity 名称。
+
+### 16.4 应用名称已保存，为什么群里可能仍是旧名
+
+本轮曾观察到：同一 App ID 的开发者后台页面标题已显示新名，但飞书 API 的中英文名称、主语言名称及线上版本 ID 均仍是旧值。版本列表当时仅返回初始 `1.0.0`，发布说明为 `Initial bot release.`。这不能仅凭后台标题或用户点击过保存就记为线上改名成功。
+
+正确处理顺序：
+
+1. 在凭证页核对 App ID 与 Spark 使用的同一个 App ID，防止改到同名的另一个应用；公开交接不需要暴露 App Secret。
+2. 在应用基础信息中保存新名称，核对主语言及其他语言名称。
+3. 进入「Version Management & Release / 版本管理与发布」。若已有草稿或待审核版本，继续该版本；若仅有原 `1.0.0`，创建 `1.0.1`，更新说明例如 `Rename to Jeff's AI Assistant`。
+4. 沿用原可用范围，保存后继续申请线上发布。需要审批时，由客户按组织流程完成审批；「已保存」或「待审核」不能当作「已发布」。
+5. 再调用 `/bot/v3/info` 与本应用信息/版本 API，确认线上 bot 名称、语言名称及版本变化。API 仍旧时，不把客户端缓存当作未经验证的解释。
+6. API 确认新名后再检查群内新消息与机器人列表；若仅客户端显示滞后，再刷新相应会话。
+
+改应用名称不要求重新创建应用、轮换 App ID/Secret、替换群 chat_id 或重建 Webhook。自定义机器人改名使用群管理界面；既有 Webhook 凭据只用于投递，不提供名称管理操作。
+
+本轮在用户完成 `1.0.1` 的实际发布后再次查询：bot 名称与应用名称都为 `Jeff's AI Assistant`，线上版本 ID 已变化；App ID 保持，36 项权限、全部事件订阅和可用范围均与 `1.0.0` 一致。完整结果见[应用名称最终核对](examples/alert-feishu/rename-evidence-20261101/application-name-verification.json)。此前旧名仍在线的诊断结果继续保留，不能用最终成功覆盖当时发布尚未生效的事实。
+
+随后通过同一 OpenClaw 原生通道额外发送一条明确标注「OpenClaw 主动发送，非模型回复」的改名核对消息，Run ID 为 `feishu-rename-20261101-01`，供群里观察新的应用身份。完整[源消息](examples/alert-feishu/rename-evidence-20261101/rename-message-request.private.json)及[发送返回](examples/alert-feishu/rename-evidence-20261101/rename-message-result.private.json)均留存。这次没有再执行故障注入或新调查。

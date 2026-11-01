@@ -1,0 +1,337 @@
+{
+  "code": 0,
+  "data": {
+    "app": {
+      "allow_refresh_token": true,
+      "app_id": "<credential-redacted>",
+      "app_name": "Jeff's AI Assistant",
+      "avatar_url": "<avatar-url-redacted>",
+      "callback_info": {
+        "callback_type": "websocket",
+        "subscribed_callbacks": [
+          "card.action.trigger"
+        ]
+      },
+      "common_categories": [],
+      "create_source": "developer_console",
+      "creator_id": "ou_REDACTED_01",
+      "description": "delegate message between Mosaic and Feishu commnunication group",
+      "i18n": [
+        {
+          "description": "delegate message between Mosaic and Feishu commnunication group",
+          "help_use": "",
+          "i18n_key": "zh_cn",
+          "name": "Jeff's AI Assistant"
+        }
+      ],
+      "mobile_default_ability": "bot",
+      "online_version_id": "oav_REDACTED_02",
+      "owner": {
+        "customer_service_account": "",
+        "email": "",
+        "help_desk": "",
+        "name": "",
+        "owner_id": "ou_REDACTED_01",
+        "phone": "",
+        "type": 2
+      },
+      "payment_type": 0,
+      "pc_default_ability": "bot",
+      "primary_language": "zh_cn",
+      "redirect_urls": [],
+      "scene_type": 0,
+      "scopes": [
+        {
+          "description": "获取通讯录基本信息",
+          "level": 1,
+          "scope": "contact:contact.base:readonly",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "查看新版文档",
+          "level": 2,
+          "scope": "docx:document:readonly",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "查看群信息",
+          "level": 2,
+          "scope": "im:chat:read",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "更新群信息",
+          "level": 2,
+          "scope": "im:chat:update",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "获取群组中用户@机器人消息",
+          "level": 1,
+          "scope": "im:message.group_at_msg:readonly",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "读取用户发给机器人的单聊消息",
+          "level": 1,
+          "scope": "im:message.p2p_msg:readonly",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "查看 Pin 消息",
+          "level": 1,
+          "scope": "im:message.pins:read",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "添加、 取消 Pin 消息",
+          "level": 1,
+          "scope": "im:message.pins:write_only",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "查看消息表情回复",
+          "level": 1,
+          "scope": "im:message.reactions:read",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "发送、删除消息表情回复",
+          "level": 1,
+          "scope": "im:message.reactions:write_only",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "获取单聊、群组消息",
+          "level": 1,
+          "scope": "im:message:readonly",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "以应用的身份发消息",
+          "level": 1,
+          "scope": "im:message:send_as_bot",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "给多个用户批量发消息",
+          "level": 1,
+          "scope": "im:message:send_multi_users",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "发送特定模板系统消息",
+          "level": 2,
+          "scope": "im:message:send_sys_msg",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "更新消息",
+          "level": 1,
+          "scope": "im:message:update",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "获取与上传图片或文件资源 ",
+          "level": 2,
+          "scope": "im:resource",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "获取群组中其他机器人和用户@当前机器人的消息",
+          "level": 1,
+          "scope": "im:message.group_at_msg.include_bot:readonly",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "管理应用自身资源",
+          "level": 1,
+          "scope": "application:application:self_manage",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "创建与更新卡片",
+          "level": 1,
+          "scope": "cardkit:card:write",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "获取卡片信息",
+          "level": 1,
+          "scope": "cardkit:card:read",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "创建、更新、删除机器人菜单",
+          "level": 1,
+          "scope": "application:bot.menu:write",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "订阅机器人进、出群事件",
+          "level": 1,
+          "scope": "im:chat.members:bot_access",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "查看云空间中文件元数据",
+          "level": 2,
+          "scope": "drive:drive.metadata:readonly",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "添加、回复云文档中的评论",
+          "level": 2,
+          "scope": "docs:document.comment:create",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "删除云文档中的评论",
+          "level": 2,
+          "scope": "docs:document.comment:delete",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "获取云文档中的评论",
+          "level": 2,
+          "scope": "docs:document.comment:read",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "修改云文档中的评论",
+          "level": 2,
+          "scope": "docs:document.comment:update",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "回复、修改、删除云文档中的评论",
+          "level": 2,
+          "scope": "docs:document.comment:write_only",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "编辑新版文档",
+          "level": 2,
+          "scope": "docx:document:write_only",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "转换文本为云文档块",
+          "level": 2,
+          "scope": "docx:document.block:convert",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "创建群",
+          "level": 2,
+          "scope": "im:chat:create",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "获取机器人的基本信息",
+          "level": 2,
+          "scope": "application:bot.basic_info:read",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "查看知识空间节点信息",
+          "level": 2,
+          "scope": "wiki:node:read",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "查询 Slash Command",
+          "level": 1,
+          "scope": "application:app_slash_command:read",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "编辑 Slash Command",
+          "level": 1,
+          "scope": "application:app_slash_command:write",
+          "token_types": [
+            "tenant"
+          ]
+        },
+        {
+          "description": "持续访问已授权的数据",
+          "level": 2,
+          "scope": "offline_access",
+          "token_types": [
+            "user"
+          ]
+        }
+      ],
+      "status": 1
+    }
+  },
+  "msg": "success"
+}

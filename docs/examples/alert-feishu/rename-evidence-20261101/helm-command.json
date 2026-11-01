@@ -1,0 +1,18 @@
+[
+  "$SPARK_HOME/.local/bin/helm",
+  "--kube-context",
+  "kind-mosaic-poc",
+  "-n",
+  "mosaic",
+  "upgrade",
+  "mosaic",
+  "$SPARK_HOME/.local/share/mosaic-agent-rename-20261101/mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031.startup2.tgz",
+  "-f",
+  "$SPARK_HOME/.local/share/mosaic-agent-rename-20261101/values-renamed.private.json",
+  "--atomic",
+  "--wait",
+  "--timeout",
+  "12m",
+  "--description",
+  "Rename default agent display/identity to Jeff's Mosaic Agent; preserve routes and sessions"
+]

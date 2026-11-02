@@ -1,5 +1,11 @@
 # GPU 遥测注入、告警与归因验证（2026-10-31）
 
+**2026-11-02 更新：** 已用新的独立 DCGM 缓存样本验证“后台捕获告警 → View 现场采集 → 实际 IRAOP 咨询 → 同会话完整报告 → OpenClaw 原生飞书”流程。Spark 的持久用户服务不依赖打开网页，报告由 `Jeff's AI Assistant` 发送；用户已确认 Run ID `bg-gpu-20261102t005029z`、Incident `2803c2516df6ec7c3eed3f2f` 和完整群内报告一致。服务重启后未重复调查或投递。详见[本轮完整操作、失败记录与验收证据](spark_background_gpu_alert_native_feishu_20261102.zh-CN.md)。
+
+![2026-11-02 持久后台服务、IRAOP 与原生飞书架构](images/mosaic-gpu-feishu-background-20261102.svg)
+
+以下结论、表格、命令和原图保留 **2026-10-31 原始实验**。那一轮实际使用 Webhook，且有外部复核；其历史结论不改写为新流程的结果。11 月 2 日验证后台编排与投递，不重评旧实验的模型归因准确率，也没有制造真实 GPU 物理损坏。
+
 **结论：GPU 测试信号的告警链路、只读取证和知识检索已走通；无人值守分析可靠性未通过。** Qwen 的原始输出出现事实错误和清空内核日志的建议。Codex 指出问题后得到的修订版仅用于定位缺陷，不算 MOSAIC 自主能力，也没有经过用户本人审核。
 
 本篇与 [CPU 资源上的应用 Pod 故障实验](spark_e2e_alert_research_feishu_20261031.zh-CN.md) 分开记录。前篇不是 CPU 硬件损坏；本篇也没有让真实 GPU 发生物理故障。这里实际验证独立 DCGM 缓存注入、快照回放以及证据归因边界。测试输入已经标明 `simulation=true`，因此不是隐藏故障来源的盲测，更不是坏卡/RMA 判断准确率评测。
@@ -27,6 +33,8 @@
 | 清理范围 | 4个精确UID资源，旧smoke rule保留 | 6个精确UID资源；2个测试引擎子进程已退出；知识集合留存 |
 
 ## 2. 本轮实际机制与操作权限
+
+此节原图记录 2026-10-31 的实际执行过程；新版后台与原生飞书架构见页首。原 SVG 及其证据清单保持原样。
 
 ![GPU实验链路与验收边界](examples/alert-feishu/gpu-evidence-20261031/gpu-experiment-architecture.svg)
 
@@ -571,6 +579,8 @@ python3 docs/examples/alert-feishu/send_feishu_report.py   --alert alert-deident
 | Research持久原件/集合 | 旧控制库4chunks保留，新GPU库5chunks及5909bytes PDF保留；没有销毁Kind持久性重测 | [spark-final-runtime.json](examples/alert-feishu/gpu-evidence-20261031/spark-final-runtime.json) |
 
 ## 11. 无Codex介入的下一轮验收草案
+
+**日期说明：** 下表是 2026-10-31 留下的完整草案。其“后台触发、实际采集、IRAOP 咨询、完整报告和原生通道投递”部分已于 2026-11-02 单独实现并实测，详见[新实验记录](spark_background_gpu_alert_native_feishu_20261102.zh-CN.md)。其余模型事实质量、真实硬件正例、Hardware Agent 等要求继续作为独立验收项；下表不删行，也不以传输成功代替这些验收。
 
 以下是待实施项，不把当前会话纠错当作实现，也不声称本轮已向上游提交了这些产品代码。应先在独立分支实现可审查改动，再用原始输出重测。
 

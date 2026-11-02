@@ -1,0 +1,2234 @@
+[
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_threshold_exceeded",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_threshold_exceeded",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_threshold_exceeded",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_threshold_exceeded",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_threshold_exceeded",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_threshold_exceeded",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_threshold_exceeded",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "aggregate/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_threshold_exceeded",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_l2",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_microcontroller",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_l2",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_microcontroller",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_l2",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_microcontroller",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_l2",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_microcontroller",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_l2",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_microcontroller",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_l2",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_microcontroller",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_l2",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_microcontroller",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "aggregate/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_l2",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_microcontroller",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_other",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_pcie",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_sm",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_other",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_pcie",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_sm",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_other",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_pcie",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_sm",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_other",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_pcie",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_sm",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_other",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_pcie",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_sm",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_other",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_pcie",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_sm",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_other",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_pcie",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_sm",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_other",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_pcie",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "aggregate_uncorrectable_sram_sources/sram_sm",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "volatile/dram_uncorrectable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_correctable",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_parity",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "ecc_errors",
+    "field": "volatile/sram_uncorrectable_secded",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "remapped_rows",
+    "field": "remapped_row_corr",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "remapped_rows",
+    "field": "remapped_row_failure",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "remapped_rows",
+    "field": "remapped_row_pending",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "remapped_rows",
+    "field": "remapped_row_unc",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "remapped_rows",
+    "field": "remapped_row_corr",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "remapped_rows",
+    "field": "remapped_row_failure",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "remapped_rows",
+    "field": "remapped_row_pending",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "remapped_rows",
+    "field": "remapped_row_unc",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "remapped_rows",
+    "field": "remapped_row_corr",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "remapped_rows",
+    "field": "remapped_row_failure",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "remapped_rows",
+    "field": "remapped_row_pending",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "remapped_rows",
+    "field": "remapped_row_unc",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "remapped_rows",
+    "field": "remapped_row_corr",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "remapped_rows",
+    "field": "remapped_row_failure",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "remapped_rows",
+    "field": "remapped_row_pending",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "remapped_rows",
+    "field": "remapped_row_unc",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "remapped_rows",
+    "field": "remapped_row_corr",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "remapped_rows",
+    "field": "remapped_row_failure",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "remapped_rows",
+    "field": "remapped_row_pending",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "remapped_rows",
+    "field": "remapped_row_unc",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "remapped_rows",
+    "field": "remapped_row_corr",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "remapped_rows",
+    "field": "remapped_row_failure",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "remapped_rows",
+    "field": "remapped_row_pending",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "remapped_rows",
+    "field": "remapped_row_unc",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "remapped_rows",
+    "field": "remapped_row_corr",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "remapped_rows",
+    "field": "remapped_row_failure",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "remapped_rows",
+    "field": "remapped_row_pending",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "remapped_rows",
+    "field": "remapped_row_unc",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "remapped_rows",
+    "field": "remapped_row_corr",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "remapped_rows",
+    "field": "remapped_row_failure",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "remapped_rows",
+    "field": "remapped_row_pending",
+    "before": "No",
+    "after": "No",
+    "final": "No"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "remapped_rows",
+    "field": "remapped_row_unc",
+    "before": "0",
+    "after": "0",
+    "final": "0"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_high",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_low",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_max",
+    "before": "192 bank(s)",
+    "after": "192 bank(s)",
+    "final": "192 bank(s)"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_none",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_high",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_low",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_max",
+    "before": "192 bank(s)",
+    "after": "192 bank(s)",
+    "final": "192 bank(s)"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_none",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_high",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_low",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_max",
+    "before": "192 bank(s)",
+    "after": "192 bank(s)",
+    "final": "192 bank(s)"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_none",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_high",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_low",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_max",
+    "before": "192 bank(s)",
+    "after": "192 bank(s)",
+    "final": "192 bank(s)"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_none",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_high",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_low",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_max",
+    "before": "192 bank(s)",
+    "after": "192 bank(s)",
+    "final": "192 bank(s)"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_none",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_high",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_low",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_max",
+    "before": "192 bank(s)",
+    "after": "192 bank(s)",
+    "final": "192 bank(s)"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_none",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_high",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_low",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_max",
+    "before": "192 bank(s)",
+    "after": "192 bank(s)",
+    "final": "192 bank(s)"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_none",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_high",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_low",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_max",
+    "before": "192 bank(s)",
+    "after": "192 bank(s)",
+    "final": "192 bank(s)"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_none",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_partial",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_partial",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_partial",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_partial",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_partial",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_partial",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_partial",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "remapped_rows",
+    "field": "row_remapper_histogram/row_remapper_histogram_partial",
+    "before": "0 bank(s)",
+    "after": "0 bank(s)",
+    "final": "0 bank(s)"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "retired_pages",
+    "field": "double_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_count",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "retired_pages",
+    "field": "multiple_single_bit_retirement/retired_pagelist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "retired_pages",
+    "field": "pending_blacklist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 0,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "scope": "retired_pages",
+    "field": "pending_retirement",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "retired_pages",
+    "field": "pending_blacklist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 1,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000007",
+    "scope": "retired_pages",
+    "field": "pending_retirement",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "retired_pages",
+    "field": "pending_blacklist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 2,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000004",
+    "scope": "retired_pages",
+    "field": "pending_retirement",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "retired_pages",
+    "field": "pending_blacklist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 3,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "scope": "retired_pages",
+    "field": "pending_retirement",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "retired_pages",
+    "field": "pending_blacklist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 4,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000008",
+    "scope": "retired_pages",
+    "field": "pending_retirement",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "retired_pages",
+    "field": "pending_blacklist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 5,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000003",
+    "scope": "retired_pages",
+    "field": "pending_retirement",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "retired_pages",
+    "field": "pending_blacklist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 6,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000002",
+    "scope": "retired_pages",
+    "field": "pending_retirement",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "retired_pages",
+    "field": "pending_blacklist",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  },
+  {
+    "gpu": 7,
+    "uuid": "GPU-00000000-0000-0000-0000-000000000006",
+    "scope": "retired_pages",
+    "field": "pending_retirement",
+    "before": "N/A",
+    "after": "N/A",
+    "final": "N/A"
+  }
+]

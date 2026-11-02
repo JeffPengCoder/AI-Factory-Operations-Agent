@@ -1,0 +1,2505 @@
+{
+  "at": "2026-11-02T01:18:38.305Z",
+  "mode": "offline exported functions; no event dispatched or message sent",
+  "module": "/home/node/.openclaw/npm/projects/openclaw-feishu-dc69f44688/node_modules/@openclaw/feishu/dist/channel-uEJPBCR9.js",
+  "sha256": "845925680409a47fde045349756c9f0f8620ddcbf58f17670f2b1133abccf0ae",
+  "config": {
+    "dmPolicy": "allowlist",
+    "groupPolicy": "allowlist",
+    "requireMention": true,
+    "allowlistedUsers": 1,
+    "allowlistedGroups": 1
+  },
+  "rows": [
+    {
+      "name": "allowlisted DM",
+      "kind": "direct",
+      "syntheticIdentity": false,
+      "result": {
+        "state": {
+          "channelId": "feishu",
+          "accountId": "default",
+          "conversationKind": "direct",
+          "event": {
+            "kind": "message",
+            "authMode": "inbound",
+            "mayPair": false,
+            "hasOriginSubject": false,
+            "originSubjectMatched": false
+          },
+          "routeFacts": [],
+          "allowlists": {
+            "dm": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": true,
+                "matchedEntryIds": [
+                  "feishu-entry-1"
+                ]
+              }
+            },
+            "pairingStore": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "group": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": true,
+                "matchedEntryIds": [
+                  "feishu-entry-1"
+                ]
+              }
+            },
+            "commandOwner": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": true,
+                "matchedEntryIds": [
+                  "feishu-entry-1"
+                ]
+              }
+            },
+            "commandGroup": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            }
+          }
+        },
+        "ingress": {
+          "admission": "dispatch",
+          "decision": "allow",
+          "decisiveGateId": "activation",
+          "reasonCode": "activation_allowed",
+          "graph": {
+            "gates": [
+              {
+                "id": "sender:dm",
+                "phase": "sender",
+                "kind": "dmSender",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "dm_policy_allowlisted",
+                "match": {
+                  "matched": true,
+                  "matchedEntryIds": [
+                    "feishu-entry-1"
+                  ]
+                },
+                "sender": {
+                  "policy": "allowlist"
+                },
+                "allowlist": {
+                  "configured": true,
+                  "matched": true,
+                  "reasonCode": "dm_policy_allowlisted",
+                  "matchedEntryIds": [
+                    "feishu-entry-1"
+                  ],
+                  "invalidEntryCount": 0,
+                  "disabledEntryCount": 0,
+                  "accessGroups": {
+                    "referenced": [],
+                    "matched": [],
+                    "missing": [],
+                    "unsupported": [],
+                    "failed": []
+                  }
+                }
+              },
+              {
+                "id": "command",
+                "phase": "command",
+                "kind": "command",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "command_authorized"
+              },
+              {
+                "id": "event",
+                "phase": "event",
+                "kind": "event",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "event_authorized",
+                "event": {
+                  "kind": "message",
+                  "authMode": "inbound",
+                  "mayPair": false,
+                  "hasOriginSubject": false,
+                  "originSubjectMatched": false
+                }
+              },
+              {
+                "id": "activation",
+                "phase": "activation",
+                "kind": "mention",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "activation_allowed",
+                "activation": {
+                  "hasMentionFacts": false,
+                  "requireMention": false,
+                  "allowTextCommands": false,
+                  "shouldSkip": false
+                }
+              }
+            ]
+          }
+        },
+        "senderAccess": {
+          "allowed": true,
+          "decision": "allow",
+          "reasonCode": "dm_policy_allowlisted",
+          "gate": {
+            "id": "sender:dm",
+            "phase": "sender",
+            "kind": "dmSender",
+            "effect": "allow",
+            "allowed": true,
+            "reasonCode": "dm_policy_allowlisted",
+            "match": {
+              "matched": true,
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ]
+            },
+            "sender": {
+              "policy": "allowlist"
+            },
+            "allowlist": {
+              "configured": true,
+              "matched": true,
+              "reasonCode": "dm_policy_allowlisted",
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "invalidEntryCount": 0,
+              "disabledEntryCount": 0,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              }
+            }
+          },
+          "effectiveAllowFrom": [
+            "user:ou_00000000000000000000000000000001"
+          ],
+          "effectiveGroupAllowFrom": [
+            "user:ou_00000000000000000000000000000001"
+          ],
+          "providerMissingFallbackApplied": false
+        },
+        "routeAccess": {
+          "allowed": true
+        },
+        "commandAccess": {
+          "requested": false,
+          "authorized": false,
+          "shouldBlockControlCommand": false,
+          "reasonCode": "command_authorized",
+          "gate": {
+            "id": "command",
+            "phase": "command",
+            "kind": "command",
+            "effect": "allow",
+            "allowed": true,
+            "reasonCode": "command_authorized"
+          }
+        },
+        "activationAccess": {
+          "ran": true,
+          "allowed": true,
+          "shouldSkip": false,
+          "reasonCode": "activation_allowed",
+          "gate": {
+            "id": "activation",
+            "phase": "activation",
+            "kind": "mention",
+            "effect": "allow",
+            "allowed": true,
+            "reasonCode": "activation_allowed",
+            "activation": {
+              "hasMentionFacts": false,
+              "requireMention": false,
+              "allowTextCommands": false,
+              "shouldSkip": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "unlisted synthetic DM",
+      "kind": "direct",
+      "syntheticIdentity": true,
+      "result": {
+        "state": {
+          "channelId": "feishu",
+          "accountId": "default",
+          "conversationKind": "direct",
+          "event": {
+            "kind": "message",
+            "authMode": "inbound",
+            "mayPair": false,
+            "hasOriginSubject": false,
+            "originSubjectMatched": false
+          },
+          "routeFacts": [],
+          "allowlists": {
+            "dm": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "pairingStore": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "group": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "commandOwner": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "commandGroup": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            }
+          }
+        },
+        "ingress": {
+          "admission": "drop",
+          "decision": "block",
+          "decisiveGateId": "sender:dm",
+          "reasonCode": "dm_policy_not_allowlisted",
+          "graph": {
+            "gates": [
+              {
+                "id": "sender:dm",
+                "phase": "sender",
+                "kind": "dmSender",
+                "effect": "block-dispatch",
+                "allowed": false,
+                "reasonCode": "dm_policy_not_allowlisted",
+                "match": {
+                  "matched": false,
+                  "matchedEntryIds": []
+                },
+                "sender": {
+                  "policy": "allowlist"
+                },
+                "allowlist": {
+                  "configured": true,
+                  "matched": false,
+                  "reasonCode": "dm_policy_not_allowlisted",
+                  "matchedEntryIds": [],
+                  "invalidEntryCount": 0,
+                  "disabledEntryCount": 0,
+                  "accessGroups": {
+                    "referenced": [],
+                    "matched": [],
+                    "missing": [],
+                    "unsupported": [],
+                    "failed": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "senderAccess": {
+          "allowed": false,
+          "decision": "block",
+          "reasonCode": "dm_policy_not_allowlisted",
+          "gate": {
+            "id": "sender:dm",
+            "phase": "sender",
+            "kind": "dmSender",
+            "effect": "block-dispatch",
+            "allowed": false,
+            "reasonCode": "dm_policy_not_allowlisted",
+            "match": {
+              "matched": false,
+              "matchedEntryIds": []
+            },
+            "sender": {
+              "policy": "allowlist"
+            },
+            "allowlist": {
+              "configured": true,
+              "matched": false,
+              "reasonCode": "dm_policy_not_allowlisted",
+              "matchedEntryIds": [],
+              "invalidEntryCount": 0,
+              "disabledEntryCount": 0,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              }
+            }
+          },
+          "effectiveAllowFrom": [
+            "user:ou_00000000000000000000000000000001"
+          ],
+          "effectiveGroupAllowFrom": [
+            "user:ou_00000000000000000000000000000001"
+          ],
+          "providerMissingFallbackApplied": false
+        },
+        "routeAccess": {
+          "allowed": true
+        },
+        "commandAccess": {
+          "requested": false,
+          "authorized": false,
+          "shouldBlockControlCommand": false,
+          "reasonCode": "dm_policy_not_allowlisted"
+        },
+        "activationAccess": {
+          "ran": false,
+          "allowed": false,
+          "shouldSkip": false,
+          "reasonCode": "dm_policy_not_allowlisted"
+        }
+      }
+    },
+    {
+      "name": "disabled DM",
+      "kind": "direct",
+      "syntheticIdentity": false,
+      "result": {
+        "state": {
+          "channelId": "feishu",
+          "accountId": "default",
+          "conversationKind": "direct",
+          "event": {
+            "kind": "message",
+            "authMode": "inbound",
+            "mayPair": false,
+            "hasOriginSubject": false,
+            "originSubjectMatched": false
+          },
+          "routeFacts": [],
+          "allowlists": {
+            "dm": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": true,
+                "matchedEntryIds": [
+                  "feishu-entry-1"
+                ]
+              }
+            },
+            "pairingStore": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "group": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": true,
+                "matchedEntryIds": [
+                  "feishu-entry-1"
+                ]
+              }
+            },
+            "commandOwner": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": true,
+                "matchedEntryIds": [
+                  "feishu-entry-1"
+                ]
+              }
+            },
+            "commandGroup": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            }
+          }
+        },
+        "ingress": {
+          "admission": "drop",
+          "decision": "block",
+          "decisiveGateId": "sender:dm",
+          "reasonCode": "dm_policy_disabled",
+          "graph": {
+            "gates": [
+              {
+                "id": "sender:dm",
+                "phase": "sender",
+                "kind": "dmSender",
+                "effect": "block-dispatch",
+                "allowed": false,
+                "reasonCode": "dm_policy_disabled",
+                "match": {
+                  "matched": true,
+                  "matchedEntryIds": [
+                    "feishu-entry-1"
+                  ]
+                },
+                "sender": {
+                  "policy": "disabled"
+                },
+                "allowlist": {
+                  "configured": true,
+                  "matched": true,
+                  "reasonCode": "dm_policy_disabled",
+                  "matchedEntryIds": [
+                    "feishu-entry-1"
+                  ],
+                  "invalidEntryCount": 0,
+                  "disabledEntryCount": 0,
+                  "accessGroups": {
+                    "referenced": [],
+                    "matched": [],
+                    "missing": [],
+                    "unsupported": [],
+                    "failed": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "senderAccess": {
+          "allowed": false,
+          "decision": "block",
+          "reasonCode": "dm_policy_disabled",
+          "gate": {
+            "id": "sender:dm",
+            "phase": "sender",
+            "kind": "dmSender",
+            "effect": "block-dispatch",
+            "allowed": false,
+            "reasonCode": "dm_policy_disabled",
+            "match": {
+              "matched": true,
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ]
+            },
+            "sender": {
+              "policy": "disabled"
+            },
+            "allowlist": {
+              "configured": true,
+              "matched": true,
+              "reasonCode": "dm_policy_disabled",
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "invalidEntryCount": 0,
+              "disabledEntryCount": 0,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              }
+            }
+          },
+          "effectiveAllowFrom": [
+            "user:ou_00000000000000000000000000000001"
+          ],
+          "effectiveGroupAllowFrom": [
+            "user:ou_00000000000000000000000000000001"
+          ],
+          "providerMissingFallbackApplied": false
+        },
+        "routeAccess": {
+          "allowed": true
+        },
+        "commandAccess": {
+          "requested": false,
+          "authorized": false,
+          "shouldBlockControlCommand": false,
+          "reasonCode": "dm_policy_disabled"
+        },
+        "activationAccess": {
+          "ran": false,
+          "allowed": false,
+          "shouldSkip": false,
+          "reasonCode": "dm_policy_disabled"
+        }
+      }
+    },
+    {
+      "name": "allowlisted group",
+      "kind": "group-conversation",
+      "syntheticIdentity": false,
+      "result": {
+        "state": {
+          "channelId": "feishu",
+          "accountId": "default",
+          "conversationKind": "group",
+          "event": {
+            "kind": "message",
+            "authMode": "inbound",
+            "mayPair": false,
+            "hasOriginSubject": false,
+            "originSubjectMatched": false
+          },
+          "routeFacts": [],
+          "allowlists": {
+            "dm": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "pairingStore": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "group": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": true,
+                "matchedEntryIds": [
+                  "feishu-entry-1"
+                ]
+              }
+            },
+            "commandOwner": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "commandGroup": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": true,
+                "matchedEntryIds": [
+                  "feishu-entry-1"
+                ]
+              }
+            }
+          }
+        },
+        "ingress": {
+          "admission": "dispatch",
+          "decision": "allow",
+          "decisiveGateId": "activation",
+          "reasonCode": "activation_allowed",
+          "graph": {
+            "gates": [
+              {
+                "id": "sender:group",
+                "phase": "sender",
+                "kind": "groupSender",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "group_policy_allowed",
+                "match": {
+                  "matched": true,
+                  "matchedEntryIds": [
+                    "feishu-entry-1"
+                  ]
+                },
+                "sender": {
+                  "policy": "allowlist"
+                },
+                "allowlist": {
+                  "configured": true,
+                  "matched": true,
+                  "reasonCode": "group_policy_allowed",
+                  "matchedEntryIds": [
+                    "feishu-entry-1"
+                  ],
+                  "invalidEntryCount": 0,
+                  "disabledEntryCount": 0,
+                  "accessGroups": {
+                    "referenced": [],
+                    "matched": [],
+                    "missing": [],
+                    "unsupported": [],
+                    "failed": []
+                  }
+                }
+              },
+              {
+                "id": "command",
+                "phase": "command",
+                "kind": "command",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "command_authorized"
+              },
+              {
+                "id": "event",
+                "phase": "event",
+                "kind": "event",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "event_authorized",
+                "event": {
+                  "kind": "message",
+                  "authMode": "inbound",
+                  "mayPair": false,
+                  "hasOriginSubject": false,
+                  "originSubjectMatched": false
+                }
+              },
+              {
+                "id": "activation",
+                "phase": "activation",
+                "kind": "mention",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "activation_allowed",
+                "activation": {
+                  "hasMentionFacts": false,
+                  "requireMention": false,
+                  "allowTextCommands": false,
+                  "shouldSkip": false
+                }
+              }
+            ]
+          }
+        },
+        "senderAccess": {
+          "allowed": true,
+          "decision": "allow",
+          "reasonCode": "group_policy_allowed",
+          "gate": {
+            "id": "sender:group",
+            "phase": "sender",
+            "kind": "groupSender",
+            "effect": "allow",
+            "allowed": true,
+            "reasonCode": "group_policy_allowed",
+            "match": {
+              "matched": true,
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ]
+            },
+            "sender": {
+              "policy": "allowlist"
+            },
+            "allowlist": {
+              "configured": true,
+              "matched": true,
+              "reasonCode": "group_policy_allowed",
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "invalidEntryCount": 0,
+              "disabledEntryCount": 0,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              }
+            }
+          },
+          "effectiveAllowFrom": [],
+          "effectiveGroupAllowFrom": [
+            "chat:oc_00000000000000000000000000000002"
+          ],
+          "providerMissingFallbackApplied": false
+        },
+        "routeAccess": {
+          "allowed": true
+        },
+        "commandAccess": {
+          "requested": false,
+          "authorized": false,
+          "shouldBlockControlCommand": false,
+          "reasonCode": "command_authorized",
+          "gate": {
+            "id": "command",
+            "phase": "command",
+            "kind": "command",
+            "effect": "allow",
+            "allowed": true,
+            "reasonCode": "command_authorized"
+          }
+        },
+        "activationAccess": {
+          "ran": true,
+          "allowed": true,
+          "shouldSkip": false,
+          "reasonCode": "activation_allowed",
+          "gate": {
+            "id": "activation",
+            "phase": "activation",
+            "kind": "mention",
+            "effect": "allow",
+            "allowed": true,
+            "reasonCode": "activation_allowed",
+            "activation": {
+              "hasMentionFacts": false,
+              "requireMention": false,
+              "allowTextCommands": false,
+              "shouldSkip": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "unlisted synthetic group",
+      "kind": "group-conversation",
+      "syntheticIdentity": true,
+      "result": {
+        "state": {
+          "channelId": "feishu",
+          "accountId": "default",
+          "conversationKind": "group",
+          "event": {
+            "kind": "message",
+            "authMode": "inbound",
+            "mayPair": false,
+            "hasOriginSubject": false,
+            "originSubjectMatched": false
+          },
+          "routeFacts": [],
+          "allowlists": {
+            "dm": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "pairingStore": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "group": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "commandOwner": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "commandGroup": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            }
+          }
+        },
+        "ingress": {
+          "admission": "drop",
+          "decision": "block",
+          "decisiveGateId": "sender:group",
+          "reasonCode": "group_policy_not_allowlisted",
+          "graph": {
+            "gates": [
+              {
+                "id": "sender:group",
+                "phase": "sender",
+                "kind": "groupSender",
+                "effect": "block-dispatch",
+                "allowed": false,
+                "reasonCode": "group_policy_not_allowlisted",
+                "match": {
+                  "matched": false,
+                  "matchedEntryIds": []
+                },
+                "sender": {
+                  "policy": "allowlist"
+                },
+                "allowlist": {
+                  "configured": true,
+                  "matched": false,
+                  "reasonCode": "group_policy_not_allowlisted",
+                  "matchedEntryIds": [],
+                  "invalidEntryCount": 0,
+                  "disabledEntryCount": 0,
+                  "accessGroups": {
+                    "referenced": [],
+                    "matched": [],
+                    "missing": [],
+                    "unsupported": [],
+                    "failed": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "senderAccess": {
+          "allowed": false,
+          "decision": "block",
+          "reasonCode": "group_policy_not_allowlisted",
+          "gate": {
+            "id": "sender:group",
+            "phase": "sender",
+            "kind": "groupSender",
+            "effect": "block-dispatch",
+            "allowed": false,
+            "reasonCode": "group_policy_not_allowlisted",
+            "match": {
+              "matched": false,
+              "matchedEntryIds": []
+            },
+            "sender": {
+              "policy": "allowlist"
+            },
+            "allowlist": {
+              "configured": true,
+              "matched": false,
+              "reasonCode": "group_policy_not_allowlisted",
+              "matchedEntryIds": [],
+              "invalidEntryCount": 0,
+              "disabledEntryCount": 0,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              }
+            }
+          },
+          "effectiveAllowFrom": [],
+          "effectiveGroupAllowFrom": [
+            "chat:oc_00000000000000000000000000000002"
+          ],
+          "providerMissingFallbackApplied": false
+        },
+        "routeAccess": {
+          "allowed": true
+        },
+        "commandAccess": {
+          "requested": false,
+          "authorized": false,
+          "shouldBlockControlCommand": false,
+          "reasonCode": "group_policy_not_allowlisted"
+        },
+        "activationAccess": {
+          "ran": false,
+          "allowed": false,
+          "shouldSkip": false,
+          "reasonCode": "group_policy_not_allowlisted"
+        }
+      }
+    },
+    {
+      "name": "allowlisted sender with mention",
+      "kind": "group-sender-activation",
+      "syntheticIdentity": false,
+      "result": {
+        "state": {
+          "channelId": "feishu",
+          "accountId": "default",
+          "conversationKind": "group",
+          "event": {
+            "kind": "message",
+            "authMode": "inbound",
+            "mayPair": false,
+            "hasOriginSubject": false,
+            "originSubjectMatched": false
+          },
+          "mentionFacts": {
+            "canDetectMention": true,
+            "wasMentioned": true
+          },
+          "routeFacts": [],
+          "allowlists": {
+            "dm": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "pairingStore": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "group": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": true,
+                "matchedEntryIds": [
+                  "feishu-entry-1"
+                ]
+              }
+            },
+            "commandOwner": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "commandGroup": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": true,
+                "matchedEntryIds": [
+                  "feishu-entry-1"
+                ]
+              }
+            }
+          }
+        },
+        "ingress": {
+          "admission": "dispatch",
+          "decision": "allow",
+          "decisiveGateId": "activation",
+          "reasonCode": "activation_allowed",
+          "graph": {
+            "gates": [
+              {
+                "id": "sender:group",
+                "phase": "sender",
+                "kind": "groupSender",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "group_policy_allowed",
+                "match": {
+                  "matched": true,
+                  "matchedEntryIds": [
+                    "feishu-entry-1"
+                  ]
+                },
+                "sender": {
+                  "policy": "allowlist"
+                },
+                "allowlist": {
+                  "configured": true,
+                  "matched": true,
+                  "reasonCode": "group_policy_allowed",
+                  "matchedEntryIds": [
+                    "feishu-entry-1"
+                  ],
+                  "invalidEntryCount": 0,
+                  "disabledEntryCount": 0,
+                  "accessGroups": {
+                    "referenced": [],
+                    "matched": [],
+                    "missing": [],
+                    "unsupported": [],
+                    "failed": []
+                  }
+                }
+              },
+              {
+                "id": "command",
+                "phase": "command",
+                "kind": "command",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "command_authorized"
+              },
+              {
+                "id": "event",
+                "phase": "event",
+                "kind": "event",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "event_authorized",
+                "event": {
+                  "kind": "message",
+                  "authMode": "inbound",
+                  "mayPair": false,
+                  "hasOriginSubject": false,
+                  "originSubjectMatched": false
+                }
+              },
+              {
+                "id": "activation",
+                "phase": "activation",
+                "kind": "mention",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "activation_allowed",
+                "activation": {
+                  "hasMentionFacts": true,
+                  "requireMention": true,
+                  "allowTextCommands": false,
+                  "shouldSkip": false,
+                  "canDetectMention": true,
+                  "wasMentioned": true,
+                  "effectiveWasMentioned": true,
+                  "shouldBypassMention": false
+                }
+              }
+            ]
+          }
+        },
+        "senderAccess": {
+          "allowed": true,
+          "decision": "allow",
+          "reasonCode": "group_policy_allowed",
+          "gate": {
+            "id": "sender:group",
+            "phase": "sender",
+            "kind": "groupSender",
+            "effect": "allow",
+            "allowed": true,
+            "reasonCode": "group_policy_allowed",
+            "match": {
+              "matched": true,
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ]
+            },
+            "sender": {
+              "policy": "allowlist"
+            },
+            "allowlist": {
+              "configured": true,
+              "matched": true,
+              "reasonCode": "group_policy_allowed",
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "invalidEntryCount": 0,
+              "disabledEntryCount": 0,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              }
+            }
+          },
+          "effectiveAllowFrom": [],
+          "effectiveGroupAllowFrom": [
+            "user:ou_00000000000000000000000000000001"
+          ],
+          "providerMissingFallbackApplied": false
+        },
+        "routeAccess": {
+          "allowed": true
+        },
+        "commandAccess": {
+          "requested": false,
+          "authorized": false,
+          "shouldBlockControlCommand": false,
+          "reasonCode": "command_authorized",
+          "gate": {
+            "id": "command",
+            "phase": "command",
+            "kind": "command",
+            "effect": "allow",
+            "allowed": true,
+            "reasonCode": "command_authorized"
+          }
+        },
+        "activationAccess": {
+          "ran": true,
+          "allowed": true,
+          "shouldSkip": false,
+          "reasonCode": "activation_allowed",
+          "effectiveWasMentioned": true,
+          "shouldBypassMention": false,
+          "gate": {
+            "id": "activation",
+            "phase": "activation",
+            "kind": "mention",
+            "effect": "allow",
+            "allowed": true,
+            "reasonCode": "activation_allowed",
+            "activation": {
+              "hasMentionFacts": true,
+              "requireMention": true,
+              "allowTextCommands": false,
+              "shouldSkip": false,
+              "canDetectMention": true,
+              "wasMentioned": true,
+              "effectiveWasMentioned": true,
+              "shouldBypassMention": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "unlisted synthetic sender with mention",
+      "kind": "group-sender-activation",
+      "syntheticIdentity": true,
+      "result": {
+        "state": {
+          "channelId": "feishu",
+          "accountId": "default",
+          "conversationKind": "group",
+          "event": {
+            "kind": "message",
+            "authMode": "inbound",
+            "mayPair": false,
+            "hasOriginSubject": false,
+            "originSubjectMatched": false
+          },
+          "mentionFacts": {
+            "canDetectMention": true,
+            "wasMentioned": true
+          },
+          "routeFacts": [],
+          "allowlists": {
+            "dm": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "pairingStore": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "group": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "commandOwner": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "commandGroup": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            }
+          }
+        },
+        "ingress": {
+          "admission": "drop",
+          "decision": "block",
+          "decisiveGateId": "sender:group",
+          "reasonCode": "group_policy_not_allowlisted",
+          "graph": {
+            "gates": [
+              {
+                "id": "sender:group",
+                "phase": "sender",
+                "kind": "groupSender",
+                "effect": "block-dispatch",
+                "allowed": false,
+                "reasonCode": "group_policy_not_allowlisted",
+                "match": {
+                  "matched": false,
+                  "matchedEntryIds": []
+                },
+                "sender": {
+                  "policy": "allowlist"
+                },
+                "allowlist": {
+                  "configured": true,
+                  "matched": false,
+                  "reasonCode": "group_policy_not_allowlisted",
+                  "matchedEntryIds": [],
+                  "invalidEntryCount": 0,
+                  "disabledEntryCount": 0,
+                  "accessGroups": {
+                    "referenced": [],
+                    "matched": [],
+                    "missing": [],
+                    "unsupported": [],
+                    "failed": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "senderAccess": {
+          "allowed": false,
+          "decision": "block",
+          "reasonCode": "group_policy_not_allowlisted",
+          "gate": {
+            "id": "sender:group",
+            "phase": "sender",
+            "kind": "groupSender",
+            "effect": "block-dispatch",
+            "allowed": false,
+            "reasonCode": "group_policy_not_allowlisted",
+            "match": {
+              "matched": false,
+              "matchedEntryIds": []
+            },
+            "sender": {
+              "policy": "allowlist"
+            },
+            "allowlist": {
+              "configured": true,
+              "matched": false,
+              "reasonCode": "group_policy_not_allowlisted",
+              "matchedEntryIds": [],
+              "invalidEntryCount": 0,
+              "disabledEntryCount": 0,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              }
+            }
+          },
+          "effectiveAllowFrom": [],
+          "effectiveGroupAllowFrom": [
+            "user:ou_00000000000000000000000000000001"
+          ],
+          "providerMissingFallbackApplied": false
+        },
+        "routeAccess": {
+          "allowed": true
+        },
+        "commandAccess": {
+          "requested": false,
+          "authorized": false,
+          "shouldBlockControlCommand": false,
+          "reasonCode": "group_policy_not_allowlisted"
+        },
+        "activationAccess": {
+          "ran": false,
+          "allowed": false,
+          "shouldSkip": false,
+          "reasonCode": "group_policy_not_allowlisted"
+        }
+      }
+    },
+    {
+      "name": "allowlisted sender without mention",
+      "kind": "group-sender-activation",
+      "syntheticIdentity": false,
+      "result": {
+        "state": {
+          "channelId": "feishu",
+          "accountId": "default",
+          "conversationKind": "group",
+          "event": {
+            "kind": "message",
+            "authMode": "inbound",
+            "mayPair": false,
+            "hasOriginSubject": false,
+            "originSubjectMatched": false
+          },
+          "mentionFacts": {
+            "canDetectMention": true,
+            "wasMentioned": false
+          },
+          "routeFacts": [],
+          "allowlists": {
+            "dm": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "pairingStore": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "group": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": true,
+                "matchedEntryIds": [
+                  "feishu-entry-1"
+                ]
+              }
+            },
+            "commandOwner": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "commandGroup": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": true,
+                "matchedEntryIds": [
+                  "feishu-entry-1"
+                ]
+              }
+            }
+          }
+        },
+        "ingress": {
+          "admission": "skip",
+          "decision": "allow",
+          "decisiveGateId": "activation",
+          "reasonCode": "activation_skipped",
+          "graph": {
+            "gates": [
+              {
+                "id": "sender:group",
+                "phase": "sender",
+                "kind": "groupSender",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "group_policy_allowed",
+                "match": {
+                  "matched": true,
+                  "matchedEntryIds": [
+                    "feishu-entry-1"
+                  ]
+                },
+                "sender": {
+                  "policy": "allowlist"
+                },
+                "allowlist": {
+                  "configured": true,
+                  "matched": true,
+                  "reasonCode": "group_policy_allowed",
+                  "matchedEntryIds": [
+                    "feishu-entry-1"
+                  ],
+                  "invalidEntryCount": 0,
+                  "disabledEntryCount": 0,
+                  "accessGroups": {
+                    "referenced": [],
+                    "matched": [],
+                    "missing": [],
+                    "unsupported": [],
+                    "failed": []
+                  }
+                }
+              },
+              {
+                "id": "command",
+                "phase": "command",
+                "kind": "command",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "command_authorized"
+              },
+              {
+                "id": "event",
+                "phase": "event",
+                "kind": "event",
+                "effect": "allow",
+                "allowed": true,
+                "reasonCode": "event_authorized",
+                "event": {
+                  "kind": "message",
+                  "authMode": "inbound",
+                  "mayPair": false,
+                  "hasOriginSubject": false,
+                  "originSubjectMatched": false
+                }
+              },
+              {
+                "id": "activation",
+                "phase": "activation",
+                "kind": "mention",
+                "effect": "skip",
+                "allowed": false,
+                "reasonCode": "activation_skipped",
+                "activation": {
+                  "hasMentionFacts": true,
+                  "requireMention": true,
+                  "allowTextCommands": false,
+                  "shouldSkip": true,
+                  "canDetectMention": true,
+                  "wasMentioned": false,
+                  "effectiveWasMentioned": false,
+                  "shouldBypassMention": false
+                }
+              }
+            ]
+          }
+        },
+        "senderAccess": {
+          "allowed": true,
+          "decision": "allow",
+          "reasonCode": "group_policy_allowed",
+          "gate": {
+            "id": "sender:group",
+            "phase": "sender",
+            "kind": "groupSender",
+            "effect": "allow",
+            "allowed": true,
+            "reasonCode": "group_policy_allowed",
+            "match": {
+              "matched": true,
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ]
+            },
+            "sender": {
+              "policy": "allowlist"
+            },
+            "allowlist": {
+              "configured": true,
+              "matched": true,
+              "reasonCode": "group_policy_allowed",
+              "matchedEntryIds": [
+                "feishu-entry-1"
+              ],
+              "invalidEntryCount": 0,
+              "disabledEntryCount": 0,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              }
+            }
+          },
+          "effectiveAllowFrom": [],
+          "effectiveGroupAllowFrom": [
+            "user:ou_00000000000000000000000000000001"
+          ],
+          "providerMissingFallbackApplied": false
+        },
+        "routeAccess": {
+          "allowed": true
+        },
+        "commandAccess": {
+          "requested": false,
+          "authorized": false,
+          "shouldBlockControlCommand": false,
+          "reasonCode": "command_authorized",
+          "gate": {
+            "id": "command",
+            "phase": "command",
+            "kind": "command",
+            "effect": "allow",
+            "allowed": true,
+            "reasonCode": "command_authorized"
+          }
+        },
+        "activationAccess": {
+          "ran": true,
+          "allowed": false,
+          "shouldSkip": true,
+          "reasonCode": "activation_skipped",
+          "effectiveWasMentioned": false,
+          "shouldBypassMention": false,
+          "gate": {
+            "id": "activation",
+            "phase": "activation",
+            "kind": "mention",
+            "effect": "skip",
+            "allowed": false,
+            "reasonCode": "activation_skipped",
+            "activation": {
+              "hasMentionFacts": true,
+              "requireMention": true,
+              "allowTextCommands": false,
+              "shouldSkip": true,
+              "canDetectMention": true,
+              "wasMentioned": false,
+              "effectiveWasMentioned": false,
+              "shouldBypassMention": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "unlisted synthetic sender without mention",
+      "kind": "group-sender-activation",
+      "syntheticIdentity": true,
+      "result": {
+        "state": {
+          "channelId": "feishu",
+          "accountId": "default",
+          "conversationKind": "group",
+          "event": {
+            "kind": "message",
+            "authMode": "inbound",
+            "mayPair": false,
+            "hasOriginSubject": false,
+            "originSubjectMatched": false
+          },
+          "mentionFacts": {
+            "canDetectMention": true,
+            "wasMentioned": false
+          },
+          "routeFacts": [],
+          "allowlists": {
+            "dm": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "pairingStore": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "group": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "commandOwner": {
+              "rawEntryCount": 0,
+              "normalizedEntries": [],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": false,
+              "hasMatchableEntries": false,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            },
+            "commandGroup": {
+              "rawEntryCount": 1,
+              "normalizedEntries": [
+                {
+                  "opaqueEntryId": "feishu-entry-1",
+                  "kind": "plugin:feishu-id",
+                  "sensitivity": "pii"
+                }
+              ],
+              "invalidEntries": [],
+              "disabledEntries": [],
+              "matchedEntryIds": [],
+              "hasConfiguredEntries": true,
+              "hasMatchableEntries": true,
+              "hasWildcard": false,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              },
+              "match": {
+                "matched": false,
+                "matchedEntryIds": []
+              }
+            }
+          }
+        },
+        "ingress": {
+          "admission": "drop",
+          "decision": "block",
+          "decisiveGateId": "sender:group",
+          "reasonCode": "group_policy_not_allowlisted",
+          "graph": {
+            "gates": [
+              {
+                "id": "sender:group",
+                "phase": "sender",
+                "kind": "groupSender",
+                "effect": "block-dispatch",
+                "allowed": false,
+                "reasonCode": "group_policy_not_allowlisted",
+                "match": {
+                  "matched": false,
+                  "matchedEntryIds": []
+                },
+                "sender": {
+                  "policy": "allowlist"
+                },
+                "allowlist": {
+                  "configured": true,
+                  "matched": false,
+                  "reasonCode": "group_policy_not_allowlisted",
+                  "matchedEntryIds": [],
+                  "invalidEntryCount": 0,
+                  "disabledEntryCount": 0,
+                  "accessGroups": {
+                    "referenced": [],
+                    "matched": [],
+                    "missing": [],
+                    "unsupported": [],
+                    "failed": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "senderAccess": {
+          "allowed": false,
+          "decision": "block",
+          "reasonCode": "group_policy_not_allowlisted",
+          "gate": {
+            "id": "sender:group",
+            "phase": "sender",
+            "kind": "groupSender",
+            "effect": "block-dispatch",
+            "allowed": false,
+            "reasonCode": "group_policy_not_allowlisted",
+            "match": {
+              "matched": false,
+              "matchedEntryIds": []
+            },
+            "sender": {
+              "policy": "allowlist"
+            },
+            "allowlist": {
+              "configured": true,
+              "matched": false,
+              "reasonCode": "group_policy_not_allowlisted",
+              "matchedEntryIds": [],
+              "invalidEntryCount": 0,
+              "disabledEntryCount": 0,
+              "accessGroups": {
+                "referenced": [],
+                "matched": [],
+                "missing": [],
+                "unsupported": [],
+                "failed": []
+              }
+            }
+          },
+          "effectiveAllowFrom": [],
+          "effectiveGroupAllowFrom": [
+            "user:ou_00000000000000000000000000000001"
+          ],
+          "providerMissingFallbackApplied": false
+        },
+        "routeAccess": {
+          "allowed": true
+        },
+        "commandAccess": {
+          "requested": false,
+          "authorized": false,
+          "shouldBlockControlCommand": false,
+          "reasonCode": "group_policy_not_allowlisted"
+        },
+        "activationAccess": {
+          "ran": false,
+          "allowed": false,
+          "shouldSkip": false,
+          "reasonCode": "group_policy_not_allowlisted"
+        }
+      }
+    }
+  ]
+}

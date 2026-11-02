@@ -2,6 +2,8 @@
 
 本文供接手部署和验收的同事使用。Webhook 方式已有告警、调查报告和群内收件验证；原生通道已于 2026-11-01 验证群中 @ 后自动回复、主动发送和完整旧报告重投，记录见第 10 节。第 13 节保留本轮实际部署步骤、完整命令和补丁；第 14 节解释截图中每条消息是谁发给谁的。
 
+**2026-11-02 更新：** Spark 已部署持久后台调查服务，新的 GPU 缓存模拟告警自动经过采集、IRAOP、完整报告和原生通道投递；群内收件及 worker 重启去重均已确认。私聊与群 @ 也已完成 OpenClaw Pod 重建后的真实收发验收。第 17 节给出操作入口、全部策略回放结果和证据；10 月 31 日与 11 月 1 日的原始表格、命令及 Webhook 记录保持原样。
+
 ## 1. 两种方式如何选择
 
 | 项目 | 群自定义机器人 Webhook | OpenClaw 飞书原生通道 |
@@ -299,7 +301,7 @@ dry run、values 和 Helm manifest 可能含敏感内容，实际执行必须写
 
 ## 8. 从告警报告走向持续运行
 
-群 Webhook 和原生通道都能承担报告的最后一跳。告警捕获、日志采集、IRAOP 咨询和报告投递的持续编排仍需单独实现：服务端监听或拉取告警、创建调查、等待运行完成、关联证据、选择收件群、发送、记录结果及幂等/重试状态。
+群 Webhook 和原生通道都能承担报告的最后一跳。2026-11-02 已增加独立的持久后台服务，完成服务端拉取选定告警、创建只读调查、等待真实会话完成、调用 IRAOP、生成完整报告、原生发布及 SQLite 去重。它需要按第 17 节单独安装；启用飞书通道本身不会替代这些编排步骤。
 
 MOSAIC 网页中的 Auto investigate 当前由前端触发；打开飞书原生通道不会把它自动改为后台告警服务，也不会让已有网页调查结果自动出现在飞书群。完整告警链路以[主操作手册](spark_alert_feishu_runbook.zh-CN.md)和两份实测文档的实际动作与证据为准。
 
@@ -640,7 +642,7 @@ SDK 错误日志可能包含请求对象，因此复制诊断日志时先替换�
 
 字节数、源哈希和差异偏移对应去标识前的传输记录；公开副本替换了现场标识，不能把公开文件重新求哈希后与原始源哈希混为一谈。要求配置文件/代码等字节级不变时，应另做原文文件附件及下载哈希验收，本轮未把富文本转换等同于文件传输验证。
 
-本轮原生通道验证覆盖消息最后一跳和群内互动；新的告警从发现、自动调查、日志采集、IRAOP 咨询直到原生通道投递，仍需按第 8 节编排后单独验收。此前已经完成的 Webhook 全链路证据继续保留。
+11 月 1 日的这轮原生通道验证覆盖消息最后一跳和群内互动。新的告警从发现、自动调查、日志采集、IRAOP 咨询直到原生通道投递，已于 11 月 2 日按第 17 节单独实现并验收。此前已经完成的 Webhook 全链路证据继续保留。
 
 ## 16. 三个名称的调整与线上发布核对
 
@@ -763,3 +765,56 @@ PR #74 的新增回归测试先复现 OpenShell 初始化容器缺少 `FEISHU_AP
 本轮提交源码、测试及文档；没有再次升级 Spark，也没有再次执行故障注入。
 飞书平台的应用名称、应用发布和 Webhook 机器人名称仍按第 16.1、16.4 节
 分别在平台管理界面维护。
+
+## 17. 2026-11-02：持久后台流程及补充验收
+
+第 16.5 节的“本轮”指 #74/#87 源码跟进时的快照。此后的本节已经另外做了新的 GPU 缓存模拟实验、后台服务部署和真实消息验收，完整命令、原文、失败记录及全部观测在[独立后台实测文档](spark_background_gpu_alert_native_feishu_20261102.zh-CN.md)。
+
+![持久后台、实际 IRAOP 与原生飞书](images/mosaic-gpu-feishu-background-20261102.svg)
+
+本轮实际运行两项 Spark 用户服务：`mosaic-alert-ui-forward.service` 提供 Spark 自己的 `127.0.0.1:13300`；`mosaic-alert-worker.service` 每 10 秒拉取选定 Alertmanager 告警，按 fingerprint + startsAt 在 SQLite 去重。它导入 MOSAIC 告警后创建专用 View automation 会话，等待真实工具采集结束，明确调用实际 `iraop_query`，把完整返回交给同一会话生成报告，再由固定原生发布器调用 OpenClaw CLI 发送。没有因为 HTTP message 在 View 被拒绝而放开修改权限。
+
+代码与完整安装指南已单独提交 [upstream PR #89](https://github.com/NVIDIA/AI-Factory-Operations-Agent/pull/89)。这不是飞书通道的隐式功能，也没有新增 Helm 默认开关；接手人需单独安装 host services，并配置获准的告警标签、IRAOP 集合、原生群目标和私有 UI machine token。当前部署只选择 `mosaic_test=true` 且 `background_validation=true`，没有全量外发生产告警。
+
+| 实际验收 | 结果与证据 |
+| --- | --- |
+| 新后台完整链路 | Run ID `bg-gpu-20261102t005029z`；Incident `2803c2516df6ec7c3eed3f2f`；真实规则/Alertmanager、5 次现场工具结果、实际 IRAOP 2 条文档来源 |
+| 完整自动报告 | 模型原文 9,469 bytes，发布文本 11,966 bytes；无截断、无人工事实改写；完整两版与哈希均保留 |
+| 原生群投递 | message_id `om_x100b614a1e1294acdd7edd5c26d5db6`；平台读取 code=0；用户确认“已看到完整报告，Run ID 和 Incident 一致” |
+| 持续 firing 时重启 worker | Incident、message_id、每条事件和所有证据哈希均保持；没有新调查或重复发送 |
+| 专门重建 gateway Pod | 旧 UID `da7cec2b-b7f7-4c1c-b733-dd3f1a209bca` → 新 UID `02fad834-25b3-4e87-bfa5-dad4f58876c5`；应用 Secret 与白名单保持 |
+| 重建后真实私聊 | `feishu-extra-20261102-restart-dm`；真实回复 `Test received. Everything working.`；平台消息与对话读取 code=0 |
+| 重建后真实群 @ | `feishu-extra-20261102-restart-group`；真实回复“收到，Jeff。测试通过。”；完整入站、会话、分发及精确消息读取见证 |
+| 真实群不 @ | 用户确认已发送；未产生对应会话。普通群消息读取返回 230027，不能据此断言本地插件收到了事件后才拒绝；没有扩大应用权限 |
+| 真实非白名单身份/群 | 没有第二账号，尚未执行；下面 9 行是实际插件函数的合成身份回放 |
+| 清理与保留 | 6 个测试对象均以原 UID 前置条件删除；源告警 0、3 张自有卡片自动清理；所有会话和原始文件保留 |
+| 原部署 | Helm revision 18、7 个 Ready Pod、全部应用 Secret 指纹及共享模型 PID/StartedAt 保持 |
+
+全部策略回放行，完整 gates 和返回字段在[回放 JSON](examples/alert-feishu/background-evidence-20261102/run/feishu-policy-replay.json)：
+
+| 用例 | admission | decision | reasonCode |
+| --- | --- | --- | --- |
+| allowlisted DM | dispatch | allow | activation_allowed |
+| unlisted synthetic DM | drop | block | dm_policy_not_allowlisted |
+| disabled DM | drop | block | dm_policy_disabled |
+| allowlisted group | dispatch | allow | activation_allowed |
+| unlisted synthetic group | drop | block | group_policy_not_allowlisted |
+| allowlisted sender with mention | dispatch | allow | activation_allowed |
+| unlisted synthetic sender with mention | drop | block | group_policy_not_allowlisted |
+| allowlisted sender without mention | skip | allow | activation_skipped |
+| unlisted synthetic sender without mention | drop | block | group_policy_not_allowlisted |
+
+观察与停止命令：
+
+```bash
+systemctl --user status mosaic-alert-ui-forward.service mosaic-alert-worker.service
+loginctl show-user "$USER" -p Linger
+journalctl --user -u mosaic-alert-worker.service -f
+python3 "$HOME/.local/share/mosaic-alert-worker/mosaic-alert-worker.py" \
+  --config "$HOME/.config/mosaic-alert-worker/config.json" --status
+
+# 需要停止时保留 state/证据，再执行：
+systemctl --user disable --now mosaic-alert-worker.service mosaic-alert-ui-forward.service
+```
+
+旧 Webhook 与本节原生 App 的凭据分开保管。新的两项服务、最终源文件、完整配置、28 项 Python 测试、仓库 226 pass/2 skip、4 项 inference、Helm lint、Sphinx 及三次尝试原件均见[公开附件 manifest](examples/alert-feishu/background-evidence-20261102/manifest.json)。前两次是程序判据/字段兼容失败，不是删去失败后只保留成功；后续若发生 delivery_unknown，应先核对平台再决定重试。

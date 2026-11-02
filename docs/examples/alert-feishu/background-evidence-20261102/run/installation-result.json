@@ -1,0 +1,76 @@
+{
+  "services": {
+    "mosaic-alert-ui-forward.service": {
+      "MainPID": "3645158",
+      "ActiveState": "active",
+      "SubState": "running",
+      "UnitFileState": "enabled"
+    },
+    "mosaic-alert-worker.service": {
+      "MainPID": "3645161",
+      "ActiveState": "active",
+      "SubState": "running",
+      "UnitFileState": "enabled"
+    }
+  },
+  "linger": "yes",
+  "lastPoll": {
+    "at": "2026-11-02T00:46:38Z",
+    "selected": 0
+  },
+  "workerSourceSha256": "d7ecc849687bc09b7f6ad1a32d562dffa23900a265828ed9a061150bbc241b33",
+  "checks": [
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/home/DEPLOY_USER/.local/share/mosaic-alert-worker/mosaic-alert-worker.py",
+        "--config",
+        "/home/DEPLOY_USER/.config/mosaic-alert-worker/config.json",
+        "--status"
+      ],
+      "exitCode": 0,
+      "stdout": "[]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "systemd-analyze",
+        "--user",
+        "verify",
+        "/home/DEPLOY_USER/.config/systemd/user/mosaic-alert-ui-forward.service",
+        "/home/DEPLOY_USER/.config/systemd/user/mosaic-alert-worker.service"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "systemctl",
+        "--user",
+        "daemon-reload"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "systemctl",
+        "--user",
+        "enable",
+        "--now",
+        "mosaic-alert-ui-forward.service",
+        "mosaic-alert-worker.service"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "Created symlink /home/DEPLOY_USER/.config/systemd/user/default.target.wants/mosaic-alert-ui-forward.service → /home/DEPLOY_USER/.config/systemd/user/mosaic-alert-ui-forward.service.\nCreated symlink /home/DEPLOY_USER/.config/systemd/user/default.target.wants/mosaic-alert-worker.service → /home/DEPLOY_USER/.config/systemd/user/mosaic-alert-worker.service.\n"
+    }
+  ],
+  "paths": {
+    "code": "/home/DEPLOY_USER/.local/share/mosaic-alert-worker",
+    "config": "/home/DEPLOY_USER/.config/mosaic-alert-worker",
+    "state": "/home/DEPLOY_USER/.local/state/mosaic-alert-worker"
+  }
+}

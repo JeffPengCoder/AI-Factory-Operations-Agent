@@ -1,0 +1,2185 @@
+{
+  "gitHead": "c9c6cab7c0581b92928c91231f619f57f6e5c69b",
+  "files": [
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/analysis-initial-autonomous.en.txt",
+      "bytes": 3316,
+      "sha256": "ac11586f00c6a76b9635ca83081dcefcc38af089982547df9c11e332dac7e10f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/analysis-model-original.zh-CN.txt.gz",
+      "bytes": 4926,
+      "sha256": "e374726153837b7f3f9ade7c7bb59ac7af0b74e3d8ce6b01bc3fc99988c56070"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/analysis-model-revision.full.diff.gz",
+      "bytes": 9057,
+      "sha256": "c6080bfbf6e73125a03b0b126d7ddd849ece168e0c1ca383d406c7b0823c5fb5"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt1-browser-chain.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt1-browser-chain.stderr.gz",
+      "bytes": 680,
+      "sha256": "13e9e66498c55e4646cfeee4ab3ad26c85b96ae1c6be29954e35ca791582ef66"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt1-chain-samples.jsonl",
+      "bytes": 6129,
+      "sha256": "c1e0273b8f322db49cade24418bbc13861e9f7f960453ecba840289f4daecc3a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt1-isolated-dcgm-started.json",
+      "bytes": 174,
+      "sha256": "b9412d8d39d7cde6ceb836effed12f519c01336899fab3d1591753fe716a2835"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt1-isolated-dcgm.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt1-isolated-dcgm.private.stderr",
+      "bytes": 76,
+      "sha256": "0db1a16ad60010ba502178c185d298e1e9111828348f68c04f5e525767c54505"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt1-root-authentication-result.json",
+      "bytes": 172,
+      "sha256": "20a5c23c2b14496e3e40e67e1d2231c2674af62100f0d991caa4a22ad5dfb255"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt1-run_isolated_dcgm.py",
+      "bytes": 5467,
+      "sha256": "730784e8d854e04494f249cb975a651d49146a8219ee57652cece45984ca508e"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt1-watch-chain.log",
+      "bytes": 384,
+      "sha256": "fe4001839c2640f4619a864f9a3725a781adf1998df3397d03167d88f661cf40"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt1-watch-chain.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt2-browser-chain.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt2-browser-chain.stderr.gz",
+      "bytes": 721,
+      "sha256": "8599f73d6ebb53f00436100797a925f89dea2ae5ef50b9c9f4a41828893da767"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt2-chain-samples.jsonl",
+      "bytes": 10111,
+      "sha256": "61da4de5587c7e1347f925cc1dcef576d0ad2ccc7216f3410f00377f83b48b5a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt2-isolated-dcgm.json",
+      "bytes": 465966,
+      "sha256": "0797a46de660d10aebdc633e834c2b2bf192bf548ae7afc57d842b42afba89ac"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt2-isolated-dcgm.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt2-loaded-rule.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt2-loaded-rule.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt2-run_isolated_dcgm.py",
+      "bytes": 5485,
+      "sha256": "270730c851da85281778afdf6c35b6259ce35f5cc812db239cb164e5fbf57fb1"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt2-watch-chain.log",
+      "bytes": 183,
+      "sha256": "c2418854d8e2ac0b2a65a839816bcd9246e682b11ade5ad5ab59459be8192d39"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt2-watch-chain.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt3-browser-chain.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt3-browser-chain.stderr.gz",
+      "bytes": 1098,
+      "sha256": "856ca46349670112e5df51e19a3dc16f163764975f83f336dd25836e01f0a405"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt4-browser-chain.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt4-browser-chain.stderr.gz",
+      "bytes": 717,
+      "sha256": "9d1f30ad99eaa99a28e2af5769f66399c16852c5226e7975a628ad078ffb62b6"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt5-browser-chain.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/attempt5-browser-chain.stderr.gz",
+      "bytes": 694,
+      "sha256": "39e8371037c7cbcca4b922c88dadc0e9ef1983b54001548c50241842e15819e0"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser/evidence-research-history-api.json",
+      "bytes": 209042,
+      "sha256": "8648c7c69f2e715206eff463b27bb2b763912ed1f5e83c0e58d406996525da72"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser/evidence-research-history-gateway.json",
+      "bytes": 125153,
+      "sha256": "e4886c18969b6a0bfca99baebaffd9d40a4265675ed2565665476205a38c8b57"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser/followup-prompt.txt",
+      "bytes": 2510,
+      "sha256": "1d189d083752e1f996e5501a011a12b1e8920e1eaa19d4b0ae6d7640c3e99cc3"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser/initial-history-api.json",
+      "bytes": 62981,
+      "sha256": "f7b5577cb4e5888b0ad6618c299dccae5ac53bec885015adee0f61676c9def28"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser/initial-history-gateway.json",
+      "bytes": 34214,
+      "sha256": "79d3c3953871951bf0ff6909693676cd652fd3598d033364e3ff4c7db4dc82c2"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser/initial-summary.json",
+      "bytes": 185,
+      "sha256": "2f01a0945f8dc70363374283eb71dd976a0e60a8e5162ccf3167a314d4be9318"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser/new-alert-before-investigation.json",
+      "bytes": 2924,
+      "sha256": "1bc5a56190896b243aa28e22bac745fc342498e6fa58b93cd481ee60bbca3e88"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser/polls.json",
+      "bytes": 6582,
+      "sha256": "d73d7a38a4fdf5afa713490a03b2823449b6a7812ad171319aa39bb3b0a13d41"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser/posts.json",
+      "bytes": 6045,
+      "sha256": "646979eb66879163ce79c478f4f0f2111b3b278678a00176496f1590099e7a34"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser/responses.json",
+      "bytes": 18392,
+      "sha256": "6d60977e889de3a366c5b9d9aaca97dd79b9116d0cbb8f855cfb3431f674adf9"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser/selected-alert-after.json",
+      "bytes": 3014,
+      "sha256": "a5055e2c38707cb7845f779dd355096359fdf3869dd229f1fc0ffadc556b6715"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser/summary.json",
+      "bytes": 3608,
+      "sha256": "a912ae51fa619254a7bc6d508979f66609bcbcab9fc65f9e3999f69c97944926"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser/ui-and-chat-streams.json",
+      "bytes": 1708844,
+      "sha256": "4e113581d45e0fca0af522c659210d54774a90496a37a31e7ad2981967f0fcc6"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser-chain.log",
+      "bytes": 3049,
+      "sha256": "9ae7f4f40c4f7cab18f8fc8411ef4198a393eccf0833da577e211a0588ef4e04"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser-chain.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser-credential-redaction.json",
+      "bytes": 500,
+      "sha256": "7186231d14953f3f66e409f5892c0fa8b4c0d099c0ad7eccdc09b5715e80e7b0"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/browser_gpu_chain.py",
+      "bytes": 10328,
+      "sha256": "85395a558f529c8805eef560f0388eac25bf15b54ade64a366174962374647f5"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/build_gpu_corpus.py",
+      "bytes": 5775,
+      "sha256": "f55648c4249306c9a271a8e74dc5713a3dfc3e0e8420da44bcb7645a1f015695"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/capture_final_related.py",
+      "bytes": 2348,
+      "sha256": "c0a2002feaed2c3583c7a3dc03e352452f3ac287ce52c6c052f44eea9fb3fecb"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/capture_gpu_runtime.py",
+      "bytes": 2384,
+      "sha256": "802a42e1cdbbf839212a0b0fe34db288665f94f4b7552cc05420366d7d39cf66"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/capture_loaded_rule.py",
+      "bytes": 1539,
+      "sha256": "9148daa820a8312e19ae4158ff648a4c84bdac7257d0979128591bbaed9bbbf6"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/capture_monitoring.py",
+      "bytes": 2768,
+      "sha256": "53e83b5990bef6220476890c4e050b29df05f77c243e42d7649d73e07f20d2d3"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/capture_spark_final.py",
+      "bytes": 2934,
+      "sha256": "aaa34e67ba4bb31061fba8e66b3ece3b62f56aa77116d22218c182d7937851cf"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/chain-samples.jsonl",
+      "bytes": 1589602,
+      "sha256": "dd7ba1c67b1b26b669b649d6b06d75f0b7f5ce18a1b404914ff101039423221c"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/cleanup-result.json",
+      "bytes": 60373,
+      "sha256": "62dc118df211fc7e7cd1b175a1dd328760db7a8a41cd959050b3400bac5e4804"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/cleanup-started.json",
+      "bytes": 415,
+      "sha256": "d855683dfe0047dec43c34fdd099f9c0303e9644f9765e130a37cf7aca9b67b2"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/cleanup.log",
+      "bytes": 49,
+      "sha256": "23590e8821775d05bf4b38eca415ebfce3f87e213ad40bcf965146a108b7a2db"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/cleanup.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/cleanup_gpu_fixture.py",
+      "bytes": 3327,
+      "sha256": "0ea1cef4391dd19081c80a8f4b25a2c048069517c162193e0180652ddb29e29a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/collect_context.attempt1.py",
+      "bytes": 2833,
+      "sha256": "3baa6970fdb196995485fbe9426207587f715ee97c32ae9237ec04536f5f25b4"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/collect_context.py",
+      "bytes": 3147,
+      "sha256": "6d961085211565e33191b472380b65a585b87e4ca5a3debaeb76ec78fa423648"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/collect_gpu_baseline.py",
+      "bytes": 3531,
+      "sha256": "0ef5f3c552e486c6f1d249db9c61230d6ffccb43418968af5615aa4d608e061b"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/create-fixture-result.json",
+      "bytes": 237008,
+      "sha256": "925cb5f81bda969d06771e9fcbb31364c4a283791117287c256036bbb7419124"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/create-fixture-started.json",
+      "bytes": 200,
+      "sha256": "96646b960037820823f555a92e8cf961c62852d0a395964a6766022027f7513c"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/create-fixture.log",
+      "bytes": 86,
+      "sha256": "5e45424e5cff3ee082d50330f3cf6bb245298dbc577bfc98861c2479fc91e9a6"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/create-fixture.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/create_gpu_fixture.py",
+      "bytes": 3792,
+      "sha256": "36fa3eeaae0fcfc2540f028c5f7532dea024f8b5eea7d710c1e9001a7b26cacd"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/deidentified-feishu-alert.json",
+      "bytes": 2924,
+      "sha256": "1bc5a56190896b243aa28e22bac745fc342498e6fa58b93cd481ee60bbca3e88"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/deidentified-feishu-validation-report.zh-CN.txt.gz",
+      "bytes": 6130,
+      "sha256": "f5f4e27d849fa3d69a18517854dc31e24487f218cb694ad250f70dab471a369b"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/export_native_evidence.py",
+      "bytes": 3604,
+      "sha256": "96114783ac642fbee0b257ccee3fd3a284638f0a1a95bdd235843dea57b4c376"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-alert.json",
+      "bytes": 2924,
+      "sha256": "1bc5a56190896b243aa28e22bac745fc342498e6fa58b93cd481ee60bbca3e88"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-approval-rejection.json",
+      "bytes": 511,
+      "sha256": "239a98a4a52cdab7e0e7e85176ae9c912bfc9b1cdb75c26210eb947049e8d362"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-attempt1-feishu-deidentified-report-metadata.json",
+      "bytes": 764,
+      "sha256": "3b841600c645868839bc0a43dabc93af29517f1f1c52d2fef9ca1c440710a601"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-attempt1-feishu-payload-deidentified.json",
+      "bytes": 16092,
+      "sha256": "5d261c3303105ae052afaae43f29b1bd02205f16a4aa33938790dd68830c5b04"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-attempt1-feishu-send-result.json",
+      "bytes": 334,
+      "sha256": "3c9a18dca3364b8be31b8695823ce738a2f8a35a6f8f82ad85038656675c56f1"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-attempt2-payload-reconciliation.json",
+      "bytes": 1362,
+      "sha256": "ab609b66013c3a20bd817f2ea207174306dd458453bff23e8198c3f3668b7ce8"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-deidentified-report-metadata.json",
+      "bytes": 764,
+      "sha256": "3b841600c645868839bc0a43dabc93af29517f1f1c52d2fef9ca1c440710a601"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-deidentified-send-attempt1-started.json",
+      "bytes": 350,
+      "sha256": "bc835a272cfaf3d4ff8ad77f820057bafe49011069ef7aa5984ed57bf89fc02d"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-deidentified-send-attempt1.log",
+      "bytes": 485,
+      "sha256": "f025ae11f2b80be61c36d8c107689ebf416415d3ac8c22020dc627a08f37261a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-deidentified-send-attempt2-started.json",
+      "bytes": 350,
+      "sha256": "95aff39223a4a85d072a459e4d8685c23ea2541a7ea74e4505594606488ba072"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-deidentified-send-attempt2.log",
+      "bytes": 617,
+      "sha256": "95382cc32e89619f8b2ece18646bffacb9017d0377697243241222dece38f27f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-payload-deidentified.json",
+      "bytes": 16378,
+      "sha256": "05e7df6b7edbb836cbc38daeac602b3c2f4c9ddca3b1b7723b23aab786e82f77"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-payload-reviewed.json",
+      "bytes": 16005,
+      "sha256": "d6136391c30235aa8d2b21d6a39535380b7585a737e4b93e655acab040bd20f4"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-report-metadata.json",
+      "bytes": 549,
+      "sha256": "f1272abe79b49203ddafd7ca5d372a2304586fb27f24cbce20130d28970cfee5"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-response-attempt1.json",
+      "bytes": 97,
+      "sha256": "49b522b6fa1780827d67c659f147e0c0506ba19bc946de0ac739370d0eb8109a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-response-attempt2.json",
+      "bytes": 77,
+      "sha256": "89e94416fa02187e877112ac0b31f87d579d748dc6cd117b6a1e24b458415272"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-send-result-before-user-receipt.json",
+      "bytes": 387,
+      "sha256": "93e5a369bc59b0714764df6c8da286b7163909187da4223c0c322ffdbab0fdc8"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-send-result.json",
+      "bytes": 596,
+      "sha256": "32fd30dc270bdfdd44e66dfb0646bfcdf4c08a079a5e503ed86356488705627a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/feishu-validation-report.zh-CN.txt.gz",
+      "bytes": 6083,
+      "sha256": "3887600e54352b593dc3e61143a7fc538e96b710f7d87997c4d197a2c3b0986c"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/final-gpu-preservation.json",
+      "bytes": 38450,
+      "sha256": "1a7c5544660022f446ba3e74bd2baabe949a62c7243e5d5ceac036f7687a8e8d"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/first-mosaic-alert.json",
+      "bytes": 6245,
+      "sha256": "159f87e47c50e45c5548e00a8a88c70559f3e77f8eef3b89a5480e0ef4e558bc"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/fix_test_scrape_protocol.py",
+      "bytes": 1621,
+      "sha256": "b28197d41bf081afedf471928b0c1988715b2f8fcaf8097b1254b639d3706007"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/fix_test_severity.py",
+      "bytes": 1649,
+      "sha256": "76f9a3be6b194d1d4a28f6ea911b8764dde551087819ad5d26c1b71a9ad94318"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/github-gfm-proof.json",
+      "bytes": 264,
+      "sha256": "f66ff148e01abf34af10f27bf490f471f74a5834f851d8dac2e052dd80a81150"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/github-gfm-render.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-baseline.json",
+      "bytes": 478862,
+      "sha256": "5ea3f9a9d13ad59b5b484749499041c1ef7fa76ac6f2cd8bcca2c43ea9f0f03e"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-baseline.log",
+      "bytes": 9215,
+      "sha256": "68244055a8cf68c6d0822d8d1db76f54b4e4c08ff546cef43caea23acfae1ca6"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-baseline.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-context-v2.log",
+      "bytes": 63384,
+      "sha256": "f8a629e770b6980d04ae709ef9b7b730078b589c44e557c6ad8a179e9eca778f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-context-v2.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-context.json",
+      "bytes": 47293,
+      "sha256": "5a131f67dc1c2947d62778e26c25ceafef9213db74bec2954d6c9bf28cac704c"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-context.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-context.private.stderr",
+      "bytes": 781,
+      "sha256": "86db71e8de3597ea95cd5b1a65dad52ce50311ac68ac59861ed752a48ce1f916"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-corpus-source.json",
+      "bytes": 4087,
+      "sha256": "b717340bab0639a46a2f583a099195652005346257127a4154b726f148a2682b"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-ecc-baseline.json",
+      "bytes": 19771,
+      "sha256": "8b0fa54159fb54d9dd5a074a3ba33ca75b47844d29bfa66aefa1eefad685acec"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-experiment-architecture.svg",
+      "bytes": 7533,
+      "sha256": "64be308b4a5b085e0c172276a9c254997ccdf9fc3316ba468ec690ef7ca7edcf"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-fixture.applied-input.json",
+      "bytes": 37074,
+      "sha256": "d7a23f189ab9e833b71ec7ba64e119b0432fb172702cf2b82cb14b1445253444"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-fixture.prepared.json",
+      "bytes": 37074,
+      "sha256": "d7a23f189ab9e833b71ec7ba64e119b0432fb172702cf2b82cb14b1445253444"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-ingestion-summary.json",
+      "bytes": 1076,
+      "sha256": "441a8354a2b13b46476d3ff362b0c5df9e1a50c2809b845d3e6320d8a8bc37a4"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-ingestion.json",
+      "bytes": 61994,
+      "sha256": "0379db7179e4a988397e31b536619ecb7741237655c989a0ccfddcb992305eed"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-ingestion.log",
+      "bytes": 838,
+      "sha256": "207371a489ef1e9c194c348a8a2e8b495effdb8e9a43f9f8275295a36d5b70d5"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-ingestion.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu-test-metrics.prom",
+      "bytes": 1004,
+      "sha256": "51682efa5b34a9f498ca6f95def377ffb524eaaa4d7fb50b13129bb1afbe53c1"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/gpu_access.py",
+      "bytes": 653,
+      "sha256": "348d0dd17f390712c2de921d2b7b2643bc166b6db772dc61348f9a1e9d111b32"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/ingest_gpu_corpus.py",
+      "bytes": 4479,
+      "sha256": "f7b40b1869f428e3267bf5ff836177d34bc94db55df9ff00a66237a9b7c8488f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/inhibition-interpretation-correction.json",
+      "bytes": 500,
+      "sha256": "cba5fd67e606e5f9b40ef4b859f0184eee9f455045b54cc9b1400906b9a3bd5f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/isolated-dcgm-attempt2-started.json",
+      "bytes": 174,
+      "sha256": "d6efa0d4786e035fdf8dfd2e638929d5fc6db8aadd768ef0dda358b28345b918"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/isolated-dcgm-attempt2.log",
+      "bytes": 237,
+      "sha256": "7eabc7eaa36098d30235140dba71eba6dd54ac17a4e33caa09c62dd185245ee3"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/isolated-dcgm-attempt3-started.json",
+      "bytes": 174,
+      "sha256": "686328f29e83b8b16d3be3b051ba5d9a8e914a167e50f96f29dae9969492cef8"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/isolated-dcgm-attempt3.log",
+      "bytes": 122,
+      "sha256": "78123784848c8c940f4394a5e1e1428d1e1514b535394d297f723e54ef57b9bd"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/isolated-dcgm-started.json",
+      "bytes": 174,
+      "sha256": "b9412d8d39d7cde6ceb836effed12f519c01336899fab3d1591753fe716a2835"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/isolated-dcgm.json",
+      "bytes": 948911,
+      "sha256": "6584db5519c61e607bef3cb23659079bd0f0e55eebb12c8c442dfab9451604cd"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/isolated-dcgm.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/isolated-dcgm.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/loaded-rule.log",
+      "bytes": 225,
+      "sha256": "8d3e53e9f776c717900370ea5f298e1aad50b4a99f273fd3771e0abade7d2d48"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/loaded-rule.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/manifest.json",
+      "bytes": 145050,
+      "sha256": "2b495d908005ad136fffe97cc763141efcb9d6d3eb21271aa6e30c65681487f4"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/monitoring-after-cleanup.json",
+      "bytes": 14374,
+      "sha256": "c1633e2781b6c2a9c91c373fd1433b2496692c6fd712447c797c7e7acda680f4"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/monitoring-after-cleanup.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/monitoring-after-protocol-fix.json",
+      "bytes": 9126,
+      "sha256": "af539965c11285376bae4ea5809877a9ac7a9fe4afaae700f462d0b8a5d9ea1f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/monitoring-after-protocol-fix.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/monitoring-after-reload.json",
+      "bytes": 14334,
+      "sha256": "309b140f892f8ea2ce8725861781b89b38333ef6fdaad7eb89520222ffea6511"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/monitoring-after-reload.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/monitoring-before-cleanup.json",
+      "bytes": 23457,
+      "sha256": "686bcd99055f30ab187c49955898efe54041cd9f2dd7c156d266e111e805d0bb"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/monitoring-before-cleanup.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/monitoring-before-fix.json",
+      "bytes": 9126,
+      "sha256": "e537fd8d4f6937a035a608f87095040982f804fbc7361a9165cd6681e438a5d2"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/monitoring-before-fix.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/monitoring-protocol-final.json",
+      "bytes": 19137,
+      "sha256": "965f99ab07289483af32e9c9f36f9144bb94e2d692fddb0a03441966815060fa"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/monitoring-protocol-final.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/mosaic-gpu-evidence-runbook.pdf.gz",
+      "bytes": 3805,
+      "sha256": "5b693acdc493a549a89e0813d49499476e1d76376b086d77a6beda5fc4c3b5b1"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/mosaic-polling-before.json",
+      "bytes": 127,
+      "sha256": "c585239ce92b44c2e2db734a6a53fd1c429695cd07ca262c29c005cbb47e1dbf"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/native/c826df3c-4868-4506-8913-64ae45bd8956.jsonl",
+      "bytes": 192355,
+      "sha256": "02e9cd4adf84f8885c07f6a2eade7d16e0e861c91174a03a79c1c59f86449dfb"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/native/manifest.json",
+      "bytes": 501,
+      "sha256": "6e8a01146524dfd9b4d1e95e618b7b321fca741805f95d0bb67d07abc73c40f3"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/native/tool-index.json",
+      "bytes": 153931,
+      "sha256": "15c5a2970da99739c628a11937ab3d919db44a9e7beeb57d93641fbc0f5218ad"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/native/tool-results.jsonl",
+      "bytes": 134721,
+      "sha256": "d4265f6fdfa16e7da3d9f5ae0c32f60fa60a5b3b59ed2a81f58f57c7fae27af1"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/native-export-final.log",
+      "bytes": 5390,
+      "sha256": "21035e9ef70a03a5b5581aec57965df57b9879c81c46fd3a0cdfdcb0207d0209"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/native-export.log",
+      "bytes": 4706,
+      "sha256": "8e6fbb8ea03f22089605a9803faf844584bbcc6e1275f476b3c601510cf337d7"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/native-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/original-model-quality-review.json",
+      "bytes": 3827,
+      "sha256": "b1add202ae3c24a16228f4b9368e841e4c705312d9c30bee35b1132905bb20bc"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/plan-current.json",
+      "bytes": 1213,
+      "sha256": "63de89f17ca5c903ebe7f9c555d699e6995fb23798803ecde702ad1fe96cd69c"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/plan.json",
+      "bytes": 1052,
+      "sha256": "ffafc1acdd848db55c06a3f86795016544d84b38625e0dbbcc07b7b354ef9ef2"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/prepare_gpu_fixture.py",
+      "bytes": 7758,
+      "sha256": "ad1e4ec7d5ebb1f5f6d8506a8ed966b5ff97eab21438e54ab8bf144643c6a7f3"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/prom-config-reloader.private.log",
+      "bytes": 492,
+      "sha256": "7622feefb2b9da02db4068a5b29a4b51f804cef336cff388bded2d295387d197"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/prom-config-reloader.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/prom-operator-after-fix.private.log",
+      "bytes": 718,
+      "sha256": "8a286bdfe690313522d448b161262d51059b38d770389e88f3fddfde92674155"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/prom-operator-after-fix.stderr",
+      "bytes": 72,
+      "sha256": "65f0290af7e0b2fac469ffccb023cc3a3e06d43d6b82a3fceada2c5257b92b75"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/prom-operator.private.log",
+      "bytes": 1437,
+      "sha256": "4f82af73c1fa311bf3b23f1068ea676725853755e6a1ff10261825d11b712196"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/prom-operator.stderr",
+      "bytes": 72,
+      "sha256": "65f0290af7e0b2fac469ffccb023cc3a3e06d43d6b82a3fceada2c5257b92b75"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/prometheus-loaded-test-group.json",
+      "bytes": 2086,
+      "sha256": "ae10140524d7742a0ae9de4c2bd7d18e427deac2bce83488c2787f9acf8b046b"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/related-cleared.json",
+      "bytes": 8060,
+      "sha256": "868a83ef0917118a01523264b2b72a17a531f4c57c2fdb4bce959e968917f40d"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/related-cleared.log",
+      "bytes": 163,
+      "sha256": "11864707aca186719c8df3ec2665aeab75e0543ad355022490820a3075eaa349"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/related-final.json",
+      "bytes": 10065,
+      "sha256": "e0976ee60704c43eb13cfcbbfd3d6c3fa59a26b65cd23bbef165919826d54cfd"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/related-final.log",
+      "bytes": 161,
+      "sha256": "737ef834251c9b44f2545e47fd871a68f3ea55cd7872c21d784e6abf263e6823"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/render_gpu_document.py",
+      "bytes": 3306,
+      "sha256": "93fc2a3824b9fa68356d7bd8f9d81e3d74e2e912792464d42c0796da7c07f579"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/research/iraop-response-1.json",
+      "bytes": 5296,
+      "sha256": "ee2913d52759ae3917d52952813dcd6cf3d2b1b9f2cacc136e1c97bc7723cc29"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/research/iraop-response-2.json",
+      "bytes": 4454,
+      "sha256": "e2e6c6210c0fcef2bceb2e47c1423091943affaf82d4d29f12c90b027c82d13e"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/resolve_test_cards.py",
+      "bytes": 3541,
+      "sha256": "abf35c900360681d9a5daeb1df5b34a5d13f56a0411021d266958d55efd1c774"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review/prompt.txt",
+      "bytes": 4626,
+      "sha256": "474a61a02b61da64cd02ce2ed5981dc1fa2744f15d14ac3d5cdc5dcb386696f0"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review-api/before-history-api.json",
+      "bytes": 209697,
+      "sha256": "8c67534a5a395595b8df4a4787b72db7e1c1dd975994925f90efab5849555e1c"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review-api/history-api.json",
+      "bytes": 269054,
+      "sha256": "6bf0e803488255c6ce4817dc3ee62583726c804df0743f165f14acf3edfdadcb"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review-api/history-gateway.json",
+      "bytes": 155792,
+      "sha256": "82a4f810138a9779ec4307820fffc3ce746eef2d2a3ea38286ebd8841a336c73"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review-api/model-corrected-report.zh-CN.txt",
+      "bytes": 16485,
+      "sha256": "a32704e6c3f6cb6b402372974897bb9241e226cbe669ea83ccc8aa2065f96c2e"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review-api/request.json",
+      "bytes": 4799,
+      "sha256": "0038fd0539b9fa5a18b11347a29aeafff795be6bec49ee7b93564a578d2fc2b5"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review-api/response-metadata.json",
+      "bytes": 76,
+      "sha256": "4394381beddd001d0954eb3be7c4501d0e8c0b1a1ad12df3faaaf772d9a95262"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review-api/started.json",
+      "bytes": 254,
+      "sha256": "5d754031bbbeb0c59e3af66cbbd1f6549a8a71acfb10139d314486e8b09dda99"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review-api/stream.ndjson.gz",
+      "bytes": 44113,
+      "sha256": "4755e616c781d75e3ed7d5f6664d1df2bef05be2ca53e4e5ba3f211fe3856241"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review-api/summary.json",
+      "bytes": 312,
+      "sha256": "31c3490ca800c7a192dd4dcf374f975b4b401a90cf7509b399cc6dd9e9e45d7e"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review-native-api.log",
+      "bytes": 294,
+      "sha256": "83a24e7af19ea23b4c13d1f41062d45143c403313db83ba89d647b4ddab5c1ff"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review-native-api.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review-provenance.json",
+      "bytes": 1432,
+      "sha256": "da174c3f296da7a14d8f429a461c9aea137c4b1bfb4d0d1589f8d4a148a049c6"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/review_via_native_api.py",
+      "bytes": 3366,
+      "sha256": "381d9562de15422434894c1a8112b9d9adc697067bd96bf151059ba5332e16a0"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/root-authentication-result.json",
+      "bytes": 172,
+      "sha256": "1aabf6dcbd421d09c4bef525a9ebb45c1bc8a3a512b2c9bf4b39f9ba6f95647a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/root-before-investigation.json",
+      "bytes": 519224,
+      "sha256": "a079a92851f3149ef5394c6d6954f703aef38eda86914a73a623a1c1f50ac67d"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/root-before-investigation.log",
+      "bytes": 1925,
+      "sha256": "5b53edcbd60936ba2930076abc051e701f95015ee9f25842bdfb8efa0b0a7b9a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/root-before-investigation.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/root-control-closed.json",
+      "bytes": 364,
+      "sha256": "2e9272931560b12ba4ab05aad9f7651ca395a77c08851e0900a4a137206095af"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/root-final.json",
+      "bytes": 468557,
+      "sha256": "02d5eb5d8d8aa518cd3f0d07d62c9d648f563cd3e22d584d773c09fa06f7a9ff"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/root-final.log",
+      "bytes": 1910,
+      "sha256": "0b2a3b5274d867dd76e91377db98a150967deb95bed3fd6f10601976d0fad175"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/root-final.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/run_isolated_dcgm.py",
+      "bytes": 5590,
+      "sha256": "cde1bf3e62034ee8940dc6c51e61a71471688b54edc36d3c0b8e2437de5a77e6"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/send_deidentified_gpu_validation_attempt2.py",
+      "bytes": 4332,
+      "sha256": "5c3e45d07f89d087bddeade2f838e7a62beb3841ffe20bfd19d1b69605e37022"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/send_deidentified_gpu_validation_once.py",
+      "bytes": 3954,
+      "sha256": "b6ce023ac9b4f677aa344ff603e5f880af948e2e0d896e30d41f1f04003705ac"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/send_gpu_validation_once.py",
+      "bytes": 3869,
+      "sha256": "aa53445520542e6b8900c8737f94f44905275038e3531da92c712bcadd4ef920"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/spark-final-runtime.json",
+      "bytes": 3575,
+      "sha256": "fa861c67e209c0636ff7661a90537bfe9d0bec403d5f4abef42faf30f7e2dd73"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/spark-final-runtime.log",
+      "bytes": 265,
+      "sha256": "6c452409a0520103cd6a855d789f18ef63e9bb451259af77aee8ae7eebd3bdac"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/spark-final-runtime.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/spark-gpu-preflight.json",
+      "bytes": 22411,
+      "sha256": "01c5ca6aa92ca84be553d8d8e4c5a9489c76657e20ad17006135beaf6d5689fb"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/spark-gpu-preflight.log",
+      "bytes": 1404,
+      "sha256": "763c6936527c8381978a3a4d0270e643ea7e45b2a9d8e0e40a4e3bae8c3306a2"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/spark-gpu-preflight.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/spark_gpu_preflight.attempt1.py",
+      "bytes": 3320,
+      "sha256": "55ad354f82490b63ccb9b70c6548a8c3f420b37cbc925d5f67fb2455b706a47e"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/spark_gpu_preflight.py",
+      "bytes": 3414,
+      "sha256": "120c8c4bd13378048e15d3907aab9df364739668dfb04a8930f0ed51f2291208"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/test-scrape-protocol-fix.json",
+      "bytes": 2160,
+      "sha256": "42970999da1b90e0a3aa3b19a35e7637457e621736072a8e1286fe65d302d4a8"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/test-scrape-protocol-fix.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/test-severity-fix.json",
+      "bytes": 3727,
+      "sha256": "237ba32816e4fffd1809b80fbe9bfe67dd7edee6d4adafcd91572d33cfedeac7"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/test-severity-fix.private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/ui-alertmanager.json",
+      "bytes": 374,
+      "sha256": "0d4cb01277abd5037a17f6387780b476d68ddb786b825ed915e326496ad53c84"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/ui-bridge-current.json",
+      "bytes": 844,
+      "sha256": "4c3c3e2abc17610bc3eb5440cfca0f72604fb345e46d49bde78ba9266862d382"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/ui-bridge.log",
+      "bytes": 100,
+      "sha256": "9efd83e008c795f2e69749006bf7bcfff369ff9d85c179a2cebeadd5bcb366d7"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/ui-bridge.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/ui-cleanup/after.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/ui-cleanup/before.json",
+      "bytes": 6015,
+      "sha256": "35f9ea948a9bc06c8f872c00910d33005607dc252dd8d190772d4bb87dd780ca"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/ui-cleanup/posts.json",
+      "bytes": 157,
+      "sha256": "fd6747b7013b04c432337694c9093f9132dc50932e210c6116f967238d5923b7"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/ui-cleanup/retained-history-api.json",
+      "bytes": 268207,
+      "sha256": "bebf628148b3a0356e419621596c9aec6b021d0eae9bca9c5c225586760f75e8"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/ui-cleanup/summary.json",
+      "bytes": 374,
+      "sha256": "33e8fb394c453d2ea77c08edcb62b47911acb927688d9ca7c055086691842aa0"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/ui-cleanup.log",
+      "bytes": 290,
+      "sha256": "39148db3332f440653427f744dff42db7ebd409ac2b5e79ebc75a0b571bab748"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/ui-cleanup.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/ui-health.json",
+      "bytes": 124,
+      "sha256": "e433ee17f5b83871af3ff35248b7cbd4c54e3d3943f37c71fe32ce72eb71da4c"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/watch-chain.log",
+      "bytes": 153038,
+      "sha256": "a5475bf6c60748bf94270fc6019fd76fedcc5a7ec2d2b4b6351efc3217a24967"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/watch-chain.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/gpu-evidence-20261031/watch_gpu_chain.py",
+      "bytes": 3612,
+      "sha256": "ea20848286e55f7f8760851bed5476cd197a155069314f34c0f8469a92c4e504"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/PREPARED-ONLY.md.txt",
+      "bytes": 1647,
+      "sha256": "acb4a5b473e02589f43c7341eb121ca88fb8ead01aa7794ac06cf9b0b6c4a616"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/alertmanager-alerts-before.json",
+      "bytes": 364,
+      "sha256": "0fe0803b77aa55204885ae2a9d38ca08dc89ecfea7f3ca1890d053eb5f3852ba"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/all-attempt-logs.json",
+      "bytes": 31507,
+      "sha256": "6e1c7165067b8c129260b3152b579d8dcd5283adbc0e977a2921b5b9888594ba"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/all-attempt-logs.log",
+      "bytes": 57,
+      "sha256": "0f2f4173111e16c86e997dc5b426531813bd7cf97f8f6822cf5d11a4fecb6b55"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/all-attempt-logs.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/analysis-review-metadata.json",
+      "bytes": 338,
+      "sha256": "b756f82c858552a7b0768f0679cb24a0b1a392b8cc8ce7d78777b3bf4e92f99f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/analysis-review.full.diff",
+      "bytes": 8275,
+      "sha256": "d64016bfb9e75f6be2c72e07d3b93bbdb672a9bfec90e4cc271b151ea34f3df9"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/analysis-reviewed.operator-origin.zh-CN.txt",
+      "bytes": 12343,
+      "sha256": "35b41fbe30d0fdc97122b3c8c191ad1dedf40be97583772bb48597608556fe71"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/analysis-reviewed.zh-CN.txt",
+      "bytes": 12343,
+      "sha256": "35b41fbe30d0fdc97122b3c8c191ad1dedf40be97583772bb48597608556fe71"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser/evidence-research-history-api.json",
+      "bytes": 191886,
+      "sha256": "ac4f44ded29e5228f3e74d543751f5227c6c6972a4e50240151cfdc9864d5baa"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser/evidence-research-history-gateway.json",
+      "bytes": 126445,
+      "sha256": "4654ce8e3df6ef03c5c291b52d72204663545c1c82f1450316a5254c7b8473f0"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser/followup-prompt.txt",
+      "bytes": 1685,
+      "sha256": "e45fa8c5675a94733dea8b033bab4de9f0a20f9ed0372d7d45fdfe28946b1160"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser/initial-history-api.json",
+      "bytes": 48500,
+      "sha256": "dbd872f94c90c2cc481db87ab169c69e7e8762a597f93b19ff96d3d6ff1ffcb1"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser/initial-history-gateway.json",
+      "bytes": 29012,
+      "sha256": "1a4a6a81b78f183164fc982cd9ed07a34888fc7905065ca0a5e45166a66e7296"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser/initial-summary.json",
+      "bytes": 185,
+      "sha256": "68e21422e136a4036f48d35d2cfc034146daba498caed44fc655d3ab8768a73a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser/new-alert-before-investigation.json",
+      "bytes": 2291,
+      "sha256": "d5be5d053a47a45a334d27c13982fa7d7e6a3f3c6e6bc6685df96af49c4e8510"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser/polls.json",
+      "bytes": 23067,
+      "sha256": "650cc68bbeed924c266af6058c37ebd6eab3bf9a575af7260978747bd5aa451a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser/posts.json",
+      "bytes": 4596,
+      "sha256": "539f60e9de9e62e7d00c097bbd59014f64c9d1e1e5b853cc1d70adb4c090e1b9"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser/responses.json",
+      "bytes": 29098,
+      "sha256": "ad85efde1d6c74b41c9b8c6937ab5f2a44ee082c83cdfb879724efbecea7b3f5"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser/selected-alert-after.json",
+      "bytes": 2371,
+      "sha256": "1401ddf06a07001af522b04f2e02e01a30eeb475c4477202c8f974b845f576bd"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser/summary.json",
+      "bytes": 2506,
+      "sha256": "6f975ea543eae03a040570914bf74a5f18555fe0de65628e4b62ca018185458f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser/ui-and-chat-streams.json",
+      "bytes": 1074765,
+      "sha256": "f8f61ee3ba9bd0bd56ef05fb60d532d4df02eac0f61bc19fa41a46a35294f1e1"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser-chain.log",
+      "bytes": 2002,
+      "sha256": "fb6efc81de3cf82de9a2729ec72c7aab9842781f37985b5e5c02522ce078df5c"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser-review.log",
+      "bytes": 2236,
+      "sha256": "8d5194c300282986b33b1daaa51e9a3549c427db870e63ffef7542437ad583f5"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser_chain.py",
+      "bytes": 8367,
+      "sha256": "58f8a96fe41aec23c6a017a944bb3730bee52c00c1e92371e70fd85feacfc015"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/browser_review.py",
+      "bytes": 6505,
+      "sha256": "335e588a80ca0c5e013e2e18945a9cd6ce64f72bc622f6cc81f7734210a72e22"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/capture_all_attempt_logs.py",
+      "bytes": 2306,
+      "sha256": "6eecbb38e22f0e16c1efe494187daf3cc3845e896f8f6f6f95a95b66dc2ab071"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/capture_final_related.py",
+      "bytes": 2346,
+      "sha256": "c00734d4f1bca7d5bf72e89dd22acd9444e8d5894996d76155ad4e1a0ada74ec"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/capture_loaded_rule.py",
+      "bytes": 1531,
+      "sha256": "c27aae57abb0fadc8338fb6f8839813c551a09c5d66ca18e23cb4fb7a3b99b17"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/chain-samples.jsonl",
+      "bytes": 851305,
+      "sha256": "9136d8c71b49a6128b7fe92e2a53ab93711b2dc0d7d1887dad46d229e9c9136a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/check_knowledge_grounding.py",
+      "bytes": 3446,
+      "sha256": "5cc54963342f1b729d593a1a2707d42adde46bf335f99b835590ad7ddd9b069e"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/cleanup-result.json",
+      "bytes": 17422,
+      "sha256": "14c694118468ad9a24544889b54af7580b025de9a184d355b96b15a587e68d0b"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/cleanup-started.json",
+      "bytes": 298,
+      "sha256": "44b638127d0d4b0909fef3887520016079cc790ce31223421b8e21118c31ac51"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/cleanup.log",
+      "bytes": 49,
+      "sha256": "31f3bbfd3f94f49688e0064310715171caf00d5f37bd804d9eee7a89b5af99fd"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/cleanup.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/cleanup_fixture.py",
+      "bytes": 3154,
+      "sha256": "20913f4844a2608368a774f0f19bc01ecd6646731b3ab9dd9addde0d3cbf9353"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/container-attempt-logs/5.log",
+      "bytes": 397,
+      "sha256": "a00bc826c031af41c0478d8ea392bdb721a45b7ed17278f4c408655f16f9010e"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/conversations-reopen-proof.json",
+      "bytes": 3306,
+      "sha256": "cecc1110f09289ac3c79dd117f953783f95db4b87c93cc58ee18763c10393525"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/create-fixture-result.json",
+      "bytes": 76880,
+      "sha256": "bf66c63c1f9389c2b7e5d1ee5d9154ad56b89bbf376f1ed7403cdc8d22c70f3f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/create-fixture-started.json",
+      "bytes": 163,
+      "sha256": "fe03f05c65ad905bb3c226ede8b790ba97393d7744ea1b6f3b166cdf82a11dd4"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/create-fixture.log",
+      "bytes": 82,
+      "sha256": "2103c0eb739552ec4cd4f4ec6655f20e5ebfee37eabf37d720864d5c67d863a4"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/create-fixture.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/create_fixture.py",
+      "bytes": 4154,
+      "sha256": "62b389ceb6716c6d1407121d3626f4e8cadc3908cd75b7b6a406fa450b0bfa24"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/e2e-verification.json",
+      "bytes": 30558,
+      "sha256": "6692016e2dd8c25276912efe34d0f2ea58d269fe91a4452cfabecee4a9912fab"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/e2e-verification.log",
+      "bytes": 166,
+      "sha256": "6789875879d7a335517db60f1bfa9563a3197fff81a3f4fb95bab9c4b27d2de4"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/export_native_evidence.py",
+      "bytes": 3570,
+      "sha256": "d237174f46154902dd39ebcb2854e9d0201eb277628b04302c2b4e6236b2a158"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/feishu-alert-reviewed.json",
+      "bytes": 2257,
+      "sha256": "27a8779ddb0c6ae364087dbb753a18600d0d308dabca85b3bae7c29c73fd190d"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/feishu-payload-reviewed.json",
+      "bytes": 15500,
+      "sha256": "9086280f78642457332c3f24f08204c9ad6294e3b16aa49a180d66e82f3e7c89"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/feishu-report-metadata.json",
+      "bytes": 399,
+      "sha256": "c13adf35213b2525f64c34df315dfe9ad1302391c8265b51790a3bfb1913d78e"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/feishu-response-attempt1.json",
+      "bytes": 77,
+      "sha256": "89e94416fa02187e877112ac0b31f87d579d748dc6cd117b6a1e24b458415272"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/feishu-send-attempt1-started.json",
+      "bytes": 346,
+      "sha256": "83c5ee05bc4b5927b55cc920e16a1d01bb8973ff3ee182ca895691b92da820e1"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/feishu-send-attempt1.log",
+      "bytes": 495,
+      "sha256": "483ea4536272303b596f298dbd868a12c2bc3921479a5e27db24e99b38f9bceb"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/feishu-send-result.json",
+      "bytes": 267,
+      "sha256": "64d31c1116478a2882a12cd2c002bade2db5a71754cac2b43c7cad5862dad115"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/first-mosaic-alert.json",
+      "bytes": 2513,
+      "sha256": "0da2372ef285ac98b59a37eeba3bb85bf15cb91c873d80b311f8012c9139b95c"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/first-transitions.json",
+      "bytes": 2947,
+      "sha256": "3dc39dd1705056359c446bbd1e81c9f3b64dadb7fcfa2b325ac4590e6308ab33"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/inspect_conversations.py",
+      "bytes": 1888,
+      "sha256": "86e553c1074de7052d891019aa1d32ea4cca2cc9775df19c7822e7724e0fcdf4"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/isolated-error-fixture.applied-input.json",
+      "bytes": 5442,
+      "sha256": "32be39bdaabc9c666aabf9db1390440e5fe8f5b06f455e1c236d729ddf8d470d"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/isolated-error-fixture.prepared.json",
+      "bytes": 5088,
+      "sha256": "72e8f1d67a545b10724462a76723db47e6fc9b64b0697ef0170d4043d395cd75"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/knowledge-grounding-check.json",
+      "bytes": 5281,
+      "sha256": "feae71f8d25ab6d4274940cc3380b29cb52f7fd7506c8b7b5ba59e2ce3576492"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/knowledge-grounding-check.log",
+      "bytes": 511,
+      "sha256": "5958ad1c5f1a4a15afdcd9c53daf7b3cbb93bd7cf440d15115bfae6d67178f58"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/kubelet-selected.jsonl",
+      "bytes": 27640,
+      "sha256": "f3aac14663771c71f5223d48e46555125cb24271071af386f6e512a7549b4197"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/loaded-rule.log",
+      "bytes": 318,
+      "sha256": "7b291f2c8b258f70e8de5074a6f9287e07c1955f66268d11bc0cbe70f59300f1"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/loaded-rule.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/manifest.json",
+      "bytes": 95792,
+      "sha256": "328ebe6f46d960c61271c5a922380b45cf405d74f09b38cad40168618e5c951d"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/mosaic-alertmanager-before.json",
+      "bytes": 419,
+      "sha256": "725fda6839b9e309f1bdb1cfc779a42dfe47a6b19e14aeea78dd22a87a7e0c22"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/mosaic-alerts-before.json",
+      "bytes": 328,
+      "sha256": "2ca256ebc56993db4b1af750e9ee756ef7754d89f9cb170d5c49dc1e513b4e03"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/mosaic-validation-control.pdf",
+      "bytes": 3781,
+      "sha256": "e65f46b9daa87b4420336d989b0951ac6d2d6fd0a479bdcaeda42862cd92e820"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/native/ed4679e0-f8b4-494c-852e-f63d2f9b76ab.jsonl",
+      "bytes": 172251,
+      "sha256": "f2368a91153080055aaff1420bfc33dbb827bc76867a09d4243570350a8d0786"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/native/manifest.json",
+      "bytes": 501,
+      "sha256": "4caec96520cddde44d1162819978e309fd4bfeca5877746b814fa548348ace0b"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/native/tool-index.json",
+      "bytes": 140643,
+      "sha256": "1c8023506e857cbd0c33f36fce3f97749d64a415c107579ebad9333c967dc476"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/native/tool-results.jsonl",
+      "bytes": 129074,
+      "sha256": "bce96df3c19bb9b3a98e252c64bb33b9d0c13cd8032c7b5f56b4dea357944b3b"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/native-export.log",
+      "bytes": 3443,
+      "sha256": "d6e6ae45566791e4f685f43112fafa83d18a0e32416fe2f6d913915173ee7865"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/native-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/plan.json",
+      "bytes": 576,
+      "sha256": "5bd571501d4b0cd7d95cad4e85acd539f92a191189315172126760b17db829c5"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/preflight.log",
+      "bytes": 296,
+      "sha256": "e44ca0000ab405b4bcb59d80a6244afaff3e3065126dd614afb5a8a3ac6c184d"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/preflight.py",
+      "bytes": 2179,
+      "sha256": "316b61724489e93698fde022e0d7466e86003ac518b76eb9114e7a6ac005e5ee"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/prepare-reviewed-report.log",
+      "bytes": 379,
+      "sha256": "c882a028606ff7840455bfef1121f0650b2621498d0d3aec368c6f355483604b"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/prepare_reviewed_report.py",
+      "bytes": 5713,
+      "sha256": "733ca4a9fb4ba151bccbe128b68dac793f6511c5052a3fb8a8f53a9dc08c5b27"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/progress-082446.json",
+      "bytes": 27440,
+      "sha256": "66e795e8a4d30841b1c203f57870ec156de180cd3b6e1b9f20c5c75f991904f2"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/prometheus-alerts-before.json",
+      "bytes": 414,
+      "sha256": "83c28e53680611be34fdcafadff173a2e446d373e5d2b03ab50b514f0196cfe2"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/prometheus-baseline-selected-rules.json",
+      "bytes": 3269,
+      "sha256": "2d92fbbe5485552c4f030e947a379cd86368b441e1eb8d402f29654a68c0f5de"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/prometheus-loaded-test-group.json",
+      "bytes": 3213,
+      "sha256": "bbd3605e6574c0b401e7c582a1e0fe02bb1179de77ca6ba6cf7378693003b5f4"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/related-after-cleanup.json",
+      "bytes": 8120,
+      "sha256": "950358aa06b34b17ff07b86eb93d4d6c19fd59fa748b099e69c0222f49ed4a0f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/related-after-cleanup.log",
+      "bytes": 169,
+      "sha256": "85cd7a2efe5ad7027052c3d92a218059b0128ff7265a0ccb131208edfcc481f4"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/related-final.json",
+      "bytes": 6229,
+      "sha256": "e9215a3e9ed4cf3da513dad84b5501ca49526448184832953390676adde3d47a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/related-final.log",
+      "bytes": 161,
+      "sha256": "fc864522c719a001d0f754b8757a4cfaf3384a08e2d85fd5f1849fc4f9a07fea"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/remote-preflight.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/reopen_ui_session.attempt1.py",
+      "bytes": 2148,
+      "sha256": "f36cd4d56bb66bb9b3ba0ec2b03e83a9be4fb5d1cb7300054dd164677e5615b6"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/reopen_ui_session.py",
+      "bytes": 2190,
+      "sha256": "98a22acbf2707ee1d252dd2b3eaf4fdb472a83f89478deb98e398042ca106c9f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/reopened-session-attempt2.log",
+      "bytes": 990,
+      "sha256": "999e5bcf899550b40d6d486fabc05d19264d037121a41f00c718722579e857ec"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/reopened-session.log",
+      "bytes": 3759,
+      "sha256": "e7ecbe4b7edee56c25b3ade659f4b5655a92f77672276d71666fe974c57a9870"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/research/iraop-response-1.json",
+      "bytes": 8231,
+      "sha256": "1cc57ab3e107f1e8071d018bc17375909963d2fd2910165d886bb5f0ff9623d1"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/research/iraop-response-2.json",
+      "bytes": 9670,
+      "sha256": "a70d4c052cb66c383f320061003a94c212c366b301bfa550d089aa6a982d7a20"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/research/iraop-response-3.json",
+      "bytes": 7392,
+      "sha256": "c3dff0cd53cbebfa7320f6416dcbe170d3c53d3ea4fd1d5cc2139c645a430c26"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/resolve_test_cards.py",
+      "bytes": 3503,
+      "sha256": "eb86e9cb525413cd5960d7df2f23fcc84a039885729a84c8e61d9a16442ffab7"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review/posts.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review/prompt.txt",
+      "bytes": 2916,
+      "sha256": "176dda73faba2b3b0c742ebe63c776e7fec8f323b16e2acce614a25f6666e264"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review-api/before-history-api.json",
+      "bytes": 192495,
+      "sha256": "0e905b0703214f5d81e3320cb9acab31b89bfe9a21562662523bac5d8816bb4f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review-api/history-api.json",
+      "bytes": 231649,
+      "sha256": "581cc07df65204a6a424e689faca602c0604154056966960e7fd9af20b0491f7"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review-api/history-gateway.json",
+      "bytes": 148426,
+      "sha256": "c11d1e51af024b6c90b27dcdc66707df69b4e76bd414675976ff887718f1ad13"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review-api/model-corrected-report.zh-CN.txt",
+      "bytes": 9903,
+      "sha256": "d22e1545c17dec244f3446b6eb1896c46305c303e6739111321d2f0c677c8124"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review-api/request.json",
+      "bytes": 3068,
+      "sha256": "50e386ef7f5284ebf3c31cd0669296eb688c4461044ad8bd9ca0afb4f5eae4bf"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review-api/response-metadata.json",
+      "bytes": 76,
+      "sha256": "4394381beddd001d0954eb3be7c4501d0e8c0b1a1ad12df3faaaf772d9a95262"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review-api/started.json",
+      "bytes": 251,
+      "sha256": "2b56174cf46529ee7f463e04b38e8f8c812fc1e768361d33ce659ad1c07b4c79"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review-api/stream.ndjson",
+      "bytes": 1195809,
+      "sha256": "3fcaf79c40a0fe9cfc14788a0210ff280a784af9e7cf5a68412c387d217f9850"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review-api/summary.json",
+      "bytes": 312,
+      "sha256": "666e66149fbff56eb43a14591ea52af67b0ba020239107bf1e71ce5affab17aa"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review-native-api-attempt1.log",
+      "bytes": 1511,
+      "sha256": "fbeda826267b2fe50cb2feffe05444d6f1d23a8cdb1ecc4829a66052a54690b9"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review-native-api-attempt2.log",
+      "bytes": 294,
+      "sha256": "5382bc5f9069006ddb7b9e97f4c6930dd48617371b8c3d396dce8bc61bafbdb2"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/review_via_native_api.py",
+      "bytes": 3365,
+      "sha256": "b2e66fa812745692f35e24874242e8d899ebb3f47780c4bfc7be580458c2d90a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root-after-injection.json",
+      "bytes": 26707,
+      "sha256": "764b43316e0b6a03278038cd8b9ea2109450ee72dfd06c71bcb0ea230afdf6c0"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root-after-injection.log",
+      "bytes": 2349,
+      "sha256": "4b9ed0cfca2a212219cccf9a7e8097b71e5601181a30fa86e0be8bc51d2c6190"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root-after-injection.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root-authentication-result.json",
+      "bytes": 172,
+      "sha256": "3f697d9e748256dd2ab0965a75052725a785040979e22a087c7786065ab12f49"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root-before-cleanup.json",
+      "bytes": 26716,
+      "sha256": "d1ec7796bddbfdf12014049b5ed41128278fd84fad13950b6ee98992a228aa4a"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root-before-cleanup.log",
+      "bytes": 2345,
+      "sha256": "68f138c171582dd0c84fe76f8f4b7f18029d29b3cfee5b1ad52d354a26d634d7"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root-before-cleanup.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root-control-closed.json",
+      "bytes": 116,
+      "sha256": "c1d69b0ed035454e1084108c3c43dff8a42b78011f0bfdd89b719b6a8d40ccab"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root-final-preservation.json",
+      "bytes": 5516,
+      "sha256": "b505077433944a8c200a4c008ede37b51b36bc85e6db6edc81c9520bdd71b56e"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root-preflight.json",
+      "bytes": 15164,
+      "sha256": "f207273160d97b2a2d01cc00d681a32e41a57f9b36b8a8b4267f1e17e1487737"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root-preflight.log",
+      "bytes": 3377,
+      "sha256": "3d11f1b8d329bf80d981e9f1c69eafbefc645d142d89dfd656615caa5e85d5e9"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root-preflight.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root_capture.py",
+      "bytes": 2055,
+      "sha256": "3b3e4d1445a03598ff6786f52a54deb92fac320dbe22d322bc97d54d65c21417"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/root_preflight.py",
+      "bytes": 2702,
+      "sha256": "cb74afda7809e54a9edd0489cce1f38fcc1a95974cfb30976de6af29f516b46f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/selected-fixture-image.json",
+      "bytes": 332,
+      "sha256": "3954a29b73694f4fae0a31c721b56c7dd0a04c9f955adea80da55f9b4725181d"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/send_reviewed_feishu_once.py",
+      "bytes": 3792,
+      "sha256": "5ed37a22bb40d75299913a2d005c103737ca16f634a5d547eb504435077c98ca"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/spark-final-runtime.json",
+      "bytes": 13016,
+      "sha256": "425fceeefea50ee497489460406276f1edf8e803912111178c8e9bccc3123b2c"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/stop-watcher",
+      "bytes": 33,
+      "sha256": "483e4ca8f80f19d45538268409b7605bc3854485dfdf6487c5e23573dab91bb8"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/tool-request-result-index.json",
+      "bytes": 12007,
+      "sha256": "9cfede7a6de205ed35e06b8fa67fb02e4af73da4c62080639b1055ec1f0fb189"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/ui-cleanup/after.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/ui-cleanup/before.json",
+      "bytes": 4221,
+      "sha256": "fea4583ad51f84e0b21d00137b5c730d379fdddf22df9f3b7515e294e17e61eb"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/ui-cleanup/posts.json",
+      "bytes": 157,
+      "sha256": "fd6747b7013b04c432337694c9093f9132dc50932e210c6116f967238d5923b7"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/ui-cleanup/retained-history-api.json",
+      "bytes": 230998,
+      "sha256": "a3762121f27e2bb80037d77e8960b191662f56bc0604013e65bdc7c81cc94180"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/ui-cleanup/summary.json",
+      "bytes": 374,
+      "sha256": "a6df4d7b47ad892442e2952715ee2d72644ab12bc3d724ff605b16ecb8160e3f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/ui-cleanup.log",
+      "bytes": 290,
+      "sha256": "41a6e6727c99df86760d9fd43efada9bda78fe94e3ea49a6aac578698980ab5e"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/ui-health.json",
+      "bytes": 169,
+      "sha256": "20bd380d20a0756a04629d8c7ea996c79b16793a9b42bdcfae76c70844dc9a1c"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/verify_e2e.py",
+      "bytes": 6016,
+      "sha256": "f1ab114d554b72c2e2e753ab4a4a6d7a6060e38285bade3317fb784c2bcaac6b"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/watch-chain.log",
+      "bytes": 89832,
+      "sha256": "f312cc9f368664f93c4a31e442083b2d8b75b556379366be2c245a291466887f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/e2e-evidence-20261031/watch_chain.py",
+      "bytes": 3559,
+      "sha256": "443fb7cc61ae99762ea0cef9537ba1d0522a33193acfb5e33993834b5cf4cd17"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/agent-ready-callback-info.json",
+      "bytes": 94,
+      "sha256": "c2e23122cf1d7624599876591abf16eb424a7b7cf663b9253bca92d221a87aaf"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/agent-ready-scopes.json",
+      "bytes": 5736,
+      "sha256": "72a309efacd5abeb05fec346776dbac8e884418fc04fd28c0d5362472f68975b"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/manifest.json",
+      "bytes": 17482,
+      "sha256": "2a5adcf78d93383b300bdf231bc372d37f0cdc0f58a7914408f6cdbbd697c8bc"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/platform/app-auth-check.json",
+      "bytes": 373,
+      "sha256": "375c11aa7366f2764f3fee432c1dabe38333046170a0e67d9329225c48ef899f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/platform/inspection-summary.json",
+      "bytes": 377,
+      "sha256": "8e188e4393f9cbc678f66576acf6a15d3603a4924593d0c81a3e69863e899a79"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/platform/outbound-connectivity-request.json",
+      "bytes": 246,
+      "sha256": "744e76a54bc90680f7e40d66fdb962ef23bd801a3eb5ff7c6df398c2fe6e57fa"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/platform/outbound-full-report-request.json",
+      "bytes": 15596,
+      "sha256": "06e0cdae37be10d4bea1b8a103b659fb0ec2cc76f510c63c654508f335b489ec"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/platform/platform-full-report-richtext-diff.json",
+      "bytes": 64091,
+      "sha256": "ed60c9c27f4a10fdf32f16c07c1fdae269a82216e6957813b8e99d0126c1de20"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/platform/platform-message-connectivity.json",
+      "bytes": 1106,
+      "sha256": "32c2a50fb59a6c921063fe9edee3cd8db65d7ccedda3b974751d08589f39a673"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/platform/platform-message-full-report.json",
+      "bytes": 52850,
+      "sha256": "69e5b317f7638dbfdc2769c359fcc7940b38b126248bd7252f8d24045bc4c726"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/platform/platform-readback-verification.json",
+      "bytes": 1619,
+      "sha256": "7560cc99e74ddab906f86e75cba24a2fcb2a34797646aba1e226450d2e69b1f0"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/apply-result.json",
+      "bytes": 64,
+      "sha256": "208a73c76014d3323c88d4b54a3e972bc1f4a01bd67706dfe7fa6a24a64d4997"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/apply_remote.py.txt",
+      "bytes": 3180,
+      "sha256": "7c3755f9a3e78429ba29ca0e5d41912a3b059a7a1019da7478c27997374b9646"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/backport-parts.private.json",
+      "bytes": 4476,
+      "sha256": "315e002fdc910be68dfc8dbc8254ca62548cb8dacf6a1359bfdcab19a9d74ec1"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/capture_remote.py.txt",
+      "bytes": 6170,
+      "sha256": "8d51a736d188f83bea44e53bb51e3d5e5967cf2a623c9455338f27820348b988"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130338Z/gateway.redacted.log",
+      "bytes": 5983,
+      "sha256": "0cce2c015f4572229c58a395acd4b746ee135144b12b20bde9675c2e231ee69f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130338Z/helm-history.json",
+      "bytes": 3432,
+      "sha256": "d3be17b33104d95dbea89be2daeb5541c0b7bd7890b3c20b580ac954a4ce5cbc"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130338Z/runtime-and-sessions.json",
+      "bytes": 18983,
+      "sha256": "22ca950988258e5c7b1caa82f4d055c6492213954e9b41c888f75e26573a210d"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130338Z/runtime-and-sessions.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130338Z/runtime.json",
+      "bytes": 3201,
+      "sha256": "c33edc5fe01500b17e919a911d23b672ae76178292f9bfe9192b33aca16629c1"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130338Z/secret-fingerprints.json",
+      "bytes": 2240,
+      "sha256": "5a41da736783fec78f3936f207e19b87fd31259b07c7efa6bff9be259e3803cd"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130338Z/summary.json",
+      "bytes": 2250,
+      "sha256": "858dddaf9ff7fc3af3f1d2ff2cd6730c3fc030a1fa221f34301dcc99b7c5a05c"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130529Z/gateway.redacted.log",
+      "bytes": 5983,
+      "sha256": "0cce2c015f4572229c58a395acd4b746ee135144b12b20bde9675c2e231ee69f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130529Z/helm-history.json",
+      "bytes": 3432,
+      "sha256": "d3be17b33104d95dbea89be2daeb5541c0b7bd7890b3c20b580ac954a4ce5cbc"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130529Z/runtime-and-sessions.json",
+      "bytes": 35764,
+      "sha256": "ca5416c6261a7ed89f054ed853b1f851f96ef64bbae602166b72f6262c8f0302"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130529Z/runtime-and-sessions.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130529Z/runtime.json",
+      "bytes": 3201,
+      "sha256": "7b39d8836d03648a253253d4fe1f6ab1677d941bc86bc85245b5a069de208a48"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130529Z/secret-fingerprints.json",
+      "bytes": 2240,
+      "sha256": "5a41da736783fec78f3936f207e19b87fd31259b07c7efa6bff9be259e3803cd"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/captures/20261101T130529Z/summary.json",
+      "bytes": 2257,
+      "sha256": "26c8727786214a200ca6ede5070312694aeeb65696906a8000b24fff42360d76"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/diff-nemoclaw.json.patch",
+      "bytes": 2897,
+      "sha256": "fbcdbc604ff23e0ccea0290648f28e79487da0d4eff07efabac01b4f8b8273f3"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/diff-openclaw.yaml.patch",
+      "bytes": 4171,
+      "sha256": "d8cd9984c1b667e05b9f87e6f90f0f27d1b81fc41f0568e9b6faa37cb1fb5718"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/diff-validation.yaml.patch",
+      "bytes": 1253,
+      "sha256": "abf81722207e6e8a10366ae6ad40f07a50d444813849ee1b64a60343e589f7c2"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/diff-values.yaml.patch",
+      "bytes": 540,
+      "sha256": "7698bb55ee4f2a7568e490d95011104a906f9181caf645ba3467745126ba5552"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/enable_group_remote.py.txt",
+      "bytes": 3774,
+      "sha256": "3c6b47f69b226d3e2837faa4bbf614839ac4b8362425276463f8563e72addcb5"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/gateway-revision16.private.log",
+      "bytes": 7297,
+      "sha256": "7fb8e4f18c963af5027be227d908435b5b2fa3953880cf476c2c15ee08181dad"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/group-enable/apply-result.json",
+      "bytes": 106,
+      "sha256": "ebcc90b86b5bff69d4ae61c08d83b0d77b6f4e41fd6baaea3f88e7ec74282fb1"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/group-enable/gateway-current.redacted.log",
+      "bytes": 4653,
+      "sha256": "38d50dff3143ada40bf48579b2cbff5404db4209f495abf404c978e581750773"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/group-enable/helm-command.json",
+      "bytes": 576,
+      "sha256": "2726cbf0b8c5c85d0d983dfb3a8a68d11bcde41e319194d19f23130e6232cf41"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/group-enable/prepare-summary.json",
+      "bytes": 346,
+      "sha256": "d9b8734433721f4066d70235279c842950ea144c455fda353251f25ef3c59788"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/helm-command.json",
+      "bytes": 557,
+      "sha256": "d7b4fa95ab904beedd1e6a8665dc0cf5cfa37e495d76d8599dc0a1f9ce41d3eb"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/history-after.json",
+      "bytes": 3298,
+      "sha256": "b8a1f9b17179f7fb1c2eced2b27d6376850b623f3bc8d5c9b051828648806dcf"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/outbound/feishu-native-20261101-outbound-01/message.txt",
+      "bytes": 147,
+      "sha256": "82f09f060f8d5cc177006bde6e3938e011975ce35466caf3041d74d77d539c3f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/outbound/feishu-native-20261101-outbound-01/send-intent.json",
+      "bytes": 694,
+      "sha256": "14f2eb241f6dda046f4b94147a44db4ca6ad973a25fb544ec534de1c44402a9c"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/outbound/feishu-native-20261101-outbound-01/send-result.json",
+      "bytes": 2609,
+      "sha256": "0bb1893965fe8dcf0103225f2c7f05cc3eced2901e8bb50b664cfb60bc3c030b"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/outbound/feishu-native-20261101-outbound-01/stderr.redacted.log",
+      "bytes": 27,
+      "sha256": "e88d39caa5b22bed055db98ce692b1c18d05b85941f1a69b08f80da62564b758"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/outbound/feishu-native-20261101-outbound-01/stdout.redacted.log",
+      "bytes": 1054,
+      "sha256": "9a8831736142c425ffc67fb8b1c7a14a7caf88ee1ecb29afc15004df813ae8fa"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/outbound/feishu-native-20261101-report-01/message.txt.gz",
+      "bytes": 6140,
+      "sha256": "1782333d779da35a3c68d075ebf78d696d08b5fc74d78a2a7923de99a91ef421"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/outbound/feishu-native-20261101-report-01/send-intent.json",
+      "bytes": 711,
+      "sha256": "8762a9dda8a4dd9dc42aa1c20993589f11a2897fcb8602b5f914d9ae5a751c37"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/outbound/feishu-native-20261101-report-01/send-result.json",
+      "bytes": 2609,
+      "sha256": "9e25ff2dcf46750279e402ba29a88df6e98fe23aa6765cc008593d74a3f855ca"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/outbound/feishu-native-20261101-report-01/stderr.redacted.log",
+      "bytes": 27,
+      "sha256": "e88d39caa5b22bed055db98ce692b1c18d05b85941f1a69b08f80da62564b758"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/outbound/feishu-native-20261101-report-01/stdout.redacted.log",
+      "bytes": 1054,
+      "sha256": "cfa1e9646cb219859bac8139a8e9188c7096c590097568cba7b9124f48c4492e"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/prepare-summary.json",
+      "bytes": 2061,
+      "sha256": "ba7de9f5e66aba08bd81a4f94669301bd8894bf2fd93c1f0da53b911f7f18e7f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/prepare_remote.py.txt",
+      "bytes": 11445,
+      "sha256": "febbd81917ef2937fef2e7e87ddb8940afe4f204d7e6cddc8c8d413c21d67fcb"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/runtime-after-upgrade.json",
+      "bytes": 7619,
+      "sha256": "cc90bc1302f92931b0b65ad96ee7a76beb79cfc33f7606da638ae56b9c832e8f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/runtime-before.json",
+      "bytes": 7151,
+      "sha256": "f1dc0e8ebfb17b32a37ce6c2329c2a0c95b2fc19fd147aa08fe355d82e4e10b3"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/secret-created.json",
+      "bytes": 167,
+      "sha256": "16411d50c3f75080416f4212bb63f7402c7f77ccb5ebdab6c4caf784a9aa83a4"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/spark/send_native_remote.py.txt",
+      "bytes": 2827,
+      "sha256": "6d659caed8885c5e501c620effa1bf8a050be739aa39ea67a28f077601853c68"
+    },
+    {
+      "path": "docs/examples/alert-feishu/native-evidence-20261101/user-confirmations.json",
+      "bytes": 556,
+      "sha256": "ccd776362301fdda8299c2728a64cfebaecd23b5b21935dfdbf9d810354304e2"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/app-bot-final.json",
+      "bytes": 212,
+      "sha256": "2aa36e45428fe972b54f8ee7d0fcf1cf06bc509f3679c2d009ea046fe2be05d6"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/application-final.json",
+      "bytes": 8761,
+      "sha256": "d7154b3a946f7b201e275012863c924d4fdc25024b30d7b6165bb0f5f1477bda"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/application-name-before-publication.json",
+      "bytes": 258,
+      "sha256": "5b85a4bf2231323a9a3b473db670b70c90e0d98182af83ea1b6ecbe5d3af51a5"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/application-name-verification.json",
+      "bytes": 399,
+      "sha256": "dceeec8ab1b767d5686a71d17a882fad87d27941fec820bbc847ab866ba40382"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/application-versions-after.json",
+      "bytes": 21562,
+      "sha256": "29fac43949f5da7da356818fc2cf4897be6a4468d9fa1a4ad36dac31bfef7842"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/application-versions.json",
+      "bytes": 10747,
+      "sha256": "9765579cf189e9010de7455e0a63566dcbde31b38f5e1a3e30cf32907c8607c0"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/apply-result.json",
+      "bytes": 286,
+      "sha256": "fbfe6d7c576a1a539a6f63971db505bbc2c0553a80b30c73e996279006312925"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/diff-nemoclaw.json.patch",
+      "bytes": 540,
+      "sha256": "d0b954b904ec2c381c10634f62efeece712062cf0db8b63463d185304ea7438f"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/diff-values.yaml.patch",
+      "bytes": 263,
+      "sha256": "50d9ade9605c5828d6b758c675d0299bcc73edea80ecc5499ac44bc3e44c85c2"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/helm-command.json",
+      "bytes": 570,
+      "sha256": "6892164d4bb58ba309f14e4a1617589d7f07a5d90eae2b8c6eb7dfdf087cc958"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/manifest.json",
+      "bytes": 5285,
+      "sha256": "aea2bceb3acc9d304050b8dd56fcb8616bf9f3d97c20e828b33718d6a77f6006"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/outbound-identity-verification.json",
+      "bytes": 36,
+      "sha256": "f8e96ee0372e818693353dee58693a13330072905cbd151e33e0787988f94f44"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/prepare-summary.json",
+      "bytes": 628,
+      "sha256": "3b50ce29cd27d59be2b9de2af140acb31ad80f1ae1c4e95a94f8ef47f297d6e9"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/rename-diagnosis-current.json",
+      "bytes": 1395,
+      "sha256": "b7026b14fbc4f5d781626cedb794120391d722991f951d80148fce1abb4ddb00"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/rename-message-request.private.json",
+      "bytes": 363,
+      "sha256": "b1e9fc105cf8df4e9831ed1d44b892e3a9a6b383a33b3d6425f92f534d74b7c2"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/rename-message-result.private.json",
+      "bytes": 2612,
+      "sha256": "610ddc24f1db2d8be280ee3db6221900601175ea971d39fc6f4fdc823d57eefb"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/rename_spark_remote.py.txt",
+      "bytes": 6577,
+      "sha256": "a624255928977e62a536d3abd201ff509ba6a0fefd5fe1d8469658fe21df7d00"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/runtime-config-verification.json",
+      "bytes": 337,
+      "sha256": "d4b6c99a270be812b635894420324d39512ad3813641f7fb0835705ea7c40a93"
+    },
+    {
+      "path": "docs/examples/alert-feishu/rename-evidence-20261101/webhook-name-confirmation.json",
+      "bytes": 216,
+      "sha256": "1e9a2f02f7dbe8bb96eecbb7b1b0d7079fed1896c3205a154afaa5d290520f99"
+    },
+    {
+      "workspacePath": "output/pdf/spark-gpu-validation-20261031-external.pdf",
+      "bytes": 615054,
+      "sha256": "538a011ed281f5dcde8fd70002094d0a6b489e470291b0de5d987bf71fe3a39b"
+    },
+    {
+      "workspacePath": "output/pdf/spark-gpu-validation-20261031-external.html",
+      "bytes": 86575,
+      "sha256": "cec4117e256a86e7f6dced9510bb19838e9c7dd98da2316f69beb059c1dfd77c"
+    }
+  ]
+}

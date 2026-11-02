@@ -53,6 +53,7 @@ Spark follow-up validation (Chinese) <docs/spark_live_validation_20261031_follow
 Spark research protocol validation (Chinese) <docs/spark_research_protocol_validation_20261031.zh-CN>
 New error to Feishu end-to-end validation (Chinese) <docs/spark_e2e_alert_research_feishu_20261031.zh-CN>
 GPU telemetry and unattended-analysis validation (Chinese) <docs/spark_gpu_alert_research_feishu_20261031.zh-CN>
+Persistent background GPU alerts and native Feishu validation (Chinese) <docs/spark_background_gpu_alert_native_feishu_20261102.zh-CN>
 Research ingestion and Feishu follow-up (Chinese) <docs/spark_research_feishu_followup_20261031.zh-CN>
 Loki query reference <docs/loki>
 Headless integration <docs/skills/ai-factory-operations-agent-headless/SKILL>

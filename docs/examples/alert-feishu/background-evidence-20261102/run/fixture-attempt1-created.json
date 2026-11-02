@@ -1,0 +1,64 @@
+{
+  "success": false,
+  "runId": "bg-gpu-20261102t005029z",
+  "errorType": "RuntimeError",
+  "error": "Test resource operation failed",
+  "created": [],
+  "commands": [
+    {
+      "at": "2026-11-02T00:53:59.801975+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "namespace",
+        "mosaic-bg-gpu-20261102t005029z",
+        "--ignore-not-found",
+        "-o",
+        "json"
+      ],
+      "stdin": null,
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-11-02T00:53:59.849298+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "prometheusrule",
+        "mosaic-bg-gpu-20261102t005029z",
+        "-n",
+        "monitoring",
+        "--ignore-not-found",
+        "-o",
+        "json"
+      ],
+      "stdin": null,
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "at": "2026-11-02T00:53:59.895356+00:00",
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "node",
+        "gpu-node-01",
+        "-o",
+        "json"
+      ],
+      "stdin": null,
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "Error from server (NotFound): nodes \"gpu-node-01\" not found\n"
+    }
+  ]
+}

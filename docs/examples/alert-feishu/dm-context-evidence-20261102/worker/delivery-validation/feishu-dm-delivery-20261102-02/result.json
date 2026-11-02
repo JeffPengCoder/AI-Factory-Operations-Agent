@@ -1,0 +1,61 @@
+{
+  "intent": {
+    "runId": "feishu-dm-delivery-20261102-02",
+    "target": "chat:oc_00000000000000000000000000000001",
+    "chatMode": "p2p",
+    "originalIncident": "2803c2516df6ec7c3eed3f2f",
+    "originalReportBytes": 11966,
+    "originalReportSha256": "dbe7a94cfdc1fd30b96155018e6a104dd9451087183fe4c649a688006ddb8a5f",
+    "messageBytes": 12328,
+    "messageSha256": "3a2012e2a1ba5dd8b16a80fd3196a41cf35a50dd6ef59509cea12e6420e7c330",
+    "sourceSha256": "50c750c45b00f1ef81628d12d3fa456c5b94511dc0b6f1bf9a9f325634b7c9fa"
+  },
+  "receipt": {
+    "message_id": "om_x100b61b7c4fc48a8df0e5a17bb88e91",
+    "result": {
+      "action": "send",
+      "channel": "feishu",
+      "dryRun": false,
+      "handledBy": "plugin",
+      "messageId": "om_x100b61b7c4fc48a8df0e5a17bb88e91",
+      "payload": {
+        "ok": true,
+        "channel": "feishu",
+        "action": "send",
+        "messageId": "om_x100b61b7c4fc48a8df0e5a17bb88e91",
+        "chatId": "oc_00000000000000000000000000000001",
+        "receipt": {
+          "primaryPlatformMessageId": "om_x100b61b7c4fc48a8df0e5a17bb88e91",
+          "platformMessageIds": [
+            "om_x100b61b7c4fc48a8df0e5a17bb88e91"
+          ],
+          "parts": [
+            {
+              "platformMessageId": "om_x100b61b7c4fc48a8df0e5a17bb88e91",
+              "kind": "text",
+              "index": 0,
+              "threadId": "oc_00000000000000000000000000000001",
+              "raw": {
+                "channel": "feishu",
+                "messageId": "om_x100b61b7c4fc48a8df0e5a17bb88e91",
+                "chatId": "oc_00000000000000000000000000000001",
+                "conversationId": "oc_00000000000000000000000000000001"
+              }
+            }
+          ],
+          "threadId": "oc_00000000000000000000000000000001",
+          "sentAt": 1793603747681,
+          "raw": [
+            {
+              "channel": "feishu",
+              "messageId": "om_x100b61b7c4fc48a8df0e5a17bb88e91",
+              "chatId": "oc_00000000000000000000000000000001",
+              "conversationId": "oc_00000000000000000000000000000001"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "remoteEvidenceDirectory": "/home/DEPLOY_USER/.local/state/mosaic-alert-worker/delivery-validation/feishu-dm-delivery-20261102-02"
+}

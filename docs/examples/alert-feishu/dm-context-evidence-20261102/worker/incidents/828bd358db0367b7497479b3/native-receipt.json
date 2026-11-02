@@ -1,0 +1,47 @@
+{
+  "message_id": "om_x100b61b7ff0548b4c0e6162761e5cd5",
+  "result": {
+    "action": "send",
+    "channel": "feishu",
+    "dryRun": false,
+    "handledBy": "plugin",
+    "messageId": "om_x100b61b7ff0548b4c0e6162761e5cd5",
+    "payload": {
+      "ok": true,
+      "channel": "feishu",
+      "action": "send",
+      "messageId": "om_x100b61b7ff0548b4c0e6162761e5cd5",
+      "chatId": "oc_00000000000000000000000000000001",
+      "receipt": {
+        "primaryPlatformMessageId": "om_x100b61b7ff0548b4c0e6162761e5cd5",
+        "platformMessageIds": [
+          "om_x100b61b7ff0548b4c0e6162761e5cd5"
+        ],
+        "parts": [
+          {
+            "platformMessageId": "om_x100b61b7ff0548b4c0e6162761e5cd5",
+            "kind": "text",
+            "index": 0,
+            "threadId": "oc_00000000000000000000000000000001",
+            "raw": {
+              "channel": "feishu",
+              "messageId": "om_x100b61b7ff0548b4c0e6162761e5cd5",
+              "chatId": "oc_00000000000000000000000000000001",
+              "conversationId": "oc_00000000000000000000000000000001"
+            }
+          }
+        ],
+        "threadId": "oc_00000000000000000000000000000001",
+        "sentAt": 1793604381059,
+        "raw": [
+          {
+            "channel": "feishu",
+            "messageId": "om_x100b61b7ff0548b4c0e6162761e5cd5",
+            "chatId": "oc_00000000000000000000000000000001",
+            "conversationId": "oc_00000000000000000000000000000001"
+          }
+        ]
+      }
+    }
+  }
+}

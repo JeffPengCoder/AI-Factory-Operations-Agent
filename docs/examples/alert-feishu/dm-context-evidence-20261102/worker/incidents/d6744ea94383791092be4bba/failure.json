@@ -1,0 +1,6 @@
+{
+  "at": "2026-11-02T08:09:42Z",
+  "stage": "sending",
+  "errorType": "RuntimeError",
+  "message": "Gateway send returned nonzero; reconcile before retrying publication"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "hostname": "gpu-node-01",
+    "name": "gpu-node-01",
+    "uid": "629c70d4-ac9d-4ceb-bea1-d7a0aa1f275e",
+    "addresses": [
+      {
+        "address": "192.0.2.43",
+        "type": "InternalIP"
+      },
+      {
+        "address": "gpu-node-01",
+        "type": "Hostname"
+      }
+    ]
+  },
+  {
+    "hostname": "gpu-node-02",
+    "name": "gpu-node-02",
+    "uid": "d9a235b2-3a35-4a6d-97e6-5a96fee6570c",
+    "addresses": [
+      {
+        "address": "192.0.2.44",
+        "type": "InternalIP"
+      },
+      {
+        "address": "gpu-node-02",
+        "type": "Hostname"
+      }
+    ]
+  }
+]

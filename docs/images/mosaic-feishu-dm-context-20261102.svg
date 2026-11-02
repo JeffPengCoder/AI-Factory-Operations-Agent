@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1350" height="960" viewBox="0 0 1350 960">
+<rect width="1350" height="960" fill="white"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8Z" fill="#596878"/></marker></defs>
+<g font-family="Noto Sans CJK SC, PingFang SC, Arial, sans-serif" fill="#172b3b">
+<text x="40" y="49" font-size="32" font-weight="bold" fill="#172b3b">MOSAIC：自动告警 → 完整报告 DM → 同一会话追问</text>
+<text x="40" y="88" font-size="21" font-weight="normal" fill="#172b3b">新增关键步骤：真实 Agent 输入交接；展示镜像不能替代模型上下文。2026-11-02</text>
+<rect x="40" y="120" width="380" height="135" rx="10" fill="#edf6df" stroke="#bdcbd3"/>
+<text x="56" y="153" font-size="23" font-weight="bold" fill="#172b3b">隔离 GPU 遥测模拟</text>
+<text x="56" y="185" font-size="19" font-weight="normal" fill="#172b3b">私有 DCGM：230=95 / 311=1 / 313=1</text>
+<text x="56" y="212" font-size="19" font-weight="normal" fill="#172b3b">采样后关闭；回放 Pod 不申请 GPU</text>
+<text x="56" y="239" font-size="19" font-weight="normal" fill="#172b3b">真实硬件计数保持</text>
+<rect x="485" y="120" width="380" height="135" rx="10" fill="#edf6df" stroke="#bdcbd3"/>
+<text x="501" y="153" font-size="23" font-weight="bold" fill="#172b3b">Prometheus → Alertmanager</text>
+<text x="501" y="185" font-size="19" font-weight="normal" fill="#172b3b">真实指标、规则 for=45s</text>
+<text x="501" y="212" font-size="19" font-weight="normal" fill="#172b3b">仅选择明确验收标签</text>
+<text x="501" y="239" font-size="19" font-weight="normal" fill="#172b3b">run_id / fingerprint 关联</text>
+<rect x="930" y="120" width="380" height="135" rx="10" fill="#edf6df" stroke="#bdcbd3"/>
+<text x="946" y="153" font-size="23" font-weight="bold" fill="#172b3b">持久 worker + SQLite</text>
+<text x="946" y="185" font-size="19" font-weight="normal" fill="#172b3b">独立后台轮询，无需网页</text>
+<text x="946" y="212" font-size="19" font-weight="normal" fill="#172b3b">持久 Incident 去重</text>
+<text x="946" y="239" font-size="19" font-weight="normal" fill="#172b3b">各阶段完整证据落盘</text>
+<rect x="40" y="310" width="380" height="135" rx="10" fill="#e7f1fa" stroke="#bdcbd3"/>
+<text x="56" y="343" font-size="23" font-weight="bold" fill="#172b3b">同一只读会话生成报告</text>
+<text x="56" y="375" font-size="19" font-weight="normal" fill="#172b3b">结合现场日志与文档来源</text>
+<text x="56" y="402" font-size="19" font-weight="normal" fill="#172b3b">保存模型完整原文</text>
+<text x="56" y="429" font-size="19" font-weight="normal" fill="#172b3b">不由 Codex 改写事实</text>
+<rect x="485" y="310" width="380" height="135" rx="10" fill="#e7f1fa" stroke="#bdcbd3"/>
+<text x="501" y="343" font-size="23" font-weight="bold" fill="#172b3b">IRAOP Research</text>
+<text x="501" y="375" font-size="19" font-weight="normal" fill="#172b3b">后台实际调用 iraop_query</text>
+<text x="501" y="402" font-size="19" font-weight="normal" fill="#172b3b">返回完整答案及文件 / 页码</text>
+<text x="501" y="429" font-size="19" font-weight="normal" fill="#172b3b">OpenSearch 提供检索存储</text>
+<rect x="930" y="310" width="380" height="135" rx="10" fill="#e7f1fa" stroke="#bdcbd3"/>
+<text x="946" y="343" font-size="23" font-weight="bold" fill="#172b3b">Jeff&#x27;s Mosaic Agent</text>
+<text x="946" y="375" font-size="19" font-weight="normal" fill="#172b3b">View：实际调用日志与状态工具</text>
+<text x="946" y="402" font-size="19" font-weight="normal" fill="#172b3b">独立 automation 调查会话</text>
+<text x="946" y="429" font-size="19" font-weight="normal" fill="#172b3b">保留每次请求和完整结果</text>
+<rect x="40" y="500" width="380" height="135" rx="10" fill="#f7f1e5" stroke="#bdcbd3"/>
+<text x="56" y="533" font-size="23" font-weight="bold" fill="#172b3b">配置接收 Agent / DM 会话</text>
+<text x="56" y="565" font-size="19" font-weight="normal" fill="#172b3b">delivery.target：获准 p2p chat</text>
+<text x="56" y="592" font-size="19" font-weight="normal" fill="#172b3b">delivery.session_key：真实 Agent 会话</text>
+<text x="56" y="619" font-size="19" font-weight="normal" fill="#172b3b">原生 Feishu binding 必须一致</text>
+<rect x="485" y="500" width="380" height="135" rx="10" fill="#f7f1e5" stroke="#bdcbd3"/>
+<text x="501" y="533" font-size="23" font-weight="bold" fill="#172b3b">后台自动交接完整报告</text>
+<text x="501" y="565" font-size="19" font-weight="normal" fill="#172b3b">正常 Gateway agent 输入</text>
+<text x="501" y="592" font-size="19" font-weight="normal" fill="#172b3b">deliver=false / 禁用消息工具</text>
+<text x="501" y="619" font-size="19" font-weight="normal" fill="#172b3b">交接响应不对外发送</text>
+<rect x="930" y="500" width="380" height="135" rx="10" fill="#f7f1e5" stroke="#bdcbd3"/>
+<text x="946" y="533" font-size="23" font-weight="bold" fill="#172b3b">完整核验 → 固定原生发送</text>
+<text x="946" y="565" font-size="19" font-weight="normal" fill="#172b3b">真实 user 输入包含报告全文</text>
+<text x="946" y="592" font-size="19" font-weight="normal" fill="#172b3b">显式 history 字符限额，拒绝截断</text>
+<text x="946" y="619" font-size="19" font-weight="normal" fill="#172b3b">Gateway send 原报告；保存消息 ID</text>
+<rect x="40" y="690" width="380" height="135" rx="10" fill="#e7f1fa" stroke="#bdcbd3"/>
+<text x="56" y="723" font-size="23" font-weight="bold" fill="#172b3b">同一 Agent / Qwen 回复</text>
+<text x="56" y="755" font-size="19" font-weight="normal" fill="#172b3b">模型使用真实报告上下文</text>
+<text x="56" y="782" font-size="19" font-weight="normal" fill="#172b3b">通过原生通道回复同一用户</text>
+<text x="56" y="809" font-size="19" font-weight="normal" fill="#172b3b">不能把自动交接回答当用户验收</text>
+<rect x="485" y="690" width="380" height="135" rx="10" fill="#e7f1fa" stroke="#bdcbd3"/>
+<text x="501" y="723" font-size="23" font-weight="bold" fill="#172b3b">用户普通私聊追问</text>
+<text x="501" y="755" font-size="19" font-weight="normal" fill="#172b3b">不必复制报告、附 Run ID</text>
+<text x="501" y="782" font-size="19" font-weight="normal" fill="#172b3b">不必点击引用回复</text>
+<text x="501" y="809" font-size="19" font-weight="normal" fill="#172b3b">以真实平台入站及模型回复验收</text>
+<rect x="930" y="690" width="380" height="135" rx="10" fill="#f7f1e5" stroke="#bdcbd3"/>
+<text x="946" y="723" font-size="23" font-weight="bold" fill="#172b3b">Jeff&#x27;s AI Assistant</text>
+<text x="946" y="755" font-size="19" font-weight="normal" fill="#172b3b">报告主动送达获准用户 DM</text>
+<text x="946" y="782" font-size="19" font-weight="normal" fill="#172b3b">App ID / App Secret 原生通道</text>
+<text x="946" y="809" font-size="19" font-weight="normal" fill="#172b3b">不是旧群 Webhook Bot</text>
+<path d="M426,187.5 L477,187.5" fill="none" stroke="#596878" stroke-width="2.7" marker-end="url(#arrow)"/>
+<path d="M871,187.5 L922,187.5" fill="none" stroke="#596878" stroke-width="2.7" marker-end="url(#arrow)"/>
+<path d="M479,377.5 L428,377.5" fill="none" stroke="#596878" stroke-width="2.7" marker-end="url(#arrow)"/>
+<path d="M924,377.5 L873,377.5" fill="none" stroke="#596878" stroke-width="2.7" marker-end="url(#arrow)"/>
+<path d="M426,567.5 L477,567.5" fill="none" stroke="#596878" stroke-width="2.7" marker-end="url(#arrow)"/>
+<path d="M871,567.5 L922,567.5" fill="none" stroke="#596878" stroke-width="2.7" marker-end="url(#arrow)"/>
+<path d="M479,757.5 L428,757.5" fill="none" stroke="#596878" stroke-width="2.7" marker-end="url(#arrow)"/>
+<path d="M924,757.5 L873,757.5" fill="none" stroke="#596878" stroke-width="2.7" marker-end="url(#arrow)"/>
+<path d="M1120.0,260 L1120.0,302" fill="none" stroke="#596878" stroke-width="2.7" marker-end="url(#arrow)"/>
+<path d="M230.0,450 L230.0,492" fill="none" stroke="#596878" stroke-width="2.7" marker-end="url(#arrow)"/>
+<path d="M1120.0,640 L1120.0,682" fill="none" stroke="#596878" stroke-width="2.7" marker-end="url(#arrow)"/>
+<path d="M230,830 V875 H1120 V832" fill="none" stroke="#596878" stroke-width="2.7" marker-end="url(#arrow)"/>
+<text x="460" y="866" font-size="20" font-weight="bold" fill="#172b3b">真实原生回复返回同一 DM</text>
+<text x="40" y="920" font-size="20" font-weight="bold" fill="#172b3b">已核实：自动调查 / IRAOP / 完整真实上下文 / DM 投递 / 真实用户普通追问与回复 / 重启去重。</text>
+<text x="40" y="948" font-size="18" font-weight="normal" fill="#596878">测试输入是隔离缓存模拟；不证明物理坏卡诊断通过。完整原文、失败、状态与清理结果均保留。</text>
+</g></svg>

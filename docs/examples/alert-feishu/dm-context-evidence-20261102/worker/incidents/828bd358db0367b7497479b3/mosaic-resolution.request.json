@@ -1,0 +1,5 @@
+{
+  "method": "DELETE",
+  "path": "/api/alerts?id=alertmanager%3Ac8286cdd6ed50269",
+  "body": null
+}

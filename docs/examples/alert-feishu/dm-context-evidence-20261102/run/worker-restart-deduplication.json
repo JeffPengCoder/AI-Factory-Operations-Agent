@@ -1,0 +1,215 @@
+{
+  "before": {
+    "at": "2026-11-02T09:01:31Z",
+    "incident": {
+      "id": "3b0084bf90af7f0901912918",
+      "fingerprint": "f3cc3c801e7f4728",
+      "starts_at": "2026-11-02T08:55:48.054Z",
+      "session_key": "agent:default:mosaic-automation-alert-3b0084bf90af7f0901912918",
+      "state": "sent",
+      "alert_json": "{\"annotations\": {\"description\": \"Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-handoff-gpu-20261102t085400z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"summary\": \"test from Jeff Peng: direct-message GPU telemetry cache validation\", \"test_from\": \"test from Jeff Peng\"}, \"endsAt\": \"2026-11-02T08:59:48.054Z\", \"fingerprint\": \"f3cc3c801e7f4728\", \"receivers\": [{\"name\": \"null\"}], \"startsAt\": \"2026-11-02T08:55:48.054Z\", \"status\": {\"inhibitedBy\": [], \"mutedBy\": [], \"silencedBy\": [], \"state\": \"active\"}, \"updatedAt\": \"2026-11-02T08:55:48.057Z\", \"generatorURL\": \"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22handoff-gpu-20261102t085400z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1\", \"labels\": {\"alertname\": \"MosaicContextLinkedGpuTelemetrySimulation\", \"background_validation\": \"true\", \"cluster\": \"l20-lab\", \"container\": \"telemetry\", \"endpoint\": \"metrics\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"experiment\": \"gpu-telemetry-cache\", \"gpu\": \"0\", \"gpu_uuid\": \"GPU-00000000-0000-0000-0000-000000000005\", \"instance\": \"192.0.2.20:8080\", \"job\": \"gpu-telemetry-fixture\", \"mosaic_test\": \"true\", \"namespace\": \"mosaic-handoff-gpu-20261102t085400z\", \"node\": \"gpu-node-01\", \"pod\": \"gpu-telemetry-fixture\", \"prometheus\": \"monitoring/kube-prometheus-stack-prometheus\", \"run_id\": \"handoff-gpu-20261102t085400z\", \"service\": \"gpu-telemetry-fixture\", \"severity\": \"warning\", \"simulation\": \"true\", \"test_namespace\": \"mosaic-handoff-gpu-20261102t085400z\", \"test_pod\": \"gpu-telemetry-fixture\"}}",
+      "created_at": "2026-11-02T08:55:52Z",
+      "updated_at": "2026-11-02T08:58:19Z",
+      "resolved_at": null,
+      "message_id": "om_x100b61b14468f570dd6b4d1203771ad",
+      "error_type": null,
+      "ui_cleared_at": null
+    },
+    "events": [
+      {
+        "sequence": 36,
+        "incident_id": "3b0084bf90af7f0901912918",
+        "at": "2026-11-02T08:55:52Z",
+        "state": "collecting",
+        "detail_json": "{}"
+      },
+      {
+        "sequence": 37,
+        "incident_id": "3b0084bf90af7f0901912918",
+        "at": "2026-11-02T08:56:16Z",
+        "state": "researching",
+        "detail_json": "{}"
+      },
+      {
+        "sequence": 38,
+        "incident_id": "3b0084bf90af7f0901912918",
+        "at": "2026-11-02T08:57:02Z",
+        "state": "synthesizing",
+        "detail_json": "{}"
+      },
+      {
+        "sequence": 39,
+        "incident_id": "3b0084bf90af7f0901912918",
+        "at": "2026-11-02T08:57:57Z",
+        "state": "ready",
+        "detail_json": "{}"
+      },
+      {
+        "sequence": 40,
+        "incident_id": "3b0084bf90af7f0901912918",
+        "at": "2026-11-02T08:57:57Z",
+        "state": "sending",
+        "detail_json": "{}"
+      },
+      {
+        "sequence": 41,
+        "incident_id": "3b0084bf90af7f0901912918",
+        "at": "2026-11-02T08:58:19Z",
+        "state": "sent",
+        "detail_json": "{\"message_id\": \"om_x100b61b14468f570dd6b4d1203771ad\"}"
+      }
+    ],
+    "evidenceHashes": {
+      "synthesis-completion.json": "91289d7676785ec7079d831ffc9c9e05fabe72f4489ac9c06e8584a9447026ae",
+      "native-delivery.context-verification.json": "0e4ce4a24e6b74573de481a58552cc651e072769f9c36e8ddf6e0422a0a24c22",
+      "collection-tool-results.json": "966999cb84914bf5a542098239d108600debca3fc311ac7651b8192b318520a8",
+      "collection.response.json": "f512d9866836ff07ca107085c2f126b105c2606ccdd701215f4055cfd963db08",
+      "mosaic-import-confirmed.json": "c0518ca0babf14c687c81665e4c10d07bf44f809f2a498c36f173bb90f2d8e19",
+      "synthesis-completion-history.request.json": "c500a7b6dcedb71cbf805b00a5972b3206a32791b63878713513dcbed7755728",
+      "published-report.txt": "d6fd75fb6218ecba9c9272fb5a2d0f259fac28317c6bc0d9eb0d977ec186db8a",
+      "native-delivery.context-history.stdout.log": "a8334305082bef2b6b338abe1c7971a73eb94ed7e327a49b3fa519cd110fb9c4",
+      "mosaic-import.request.json": "94bfb00a3e460824e2a7b45b77bc99248fdcf17fce8744b7d392cc959ee309ab",
+      "native-delivery.intent.json": "de7fdea1dfd5c18939e9368c9b7c47aba0a7307d9982b601337900af20fe4f21",
+      "native-delivery.context-handoff.request.json": "c851bdbce4f4f02f082299a976a5c5957be48964b8ea1bddda0d5674b397cf9e",
+      "collection-completion-history.request.json": "c500a7b6dcedb71cbf805b00a5972b3206a32791b63878713513dcbed7755728",
+      "research.request.json": "d67adc867d89381b8f3b1fbd57f2222261ec1ff53732228690c0e258614a8553",
+      "native-delivery.context-handoff.response.json": "ec2e6bbc4fcb36777a92ae9f1196be8aef6b7fd3fe562844df9bf0419909c5b3",
+      "native-delivery.context-history.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final-history.response.json": "67dbbfeab3b96217b15fd8d2bd20146cec5227f5bb695efaaa3d6f3264520e39",
+      "model-report.txt": "bd8b666916caae931e0b6e119200c5b203ffdfd984875ce28e62648e92e68277",
+      "synthesis.request.json": "8d8be3b1ba4ff881d79d5d7ccb124aaf6cefeb822868cad18f42ce062c329a78",
+      "synthesis-completion-history.response.json": "4512c6bdc0a3e8a246801f85d414d98d0a39af9ec97894e9f501c9ec3afd2be6",
+      "collection-history.response.json": "d61f292cd4661afef710adc61e5e9156a5bf6f009e631a3e51ba18ce63fd171c",
+      "native-delivery.context-handoff.stdout.log": "ec2e6bbc4fcb36777a92ae9f1196be8aef6b7fd3fe562844df9bf0419909c5b3",
+      "final-history.request.json": "c500a7b6dcedb71cbf805b00a5972b3206a32791b63878713513dcbed7755728",
+      "mosaic-import.response.json": "dc9fe82c21adf9c4d6dae6e2917608729c2ccc6020e4c6aec825eeec2b08fe34",
+      "research-sources.json": "c44001296439d6a071f3b849b7fc709dabaa25a5c0164cf2363c2e18af811004",
+      "native-delivery.gateway-receipt.json": "9a081957726c355c6961214571dcfa0fb37bb753542048b9aaceebfc14f7d0a5",
+      "collection-history.request.json": "c500a7b6dcedb71cbf805b00a5972b3206a32791b63878713513dcbed7755728",
+      "collection.request.json": "64c66b73589b6e0ddb4273943522f297117ca8a7020a5bf69125e24d9d035ed1",
+      "native-delivery.stdout.log": "7471c44073bbb660c320d2c05af5b09e04f25a57c11ffe46545a5a89543a1064",
+      "alert.json": "1b0b93b5903d2ae4d06b3d4f8fe6ba6e36b0796cf7090b47ab51a579fec55dc6",
+      "collection-completion-history.response.json": "28af34d148a42e0732e0b456203b4ab195ac72c24d2dc40a1494321973fb0b5e",
+      "collection-completion.json": "dae9ca5f7d0c98b9e22b871359ad3538f0840b8bf732d174f0cb2ccd2b6e9016",
+      "report-integrity.json": "2e926a6dfecec146a0eac8084676866e6a174732ffba7441fe03c93e56afda6f",
+      "native-receipt.json": "9a081957726c355c6961214571dcfa0fb37bb753542048b9aaceebfc14f7d0a5",
+      "native-delivery.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "native-delivery.context-handoff.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "research.response.json": "c50a62fb3d05de84cdeda555bc9833069ae80720c7450a7df7cc7624ead99b2d",
+      "synthesis.response.json": "a974cceeded265a8878f504db7e0dfebf24f20cb060e0ca844fed28a951fa56d"
+    },
+    "lastPoll": {
+      "at": "2026-11-02T09:01:25Z",
+      "selected": 4
+    }
+  },
+  "after": {
+    "at": "2026-11-02T09:02:06Z",
+    "incident": {
+      "id": "3b0084bf90af7f0901912918",
+      "fingerprint": "f3cc3c801e7f4728",
+      "starts_at": "2026-11-02T08:55:48.054Z",
+      "session_key": "agent:default:mosaic-automation-alert-3b0084bf90af7f0901912918",
+      "state": "sent",
+      "alert_json": "{\"annotations\": {\"description\": \"Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-handoff-gpu-20261102t085400z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"summary\": \"test from Jeff Peng: direct-message GPU telemetry cache validation\", \"test_from\": \"test from Jeff Peng\"}, \"endsAt\": \"2026-11-02T08:59:48.054Z\", \"fingerprint\": \"f3cc3c801e7f4728\", \"receivers\": [{\"name\": \"null\"}], \"startsAt\": \"2026-11-02T08:55:48.054Z\", \"status\": {\"inhibitedBy\": [], \"mutedBy\": [], \"silencedBy\": [], \"state\": \"active\"}, \"updatedAt\": \"2026-11-02T08:55:48.057Z\", \"generatorURL\": \"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22handoff-gpu-20261102t085400z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1\", \"labels\": {\"alertname\": \"MosaicContextLinkedGpuTelemetrySimulation\", \"background_validation\": \"true\", \"cluster\": \"l20-lab\", \"container\": \"telemetry\", \"endpoint\": \"metrics\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"experiment\": \"gpu-telemetry-cache\", \"gpu\": \"0\", \"gpu_uuid\": \"GPU-00000000-0000-0000-0000-000000000005\", \"instance\": \"192.0.2.20:8080\", \"job\": \"gpu-telemetry-fixture\", \"mosaic_test\": \"true\", \"namespace\": \"mosaic-handoff-gpu-20261102t085400z\", \"node\": \"gpu-node-01\", \"pod\": \"gpu-telemetry-fixture\", \"prometheus\": \"monitoring/kube-prometheus-stack-prometheus\", \"run_id\": \"handoff-gpu-20261102t085400z\", \"service\": \"gpu-telemetry-fixture\", \"severity\": \"warning\", \"simulation\": \"true\", \"test_namespace\": \"mosaic-handoff-gpu-20261102t085400z\", \"test_pod\": \"gpu-telemetry-fixture\"}}",
+      "created_at": "2026-11-02T08:55:52Z",
+      "updated_at": "2026-11-02T08:58:19Z",
+      "resolved_at": null,
+      "message_id": "om_x100b61b14468f570dd6b4d1203771ad",
+      "error_type": null,
+      "ui_cleared_at": null
+    },
+    "events": [
+      {
+        "sequence": 36,
+        "incident_id": "3b0084bf90af7f0901912918",
+        "at": "2026-11-02T08:55:52Z",
+        "state": "collecting",
+        "detail_json": "{}"
+      },
+      {
+        "sequence": 37,
+        "incident_id": "3b0084bf90af7f0901912918",
+        "at": "2026-11-02T08:56:16Z",
+        "state": "researching",
+        "detail_json": "{}"
+      },
+      {
+        "sequence": 38,
+        "incident_id": "3b0084bf90af7f0901912918",
+        "at": "2026-11-02T08:57:02Z",
+        "state": "synthesizing",
+        "detail_json": "{}"
+      },
+      {
+        "sequence": 39,
+        "incident_id": "3b0084bf90af7f0901912918",
+        "at": "2026-11-02T08:57:57Z",
+        "state": "ready",
+        "detail_json": "{}"
+      },
+      {
+        "sequence": 40,
+        "incident_id": "3b0084bf90af7f0901912918",
+        "at": "2026-11-02T08:57:57Z",
+        "state": "sending",
+        "detail_json": "{}"
+      },
+      {
+        "sequence": 41,
+        "incident_id": "3b0084bf90af7f0901912918",
+        "at": "2026-11-02T08:58:19Z",
+        "state": "sent",
+        "detail_json": "{\"message_id\": \"om_x100b61b14468f570dd6b4d1203771ad\"}"
+      }
+    ],
+    "evidenceHashes": {
+      "synthesis-completion.json": "91289d7676785ec7079d831ffc9c9e05fabe72f4489ac9c06e8584a9447026ae",
+      "native-delivery.context-verification.json": "0e4ce4a24e6b74573de481a58552cc651e072769f9c36e8ddf6e0422a0a24c22",
+      "collection-tool-results.json": "966999cb84914bf5a542098239d108600debca3fc311ac7651b8192b318520a8",
+      "collection.response.json": "f512d9866836ff07ca107085c2f126b105c2606ccdd701215f4055cfd963db08",
+      "mosaic-import-confirmed.json": "c0518ca0babf14c687c81665e4c10d07bf44f809f2a498c36f173bb90f2d8e19",
+      "synthesis-completion-history.request.json": "c500a7b6dcedb71cbf805b00a5972b3206a32791b63878713513dcbed7755728",
+      "published-report.txt": "d6fd75fb6218ecba9c9272fb5a2d0f259fac28317c6bc0d9eb0d977ec186db8a",
+      "native-delivery.context-history.stdout.log": "a8334305082bef2b6b338abe1c7971a73eb94ed7e327a49b3fa519cd110fb9c4",
+      "mosaic-import.request.json": "94bfb00a3e460824e2a7b45b77bc99248fdcf17fce8744b7d392cc959ee309ab",
+      "native-delivery.intent.json": "de7fdea1dfd5c18939e9368c9b7c47aba0a7307d9982b601337900af20fe4f21",
+      "native-delivery.context-handoff.request.json": "c851bdbce4f4f02f082299a976a5c5957be48964b8ea1bddda0d5674b397cf9e",
+      "collection-completion-history.request.json": "c500a7b6dcedb71cbf805b00a5972b3206a32791b63878713513dcbed7755728",
+      "research.request.json": "d67adc867d89381b8f3b1fbd57f2222261ec1ff53732228690c0e258614a8553",
+      "native-delivery.context-handoff.response.json": "ec2e6bbc4fcb36777a92ae9f1196be8aef6b7fd3fe562844df9bf0419909c5b3",
+      "native-delivery.context-history.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final-history.response.json": "67dbbfeab3b96217b15fd8d2bd20146cec5227f5bb695efaaa3d6f3264520e39",
+      "model-report.txt": "bd8b666916caae931e0b6e119200c5b203ffdfd984875ce28e62648e92e68277",
+      "synthesis.request.json": "8d8be3b1ba4ff881d79d5d7ccb124aaf6cefeb822868cad18f42ce062c329a78",
+      "synthesis-completion-history.response.json": "4512c6bdc0a3e8a246801f85d414d98d0a39af9ec97894e9f501c9ec3afd2be6",
+      "collection-history.response.json": "d61f292cd4661afef710adc61e5e9156a5bf6f009e631a3e51ba18ce63fd171c",
+      "native-delivery.context-handoff.stdout.log": "ec2e6bbc4fcb36777a92ae9f1196be8aef6b7fd3fe562844df9bf0419909c5b3",
+      "final-history.request.json": "c500a7b6dcedb71cbf805b00a5972b3206a32791b63878713513dcbed7755728",
+      "mosaic-import.response.json": "dc9fe82c21adf9c4d6dae6e2917608729c2ccc6020e4c6aec825eeec2b08fe34",
+      "research-sources.json": "c44001296439d6a071f3b849b7fc709dabaa25a5c0164cf2363c2e18af811004",
+      "native-delivery.gateway-receipt.json": "9a081957726c355c6961214571dcfa0fb37bb753542048b9aaceebfc14f7d0a5",
+      "collection-history.request.json": "c500a7b6dcedb71cbf805b00a5972b3206a32791b63878713513dcbed7755728",
+      "collection.request.json": "64c66b73589b6e0ddb4273943522f297117ca8a7020a5bf69125e24d9d035ed1",
+      "native-delivery.stdout.log": "7471c44073bbb660c320d2c05af5b09e04f25a57c11ffe46545a5a89543a1064",
+      "alert.json": "1b0b93b5903d2ae4d06b3d4f8fe6ba6e36b0796cf7090b47ab51a579fec55dc6",
+      "collection-completion-history.response.json": "28af34d148a42e0732e0b456203b4ab195ac72c24d2dc40a1494321973fb0b5e",
+      "collection-completion.json": "dae9ca5f7d0c98b9e22b871359ad3538f0840b8bf732d174f0cb2ccd2b6e9016",
+      "report-integrity.json": "2e926a6dfecec146a0eac8084676866e6a174732ffba7441fe03c93e56afda6f",
+      "native-receipt.json": "9a081957726c355c6961214571dcfa0fb37bb753542048b9aaceebfc14f7d0a5",
+      "native-delivery.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "native-delivery.context-handoff.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "research.response.json": "c50a62fb3d05de84cdeda555bc9833069ae80720c7450a7df7cc7624ead99b2d",
+      "synthesis.response.json": "a974cceeded265a8878f504db7e0dfebf24f20cb060e0ca844fed28a951fa56d"
+    },
+    "lastPoll": {
+      "at": "2026-11-02T09:02:01Z",
+      "selected": 4
+    }
+  },
+  "sameIncident": true,
+  "sameMessageId": true,
+  "sameEventRows": true,
+  "sameEvidenceHashes": true,
+  "serviceState": "active"
+}

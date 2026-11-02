@@ -1,0 +1,48 @@
+{
+  "annotations": {
+    "description": "Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-ctx-gpu-20261102t080454z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.",
+    "evidence_source": "isolated_dcgm_cache_snapshot",
+    "summary": "test from Jeff Peng: direct-message GPU telemetry cache validation",
+    "test_from": "test from Jeff Peng"
+  },
+  "endsAt": "2026-11-02T08:12:10.714Z",
+  "fingerprint": "f02102a85a74ac73",
+  "receivers": [
+    {
+      "name": "null"
+    }
+  ],
+  "startsAt": "2026-11-02T08:08:10.714Z",
+  "status": {
+    "inhibitedBy": [],
+    "mutedBy": [],
+    "silencedBy": [],
+    "state": "active"
+  },
+  "updatedAt": "2026-11-02T08:08:10.716Z",
+  "generatorURL": "http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22ctx-gpu-20261102t080454z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1",
+  "labels": {
+    "alertname": "MosaicContextLinkedGpuTelemetrySimulation",
+    "background_validation": "true",
+    "cluster": "l20-lab",
+    "container": "telemetry",
+    "endpoint": "metrics",
+    "evidence_source": "isolated_dcgm_cache_snapshot",
+    "experiment": "gpu-telemetry-cache",
+    "gpu": "0",
+    "gpu_uuid": "GPU-00000000-0000-0000-0000-000000000005",
+    "instance": "192.0.2.17:8080",
+    "job": "gpu-telemetry-fixture",
+    "mosaic_test": "true",
+    "namespace": "mosaic-ctx-gpu-20261102t080454z",
+    "node": "gpu-node-01",
+    "pod": "gpu-telemetry-fixture",
+    "prometheus": "monitoring/kube-prometheus-stack-prometheus",
+    "run_id": "ctx-gpu-20261102t080454z",
+    "service": "gpu-telemetry-fixture",
+    "severity": "warning",
+    "simulation": "true",
+    "test_namespace": "mosaic-ctx-gpu-20261102t080454z",
+    "test_pod": "gpu-telemetry-fixture"
+  }
+}

@@ -1,0 +1,411 @@
+{
+  "meta": [
+    {
+      "key": "initialized",
+      "value": "2026-11-02T09:07:33Z"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "7ed674ba17c49a037fe3e651",
+      "fingerprint": "77592864998cc923",
+      "starts_at": "2026-11-02T00:56:07.202Z",
+      "session_key": "agent:default:mosaic-automation-alert-7ed674ba17c49a037fe3e651",
+      "state": "needs_attention",
+      "alert_json": "{\"annotations\": {\"description\": \"Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-bg-gpu-20261102t005029z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"summary\": \"test from Jeff Peng: background GPU telemetry cache validation\", \"test_from\": \"test from Jeff Peng\"}, \"endsAt\": \"2026-11-02T01:00:07.202Z\", \"fingerprint\": \"77592864998cc923\", \"receivers\": [{\"name\": \"null\"}], \"startsAt\": \"2026-11-02T00:56:07.202Z\", \"status\": {\"inhibitedBy\": [], \"mutedBy\": [], \"silencedBy\": [], \"state\": \"active\"}, \"updatedAt\": \"2026-11-02T00:56:07.204Z\", \"generatorURL\": \"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22bg-gpu-20261102t005029z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1\", \"labels\": {\"alertname\": \"MosaicBackgroundGpuTelemetrySimulation\", \"background_validation\": \"true\", \"cluster\": \"l20-lab\", \"container\": \"telemetry\", \"endpoint\": \"metrics\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"experiment\": \"gpu-telemetry-cache\", \"gpu\": \"0\", \"gpu_uuid\": \"GPU-00000000-0000-0000-0000-000000000005\", \"instance\": \"192.0.2.25:8080\", \"job\": \"gpu-telemetry-fixture\", \"mosaic_test\": \"true\", \"namespace\": \"mosaic-bg-gpu-20261102t005029z\", \"node\": \"gpu-node-01\", \"pod\": \"gpu-telemetry-fixture\", \"prometheus\": \"monitoring/kube-prometheus-stack-prometheus\", \"run_id\": \"bg-gpu-20261102t005029z\", \"service\": \"gpu-telemetry-fixture\", \"severity\": \"warning\", \"simulation\": \"true\", \"test_namespace\": \"mosaic-bg-gpu-20261102t005029z\", \"test_pod\": \"gpu-telemetry-fixture\"}}",
+      "created_at": "2026-11-02T00:56:11Z",
+      "updated_at": "2026-11-02T00:56:26Z",
+      "resolved_at": "2026-11-02T01:10:02Z",
+      "message_id": null,
+      "error_type": "ValueError",
+      "ui_cleared_at": "2026-11-02T01:10:02Z"
+    },
+    {
+      "id": "df5310a8ede1f42b14c421ec",
+      "fingerprint": "2a7b9b7784cb45a3",
+      "starts_at": "2026-11-02T01:07:22.202Z",
+      "session_key": "agent:default:mosaic-automation-alert-df5310a8ede1f42b14c421ec",
+      "state": "needs_attention",
+      "alert_json": "{\"annotations\": {\"description\": \"Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-bg-gpu-20261102t005029z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"summary\": \"test from Jeff Peng: background GPU telemetry cache validation\", \"test_from\": \"test from Jeff Peng\"}, \"endsAt\": \"2026-11-02T01:11:22.202Z\", \"fingerprint\": \"2a7b9b7784cb45a3\", \"receivers\": [{\"name\": \"null\"}], \"startsAt\": \"2026-11-02T01:07:22.202Z\", \"status\": {\"inhibitedBy\": [], \"mutedBy\": [], \"silencedBy\": [], \"state\": \"active\"}, \"updatedAt\": \"2026-11-02T01:07:22.204Z\", \"generatorURL\": \"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22bg-gpu-20261102t005029z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1\", \"labels\": {\"alertname\": \"MosaicBackgroundGpuTelemetrySimulation\", \"background_attempt\": \"2\", \"background_validation\": \"true\", \"cluster\": \"l20-lab\", \"container\": \"telemetry\", \"endpoint\": \"metrics\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"experiment\": \"gpu-telemetry-cache\", \"gpu\": \"0\", \"gpu_uuid\": \"GPU-00000000-0000-0000-0000-000000000005\", \"instance\": \"192.0.2.25:8080\", \"job\": \"gpu-telemetry-fixture\", \"mosaic_test\": \"true\", \"namespace\": \"mosaic-bg-gpu-20261102t005029z\", \"node\": \"gpu-node-01\", \"pod\": \"gpu-telemetry-fixture\", \"prometheus\": \"monitoring/kube-prometheus-stack-prometheus\", \"run_id\": \"bg-gpu-20261102t005029z\", \"service\": \"gpu-telemetry-fixture\", \"severity\": \"warning\", \"simulation\": \"true\", \"test_namespace\": \"mosaic-bg-gpu-20261102t005029z\", \"test_pod\": \"gpu-telemetry-fixture\"}}",
+      "created_at": "2026-11-02T01:07:31Z",
+      "updated_at": "2026-11-02T01:08:32Z",
+      "resolved_at": "2026-11-02T01:20:02Z",
+      "message_id": null,
+      "error_type": "ValueError",
+      "ui_cleared_at": "2026-11-02T01:20:02Z"
+    },
+    {
+      "id": "2803c2516df6ec7c3eed3f2f",
+      "fingerprint": "36d4245c1f32ff02",
+      "starts_at": "2026-11-02T01:17:17.202Z",
+      "session_key": "agent:default:mosaic-automation-alert-2803c2516df6ec7c3eed3f2f",
+      "state": "sent",
+      "alert_json": "{\"annotations\": {\"description\": \"Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-bg-gpu-20261102t005029z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"summary\": \"test from Jeff Peng: background GPU telemetry cache validation\", \"test_from\": \"test from Jeff Peng\"}, \"endsAt\": \"2026-11-02T01:21:17.202Z\", \"fingerprint\": \"36d4245c1f32ff02\", \"receivers\": [{\"name\": \"null\"}], \"startsAt\": \"2026-11-02T01:17:17.202Z\", \"status\": {\"inhibitedBy\": [], \"mutedBy\": [], \"silencedBy\": [], \"state\": \"active\"}, \"updatedAt\": \"2026-11-02T01:17:17.203Z\", \"generatorURL\": \"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22bg-gpu-20261102t005029z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1\", \"labels\": {\"alertname\": \"MosaicBackgroundGpuTelemetrySimulation\", \"background_attempt\": \"3\", \"background_validation\": \"true\", \"cluster\": \"l20-lab\", \"container\": \"telemetry\", \"endpoint\": \"metrics\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"experiment\": \"gpu-telemetry-cache\", \"gpu\": \"0\", \"gpu_uuid\": \"GPU-00000000-0000-0000-0000-000000000005\", \"instance\": \"192.0.2.25:8080\", \"job\": \"gpu-telemetry-fixture\", \"mosaic_test\": \"true\", \"namespace\": \"mosaic-bg-gpu-20261102t005029z\", \"node\": \"gpu-node-01\", \"pod\": \"gpu-telemetry-fixture\", \"prometheus\": \"monitoring/kube-prometheus-stack-prometheus\", \"run_id\": \"bg-gpu-20261102t005029z\", \"service\": \"gpu-telemetry-fixture\", \"severity\": \"warning\", \"simulation\": \"true\", \"test_namespace\": \"mosaic-bg-gpu-20261102t005029z\", \"test_pod\": \"gpu-telemetry-fixture\"}}",
+      "created_at": "2026-11-02T01:17:21Z",
+      "updated_at": "2026-11-02T01:19:10Z",
+      "resolved_at": "2026-11-02T01:23:52Z",
+      "message_id": "om_x100b614a1e1294acdd7edd5c26d5db6",
+      "error_type": null,
+      "ui_cleared_at": "2026-11-02T01:23:52Z"
+    },
+    {
+      "id": "828bd358db0367b7497479b3",
+      "fingerprint": "c8286cdd6ed50269",
+      "starts_at": "2026-11-02T07:24:44.121Z",
+      "session_key": "agent:default:mosaic-automation-alert-828bd358db0367b7497479b3",
+      "state": "sent",
+      "alert_json": "{\"annotations\": {\"description\": \"Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-dm-gpu-20261102t072211z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"summary\": \"test from Jeff Peng: direct-message GPU telemetry cache validation\", \"test_from\": \"test from Jeff Peng\"}, \"endsAt\": \"2026-11-02T07:28:44.121Z\", \"fingerprint\": \"c8286cdd6ed50269\", \"receivers\": [{\"name\": \"null\"}], \"startsAt\": \"2026-11-02T07:24:44.121Z\", \"status\": {\"inhibitedBy\": [], \"mutedBy\": [], \"silencedBy\": [], \"state\": \"active\"}, \"updatedAt\": \"2026-11-02T07:24:44.123Z\", \"generatorURL\": \"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22dm-gpu-20261102t072211z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1\", \"labels\": {\"alertname\": \"MosaicDirectMessageGpuTelemetrySimulation\", \"background_validation\": \"true\", \"cluster\": \"l20-lab\", \"container\": \"telemetry\", \"endpoint\": \"metrics\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"experiment\": \"gpu-telemetry-cache\", \"gpu\": \"0\", \"gpu_uuid\": \"GPU-00000000-0000-0000-0000-000000000005\", \"instance\": \"192.0.2.28:8080\", \"job\": \"gpu-telemetry-fixture\", \"mosaic_test\": \"true\", \"namespace\": \"mosaic-dm-gpu-20261102t072211z\", \"node\": \"gpu-node-01\", \"pod\": \"gpu-telemetry-fixture\", \"prometheus\": \"monitoring/kube-prometheus-stack-prometheus\", \"run_id\": \"dm-gpu-20261102t072211z\", \"service\": \"gpu-telemetry-fixture\", \"severity\": \"warning\", \"simulation\": \"true\", \"test_namespace\": \"mosaic-dm-gpu-20261102t072211z\", \"test_pod\": \"gpu-telemetry-fixture\"}}",
+      "created_at": "2026-11-02T07:24:48Z",
+      "updated_at": "2026-11-02T07:26:21Z",
+      "resolved_at": "2026-11-02T07:35:41Z",
+      "message_id": "om_x100b61b7ff0548b4c0e6162761e5cd5",
+      "error_type": null,
+      "ui_cleared_at": "2026-11-02T07:35:41Z"
+    },
+    {
+      "id": "04877ab39d895ba2ca39b31d",
+      "fingerprint": "4e53a6cfec42bc61",
+      "starts_at": "2026-11-02T07:44:06.624Z",
+      "session_key": "agent:default:mosaic-automation-alert-04877ab39d895ba2ca39b31d",
+      "state": "sent",
+      "alert_json": "{\"annotations\": {\"description\": \"Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-dm-gpu-20261102t074202z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"summary\": \"test from Jeff Peng: direct-message GPU telemetry cache validation\", \"test_from\": \"test from Jeff Peng\"}, \"endsAt\": \"2026-11-02T07:48:06.624Z\", \"fingerprint\": \"4e53a6cfec42bc61\", \"receivers\": [{\"name\": \"null\"}], \"startsAt\": \"2026-11-02T07:44:06.624Z\", \"status\": {\"inhibitedBy\": [], \"mutedBy\": [], \"silencedBy\": [], \"state\": \"active\"}, \"updatedAt\": \"2026-11-02T07:44:06.627Z\", \"generatorURL\": \"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22dm-gpu-20261102t074202z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1\", \"labels\": {\"alertname\": \"MosaicDirectMessageGpuTelemetrySimulation\", \"background_validation\": \"true\", \"cluster\": \"l20-lab\", \"container\": \"telemetry\", \"endpoint\": \"metrics\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"experiment\": \"gpu-telemetry-cache\", \"gpu\": \"0\", \"gpu_uuid\": \"GPU-00000000-0000-0000-0000-000000000005\", \"instance\": \"192.0.2.22:8080\", \"job\": \"gpu-telemetry-fixture\", \"mosaic_test\": \"true\", \"namespace\": \"mosaic-dm-gpu-20261102t074202z\", \"node\": \"gpu-node-01\", \"pod\": \"gpu-telemetry-fixture\", \"prometheus\": \"monitoring/kube-prometheus-stack-prometheus\", \"run_id\": \"dm-gpu-20261102t074202z\", \"service\": \"gpu-telemetry-fixture\", \"severity\": \"warning\", \"simulation\": \"true\", \"test_namespace\": \"mosaic-dm-gpu-20261102t074202z\", \"test_pod\": \"gpu-telemetry-fixture\"}}",
+      "created_at": "2026-11-02T07:44:14Z",
+      "updated_at": "2026-11-02T07:46:28Z",
+      "resolved_at": null,
+      "message_id": "om_x100b61b7b38da0a4de0c7f1c0513b24",
+      "error_type": null,
+      "ui_cleared_at": null
+    },
+    {
+      "id": "d6744ea94383791092be4bba",
+      "fingerprint": "f02102a85a74ac73",
+      "starts_at": "2026-11-02T08:08:10.714Z",
+      "session_key": "agent:default:mosaic-automation-alert-d6744ea94383791092be4bba",
+      "state": "delivery_unknown",
+      "alert_json": "{\"annotations\": {\"description\": \"Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-ctx-gpu-20261102t080454z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"summary\": \"test from Jeff Peng: direct-message GPU telemetry cache validation\", \"test_from\": \"test from Jeff Peng\"}, \"endsAt\": \"2026-11-02T08:12:10.714Z\", \"fingerprint\": \"f02102a85a74ac73\", \"receivers\": [{\"name\": \"null\"}], \"startsAt\": \"2026-11-02T08:08:10.714Z\", \"status\": {\"inhibitedBy\": [], \"mutedBy\": [], \"silencedBy\": [], \"state\": \"active\"}, \"updatedAt\": \"2026-11-02T08:08:10.716Z\", \"generatorURL\": \"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22ctx-gpu-20261102t080454z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1\", \"labels\": {\"alertname\": \"MosaicContextLinkedGpuTelemetrySimulation\", \"background_validation\": \"true\", \"cluster\": \"l20-lab\", \"container\": \"telemetry\", \"endpoint\": \"metrics\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"experiment\": \"gpu-telemetry-cache\", \"gpu\": \"0\", \"gpu_uuid\": \"GPU-00000000-0000-0000-0000-000000000005\", \"instance\": \"192.0.2.17:8080\", \"job\": \"gpu-telemetry-fixture\", \"mosaic_test\": \"true\", \"namespace\": \"mosaic-ctx-gpu-20261102t080454z\", \"node\": \"gpu-node-01\", \"pod\": \"gpu-telemetry-fixture\", \"prometheus\": \"monitoring/kube-prometheus-stack-prometheus\", \"run_id\": \"ctx-gpu-20261102t080454z\", \"service\": \"gpu-telemetry-fixture\", \"severity\": \"warning\", \"simulation\": \"true\", \"test_namespace\": \"mosaic-ctx-gpu-20261102t080454z\", \"test_pod\": \"gpu-telemetry-fixture\"}}",
+      "created_at": "2026-11-02T08:08:15Z",
+      "updated_at": "2026-11-02T08:09:42Z",
+      "resolved_at": null,
+      "message_id": null,
+      "error_type": "RuntimeError",
+      "ui_cleared_at": null
+    },
+    {
+      "id": "703e20f33e3d9c2654404061",
+      "fingerprint": "372afb4f518a9853",
+      "starts_at": "2026-11-02T08:30:13.234Z",
+      "session_key": "agent:default:mosaic-automation-alert-703e20f33e3d9c2654404061",
+      "state": "delivery_unknown",
+      "alert_json": "{\"annotations\": {\"description\": \"Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-autoctx-gpu-20261102t082721z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"summary\": \"test from Jeff Peng: direct-message GPU telemetry cache validation\", \"test_from\": \"test from Jeff Peng\"}, \"endsAt\": \"2026-11-02T08:34:13.234Z\", \"fingerprint\": \"372afb4f518a9853\", \"receivers\": [{\"name\": \"null\"}], \"startsAt\": \"2026-11-02T08:30:13.234Z\", \"status\": {\"inhibitedBy\": [], \"mutedBy\": [], \"silencedBy\": [], \"state\": \"active\"}, \"updatedAt\": \"2026-11-02T08:30:13.237Z\", \"generatorURL\": \"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22autoctx-gpu-20261102t082721z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1\", \"labels\": {\"alertname\": \"MosaicContextLinkedGpuTelemetrySimulation\", \"background_validation\": \"true\", \"cluster\": \"l20-lab\", \"container\": \"telemetry\", \"endpoint\": \"metrics\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"experiment\": \"gpu-telemetry-cache\", \"gpu\": \"0\", \"gpu_uuid\": \"GPU-00000000-0000-0000-0000-000000000005\", \"instance\": \"192.0.2.23:8080\", \"job\": \"gpu-telemetry-fixture\", \"mosaic_test\": \"true\", \"namespace\": \"mosaic-autoctx-gpu-20261102t082721z\", \"node\": \"gpu-node-01\", \"pod\": \"gpu-telemetry-fixture\", \"prometheus\": \"monitoring/kube-prometheus-stack-prometheus\", \"run_id\": \"autoctx-gpu-20261102t082721z\", \"service\": \"gpu-telemetry-fixture\", \"severity\": \"warning\", \"simulation\": \"true\", \"test_namespace\": \"mosaic-autoctx-gpu-20261102t082721z\", \"test_pod\": \"gpu-telemetry-fixture\"}}",
+      "created_at": "2026-11-02T08:30:13Z",
+      "updated_at": "2026-11-02T08:32:54Z",
+      "resolved_at": null,
+      "message_id": null,
+      "error_type": "RuntimeError",
+      "ui_cleared_at": null
+    },
+    {
+      "id": "3b0084bf90af7f0901912918",
+      "fingerprint": "f3cc3c801e7f4728",
+      "starts_at": "2026-11-02T08:55:48.054Z",
+      "session_key": "agent:default:mosaic-automation-alert-3b0084bf90af7f0901912918",
+      "state": "sent",
+      "alert_json": "{\"annotations\": {\"description\": \"Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-handoff-gpu-20261102t085400z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"summary\": \"test from Jeff Peng: direct-message GPU telemetry cache validation\", \"test_from\": \"test from Jeff Peng\"}, \"endsAt\": \"2026-11-02T08:59:48.054Z\", \"fingerprint\": \"f3cc3c801e7f4728\", \"receivers\": [{\"name\": \"null\"}], \"startsAt\": \"2026-11-02T08:55:48.054Z\", \"status\": {\"inhibitedBy\": [], \"mutedBy\": [], \"silencedBy\": [], \"state\": \"active\"}, \"updatedAt\": \"2026-11-02T08:55:48.057Z\", \"generatorURL\": \"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22handoff-gpu-20261102t085400z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1\", \"labels\": {\"alertname\": \"MosaicContextLinkedGpuTelemetrySimulation\", \"background_validation\": \"true\", \"cluster\": \"l20-lab\", \"container\": \"telemetry\", \"endpoint\": \"metrics\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"experiment\": \"gpu-telemetry-cache\", \"gpu\": \"0\", \"gpu_uuid\": \"GPU-00000000-0000-0000-0000-000000000005\", \"instance\": \"192.0.2.20:8080\", \"job\": \"gpu-telemetry-fixture\", \"mosaic_test\": \"true\", \"namespace\": \"mosaic-handoff-gpu-20261102t085400z\", \"node\": \"gpu-node-01\", \"pod\": \"gpu-telemetry-fixture\", \"prometheus\": \"monitoring/kube-prometheus-stack-prometheus\", \"run_id\": \"handoff-gpu-20261102t085400z\", \"service\": \"gpu-telemetry-fixture\", \"severity\": \"warning\", \"simulation\": \"true\", \"test_namespace\": \"mosaic-handoff-gpu-20261102t085400z\", \"test_pod\": \"gpu-telemetry-fixture\"}}",
+      "created_at": "2026-11-02T08:55:52Z",
+      "updated_at": "2026-11-02T08:58:19Z",
+      "resolved_at": "2026-11-02T09:05:03Z",
+      "message_id": "om_x100b61b14468f570dd6b4d1203771ad",
+      "error_type": null,
+      "ui_cleared_at": "2026-11-02T09:05:03Z"
+    }
+  ],
+  "events": [
+    {
+      "sequence": 1,
+      "incident_id": "7ed674ba17c49a037fe3e651",
+      "at": "2026-11-02T00:56:11Z",
+      "state": "collecting",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 2,
+      "incident_id": "7ed674ba17c49a037fe3e651",
+      "at": "2026-11-02T00:56:26Z",
+      "state": "needs_attention",
+      "detail_json": "{\"error_type\": \"ValueError\"}"
+    },
+    {
+      "sequence": 3,
+      "incident_id": "df5310a8ede1f42b14c421ec",
+      "at": "2026-11-02T01:07:31Z",
+      "state": "collecting",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 4,
+      "incident_id": "df5310a8ede1f42b14c421ec",
+      "at": "2026-11-02T01:08:02Z",
+      "state": "researching",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 5,
+      "incident_id": "df5310a8ede1f42b14c421ec",
+      "at": "2026-11-02T01:08:32Z",
+      "state": "needs_attention",
+      "detail_json": "{\"error_type\": \"ValueError\"}"
+    },
+    {
+      "sequence": 6,
+      "incident_id": "2803c2516df6ec7c3eed3f2f",
+      "at": "2026-11-02T01:17:21Z",
+      "state": "collecting",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 7,
+      "incident_id": "2803c2516df6ec7c3eed3f2f",
+      "at": "2026-11-02T01:17:59Z",
+      "state": "researching",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 8,
+      "incident_id": "2803c2516df6ec7c3eed3f2f",
+      "at": "2026-11-02T01:18:24Z",
+      "state": "synthesizing",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 9,
+      "incident_id": "2803c2516df6ec7c3eed3f2f",
+      "at": "2026-11-02T01:19:04Z",
+      "state": "ready",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 10,
+      "incident_id": "2803c2516df6ec7c3eed3f2f",
+      "at": "2026-11-02T01:19:04Z",
+      "state": "sending",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 11,
+      "incident_id": "2803c2516df6ec7c3eed3f2f",
+      "at": "2026-11-02T01:19:10Z",
+      "state": "sent",
+      "detail_json": "{\"message_id\": \"om_x100b614a1e1294acdd7edd5c26d5db6\"}"
+    },
+    {
+      "sequence": 12,
+      "incident_id": "828bd358db0367b7497479b3",
+      "at": "2026-11-02T07:24:48Z",
+      "state": "collecting",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 13,
+      "incident_id": "828bd358db0367b7497479b3",
+      "at": "2026-11-02T07:25:15Z",
+      "state": "researching",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 14,
+      "incident_id": "828bd358db0367b7497479b3",
+      "at": "2026-11-02T07:25:26Z",
+      "state": "synthesizing",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 15,
+      "incident_id": "828bd358db0367b7497479b3",
+      "at": "2026-11-02T07:26:15Z",
+      "state": "ready",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 16,
+      "incident_id": "828bd358db0367b7497479b3",
+      "at": "2026-11-02T07:26:15Z",
+      "state": "sending",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 17,
+      "incident_id": "828bd358db0367b7497479b3",
+      "at": "2026-11-02T07:26:21Z",
+      "state": "sent",
+      "detail_json": "{\"message_id\": \"om_x100b61b7ff0548b4c0e6162761e5cd5\"}"
+    },
+    {
+      "sequence": 18,
+      "incident_id": "04877ab39d895ba2ca39b31d",
+      "at": "2026-11-02T07:44:14Z",
+      "state": "collecting",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 19,
+      "incident_id": "04877ab39d895ba2ca39b31d",
+      "at": "2026-11-02T07:44:57Z",
+      "state": "researching",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 20,
+      "incident_id": "04877ab39d895ba2ca39b31d",
+      "at": "2026-11-02T07:45:34Z",
+      "state": "synthesizing",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 21,
+      "incident_id": "04877ab39d895ba2ca39b31d",
+      "at": "2026-11-02T07:46:22Z",
+      "state": "ready",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 22,
+      "incident_id": "04877ab39d895ba2ca39b31d",
+      "at": "2026-11-02T07:46:22Z",
+      "state": "sending",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 23,
+      "incident_id": "04877ab39d895ba2ca39b31d",
+      "at": "2026-11-02T07:46:28Z",
+      "state": "sent",
+      "detail_json": "{\"message_id\": \"om_x100b61b7b38da0a4de0c7f1c0513b24\"}"
+    },
+    {
+      "sequence": 24,
+      "incident_id": "d6744ea94383791092be4bba",
+      "at": "2026-11-02T08:08:15Z",
+      "state": "collecting",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 25,
+      "incident_id": "d6744ea94383791092be4bba",
+      "at": "2026-11-02T08:08:49Z",
+      "state": "researching",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 26,
+      "incident_id": "d6744ea94383791092be4bba",
+      "at": "2026-11-02T08:08:59Z",
+      "state": "synthesizing",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 27,
+      "incident_id": "d6744ea94383791092be4bba",
+      "at": "2026-11-02T08:09:38Z",
+      "state": "ready",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 28,
+      "incident_id": "d6744ea94383791092be4bba",
+      "at": "2026-11-02T08:09:38Z",
+      "state": "sending",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 29,
+      "incident_id": "d6744ea94383791092be4bba",
+      "at": "2026-11-02T08:09:42Z",
+      "state": "delivery_unknown",
+      "detail_json": "{\"error_type\": \"RuntimeError\"}"
+    },
+    {
+      "sequence": 30,
+      "incident_id": "703e20f33e3d9c2654404061",
+      "at": "2026-11-02T08:30:13Z",
+      "state": "collecting",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 31,
+      "incident_id": "703e20f33e3d9c2654404061",
+      "at": "2026-11-02T08:30:55Z",
+      "state": "researching",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 32,
+      "incident_id": "703e20f33e3d9c2654404061",
+      "at": "2026-11-02T08:31:51Z",
+      "state": "synthesizing",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 33,
+      "incident_id": "703e20f33e3d9c2654404061",
+      "at": "2026-11-02T08:32:42Z",
+      "state": "ready",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 34,
+      "incident_id": "703e20f33e3d9c2654404061",
+      "at": "2026-11-02T08:32:42Z",
+      "state": "sending",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 35,
+      "incident_id": "703e20f33e3d9c2654404061",
+      "at": "2026-11-02T08:32:54Z",
+      "state": "delivery_unknown",
+      "detail_json": "{\"error_type\": \"RuntimeError\"}"
+    },
+    {
+      "sequence": 36,
+      "incident_id": "3b0084bf90af7f0901912918",
+      "at": "2026-11-02T08:55:52Z",
+      "state": "collecting",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 37,
+      "incident_id": "3b0084bf90af7f0901912918",
+      "at": "2026-11-02T08:56:16Z",
+      "state": "researching",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 38,
+      "incident_id": "3b0084bf90af7f0901912918",
+      "at": "2026-11-02T08:57:02Z",
+      "state": "synthesizing",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 39,
+      "incident_id": "3b0084bf90af7f0901912918",
+      "at": "2026-11-02T08:57:57Z",
+      "state": "ready",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 40,
+      "incident_id": "3b0084bf90af7f0901912918",
+      "at": "2026-11-02T08:57:57Z",
+      "state": "sending",
+      "detail_json": "{}"
+    },
+    {
+      "sequence": 41,
+      "incident_id": "3b0084bf90af7f0901912918",
+      "at": "2026-11-02T08:58:19Z",
+      "state": "sent",
+      "detail_json": "{\"message_id\": \"om_x100b61b14468f570dd6b4d1203771ad\"}"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "basis": "Real ordinary human platform input, native Agent record and contextual Qwen answer, with native reply in the same verified p2p chat. Automatic handoff model output is excluded.",
+  "runId": "handoff-gpu-20261102t085400z",
+  "incident": "3b0084bf90af7f0901912918",
+  "reportMessageId": "om_x100b61b14468f570dd6b4d1203771ad",
+  "contextInputRecordId": "8a93da79",
+  "nativeHumanInputSourceRecord": 29,
+  "humanMessage": {
+    "id": "om_x100b61b10605d080cf1d0f49f92aac4",
+    "parentId": null,
+    "body": {
+      "content": "{\"text\":\"你能用几句话总结一下刚才的报告吗？\"}"
+    }
+  },
+  "ordinaryQuestion": "你能用几句话总结一下刚才的报告吗？",
+  "contextualModelReply": {
+    "recordId": "5eeb1905",
+    "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+    "text": "\n\n刚才的报告核心就三件事：\n\n1. **测试场景**：Jeff Peng 通过 `dcgmi test --inject` 在隔离的 DCGM 引擎中注入了 Xid 95 和 ECC 错误值，用于验证告警系统能否正确捕获。\n\n2. **注入与真实硬件分离**：注入端 DCGM 异常，但生产端 DCGM、NVML 直接采样、内核 ring 三处真实证据全部为零/无异常，说明注入未污染真实 GPU。\n\n3. **无需干预**：告警是注入触发的模拟结果，不是真实硬件故障，无需任何运维操作。"
+  },
+  "nativeReplyIds": [
+    "om_x100b61b107bb6cbcdf14d7179173091"
+  ],
+  "completeReportInRealAgentInput": true,
+  "nativeUserQuestionWithoutQuoteCopiedReportOrRunId": true,
+  "operatorSuppliedRuntimeQuestionAnswerContextOrReport": false,
+  "humanConfirmedReportReceivedAndQuestionSent": true,
+  "userIndependentlyConfirmedReplyRead": false,
+  "limitations": [
+    "Context transport and automatic loop verified; no claim of complete GPU hardware diagnosis accuracy",
+    "Only configured test labels processed; production alert population not expanded",
+    "Second real unauthorized identity acceptance remains separate"
+  ]
+}

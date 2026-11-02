@@ -1,0 +1,5 @@
+{
+  "method": "GET",
+  "path": "/api/openclaw/chat?sessionKey=agent%3Adefault%3Amosaic-automation-alert-7ed674ba17c49a037fe3e651&limit=1000",
+  "body": null
+}

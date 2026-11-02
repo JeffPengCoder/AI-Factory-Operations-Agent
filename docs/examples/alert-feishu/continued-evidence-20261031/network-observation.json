@@ -1,0 +1,471 @@
+[
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:30.381910+00:00",
+    "path": "/",
+    "method": "GET",
+    "resourceType": "document"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:31.056865+00:00",
+    "path": "/",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:31.063647+00:00",
+    "path": "/light_job-recovery.png",
+    "method": "GET",
+    "resourceType": "image"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:31.064252+00:00",
+    "path": "/light_k8s.png",
+    "method": "GET",
+    "resourceType": "image"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:31.064931+00:00",
+    "path": "/_next/static/chunks/1vb6-djtp9257.css",
+    "method": "GET",
+    "resourceType": "stylesheet"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:31.065114+00:00",
+    "path": "/_next/static/chunks/42x_0tvgvtycd.css",
+    "method": "GET",
+    "resourceType": "stylesheet"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:31.065274+00:00",
+    "path": "/light_bcm.png",
+    "method": "GET",
+    "resourceType": "image"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:31.065474+00:00",
+    "path": "/light_observability.png",
+    "method": "GET",
+    "resourceType": "image"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:31.065646+00:00",
+    "path": "/light_nemoclaw.png",
+    "method": "GET",
+    "resourceType": "image"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:31.065791+00:00",
+    "path": "/_next/static/chunks/3l04zcqx63h3y.js",
+    "method": "GET",
+    "resourceType": "script"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:31.065947+00:00",
+    "path": "/_next/static/chunks/0cegfsgm6lvdz.js",
+    "method": "GET",
+    "resourceType": "script"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:31.066242+00:00",
+    "path": "/_next/static/chunks/3byuobrkyz9bj.js",
+    "method": "GET",
+    "resourceType": "script"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:31.066458+00:00",
+    "path": "/_next/static/chunks/turbopack-3eyf67d9t5dl9.js",
+    "method": "GET",
+    "resourceType": "script"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:31.066664+00:00",
+    "path": "/_next/static/chunks/291fzrtmqq49h.js",
+    "method": "GET",
+    "resourceType": "script"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:31.066902+00:00",
+    "path": "/_next/static/chunks/2lygyhso3tp3n.js",
+    "method": "GET",
+    "resourceType": "script"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:32.247359+00:00",
+    "path": "/light_job-recovery.png",
+    "status": 200,
+    "contentType": "image/png"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:35.326991+00:00",
+    "path": "/_next/static/chunks/1vb6-djtp9257.css",
+    "status": 200,
+    "contentType": "text/css; charset=UTF-8"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:35.484815+00:00",
+    "path": "/light_k8s.png",
+    "status": 200,
+    "contentType": "image/png"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:35.757438+00:00",
+    "path": "/_next/static/chunks/42x_0tvgvtycd.css",
+    "status": 200,
+    "contentType": "text/css; charset=UTF-8"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:35.897134+00:00",
+    "path": "/light_bcm.png",
+    "status": 200,
+    "contentType": "image/png"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:37.587208+00:00",
+    "path": "/light_observability.png",
+    "status": 200,
+    "contentType": "image/png"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:38.160873+00:00",
+    "path": "/light_nemoclaw.png",
+    "status": 200,
+    "contentType": "image/png"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:38.428676+00:00",
+    "path": "/_next/static/chunks/3l04zcqx63h3y.js",
+    "status": 200,
+    "contentType": "application/javascript; charset=UTF-8"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:38.990196+00:00",
+    "path": "/_next/static/chunks/0cegfsgm6lvdz.js",
+    "status": 200,
+    "contentType": "application/javascript; charset=UTF-8"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:39.463510+00:00",
+    "path": "/_next/static/chunks/3byuobrkyz9bj.js",
+    "status": 200,
+    "contentType": "application/javascript; charset=UTF-8"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:39.838317+00:00",
+    "path": "/_next/static/chunks/2lygyhso3tp3n.js",
+    "status": 200,
+    "contentType": "application/javascript; charset=UTF-8"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:39.851278+00:00",
+    "path": "/_next/static/chunks/turbopack-3eyf67d9t5dl9.js",
+    "status": 200,
+    "contentType": "application/javascript; charset=UTF-8"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:39.988455+00:00",
+    "path": "/_next/static/chunks/291fzrtmqq49h.js",
+    "status": 200,
+    "contentType": "application/javascript; charset=UTF-8"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.030084+00:00",
+    "path": "/api/openclaw/commands",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.030196+00:00",
+    "path": "/api/dashboard/feedback",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.030282+00:00",
+    "path": "/api/openclaw/chat",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.030363+00:00",
+    "path": "/api/openclaw/approvals",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.030437+00:00",
+    "path": "/api/alerts/alertmanager",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.030519+00:00",
+    "path": "/api/modules",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.030590+00:00",
+    "path": "/api/agents",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.030792+00:00",
+    "path": "/api/openclaw/sessions",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.030938+00:00",
+    "path": "/api/ui/events",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.031033+00:00",
+    "path": "/api/alerts/events",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.031171+00:00",
+    "path": "/favicon.ico",
+    "method": "GET",
+    "resourceType": "other"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:40.179331+00:00",
+    "path": "/api/dashboard/feedback",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:40.180431+00:00",
+    "path": "/api/openclaw/approvals",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:40.254879+00:00",
+    "path": "/api/openclaw/commands",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:40.275182+00:00",
+    "path": "/api/openclaw/chat",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:40.319636+00:00",
+    "path": "/api/modules",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:40.319889+00:00",
+    "path": "/api/alerts/alertmanager",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.323930+00:00",
+    "path": "/api/openclaw/session-access",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.324136+00:00",
+    "path": "/api/ui/events",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.324260+00:00",
+    "path": "/api/alerts/events",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:40.452654+00:00",
+    "path": "/api/agents",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:40.453487+00:00",
+    "path": "/favicon.ico",
+    "status": 200,
+    "contentType": "image/x-icon"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.455972+00:00",
+    "path": "/api/ui/events",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:40.456460+00:00",
+    "path": "/api/alerts/events",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:40.498345+00:00",
+    "path": "/api/openclaw/sessions",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:40.530409+00:00",
+    "path": "/api/openclaw/session-access",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:40.596187+00:00",
+    "path": "/api/alerts/events",
+    "status": 200,
+    "contentType": "application/x-ndjson; charset=utf-8"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:41.220398+00:00",
+    "path": "/api/settings/llm",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:41.459817+00:00",
+    "path": "/api/settings/llm",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:42.029049+00:00",
+    "path": "/api/openclaw/approvals",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:42.163017+00:00",
+    "path": "/api/openclaw/approvals",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:44.021087+00:00",
+    "path": "/api/openclaw/approvals",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:44.162114+00:00",
+    "path": "/api/openclaw/approvals",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:46.022547+00:00",
+    "path": "/api/openclaw/approvals",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:46.165796+00:00",
+    "path": "/api/openclaw/approvals",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:48.026620+00:00",
+    "path": "/api/openclaw/approvals",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:48.166828+00:00",
+    "path": "/api/openclaw/approvals",
+    "status": 200,
+    "contentType": "application/json"
+  },
+  {
+    "event": "request",
+    "at": "2026-10-31T07:15:50.021956+00:00",
+    "path": "/api/openclaw/approvals",
+    "method": "GET",
+    "resourceType": "fetch"
+  },
+  {
+    "event": "response",
+    "at": "2026-10-31T07:15:50.170464+00:00",
+    "path": "/api/openclaw/approvals",
+    "status": 200,
+    "contentType": "application/json"
+  }
+]

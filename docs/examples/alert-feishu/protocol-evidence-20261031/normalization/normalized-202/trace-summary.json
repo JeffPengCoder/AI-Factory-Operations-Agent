@@ -1,0 +1,55 @@
+{
+  "elapsedSeconds": 3.371415846981108,
+  "messageCount": 4,
+  "toolEvents": [
+    {
+      "event": "on_tool_start",
+      "name": "opensearch_search"
+    },
+    {
+      "event": "on_tool_end",
+      "name": "opensearch_search"
+    }
+  ],
+  "sourceSink": [
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "chunk_index": 2,
+      "score": 1.0
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "collection": "mosaic-validation-20261031",
+      "chunk_index": 1,
+      "score": 0.18801412
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "chunk_index": 3,
+      "score": 0.046920177
+    }
+  ],
+  "answer": "## Answer\n\n### Public Verification Code\n\nThe public verification code printed in the **Operator Decision and Evidence** section on **page 2** of the indexed document is:\n\n> **CEDAR-NEBULA-E720C8C9**\n\n**Source citation:** `mosaic-validation-control.pdf`, page 2, indexed under the collection *mosaic-validation-20261031*, referencing MOSAIC-KB-20261031.\n\n### Can an Automated Alert Investigation Directly Repair a Service?\n\n**No \u2014 automated alert investigations are read-only and cannot directly repair a service.** \n\nPer the same document (page 2), the text states explicitly:\n\n> *\"Automatic alert investigations remain read-only.\"*\n\nInstead, a separate **authorized interactive repair conversation** must be used, which preserves:\n- the alert ID\n- the investigation session key\n- research sources\n- the repair session key\n\nCompletion evidence requires exact tool arguments, `toolCallId`, exit status, full service state before and after, logs, and an independently observed restored condition.",
+  "sources": [
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    }
+  ],
+  "resultPresent": true
+}

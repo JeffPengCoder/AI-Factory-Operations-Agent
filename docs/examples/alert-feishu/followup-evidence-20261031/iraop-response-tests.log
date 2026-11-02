@@ -1,0 +1,114 @@
+(node:59760) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+[iraop-plugin] query: opening SSE http://127.0.0.1:60352/mcp/sse
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:60352/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:60361/mcp/sse
+✔ planning text without sources is incomplete and emits an error event (27.555792ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:60361/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:60370/mcp/sse
+✔ fabricated source-free answer stays complete in details and is withheld from model content (14.124583ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:60370/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:60379/mcp/sse
+✔ research with missing sources is incomplete (11.872584ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:60379/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:60388/mcp/sse
+✔ research with null sources is incomplete (12.751834ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:60388/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:60397/mcp/sse
+✔ research with wrong type sources is incomplete (12.41025ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:60397/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:60406/mcp/sse
+✔ research with empty reference sources is incomplete (10.952583ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:60406/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:60415/mcp/sse
+✔ research with invalid page sources is incomplete (10.765041ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:60415/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:60424/mcp/sse
+✔ an empty answer is incomplete even when a source is present (12.186667ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:60424/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:60433/mcp/sse
+✔ valid sourced answer remains complete and evidence notes do not mutate raw details (14.278ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:60433/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:60442/mcp/sse
+✔ structured MCP query payload can carry the source references (11.428542ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:60442/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:60451/mcp/sse
+✔ unreadable research payload is incomplete with the raw response retained (11.573417ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:60451/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] list_collections: opening SSE http://127.0.0.1:60460/mcp/sse
+✔ MCP error remains a rejected tool call and error event (12.067583ms)
+[iraop-plugin] list_collections: SSE open, status=200
+[iraop-plugin] list_collections: got endpoint http://127.0.0.1:60460/mcp/messages?session=1
+[iraop-plugin] list_collections: session ready, sending initialize
+[iraop-plugin] list_collections: initialize ok, sending notifications/initialized
+[iraop-plugin] list_collections: calling tools/call name=list_collections
+[iraop-plugin] list_collections: tools/call returned ok
+✔ collection listing does not require answer or sources fields (616.795083ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 854.930209

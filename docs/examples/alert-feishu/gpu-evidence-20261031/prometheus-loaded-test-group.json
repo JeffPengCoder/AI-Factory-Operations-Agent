@@ -1,0 +1,43 @@
+{
+  "at": "2026-10-31T13:36:33.607496+00:00",
+  "status": 200,
+  "groups": [
+    {
+      "name": "mosaic-gpu-rca-20261031t121240z",
+      "file": "/etc/prometheus/rules/prometheus-kube-prometheus-stack-prometheus-rulefiles-0/monitoring-mosaic-gpu-rca-20261031t121240z-476cc14d-fc7f-4720-b5b1-cbc63528356b.yaml",
+      "rules": [
+        {
+          "state": "inactive",
+          "name": "MosaicGpuTelemetrySimulation",
+          "query": "mosaic_test_dcgm_xid_error{run_id=\"gpu-rca-20261031t121240z\",simulation=\"true\"} == 95",
+          "duration": 45,
+          "keepFiringFor": 0,
+          "labels": {
+            "experiment": "gpu-telemetry-cache",
+            "mosaic_test": "true",
+            "run_id": "gpu-rca-20261031t121240z",
+            "severity": "info",
+            "simulation": "true",
+            "test_namespace": "mosaic-gpu-rca-20261031t121240z",
+            "test_pod": "gpu-telemetry-fixture"
+          },
+          "annotations": {
+            "description": "test from Jeff Peng. Run gpu-rca-20261031t121240z. GPU telemetry simulation, not a CPU crash or a physical hardware fault. Cluster target-lab, namespace mosaic-gpu-rca-20261031t121240z, Pod gpu-telemetry-fixture. In View mode read logs from telemetry, nvml-witness, kernel-witness; compare isolated DCGM cache with unchanged live NVML and production DCGM. Then consult iraop_query collection mosaic-gpu-validation-20261031 for generic GPU triage procedure; keep incident facts separate from knowledge. Do not reset, drain or repair any GPU.",
+            "evidence_source": "isolated_dcgm_cache_snapshot",
+            "summary": "GPU telemetry test: isolated DCGM Xid 95 and ECC snapshot",
+            "test_from": "test from Jeff Peng"
+          },
+          "alerts": [],
+          "health": "ok",
+          "evaluationTime": 9.3879e-05,
+          "lastEvaluation": "2026-10-31T13:36:32.800079901Z",
+          "type": "alerting"
+        }
+      ],
+      "interval": 5,
+      "limit": 0,
+      "evaluationTime": 0.000113348,
+      "lastEvaluation": "2026-10-31T13:36:32.800065243Z"
+    }
+  ]
+}

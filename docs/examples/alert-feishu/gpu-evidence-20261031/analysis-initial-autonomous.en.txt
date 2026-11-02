@@ -1,0 +1,51 @@
+
+
+All evidence is gathered. Here is the summary.
+
+---
+
+## Investigation Summary — MosaicGpuTelemetrySimulation
+
+### What is happening
+
+This is a **controlled telemetry simulation**, not a hardware fault. The test fixture (`gpu-telemetry-fixture` by Jeff Peng) deliberately injected a synthetic DCGM Xid 95 into an isolated DCGM host engine to verify that the telemetry pipeline can detect and report it.
+
+### Evidence timeline
+
+| Time (UTC) | Source | What happened |
+|---|---|---|
+| 13:30:13 | DCGM (live, port 5555) | Pre-injection read → all zeros (XID=0, EDVTL=0, EDATL=0) |
+| 13:30:16 | `dcgmi test --inject` | Injected Xid 95 (field 230), ECC val 1 (field 311), ECC lat 1 (field 313) into the **isolated DCGM cache** running on the host-engine socket `/var/tmp/.../engine.sock` with `--denylist-modules` (no hardware polling) |
+| 13:30:18 | DCGM (isolated cache) | dmon on the injected socket shows Xid 95, EDVTL=1, EDATL=1 |
+| 13:30:20 | DCGM (live, port 5555) | Post-injection read on live DCGM → still all zeros |
+
+### Cross-corroboration results
+
+| Evidence source | Xid 95 present? | ECC errors? | Kernel NVRM/Xid? |
+|---|---|---|---|
+| **Isolated DCGM cache snapshot** (this alert) | ✅ Yes (value 95) | ✅ Injected (1, 1) | — |
+| **Live NVML `nvidia-smi`** (before injection) | ❌ No | All zeros (volatile + aggregate) | — |
+| **Live NVML `nvidia-smi`** (after injection) | ❌ No | All zeros (volatile + aggregate) | — |
+| **Prometheus `mosaic_test_nvml_*`** | ❌ 0 series | ❌ 0 series | — |
+| **Prometheus `mosaic_test_dcgm_xid_error` (non-isolated)** | ❌ 0 series | — | — |
+| **Kernel `dmesg` (NVRM/Xid/PCIe)** | — | — | ❌ No Xid messages found |
+
+### Key observations
+
+1. **The isolated DCGM engine was started with `--denylist-modules 1-9`** and `DCGM_ENABLE_INJECTION_APIS=1` — this is a headless DCGM host engine that does not poll the GPU hardware. The injection goes directly into its cached state.
+
+2. **Live NVML counters are unchanged**: Both volatile and aggregate ECC counts are all zeros before and after injection across all 8 GPUs on the node. `allEightGpuEccAndRemapUnchanged: true`.
+
+3. **No kernel NVRM Xid records** exist in the available `dmesg` window — no matching Xid error at any time.
+
+4. **Prometheus produced no non-simulation DCGM Xid metrics** — the only Xid 95 series carries the label `evidence_source=isolated_dcgm_cache_snapshot` and `simulation=true`.
+
+### Verdict
+
+Per the MOSAIC GPU Evidence Triage runbook (from `mosaic-gpu-validation-20261031`):
+
+> "When injected DCGM samples disagree with unchanged live NVML ECC/remap counters and no matching kernel Xid appears in the available log window, report this as **simulated GPU telemetry with insufficient evidence of a live hardware defect**. Identify the injection source or fixture as the cause, and do not call injected counters corroboration of a physical failure."
+
+**The alert is a valid test signal.** The injected Xid 95 was correctly captured by the Prometheus alerting rule `mosaic_test_dcgm_xid_error == 95`. There is no evidence of an actual GPU hardware defect. No remediation (drain, reset, or repair) is warranted for GPU 0 on node `target-node-1`.
+
+The pod can remain running — the fixture completes within its 60-second injection TTL and then exits cleanly.

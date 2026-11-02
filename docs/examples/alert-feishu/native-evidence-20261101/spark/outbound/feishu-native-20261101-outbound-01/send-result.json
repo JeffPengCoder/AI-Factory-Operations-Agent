@@ -1,0 +1,99 @@
+{
+  "at": "2026-11-01T13:01:36.676302+00:00",
+  "exitCode": 0,
+  "results": [
+    {
+      "action": "send",
+      "channel": "feishu",
+      "dryRun": false,
+      "handledBy": "plugin",
+      "messageId": "om_REDACTED_003",
+      "payload": {
+        "ok": true,
+        "channel": "feishu",
+        "action": "send",
+        "messageId": "om_REDACTED_003",
+        "chatId": "oc_TEST_GROUP",
+        "receipt": {
+          "primaryPlatformMessageId": "om_REDACTED_003",
+          "platformMessageIds": [
+            "om_REDACTED_003"
+          ],
+          "parts": [
+            {
+              "platformMessageId": "om_REDACTED_003",
+              "kind": "text",
+              "index": 0,
+              "threadId": "oc_TEST_GROUP",
+              "raw": {
+                "channel": "feishu",
+                "messageId": "om_REDACTED_003",
+                "chatId": "oc_TEST_GROUP",
+                "conversationId": "oc_TEST_GROUP"
+              }
+            }
+          ],
+          "threadId": "oc_TEST_GROUP",
+          "sentAt": 1793538096553,
+          "raw": [
+            {
+              "channel": "feishu",
+              "messageId": "om_REDACTED_003",
+              "chatId": "oc_TEST_GROUP",
+              "conversationId": "oc_TEST_GROUP"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ok": true,
+      "channel": "feishu",
+      "action": "send",
+      "messageId": "om_REDACTED_003",
+      "chatId": "oc_TEST_GROUP",
+      "receipt": {
+        "primaryPlatformMessageId": "om_REDACTED_003",
+        "platformMessageIds": [
+          "om_REDACTED_003"
+        ],
+        "parts": [
+          {
+            "platformMessageId": "om_REDACTED_003",
+            "kind": "text",
+            "index": 0,
+            "threadId": "oc_TEST_GROUP",
+            "raw": {
+              "channel": "feishu",
+              "messageId": "om_REDACTED_003",
+              "chatId": "oc_TEST_GROUP",
+              "conversationId": "oc_TEST_GROUP"
+            }
+          }
+        ],
+        "threadId": "oc_TEST_GROUP",
+        "sentAt": 1793538096553,
+        "raw": [
+          {
+            "channel": "feishu",
+            "messageId": "om_REDACTED_003",
+            "chatId": "oc_TEST_GROUP",
+            "conversationId": "oc_TEST_GROUP"
+          }
+        ]
+      }
+    },
+    {
+      "channel": "feishu",
+      "messageId": "om_REDACTED_003",
+      "chatId": "oc_TEST_GROUP",
+      "conversationId": "oc_TEST_GROUP"
+    },
+    {
+      "channel": "feishu",
+      "messageId": "om_REDACTED_003",
+      "chatId": "oc_TEST_GROUP",
+      "conversationId": "oc_TEST_GROUP"
+    }
+  ]
+}

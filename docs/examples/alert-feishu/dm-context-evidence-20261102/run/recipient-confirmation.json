@@ -1,0 +1,9 @@
+{
+  "userConfirmedNewReportReceived": true,
+  "userConfirmedOrdinaryFollowupSent": true,
+  "question": "你能用几句话总结一下刚才的报告吗？",
+  "nativeHumanMessageId": "om_x100b61b10605d080cf1d0f49f92aac4",
+  "nativeReplyMessageId": "om_x100b61b107bb6cbcdf14d7179173091",
+  "modelRecordId": "5eeb1905",
+  "independentUserConfirmationOfReplyRead": "not separately requested; native platform reply recorded"
+}

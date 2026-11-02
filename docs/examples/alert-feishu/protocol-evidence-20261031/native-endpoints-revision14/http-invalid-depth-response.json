@@ -1,0 +1,4 @@
+{
+  "status": 422,
+  "body": "{\"detail\":[{\"type\":\"literal_error\",\"loc\":[\"body\",\"depth\"],\"msg\":\"Input should be 'quick' or 'deep'\",\"input\":\"invalid\",\"ctx\":{\"expected\":\"'quick' or 'deep'\"}}]}"
+}

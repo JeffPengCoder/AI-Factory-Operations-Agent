@@ -1,0 +1,50 @@
+[
+  {
+    "at": "2026-11-02T01:25:56Z",
+    "alertmanager": [],
+    "incidents": [
+      {
+        "id": "7ed674ba17c49a037fe3e651",
+        "fingerprint": "77592864998cc923",
+        "starts_at": "2026-11-02T00:56:07.202Z",
+        "session_key": "agent:default:mosaic-automation-alert-7ed674ba17c49a037fe3e651",
+        "state": "needs_attention",
+        "alert_json": "{\"annotations\": {\"description\": \"Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-bg-gpu-20261102t005029z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"summary\": \"test from Jeff Peng: background GPU telemetry cache validation\", \"test_from\": \"test from Jeff Peng\"}, \"endsAt\": \"2026-11-02T01:00:07.202Z\", \"fingerprint\": \"77592864998cc923\", \"receivers\": [{\"name\": \"null\"}], \"startsAt\": \"2026-11-02T00:56:07.202Z\", \"status\": {\"inhibitedBy\": [], \"mutedBy\": [], \"silencedBy\": [], \"state\": \"active\"}, \"updatedAt\": \"2026-11-02T00:56:07.204Z\", \"generatorURL\": \"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22bg-gpu-20261102t005029z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1\", \"labels\": {\"alertname\": \"MosaicBackgroundGpuTelemetrySimulation\", \"background_validation\": \"true\", \"cluster\": \"l20-lab\", \"container\": \"telemetry\", \"endpoint\": \"metrics\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"experiment\": \"gpu-telemetry-cache\", \"gpu\": \"0\", \"gpu_uuid\": \"GPU-00000000-0000-0000-0000-000000000005\", \"instance\": \"192.0.2.25:8080\", \"job\": \"gpu-telemetry-fixture\", \"mosaic_test\": \"true\", \"namespace\": \"mosaic-bg-gpu-20261102t005029z\", \"node\": \"gpu-node-01\", \"pod\": \"gpu-telemetry-fixture\", \"prometheus\": \"monitoring/kube-prometheus-stack-prometheus\", \"run_id\": \"bg-gpu-20261102t005029z\", \"service\": \"gpu-telemetry-fixture\", \"severity\": \"warning\", \"simulation\": \"true\", \"test_namespace\": \"mosaic-bg-gpu-20261102t005029z\", \"test_pod\": \"gpu-telemetry-fixture\"}}",
+        "created_at": "2026-11-02T00:56:11Z",
+        "updated_at": "2026-11-02T00:56:26Z",
+        "resolved_at": "2026-11-02T01:10:02Z",
+        "message_id": null,
+        "error_type": "ValueError",
+        "ui_cleared_at": "2026-11-02T01:10:02Z"
+      },
+      {
+        "id": "df5310a8ede1f42b14c421ec",
+        "fingerprint": "2a7b9b7784cb45a3",
+        "starts_at": "2026-11-02T01:07:22.202Z",
+        "session_key": "agent:default:mosaic-automation-alert-df5310a8ede1f42b14c421ec",
+        "state": "needs_attention",
+        "alert_json": "{\"annotations\": {\"description\": \"Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-bg-gpu-20261102t005029z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"summary\": \"test from Jeff Peng: background GPU telemetry cache validation\", \"test_from\": \"test from Jeff Peng\"}, \"endsAt\": \"2026-11-02T01:11:22.202Z\", \"fingerprint\": \"2a7b9b7784cb45a3\", \"receivers\": [{\"name\": \"null\"}], \"startsAt\": \"2026-11-02T01:07:22.202Z\", \"status\": {\"inhibitedBy\": [], \"mutedBy\": [], \"silencedBy\": [], \"state\": \"active\"}, \"updatedAt\": \"2026-11-02T01:07:22.204Z\", \"generatorURL\": \"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22bg-gpu-20261102t005029z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1\", \"labels\": {\"alertname\": \"MosaicBackgroundGpuTelemetrySimulation\", \"background_attempt\": \"2\", \"background_validation\": \"true\", \"cluster\": \"l20-lab\", \"container\": \"telemetry\", \"endpoint\": \"metrics\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"experiment\": \"gpu-telemetry-cache\", \"gpu\": \"0\", \"gpu_uuid\": \"GPU-00000000-0000-0000-0000-000000000005\", \"instance\": \"192.0.2.25:8080\", \"job\": \"gpu-telemetry-fixture\", \"mosaic_test\": \"true\", \"namespace\": \"mosaic-bg-gpu-20261102t005029z\", \"node\": \"gpu-node-01\", \"pod\": \"gpu-telemetry-fixture\", \"prometheus\": \"monitoring/kube-prometheus-stack-prometheus\", \"run_id\": \"bg-gpu-20261102t005029z\", \"service\": \"gpu-telemetry-fixture\", \"severity\": \"warning\", \"simulation\": \"true\", \"test_namespace\": \"mosaic-bg-gpu-20261102t005029z\", \"test_pod\": \"gpu-telemetry-fixture\"}}",
+        "created_at": "2026-11-02T01:07:31Z",
+        "updated_at": "2026-11-02T01:08:32Z",
+        "resolved_at": "2026-11-02T01:20:02Z",
+        "message_id": null,
+        "error_type": "ValueError",
+        "ui_cleared_at": "2026-11-02T01:20:02Z"
+      },
+      {
+        "id": "2803c2516df6ec7c3eed3f2f",
+        "fingerprint": "36d4245c1f32ff02",
+        "starts_at": "2026-11-02T01:17:17.202Z",
+        "session_key": "agent:default:mosaic-automation-alert-2803c2516df6ec7c3eed3f2f",
+        "state": "sent",
+        "alert_json": "{\"annotations\": {\"description\": \"Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-bg-gpu-20261102t005029z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"summary\": \"test from Jeff Peng: background GPU telemetry cache validation\", \"test_from\": \"test from Jeff Peng\"}, \"endsAt\": \"2026-11-02T01:21:17.202Z\", \"fingerprint\": \"36d4245c1f32ff02\", \"receivers\": [{\"name\": \"null\"}], \"startsAt\": \"2026-11-02T01:17:17.202Z\", \"status\": {\"inhibitedBy\": [], \"mutedBy\": [], \"silencedBy\": [], \"state\": \"active\"}, \"updatedAt\": \"2026-11-02T01:17:17.203Z\", \"generatorURL\": \"http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22bg-gpu-20261102t005029z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1\", \"labels\": {\"alertname\": \"MosaicBackgroundGpuTelemetrySimulation\", \"background_attempt\": \"3\", \"background_validation\": \"true\", \"cluster\": \"l20-lab\", \"container\": \"telemetry\", \"endpoint\": \"metrics\", \"evidence_source\": \"isolated_dcgm_cache_snapshot\", \"experiment\": \"gpu-telemetry-cache\", \"gpu\": \"0\", \"gpu_uuid\": \"GPU-00000000-0000-0000-0000-000000000005\", \"instance\": \"192.0.2.25:8080\", \"job\": \"gpu-telemetry-fixture\", \"mosaic_test\": \"true\", \"namespace\": \"mosaic-bg-gpu-20261102t005029z\", \"node\": \"gpu-node-01\", \"pod\": \"gpu-telemetry-fixture\", \"prometheus\": \"monitoring/kube-prometheus-stack-prometheus\", \"run_id\": \"bg-gpu-20261102t005029z\", \"service\": \"gpu-telemetry-fixture\", \"severity\": \"warning\", \"simulation\": \"true\", \"test_namespace\": \"mosaic-bg-gpu-20261102t005029z\", \"test_pod\": \"gpu-telemetry-fixture\"}}",
+        "created_at": "2026-11-02T01:17:21Z",
+        "updated_at": "2026-11-02T01:19:10Z",
+        "resolved_at": "2026-11-02T01:23:52Z",
+        "message_id": "om_x100b614a1e1294acdd7edd5c26d5db6",
+        "error_type": null,
+        "ui_cleared_at": "2026-11-02T01:23:52Z"
+      }
+    ]
+  }
+]

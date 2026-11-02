@@ -1,0 +1,52 @@
+MOSAIC 告警与文档研究测试报告
+标记：test from Jeff Peng
+
+本条验证群机器人投递。告警来自已有合成测试规则；本轮没有新建PrometheusRule、没有注入GPU错误，也没有认定硬件损坏。消息内的私网地址/集群别名已脱敏，完整原件内部留存。
+
+1. 实际告警与会话
+- Alert ID: alertmanager:0fa8cbd733f54a5a
+- Fingerprint: 0fa8cbd733f54a5a
+- 告警阶段：active；这是页面状态，不表示故障已修复。
+- 原告警调查会话：agent:default:alert-alertmanager-0fa8cbd733f54a5a
+- 本次文档复核会话：agent:default:session-2026-10-31t07-17-54-806z
+- 本次Research toolCallId：call_236c3e8807114a05bb4c7445
+
+2. 已核对的事实
+- 当前Spark为Helm revision15，7个Pod Ready；Research已启用，共享模型进程未重启。
+- 此前对已有告警实际采集2节点、10个监控Pod、31个指标点；完整列/数值在交付证据中保留。PrometheusRule读取有RBAC缺口，不能据此声称已验证新规则。
+- 当前控制知识库只有1份2页PDF、4个chunks。下面是真实iraop_query完整返回，包括答案和全部来源；这些文档说明不代表已经检查当前工作负载。
+
+3. 本次文档研究完整结果
+{
+  "answer": "## Answers Based on Indexed Document\n\n**Reference:** `mosaic-validation-control.pdf`, page 2\n\n### Public Verification Code\n\nThe public verification code printed in the **Operator Decision and Evidence** section is:\n\n> **CEDAR-NEBULA-E720C8C9**\n\n### Can an Automated Alert Investigation Directly Repair a Service?\n\n**No.** Per the document:\n\n> *\"Automatic alert investigations remain read-only.\"*\n\nAn automated alert investigation cannot directly repair a service. To perform a repair, you must use **a separate authorized interactive repair conversation**, preserving the alert ID, investigation session key, research sources, and repair session key.",
+  "depth": "quick",
+  "collections_searched": [
+    "mosaic-validation-20261031"
+  ],
+  "sources": [
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    }
+  ]
+}
+
+4. 额外真实负例
+- 文档没有GPU序列号时，Research明确回答不可提供；没有编造硬件序列号。该次HTTP200并带2个文档来源，不等于所问序列号存在。
+- 指定不存在的集合时，接口返回HTTP502并明确index_not_found，不能算检索成功。
+
+5. 修复与自动化边界
+- 告警自动调查是只读的。本条没有执行任何修复。
+- 此前仅在受限用户演示服务验证View拒绝、Edit拒绝/批准/过期不执行、Auto执行/越界拒绝；Kubernetes/Base Command Manager写后端仍关闭。
+- 当前发送由操作员显式执行。没有启用调查结束自动发飞书，也没有启用飞书双向聊天。
+- 只有飞书API业务成功且群中能看到同一Run ID，才算本次投递验收通过。

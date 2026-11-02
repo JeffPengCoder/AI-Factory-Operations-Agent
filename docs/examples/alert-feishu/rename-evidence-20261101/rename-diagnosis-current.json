@@ -1,0 +1,60 @@
+{
+  "at": "2026-11-01T13:43:01.559872+00:00",
+  "appIdSuffix": "<app-id-suffix-redacted>",
+  "locales": {
+    "zh_cn": {
+      "code": 0,
+      "app_name": "APPLICATION_BOT_OLD",
+      "primary_language": "zh_cn",
+      "online_version_id": "oav_REDACTED_01",
+      "status": 1,
+      "i18n": [
+        {
+          "description": "",
+          "i18n_key": "zh_cn",
+          "name": "APPLICATION_BOT_OLD"
+        }
+      ],
+      "onlineVersionChangedSinceInitialSetup": false
+    },
+    "en_us": {
+      "code": 0,
+      "app_name": "APPLICATION_BOT_OLD",
+      "primary_language": "zh_cn",
+      "online_version_id": "oav_REDACTED_01",
+      "status": 1,
+      "i18n": [
+        {
+          "description": "",
+          "i18n_key": "zh_cn",
+          "name": "APPLICATION_BOT_OLD"
+        }
+      ],
+      "onlineVersionChangedSinceInitialSetup": false
+    }
+  },
+  "before": {
+    "app_name": "APPLICATION_BOT_OLD",
+    "primary_language": "zh_cn",
+    "online_version_id": "oav_REDACTED_01",
+    "status": 1,
+    "i18n": [
+      {
+        "description": "",
+        "i18n_key": "zh_cn",
+        "name": "APPLICATION_BOT_OLD"
+      }
+    ]
+  },
+  "botInfo": {
+    "bot": {
+      "activate_status": 2,
+      "app_name": "APPLICATION_BOT_OLD",
+      "avatar_url": "<avatar-url-redacted>",
+      "ip_white_list": [],
+      "open_id": "ou_REDACTED_02"
+    },
+    "code": 0,
+    "msg": "ok"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "kind": "real-agent-input",
+  "sessionKey": "agent:default:feishu:direct:ou_00000000000000000000000000000001",
+  "contextMessageId": "8a93da79",
+  "handoffRunId": "mosaic-alert-6d46296a77db8103e67f514a89b5d427e7abff3eb3c14b60e5cef298a31fa63f-context",
+  "completeReportMatches": true,
+  "reportSha256IgnoringOuterWhitespace": "475a4479e027e9477ef4cc3c6580ea78d1e7676f844ef6f4ec3cb3dc75b8c66e"
+}

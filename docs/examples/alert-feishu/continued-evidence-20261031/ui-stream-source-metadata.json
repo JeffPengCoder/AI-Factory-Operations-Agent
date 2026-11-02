@@ -1,0 +1,17 @@
+[
+  {
+    "name": "[root-of-the-server]__0mazx59._.js",
+    "bytes": 8696,
+    "sha256": "06f16807f55dc5038ce4b918d9543319fd604a9e70d36bac4821c96676957076"
+  },
+  {
+    "name": "[root-of-the-server]__0mazx59._.js.map",
+    "bytes": 35766,
+    "sha256": "ea3521d07ef98f59ee926bd61009ca33ce5cfe12bc618566ac426fb5c74659ee"
+  },
+  {
+    "sourceName": "../../../app/api/ui/events/route.ts",
+    "extracted": "ui-stream-source-2.private.txt",
+    "bytes": 1217
+  }
+]

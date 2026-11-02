@@ -1,0 +1,32 @@
+{
+  "alertmanager_url": "http://192.0.2.44:30093",
+  "mosaic_url": "http://127.0.0.1:13300",
+  "match_labels": {
+    "mosaic_test": "true",
+    "background_validation": "true"
+  },
+  "include_existing": false,
+  "poll_seconds": 10,
+  "timeout_seconds": 600,
+  "research_collections": [
+    "mosaic-gpu-validation-20261031"
+  ],
+  "research_question": "Use only mosaic-gpu-evidence-runbook.pdf to explain the generic GPU evidence procedure: Xid 95, isolated DCGM cache versus live hardware evidence, volatile versus aggregate ECC, kernel-log limitations, and the public retrieval verification code on page 2. Cite filenames and pages. Do not infer this incident or its numeric observations from the document.",
+  "state_dir": "/home/DEPLOY_USER/.local/state/mosaic-alert-worker",
+  "message_prefix": "test from Jeff Peng",
+  "redact_values": [
+    "l20-lab",
+    "gpu-node-01",
+    "gpu-node-01"
+  ],
+  "delivery": {
+    "kubectl": "/home/DEPLOY_USER/.local/bin/kubectl",
+    "context": "kind-mosaic-poc",
+    "namespace": "mosaic",
+    "deployment": "openclaw",
+    "container": "gateway",
+    "channel": "feishu",
+    "target": "chat:oc_00000000000000000000000000000002"
+  },
+  "collection_context": "Use only registered cluster l20-lab. The alert labels test_namespace and test_pod identify this run. Collect that Pod JSON, its namespace events, and timestamps from exactly these containers: telemetry, nvml-witness, kernel-witness. These logs contain the recorded private DCGM cache, production comparison, and real NVML/kernel snapshots. At most a few directly relevant metric queries are needed. Do not enumerate unrelated cluster incidents or try repairs. Return the observed evidence once these checks finish."
+}

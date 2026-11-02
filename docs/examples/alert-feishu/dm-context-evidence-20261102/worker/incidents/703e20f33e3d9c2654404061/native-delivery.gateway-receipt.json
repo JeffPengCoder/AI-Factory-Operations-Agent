@@ -1,0 +1,9 @@
+{
+  "message_id": "om_x100b61b0e5d56cb4c0e40ceb404c377",
+  "result": {
+    "runId": "mosaic-alert-4e59c06b0c72db8b96c3a836a5fe76ef09de3f34d048c571c3acec08f17074dc",
+    "messageId": "om_x100b61b0e5d56cb4c0e40ceb404c377",
+    "channel": "feishu"
+  },
+  "session_key": "agent:default:feishu:direct:ou_00000000000000000000000000000001"
+}

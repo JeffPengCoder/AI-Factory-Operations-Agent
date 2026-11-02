@@ -1,0 +1,64 @@
+--- before/files/openclaw-seed/nemoclaw.json
++++ after/files/openclaw-seed/nemoclaw.json
+@@ -90,7 +90,7 @@
+       }
+     ]
+   },
+-  {{- if and .Values.openclaw.msteams.enabled (not .Values.openclaw.slack.enabled) }}
++  {{- if and (or .Values.openclaw.msteams.enabled .Values.openclaw.feishu.enabled) (not .Values.openclaw.slack.enabled) }}
+   "session": {
+     "dmScope": "per-channel-peer"
+   },
+@@ -129,8 +129,29 @@
+     "servers": {{ $managedMcpServers | toJson }}
+   },
+   {{- end }}
+-  {{- if or .Values.openclaw.slack.enabled .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled }}
++  {{- if or .Values.openclaw.slack.enabled .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled .Values.openclaw.feishu.enabled }}
+   "channels": {
++    {{- if .Values.openclaw.feishu.enabled }}
++    "feishu": {
++      "enabled": true,
++      "domain": {{ .Values.openclaw.feishu.domain | quote }},
++      "connectionMode": "websocket",
++      "appId": "${FEISHU_APP_ID}",
++      "appSecret": "${FEISHU_APP_SECRET}",
++      "configWrites": false,
++      "dmPolicy": "allowlist",
++      "allowFrom": {{ .Values.openclaw.feishu.allowedUserIds | toJson }},
++      "groupPolicy": {{ ternary "allowlist" "disabled" (not (empty .Values.openclaw.feishu.allowedGroupIds)) | quote }},
++      "groupAllowFrom": {{ .Values.openclaw.feishu.allowedGroupIds | toJson }},
++      "groupSenderAllowFrom": {{ .Values.openclaw.feishu.allowedUserIds | toJson }},
++      "groupSessionScope": "group_sender",
++      "requireMention": true,
++      "tools": {
++        "doc": false, "chat": false, "wiki": false, "drive": false,
++        "perm": false, "scopes": false, "bitable": false, "base": false
++      }
++    }{{- if or .Values.openclaw.slack.enabled .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled }},{{- end }}
++    {{- end }}
+     {{- if or .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled }}
+     "msteams": {
+       "enabled": {{ .Values.openclaw.msteams.enabled }},
+@@ -234,7 +255,8 @@
+       "observability",
+       "remote-ssh",
+       "slurm",
+-      "llm"{{- if or .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled }},
++      "llm"{{- if .Values.openclaw.feishu.enabled }},
++      "feishu"{{- end }}{{- if or .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled }},
+       "msteams"{{- end }}{{- if .Values.openclaw.slack.enabled }},
+       "slack"{{- end }}
+     ],
+@@ -270,7 +292,10 @@
+       },
+       "llm": {
+         "enabled": true
+-      }{{- if or .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled }},
++      }{{- if .Values.openclaw.feishu.enabled }},
++      "feishu": {
++        "enabled": true
++      }{{- end }}{{- if or .Values.openclaw.msteams.install .Values.openclaw.msteams.enabled }},
+       "msteams": {
+         "enabled": true
+       }{{- end }}{{- if .Values.openclaw.slack.enabled }},

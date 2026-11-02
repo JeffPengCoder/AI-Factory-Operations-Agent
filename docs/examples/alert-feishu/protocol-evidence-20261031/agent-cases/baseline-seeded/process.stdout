@@ -1,0 +1,2 @@
+{"step": "direct-search", "hitCount": 3, "error": null}
+{"step": "agent", "elapsedSeconds": 3.8851402080617845, "messageCount": 2, "searches": 0, "sourceHits": 0, "resultPresent": true}

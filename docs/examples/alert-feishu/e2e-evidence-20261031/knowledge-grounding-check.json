@@ -1,0 +1,93 @@
+{
+  "indexedPdfSha256": "e65f46b9daa87b4420336d989b0951ac6d2d6fd0a479bdcaeda42862cd92e820",
+  "indexedPdfBytes": 3781,
+  "completeTextChunksWithoutVectorCoordinates": [
+    {
+      "id": "mosaic-validation-control.pdf#0",
+      "chunk_index": 0,
+      "page_number": 1,
+      "content": "MOSAIC Validation Runbook\nReference: MOSAIC-KB-20261031\nThis authored document is a control corpus for the Spark validation run.\nA vector(1) alert is a deliberate delivery-path test. It does not show a GPU, driver or application\nfault. Verify the Prometheus state, Alertmanager fingerprint and the same MOSAIC alert before\ninterpreting it.\nAn alert injected directly through the Alertmanager API bypasses Prometheus rule evaluation.\nMissing Prometheus ALERTS samples for that injected run ID are expected. Do not claim a new\nPrometheusRule was evaluated.\nFor an isolated user-level repair demo, the named service fails when its ready marker is absent.\nRead the exact service state and logs before repair. Repair only the registered demo wrapper;\nverify the marker and service result afterward.\nMOSAIC authored validation corpus | test from Jeff Peng 1",
+      "source_file": "mosaic-validation-control.pdf",
+      "collection_name": "mosaic-validation-20261031"
+    },
+    {
+      "id": "mosaic-validation-control.pdf#1",
+      "chunk_index": 1,
+      "page_number": 1,
+      "content": "authored validation corpus | test from Jeff Peng 1",
+      "source_file": "mosaic-validation-control.pdf",
+      "collection_name": "mosaic-validation-20261031"
+    },
+    {
+      "id": "mosaic-validation-control.pdf#2",
+      "chunk_index": 2,
+      "page_number": 2,
+      "content": "Operator Decision and Evidence\nReference: MOSAIC-KB-20261031 - page 2\nPublic verification code: CEDAR-NEBULA-E720C8C9\nThe verification code is an oracle for this retrieval test and grants no access. An answer must cite\nthis source file and page 2 when reporting the code.\nView mode must block the repair operation. Edit mode with HITL enabled must await a specific\napproval. Refusal or expiration must leave the failed service unchanged. Auto mode executes the\nsame authorized demo repair without per-operation approval.\nAutomatic alert investigations remain read-only. Use a separate authorized interactive repair\nconversation, preserving the alert ID, investigation session key, research sources and repair\nsession key.\nCompletion evidence includes exact tool arguments, toolCallId, exit status, full service state before\nand after, logs, and an independently observed restored condition.",
+      "source_file": "mosaic-validation-control.pdf",
+      "collection_name": "mosaic-validation-20261031"
+    },
+    {
+      "id": "mosaic-validation-control.pdf#3",
+      "chunk_index": 3,
+      "page_number": 2,
+      "content": "ources and repair\nsession key.\nCompletion evidence includes exact tool arguments, toolCallId, exit status, full service state before\nand after, logs, and an independently observed restored condition. Documentation advice alone\ndoes not establish the root cause or a completed repair.\nMOSAIC authored validation corpus | test from Jeff Peng 2",
+      "source_file": "mosaic-validation-control.pdf",
+      "collection_name": "mosaic-validation-20261031"
+    }
+  ],
+  "vectorsAvailableIn": "continued-evidence-20261031/vector-storage-proof.json (all4x384 coordinates retained there)",
+  "phraseChecks": [
+    {
+      "phrase": "mosaic-log-fixture",
+      "occurrencesInIndexedText": 0
+    },
+    {
+      "phrase": "fixture-input",
+      "occurrencesInIndexedText": 0
+    },
+    {
+      "phrase": "REQUIRED_FILE_MISSING",
+      "occurrencesInIndexedText": 0
+    },
+    {
+      "phrase": "/fixture/ready",
+      "occurrencesInIndexedText": 0
+    },
+    {
+      "phrase": "e2e-20261031t075722z",
+      "occurrencesInIndexedText": 0
+    },
+    {
+      "phrase": "vector(1)",
+      "occurrencesInIndexedText": 1
+    },
+    {
+      "phrase": "Alertmanager API",
+      "occurrencesInIndexedText": 1
+    }
+  ],
+  "findings": [
+    {
+      "id": "G1",
+      "severity": "incorrect-source-attribution",
+      "observation": "First and second IRAOP answers describe the current Kubernetes Pod as if the control PDF documents this exact implementation; the full indexed text contains none of the unique workload names/error/path/run ID. Incident context was supplied by the question and live tools."
+    },
+    {
+      "id": "G2",
+      "severity": "incorrect-alert-path",
+      "observation": "IRAOP answers and initial synthesis conflate old vector(1)/direct Alertmanager examples with this actual max_over_time CrashLoop PrometheusRule. Loaded rule and actual pending/firing metrics contradict that attribution."
+    },
+    {
+      "id": "G3",
+      "severity": "inapplicable-repair-advice",
+      "observation": "The original suggestion to touch the marker inside a read-only ConfigMap volume is inapplicable; current Kubernetes write backend is disabled, so mode selection alone cannot enable patching."
+    },
+    {
+      "id": "G4",
+      "severity": "overbroad-health-claim",
+      "observation": "Node conditions are scoped observations; they do not establish comprehensive GPU health."
+    }
+  ],
+  "operatorReviewRequired": true,
+  "originalAnswersRetained": true
+}

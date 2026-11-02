@@ -1,0 +1,35 @@
+
+  #  /opt/homebrew/Cellar/node/25.8.1_1/bin/node[86472]: void node::InternalCallbackScope::Close() at ../src/api/callback.cc:185
+  #  Assertion failed: (env_->execution_async_id()) == (0)
+
+----- Native stack trace -----
+
+ 1: 0x108fd23bc node::Assert(node::AssertionInfo const&) [/opt/homebrew/Cellar/node/25.8.1_1/lib/libnode.141.dylib]
+ 2: 0x109f2e8e8 node::InternalCallbackScope::Close() (.cold.1) [/opt/homebrew/Cellar/node/25.8.1_1/lib/libnode.141.dylib]
+ 3: 0x108f2bf04 node::InternalCallbackScope::Close() [/opt/homebrew/Cellar/node/25.8.1_1/lib/libnode.141.dylib]
+ 4: 0x108f2bc08 node::InternalCallbackScope::~InternalCallbackScope() [/opt/homebrew/Cellar/node/25.8.1_1/lib/libnode.141.dylib]
+ 5: 0x109023a74 node::PerIsolatePlatformData::RunForegroundTask(std::__1::unique_ptr<v8::Task, std::__1::default_delete<v8::Task>>) [/opt/homebrew/Cellar/node/25.8.1_1/lib/libnode.141.dylib]
+ 6: 0x109022bdc node::PerIsolatePlatformData::FlushForegroundTasksInternal() [/opt/homebrew/Cellar/node/25.8.1_1/lib/libnode.141.dylib]
+ 7: 0x1049b23cc uv__async_io [/opt/homebrew/Cellar/libuv/1.52.1/lib/libuv.1.0.0.dylib]
+ 8: 0x1049c11b0 uv__io_poll [/opt/homebrew/Cellar/libuv/1.52.1/lib/libuv.1.0.0.dylib]
+ 9: 0x1049b2b64 uv_run [/opt/homebrew/Cellar/libuv/1.52.1/lib/libuv.1.0.0.dylib]
+10: 0x108f2cdfc node::SpinEventLoopInternal(node::Environment*) [/opt/homebrew/Cellar/node/25.8.1_1/lib/libnode.141.dylib]
+11: 0x109000e74 node::NodeMainInstance::Run(node::ExitCode*, node::Environment*) [/opt/homebrew/Cellar/node/25.8.1_1/lib/libnode.141.dylib]
+12: 0x109000ba8 node::NodeMainInstance::Run() [/opt/homebrew/Cellar/node/25.8.1_1/lib/libnode.141.dylib]
+13: 0x108fa4cd0 node::Start(int, char**) [/opt/homebrew/Cellar/node/25.8.1_1/lib/libnode.141.dylib]
+14: 0x181f844e4 start [/usr/lib/dyld]
+✖ helm/mosaic-stack/tests/llm-compat.test.mjs (102.598125ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.747208
+
+✖ failing tests:
+
+test at helm/mosaic-stack/tests/llm-compat.test.mjs:1:1
+✖ helm/mosaic-stack/tests/llm-compat.test.mjs (102.598125ms)
+  'test failed'

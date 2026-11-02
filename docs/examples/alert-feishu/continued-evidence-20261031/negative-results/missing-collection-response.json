@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-31T07:13:48.984595+00:00",
+  "case": "missing-collection",
+  "elapsedSeconds": 0.7124317521229386,
+  "status": 502,
+  "body": "{\"detail\":\"Research agent failed (often OpenSearch hybrid search, NVIDIA API, or missing ingest). Details: Hybrid search failed. Ensure the opensearch-init Job completed (embedding_pipeline + hybrid_search_pipeline) and indices contain documents with embeddings. OpenSearch: NotFoundError(404, 'index_not_found_exception', 'no such index [collection_mosaic-validation-no-such-collection-20261031]', collection_mosaic-validation-no-such-collection-20261031, index_or_alias)\"}",
+  "expected": "Missing collection must not yield a verified sourced research answer."
+}

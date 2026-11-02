@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-31T08:32:21.036979+00:00",
+  "path": "/api/openclaw/chat/stream",
+  "method": "POST",
+  "accessMode": "view",
+  "submission": "native API after fresh-browser Open Chat button was unavailable; failed UI attempt sent zero messages"
+}

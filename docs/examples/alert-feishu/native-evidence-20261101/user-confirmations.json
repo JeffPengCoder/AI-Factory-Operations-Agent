@@ -1,0 +1,16 @@
+{
+  "nativeOutboundConnectivity": {
+    "runId": "feishu-native-20261101-outbound-01",
+    "confirmedByUserScreenshot": true
+  },
+  "nativeGroupConversation": {
+    "runId": "feishu-native-20261101-01",
+    "userConfirmedSent": true,
+    "replyVisibleInUserScreenshot": true
+  },
+  "nativeFullReport": {
+    "runId": "feishu-native-20261101-report-01",
+    "userConfirmedFullReportReceived": true
+  },
+  "notes": "The confirmations summarize explicit user replies/screenshots in this conversation. No read receipts or fresh fault injection are claimed."
+}

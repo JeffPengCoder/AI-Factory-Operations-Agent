@@ -1,0 +1,29 @@
+[
+  {
+    "path": "976cddf9-ca87-440c-a7fa-f329f9f654f0.jsonl",
+    "bytes": 11041,
+    "sha256": "eec59b3984e2a065b0df6a84d5c378b0e99ad70eb18b92039198f3b16a5e7473",
+    "toolResultsPath": "976cddf9-ca87-440c-a7fa-f329f9f654f0.jsonl.tool-results.jsonl",
+    "toolResults": 1,
+    "toolResultsBytes": 5928,
+    "toolResultsSha256": "078b423ea66a0c0d2daabfbb8d42e8b7d6ce3a3d56cf638920e98c574eec69ca"
+  },
+  {
+    "path": "81afed9a-ae3f-4f0c-a8ce-be0a3e66eb2a.jsonl",
+    "bytes": 11357,
+    "sha256": "ef3ba4951b2d95a3f2e2e75c4f2623af4981a424ce9890923563827efd0a67d3",
+    "toolResultsPath": "81afed9a-ae3f-4f0c-a8ce-be0a3e66eb2a.jsonl.tool-results.jsonl",
+    "toolResults": 1,
+    "toolResultsBytes": 6326,
+    "toolResultsSha256": "76cafc8345db8de6f6181ff931d129f8d03edba83b0360852ea7e3a127e3ddf8"
+  },
+  {
+    "path": "a40ec4b9-5c63-4868-bb53-a854abfdf273.jsonl",
+    "bytes": 13812,
+    "sha256": "a27472f4698359b641d6797cb591d53dce22f12468833c946636585cef92aa7d",
+    "toolResultsPath": "a40ec4b9-5c63-4868-bb53-a854abfdf273.jsonl.tool-results.jsonl",
+    "toolResults": 1,
+    "toolResultsBytes": 6710,
+    "toolResultsSha256": "f155fa1a81f821d23d488da47c58798b645b84adb7d709ddcad985b880df2fe0"
+  }
+]

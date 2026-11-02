@@ -1,0 +1,60 @@
+{
+  "om_x100b614a0947f4b4dc194a5b16aa066": {
+    "code": 0,
+    "data": {
+      "items": [
+        {
+          "body": {
+            "content": "{\"title\":\"Jeff's Mosaic Agent\",\"elements\":[[{\"tag\":\"img\",\"image_key\":\"img_v3_02ad_e19fca1f-912a-450e-95de-3c229091b53g\"},{\"tag\":\"text\",\"text\":\"请升级至最新版本客户端，以查看内容\"},{\"tag\":\"text\",\"text\":\"\"}]]}"
+          },
+          "chat_id": "oc_00000000000000000000000000000001",
+          "create_time": "1793582201165",
+          "deleted": false,
+          "message_id": "om_x100b614a0947f4b4dc194a5b16aa066",
+          "message_position": "3",
+          "msg_type": "interactive",
+          "parent_id": "om_x100b614a0988e4acce417b4afac0816",
+          "root_id": "om_x100b614a0988e4acce417b4afac0816",
+          "sender": {
+            "id": "<credential-redacted>",
+            "id_type": "app_id",
+            "sender_type": "app",
+            "tenant_key": "117d0b9222ca9740"
+          },
+          "update_time": "1793582203569",
+          "updated": true
+        }
+      ]
+    },
+    "msg": "success"
+  },
+  "om_x100b614a0582a8a4de86a6ec79bf330": {
+    "code": 0,
+    "data": {
+      "items": [
+        {
+          "body": {
+            "content": "{\"title\":\"Jeff's Mosaic Agent\",\"elements\":[[{\"tag\":\"img\",\"image_key\":\"img_v3_02ad_e19fca1f-912a-450e-95de-3c229091b53g\"},{\"tag\":\"text\",\"text\":\"请升级至最新版本客户端，以查看内容\"},{\"tag\":\"text\",\"text\":\"\"}]]}"
+          },
+          "chat_id": "oc_00000000000000000000000000000002",
+          "create_time": "1793582261194",
+          "deleted": false,
+          "message_id": "om_x100b614a0582a8a4de86a6ec79bf330",
+          "message_position": "19",
+          "msg_type": "interactive",
+          "parent_id": "om_x100b614a04f92898cfc95e645a6ea79",
+          "root_id": "om_x100b614a04f92898cfc95e645a6ea79",
+          "sender": {
+            "id": "<credential-redacted>",
+            "id_type": "app_id",
+            "sender_type": "app",
+            "tenant_key": "117d0b9222ca9740"
+          },
+          "update_time": "1793582266984",
+          "updated": true
+        }
+      ]
+    },
+    "msg": "success"
+  }
+}

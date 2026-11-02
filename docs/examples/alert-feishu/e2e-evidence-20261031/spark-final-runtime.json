@@ -1,0 +1,438 @@
+{
+  "pods": [
+    {
+      "name": "iraop-cb7877-nmpw7",
+      "uid": "7993d92e-bcb0-4ebc-992a-28608bbd5e95",
+      "phase": "Running",
+      "containerStatuses": [
+        {
+          "allocatedResources": {
+            "cpu": "500m",
+            "memory": "2Gi"
+          },
+          "containerID": "containerd://ba5e6c06db08fd19ba8990bc1586b889f6296d3fe7001276a2ed08869aaf9df6",
+          "image": "nvcr.io/NGC_ORG_ID/afoa-release/iraop:f804535b",
+          "imageID": "nvcr.io/NGC_ORG_ID/afoa-release/iraop@sha256:0ebc807d13891938d6d992675d29dc5c802ed5e9d6e8a10e87b9239feee80617",
+          "lastState": {},
+          "name": "iraop",
+          "ready": true,
+          "resources": {
+            "limits": {
+              "cpu": "2",
+              "memory": "8Gi"
+            },
+            "requests": {
+              "cpu": "500m",
+              "memory": "2Gi"
+            }
+          },
+          "restartCount": 0,
+          "started": true,
+          "state": {
+            "running": {
+              "startedAt": "2026-10-31T03:18:15Z"
+            }
+          },
+          "user": {
+            "linux": {
+              "gid": 10001,
+              "supplementalGroups": [
+                10001
+              ],
+              "uid": 10001
+            }
+          },
+          "volumeMounts": [
+            {
+              "mountPath": "/cm/shared/iraop-corpus",
+              "name": "corpus",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "llm-openai-compat-58bd8857f4-d5f8k",
+      "uid": "2bd6c507-e9a1-4f30-84de-c23f47b8ad43",
+      "phase": "Running",
+      "containerStatuses": [
+        {
+          "containerID": "containerd://97cc293f4882becaad9971ec2453d504b3382c9087c31e807b520caf822f29c0",
+          "image": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8",
+          "imageID": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui@sha256:30f2479340d324a484a2d330a6749fbf2ab63ef0a24c848f1964a53d8423a0a7",
+          "lastState": {},
+          "name": "proxy",
+          "ready": true,
+          "resources": {},
+          "restartCount": 0,
+          "started": true,
+          "state": {
+            "running": {
+              "startedAt": "2026-10-31T06:39:09Z"
+            }
+          },
+          "user": {
+            "linux": {
+              "gid": 0,
+              "supplementalGroups": [
+                0
+              ],
+              "uid": 0
+            }
+          },
+          "volumeMounts": [
+            {
+              "mountPath": "/config",
+              "name": "config",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            },
+            {
+              "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+              "name": "kube-api-access-fcblv",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mosaic-cluster-monitor-76fd6d7cb5-5l5m6",
+      "uid": "b973a853-ae9c-4270-8f91-bdd25548e248",
+      "phase": "Running",
+      "containerStatuses": [
+        {
+          "allocatedResources": {
+            "cpu": "100m",
+            "memory": "256Mi"
+          },
+          "containerID": "containerd://4eb75f1be661c37ef05fde8017874e7f312bd2e020b79050afc57faff7027005",
+          "image": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8",
+          "imageID": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui@sha256:30f2479340d324a484a2d330a6749fbf2ab63ef0a24c848f1964a53d8423a0a7",
+          "lastState": {},
+          "name": "cluster-monitor",
+          "ready": true,
+          "resources": {
+            "limits": {
+              "cpu": "1",
+              "memory": "1Gi"
+            },
+            "requests": {
+              "cpu": "100m",
+              "memory": "256Mi"
+            }
+          },
+          "restartCount": 0,
+          "started": true,
+          "state": {
+            "running": {
+              "startedAt": "2026-10-29T03:46:28Z"
+            }
+          },
+          "user": {
+            "linux": {
+              "gid": 1000,
+              "supplementalGroups": [
+                4,
+                20,
+                24,
+                25,
+                27,
+                29,
+                30,
+                44,
+                46,
+                1000
+              ],
+              "uid": 1000
+            }
+          },
+          "volumeMounts": [
+            {
+              "mountPath": "/data",
+              "name": "state"
+            },
+            {
+              "mountPath": "/tmp",
+              "name": "tmp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mosaic-openshell-0",
+      "uid": "43644e83-65d5-4fbb-a056-e1a15ffa5b98",
+      "phase": "Running",
+      "containerStatuses": [
+        {
+          "containerID": "containerd://156839a27a71a6206fcf751d2ff5d069ac04a636f50ed91a3320614e39b602e6",
+          "image": "ghcr.io/nvidia/openshell/gateway:0.0.75",
+          "imageID": "ghcr.io/nvidia/openshell/gateway@sha256:f58377de6d305fe726159ed923d3f49d92ada42abee106268b4b69d4e09dbc5d",
+          "lastState": {},
+          "name": "openshell-gateway",
+          "ready": true,
+          "resources": {},
+          "restartCount": 0,
+          "started": true,
+          "state": {
+            "running": {
+              "startedAt": "2026-10-13T09:50:30Z"
+            }
+          },
+          "user": {
+            "linux": {
+              "gid": 0,
+              "supplementalGroups": [
+                0,
+                1000
+              ],
+              "uid": 1000
+            }
+          },
+          "volumeMounts": [
+            {
+              "mountPath": "/var/openshell",
+              "name": "openshell-data"
+            },
+            {
+              "mountPath": "/etc/openshell",
+              "name": "gateway-config",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            },
+            {
+              "mountPath": "/etc/openshell-jwt",
+              "name": "sandbox-jwt",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            },
+            {
+              "mountPath": "/etc/openshell-tls/server",
+              "name": "tls-cert",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            },
+            {
+              "mountPath": "/etc/openshell-tls/client-ca",
+              "name": "tls-client-ca",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            },
+            {
+              "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+              "name": "kube-api-access-gw64k",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mosaic-ui-877685d69-chxwr",
+      "uid": "5a69f229-f033-466e-8d3d-5da7efed7c12",
+      "phase": "Running",
+      "containerStatuses": [
+        {
+          "containerID": "containerd://84288ca40c4d6349226cf3e5bb375fdff910482deea7a21bd12125f58441265a",
+          "image": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8",
+          "imageID": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui@sha256:30f2479340d324a484a2d330a6749fbf2ab63ef0a24c848f1964a53d8423a0a7",
+          "lastState": {},
+          "name": "mosaic-ui",
+          "ready": true,
+          "resources": {},
+          "restartCount": 0,
+          "started": true,
+          "state": {
+            "running": {
+              "startedAt": "2026-10-31T03:46:45Z"
+            }
+          },
+          "user": {
+            "linux": {
+              "gid": 0,
+              "supplementalGroups": [
+                0
+              ],
+              "uid": 0
+            }
+          },
+          "volumeMounts": [
+            {
+              "mountPath": "/var/lib/mosaic-audit",
+              "name": "audit-log"
+            },
+            {
+              "mountPath": "/cm/shared/iraop-corpus",
+              "name": "research-corpus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "openclaw-79dd6456f8-8fpl4",
+      "uid": "b10741d7-e3dc-417a-b527-4762a32a5e9e",
+      "phase": "Running",
+      "containerStatuses": [
+        {
+          "allocatedResources": {
+            "cpu": "250m",
+            "memory": "512Mi"
+          },
+          "containerID": "containerd://1de5cc6006e95b0d7c1305937528b8020dea7ad2c620a3e7c75429f68d2ca7ef",
+          "image": "ghcr.io/openclaw/openclaw:2026.6.10",
+          "imageID": "ghcr.io/openclaw/openclaw@sha256:af7ea052cf216f581fb18fabada01552356c53717461c0399b623cba7ecad4b1",
+          "lastState": {},
+          "name": "gateway",
+          "ready": true,
+          "resources": {
+            "limits": {
+              "cpu": "1",
+              "memory": "2Gi"
+            },
+            "requests": {
+              "cpu": "250m",
+              "memory": "512Mi"
+            }
+          },
+          "restartCount": 0,
+          "started": true,
+          "state": {
+            "running": {
+              "startedAt": "2026-10-31T03:47:03Z"
+            }
+          },
+          "user": {
+            "linux": {
+              "gid": 1000,
+              "supplementalGroups": [
+                1000
+              ],
+              "uid": 1000
+            }
+          },
+          "volumeMounts": [
+            {
+              "mountPath": "/home/node/.openclaw",
+              "name": "openclaw-home"
+            },
+            {
+              "mountPath": "/tmp",
+              "name": "openclaw-home"
+            },
+            {
+              "mountPath": "/tools",
+              "name": "runtime-tools",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            },
+            {
+              "mountPath": "/home/node/.openclaw/.config/openshell/gateways/mosaic-openshell/mtls",
+              "name": "openshell-client-tls",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            },
+            {
+              "mountPath": "/var/run/mosaic-kubernetes",
+              "name": "kubernetes-configs",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            },
+            {
+              "mountPath": "/var/run/mosaic-kubernetes-external/target-lab",
+              "name": "kubernetes-external-0",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            },
+            {
+              "mountPath": "/var/run/mosaic-ssh",
+              "name": "remote-ssh-credentials",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            },
+            {
+              "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+              "name": "kube-api-access-qs6rg",
+              "readOnly": true,
+              "recursiveReadOnly": "Disabled"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "opensearch-0",
+      "uid": "27765858-cfcc-43a5-a8d5-6ae532edacec",
+      "phase": "Running",
+      "containerStatuses": [
+        {
+          "allocatedResources": {
+            "cpu": "500m",
+            "memory": "2Gi"
+          },
+          "containerID": "containerd://cd597897e3c5c29ea1983dded8e1a121f45d65b41c724c26b330f28d0bef400c",
+          "image": "docker.io/opensearchproject/opensearch:2.17.0",
+          "imageID": "docker.io/opensearchproject/opensearch@sha256:7b9517dff561f54456fad947f11820fa595a340fd1034fc63d57b77f724b3f8f",
+          "lastState": {},
+          "name": "opensearch",
+          "ready": true,
+          "resources": {
+            "limits": {
+              "cpu": "2",
+              "memory": "4Gi"
+            },
+            "requests": {
+              "cpu": "500m",
+              "memory": "2Gi"
+            }
+          },
+          "restartCount": 0,
+          "started": true,
+          "state": {
+            "running": {
+              "startedAt": "2026-10-31T01:56:40Z"
+            }
+          },
+          "user": {
+            "linux": {
+              "gid": 1000,
+              "supplementalGroups": [
+                1000
+              ],
+              "uid": 1000
+            }
+          },
+          "volumeMounts": [
+            {
+              "mountPath": "/usr/share/opensearch/data",
+              "name": "opensearch-data"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sharedModel": {
+    "Status": "running",
+    "Running": true,
+    "Pid": 128852,
+    "StartedAt": "2026-09-15T07:17:31.481993911Z"
+  },
+  "helm": [
+    {
+      "name": "mosaic",
+      "namespace": "mosaic",
+      "revision": "15",
+      "updated": "2026-10-31 14:38:59.443735558 +0800 CST",
+      "status": "deployed",
+      "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031.startup2",
+      "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3"
+    }
+  ],
+  "at": "2026-10-31T08:39:38.138565+00:00"
+}

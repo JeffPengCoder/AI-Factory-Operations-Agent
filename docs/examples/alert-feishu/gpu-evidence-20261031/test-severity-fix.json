@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-31T13:42:10.627385+00:00",
+  "argv": [
+    "kubectl",
+    "--context",
+    "kubernetes-admin@kubernetes",
+    "patch",
+    "prometheusrule",
+    "mosaic-gpu-rca-20261031t121240z",
+    "-n",
+    "monitoring",
+    "--type=json",
+    "-p",
+    "[{\"op\": \"test\", \"path\": \"/metadata/uid\", \"value\": \"476cc14d-fc7f-4720-b5b1-cbc63528356b\"}, {\"op\": \"test\", \"path\": \"/spec/groups/0/rules/0/labels/severity\", \"value\": \"info\"}, {\"op\": \"replace\", \"path\": \"/spec/groups/0/rules/0/labels/severity\", \"value\": \"warning\"}]",
+    "-o",
+    "json"
+  ],
+  "patch": [
+    {
+      "op": "test",
+      "path": "/metadata/uid",
+      "value": "476cc14d-fc7f-4720-b5b1-cbc63528356b"
+    },
+    {
+      "op": "test",
+      "path": "/spec/groups/0/rules/0/labels/severity",
+      "value": "info"
+    },
+    {
+      "op": "replace",
+      "path": "/spec/groups/0/rules/0/labels/severity",
+      "value": "warning"
+    }
+  ],
+  "exitCode": 0,
+  "stdout": "{\n    \"apiVersion\": \"monitoring.coreos.com/v1\",\n    \"kind\": \"PrometheusRule\",\n    \"metadata\": {\n        \"annotations\": {\n            \"prometheus-operator-validated\": \"true\"\n        },\n        \"creationTimestamp\": \"2026-10-31T13:33:05Z\",\n        \"generation\": 2,\n        \"labels\": {\n            \"experiment\": \"gpu-telemetry-cache\",\n            \"mosaic_test\": \"true\",\n            \"release\": \"kube-prometheus-stack\",\n            \"run_id\": \"gpu-rca-20261031t121240z\"\n        },\n        \"name\": \"mosaic-gpu-rca-20261031t121240z\",\n        \"namespace\": \"monitoring\",\n        \"resourceVersion\": \"99683361\",\n        \"uid\": \"476cc14d-fc7f-4720-b5b1-cbc63528356b\"\n    },\n    \"spec\": {\n        \"groups\": [\n            {\n                \"interval\": \"5s\",\n                \"name\": \"mosaic-gpu-rca-20261031t121240z\",\n                \"rules\": [\n                    {\n                        \"alert\": \"MosaicGpuTelemetrySimulation\",\n                        \"annotations\": {\n                            \"description\": \"test from Jeff Peng. Run gpu-rca-20261031t121240z. GPU telemetry simulation, not a CPU crash or a physical hardware fault. Cluster target-lab, namespace mosaic-gpu-rca-20261031t121240z, Pod gpu-telemetry-fixture. In View mode read logs from telemetry, nvml-witness, kernel-witness; compare isolated DCGM cache with unchanged live NVML and production DCGM. Then consult iraop_query collection mosaic-gpu-validation-20261031 for generic GPU triage procedure; keep incident facts separate from knowledge. Do not reset, drain or repair any GPU.\",\n                            \"evidence_source\": \"isolated_dcgm_cache_snapshot\",\n                            \"summary\": \"GPU telemetry test: isolated DCGM Xid 95 and ECC snapshot\",\n                            \"test_from\": \"test from Jeff Peng\"\n                        },\n                        \"expr\": \"mosaic_test_dcgm_xid_error{run_id=\\\"gpu-rca-20261031t121240z\\\",simulation=\\\"true\\\"} == 95\",\n                        \"for\": \"45s\",\n                        \"labels\": {\n                            \"experiment\": \"gpu-telemetry-cache\",\n                            \"mosaic_test\": \"true\",\n                            \"run_id\": \"gpu-rca-20261031t121240z\",\n                            \"severity\": \"warning\",\n                            \"simulation\": \"true\",\n                            \"test_namespace\": \"mosaic-gpu-rca-20261031t121240z\",\n                            \"test_pod\": \"gpu-telemetry-fixture\"\n                        }\n                    }\n                ]\n            }\n        ]\n    }\n}\n",
+  "stderr": ""
+}

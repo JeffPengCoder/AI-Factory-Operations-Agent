@@ -1,0 +1,6 @@
+{"file": "ui-health", "status": 200}
+{"file": "mosaic-alertmanager-before", "status": 200}
+{"file": "mosaic-alerts-before", "status": 200}
+{"file": "prometheus-rules-before", "status": 200}
+{"file": "prometheus-alerts-before", "status": 200}
+{"file": "alertmanager-alerts-before", "status": 200}

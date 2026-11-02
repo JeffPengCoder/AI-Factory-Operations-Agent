@@ -1,0 +1,6 @@
+{
+  "operation": "Check worker restart/deduplication",
+  "exitCode": 1,
+  "stderr": "ssh: connect to host 192.0.2.11 port 22: Operation timed out",
+  "remoteRestartPerformed": false
+}

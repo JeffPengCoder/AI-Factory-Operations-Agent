@@ -1,0 +1,167 @@
+{
+  "sessionKey": "agent:default:session-2026-10-31t03-16-01-838z",
+  "sessionId": "59da7c19-196b-4289-b9b7-83293f26933e",
+  "messages": [
+    {
+      "role": "user",
+      "content": "test from Jeff Peng: isolated approval EXPIRY test. Call only run_remote_ssh with host=\"repair-demo\", argv=[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"]. Submit once and wait for the approval. I will deliberately leave it unanswered to verify the configured timeout; do not retry, use another tool, or change mode.\n\n",
+      "timestamp": 1793416564306,
+      "idempotencyKey": "mosaic-1793416564211:user",
+      "__openclaw": {
+        "id": "07100902",
+        "recordTimestampMs": 1793416564938,
+        "seq": 1
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\n"
+        },
+        {
+          "type": "toolCall",
+          "id": "call_1760a54e800243a5a0134095",
+          "name": "run_remote_ssh",
+          "arguments": {
+            "host": "repair-demo",
+            "argv": [
+              "/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh"
+            ]
+          },
+          "partialArgs": "{\"host\": \"repair-demo\", \"argv\": [\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"]}"
+        }
+      ],
+      "api": "openai-completions",
+      "provider": "llm",
+      "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "totalTokens": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "cost": {
+          "total": 0
+        }
+      },
+      "stopReason": "toolUse",
+      "timestamp": 1793416564952,
+      "responseId": "chatcmpl-98850bfaadcdd81f",
+      "__openclaw": {
+        "id": "7b1ee2ac",
+        "recordTimestampMs": 1793416567772,
+        "seq": 2
+      }
+    },
+    {
+      "role": "toolResult",
+      "toolCallId": "call_1760a54e800243a5a0134095",
+      "toolName": "run_remote_ssh",
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"status\": \"error\",\n  \"tool\": \"run_remote_ssh\",\n  \"error\": \"Approval timed out\"\n}"
+        }
+      ],
+      "isError": true,
+      "timestamp": 1793416687898,
+      "__openclaw": {
+        "id": "5f16b7fa",
+        "recordTimestampMs": 1793416687899,
+        "seq": 3
+      }
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "\n\nTest result confirmed: `run_remote_ssh` with host `repair-demo` timed out waiting for approval. The configured timeout fired and returned `{\"status\": \"error\", \"tool\": \"run_remote_ssh\", \"error\": \"Approval timed out\"}` \u2014 exactly as intended for the EXPIRY test."
+        }
+      ],
+      "api": "openai-completions",
+      "provider": "llm",
+      "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "totalTokens": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "cost": {
+          "total": 0
+        }
+      },
+      "stopReason": "stop",
+      "timestamp": 1793416687902,
+      "responseId": "chatcmpl-9c5f0d9612557926",
+      "__openclaw": {
+        "id": "b7bdd01a",
+        "recordTimestampMs": 1793416689403,
+        "seq": 4
+      }
+    }
+  ],
+  "defaults": {
+    "modelProvider": "llm",
+    "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+    "contextTokens": 262144,
+    "thinkingLevels": [
+      {
+        "id": "off",
+        "label": "off"
+      }
+    ],
+    "thinkingOptions": [
+      "off"
+    ],
+    "thinkingDefault": "off"
+  },
+  "sessionInfo": {
+    "key": "agent:default:session-2026-10-31t03-16-01-838z",
+    "kind": "direct",
+    "chatType": "direct",
+    "origin": {
+      "provider": "webchat",
+      "surface": "webchat",
+      "chatType": "direct"
+    },
+    "updatedAt": 1793416689525,
+    "sessionId": "59da7c19-196b-4289-b9b7-83293f26933e",
+    "systemSent": true,
+    "abortedLastRun": false,
+    "thinkingLevels": [
+      {
+        "id": "off",
+        "label": "off"
+      }
+    ],
+    "thinkingOptions": [
+      "off"
+    ],
+    "thinkingDefault": "off",
+    "effectiveFastMode": false,
+    "effectiveFastModeSource": "default",
+    "fastAutoOnSeconds": 60,
+    "totalTokensFresh": false,
+    "status": "done",
+    "startedAt": 1793416564926,
+    "endedAt": 1793416689422,
+    "runtimeMs": 124496,
+    "modelProvider": "llm",
+    "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+    "agentRuntime": {
+      "id": "auto",
+      "source": "implicit"
+    },
+    "contextTokens": 262144,
+    "deliveryContext": {
+      "channel": "webchat"
+    },
+    "lastChannel": "webchat",
+    "hasActiveRun": false
+  },
+  "thinkingLevel": "off"
+}

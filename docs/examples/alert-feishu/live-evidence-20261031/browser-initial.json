@@ -1,0 +1,228 @@
+{
+  "startedAt": "2026-10-31T01:44:26.085374+00:00",
+  "responses": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/light_job-recovery.png",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/1vb6-djtp9257.css",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/42x_0tvgvtycd.css",
+      "status": 200
+    },
+    {
+      "path": "/light_k8s.png",
+      "status": 200
+    },
+    {
+      "path": "/light_bcm.png",
+      "status": 200
+    },
+    {
+      "path": "/light_observability.png",
+      "status": 200
+    },
+    {
+      "path": "/light_nemoclaw.png",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/3l04zcqx63h3y.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/0cegfsgm6lvdz.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/3byuobrkyz9bj.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-3eyf67d9t5dl9.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/291fzrtmqq49h.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/2lygyhso3tp3n.js",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/approvals",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/commands",
+      "status": 200
+    },
+    {
+      "path": "/api/dashboard/feedback",
+      "status": 200
+    },
+    {
+      "path": "/api/alerts/alertmanager",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/chat",
+      "status": 200
+    },
+    {
+      "path": "/api/modules",
+      "status": 200
+    },
+    {
+      "path": "/favicon.ico",
+      "status": 200
+    },
+    {
+      "path": "/api/agents",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/sessions",
+      "status": 200
+    },
+    {
+      "path": "/api/alerts/events",
+      "status": 200
+    },
+    {
+      "path": "/api/settings/llm",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/approvals",
+      "status": 200
+    },
+    {
+      "path": "/api/openclaw/approvals",
+      "status": 200
+    }
+  ],
+  "blockedInvestigationSubmissions": 0,
+  "navigationStatus": 200,
+  "networkIdle": false,
+  "url": "http://127.0.0.1:13000/",
+  "title": "AI Factory Operations Agent",
+  "buttons": [
+    "Main",
+    "+",
+    "Reset Layout",
+    "Send",
+    "Alerts",
+    "Dashboard",
+    "Conversations",
+    "Grafana",
+    "...",
+    "Refresh",
+    "Archive all",
+    "Resolve all",
+    "Archive",
+    "Resolve",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve",
+    "Start Investigating ❯",
+    "Archive",
+    "Resolve"
+  ],
+  "inputs": [],
+  "finishedAt": "2026-10-31T01:44:44.924381+00:00"
+}

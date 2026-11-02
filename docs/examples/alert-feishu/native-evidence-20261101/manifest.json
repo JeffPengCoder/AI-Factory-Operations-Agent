@@ -1,0 +1,412 @@
+{
+  "at": "2026-11-01T13:10:47.319946+00:00",
+  "redactions": "Credentials, secret fingerprints, private paths, organization/user/group/message IDs and private IPs; fields and rows retained. Source byte counts, hashes and diff offsets refer to the pre-deidentification evidence.",
+  "files": [
+    {
+      "path": "agent-ready-callback-info.json",
+      "bytes": 94,
+      "sha256": "c2e23122cf1d7624599876591abf16eb424a7b7cf663b9253bca92d221a87aaf",
+      "sourceBytes": null,
+      "sourceSha256": null,
+      "source": "Generated complete app scopes/callback snapshot or explicit user-confirmation record."
+    },
+    {
+      "path": "agent-ready-scopes.json",
+      "bytes": 5736,
+      "sha256": "72a309efacd5abeb05fec346776dbac8e884418fc04fd28c0d5362472f68975b",
+      "sourceBytes": null,
+      "sourceSha256": null,
+      "source": "Generated complete app scopes/callback snapshot or explicit user-confirmation record."
+    },
+    {
+      "path": "platform/app-auth-check.json",
+      "bytes": 373,
+      "sha256": "375c11aa7366f2764f3fee432c1dabe38333046170a0e67d9329225c48ef899f",
+      "sourceBytes": 360,
+      "sourceSha256": "b13a6ac5c6f596dec1ddd1438ed8cc38fe9048b80c106f59f9d19d99c0a919c6"
+    },
+    {
+      "path": "platform/inspection-summary.json",
+      "bytes": 377,
+      "sha256": "8e188e4393f9cbc678f66576acf6a15d3603a4924593d0c81a3e69863e899a79",
+      "sourceBytes": 399,
+      "sourceSha256": "70cea6456886a4694f705422317e7175bc8984e951b727cfce25c46f90d9fb3b"
+    },
+    {
+      "path": "platform/outbound-connectivity-request.json",
+      "bytes": 246,
+      "sha256": "744e76a54bc90680f7e40d66fdb962ef23bd801a3eb5ff7c6df398c2fe6e57fa",
+      "sourceBytes": 268,
+      "sourceSha256": "8cf6b03eb3a6d64dc71dadc7d679dbf4998faed58ae1c3571fd94afdeb3bfd57"
+    },
+    {
+      "path": "platform/outbound-full-report-request.json",
+      "bytes": 15596,
+      "sha256": "06e0cdae37be10d4bea1b8a103b659fb0ec2cc76f510c63c654508f335b489ec",
+      "sourceBytes": 15808,
+      "sourceSha256": "a26f0e097de3f7e886f350e28f4316d4f7aeeb6231ed3ab3448d7a5746932313"
+    },
+    {
+      "path": "platform/platform-full-report-richtext-diff.json",
+      "bytes": 64091,
+      "sha256": "ed60c9c27f4a10fdf32f16c07c1fdae269a82216e6957813b8e99d0126c1de20",
+      "sourceBytes": 64091,
+      "sourceSha256": "ed60c9c27f4a10fdf32f16c07c1fdae269a82216e6957813b8e99d0126c1de20"
+    },
+    {
+      "path": "platform/platform-message-connectivity.json",
+      "bytes": 1106,
+      "sha256": "32c2a50fb59a6c921063fe9edee3cd8db65d7ccedda3b974751d08589f39a673",
+      "sourceBytes": 1154,
+      "sourceSha256": "b7a636c1630c844e989084586099b988fbfdff14d9b2ad166d43f36544b82bda"
+    },
+    {
+      "path": "platform/platform-message-full-report.json",
+      "bytes": 52850,
+      "sha256": "69e5b317f7638dbfdc2769c359fcc7940b38b126248bd7252f8d24045bc4c726",
+      "sourceBytes": 53278,
+      "sourceSha256": "3bb6f52ccf852f7edc361d82e6cf8afea2055f61f9b5b63c1ebc2c7bd4c09c04"
+    },
+    {
+      "path": "platform/platform-readback-verification.json",
+      "bytes": 1619,
+      "sha256": "7560cc99e74ddab906f86e75cba24a2fcb2a34797646aba1e226450d2e69b1f0",
+      "sourceBytes": 1619,
+      "sourceSha256": "7560cc99e74ddab906f86e75cba24a2fcb2a34797646aba1e226450d2e69b1f0"
+    },
+    {
+      "path": "spark/apply-result.json",
+      "bytes": 64,
+      "sha256": "208a73c76014d3323c88d4b54a3e972bc1f4a01bd67706dfe7fa6a24a64d4997",
+      "sourceBytes": 64,
+      "sourceSha256": "208a73c76014d3323c88d4b54a3e972bc1f4a01bd67706dfe7fa6a24a64d4997"
+    },
+    {
+      "path": "spark/apply_remote.py.txt",
+      "bytes": 3180,
+      "sha256": "7c3755f9a3e78429ba29ca0e5d41912a3b059a7a1019da7478c27997374b9646",
+      "sourceBytes": 3180,
+      "sourceSha256": "7c3755f9a3e78429ba29ca0e5d41912a3b059a7a1019da7478c27997374b9646"
+    },
+    {
+      "path": "spark/backport-parts.private.json",
+      "bytes": 4476,
+      "sha256": "315e002fdc910be68dfc8dbc8254ca62548cb8dacf6a1359bfdcab19a9d74ec1",
+      "sourceBytes": 4496,
+      "sourceSha256": "2d828b6fedc2914ed367baf3580f5fe1fc1dd1eaec8863c15512202919da53cd"
+    },
+    {
+      "path": "spark/capture_remote.py.txt",
+      "bytes": 6170,
+      "sha256": "8d51a736d188f83bea44e53bb51e3d5e5967cf2a623c9455338f27820348b988",
+      "sourceBytes": 6170,
+      "sourceSha256": "8d51a736d188f83bea44e53bb51e3d5e5967cf2a623c9455338f27820348b988"
+    },
+    {
+      "path": "spark/captures/20261101T130338Z/gateway.redacted.log",
+      "bytes": 5983,
+      "sha256": "0cce2c015f4572229c58a395acd4b746ee135144b12b20bde9675c2e231ee69f",
+      "sourceBytes": 6190,
+      "sourceSha256": "124748bb3c448e6a5ea3f7731d94f183438aac6b0cb4134dd90ea6a05024598e"
+    },
+    {
+      "path": "spark/captures/20261101T130338Z/helm-history.json",
+      "bytes": 3432,
+      "sha256": "d3be17b33104d95dbea89be2daeb5541c0b7bd7890b3c20b580ac954a4ce5cbc",
+      "sourceBytes": 3432,
+      "sourceSha256": "d3be17b33104d95dbea89be2daeb5541c0b7bd7890b3c20b580ac954a4ce5cbc"
+    },
+    {
+      "path": "spark/captures/20261101T130338Z/runtime-and-sessions.json",
+      "bytes": 18983,
+      "sha256": "22ca950988258e5c7b1caa82f4d055c6492213954e9b41c888f75e26573a210d",
+      "sourceBytes": 13528,
+      "sourceSha256": "a46624269aaa493bb499b7c8ab5dffb5dbfeaf118b6a37b2d8718193c7d32c23"
+    },
+    {
+      "path": "spark/captures/20261101T130338Z/runtime-and-sessions.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceBytes": 0,
+      "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark/captures/20261101T130338Z/runtime.json",
+      "bytes": 3201,
+      "sha256": "c33edc5fe01500b17e919a911d23b672ae76178292f9bfe9192b33aca16629c1",
+      "sourceBytes": 3354,
+      "sourceSha256": "3bda2e07b78e518a3b53db1f3c65364eafeef93caa498b56f7002043ae6b521d"
+    },
+    {
+      "path": "spark/captures/20261101T130338Z/secret-fingerprints.json",
+      "bytes": 2240,
+      "sha256": "5a41da736783fec78f3936f207e19b87fd31259b07c7efa6bff9be259e3803cd",
+      "sourceBytes": 2942,
+      "sourceSha256": "d88523af47d3e5f051e7957a9ccb6c4d87e6c7c748106c5f2ee28ba8c6b85d6e"
+    },
+    {
+      "path": "spark/captures/20261101T130338Z/summary.json",
+      "bytes": 2250,
+      "sha256": "858dddaf9ff7fc3af3f1d2ff2cd6730c3fc030a1fa221f34301dcc99b7c5a05c",
+      "sourceBytes": 2566,
+      "sourceSha256": "1944382761d63ebaddee94d076d034e0bcde2e0fea203e5bcc9a6317f41129e5"
+    },
+    {
+      "path": "spark/captures/20261101T130529Z/gateway.redacted.log",
+      "bytes": 5983,
+      "sha256": "0cce2c015f4572229c58a395acd4b746ee135144b12b20bde9675c2e231ee69f",
+      "sourceBytes": 6190,
+      "sourceSha256": "124748bb3c448e6a5ea3f7731d94f183438aac6b0cb4134dd90ea6a05024598e"
+    },
+    {
+      "path": "spark/captures/20261101T130529Z/helm-history.json",
+      "bytes": 3432,
+      "sha256": "d3be17b33104d95dbea89be2daeb5541c0b7bd7890b3c20b580ac954a4ce5cbc",
+      "sourceBytes": 3432,
+      "sourceSha256": "d3be17b33104d95dbea89be2daeb5541c0b7bd7890b3c20b580ac954a4ce5cbc"
+    },
+    {
+      "path": "spark/captures/20261101T130529Z/runtime-and-sessions.json",
+      "bytes": 35764,
+      "sha256": "ca5416c6261a7ed89f054ed853b1f851f96ef64bbae602166b72f6262c8f0302",
+      "sourceBytes": 30537,
+      "sourceSha256": "2fd7e04bea521b55a0cfc53e0758ddc5ae6b8ec1203a0fbec62b833cdd4cc787"
+    },
+    {
+      "path": "spark/captures/20261101T130529Z/runtime-and-sessions.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceBytes": 0,
+      "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "spark/captures/20261101T130529Z/runtime.json",
+      "bytes": 3201,
+      "sha256": "7b39d8836d03648a253253d4fe1f6ab1677d941bc86bc85245b5a069de208a48",
+      "sourceBytes": 3354,
+      "sourceSha256": "f8046373871b100ab6b9c26ec48a10a99cae7da81320457f6cfd3d25199393a3"
+    },
+    {
+      "path": "spark/captures/20261101T130529Z/secret-fingerprints.json",
+      "bytes": 2240,
+      "sha256": "5a41da736783fec78f3936f207e19b87fd31259b07c7efa6bff9be259e3803cd",
+      "sourceBytes": 2942,
+      "sourceSha256": "d88523af47d3e5f051e7957a9ccb6c4d87e6c7c748106c5f2ee28ba8c6b85d6e"
+    },
+    {
+      "path": "spark/captures/20261101T130529Z/summary.json",
+      "bytes": 2257,
+      "sha256": "26c8727786214a200ca6ede5070312694aeeb65696906a8000b24fff42360d76",
+      "sourceBytes": 2573,
+      "sourceSha256": "5e600572604f74b9b35cf96af42312c6985c006167647389ade91b2157130ad1"
+    },
+    {
+      "path": "spark/diff-nemoclaw.json.patch",
+      "bytes": 2897,
+      "sha256": "fbcdbc604ff23e0ccea0290648f28e79487da0d4eff07efabac01b4f8b8273f3",
+      "sourceBytes": 2897,
+      "sourceSha256": "fbcdbc604ff23e0ccea0290648f28e79487da0d4eff07efabac01b4f8b8273f3"
+    },
+    {
+      "path": "spark/diff-openclaw.yaml.patch",
+      "bytes": 4171,
+      "sha256": "d8cd9984c1b667e05b9f87e6f90f0f27d1b81fc41f0568e9b6faa37cb1fb5718",
+      "sourceBytes": 4171,
+      "sourceSha256": "d8cd9984c1b667e05b9f87e6f90f0f27d1b81fc41f0568e9b6faa37cb1fb5718"
+    },
+    {
+      "path": "spark/diff-validation.yaml.patch",
+      "bytes": 1253,
+      "sha256": "abf81722207e6e8a10366ae6ad40f07a50d444813849ee1b64a60343e589f7c2",
+      "sourceBytes": 1253,
+      "sourceSha256": "abf81722207e6e8a10366ae6ad40f07a50d444813849ee1b64a60343e589f7c2"
+    },
+    {
+      "path": "spark/diff-values.yaml.patch",
+      "bytes": 540,
+      "sha256": "7698bb55ee4f2a7568e490d95011104a906f9181caf645ba3467745126ba5552",
+      "sourceBytes": 540,
+      "sourceSha256": "7698bb55ee4f2a7568e490d95011104a906f9181caf645ba3467745126ba5552"
+    },
+    {
+      "path": "spark/enable_group_remote.py.txt",
+      "bytes": 3774,
+      "sha256": "3c6b47f69b226d3e2837faa4bbf614839ac4b8362425276463f8563e72addcb5",
+      "sourceBytes": 3774,
+      "sourceSha256": "3c6b47f69b226d3e2837faa4bbf614839ac4b8362425276463f8563e72addcb5"
+    },
+    {
+      "path": "spark/gateway-revision16.private.log",
+      "bytes": 7297,
+      "sha256": "7fb8e4f18c963af5027be227d908435b5b2fa3953880cf476c2c15ee08181dad",
+      "sourceBytes": 7314,
+      "sourceSha256": "3f9ef36ccf3eec53f1903b40c8afa1e1306f79fed0ad91933df438ae1bd4821b"
+    },
+    {
+      "path": "spark/group-enable/apply-result.json",
+      "bytes": 106,
+      "sha256": "ebcc90b86b5bff69d4ae61c08d83b0d77b6f4e41fd6baaea3f88e7ec74282fb1",
+      "sourceBytes": 106,
+      "sourceSha256": "ebcc90b86b5bff69d4ae61c08d83b0d77b6f4e41fd6baaea3f88e7ec74282fb1"
+    },
+    {
+      "path": "spark/group-enable/gateway-current.redacted.log",
+      "bytes": 4653,
+      "sha256": "38d50dff3143ada40bf48579b2cbff5404db4209f495abf404c978e581750773",
+      "sourceBytes": 4670,
+      "sourceSha256": "5e131fecd3e5c9b7f17085db88a790e905cb5486bfa1191a22d23ccd52affbd1"
+    },
+    {
+      "path": "spark/group-enable/helm-command.json",
+      "bytes": 576,
+      "sha256": "2726cbf0b8c5c85d0d983dfb3a8a68d11bcde41e319194d19f23130e6232cf41",
+      "sourceBytes": 579,
+      "sourceSha256": "58e95dad19240f19d2311dd0ce06fa1e5e6a2e76cb1c437d85d6d4d0aa35e65a"
+    },
+    {
+      "path": "spark/group-enable/prepare-summary.json",
+      "bytes": 346,
+      "sha256": "d9b8734433721f4066d70235279c842950ea144c455fda353251f25ef3c59788",
+      "sourceBytes": 346,
+      "sourceSha256": "d9b8734433721f4066d70235279c842950ea144c455fda353251f25ef3c59788"
+    },
+    {
+      "path": "spark/helm-command.json",
+      "bytes": 557,
+      "sha256": "d7b4fa95ab904beedd1e6a8665dc0cf5cfa37e495d76d8599dc0a1f9ce41d3eb",
+      "sourceBytes": 560,
+      "sourceSha256": "2e9a430ba90951079bbbf1067b4c9d9aff3b2121a6e298dc8c31025778f2f249"
+    },
+    {
+      "path": "spark/history-after.json",
+      "bytes": 3298,
+      "sha256": "b8a1f9b17179f7fb1c2eced2b27d6376850b623f3bc8d5c9b051828648806dcf",
+      "sourceBytes": 3298,
+      "sourceSha256": "b8a1f9b17179f7fb1c2eced2b27d6376850b623f3bc8d5c9b051828648806dcf"
+    },
+    {
+      "path": "spark/outbound/feishu-native-20261101-outbound-01/message.txt",
+      "bytes": 147,
+      "sha256": "82f09f060f8d5cc177006bde6e3938e011975ce35466caf3041d74d77d539c3f",
+      "sourceBytes": 147,
+      "sourceSha256": "82f09f060f8d5cc177006bde6e3938e011975ce35466caf3041d74d77d539c3f"
+    },
+    {
+      "path": "spark/outbound/feishu-native-20261101-outbound-01/send-intent.json",
+      "bytes": 694,
+      "sha256": "14f2eb241f6dda046f4b94147a44db4ca6ad973a25fb544ec534de1c44402a9c",
+      "sourceBytes": 717,
+      "sourceSha256": "83b6e33cf57971a6111ddb89ffaf619a6c028ea5f5c5dfc401e0c3415b7a1509"
+    },
+    {
+      "path": "spark/outbound/feishu-native-20261101-outbound-01/send-result.json",
+      "bytes": 2609,
+      "sha256": "0bb1893965fe8dcf0103225f2c7f05cc3eced2901e8bb50b664cfb60bc3c030b",
+      "sourceBytes": 3305,
+      "sourceSha256": "48310c8b12905c22b5e96148e3299d972515ca031e2ab0f540a5f3e74625653e"
+    },
+    {
+      "path": "spark/outbound/feishu-native-20261101-outbound-01/stderr.redacted.log",
+      "bytes": 27,
+      "sha256": "e88d39caa5b22bed055db98ce692b1c18d05b85941f1a69b08f80da62564b758",
+      "sourceBytes": 27,
+      "sourceSha256": "e88d39caa5b22bed055db98ce692b1c18d05b85941f1a69b08f80da62564b758"
+    },
+    {
+      "path": "spark/outbound/feishu-native-20261101-outbound-01/stdout.redacted.log",
+      "bytes": 1054,
+      "sha256": "9a8831736142c425ffc67fb8b1c7a14a7caf88ee1ecb29afc15004df813ae8fa",
+      "sourceBytes": 1348,
+      "sourceSha256": "4f0b0d10346178d2eee557b6f6ad3f9afa2bca38a49bfe76f00dd55931be4672"
+    },
+    {
+      "path": "spark/outbound/feishu-native-20261101-report-01/message.txt.gz",
+      "bytes": 6140,
+      "sha256": "1782333d779da35a3c68d075ebf78d696d08b5fc74d78a2a7923de99a91ef421",
+      "sourceBytes": 15168,
+      "sourceSha256": "9d2960cd846c65e0b6d5dc0c3490e9279c35a8da0b2259cff7a3553aee094b5d",
+      "uncompressedBytes": 14978,
+      "uncompressedSha256": "5bd688fd61de2a0f52940ad73ad4e4057f257c5ec967f3fa4dc62dd47c76b8e6",
+      "storageNote": "gzip preserves original Markdown hard-break trailing spaces; no whitespace was trimmed."
+    },
+    {
+      "path": "spark/outbound/feishu-native-20261101-report-01/send-intent.json",
+      "bytes": 711,
+      "sha256": "8762a9dda8a4dd9dc42aa1c20993589f11a2897fcb8602b5f914d9ae5a751c37",
+      "sourceBytes": 734,
+      "sourceSha256": "5dcb0cf04ec1801819017b1ea089330632dae90b28b2bc06bb5c59b51d81188d"
+    },
+    {
+      "path": "spark/outbound/feishu-native-20261101-report-01/send-result.json",
+      "bytes": 2609,
+      "sha256": "9e25ff2dcf46750279e402ba29a88df6e98fe23aa6765cc008593d74a3f855ca",
+      "sourceBytes": 3305,
+      "sourceSha256": "0ddbd957db47742d67469d7e673f82b1dc286ac02585d4529d248d7f6e707367"
+    },
+    {
+      "path": "spark/outbound/feishu-native-20261101-report-01/stderr.redacted.log",
+      "bytes": 27,
+      "sha256": "e88d39caa5b22bed055db98ce692b1c18d05b85941f1a69b08f80da62564b758",
+      "sourceBytes": 27,
+      "sourceSha256": "e88d39caa5b22bed055db98ce692b1c18d05b85941f1a69b08f80da62564b758"
+    },
+    {
+      "path": "spark/outbound/feishu-native-20261101-report-01/stdout.redacted.log",
+      "bytes": 1054,
+      "sha256": "cfa1e9646cb219859bac8139a8e9188c7096c590097568cba7b9124f48c4492e",
+      "sourceBytes": 1348,
+      "sourceSha256": "72a5b2cf60217687c86b3a03be272619b771f08d80a9bee2aca73b7898bf10f7"
+    },
+    {
+      "path": "spark/prepare-summary.json",
+      "bytes": 2061,
+      "sha256": "ba7de9f5e66aba08bd81a4f94669301bd8894bf2fd93c1f0da53b911f7f18e7f",
+      "sourceBytes": 2062,
+      "sourceSha256": "62171926324107fc2392b98e68056c11cccfd221fa072707884bbe1f0d6aa2e0"
+    },
+    {
+      "path": "spark/prepare_remote.py.txt",
+      "bytes": 11445,
+      "sha256": "febbd81917ef2937fef2e7e87ddb8940afe4f204d7e6cddc8c8d413c21d67fcb",
+      "sourceBytes": 11445,
+      "sourceSha256": "febbd81917ef2937fef2e7e87ddb8940afe4f204d7e6cddc8c8d413c21d67fcb"
+    },
+    {
+      "path": "spark/runtime-after-upgrade.json",
+      "bytes": 7619,
+      "sha256": "cc90bc1302f92931b0b65ad96ee7a76beb79cfc33f7606da638ae56b9c832e8f",
+      "sourceBytes": 7772,
+      "sourceSha256": "4f3b11a5e1854cc0ddb241e2eea5b33d69b13bc5f2d681805f54dd24e3b8e9eb"
+    },
+    {
+      "path": "spark/runtime-before.json",
+      "bytes": 7151,
+      "sha256": "f1dc0e8ebfb17b32a37ce6c2329c2a0c95b2fc19fd147aa08fe355d82e4e10b3",
+      "sourceBytes": 7304,
+      "sourceSha256": "9dbe9be639d255d7722606fe277a242f96aa09c882010ab538f23785313d6a06"
+    },
+    {
+      "path": "spark/secret-created.json",
+      "bytes": 167,
+      "sha256": "16411d50c3f75080416f4212bb63f7402c7f77ccb5ebdab6c4caf784a9aa83a4",
+      "sourceBytes": 186,
+      "sourceSha256": "8cde4bb8e252f10e6a15f7d28bcd307f19a9b03caf894f93d1bb0810d0ab4614"
+    },
+    {
+      "path": "spark/send_native_remote.py.txt",
+      "bytes": 2827,
+      "sha256": "6d659caed8885c5e501c620effa1bf8a050be739aa39ea67a28f077601853c68",
+      "sourceBytes": 2827,
+      "sourceSha256": "6d659caed8885c5e501c620effa1bf8a050be739aa39ea67a28f077601853c68"
+    },
+    {
+      "path": "user-confirmations.json",
+      "bytes": 556,
+      "sha256": "ccd776362301fdda8299c2728a64cfebaecd23b5b21935dfdbf9d810354304e2",
+      "sourceBytes": null,
+      "sourceSha256": null,
+      "source": "Generated complete app scopes/callback snapshot or explicit user-confirmation record."
+    }
+  ],
+  "fileCountExcludingManifest": 57
+}

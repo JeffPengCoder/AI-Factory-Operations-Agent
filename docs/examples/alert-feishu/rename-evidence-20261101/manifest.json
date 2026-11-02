@@ -1,0 +1,131 @@
+{
+  "redactions": "Private home prefix, original generated bot name, app/user/group/message/version identifiers and avatar URL; fields and all version/permission/event rows retained. No private chart, live values or credential values included.",
+  "fileCountExcludingManifest": 18,
+  "files": [
+    {
+      "path": "prepare-summary.json",
+      "bytes": 628,
+      "sha256": "3b50ce29cd27d59be2b9de2af140acb31ad80f1ae1c4e95a94f8ef47f297d6e9",
+      "sourceBytes": 629,
+      "sourceSha256": "167192eea7518db6d94e7dc9b0384526ddf80cedbccd406b87c60a14fff64a9f"
+    },
+    {
+      "path": "apply-result.json",
+      "bytes": 286,
+      "sha256": "fbfe6d7c576a1a539a6f63971db505bbc2c0553a80b30c73e996279006312925",
+      "sourceBytes": 286,
+      "sourceSha256": "fbfe6d7c576a1a539a6f63971db505bbc2c0553a80b30c73e996279006312925"
+    },
+    {
+      "path": "runtime-config-verification.json",
+      "bytes": 337,
+      "sha256": "d4b6c99a270be812b635894420324d39512ad3813641f7fb0835705ea7c40a93",
+      "sourceBytes": 234,
+      "sourceSha256": "4349fe2c0e2a40664ac5c6f48b7851c7fb9ac970f95b030376f0e2fc505abbb3"
+    },
+    {
+      "path": "outbound-identity-verification.json",
+      "bytes": 36,
+      "sha256": "f8e96ee0372e818693353dee58693a13330072905cbd151e33e0787988f94f44",
+      "sourceBytes": 31,
+      "sourceSha256": "ee5fee6222dd6687dfeb69ccaa9560d6496c3ffe48343d0027e8accf2192eb46"
+    },
+    {
+      "path": "helm-command.json",
+      "bytes": 570,
+      "sha256": "6892164d4bb58ba309f14e4a1617589d7f07a5d90eae2b8c6eb7dfdf087cc958",
+      "sourceBytes": 573,
+      "sourceSha256": "48b1e6ec5be1090fdffcd8eb26c56ec907140e067661d2c06a099ffeee9ddac5"
+    },
+    {
+      "path": "diff-values.yaml.patch",
+      "bytes": 263,
+      "sha256": "50d9ade9605c5828d6b758c675d0299bcc73edea80ecc5499ac44bc3e44c85c2",
+      "sourceBytes": 263,
+      "sourceSha256": "50d9ade9605c5828d6b758c675d0299bcc73edea80ecc5499ac44bc3e44c85c2"
+    },
+    {
+      "path": "diff-nemoclaw.json.patch",
+      "bytes": 540,
+      "sha256": "d0b954b904ec2c381c10634f62efeece712062cf0db8b63463d185304ea7438f",
+      "sourceBytes": 540,
+      "sourceSha256": "d0b954b904ec2c381c10634f62efeece712062cf0db8b63463d185304ea7438f"
+    },
+    {
+      "path": "rename_spark_remote.py.txt",
+      "bytes": 6577,
+      "sha256": "a624255928977e62a536d3abd201ff509ba6a0fefd5fe1d8469658fe21df7d00",
+      "sourceBytes": 6577,
+      "sourceSha256": "a624255928977e62a536d3abd201ff509ba6a0fefd5fe1d8469658fe21df7d00"
+    },
+    {
+      "path": "application-name-before-publication.json",
+      "bytes": 258,
+      "sha256": "5b85a4bf2231323a9a3b473db670b70c90e0d98182af83ea1b6ecbe5d3af51a5",
+      "sourceBytes": 266,
+      "sourceSha256": "fa3cb2f776255cdd17878a139b346908f146620e51ec14b206b5235ad9d8bdb5"
+    },
+    {
+      "path": "application-name-verification.json",
+      "bytes": 399,
+      "sha256": "dceeec8ab1b767d5686a71d17a882fad87d27941fec820bbc847ab866ba40382",
+      "sourceBytes": 399,
+      "sourceSha256": "dceeec8ab1b767d5686a71d17a882fad87d27941fec820bbc847ab866ba40382"
+    },
+    {
+      "path": "application-versions.json",
+      "bytes": 10747,
+      "sha256": "9765579cf189e9010de7455e0a63566dcbde31b38f5e1a3e30cf32907c8607c0",
+      "sourceBytes": 10872,
+      "sourceSha256": "20c9f0641d32a6c88572b2543803f0be74e245b8f10d4d4379efdb70e4d97aad"
+    },
+    {
+      "path": "application-versions-after.json",
+      "bytes": 21562,
+      "sha256": "29fac43949f5da7da356818fc2cf4897be6a4468d9fa1a4ad36dac31bfef7842",
+      "sourceBytes": 21804,
+      "sourceSha256": "3191388984003580f6d4e356ad38e79ece583da1aa0bf8920f1a49ec3952fcd2"
+    },
+    {
+      "path": "rename-diagnosis-current.json",
+      "bytes": 1395,
+      "sha256": "b7026b14fbc4f5d781626cedb794120391d722991f951d80148fce1abb4ddb00",
+      "sourceBytes": 1564,
+      "sourceSha256": "ea0e5ff73b90763fce1804af8eadb13ea66361e3013413d208a30959a759b4b4"
+    },
+    {
+      "path": "application-final.json",
+      "bytes": 8761,
+      "sha256": "d7154b3a946f7b201e275012863c924d4fdc25024b30d7b6165bb0f5f1477bda",
+      "sourceBytes": 8899,
+      "sourceSha256": "9b85cd85bffd0c4321e78b60718cb940a887b9b0626692efcb2156765ccc984c"
+    },
+    {
+      "path": "app-bot-final.json",
+      "bytes": 212,
+      "sha256": "2aa36e45428fe972b54f8ee7d0fcf1cf06bc509f3679c2d009ea046fe2be05d6",
+      "sourceBytes": 308,
+      "sourceSha256": "daf20d428a8a248f5b4039b327321dba01f49bb05344a8f5f2557a30d342aa2f"
+    },
+    {
+      "path": "rename-message-request.private.json",
+      "bytes": 363,
+      "sha256": "b1e9fc105cf8df4e9831ed1d44b892e3a9a6b383a33b3d6425f92f534d74b7c2",
+      "sourceBytes": 384,
+      "sourceSha256": "0cb4ef526a1f04af5d6d6788f8f551f89a4e43654a6c6d5e7c5d0d397f514661"
+    },
+    {
+      "path": "rename-message-result.private.json",
+      "bytes": 2612,
+      "sha256": "610ddc24f1db2d8be280ee3db6221900601175ea971d39fc6f4fdc823d57eefb",
+      "sourceBytes": 2383,
+      "sourceSha256": "20270d51e2caa758d5dcee471a42238fcb4ab4ad5fb06b74a880c5cacc804167"
+    },
+    {
+      "path": "webhook-name-confirmation.json",
+      "bytes": 216,
+      "sha256": "1e9a2f02f7dbe8bb96eecbb7b1b0d7079fed1896c3205a154afaa5d290520f99",
+      "source": "Explicit user replies, screenshot, and subsequent official API verification."
+    }
+  ]
+}

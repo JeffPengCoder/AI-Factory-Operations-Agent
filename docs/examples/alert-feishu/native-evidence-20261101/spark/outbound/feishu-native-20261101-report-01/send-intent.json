@@ -1,0 +1,32 @@
+{
+  "at": "2026-11-01T13:04:25.048497+00:00",
+  "channel": "feishu",
+  "pod": "openclaw-686bb66b6c-5jx4h",
+  "runId": "feishu-native-20261101-report-01",
+  "textBytes": 15168,
+  "textSha256": "9d2960cd846c65e0b6d5dc0c3490e9279c35a8da0b2259cff7a3553aee094b5d",
+  "commandWithoutBody": [
+    "$SPARK_HOME/.local/bin/kubectl",
+    "--request-timeout=20s",
+    "--context",
+    "kind-mosaic-poc",
+    "-n",
+    "mosaic",
+    "exec",
+    "openclaw-686bb66b6c-5jx4h",
+    "-c",
+    "gateway",
+    "--",
+    "node",
+    "/app/dist/index.js",
+    "message",
+    "send",
+    "--channel",
+    "feishu",
+    "--target",
+    "chat:oc_TEST_GROUP",
+    "--message",
+    "<full text saved as message.txt>",
+    "--json"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "case": "direct-default-thinking-nonstream",
+  "url": "http://spark-kind-bridge.example.invalid:8000/v1",
+  "stream": false,
+  "httpStatus": 200,
+  "contentType": "application/json",
+  "elapsedSeconds": 1.6729872319847345,
+  "fullResponse": {
+    "id": "chatcmpl-9ddac745ef6e2f88",
+    "object": "chat.completion",
+    "created": 1793425798,
+    "prompt_routed_experts": null,
+    "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": "The user is asking me to:\n1. Find a PDF file called \"mosaic-validation-control.pdf\" from indexed documents\n2. Reference MOSAIC-KB-20261031\n3. Find the public verification code in the Operator Decision and Evidence section on page 2\n4. Cite the exact filename and page inline\n5. Explain whether an automated alert investigation may directly repair a service\n6. Perform the document search and return evidence\n\nLet me start by searching for the PDF file and reading it.\n"
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.21.0+2325b6f0.dev-9f46b229",
+    "usage": {
+      "prompt_tokens": 7891,
+      "total_tokens": 8038,
+      "completion_tokens": 147,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null
+  }
+}

@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: mosaic-smoke-${RUN_ID}
+  namespace: ${MONITORING_NS}
+  labels:
+    release: ${RULE_RELEASE}
+    app.kubernetes.io/part-of: mosaic-alert-smoke-test
+spec:
+  groups:
+    - name: mosaic.synthetic-tests
+      rules:
+        - alert: MosaicSyntheticAlert
+          expr: vector(1)
+          for: 30s
+          labels:
+            severity: warning
+            mosaic_test: "true"
+            run_id: "${RUN_ID}"
+          annotations:
+            test_from: "test from Jeff Peng"
+            summary: "MOSAIC synthetic alert delivery test"
+            description: >-
+              test from Jeff Peng. This is a deliberately generated alert to verify
+              Prometheus -> Alertmanager -> MOSAIC -> reviewed report -> Feishu.
+              There is no underlying GPU, driver, node, or application fault.
+              Collect read-only evidence only. Do not perform remediation.
+              Remove PrometheusRule ${MONITORING_NS}/mosaic-smoke-${RUN_ID}
+              after verification.

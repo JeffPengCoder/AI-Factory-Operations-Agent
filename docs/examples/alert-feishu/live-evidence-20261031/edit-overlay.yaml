@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+modules:
+  edit:
+    enabled: true
+    hitl: true
+    approvalTimeoutMs: 120000
+    kubernetes:
+      enabled: false
+    bcm:
+      enabled: false
+    ssh:
+      enabled: true
+      existingSecret: mosaic-validation-ssh
+      privateKeyKey: privateKey
+      knownHostsKey: knownHosts
+      hosts:
+        - alias: repair-demo
+          address: "spark-kind-bridge.example.invalid"
+          user: spark-user
+          port: 22

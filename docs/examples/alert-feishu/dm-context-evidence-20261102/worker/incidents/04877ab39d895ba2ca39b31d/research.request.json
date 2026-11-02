@@ -1,0 +1,15 @@
+{
+  "method": "POST",
+  "path": "/api/openclaw/tools/call",
+  "body": {
+    "name": "iraop_query",
+    "arguments": {
+      "question": "Use only mosaic-gpu-evidence-runbook.pdf to explain the generic GPU evidence procedure: Xid 95, isolated DCGM cache versus live hardware evidence, volatile versus aggregate ECC, kernel-log limitations, and the public retrieval verification code on page 2. Cite filenames and pages. Do not infer this incident or its numeric observations from the document.",
+      "depth": "quick",
+      "collections": [
+        "mosaic-gpu-validation-20261031"
+      ]
+    },
+    "sessionKey": "agent:default:mosaic-automation-alert-04877ab39d895ba2ca39b31d"
+  }
+}

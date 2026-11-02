@@ -1,0 +1,17 @@
+{
+  "native": {
+    "drySend": {
+      "status": 403,
+      "body": "{\"ok\":false,\"error\":{\"type\":\"tool_call_blocked\",\"message\":\"This conversation is in View mode. Switch it to Edit before requesting changes. Mutation and generic execution tools are unavailable.\",\"requiresApproval\":false}}"
+    },
+    "collections": {
+      "status": 502,
+      "body": "{\"success\":false,\"message\":\"Tool not available: iraop_collections\",\"result\":{\"ok\":false,\"error\":{\"type\":\"not_found\",\"message\":\"Tool not available: iraop_collections\"}}}"
+    }
+  },
+  "alertmanagerEmptyPost": {
+    "status": 403,
+    "body": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+  },
+  "python": "3.12.3"
+}

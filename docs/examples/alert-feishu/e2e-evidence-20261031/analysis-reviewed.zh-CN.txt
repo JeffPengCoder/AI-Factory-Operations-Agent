@@ -1,0 +1,211 @@
+操作员审核说明：本报告保留完整模型修正版，并纠正标识/术语；原始两轮调查、3次IRAOP响应、18次工具结果和完整修改diff均保留在证据附件。知识库中旧示例不等于当前现场；前两次研究有来源但含事实误归因，经人工复核纠正。
+
+自动完成：指标采集、规则评估、Alertmanager接收、MOSAIC轮询；点击本告警Start Investigating后，agent自动采集并咨询IRAOP。人工完成：测试资源创建、单条调查触发、补充取证/事实审核、调用群机器人发送。当前未部署无人值守的完整自动发布流程。
+
+
+
+---
+
+# MOSAIC 注入式工作负载故障（MosaicInjectedWorkloadFailure）修正调查报告
+
+**告警指纹**: 1bdae10de10f472e  
+**运行ID**: e2e-20261031t075722z  
+**Pod UID**: 82953a81-6578-4cbe-b638-ef3de927279a  
+**会话 ID**: ed4679e0-f8b4-494c-852e-f63d2f9b76ab  
+**sessionKey**: agent:default:alert-alertmanager-1bdae10de10f472e  
+**调查时间**: 2026-10-31T08:32 UTC  
+**操作员模式**: View（只读）  
+**来源**: Jeff Peng 测试  
+
+---
+
+## 一、标识信息（修正）
+
+| 字段 | 值 | 备注 |
+|---|---|---|
+| 告警指纹 | 1bdae10de10f472e | Alertmanager 与 MOSAIC 共享此指纹 |
+| 运行ID | e2e-20261031t075722z | 标识本次 e2e 测试执行 |
+| Pod UID | 82953a81-6578-4cbe-b638-ef3de927279a | 仅标识 Pod，非告警 UID |
+| 来源标签 uid（Pod UID） | 82953a81-6578-4cbe-b638-ef3de927279a | 告警对象 ID 为 alertmanager:1bdae10de10f472e，fingerprint 为 1bdae10de10f472e |
+| PrometheusRule | mosaic-e2e-20261031t075722z | UID 0faf5f01-a21e-439f-b4f6-c6da8d5c219d |
+| 命名空间 | mosaic-e2e-20261031t075722z | |
+| Pod | mosaic-log-fixture | |
+| 容器 | fixture | |
+| 注册集群 | target-lab | |
+
+---
+
+## 二、PrometheusRule 实际表达式
+
+本次告警由 **新的 PrometheusRule `mosaic-e2e-20261031t075722z`**（UID `0faf5f01-a21e-439f-b4f6-c6da8d5c219d`）触发，非 vector(1) 注入规则。
+
+```
+max_over_time(
+  kube_pod_container_status_waiting_reason{
+    namespace="mosaic-e2e-20261031t075722z",
+    pod="mosaic-log-fixture",
+    container="fixture",
+    reason="CrashLoopBackOff"
+  }[2m]
+) > 0
+```
+
+- 条件: `> 0`
+- 持续时间: `for10s`
+- 评估间隔: `10s`
+
+独立记录的 Prometheus 样本显示状态为 **pending → firing**。Alertmanager 与 MOSAIC 共享指纹 **1bdae10de10f472e**。
+
+**此前报告错误**: 错误地声称"该告警由 Alertmanager API 直接注入，绕过 Prometheus 规则评估"。现更正为：**本次告警由新 PrometheusRule 正常评估产生。** PDF 中关于 vector(1) 和 Alertmanager 直接注入的描述为不同示例，不适用于本运行。
+
+---
+
+## 三、观察到的错误证据
+
+### 3.1 Pod 终止状态
+
+| 字段 | 值 |
+|---|---|
+| lastState.terminated.exitCode | 23 |
+| lastState.terminated.reason | Error |
+| lastState.terminated.startedAt | 2026-10-31T08:24:38Z |
+| lastState.terminated.finishedAt | 2026-10-31T08:24:38Z |
+| state.waiting.reason | CrashLoopBackOff |
+| state.waiting.message | back-off 2m40s restarting failed container=fixture pod=mosaic-log-fixture_mosaic-e2e-20261031t075722z(82953a81-6578-4cbe-b638-ef3de927279a) |
+| restartCount | 5 |
+| ready | false |
+| started | false |
+
+### 3.2 当前日志与上一次日志
+
+```
+2026-10-31T16:24:38.333639096+08:00 timestamp=2026-10-31T08:24:38Z run_id=e2e-20261031t075722z component=mosaic-log-fixture event=startup test_from="test from Jeff Peng"
+2026-10-31T16:24:38.334391932+08:00 timestamp=2026-10-31T08:24:38Z run_id=e2e-20261031t075722z event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from="test from Jeff Peng"
+```
+
+### 3.3 ConfigMap fixture-input 内容
+
+仅含一个键：
+
+```
+README: "Deliberately omit ready for a bounded startup-failure test. No production service is modified."
+```
+
+**未包含 `ready` 文件**。ConfigMap 以只读方式挂载至容器的 `/fixture` 路径。
+
+### 3.4 启动脚本逻辑
+
+```sh
+if [ ! -f /fixture/ready ]; then
+  printf '... event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 ...'
+  exit 23
+fi
+```
+
+---
+
+## 四、事件时间线
+
+| 时间（UTC） | 事件 | 来源 |
+|---|---|---|
+| 08:21:42 | Pod 创建，调度到 target-node-1 | `get pod` / `get events` |
+| 08:21:43 | 容器镜像已存在于本地 | events: `Pulled` |
+| 08:21:43 | 容器 fixture 已创建 | events: `Created` |
+| 08:21:44 | 容器 fixture 已启动 | events: `Started` |
+| 08:21:49 | 首次 BackOff 警告 | events: `BackOff` |
+| 08:23:06 | 告警 MosaicInjectedWorkloadFailure 触发（PrometheusRule 评估） | 告警元数据 |
+| 08:23:13~08:24:38 | 观测到重启计数为5；已抓到的终止记录退出码为23 | `get pod -o json` / `describe` |
+| 08:24:38 | 最近一次终止记录 | Pod JSON lastState |
+| 08:25:22 | 最后一次 BackOff 事件 | events: `BackOff` (count=17) |
+
+---
+
+## 五、知识查询结果（IRAOP）
+
+**查询**: 在 collection `mosaic-validation-20261031` 中仅检索 PDF 关于"修复前读取服务状态/日志"、"自动告警调查只读"和"完成证据要求"的通用指令，不要求 PDF 诊断当前 Pod。
+
+| 文件 | 页码 | 内容 |
+|---|---|---|
+| mosaic-validation-control.pdf | 第 1 页 | 通用指令："对于有界用户级修复演示，服务在就绪标记缺失时故障。修复前读取精确的服务状态和日志。仅修复注册的 demo 封装；验证标记和服务结果。" |
+| mosaic-validation-control.pdf | 第 2 页 | "自动告警调查保持只读。使用单独的授权交互式修复对话，保留告警 ID、调查sessionKey、研究来源和修复sessionKey。" |
+| mosaic-validation-control.pdf | 第 2 页 | "完成证据包括：精确工具参数、toolCallId、退出状态、修复前后完整服务状态、日志和独立观察到的恢复条件。仅文档建议不足以确立根本原因或完成修复。" |
+| mosaic-validation-control.pdf | 第 2 页 | 模式行为：View 阻止修复；Edit+HITL 等待审批；Auto 无需逐操作审批。 |
+
+**PDF 中讨论的不同示例（不涵盖当前 Kubernetes Pod 场景）**：
+
+| 示例 | 页码 | 说明 |
+|---|---|---|
+| vector(1) 告警注入 | 第 1 页 | 故意交付路径测试，不显示 GPU/驱动/应用故障 |
+| Alertmanager API 直接注入 | 第 1 页 | 绕过 Prometheus 规则评估 |
+| 有界用户级修复演示 | 第 1 页 | 就绪标记缺失导致服务故障 |
+
+上述示例为 PDF 的控制语料（control corpus）演示，**并非当前运行 e2e-20261031t075722z 中 Pod 的实现细节**。当前 Pod 的 exit 23、REQUIRED_FILE_MISSING、ConfigMap fixture-input、就绪检查脚本等事实均来自**实时 kubectl 工具输出和运维人员提供的上下文**，PDF 不包含这些具体实现。
+
+---
+
+## 六、此前报告事实错误纠正
+
+| # | 此前报告中的错误声明 | 更正 |
+|---|---|---|
+| 1 | 声称告警由 Alertmanager API 直接注入，绕过 Prometheus 规则评估 | **更正**: 告警由新 PrometheusRule `mosaic-e2e-20261031t075722z`（UID `0faf5f01-a21e-439f-b4f6-c6da8d5c219d`）正常评估触发，表达式为 `max_over_time(...) > 0`，独立 Prometheus 样本显示 pending→firing |
+| 2 | 将 `82953a81-6578-4cbe-b638-ef3de927279a` 标识为告警 UID | **更正**: 此 UID 为 **Pod UID**，非告警 UID。告警唯一标识为指纹 `1bdae10de10f472e` |
+| 3 | 建议 `touch /fixture/ready` 作为修复方法 | **更正**: `/fixture` 为只读 ConfigMap 挂载，`touch` 不可行。当前运维环境启用了仅 SSH 的 Edit 模式，Kubernetes 写后端已禁用。选择 Edit/Auto 模式不能授予 Kubernetes  patch 权限。 |
+| 4 | 声称 PDF 包含当前 Pod 的精确实现（exit 23、ConfigMap、REQUIRED_FILE_MISSING） | **更正**: PDF 不包含当前 Pod/命名空间/运行 ID 的具体实现。PDF 仅提供通用框架指令。当前 Pod 的实际实现细节全部来自实时 kubectl 工具输出和运维人员提供的上下文。 |
+| 5 | 声称所有 GPU 监控均为健康，"无 GPU 故障" | **更正**: 仅节点条件为有限观察，不构成全面的 GPU 诊断。确知的是：**未注入 GPU 故障**，当前证据仅确立该 fixture 容器的启动失败。 |
+
+---
+
+## 七、模型整理的工具类型摘要（完整逐次索引附后）
+
+| 工具 | 参数 | 结果 |
+|---|---|---|
+| run_kubectl get pod -o json | `["get","pod","mosaic-log-fixture","-n","mosaic-e2e-20261031t075722z","-o","json"]` | 成功，退出码 0 |
+| run_kubectl describe pod | `["describe","pod","mosaic-log-fixture","-n","mosaic-e2e-20261031t075722z"]` | 成功，退出码 0 |
+| run_kubectl logs --previous --timestamps | `["logs","mosaic-log-fixture","-c","fixture","-n","mosaic-e2e-20261031t075722z","--previous","--timestamps"]` | 成功，退出码 0 |
+| run_kubectl logs --timestamps | `["logs","mosaic-log-fixture","-c","fixture","-n","mosaic-e2e-20261031t075722z","--timestamps"]` | 成功，退出码 0 |
+| run_kubectl get events -o json | `["get","events","-n","mosaic-e2e-20261031t075722z","-o","json"]` | 成功，退出码 0 |
+| run_kubectl get configmap -o json | `["get","configmap","fixture-input","-n","mosaic-e2e-20261031t075722z","-o","json"]` | 成功，退出码 0 |
+| run_kubectl get node -o json | `["get","node","target-node-1","-o","json"]` | 成功，退出码 0 |
+| run_kubectl get pod -w --timeout | `["get","pod","mosaic-log-fixture","-n","mosaic-e2e-20261031t075722z","-w","--watch-only","--timeout=5s"]` | **失败**: `error: unknown flag: --timeout` |
+| iraop_query | 最后一次限定检索PDF通用指令，前两次结果及错误保留 | MCP isError=false，各返回2个来源；此处不是操作系统退出码 |
+| 所有 write 操作 | — | **未执行**: 当前为 View 模式 |
+
+---
+
+## 八、结论
+
+1. **启动失败原因**: ConfigMap `fixture-input` 故意不包含 `ready` 文件，容器启动脚本在 `/fixture/ready` 存在性检查失败后以退出码 23 终止。
+2. **性质**: 此为 e2e-20261031t075722z 有界启动失败测试的受控故障，由 PrometheusRule `mosaic-e2e-20261031t075722z` 正常评估触发。
+3. **GPU 故障**: **未注入 GPU 故障**。节点条件仅为有限观察，不构成全面 GPU 诊断。
+4. **修复**: 未执行任何修复操作。当前环境启用仅 SSH 的 Edit 模式，Kubernetes 写后端已禁用。如需修复，需通过运维流程处理。
+5. **Feishu 投递**: 未执行 Feishu 投递。此报告仅供操作员审阅，后续由操作员通过配置的自定义 Bot 另行投递。
+
+---
+
+**报告完成。保留此前调查报告于历史记录供审计，本报告为修正版本。调查agent未执行写操作、未更改模式，也未自行投递飞书；隔离资源由已授权运维脚本创建，本完整审核报告由操作员通过群机器人发送。**
+
+
+## 实际逐次工具索引（18条均保留）
+
+| # | toolName | toolCallId | isError |
+| --- | --- | --- | --- |
+| 1 | run_kubectl | call_95f49e4b1b3440f5b44b0fd1 | false |
+| 2 | run_kubectl | call_e4b8e9037e384f98b4b2e74e | false |
+| 3 | run_kubectl | call_edadd5e0c13b46018edde9d4 | false |
+| 4 | run_kubectl | call_dd2491e6bef34164be582cca | true |
+| 5 | memory_search | call_20669143584443f3ad33e626 | false |
+| 6 | iraop_list_collections | call_b805957079994687bf9eab69 | false |
+| 7 | run_kubectl | call_ff08d966f1bb4d458fde7084 | false |
+| 8 | run_kubectl | call_7724176251464e59b136a5a8 | false |
+| 9 | iraop_query | call_f1022a1955e84f868de2e10b | false |
+| 10 | run_kubectl | call_3c20b34249a04614922759b9 | false |
+| 11 | run_kubectl | call_5ef19b1844d24b0892eab6f7 | false |
+| 12 | run_kubectl | call_ee1dab0918ef4910936741b0 | false |
+| 13 | run_kubectl | call_aaf3236af6934910aa3c3d1d | false |
+| 14 | run_kubectl | call_a3ea30a1b25b4f2bb7421a62 | false |
+| 15 | run_kubectl | call_9a514b9ae4cc433d9ec68294 | false |
+| 16 | run_kubectl | call_9ec4548521ba41a49f570485 | false |
+| 17 | iraop_query | call_bbc78e57c1f140f4aa85dba9 | false |
+| 18 | iraop_query | call_6d4b768ae3c14fe4bcd1e4c8 | false |
+
+每一条的完整参数、原始输出、请求/结果时间及3次完整知识回答均在文档PR的证据附件；未用模型摘要替代原件。部分超大MCP details由OpenClaw持久化层缩为元数据，完整可见content仍保留，此限制另行记录。

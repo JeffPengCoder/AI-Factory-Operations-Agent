@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-31T06:07:50.892205+00:00",
+  "commands": [
+    {
+      "argv": [
+        "free",
+        "-b"
+      ],
+      "exitCode": 0,
+      "stdout": "               total        used        free      shared  buff/cache   available\nMem:     130662936576 103932764160  1577533440  4469739520 30542974976 26730172416\nSwap:    17179865088   144674816 17035190272\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "df",
+        "-B1",
+        "/home/spark-user"
+      ],
+      "exitCode": 0,
+      "stdout": "Filesystem         1B-blocks         Used     Available Use% Mounted on\n/dev/nvme0n1p2 4031871553536 131791917056 3695238787072   4% /\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "phase": "after-query-guard-restored",
+  "checkedAt": "2026-10-31T03:40:24.079885+00:00",
+  "localListener": {
+    "argv": [
+      "lsof",
+      "-nP",
+      "-iTCP:13000",
+      "-sTCP:LISTEN"
+    ],
+    "exitCode": 0,
+    "stdout": "COMMAND   PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nssh     49878 operator    6u  IPv4 0xc6c3965140d2883c      0t0  TCP 127.0.0.1:13000 (LISTEN)\n",
+    "stderr": ""
+  },
+  "sparkListener": {
+    "argv": [
+      "ssh",
+      "-S",
+      "/private/tmp/mosaic-live-20261031/ssh.sock",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=20",
+      "spark-user@spark.example.invalid",
+      "ss -ltnp \"( sport = :13000 )\""
+    ],
+    "exitCode": 0,
+    "stdout": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess\nLISTEN 0      4096       127.0.0.1:13000      0.0.0.0:*    users:((\"kubectl\",pid=1899230,fd=7))\n",
+    "stderr": ""
+  },
+  "health": {
+    "path": "/api/health",
+    "httpStatus": 200,
+    "body": {
+      "status": "ok"
+    },
+    "elapsedSeconds": 0.2552290419989731
+  },
+  "unauthenticatedApi": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": 401,
+    "body": "Authentication required.",
+    "elapsedSeconds": 0.26408212500973605
+  },
+  "authenticatedApi": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "status": {
+        "enabled": false,
+        "baseUrl": "http://target-node-1.example.invalid:30093",
+        "intervalMs": 30000,
+        "lastImported": 0,
+        "lastSeenCount": 0
+      }
+    },
+    "elapsedSeconds": 0.2636132090119645
+  }
+}

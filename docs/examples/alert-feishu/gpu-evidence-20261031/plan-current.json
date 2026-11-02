@@ -1,0 +1,19 @@
+{
+  "runId": "gpu-rca-20261031t121240z",
+  "createdAt": "2026-10-31T12:12:40.174568+00:00",
+  "request": "GPU hardware evidence attribution through alert/MOSAIC/IRAOP/Feishu, with complete intermediate evidence and handoff",
+  "phase": "isolated GPU cache test passed; monitoring scrape protocol fixed; end-to-end validation active",
+  "candidate": "isolated DCGM host engine cache injection, baseline real driver/NVML/kernel evidence",
+  "boundaries": [
+    "No physical hardware damage, driver reload/reset, production host-engine restart, global metric pause or write to real hardware error counters.",
+    "Separate simulated telemetry from live authoritative evidence; do not call a simulated cache value proof of a defective GPU.",
+    "No fresh NVDebug/active GPU stress until runtime capabilities and job activity are checked."
+  ],
+  "unknowns": [
+    "Actual DCGM/driver versions and cache injection support",
+    "Exporter host-engine mode and current GPU jobs",
+    "Specialized Hardware Agent enabled/configured status",
+    "Source knowledge available for GPU errors"
+  ],
+  "userDocumentSteering": "User explicitly requests distinct CPU vs GPU experiment presentation and separate GPU document."
+}

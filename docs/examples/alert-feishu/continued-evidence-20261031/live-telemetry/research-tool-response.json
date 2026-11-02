@@ -1,0 +1,23 @@
+{
+  "answer": "## Answers Based on Indexed Document\n\n**Reference:** `mosaic-validation-control.pdf`, page 2\n\n### Public Verification Code\n\nThe public verification code printed in the **Operator Decision and Evidence** section is:\n\n> **CEDAR-NEBULA-E720C8C9**\n\n### Can an Automated Alert Investigation Directly Repair a Service?\n\n**No.** Per the document:\n\n> *\"Automatic alert investigations remain read-only.\"*\n\nAn automated alert investigation cannot directly repair a service. To perform a repair, you must use **a separate authorized interactive repair conversation**, preserving the alert ID, investigation session key, research sources, and repair session key.",
+  "depth": "quick",
+  "collections_searched": [
+    "mosaic-validation-20261031"
+  ],
+  "sources": [
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    }
+  ]
+}

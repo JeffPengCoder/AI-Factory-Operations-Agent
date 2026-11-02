@@ -1,0 +1,44 @@
+{
+  "historicalSourcePreservation": [
+    {
+      "file": "spark_alert_feishu_runbook.zh-CN.md",
+      "historicalTablesPreserved": 10,
+      "historicalCodeBlocksPreserved": 29
+    },
+    {
+      "file": "spark_e2e_alert_research_feishu_20261031.zh-CN.md",
+      "historicalTablesPreserved": 13,
+      "historicalCodeBlocksPreserved": 30
+    },
+    {
+      "file": "spark_feishu_webhook_native_runbook.zh-CN.md",
+      "historicalTablesPreserved": 14,
+      "historicalCodeBlocksPreserved": 25
+    },
+    {
+      "file": "spark_gpu_alert_research_feishu_20261031.zh-CN.md",
+      "historicalTablesPreserved": 27,
+      "historicalCodeBlocksPreserved": 9
+    }
+  ],
+  "publicEvidenceFilesVerified": 151,
+  "relativeLinksMissing": [],
+  "privateValueScanPassed": true,
+  "pdfs": [
+    {
+      "pdf": "spark-gpu-validation-20261102-external.pdf",
+      "pages": 39,
+      "allPagesRendered": true,
+      "outOfPageWords": 0,
+      "replacementGlyphs": 0
+    },
+    {
+      "pdf": "mosaic-feishu-webhook-native-20261102-external.pdf",
+      "pages": 20,
+      "allPagesRendered": true,
+      "outOfPageWords": 0,
+      "replacementGlyphs": 0
+    }
+  ],
+  "visualReview": "All 59 rendered pages inspected through six contact sheets; current standalone architecture inspected at 1600px. No clipped tables, overlapping labels, broken glyphs or out-of-page text."
+}

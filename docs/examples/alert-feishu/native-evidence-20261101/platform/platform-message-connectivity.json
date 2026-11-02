@@ -1,0 +1,27 @@
+{
+  "code": 0,
+  "data": {
+    "items": [
+      {
+        "body": {
+          "content": "{\"title\":\"\",\"content\":[[{\"tag\":\"text\",\"text\":\"test from Jeff Peng\\n\",\"style\":[]},{\"tag\":\"text\",\"text\":\"OpenClaw 飞书原生通道主动发送测试：本条由新应用机器人发送。\\n\",\"style\":[]},{\"tag\":\"text\",\"text\":\"Run ID: feishu-native-20261101-outbound-01\",\"style\":[]}]],\"content_v2\":[[{\"tag\":\"md\",\"text\":\"test from Jeff Peng\\nOpenClaw 飞书原生通道主动发送测试：本条由新应用机器人发送。\\nRun ID: feishu-native-20261101-outbound-01\"}]]}"
+        },
+        "chat_id": "oc_TEST_GROUP",
+        "create_time": "1793538096462",
+        "deleted": false,
+        "message_id": "om_REDACTED_003",
+        "message_position": "7",
+        "msg_type": "post",
+        "sender": {
+          "id": "<credential-redacted>",
+          "id_type": "app_id",
+          "sender_type": "app",
+          "tenant_key": "TENANT_KEY"
+        },
+        "update_time": "1793538096462",
+        "updated": false
+      }
+    ]
+  },
+  "msg": "success"
+}

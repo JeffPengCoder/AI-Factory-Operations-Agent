@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+modules:
+  research:
+    enabled: true
+    secrets:
+      create: false
+researchAgent:
+  iraop:
+    config:
+      NVIDIA_CHAT_BASE_URL: http://llm-openai-compat:8000/v1
+      NVIDIA_CHAT_MODEL: nvidia/Qwen3.6-35B-A3B-NVFP4
+      MAX_TOKENS: "4096"
+      DEFAULT_DEPTH: quick
+      EMBEDDING_BASE_URL: http://spark-kind-bridge.example.invalid:18081/v1
+      EMBEDDING_MODEL: sentence-transformers/all-MiniLM-L6-v2
+      EMBEDDING_API_FLAVOR: openai
+      EMBEDDING_DIMENSION: "384"
+      OPENSEARCH_ALLOW_PRIVATE_IP_CONNECTOR: "true"
+      CORPUS_DIR: /cm/shared/iraop-corpus
+    corpus:
+      hostPath: /var/local/mosaic-validation-20261031/corpus

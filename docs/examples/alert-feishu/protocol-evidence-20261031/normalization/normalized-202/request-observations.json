@@ -1,0 +1,16 @@
+[
+  {
+    "sequence": 1,
+    "httpStatus": 200,
+    "normalizeNamedResearchCall": true,
+    "normalizationPerformed": true,
+    "query": "public verification code OR verification code Operator Decision and Evidence page 2",
+    "normalizedCallId": "call_research_bb45847733a640b6b5a3e37acd68d895"
+  },
+  {
+    "sequence": 2,
+    "httpStatus": 200,
+    "normalizeNamedResearchCall": false,
+    "normalizationPerformed": false
+  }
+]

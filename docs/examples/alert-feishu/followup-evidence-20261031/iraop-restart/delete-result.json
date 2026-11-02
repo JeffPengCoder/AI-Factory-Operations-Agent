@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "/home/spark-user/.local/bin/kubectl",
+    "--context",
+    "kind-mosaic-poc",
+    "-n",
+    "mosaic",
+    "delete",
+    "pod",
+    "iraop-cb7877-kmr2f",
+    "--wait=true",
+    "--timeout=90s"
+  ],
+  "exitCode": 0,
+  "stdout": "pod \"iraop-cb7877-kmr2f\" deleted from mosaic namespace\n",
+  "stderr": "",
+  "elapsedSeconds": 1.2238445882685483
+}

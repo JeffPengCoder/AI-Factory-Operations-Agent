@@ -1,0 +1,838 @@
+{
+  "scope": "Complete selected native negative responses, selected UI sessions/tool details and raw chat/UI streams, Feishu unsigned report/response/user receipt, runtime metadata, upstream patch and full validation outputs. Summaries do not replace originals.",
+  "redactions": [
+    "Actual credential values and their encoded forms are scanned in memory only; matches are replaced and counted.",
+    "Private host/IP/account/registry organization mappings are replaced consistently.",
+    "The unrelated all-alert NDJSON channel is kept privately; full selected chat/UI channels and all stream metadata remain."
+  ],
+  "excludedFromPublic": [
+    "All closed UI compiled chunks/source maps/extracted source stay in the internal originals. Metadata hashes identify the actual image files.",
+    "All-alert page DOM/screenshots, unrelated events, raw credentials, credentialed Helm values/charts and private source are not published. The complete allowed originals remain internal."
+  ],
+  "files": [
+    {
+      "path": "browser_live_telemetry.py",
+      "originalBytes": 9493,
+      "originalSha256": "adae0b00d10a08409e3439e90a982cc8a26e75eafea13e1012c510b487cc8aaf",
+      "publishedBytes": 9630,
+      "publishedSha256": "ae0d6aef9209c38fc1b4e9233df80c81e0cfc5fb6676c32ad9d19239e0aece39",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "browser_missing_collection.py",
+      "originalBytes": 9720,
+      "originalSha256": "87e4c16899fbf40dadfbfcb27f8691d4894aca6a8fe39d1409ee5b793d4c01dd",
+      "publishedBytes": 9857,
+      "publishedSha256": "0d435d32c9bb5ae8658b6eb946d6f61993fa5a8b083d582cdb3a78a7996dbb34",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "chat-stream-app-source-metadata.json",
+      "originalBytes": 856,
+      "originalSha256": "04cd51db1c2306e0a846b32b33eef227074cd0c29a173633687df532c6683856",
+      "publishedBytes": 856,
+      "publishedSha256": "04cd51db1c2306e0a846b32b33eef227074cd0c29a173633687df532c6683856",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "event-route-auth-probe.json",
+      "originalBytes": 291,
+      "originalSha256": "3d5f82abec5aab01770c2e3075cdfe3ee29d5979d9220eff830205b02553f713",
+      "publishedBytes": 291,
+      "publishedSha256": "3d5f82abec5aab01770c2e3075cdfe3ee29d5979d9220eff830205b02553f713",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "feishu-alert-reviewed.json",
+      "originalBytes": 1508,
+      "originalSha256": "fb84eff62ece0b823ae3fff8348188f8e96416173b2a3c37f84f1fd1726cde1d",
+      "publishedBytes": 1508,
+      "publishedSha256": "fb84eff62ece0b823ae3fff8348188f8e96416173b2a3c37f84f1fd1726cde1d",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "feishu-analysis-reviewed.zh-CN.txt",
+      "originalBytes": 3320,
+      "originalSha256": "b9324cba3207c5ba8995b5c86642971707170e8a47df482efe3ea6215f6c783c",
+      "publishedBytes": 3320,
+      "publishedSha256": "b9324cba3207c5ba8995b5c86642971707170e8a47df482efe3ea6215f6c783c",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "feishu-payload-reviewed.json",
+      "originalBytes": 5464,
+      "originalSha256": "0f05e41a91f2d758e79fde59cc26ce23e886fc059bd9c16b5536579d8bdc41fd",
+      "publishedBytes": 5464,
+      "publishedSha256": "0f05e41a91f2d758e79fde59cc26ce23e886fc059bd9c16b5536579d8bdc41fd",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "feishu-report-metadata.json",
+      "originalBytes": 252,
+      "originalSha256": "c9f7516953cc5b60a8bd9e9f391c7bc729e110f121ea520e77757e25dbbccea0",
+      "publishedBytes": 252,
+      "publishedSha256": "c9f7516953cc5b60a8bd9e9f391c7bc729e110f121ea520e77757e25dbbccea0",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "feishu-response-attempt1.json",
+      "originalBytes": 77,
+      "originalSha256": "89e94416fa02187e877112ac0b31f87d579d748dc6cd117b6a1e24b458415272",
+      "publishedBytes": 77,
+      "publishedSha256": "89e94416fa02187e877112ac0b31f87d579d748dc6cd117b6a1e24b458415272",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "feishu-send-attempt1-started.json",
+      "originalBytes": 259,
+      "originalSha256": "b66125d656dd829cf947e7320235ed13c8e48c2ba19dac0157e7e3dbaa5de596",
+      "publishedBytes": 259,
+      "publishedSha256": "b66125d656dd829cf947e7320235ed13c8e48c2ba19dac0157e7e3dbaa5de596",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "feishu-send-attempt1.log",
+      "originalBytes": 533,
+      "originalSha256": "aa50634834e5a2b6d9167e323cc80d7e8658ed91d0ba40f18ed6bb52aeb9fd01",
+      "publishedBytes": 535,
+      "publishedSha256": "0ac2caa5954ec813b8653a35a1d0fe3f307dcd59ad97b4abddd00a3b81af3806",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "feishu-send-result.json",
+      "originalBytes": 420,
+      "originalSha256": "2c316375d7d128ee040c16e59b8a6e2db3a521390f2c1d8dd997af60d24b8e0e",
+      "publishedBytes": 420,
+      "publishedSha256": "2c316375d7d128ee040c16e59b8a6e2db3a521390f2c1d8dd997af60d24b8e0e",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "feishu-user-receipt.json",
+      "originalBytes": 500,
+      "originalSha256": "1f4e9fbf9dbcb3b1aab180f53230d3ac8512a78d3dd68a7456708dd581d60649",
+      "publishedBytes": 500,
+      "publishedSha256": "1f4e9fbf9dbcb3b1aab180f53230d3ac8512a78d3dd68a7456708dd581d60649",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "live-telemetry.log",
+      "originalBytes": 985,
+      "originalSha256": "0ec355791958968dbdf03509f33e1c9180c320a12c851d58341ba2c814cdf00b",
+      "publishedBytes": 985,
+      "publishedSha256": "0ec355791958968dbdf03509f33e1c9180c320a12c851d58341ba2c814cdf00b",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "live-telemetry/all-requests.json",
+      "originalBytes": 856,
+      "originalSha256": "bf789979b03d0cff928a7ccdd0136a32a9f48dd98cbfc346b6b2cb6e34e49e0f",
+      "publishedBytes": 856,
+      "publishedSha256": "bf789979b03d0cff928a7ccdd0136a32a9f48dd98cbfc346b6b2cb6e34e49e0f",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "live-telemetry/cdp-streams.json",
+      "originalBytes": 268,
+      "originalSha256": "3a980944c0002b9be6d6912f6f49d6bfac05b95547fd9c80a7a2fe33bcda5998",
+      "publishedBytes": 268,
+      "publishedSha256": "3a980944c0002b9be6d6912f6f49d6bfac05b95547fd9c80a7a2fe33bcda5998",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "live-telemetry/history-api.json",
+      "originalBytes": 15475,
+      "originalSha256": "ef4b5baad7ee40be359e244fa06fc15320fe2ecf52dc936bda3a5adf8e88184a",
+      "publishedBytes": 15475,
+      "publishedSha256": "ef4b5baad7ee40be359e244fa06fc15320fe2ecf52dc936bda3a5adf8e88184a",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "live-telemetry/history-gateway.json",
+      "originalBytes": 8119,
+      "originalSha256": "9baf3744ee7d324100232193524f0423710099a37a4a31069b9cea1a74c4b971",
+      "publishedBytes": 8119,
+      "publishedSha256": "9baf3744ee7d324100232193524f0423710099a37a4a31069b9cea1a74c4b971",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "live-telemetry/network-responses.json",
+      "originalBytes": 4294,
+      "originalSha256": "0f86ca95fac18a5a3b2877bd08ca37db544c2da1ad522440023d1878553c1324",
+      "publishedBytes": 4294,
+      "publishedSha256": "0f86ca95fac18a5a3b2877bd08ca37db544c2da1ad522440023d1878553c1324",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "live-telemetry/polls.json",
+      "originalBytes": 1170,
+      "originalSha256": "383860d613aa26592cde53981e16d555876cd66b8af37c768e545289cd2b54e0",
+      "publishedBytes": 1170,
+      "publishedSha256": "383860d613aa26592cde53981e16d555876cd66b8af37c768e545289cd2b54e0",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "live-telemetry/requests.json",
+      "originalBytes": 856,
+      "originalSha256": "bf789979b03d0cff928a7ccdd0136a32a9f48dd98cbfc346b6b2cb6e34e49e0f",
+      "publishedBytes": 856,
+      "publishedSha256": "bf789979b03d0cff928a7ccdd0136a32a9f48dd98cbfc346b6b2cb6e34e49e0f",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "live-telemetry/research-tool-response.json",
+      "originalBytes": 1298,
+      "originalSha256": "8e0e19e106f96cadc537aa4f541627785bd6e4a853a0d0a27e4536504611f66b",
+      "publishedBytes": 1298,
+      "publishedSha256": "8e0e19e106f96cadc537aa4f541627785bd6e4a853a0d0a27e4536504611f66b",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "live-telemetry/selected-cdp-ndjson.json",
+      "originalBytes": 3,
+      "originalSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "publishedBytes": 3,
+      "publishedSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "live-telemetry/selected-ui-events.json",
+      "originalBytes": 3371,
+      "originalSha256": "e33e056571867b9abf29f4bd3b3abf9da7ee5bfac6aa91065c03164ec2224a0f",
+      "publishedBytes": 3371,
+      "publishedSha256": "e33e056571867b9abf29f4bd3b3abf9da7ee5bfac6aa91065c03164ec2224a0f",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "live-telemetry/summary.json",
+      "originalBytes": 1105,
+      "originalSha256": "efd5dd727fe36b33727843da6c41dbfdb17b1bb0f4e0eaf8bc6e84cdc64ddc5a",
+      "publishedBytes": 1105,
+      "publishedSha256": "efd5dd727fe36b33727843da6c41dbfdb17b1bb0f4e0eaf8bc6e84cdc64ddc5a",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "live-telemetry/ui-and-chat-streams.json",
+      "originalBytes": 133368,
+      "originalSha256": "77fea8def9eee4c85d6177331176510aa399a4f87c6d7ecc3fbf2e5aa1983d05",
+      "publishedBytes": 35165,
+      "publishedSha256": "84cdf3a8da3b87adceafd288e92cbdb840a24a52c8905cb70c6a22471144760e",
+      "changed": true,
+      "explicitFieldRedactions": [
+        "Only the unrelated /api/alerts/events stream is retained privately; every field/chunk of the selected UI/chat streams remains."
+      ],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "machine-token-comparison.json",
+      "originalBytes": 3053,
+      "originalSha256": "c046ebe8bd9a4cbfffa79223ae3318f93c49c1ebb21761a9fe5a04db4d91a9c1",
+      "publishedBytes": 3053,
+      "publishedSha256": "c046ebe8bd9a4cbfffa79223ae3318f93c49c1ebb21761a9fe5a04db4d91a9c1",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "native-transcripts/7039a9ab-1b60-4d8b-8962-222b0a4245f2.jsonl",
+      "originalBytes": 9436,
+      "originalSha256": "9c32ad75ddd542965714886a3fd3d2f50ff4928065d60a48d4078b9d5bd55e7d",
+      "publishedBytes": 9436,
+      "publishedSha256": "9c32ad75ddd542965714886a3fd3d2f50ff4928065d60a48d4078b9d5bd55e7d",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "native-transcripts/7039a9ab-1b60-4d8b-8962-222b0a4245f2.jsonl.tools.jsonl",
+      "originalBytes": 4538,
+      "originalSha256": "0b9222f90b3fc69563ddba0d4a70fa6a312466ac34af9a70c61fe3bbb515ac22",
+      "publishedBytes": 4538,
+      "publishedSha256": "0b9222f90b3fc69563ddba0d4a70fa6a312466ac34af9a70c61fe3bbb515ac22",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "native-transcripts/7f9d0e86-e0e8-44af-b3db-1fcb8ce78617.jsonl",
+      "originalBytes": 5942,
+      "originalSha256": "cb3f9806ab0552f69461cfb4444b8f3db8e72a55cbfd19f6f47bc1034ca58739",
+      "publishedBytes": 5942,
+      "publishedSha256": "cb3f9806ab0552f69461cfb4444b8f3db8e72a55cbfd19f6f47bc1034ca58739",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "native-transcripts/7f9d0e86-e0e8-44af-b3db-1fcb8ce78617.jsonl.tools.jsonl",
+      "originalBytes": 1395,
+      "originalSha256": "c5f8265298411669591515c73f7425cb34b869890f9ce5f3b03e54b9b951327e",
+      "publishedBytes": 1395,
+      "publishedSha256": "c5f8265298411669591515c73f7425cb34b869890f9ce5f3b03e54b9b951327e",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "native-transcripts/manifest.json",
+      "originalBytes": 747,
+      "originalSha256": "706937c192c58cf71b260cc194fce68068369eca7d053c9284af0f23446c3d73",
+      "publishedBytes": 747,
+      "publishedSha256": "706937c192c58cf71b260cc194fce68068369eca7d053c9284af0f23446c3d73",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "native_negative_cases.py",
+      "originalBytes": 3689,
+      "originalSha256": "7e162718cf00d2693817555f6abcfd0969031a497c47ed4bbcf9b317cc137c2a",
+      "publishedBytes": 3826,
+      "publishedSha256": "556a27d4dfbaeea4926a70a6b16b1794ee3ecbc2338a4addff0dbbca4d3e504f",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "negative-current.log",
+      "originalBytes": 3923,
+      "originalSha256": "7a33f771f19cb77e4982b891495c309c8fefc454f31b766cd936fc560d662bc0",
+      "publishedBytes": 3923,
+      "publishedSha256": "7a33f771f19cb77e4982b891495c309c8fefc454f31b766cd936fc560d662bc0",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "negative-launch.log",
+      "originalBytes": 116,
+      "originalSha256": "9bb7d9439e37ef525304f35e832fda6fde04f1c3c7144af4de15edcd5476ebf3",
+      "publishedBytes": 116,
+      "publishedSha256": "9bb7d9439e37ef525304f35e832fda6fde04f1c3c7144af4de15edcd5476ebf3",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "negative-results/collections-after.json",
+      "originalBytes": 119,
+      "originalSha256": "8662319a58d450f87796fc005f4c2e569fa371715224e3b5b25c102b72d9ba46",
+      "publishedBytes": 119,
+      "publishedSha256": "8662319a58d450f87796fc005f4c2e569fa371715224e3b5b25c102b72d9ba46",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "negative-results/collections-before.json",
+      "originalBytes": 119,
+      "originalSha256": "8662319a58d450f87796fc005f4c2e569fa371715224e3b5b25c102b72d9ba46",
+      "publishedBytes": 119,
+      "publishedSha256": "8662319a58d450f87796fc005f4c2e569fa371715224e3b5b25c102b72d9ba46",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "negative-results/metadata.json",
+      "originalBytes": 1489,
+      "originalSha256": "ae64a029b0465f5e0c667cc5fd5f5b435785581102a951799497ed65b176aebd",
+      "publishedBytes": 1489,
+      "publishedSha256": "ae64a029b0465f5e0c667cc5fd5f5b435785581102a951799497ed65b176aebd",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "negative-results/missing-collection-request.json",
+      "originalBytes": 414,
+      "originalSha256": "ee02581d3c647ef6996ae37991fc3acd231c98dec3c6b338a5156bf1e842b5db",
+      "publishedBytes": 414,
+      "publishedSha256": "ee02581d3c647ef6996ae37991fc3acd231c98dec3c6b338a5156bf1e842b5db",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "negative-results/missing-collection-response.json",
+      "originalBytes": 715,
+      "originalSha256": "5219c622f2b05abe5441f838f1cca2abbf6ba91bd817de6fa99252d4597e61e0",
+      "publishedBytes": 715,
+      "publishedSha256": "5219c622f2b05abe5441f838f1cca2abbf6ba91bd817de6fa99252d4597e61e0",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "negative-results/observations.json",
+      "originalBytes": 3914,
+      "originalSha256": "064c5cd80539e912b37ec87abb58b87244aecaf0afcca83856518d92241dbd80",
+      "publishedBytes": 3914,
+      "publishedSha256": "064c5cd80539e912b37ec87abb58b87244aecaf0afcca83856518d92241dbd80",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "negative-results/run-finished.json",
+      "originalBytes": 70,
+      "originalSha256": "0977282f90d77c15d1c13c9a9c25245aa851e00acbb16d28e454845c71331033",
+      "publishedBytes": 70,
+      "publishedSha256": "0977282f90d77c15d1c13c9a9c25245aa851e00acbb16d28e454845c71331033",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "negative-results/unanswerable-gpu-serial-request.json",
+      "originalBytes": 578,
+      "originalSha256": "b8260ead85c8ca52f14b527fb56d8c4159b6a8d4a1bf8b184c8d11dfe2da00e3",
+      "publishedBytes": 578,
+      "publishedSha256": "b8260ead85c8ca52f14b527fb56d8c4159b6a8d4a1bf8b184c8d11dfe2da00e3",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "negative-results/unanswerable-gpu-serial-response.json",
+      "originalBytes": 4032,
+      "originalSha256": "8fa7ef11aa3119d70c7649722088791b1fd162ba2134fda62290e762386c9427",
+      "publishedBytes": 4032,
+      "publishedSha256": "8fa7ef11aa3119d70c7649722088791b1fd162ba2134fda62290e762386c9427",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "network-observation.json",
+      "originalBytes": 11651,
+      "originalSha256": "77ac9479a7909172da36687e7e8ec6ce1c8fa699b0f64833a21c5e29043ee69e",
+      "publishedBytes": 11651,
+      "publishedSha256": "77ac9479a7909172da36687e7e8ec6ce1c8fa699b0f64833a21c5e29043ee69e",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "network-observation.log",
+      "originalBytes": 5274,
+      "originalSha256": "9c6c6ed176577da8d94f31dc09e7b7c39ca507874f0067ba2513a4cf70f47d3e",
+      "publishedBytes": 5274,
+      "publishedSha256": "9c6c6ed176577da8d94f31dc09e7b7c39ca507874f0067ba2513a4cf70f47d3e",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "observe_ui_network.py",
+      "originalBytes": 2251,
+      "originalSha256": "9306761afeed4f80e6c0cc0e0ddaf8039cbd9f351d32daa7302a9227018f40e0",
+      "publishedBytes": 2388,
+      "publishedSha256": "c73b2d1239c4a629307168b45f424afd2b46074effd2e786b9e0e32f797254fe",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "runtime-current.json",
+      "originalBytes": 115126,
+      "originalSha256": "fae09ff36f27867eca808b8453302779b2e4fd7c9c5991348dd934617ede4e50",
+      "publishedBytes": 116117,
+      "publishedSha256": "474443c09edd949aa0018b64db30875396e38d8fef523b923ebaf4429cb3bb4e",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "selected-alert-current.json",
+      "originalBytes": 1508,
+      "originalSha256": "fb84eff62ece0b823ae3fff8348188f8e96416173b2a3c37f84f1fd1726cde1d",
+      "publishedBytes": 1508,
+      "publishedSha256": "fb84eff62ece0b823ae3fff8348188f8e96416173b2a3c37f84f1fd1726cde1d",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "send_reviewed_feishu_once.py",
+      "originalBytes": 3598,
+      "originalSha256": "c48065619338c2ef42c92807e3d682d536405c79d800c2ac705b7ea75765fbe5",
+      "publishedBytes": 3737,
+      "publishedSha256": "7df48406d783f3a90f16c4948a8ec13b2ff26d3b095e29346f9119307ddd5aa2",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "test_upstream_builder.py",
+      "originalBytes": 2255,
+      "originalSha256": "9c7ac93e1e488b3b63c217934883624ac07becaca14e23922a0d0fbc152a8435",
+      "publishedBytes": 2394,
+      "publishedSha256": "aa55bf94257c2f3b9406fd199deac06dc38a3c2ec33e0f864964fdd267b3f86d",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-chunk-source-metadata.json",
+      "originalBytes": 912,
+      "originalSha256": "f3791acc07c160ce0ef946c00cc20d68be0170eb86e54e3339d833f39a4c15e3",
+      "publishedBytes": 912,
+      "publishedSha256": "f3791acc07c160ce0ef946c00cc20d68be0170eb86e54e3339d833f39a4c15e3",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-missing-collection.log",
+      "originalBytes": 549,
+      "originalSha256": "4e171e5ca11950511c9d0adb1d5e75c38e0c334d8614b92d46e3b3baf136c6a0",
+      "publishedBytes": 549,
+      "publishedSha256": "4e171e5ca11950511c9d0adb1d5e75c38e0c334d8614b92d46e3b3baf136c6a0",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-missing-collection/all-requests.json",
+      "originalBytes": 935,
+      "originalSha256": "c63f918f660815f42bb0e8bba9583bc18d5ecbe23a2368c290e06097e49ad7c1",
+      "publishedBytes": 935,
+      "publishedSha256": "c63f918f660815f42bb0e8bba9583bc18d5ecbe23a2368c290e06097e49ad7c1",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-missing-collection/cdp-streams.json",
+      "originalBytes": 268,
+      "originalSha256": "ed89b5f6c4d81799b510129b3f9d0ab009a3c25c0b4e100c0da9989ef5b36efc",
+      "publishedBytes": 268,
+      "publishedSha256": "ed89b5f6c4d81799b510129b3f9d0ab009a3c25c0b4e100c0da9989ef5b36efc",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-missing-collection/history-api.json",
+      "originalBytes": 12530,
+      "originalSha256": "476a4541fd74c1c4f9c0fada72d381c86da9315d62e1c30638e0430c87a9e18e",
+      "publishedBytes": 12530,
+      "publishedSha256": "476a4541fd74c1c4f9c0fada72d381c86da9315d62e1c30638e0430c87a9e18e",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-missing-collection/history-gateway.json",
+      "originalBytes": 6677,
+      "originalSha256": "058f65d5f16cfa7b70f2a0694251322da1473700e7d8436408a25ea6e6b19fa1",
+      "publishedBytes": 6677,
+      "publishedSha256": "058f65d5f16cfa7b70f2a0694251322da1473700e7d8436408a25ea6e6b19fa1",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-missing-collection/network-responses.json",
+      "originalBytes": 4163,
+      "originalSha256": "212be30aabc3a2541db9006447d9fc110608eabb7b44ee0dc1b08c7d073c8df7",
+      "publishedBytes": 4163,
+      "publishedSha256": "212be30aabc3a2541db9006447d9fc110608eabb7b44ee0dc1b08c7d073c8df7",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-missing-collection/polls.json",
+      "originalBytes": 958,
+      "originalSha256": "4ac40af84e36fe218febb1e6b407470454d897b01dff2922109ea1a659df32f0",
+      "publishedBytes": 958,
+      "publishedSha256": "4ac40af84e36fe218febb1e6b407470454d897b01dff2922109ea1a659df32f0",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-missing-collection/requests.json",
+      "originalBytes": 935,
+      "originalSha256": "c63f918f660815f42bb0e8bba9583bc18d5ecbe23a2368c290e06097e49ad7c1",
+      "publishedBytes": 935,
+      "publishedSha256": "c63f918f660815f42bb0e8bba9583bc18d5ecbe23a2368c290e06097e49ad7c1",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-missing-collection/research-tool-response.json",
+      "originalBytes": 553,
+      "originalSha256": "5d188ba91cd8a3f03fad884e6b6b3f5362d6ffc541d07e708c15c253088b78ce",
+      "publishedBytes": 553,
+      "publishedSha256": "5d188ba91cd8a3f03fad884e6b6b3f5362d6ffc541d07e708c15c253088b78ce",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-missing-collection/selected-cdp-ndjson.json",
+      "originalBytes": 3,
+      "originalSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "publishedBytes": 3,
+      "publishedSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-missing-collection/selected-ui-events.json",
+      "originalBytes": 3409,
+      "originalSha256": "e68c43d59b098388bc2232f3e15a1a2b974395098f9a902c9e106b91adc65820",
+      "publishedBytes": 3409,
+      "publishedSha256": "e68c43d59b098388bc2232f3e15a1a2b974395098f9a902c9e106b91adc65820",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-missing-collection/summary.json",
+      "originalBytes": 585,
+      "originalSha256": "d693629ea62b5aff57fad254fa395128a6e9d41be96b829cb84aa86f9ef21493",
+      "publishedBytes": 585,
+      "publishedSha256": "d693629ea62b5aff57fad254fa395128a6e9d41be96b829cb84aa86f9ef21493",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-missing-collection/ui-and-chat-streams.json",
+      "originalBytes": 79999,
+      "originalSha256": "bc114674783aa5c19d9cb8e9f7f04c5dca8b5bfb819ce66bdc0c65bf9ba71a01",
+      "publishedBytes": 25230,
+      "publishedSha256": "ca6ebb2681f783d844e5c858cb00fd2ad8ff99b258597f405a7ff84b58fad8a9",
+      "changed": true,
+      "explicitFieldRedactions": [
+        "Only the unrelated /api/alerts/events stream is retained privately; every field/chunk of the selected UI/chat streams remains."
+      ],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-stream-source-metadata.json",
+      "originalBytes": 461,
+      "originalSha256": "d91cd42d67ec908ed4f8bbd49e38bee7b0c7db0677074cb9a071df9a9525df4e",
+      "publishedBytes": 461,
+      "publishedSha256": "d91cd42d67ec908ed4f8bbd49e38bee7b0c7db0677074cb9a071df9a9525df4e",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "ui-subagent-source-metadata.json",
+      "originalBytes": 270,
+      "originalSha256": "63e7e5ba1c13e67761ceadd347053b42a93ca496aa4b6daf75ab06fb9ff6c66b",
+      "publishedBytes": 270,
+      "publishedSha256": "63e7e5ba1c13e67761ceadd347053b42a93ca496aa4b6daf75ab06fb9ff6c66b",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "upload-ingestion-probe.stderr",
+      "originalBytes": 0,
+      "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publishedBytes": 0,
+      "publishedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "upload-ingestion-proof.json",
+      "originalBytes": 49649,
+      "originalSha256": "7fcbc8e811556b6a85978d05d5e2957dbff014184a2c7d98539330351ba7f4f1",
+      "publishedBytes": 49649,
+      "publishedSha256": "7fcbc8e811556b6a85978d05d5e2957dbff014184a2c7d98539330351ba7f4f1",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "upload_ingestion_probe.py",
+      "originalBytes": 2957,
+      "originalSha256": "e87f83375a4b1c23173ec7e22db4e07a945fcc7cdbd5e60383d6deabde70ca1c",
+      "publishedBytes": 3094,
+      "publishedSha256": "37ea4ca67fded2db8f44ba2ab0d9275b0d5f5a0ae205078c924309a258a7b60e",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "upstream-builder-browser.log",
+      "originalBytes": 444,
+      "originalSha256": "6159f76b423c348a4d046c1f2e10de3d145c902374617f44478c3a8c3ac7d606",
+      "publishedBytes": 446,
+      "publishedSha256": "a5b90c57194caa2d7b489428dcf7bbb441408eb8e96eff08bfb8c9b1f8fa32b6",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "upstream-builder/observations.json",
+      "originalBytes": 8106,
+      "originalSha256": "c382080bdcb6626e15ec0fded03311cb7bf6787f5ca97fc7d465a961ea0f30fc",
+      "publishedBytes": 8082,
+      "publishedSha256": "3b48f1c17cc54fd8667a9a1c0f213ac2ea813e4dd4964974e43fdf5261c0f23f",
+      "changed": true,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "upstream-docs-build-attempt1.log",
+      "originalBytes": 4651,
+      "originalSha256": "733f9e49fc8573a296d993786f518ad24b3bb25e7fcfbc6e51bcbf2faae53f29",
+      "publishedBytes": 4651,
+      "publishedSha256": "733f9e49fc8573a296d993786f518ad24b3bb25e7fcfbc6e51bcbf2faae53f29",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "upstream-docs-build-attempt2.log",
+      "originalBytes": 4631,
+      "originalSha256": "70f1e4d4302b79b3864b7ffa4ca01e6750e9558ed523572e2944b08f09bd8da7",
+      "publishedBytes": 4631,
+      "publishedSha256": "70f1e4d4302b79b3864b7ffa4ca01e6750e9558ed523572e2944b08f09bd8da7",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "upstream-final.diff",
+      "originalBytes": 144992,
+      "originalSha256": "7f0f3ce1453846c8416ac17e726f92d933470ae60fdd99e461029075df2781d6",
+      "publishedBytes": 144992,
+      "publishedSha256": "7f0f3ce1453846c8416ac17e726f92d933470ae60fdd99e461029075df2781d6",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "upstream-full-tests-attempt1.log",
+      "originalBytes": 63015,
+      "originalSha256": "fc8ecc7cf9c68047af65a4efd8bc9a0d0b94abc39534368c5640a286f4df351f",
+      "publishedBytes": 63015,
+      "publishedSha256": "fc8ecc7cf9c68047af65a4efd8bc9a0d0b94abc39534368c5640a286f4df351f",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "upstream-full-tests-attempt2.log",
+      "originalBytes": 27434,
+      "originalSha256": "044913fb5d607a7e06a7dc5bf781ea956ebc214b0c4771e099fc061fbde17fe5",
+      "publishedBytes": 27434,
+      "publishedSha256": "044913fb5d607a7e06a7dc5bf781ea956ebc214b0c4771e099fc061fbde17fe5",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "upstream-inference-tests.log",
+      "originalBytes": 464,
+      "originalSha256": "09ab4e8d527cc7fad234082073b8d57c50e1fa87980eb8715b3c4790cc8583f7",
+      "publishedBytes": 464,
+      "publishedSha256": "09ab4e8d527cc7fad234082073b8d57c50e1fa87980eb8715b3c4790cc8583f7",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "upstream-pr-validation.json",
+      "originalBytes": 2602,
+      "originalSha256": "ec2a600b52bcc371786709b4b12072300b557956a26a22b850a88967c128c560",
+      "publishedBytes": 2602,
+      "publishedSha256": "ec2a600b52bcc371786709b4b12072300b557956a26a22b850a88967c128c560",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "upstream-scope-review.json",
+      "originalBytes": 935,
+      "originalSha256": "5a4bb9f27c471acd0d5ce7c7fcf33411013b52e0d14b2c1b3a25a766daf98166",
+      "publishedBytes": 935,
+      "publishedSha256": "5a4bb9f27c471acd0d5ce7c7fcf33411013b52e0d14b2c1b3a25a766daf98166",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "vector-storage-proof.json",
+      "originalBytes": 49156,
+      "originalSha256": "def3a42923eda255e727d85e135826470714c8fa9e05a472134485918d3a3f7a",
+      "publishedBytes": 49156,
+      "publishedSha256": "def3a42923eda255e727d85e135826470714c8fa9e05a472134485918d3a3f7a",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    },
+    {
+      "path": "vector-storage-proof.stderr",
+      "originalBytes": 0,
+      "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publishedBytes": 0,
+      "publishedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changed": false,
+      "explicitFieldRedactions": [],
+      "credentialRedactions": {}
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-31T05:39:48.072415+00:00",
+  "mode": "force-search-first",
+  "hostElapsedSeconds": 2.9560496136546135,
+  "exitCode": 0,
+  "elapsedSeconds": 1.6392981898970902,
+  "messageCount": 2,
+  "toolEvents": [],
+  "sourceCount": 0,
+  "sourceSinkCount": 0,
+  "answerContainsOracle": false,
+  "answerHasSourceFilename": true
+}

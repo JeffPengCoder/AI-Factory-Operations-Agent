@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-31T07:30:35.253520+00:00",
+  "group": "MOSAIC Alert Test",
+  "runId": "feishu-continued-validation-20261031T071049Z",
+  "question": "请在飞书群「MOSAIC Alert Test」核对：是否已看到包含“test from Jeff Peng”、Run ID 为 feishu-continued-validation-20261031T071049Z 的完整告警与分析报告？",
+  "answer": "已看到，Run ID 一致",
+  "questionItemId": "[\"request_user_input_async\",\"call_bf98884c733e406f8715d69733c955b1\",0]",
+  "source": "user"
+}

@@ -1,0 +1,29 @@
+{
+  "elapsedSeconds": 0.01637114118784666,
+  "hits": [
+    {
+      "content": "Operator Decision and Evidence\nReference: MOSAIC-KB-20261031 - page 2\nPublic verification code: CEDAR-NEBULA-E720C8C9\nThe verification code is an oracle for this retrieval test and grants no access. An answer must cite\nthis source file and page 2 when reporting the code.\nView mode must block the repair operation. Edit mode with HITL enabled must await a specific\napproval. Refusal or expiration must leave the failed service unchanged. Auto mode executes the\nsame authorized demo repair without per-operation approval.\nAutomatic alert investigations remain read-only. Use a separate authorized interactive repair\nconversation, preserving the alert ID, investigation session key, research sources and repair\nsession key.\nCompletion evidence includes exact tool arguments, toolCallId, exit status, full service state before\nand after, logs, and an independently observed restored condition.",
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "chunk_index": 2,
+      "collection": "mosaic-validation-20261031",
+      "score": 1.0
+    },
+    {
+      "content": "MOSAIC Validation Runbook\nReference: MOSAIC-KB-20261031\nThis authored document is a control corpus for the Spark validation run.\nA vector(1) alert is a deliberate delivery-path test. It does not show a GPU, driver or application\nfault. Verify the Prometheus state, Alertmanager fingerprint and the same MOSAIC alert before\ninterpreting it.\nAn alert injected directly through the Alertmanager API bypasses Prometheus rule evaluation.\nMissing Prometheus ALERTS samples for that injected run ID are expected. Do not claim a new\nPrometheusRule was evaluated.\nFor an isolated user-level repair demo, the named service fails when its ready marker is absent.\nRead the exact service state and logs before repair. Repair only the registered demo wrapper;\nverify the marker and service result afterward.\nMOSAIC authored validation corpus | test from Jeff Peng 1",
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "chunk_index": 0,
+      "collection": "mosaic-validation-20261031",
+      "score": 0.16626103
+    },
+    {
+      "content": "ources and repair\nsession key.\nCompletion evidence includes exact tool arguments, toolCallId, exit status, full service state before\nand after, logs, and an independently observed restored condition. Documentation advice alone\ndoes not establish the root cause or a completed repair.\nMOSAIC authored validation corpus | test from Jeff Peng 2",
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "chunk_index": 3,
+      "collection": "mosaic-validation-20261031",
+      "score": 0.017017923
+    }
+  ]
+}

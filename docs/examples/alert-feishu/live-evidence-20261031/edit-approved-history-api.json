@@ -1,0 +1,74 @@
+{
+  "success": true,
+  "messages": [
+    {
+      "id": "user-1793413638503-0",
+      "role": "user",
+      "content": "Authorized isolated test from Jeff Peng. Use only run_remote_ssh with host=\"repair-demo\", argv=[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"]. Submit the exact request and await approval. Do not change mode, use another tool, or touch another service.",
+      "timestamp": "2026-10-31T02:27:18.503Z"
+    },
+    {
+      "id": "assistant-1793413645645-3",
+      "role": "assistant",
+      "content": "The `run_remote_ssh` call with host `repair-demo` and argv `[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"]` was submitted, but was denied by the user. No further action was taken.",
+      "timestamp": "2026-10-31T02:27:25.645Z",
+      "activity": [
+        {
+          "id": "1793413639269-tool-call-0",
+          "kind": "tool_call",
+          "title": "Call run_remote_ssh",
+          "content": "{\n  \"host\": \"repair-demo\",\n  \"argv\": [\n    \"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"\n  ]\n}",
+          "timestamp": "2026-10-31T02:27:19.269Z"
+        },
+        {
+          "id": "1793413645638-tool-result-2",
+          "kind": "tool_result",
+          "title": "Result Error run_remote_ssh",
+          "content": "{\n  \"status\": \"error\",\n  \"tool\": \"run_remote_ssh\",\n  \"error\": \"Denied by user\"\n}",
+          "timestamp": "2026-10-31T02:27:25.638Z"
+        }
+      ]
+    },
+    {
+      "id": "user-1793413651372-4",
+      "role": "user",
+      "content": "I now authorize a new request for the same isolated fixture. Call run_remote_ssh exactly with host=\"repair-demo\", argv=[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"], and wait for a new approval. Do not use another tool or target.",
+      "timestamp": "2026-10-31T02:27:31.372Z"
+    },
+    {
+      "id": "assistant-1793413656133-7",
+      "role": "assistant",
+      "content": "The `run_remote_ssh` command executed successfully on host `repair-demo`.\n\n| Field | Value |\n|---|---|\n| Host | repair-demo |\n| Command | `/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh` |\n| Exit Code | 0 |\n| Status | success |\n\nThe script ran, exited cleanly with code 0, and reports `Result=success` with the service in `active`/`exited` state. No errors were produced.",
+      "timestamp": "2026-10-31T02:27:36.133Z",
+      "activity": [
+        {
+          "id": "1793413651606-tool-call-0",
+          "kind": "tool_call",
+          "title": "Call run_remote_ssh",
+          "content": "{\n  \"host\": \"repair-demo\",\n  \"argv\": [\n    \"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"\n  ]\n}",
+          "timestamp": "2026-10-31T02:27:31.606Z"
+        },
+        {
+          "id": "1793413656129-tool-result-6",
+          "kind": "tool_result",
+          "title": "Result run_remote_ssh",
+          "content": "{\n  \"host\": \"repair-demo\",\n  \"argv\": [\n    \"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"\n  ],\n  \"idempotencyKey\": \"call_ae6e5e3f7b5f4ce2a11b7fa1\",\n  \"exitCode\": 0,\n  \"stdout\": \"{\\\"at\\\": \\\"2026-10-31T02:27:36.030532+00:00\\\", \\\"argv\\\": [\\\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\\\"], \\\"allowed\\\": true, \\\"exitCode\\\": 0, \\\"stdout\\\": \\\"Result=success\\\\nExecMainStatus=0\\\\nActiveState=active\\\\nSubState=exited\\\\nActiveEnterTimestamp=Sat 2026-10-31 10:27:36 CST\\\\nInvocationID=c9e8c23542d746a48547d8b24aa94623\\\\n\\\", \\\"stderr\\\": \\\"\\\"}\\n\",\n  \"stderr\": \"\"\n}",
+          "timestamp": "2026-10-31T02:27:36.129Z"
+        }
+      ]
+    }
+  ],
+  "rawMessageCount": 8,
+  "requestedLimit": 1000,
+  "sessionKey": "agent:default:session-2026-10-31t02-27-16-251z",
+  "hasActiveRun": false,
+  "history": {
+    "status": "ok",
+    "command": "OC_GATEWAY_METHOD='chat.history' OC_GATEWAY_PARAMS='{\"sessionKey\":\"agent:default:session-2026-10-31t02-27-16-251z\",\"limit\":1000,\"maxChars\":500000}' node -e '\nconst WebSocketImpl = require('\"'\"'ws'\"'\"');\nconst token = process.env.OPENCLAW_GATEWAY_TOKEN || process.env.MOSAIC_OPENCLAW_GATEWAY_TOKEN || '\"'\"''\"'\"';\nconst url = process.env.MOSAIC_OPENCLAW_GATEWAY_URL || '\"'\"'ws://openclaw:18789'\"'\"';\nconst protocol = Number(process.env.MOSAIC_OPENCLAW_PROTOCOL || '\"'\"'4'\"'\"');\nconst method = process.env.OC_GATEWAY_METHOD || '\"'\"''\"'\"';\nconst params = JSON.parse(process.env.OC_GATEWAY_PARAMS || '\"'\"'{}'\"'\"');\nconst ws = new WebSocketImpl(url);\nconst pending = new Map();\nlet seq = 0;\nlet connected = false;\nlet timer;\nfunction payload(frame) {\n  return frame && typeof frame === '\"'\"'object'\"'\"' && '\"'\"'payload'\"'\"' in frame ? frame.payload : frame;\n}\nfunction request(name, body) {\n  const id = '\"'\"'mosaic-ui-'\"'\"' + (++seq);\n  const promise = new Promise((resolve, reject) => pending.set(id, { resolve, reject }));\n  ws.send(JSON.stringify({ type: '\"'\"'req'\"'\"', id, method: name, params: body || {} }));\n  return promise;\n}\nfunction fail(error) {\n  clearTimeout(timer);\n  process.stderr.write(String(error && error.stack || error));\n  try { ws.close(); } catch {}\n  process.exitCode = 1;\n}\ntimer = setTimeout(() => fail(new Error(method + '\"'\"' timed out'\"'\"')), Number(process.env.OC_GATEWAY_TIMEOUT_MS || '\"'\"'90000'\"'\"'));\nws.onopen = async () => {\n  try {\n    await request('\"'\"'connect'\"'\"', {\n      minProtocol: protocol,\n      maxProtocol: protocol,\n      client: { id: '\"'\"'openclaw-tui'\"'\"', displayName: '\"'\"'Operations UI'\"'\"', version: '\"'\"'1.0.0'\"'\"', platform: process.platform, mode: '\"'\"'ui'\"'\"' },\n      role: '\"'\"'operator'\"'\"',\n      scopes: ['\"'\"'operator.read'\"'\"', '\"'\"'operator.write'\"'\"', '\"'\"'operator.admin'\"'\"', '\"'\"'operator.approvals'\"'\"'],\n      caps: ['\"'\"'tool-events'\"'\"'],\n      auth: { token },\n    });\n    connected = true;\n    const result = await request(method, params);\n    clearTimeout(timer);\n    process.stdout.write(JSON.stringify(result));\n    ws.close();\n  } catch (error) {\n    fail(error);\n  }\n};\nws.onmessage = (event) => {\n  let frame;\n  try { frame = JSON.parse(typeof event.data === '\"'\"'string'\"'\"' ? event.data : String(event.data)); } catch { return; }\n  if (!frame || typeof frame !== '\"'\"'object'\"'\"' || frame.type !== '\"'\"'res'\"'\"' || typeof frame.id !== '\"'\"'string'\"'\"') return;\n  const match = pending.get(frame.id);\n  if (!match) return;\n  pending.delete(frame.id);\n  if (frame.ok === true) match.resolve(payload(frame));\n  else match.reject(new Error(frame.error && frame.error.message || '\"'\"'gateway request failed'\"'\"'));\n};\nws.onerror = () => fail(new Error('\"'\"'gateway websocket error'\"'\"'));\nws.onclose = () => {\n  if (!connected && pending.size) fail(new Error('\"'\"'gateway websocket closed before connect'\"'\"'));\n};\n'",
+    "returncode": 0,
+    "stdout": "{\"sessionKey\":\"agent:default:session-2026-10-31t02-27-16-251z\",\"sessionId\":\"d4f6dcd8-f122-4a2a-99f2-00c07e09606a\",\"messages\":[{\"role\":\"user\",\"content\":\"Authorized isolated test from Jeff Peng. Use only run_remote_ssh with host=\\\"repair-demo\\\", argv=[\\\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\\\"]. Submit the exact request and await approval. Do not change mode, use another tool, or touch another service.\\n\\n\",\"timestamp\":1793413638503,\"idempotencyKey\":\"mosaic-1793413638423:user\",\"__openclaw\":{\"id\":\"9d28c412\",\"recordTimestampMs\":1793413639256,\"seq\":1}},{\"role\":\"assistant\",\"content\":[{\"type\":\"text\",\"text\":\"\\n\\n\"},{\"type\":\"toolCall\",\"id\":\"call_9b00eb375bbf443582d47ea3\",\"name\":\"run_remote_ssh\",\"arguments\":{\"host\":\"repair-demo\",\"argv\":[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"]},\"partialArgs\":\"{\\\"host\\\": \\\"repair-demo\\\", \\\"argv\\\": [\\\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\\\"]}\"}],\"api\":\"openai-completions\",\"provider\":\"llm\",\"model\":\"nvidia/Qwen3.6-35B-A3B-NVFP4\",\"usage\":{\"input\":0,\"output\":0,\"totalTokens\":0,\"cacheRead\":0,\"cacheWrite\":0,\"cost\":{\"total\":0}},\"stopReason\":\"toolUse\",\"timestamp\":1793413639269,\"responseId\":\"chatcmpl-aa3dfc8a9de06bb8\",\"__openclaw\":{\"id\":\"47a88bbc\",\"recordTimestampMs\":1793413643074,\"seq\":2}},{\"role\":\"toolResult\",\"toolCallId\":\"call_9b00eb375bbf443582d47ea3\",\"toolName\":\"run_remote_ssh\",\"content\":[{\"type\":\"text\",\"text\":\"{\\n  \\\"status\\\": \\\"error\\\",\\n  \\\"tool\\\": \\\"run_remote_ssh\\\",\\n  \\\"error\\\": \\\"Denied by user\\\"\\n}\"}],\"isError\":true,\"timestamp\":1793413645638,\"__openclaw\":{\"id\":\"28efb0ea\",\"recordTimestampMs\":1793413645640,\"seq\":3}},{\"role\":\"assistant\",\"content\":[{\"type\":\"text\",\"text\":\"\\n\\nThe `run_remote_ssh` call with host `repair-demo` and argv `[\\\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\\\"]` was submitted, but was denied by the user. No further action was taken.\"}],\"api\":\"openai-completions\",\"provider\":\"llm\",\"model\":\"nvidia/Qwen3.6-35B-A3B-NVFP4\",\"usage\":{\"input\":0,\"output\":0,\"totalTokens\":0,\"cacheRead\":0,\"cacheWrite\":0,\"cost\":{\"total\":0}},\"stopReason\":\"stop\",\"timestamp\":1793413645645,\"responseId\":\"chatcmpl-817347a6c5d95461\",\"__openclaw\":{\"id\":\"c0e6229a\",\"recordTimestampMs\":1793413648025,\"seq\":4}},{\"role\":\"user\",\"content\":\"I now authorize a new request for the same isolated fixture. Call run_remote_ssh exactly with host=\\\"repair-demo\\\", argv=[\\\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\\\"], and wait for a new approval. Do not use another tool or target.\\n\\n\",\"timestamp\":1793413651372,\"idempotencyKey\":\"mosaic-1793413651273:user\",\"__openclaw\":{\"id\":\"c37dfc0d\",\"recordTimestampMs\":1793413651585,\"seq\":5}},{\"role\":\"assistant\",\"content\":[{\"type\":\"text\",\"text\":\"\\n\\n\"},{\"type\":\"toolCall\",\"id\":\"call_ae6e5e3f7b5f4ce2a11b7fa1\",\"name\":\"run_remote_ssh\",\"arguments\":{\"host\":\"repair-demo\",\"argv\":[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"]},\"partialArgs\":\"{\\\"host\\\": \\\"repair-demo\\\", \\\"argv\\\": [\\\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\\\"]}\"}],\"api\":\"openai-completions\",\"provider\":\"llm\",\"model\":\"nvidia/Qwen3.6-35B-A3B-NVFP4\",\"usage\":{\"input\":0,\"output\":0,\"totalTokens\":0,\"cacheRead\":0,\"cacheWrite\":0,\"cost\":{\"total\":0}},\"stopReason\":\"toolUse\",\"timestamp\":1793413651606,\"responseId\":\"chatcmpl-a9d975d065d7952d\",\"__openclaw\":{\"id\":\"6e8d0e52\",\"recordTimestampMs\":1793413653099,\"seq\":6}},{\"role\":\"toolResult\",\"toolCallId\":\"call_ae6e5e3f7b5f4ce2a11b7fa1\",\"toolName\":\"run_remote_ssh\",\"content\":[{\"type\":\"text\",\"text\":\"{\\n  \\\"host\\\": \\\"repair-demo\\\",\\n  \\\"argv\\\": [\\n    \\\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\\\"\\n  ],\\n  \\\"idempotencyKey\\\": \\\"call_ae6e5e3f7b5f4ce2a11b7fa1\\\",\\n  \\\"exitCode\\\": 0,\\n  \\\"stdout\\\": \\\"{\\\\\\\"at\\\\\\\": \\\\\\\"2026-10-31T02:27:36.030532+00:00\\\\\\\", \\\\\\\"argv\\\\\\\": [\\\\\\\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\\\\\\\"], \\\\\\\"allowed\\\\\\\": true, \\\\\\\"exitCode\\\\\\\": 0, \\\\\\\"stdout\\\\\\\": \\\\\\\"Result=success\\\\\\\\nExecMainStatus=0\\\\\\\\nActiveState=active\\\\\\\\nSubState=exited\\\\\\\\nActiveEnterTimestamp=Sat 2026-10-31 10:27:36 CST\\\\\\\\nInvocationID=c9e8c23542d746a48547d8b24aa94623\\\\\\\\n\\\\\\\", \\\\\\\"stderr\\\\\\\": \\\\\\\"\\\\\\\"}\\\\n\\\",\\n  \\\"stderr\\\": \\\"\\\"\\n}\"}],\"isError\":false,\"timestamp\":1793413656129,\"__openclaw\":{\"id\":\"f7eafe13\",\"recordTimestampMs\":1793413656130,\"seq\":7}},{\"role\":\"assistant\",\"content\":[{\"type\":\"text\",\"text\":\"\\n\\nThe `run_remote_ssh` command executed successfully on host `repair-demo`.\\n\\n| Field | Value |\\n|---|---|\\n| Host | repair-demo |\\n| Command | `/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh` |\\n| Exit Code | 0 |\\n| Status | success |\\n\\nThe script ran, exited cleanly with code 0, and reports `Result=success` with the service in `active`/`exited` state. No errors were produced.\"}],\"api\":\"openai-completions\",\"provider\":\"llm\",\"model\":\"nvidia/Qwen3.6-35B-A3B-NVFP4\",\"usage\":{\"input\":0,\"output\":0,\"totalTokens\":0,\"cacheRead\":0,\"cacheWrite\":0,\"cost\":{\"total\":0}},\"stopReason\":\"stop\",\"timestamp\":1793413656133,\"responseId\":\"chatcmpl-83ad25f45183f8e7\",\"__openclaw\":{\"id\":\"d1d72cd6\",\"recordTimestampMs\":1793413658142,\"seq\":8}}],\"defaults\":{\"modelProvider\":\"llm\",\"model\":\"nvidia/Qwen3.6-35B-A3B-NVFP4\",\"contextTokens\":262144,\"thinkingLevels\":[{\"id\":\"off\",\"label\":\"off\"}],\"thinkingOptions\":[\"off\"],\"thinkingDefault\":\"off\"},\"sessionInfo\":{\"key\":\"agent:default:session-2026-10-31t02-27-16-251z\",\"kind\":\"direct\",\"chatType\":\"direct\",\"origin\":{\"provider\":\"webchat\",\"surface\":\"webchat\",\"chatType\":\"direct\"},\"updatedAt\":1793413658265,\"sessionId\":\"d4f6dcd8-f122-4a2a-99f2-00c07e09606a\",\"systemSent\":true,\"abortedLastRun\":false,\"thinkingLevels\":[{\"id\":\"off\",\"label\":\"off\"}],\"thinkingOptions\":[\"off\"],\"thinkingDefault\":\"off\",\"effectiveFastMode\":false,\"effectiveFastModeSource\":\"default\",\"fastAutoOnSeconds\":60,\"totalTokensFresh\":false,\"status\":\"done\",\"startedAt\":1793413651573,\"endedAt\":1793413658162,\"runtimeMs\":6589,\"modelProvider\":\"llm\",\"model\":\"nvidia/Qwen3.6-35B-A3B-NVFP4\",\"agentRuntime\":{\"id\":\"auto\",\"source\":\"implicit\"},\"contextTokens\":262144,\"deliveryContext\":{\"channel\":\"webchat\"},\"lastChannel\":\"webchat\",\"hasActiveRun\":false},\"thinkingLevel\":\"off\"}",
+    "stderr": "",
+    "started_at": "2026-10-31T02:27:39.030Z",
+    "updated_at": "2026-10-31T02:27:39.113Z"
+  }
+}

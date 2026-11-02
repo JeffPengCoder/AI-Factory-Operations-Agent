@@ -1,0 +1,59 @@
+{
+  "phase": "reused-remote-forward",
+  "checkedAt": "2026-10-31T01:49:19.002453+00:00",
+  "localListener": {
+    "argv": [
+      "lsof",
+      "-nP",
+      "-iTCP:13000",
+      "-sTCP:LISTEN"
+    ],
+    "exitCode": 0,
+    "stdout": "COMMAND   PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nssh     45222 operator    4u  IPv4 0xcab18c472883cecb      0t0  TCP 127.0.0.1:13000 (LISTEN)\n",
+    "stderr": ""
+  },
+  "sparkListener": {
+    "argv": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=10",
+      "spark-user@spark.example.invalid",
+      "ss -ltnp \"( sport = :13000 )\""
+    ],
+    "exitCode": 0,
+    "stdout": "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess\nLISTEN 0      4096       127.0.0.1:13000      0.0.0.0:*    users:((\"kubectl\",pid=1618819,fd=7))\n",
+    "stderr": ""
+  },
+  "health": {
+    "path": "/api/health",
+    "httpStatus": 200,
+    "body": {
+      "status": "ok"
+    },
+    "elapsedSeconds": 0.2617424589989241
+  },
+  "unauthenticatedApi": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": 401,
+    "body": "Authentication required.",
+    "elapsedSeconds": 0.48315520901815034
+  },
+  "authenticatedApi": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "status": {
+        "enabled": true,
+        "baseUrl": "http://target-node-1.example.invalid:30093",
+        "intervalMs": 30000,
+        "lastSyncAt": "2026-10-31T01:49:16.167Z",
+        "lastImported": 0,
+        "lastSeenCount": 30
+      }
+    },
+    "elapsedSeconds": 0.26469712500693277
+  }
+}

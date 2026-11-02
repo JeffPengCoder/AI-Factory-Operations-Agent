@@ -1,0 +1,24 @@
+{
+  "id": "alertmanager:0fa8cbd733f54a5a",
+  "payload": "MosaicSyntheticAlert: MOSAIC synthetic alert delivery test test from Jeff Peng. This is a deliberately generated alert to verify Prometheus -> Alertmanager -> MOSAIC delivery and optional browser-triggered investigation. There is no underlying GPU, driver, node, or application fault. Do not perform remediation. Remove PrometheusRule monitoring/mosaic-alert-smoke-test after verification. (severity=warning)",
+  "source": "Alertmanager",
+  "createdAt": "2026-10-29T09:20:32.589Z",
+  "stage": "active",
+  "labels": {
+    "alertname": "MosaicSyntheticAlert",
+    "mosaic_test": "true",
+    "prometheus": "monitoring/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "annotations": {
+    "description": "test from Jeff Peng. This is a deliberately generated alert to verify Prometheus -> Alertmanager -> MOSAIC delivery and optional browser-triggered investigation. There is no underlying GPU, driver, node, or application fault. Do not perform remediation. Remove PrometheusRule monitoring/mosaic-alert-smoke-test after verification.",
+    "summary": "MOSAIC synthetic alert delivery test",
+    "test_from": "test from Jeff Peng"
+  },
+  "status": "active",
+  "startsAt": "2026-10-29T09:20:32.589Z",
+  "endsAt": "2026-10-31T04:12:32.589Z",
+  "updatedAt": "2026-10-31T04:08:32.592Z",
+  "fingerprint": "0fa8cbd733f54a5a",
+  "generatorURL": "http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=vector%281%29&g0.tab=1"
+}

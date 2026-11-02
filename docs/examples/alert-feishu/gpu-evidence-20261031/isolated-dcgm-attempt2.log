@@ -1,0 +1,1 @@
+{"success": false, "error": "Command failed: ['dcgmi', 'discovery', '--host', 'unix:///var/tmp/mosaic-gpu-rca-20261031t121240z/engine.sock', '-l']", "allEightGpuEccAndRemapUnchanged": null, "childExitAfterCleanup": 0, "commandCount": 5}

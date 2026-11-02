@@ -1,0 +1,47 @@
+{
+  "runId": "handoff-gpu-20261102t085400z",
+  "timerUnit": "mosaic-injection-cleanup-handoff-gpu-20261102t085400z.timer",
+  "cleanupAfterMinutes": 20,
+  "resourceUids": [
+    {
+      "kind": "Namespace",
+      "name": "mosaic-handoff-gpu-20261102t085400z",
+      "namespace": null,
+      "uid": "cdde774a-d55f-472c-8b38-73cbd85b32f5"
+    },
+    {
+      "kind": "ConfigMap",
+      "name": "gpu-evidence",
+      "namespace": "mosaic-handoff-gpu-20261102t085400z",
+      "uid": "f1248b12-2c47-4190-87ac-95814aa11051"
+    },
+    {
+      "kind": "Pod",
+      "name": "gpu-telemetry-fixture",
+      "namespace": "mosaic-handoff-gpu-20261102t085400z",
+      "uid": "55e7e53c-974e-41cf-83f1-2da6e7d30975"
+    },
+    {
+      "kind": "Service",
+      "name": "gpu-telemetry-fixture",
+      "namespace": "mosaic-handoff-gpu-20261102t085400z",
+      "uid": "304742b2-fb87-41dc-95e8-bf8a261a8074"
+    },
+    {
+      "kind": "ServiceMonitor",
+      "name": "gpu-telemetry-fixture",
+      "namespace": "mosaic-handoff-gpu-20261102t085400z",
+      "uid": "de2b3e65-ea50-4947-83fc-407f749e3cde"
+    },
+    {
+      "kind": "PrometheusRule",
+      "name": "mosaic-handoff-gpu-20261102t085400z",
+      "namespace": "monitoring",
+      "uid": "9f48e280-6711-408e-8414-e8bc438cecf5"
+    }
+  ],
+  "timerProperties": "TimersMonotonic={ OnActiveUSec=20min ; next_elapse=9month 5d 2h 3min 3.522490s }\nNextElapseUSecMonotonic=9month 5d 2h 3min 3.522490s\nActiveState=active\n",
+  "remoteResultFile": "/var/tmp/mosaic-injection-cleanup/handoff-gpu-20261102t085400z/cleanup-result.private.json",
+  "schedulingStdout": "",
+  "schedulingStderr": "Running timer as unit: mosaic-injection-cleanup-handoff-gpu-20261102t085400z.timer\nWill run service as unit: mosaic-injection-cleanup-handoff-gpu-20261102t085400z.service\n"
+}

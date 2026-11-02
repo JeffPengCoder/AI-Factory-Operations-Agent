@@ -1,0 +1,119 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+{{- $c := .Values.llm.requestCompatibility -}}
+{{- $r := $c.researchToolCalls | default dict -}}
+{{- $research := and .Values.modules.research.enabled ($r.enabled | default false) -}}
+{{- $audit := and $research ($r.auditEnabled | default false) -}}
+{{- if and .Values.modules.execution.enabled $c.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $c.name }}
+  labels:
+    app: {{ $c.name }}
+    {{- include "mosaic-stack.labels" . | nindent 4 }}
+data:
+  server.mjs: |
+    {{- .Files.Get "files/llm-compat-server.mjs" | nindent 4 }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $c.name }}
+  labels:
+    app: {{ $c.name }}
+    {{- include "mosaic-stack.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ $c.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ $c.name }}
+      annotations:
+        checksum/config: {{ printf "%s-%s-%s-%s-%v-%v" .Chart.Version $c.name (include "mosaic-stack.llmUpstreamBaseUrl" .) (.Files.Get "files/llm-compat-server.mjs" | sha256sum) $research $audit | sha256sum }}
+    spec:
+      {{- if $audit }}
+      securityContext:
+        fsGroup: 1000
+      {{- end }}
+      {{- include "mosaic-stack.imagePullSecrets" . | nindent 6 }}
+      {{- include "mosaic-stack.nodeSelector" . | nindent 6 }}
+      {{- include "mosaic-stack.tolerations" . | nindent 6 }}
+      containers:
+        - name: proxy
+          image: {{ include "mosaic-stack.image" .Values.mosaicUi.image | quote }}
+          imagePullPolicy: {{ .Values.mosaicUi.image.pullPolicy }}
+          command: ["node", "/config/server.mjs"]
+          env:
+            - name: PORT
+              value: {{ $c.port | quote }}
+            - name: UPSTREAM_BASE_URL
+              value: {{ include "mosaic-stack.llmUpstreamBaseUrl" . | quote }}
+            - name: RESEARCH_TOOL_CALLS_ENABLED
+              value: {{ $research | quote }}
+            {{- if $audit }}
+            - name: RESEARCH_TOOL_CALLS_AUDIT_DIR
+              value: /audit/records
+            {{- end }}
+            {{- if and (eq .Values.llm.mode "external") .Values.llm.external.caCertificateSecret }}
+            - name: NODE_EXTRA_CA_CERTS
+              value: /etc/llm-ca/ca.crt
+            {{- end }}
+          ports:
+            - name: http
+              containerPort: {{ $c.port }}
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+          volumeMounts:
+            - name: config
+              mountPath: /config
+              readOnly: true
+            {{- if $audit }}
+            - name: research-audit
+              mountPath: /audit
+            {{- end }}
+            {{- if and (eq .Values.llm.mode "external") .Values.llm.external.caCertificateSecret }}
+            - name: llm-ca
+              mountPath: /etc/llm-ca
+              readOnly: true
+            {{- end }}
+      volumes:
+        - name: config
+          configMap:
+            name: {{ $c.name }}
+        {{- if $audit }}
+        - name: research-audit
+          emptyDir:
+            sizeLimit: 128Mi
+        {{- end }}
+        {{- if and (eq .Values.llm.mode "external") .Values.llm.external.caCertificateSecret }}
+        - name: llm-ca
+          secret:
+            secretName: {{ .Values.llm.external.caCertificateSecret | quote }}
+            items:
+              - key: {{ .Values.llm.external.caCertificateKey | quote }}
+                path: ca.crt
+        {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $c.name }}
+  labels:
+    app: {{ $c.name }}
+    {{- include "mosaic-stack.labels" . | nindent 4 }}
+spec:
+  selector:
+    app: {{ $c.name }}
+  ports:
+    - name: http
+      port: {{ $c.port }}
+      targetPort: http
+{{- end }}

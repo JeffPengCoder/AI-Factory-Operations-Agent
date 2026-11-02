@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-31T07:59:43.544745+00:00",
+  "path": "/api/alerts",
+  "httpStatus": 200,
+  "body": {
+    "success": true,
+    "alerts": []
+  },
+  "elapsedSeconds": 1.3184657919919118,
+  "privacySelection": {
+    "originalMosaicAlertCount": 30,
+    "publishedRelatedAlertCount": 0,
+    "excludedUnrelatedAlertCount": 30
+  }
+}

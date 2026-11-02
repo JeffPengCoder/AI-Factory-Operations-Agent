@@ -1,0 +1,11 @@
+{
+  "filesHashVerified": 372,
+  "losslessGzipVerified": 150,
+  "relativeLinksAndImageVerified": 26,
+  "tableCount": 6,
+  "completeModelReportFenceVerified": true,
+  "documentBytes": 35724,
+  "documentSha256": "8d319a25eeb4dec472bee8757b376db9a047bf1dd94385e9ac1eb4c91de75fe4",
+  "realOrdinaryHumanFollowupAndContextualModelReplyVerified": true,
+  "diagram": "docs/images/mosaic-feishu-dm-context-20261102.svg"
+}

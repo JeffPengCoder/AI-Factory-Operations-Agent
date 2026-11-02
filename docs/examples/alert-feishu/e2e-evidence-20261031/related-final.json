@@ -1,0 +1,135 @@
+{
+  "at": "2026-10-31T08:44:52.313500+00:00",
+  "remote": [
+    {
+      "name": "prometheus",
+      "at": "2026-10-31T08:44:51.455893+00:00",
+      "url": "http://target-node-1.example.invalid:30090/api/v1/query?query=ALERTS%7Bnamespace%3D%22mosaic-e2e-20261031t075722z%22%7D",
+      "status": 200,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[]}}"
+    },
+    {
+      "name": "alertmanager",
+      "at": "2026-10-31T08:44:51.477143+00:00",
+      "url": "http://target-node-1.example.invalid:30093/api/v2/alerts?filter=namespace%3D%22mosaic-e2e-20261031t075722z%22",
+      "status": 200,
+      "body": "[]\n"
+    }
+  ],
+  "allRelatedMosaicAlerts": [
+    {
+      "id": "alertmanager:1bdae10de10f472e",
+      "payload": "MosaicInjectedWorkloadFailure: Isolated test workload repeatedly fails to start test from Jeff Peng. Run e2e-20261031t075722z. Read the actual Pod status, previous/current logs and events in mosaic-e2e-20261031t075722z; correlate with this exact alert and consult the indexed runbook. This is a bounded validation workload; no GPU fault was injected. (severity=warning, namespace=mosaic-e2e-20261031t075722z, pod=mosaic-log-fixture, instance=continued-private-address-08.example.invalid:8080, job=kube-state-metrics)",
+      "source": "Alertmanager",
+      "createdAt": "2026-10-31T08:23:06.295Z",
+      "stage": "responding",
+      "labels": {
+        "alertname": "MosaicInjectedWorkloadFailure",
+        "container": "fixture",
+        "endpoint": "http",
+        "instance": "continued-private-address-08.example.invalid:8080",
+        "job": "kube-state-metrics",
+        "mosaic_test": "true",
+        "namespace": "mosaic-e2e-20261031t075722z",
+        "pod": "mosaic-log-fixture",
+        "prometheus": "monitoring/kube-prometheus-stack-prometheus",
+        "reason": "CrashLoopBackOff",
+        "run_id": "e2e-20261031t075722z",
+        "service": "kube-prometheus-stack-kube-state-metrics",
+        "severity": "warning",
+        "test_namespace": "mosaic-e2e-20261031t075722z",
+        "test_pod": "mosaic-log-fixture",
+        "uid": "82953a81-6578-4cbe-b638-ef3de927279a"
+      },
+      "annotations": {
+        "description": "test from Jeff Peng. Run e2e-20261031t075722z. Read the actual Pod status, previous/current logs and events in mosaic-e2e-20261031t075722z; correlate with this exact alert and consult the indexed runbook. This is a bounded validation workload; no GPU fault was injected.",
+        "summary": "Isolated test workload repeatedly fails to start",
+        "test_from": "test from Jeff Peng"
+      },
+      "status": "active",
+      "startsAt": "2026-10-31T08:23:06.295Z",
+      "endsAt": "2026-10-31T08:41:06.295Z",
+      "updatedAt": "2026-10-31T08:37:06.298Z",
+      "fingerprint": "1bdae10de10f472e",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=max_over_time%28kube_pod_container_status_waiting_reason%7Bcontainer%3D%22fixture%22%2Cnamespace%3D%22mosaic-e2e-20261031t075722z%22%2Cpod%3D%22mosaic-log-fixture%22%2Creason%3D%22CrashLoopBackOff%22%7D%5B2m%5D%29+%3E+0&g0.tab=1"
+    },
+    {
+      "id": "alertmanager:b2ee16df078aed62",
+      "payload": "KubePodCrashLooping: Pod is crash looping. Pod mosaic-e2e-20261031t075722z/mosaic-log-fixture (fixture) is in waiting state (reason: \"CrashLoopBackOff\") on cluster . (severity=warning, namespace=mosaic-e2e-20261031t075722z, pod=mosaic-log-fixture, instance=continued-private-address-08.example.invalid:8080, job=kube-state-metrics)",
+      "source": "Alertmanager",
+      "createdAt": "2026-10-31T08:37:50.812Z",
+      "stage": "active",
+      "labels": {
+        "alertname": "KubePodCrashLooping",
+        "container": "fixture",
+        "endpoint": "http",
+        "instance": "continued-private-address-08.example.invalid:8080",
+        "job": "kube-state-metrics",
+        "namespace": "mosaic-e2e-20261031t075722z",
+        "pod": "mosaic-log-fixture",
+        "prometheus": "monitoring/kube-prometheus-stack-prometheus",
+        "reason": "CrashLoopBackOff",
+        "service": "kube-prometheus-stack-kube-state-metrics",
+        "severity": "warning",
+        "uid": "82953a81-6578-4cbe-b638-ef3de927279a"
+      },
+      "annotations": {
+        "description": "Pod mosaic-e2e-20261031t075722z/mosaic-log-fixture (fixture) is in waiting state (reason: \"CrashLoopBackOff\") on cluster .",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubepodcrashlooping",
+        "summary": "Pod is crash looping."
+      },
+      "status": "active",
+      "startsAt": "2026-10-31T08:37:50.812Z",
+      "endsAt": "2026-10-31T08:44:50.812Z",
+      "updatedAt": "2026-10-31T08:40:50.814Z",
+      "fingerprint": "b2ee16df078aed62",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=max_over_time%28kube_pod_container_status_waiting_reason%7Bjob%3D%22kube-state-metrics%22%2Cnamespace%3D~%22.%2A%22%2Creason%3D%22CrashLoopBackOff%22%7D%5B5m%5D%29+%3E%3D+1&g0.tab=1"
+    }
+  ],
+  "mosaicPolling": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "status": {
+        "enabled": true,
+        "baseUrl": "http://target-node-1.example.invalid:30093",
+        "intervalMs": 30000,
+        "lastSyncAt": "2026-10-31T08:44:28.382Z",
+        "lastImported": 0,
+        "lastSeenCount": 25
+      }
+    },
+    "elapsedSeconds": 0.2729795000050217
+  },
+  "uiHealth": {
+    "path": "/api/health",
+    "httpStatus": 200,
+    "body": {
+      "status": "ok"
+    },
+    "elapsedSeconds": 0.2804941249778494
+  },
+  "uiUnauthenticated": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": 401,
+    "body": "Authentication required.",
+    "elapsedSeconds": 0.8627739999792539
+  },
+  "uiAuthenticated": {
+    "path": "/api/alerts/alertmanager",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "status": {
+        "enabled": true,
+        "baseUrl": "http://target-node-1.example.invalid:30093",
+        "intervalMs": 30000,
+        "lastSyncAt": "2026-10-31T08:44:28.382Z",
+        "lastImported": 0,
+        "lastSeenCount": 25
+      }
+    },
+    "elapsedSeconds": 0.41687833395553753
+  }
+}

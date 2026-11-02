@@ -1,0 +1,12 @@
+✔ standalone inference renders only a GPU workload and its Service (25.122917ms)
+✔ site hardware, storage, and credentials can be configured independently (47.681042ms)
+✔ cross-cluster ingress routes only the API and references site TLS (23.337166ms)
+✔ missing inference authentication or ingress TLS fails before installation (93.451167ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 222.189875

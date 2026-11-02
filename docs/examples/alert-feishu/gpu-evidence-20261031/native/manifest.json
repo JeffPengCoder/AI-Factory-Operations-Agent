@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-31T13:54:54.681850+00:00",
+  "sessionId": "c826df3c-4868-4506-8913-64ae45bd8956",
+  "sessionKey": "agent:default:alert-alertmanager-d1e25281f02cec92",
+  "nativeFile": "c826df3c-4868-4506-8913-64ae45bd8956.jsonl",
+  "nativeBytes": 191480,
+  "nativeSha256": "4756dd47fbea66e0cddbec2ce9bed58a4ce2ec0f8ff815cb56c34f81b5c0a97f",
+  "nativeRecords": 45,
+  "toolResults": 29,
+  "toolRequests": 29,
+  "toolResultsSha256": "0de1e8f751c3f2ef5dfe3ae04261490ff34662ae10b97777836a56b03a69a7eb"
+}

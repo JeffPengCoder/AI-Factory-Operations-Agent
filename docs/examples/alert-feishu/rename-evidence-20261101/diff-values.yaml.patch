@@ -1,0 +1,11 @@
+--- before/values.yaml
++++ after/values.yaml
+@@ -226,6 +226,8 @@
+     password: ""
+     machineToken: ""
+ openclaw:
++  # Optional display/identity name; internal agent ID remains default.
++  agentDisplayName: ""
+   enabled: true
+   gatewayProtocol: 4
+   msteams:

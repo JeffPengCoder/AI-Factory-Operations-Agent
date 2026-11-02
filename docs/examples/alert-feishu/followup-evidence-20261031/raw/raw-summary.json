@@ -1,0 +1,67 @@
+{
+  "httpStatus": 200,
+  "elapsedSeconds": 0.7090917523019016,
+  "renderedPromptTokenCount": 7893,
+  "response": {
+    "id": "cmpl-930b2cd5a533f8a1",
+    "object": "text_completion",
+    "created": 1793416083,
+    "prompt_routed_experts": null,
+    "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+    "choices": [
+      {
+        "index": 0,
+        "text": "I'll search the indexed document for the requested information.\n\nLet me start by searching for the PDF and then looking for specific content.\n\n[grep]",
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": [
+          40,
+          3172,
+          2624,
+          279,
+          29582,
+          2128,
+          364,
+          279,
+          10897,
+          1928,
+          13,
+          271,
+          9764,
+          728,
+          1151,
+          539,
+          14603,
+          364,
+          279,
+          11030,
+          321,
+          1179,
+          3221,
+          364,
+          3050,
+          2144,
+          13,
+          271,
+          31439,
+          9699,
+          60,
+          248046
+        ],
+        "prompt_logprobs": null,
+        "prompt_token_ids": "[PRIVATE: all 7893 input token IDs retained in the internal original; they encode proprietary system prompts]",
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.21.0+2325b6f0.dev-9f46b229",
+    "usage": {
+      "prompt_tokens": 7893,
+      "total_tokens": 7925,
+      "completion_tokens": 32,
+      "prompt_tokens_details": null
+    },
+    "kv_transfer_params": null
+  }
+}

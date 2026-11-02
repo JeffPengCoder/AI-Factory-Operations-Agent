@@ -1,0 +1,1 @@
+{"modules": {"bcm": false, "clusters": true, "diagnostics": false, "edit": true, "execution": true, "grafana": true, "kubernetes": true, "observability": true, "research": true, "slurm": false, "terminal": false, "ui": true}, "commandExitCodes": [0, 0, 0, 0, 0, 0, 0, 0]}

@@ -1,0 +1,16 @@
+[
+  {
+    "at": "2026-10-31T02:29:05.787183+00:00",
+    "path": "/api/alerts/alertmanager",
+    "method": "POST",
+    "body": {
+      "enabled": true
+    }
+  },
+  {
+    "at": "2026-10-31T02:29:06.693978+00:00",
+    "path": "/api/alerts/alertmanager",
+    "method": "PUT",
+    "body": null
+  }
+]

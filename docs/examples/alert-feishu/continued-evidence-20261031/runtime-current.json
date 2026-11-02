@@ -1,0 +1,3175 @@
+{
+  "at": "2026-10-31T07:11:24.131346+00:00",
+  "history": [
+    {
+      "revision": 6,
+      "updated": "2026-10-13T17:37:19.81278701+08:00",
+      "status": "superseded",
+      "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75",
+      "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+      "description": "Upgrade complete"
+    },
+    {
+      "revision": 7,
+      "updated": "2026-10-13T17:54:21.919946607+08:00",
+      "status": "superseded",
+      "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75",
+      "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+      "description": "Upgrade complete"
+    },
+    {
+      "revision": 8,
+      "updated": "2026-10-29T11:46:16.025971491+08:00",
+      "status": "superseded",
+      "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029",
+      "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+      "description": "Persistent Teams PR 71 backport; bot registration pending"
+    },
+    {
+      "revision": 9,
+      "updated": "2026-10-31T09:55:36.342796159+08:00",
+      "status": "superseded",
+      "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029",
+      "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+      "description": "Upgrade complete"
+    },
+    {
+      "revision": 10,
+      "updated": "2026-10-31T10:13:36.263473659+08:00",
+      "status": "superseded",
+      "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029",
+      "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+      "description": "Upgrade complete"
+    },
+    {
+      "revision": 11,
+      "updated": "2026-10-31T11:35:34.003088898+08:00",
+      "status": "superseded",
+      "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031",
+      "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+      "description": "Upgrade complete"
+    },
+    {
+      "revision": 12,
+      "updated": "2026-10-31T11:46:32.490772184+08:00",
+      "status": "superseded",
+      "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2",
+      "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+      "description": "Upgrade complete"
+    },
+    {
+      "revision": 13,
+      "updated": "2026-10-31T14:28:38.343138998+08:00",
+      "status": "superseded",
+      "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031",
+      "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+      "description": "Upgrade complete"
+    },
+    {
+      "revision": 14,
+      "updated": "2026-10-31T14:34:29.358747404+08:00",
+      "status": "superseded",
+      "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031.startup2",
+      "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+      "description": "Upgrade complete"
+    },
+    {
+      "revision": 15,
+      "updated": "2026-10-31T14:38:59.443735558+08:00",
+      "status": "deployed",
+      "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031.startup2",
+      "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+      "description": "Upgrade complete"
+    }
+  ],
+  "pods": {
+    "apiVersion": "v1",
+    "items": [
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "checksum/config": "af36dadf020f8fa015f9f2f4fb25a18b1d9b3a55f6e301b4795ec818390996ba"
+          },
+          "creationTimestamp": "2026-10-31T03:18:14Z",
+          "generateName": "iraop-cb7877-",
+          "generation": 1,
+          "labels": {
+            "app": "iraop",
+            "pod-template-hash": "cb7877"
+          },
+          "name": "iraop-cb7877-nmpw7",
+          "namespace": "mosaic",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "iraop-cb7877",
+              "uid": "1d2e8a20-6158-41e4-9cf5-c286f6fcb4dc"
+            }
+          ],
+          "resourceVersion": "11368587",
+          "uid": "7993d92e-bcb0-4ebc-992a-28608bbd5e95"
+        },
+        "spec": {
+          "automountServiceAccountToken": false,
+          "containers": [
+            {
+              "envFrom": [
+                {
+                  "configMapRef": {
+                    "name": "iraop-config"
+                  }
+                },
+                {
+                  "secretRef": {
+                    "name": "iraop-secrets"
+                  }
+                }
+              ],
+              "image": "nvcr.io/NGC_ORG_ID/afoa-release/iraop:f804535b",
+              "imagePullPolicy": "IfNotPresent",
+              "livenessProbe": {
+                "failureThreshold": 10,
+                "httpGet": {
+                  "path": "/api/v1/live",
+                  "port": 8000,
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 15,
+                "periodSeconds": 30,
+                "successThreshold": 1,
+                "timeoutSeconds": 10
+              },
+              "name": "iraop",
+              "ports": [
+                {
+                  "containerPort": 8000,
+                  "name": "http",
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 30,
+                "httpGet": {
+                  "path": "/api/v1/health",
+                  "port": 8000,
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 10,
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 5
+              },
+              "resources": {
+                "limits": {
+                  "cpu": "2",
+                  "memory": "8Gi"
+                },
+                "requests": {
+                  "cpu": "500m",
+                  "memory": "2Gi"
+                }
+              },
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/cm/shared/iraop-corpus",
+                  "name": "corpus",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "imagePullSecrets": [
+            {
+              "name": "nvcr-image-pull-secret"
+            }
+          ],
+          "nodeName": "mosaic-poc-control-plane",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {
+            "fsGroup": 10001,
+            "runAsGroup": 10001,
+            "runAsNonRoot": true,
+            "runAsUser": 10001,
+            "seccompProfile": {
+              "type": "RuntimeDefault"
+            }
+          },
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "hostPath": {
+                "path": "/var/local/mosaic-validation-20261031/corpus",
+                "type": "Directory"
+              },
+              "name": "corpus"
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:18:16Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:18:14Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:18:27Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:18:27Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:18:14Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "allocatedResources": {
+                "cpu": "500m",
+                "memory": "2Gi"
+              },
+              "containerID": "containerd://ba5e6c06db08fd19ba8990bc1586b889f6296d3fe7001276a2ed08869aaf9df6",
+              "image": "nvcr.io/NGC_ORG_ID/afoa-release/iraop:f804535b",
+              "imageID": "nvcr.io/NGC_ORG_ID/afoa-release/iraop@sha256:0ebc807d13891938d6d992675d29dc5c802ed5e9d6e8a10e87b9239feee80617",
+              "lastState": {},
+              "name": "iraop",
+              "ready": true,
+              "resources": {
+                "limits": {
+                  "cpu": "2",
+                  "memory": "8Gi"
+                },
+                "requests": {
+                  "cpu": "500m",
+                  "memory": "2Gi"
+                }
+              },
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-31T03:18:15Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 10001,
+                  "supplementalGroups": [
+                    10001
+                  ],
+                  "uid": 10001
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/cm/shared/iraop-corpus",
+                  "name": "corpus",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                }
+              ]
+            }
+          ],
+          "hostIP": "continued-private-address-10.example.invalid",
+          "hostIPs": [
+            {
+              "ip": "continued-private-address-10.example.invalid"
+            }
+          ],
+          "observedGeneration": 1,
+          "phase": "Running",
+          "podIP": "continued-private-address-05.example.invalid",
+          "podIPs": [
+            {
+              "ip": "continued-private-address-05.example.invalid"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-31T03:18:14Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "checksum/config": "7e93a98b3bc4f7ffe726106d29cb15e46851c00055114874cb8130aea7eafae2"
+          },
+          "creationTimestamp": "2026-10-31T06:39:07Z",
+          "generateName": "llm-openai-compat-58bd8857f4-",
+          "generation": 1,
+          "labels": {
+            "app": "llm-openai-compat",
+            "pod-template-hash": "58bd8857f4"
+          },
+          "name": "llm-openai-compat-58bd8857f4-d5f8k",
+          "namespace": "mosaic",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "llm-openai-compat-58bd8857f4",
+              "uid": "8e584489-fde2-4e1e-bb27-6738f4871f95"
+            }
+          ],
+          "resourceVersion": "11385100",
+          "uid": "2bd6c507-e9a1-4f30-84de-c23f47b8ad43"
+        },
+        "spec": {
+          "containers": [
+            {
+              "command": [
+                "node",
+                "/config/server.mjs"
+              ],
+              "env": [
+                {
+                  "name": "PORT",
+                  "value": "8000"
+                },
+                {
+                  "name": "UPSTREAM_BASE_URL",
+                  "value": "http://spark-kind-bridge.example.invalid:8000/v1"
+                },
+                {
+                  "name": "RESEARCH_TOOL_CALLS_ENABLED",
+                  "value": "true"
+                }
+              ],
+              "image": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8",
+              "imagePullPolicy": "Always",
+              "name": "proxy",
+              "ports": [
+                {
+                  "containerPort": 8000,
+                  "name": "http",
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/health",
+                  "port": "http",
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "resources": {},
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/config",
+                  "name": "config",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-fcblv",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "imagePullSecrets": [
+            {
+              "name": "nvcr-image-pull-secret"
+            }
+          ],
+          "nodeName": "mosaic-poc-control-plane",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "configMap": {
+                "defaultMode": 420,
+                "name": "llm-openai-compat"
+              },
+              "name": "config"
+            },
+            {
+              "name": "kube-api-access-fcblv",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T06:39:09Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T06:39:07Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T06:39:09Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T06:39:09Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T06:39:07Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://97cc293f4882becaad9971ec2453d504b3382c9087c31e807b520caf822f29c0",
+              "image": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8",
+              "imageID": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui@sha256:30f2479340d324a484a2d330a6749fbf2ab63ef0a24c848f1964a53d8423a0a7",
+              "lastState": {},
+              "name": "proxy",
+              "ready": true,
+              "resources": {},
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-31T06:39:09Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 0,
+                  "supplementalGroups": [
+                    0
+                  ],
+                  "uid": 0
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/config",
+                  "name": "config",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-fcblv",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                }
+              ]
+            }
+          ],
+          "hostIP": "continued-private-address-10.example.invalid",
+          "hostIPs": [
+            {
+              "ip": "continued-private-address-10.example.invalid"
+            }
+          ],
+          "observedGeneration": 1,
+          "phase": "Running",
+          "podIP": "continued-private-address-08.example.invalid",
+          "podIPs": [
+            {
+              "ip": "continued-private-address-08.example.invalid"
+            }
+          ],
+          "qosClass": "BestEffort",
+          "startTime": "2026-10-31T06:39:07Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "checksum/auth": "ceca7df1c2ea1a2c65f5ab05e8cf298a642504aac33ba4de5dc0636047449a28"
+          },
+          "creationTimestamp": "2026-10-29T03:46:24Z",
+          "generateName": "mosaic-cluster-monitor-76fd6d7cb5-",
+          "generation": 1,
+          "labels": {
+            "app": "mosaic-cluster-monitor",
+            "pod-template-hash": "76fd6d7cb5"
+          },
+          "name": "mosaic-cluster-monitor-76fd6d7cb5-5l5m6",
+          "namespace": "mosaic",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "mosaic-cluster-monitor-76fd6d7cb5",
+              "uid": "14fed895-a28e-4176-8149-d887e5753e98"
+            }
+          ],
+          "resourceVersion": "11146180",
+          "uid": "b973a853-ae9c-4270-8f91-bdd25548e248"
+        },
+        "spec": {
+          "automountServiceAccountToken": false,
+          "containers": [
+            {
+              "command": [
+                "node",
+                "/app/frontend/bin/mosaic-cluster-monitor.mjs"
+              ],
+              "env": [
+                {
+                  "name": "MOSAIC_CLUSTER_MONITOR_PORT",
+                  "value": "3003"
+                },
+                {
+                  "name": "MOSAIC_CLUSTER_STATE_PATH",
+                  "value": "/data/clusters.json"
+                },
+                {
+                  "name": "MOSAIC_CLUSTER_TARGETS",
+                  "value": "[{\"id\":\"local\",\"intervalHours\":24,\"kind\":\"kubernetes\",\"name\":\"Local Kubernetes\"},{\"id\":\"target-lab\",\"intervalHours\":24,\"kind\":\"kubernetes\",\"name\":\"L20 lab (2 nodes)\"}]"
+                },
+                {
+                  "name": "MOSAIC_CLUSTER_HISTORY_LIMIT",
+                  "value": "10"
+                },
+                {
+                  "name": "MOSAIC_CLUSTER_TIMEOUT_MS",
+                  "value": "600000"
+                },
+                {
+                  "name": "MOSAIC_UI_URL",
+                  "value": "http://mosaic-ui:3000"
+                },
+                {
+                  "name": "MOSAIC_AUTOMATION_TOKEN",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "token",
+                      "name": "mosaic-cluster-monitor-auth"
+                    }
+                  }
+                }
+              ],
+              "image": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8",
+              "imagePullPolicy": "Always",
+              "livenessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/healthz",
+                  "port": "http",
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 10,
+                "periodSeconds": 15,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "name": "cluster-monitor",
+              "ports": [
+                {
+                  "containerPort": 3003,
+                  "name": "http",
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/healthz",
+                  "port": "http",
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 2,
+                "periodSeconds": 5,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "resources": {
+                "limits": {
+                  "cpu": "1",
+                  "memory": "1Gi"
+                },
+                "requests": {
+                  "cpu": "100m",
+                  "memory": "256Mi"
+                }
+              },
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "readOnlyRootFilesystem": true,
+                "runAsGroup": 1000,
+                "runAsNonRoot": true,
+                "runAsUser": 1000
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/data",
+                  "name": "state"
+                },
+                {
+                  "mountPath": "/tmp",
+                  "name": "tmp"
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "imagePullSecrets": [
+            {
+              "name": "nvcr-image-pull-secret"
+            }
+          ],
+          "nodeName": "mosaic-poc-control-plane",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {
+            "fsGroup": 1000,
+            "seccompProfile": {
+              "type": "RuntimeDefault"
+            }
+          },
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "terminationGracePeriodSeconds": 10,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "state",
+              "persistentVolumeClaim": {
+                "claimName": "mosaic-cluster-monitor"
+              }
+            },
+            {
+              "emptyDir": {},
+              "name": "tmp"
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-29T03:46:28Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-29T03:46:24Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-29T03:46:34Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-29T03:46:34Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-29T03:46:24Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "allocatedResources": {
+                "cpu": "100m",
+                "memory": "256Mi"
+              },
+              "containerID": "containerd://4eb75f1be661c37ef05fde8017874e7f312bd2e020b79050afc57faff7027005",
+              "image": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8",
+              "imageID": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui@sha256:30f2479340d324a484a2d330a6749fbf2ab63ef0a24c848f1964a53d8423a0a7",
+              "lastState": {},
+              "name": "cluster-monitor",
+              "ready": true,
+              "resources": {
+                "limits": {
+                  "cpu": "1",
+                  "memory": "1Gi"
+                },
+                "requests": {
+                  "cpu": "100m",
+                  "memory": "256Mi"
+                }
+              },
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-29T03:46:28Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 1000,
+                  "supplementalGroups": [
+                    4,
+                    20,
+                    24,
+                    25,
+                    27,
+                    29,
+                    30,
+                    44,
+                    46,
+                    1000
+                  ],
+                  "uid": 1000
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/data",
+                  "name": "state"
+                },
+                {
+                  "mountPath": "/tmp",
+                  "name": "tmp"
+                }
+              ]
+            }
+          ],
+          "hostIP": "continued-private-address-10.example.invalid",
+          "hostIPs": [
+            {
+              "ip": "continued-private-address-10.example.invalid"
+            }
+          ],
+          "observedGeneration": 1,
+          "phase": "Running",
+          "podIP": "continued-private-address-03.example.invalid",
+          "podIPs": [
+            {
+              "ip": "continued-private-address-03.example.invalid"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-29T03:46:24Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "checksum/gateway-config": "e582f5d2f3fecce39a5aa750c5e4aa9c6dce054efd866153ff72d6b79e4b7477"
+          },
+          "creationTimestamp": "2026-10-13T09:50:29Z",
+          "generateName": "mosaic-openshell-",
+          "generation": 1,
+          "labels": {
+            "app.kubernetes.io/instance": "mosaic",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "openshell",
+            "app.kubernetes.io/version": "0.0.75",
+            "apps.kubernetes.io/pod-index": "0",
+            "controller-revision-hash": "mosaic-openshell-7f7f44dbfc",
+            "helm.sh/chart": "openshell-0.0.75",
+            "statefulset.kubernetes.io/pod-name": "mosaic-openshell-0"
+          },
+          "name": "mosaic-openshell-0",
+          "namespace": "mosaic",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "StatefulSet",
+              "name": "mosaic-openshell",
+              "uid": "70664005-132e-4e3f-a132-5bc0fb3ae096"
+            }
+          ],
+          "resourceVersion": "9382609",
+          "uid": "43644e83-65d5-4fbb-a056-e1a15ffa5b98"
+        },
+        "spec": {
+          "containers": [
+            {
+              "args": [
+                "--config",
+                "/etc/openshell/gateway.toml",
+                "--db-url",
+                "sqlite:/tmp/openshell.db"
+              ],
+              "image": "ghcr.io/nvidia/openshell/gateway:0.0.75",
+              "imagePullPolicy": "IfNotPresent",
+              "livenessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/healthz",
+                  "port": "health",
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 2,
+                "periodSeconds": 5,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "name": "openshell-gateway",
+              "ports": [
+                {
+                  "containerPort": 8080,
+                  "name": "grpc",
+                  "protocol": "TCP"
+                },
+                {
+                  "containerPort": 8081,
+                  "name": "health",
+                  "protocol": "TCP"
+                },
+                {
+                  "containerPort": 9090,
+                  "name": "metrics",
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/readyz",
+                  "port": "health",
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 1,
+                "periodSeconds": 2,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "resources": {},
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "runAsNonRoot": true,
+                "runAsUser": 1000
+              },
+              "startupProbe": {
+                "failureThreshold": 30,
+                "httpGet": {
+                  "path": "/healthz",
+                  "port": "health",
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 2,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/var/openshell",
+                  "name": "openshell-data"
+                },
+                {
+                  "mountPath": "/etc/openshell",
+                  "name": "gateway-config",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/etc/openshell-jwt",
+                  "name": "sandbox-jwt",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/etc/openshell-tls/server",
+                  "name": "tls-cert",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/etc/openshell-tls/client-ca",
+                  "name": "tls-client-ca",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-gw64k",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "hostname": "mosaic-openshell-0",
+          "nodeName": "mosaic-poc-control-plane",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {
+            "fsGroup": 1000
+          },
+          "serviceAccount": "mosaic-openshell",
+          "serviceAccountName": "mosaic-openshell",
+          "subdomain": "mosaic-openshell",
+          "terminationGracePeriodSeconds": 5,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "openshell-data",
+              "persistentVolumeClaim": {
+                "claimName": "openshell-data-mosaic-openshell-0"
+              }
+            },
+            {
+              "configMap": {
+                "defaultMode": 420,
+                "name": "mosaic-openshell-config"
+              },
+              "name": "gateway-config"
+            },
+            {
+              "name": "sandbox-jwt",
+              "secret": {
+                "defaultMode": 256,
+                "secretName": "mosaic-openshell-jwt-keys"
+              }
+            },
+            {
+              "name": "tls-cert",
+              "secret": {
+                "defaultMode": 420,
+                "secretName": "openshell-server-tls"
+              }
+            },
+            {
+              "name": "tls-client-ca",
+              "secret": {
+                "defaultMode": 420,
+                "items": [
+                  {
+                    "key": "ca.crt",
+                    "path": "ca.crt"
+                  }
+                ],
+                "secretName": "openshell-server-tls"
+              }
+            },
+            {
+              "name": "kube-api-access-gw64k",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-13T09:50:30Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-13T09:50:29Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-13T09:50:32Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-13T09:50:32Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-13T09:50:29Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://156839a27a71a6206fcf751d2ff5d069ac04a636f50ed91a3320614e39b602e6",
+              "image": "ghcr.io/nvidia/openshell/gateway:0.0.75",
+              "imageID": "ghcr.io/nvidia/openshell/gateway@sha256:f58377de6d305fe726159ed923d3f49d92ada42abee106268b4b69d4e09dbc5d",
+              "lastState": {},
+              "name": "openshell-gateway",
+              "ready": true,
+              "resources": {},
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-13T09:50:30Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 0,
+                  "supplementalGroups": [
+                    0,
+                    1000
+                  ],
+                  "uid": 1000
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/var/openshell",
+                  "name": "openshell-data"
+                },
+                {
+                  "mountPath": "/etc/openshell",
+                  "name": "gateway-config",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                },
+                {
+                  "mountPath": "/etc/openshell-jwt",
+                  "name": "sandbox-jwt",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                },
+                {
+                  "mountPath": "/etc/openshell-tls/server",
+                  "name": "tls-cert",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                },
+                {
+                  "mountPath": "/etc/openshell-tls/client-ca",
+                  "name": "tls-client-ca",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-gw64k",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                }
+              ]
+            }
+          ],
+          "hostIP": "continued-private-address-10.example.invalid",
+          "hostIPs": [
+            {
+              "ip": "continued-private-address-10.example.invalid"
+            }
+          ],
+          "observedGeneration": 1,
+          "phase": "Running",
+          "podIP": "continued-private-address-02.example.invalid",
+          "podIPs": [
+            {
+              "ip": "continued-private-address-02.example.invalid"
+            }
+          ],
+          "qosClass": "BestEffort",
+          "startTime": "2026-10-13T09:50:29Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "checksum/auth": "f4b9e5bac3c08c4ce49ec4f7a3ef71fd21b39607c575fd035f995a8954e60d3f",
+            "checksum/config": "2d28b50bb31951fc70ecaea0a8cca5fbbb1b3c171f2c10548ae99f98990ff115"
+          },
+          "creationTimestamp": "2026-10-31T03:46:40Z",
+          "generateName": "mosaic-ui-877685d69-",
+          "generation": 1,
+          "labels": {
+            "app": "mosaic-ui",
+            "pod-template-hash": "877685d69"
+          },
+          "name": "mosaic-ui-877685d69-chxwr",
+          "namespace": "mosaic",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "mosaic-ui-877685d69",
+              "uid": "b15c994c-63d2-4789-8cb7-06053a570548"
+            }
+          ],
+          "resourceVersion": "11371246",
+          "uid": "5a69f229-f033-466e-8d3d-5da7efed7c12"
+        },
+        "spec": {
+          "automountServiceAccountToken": false,
+          "containers": [
+            {
+              "env": [
+                {
+                  "name": "NODE_ENV",
+                  "value": "production"
+                },
+                {
+                  "name": "PORT",
+                  "value": "3000"
+                },
+                {
+                  "name": "HOSTNAME",
+                  "value": "0.0.0.0"
+                },
+                {
+                  "name": "MOSAIC_UI_USERNAME",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "username",
+                      "name": "mosaic-ui-auth"
+                    }
+                  }
+                },
+                {
+                  "name": "MOSAIC_UI_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "password",
+                      "name": "mosaic-ui-auth"
+                    }
+                  }
+                },
+                {
+                  "name": "MOSAIC_UI_MACHINE_TOKEN",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "machineToken",
+                      "name": "mosaic-ui-auth"
+                    }
+                  }
+                },
+                {
+                  "name": "NEXT_PUBLIC_MOSAIC_DEPLOYMENT_VERSION",
+                  "value": "v0.0.1"
+                },
+                {
+                  "name": "MOSAIC_TERMINAL_ENABLED",
+                  "value": "false"
+                },
+                {
+                  "name": "MOSAIC_EDIT_ENABLED",
+                  "value": "true"
+                },
+                {
+                  "name": "MOSAIC_EDIT_HITL",
+                  "value": "true"
+                },
+                {
+                  "name": "MOSAIC_SESSION_ACCESS_PLUGINS",
+                  "value": "automation-guard,kubernetes,remote-ssh"
+                },
+                {
+                  "name": "MOSAIC_CLUSTERS_ENABLED",
+                  "value": "true"
+                },
+                {
+                  "name": "MOSAIC_CLUSTER_MONITOR_URL",
+                  "value": "http://mosaic-cluster-monitor:3003"
+                },
+                {
+                  "name": "MOSAIC_AUTOMATION_TOKEN",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "token",
+                      "name": "mosaic-cluster-monitor-auth"
+                    }
+                  }
+                },
+                {
+                  "name": "POD_NAMESPACE",
+                  "valueFrom": {
+                    "fieldRef": {
+                      "apiVersion": "v1",
+                      "fieldPath": "metadata.namespace"
+                    }
+                  }
+                },
+                {
+                  "name": "MOSAIC_OPENCLAW_DEPLOYMENT",
+                  "value": "openclaw"
+                },
+                {
+                  "name": "MOSAIC_OPENCLAW_PROTOCOL",
+                  "value": "4"
+                },
+                {
+                  "name": "MOSAIC_IRAOP_BASE_URL",
+                  "value": "http://iraop:8000"
+                },
+                {
+                  "name": "MOSAIC_IRAOP_CORPUS_DIR",
+                  "value": "/cm/shared/iraop-corpus"
+                },
+                {
+                  "name": "MOSAIC_IRAOP_API_KEY",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "IRAOP_API_KEY",
+                      "name": "iraop-secrets"
+                    }
+                  }
+                },
+                {
+                  "name": "MOSAIC_OPENCLAW_GATEWAY_URL",
+                  "value": "ws://openclaw:18789"
+                },
+                {
+                  "name": "MOSAIC_OPENCLAW_GATEWAY_HTTP_URL",
+                  "value": "http://openclaw:18789"
+                },
+                {
+                  "name": "OPENCLAW_GATEWAY_TOKEN",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "OPENCLAW_GATEWAY_TOKEN",
+                      "name": "openclaw-secrets"
+                    }
+                  }
+                },
+                {
+                  "name": "MOSAIC_AUDIT_DIR",
+                  "value": "/var/lib/mosaic-audit"
+                },
+                {
+                  "name": "MOSAIC_DASHBOARD_DIR",
+                  "value": "/var/lib/mosaic-audit/dashboard"
+                },
+                {
+                  "name": "MOSAIC_PROMETHEUS_URL",
+                  "value": "http://target-node-1.example.invalid:30090"
+                },
+                {
+                  "name": "MOSAIC_GRAFANA_URL",
+                  "value": "http://target-node-1.example.invalid:30080"
+                },
+                {
+                  "name": "MOSAIC_GRAFANA_BASIC_USER",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "username",
+                      "name": "mosaic-grafana-auth"
+                    }
+                  }
+                },
+                {
+                  "name": "MOSAIC_GRAFANA_BASIC_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "password",
+                      "name": "mosaic-grafana-auth"
+                    }
+                  }
+                },
+                {
+                  "name": "MOSAIC_ALERTMANAGER_URL",
+                  "value": "http://target-node-1.example.invalid:30093"
+                }
+              ],
+              "image": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8",
+              "imagePullPolicy": "Always",
+              "livenessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/api/health",
+                  "port": "http",
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 30,
+                "periodSeconds": 20,
+                "successThreshold": 1,
+                "timeoutSeconds": 5
+              },
+              "name": "mosaic-ui",
+              "ports": [
+                {
+                  "containerPort": 3000,
+                  "name": "http",
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/api/health",
+                  "port": "http",
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 10,
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 5
+              },
+              "resources": {},
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/var/lib/mosaic-audit",
+                  "name": "audit-log"
+                },
+                {
+                  "mountPath": "/cm/shared/iraop-corpus",
+                  "name": "research-corpus"
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "imagePullSecrets": [
+            {
+              "name": "nvcr-image-pull-secret"
+            }
+          ],
+          "nodeName": "mosaic-poc-control-plane",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "audit-log",
+              "persistentVolumeClaim": {
+                "claimName": "mosaic-audit-log"
+              }
+            },
+            {
+              "hostPath": {
+                "path": "/var/local/mosaic-validation-20261031/corpus",
+                "type": "Directory"
+              },
+              "name": "research-corpus"
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:46:45Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:46:40Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:46:56Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:46:56Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:46:40Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "containerd://84288ca40c4d6349226cf3e5bb375fdff910482deea7a21bd12125f58441265a",
+              "image": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8",
+              "imageID": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui@sha256:30f2479340d324a484a2d330a6749fbf2ab63ef0a24c848f1964a53d8423a0a7",
+              "lastState": {},
+              "name": "mosaic-ui",
+              "ready": true,
+              "resources": {},
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-31T03:46:45Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 0,
+                  "supplementalGroups": [
+                    0
+                  ],
+                  "uid": 0
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/var/lib/mosaic-audit",
+                  "name": "audit-log"
+                },
+                {
+                  "mountPath": "/cm/shared/iraop-corpus",
+                  "name": "research-corpus"
+                }
+              ]
+            }
+          ],
+          "hostIP": "continued-private-address-10.example.invalid",
+          "hostIPs": [
+            {
+              "ip": "continued-private-address-10.example.invalid"
+            }
+          ],
+          "observedGeneration": 1,
+          "phase": "Running",
+          "podIP": "continued-private-address-06.example.invalid",
+          "podIPs": [
+            {
+              "ip": "continued-private-address-06.example.invalid"
+            }
+          ],
+          "qosClass": "BestEffort",
+          "startTime": "2026-10-31T03:46:40Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "checksum/bcm-auth-config": "a065e53236fd27fe7925a3f04009880e90411867e9f8e4f56c1c17aade52fc6a",
+            "checksum/openclaw-seed": "2d28b50bb31951fc70ecaea0a8cca5fbbb1b3c171f2c10548ae99f98990ff115"
+          },
+          "creationTimestamp": "2026-10-31T03:46:40Z",
+          "generateName": "openclaw-79dd6456f8-",
+          "generation": 1,
+          "labels": {
+            "app": "openclaw",
+            "pod-template-hash": "79dd6456f8"
+          },
+          "name": "openclaw-79dd6456f8-8fpl4",
+          "namespace": "mosaic",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "openclaw-79dd6456f8",
+              "uid": "2be2b336-1a61-42de-abab-44cc5107ad2a"
+            }
+          ],
+          "resourceVersion": "11371308",
+          "uid": "b10741d7-e3dc-417a-b527-4762a32a5e9e"
+        },
+        "spec": {
+          "automountServiceAccountToken": true,
+          "containers": [
+            {
+              "command": [
+                "node",
+                "/app/dist/index.js",
+                "gateway",
+                "run"
+              ],
+              "env": [
+                {
+                  "name": "HOME",
+                  "value": "/home/node"
+                },
+                {
+                  "name": "OPENCLAW_CONFIG_DIR",
+                  "value": "/home/node/.openclaw"
+                },
+                {
+                  "name": "XDG_CONFIG_HOME",
+                  "value": "/home/node/.openclaw/.config"
+                },
+                {
+                  "name": "NODE_ENV",
+                  "value": "production"
+                },
+                {
+                  "name": "PATH",
+                  "value": "/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+                },
+                {
+                  "name": "OPENSHELL_GATEWAY",
+                  "value": "mosaic-openshell"
+                },
+                {
+                  "name": "OPENSHELL_GATEWAY_ENDPOINT",
+                  "value": "https://mosaic-openshell:8080"
+                },
+                {
+                  "name": "OPENCLAW_GATEWAY_TOKEN",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "OPENCLAW_GATEWAY_TOKEN",
+                      "name": "openclaw-secrets"
+                    }
+                  }
+                },
+                {
+                  "name": "VLLM_API_KEY",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "apiKey",
+                      "name": "mosaic-external-llm"
+                    }
+                  }
+                },
+                {
+                  "name": "OPENCLAW_VLLM_BASE_URL",
+                  "value": "http://llm-openai-compat:8000/v1"
+                },
+                {
+                  "name": "MSTEAMS_APP_ID",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "MSTEAMS_APP_ID",
+                      "name": "mosaic-teams",
+                      "optional": true
+                    }
+                  }
+                },
+                {
+                  "name": "MSTEAMS_APP_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "MSTEAMS_APP_PASSWORD",
+                      "name": "mosaic-teams",
+                      "optional": true
+                    }
+                  }
+                },
+                {
+                  "name": "MSTEAMS_TENANT_ID",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "MSTEAMS_TENANT_ID",
+                      "name": "mosaic-teams",
+                      "optional": true
+                    }
+                  }
+                },
+                {
+                  "name": "MOSAIC_PROMETHEUS_URL",
+                  "value": "http://target-node-1.example.invalid:30090"
+                },
+                {
+                  "name": "MOSAIC_GRAFANA_URL",
+                  "value": "http://target-node-1.example.invalid:30080"
+                },
+                {
+                  "name": "MOSAIC_GRAFANA_BASIC_USER",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "username",
+                      "name": "mosaic-grafana-auth"
+                    }
+                  }
+                },
+                {
+                  "name": "MOSAIC_GRAFANA_BASIC_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "password",
+                      "name": "mosaic-grafana-auth"
+                    }
+                  }
+                },
+                {
+                  "name": "MOSAIC_UI_URL",
+                  "value": "http://mosaic-ui.mosaic.svc.cluster.local:3000"
+                },
+                {
+                  "name": "MOSAIC_UI_MACHINE_TOKEN",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "machineToken",
+                      "name": "mosaic-ui-auth"
+                    }
+                  }
+                },
+                {
+                  "name": "IRAOP_API_KEY",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "IRAOP_API_KEY",
+                      "name": "iraop-secrets"
+                    }
+                  }
+                }
+              ],
+              "image": "ghcr.io/openclaw/openclaw:2026.6.10",
+              "imagePullPolicy": "IfNotPresent",
+              "livenessProbe": {
+                "exec": {
+                  "command": [
+                    "node",
+                    "-e",
+                    "require(\"http\").get(\"http://127.0.0.1:18789/healthz\", r => process.exit(r.statusCode < 400 ? 0 : 1)).on(\"error\", () => process.exit(1))"
+                  ]
+                },
+                "failureThreshold": 3,
+                "initialDelaySeconds": 60,
+                "periodSeconds": 30,
+                "successThreshold": 1,
+                "timeoutSeconds": 10
+              },
+              "name": "gateway",
+              "ports": [
+                {
+                  "containerPort": 3978,
+                  "name": "msteams",
+                  "protocol": "TCP"
+                },
+                {
+                  "containerPort": 18789,
+                  "name": "gateway",
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "exec": {
+                  "command": [
+                    "node",
+                    "-e",
+                    "require(\"http\").get(\"http://127.0.0.1:18789/readyz\", r => process.exit(r.statusCode < 400 ? 0 : 1)).on(\"error\", () => process.exit(1))"
+                  ]
+                },
+                "failureThreshold": 3,
+                "initialDelaySeconds": 15,
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 5
+              },
+              "resources": {
+                "limits": {
+                  "cpu": "1",
+                  "memory": "2Gi"
+                },
+                "requests": {
+                  "cpu": "250m",
+                  "memory": "512Mi"
+                }
+              },
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "readOnlyRootFilesystem": true,
+                "runAsGroup": 1000,
+                "runAsNonRoot": true,
+                "runAsUser": 1000
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/home/node/.openclaw",
+                  "name": "openclaw-home"
+                },
+                {
+                  "mountPath": "/tmp",
+                  "name": "openclaw-home",
+                  "subPath": "tmp"
+                },
+                {
+                  "mountPath": "/tools",
+                  "name": "runtime-tools",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/home/node/.openclaw/.config/openshell/gateways/mosaic-openshell/mtls",
+                  "name": "openshell-client-tls",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/var/run/mosaic-kubernetes",
+                  "name": "kubernetes-configs",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/var/run/mosaic-kubernetes-external/target-lab",
+                  "name": "kubernetes-external-0",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/var/run/mosaic-ssh",
+                  "name": "remote-ssh-credentials",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "imagePullSecrets": [
+            {
+              "name": "nvcr-image-pull-secret"
+            }
+          ],
+          "initContainers": [
+            {
+              "command": [
+                "sh",
+                "-c",
+                "set -eu\ncase \"$(uname -m)\" in\n  x86_64) architecture=amd64; sha=\"7721f265e18709862655affba5343e85e1980639395d5754473dafaadcaa69e3\" ;;\n  aarch64|arm64) architecture=arm64; sha=\"420e6110e3ba7ee5a3927b5af868d18df17aae36b720529ffa4e9e945aa95450\" ;;\n  *) echo \"unsupported architecture: $(uname -m)\" >&2; exit 1 ;;\nesac\nrm -f /tools/kubectl\ncurl -fsSL --retry 5 --retry-all-errors -o /tools/kubectl \\\n  \"https://dl.k8s.io/release/v1.34.1/bin/linux/$architecture/kubectl\"\nprintf '%s  %s\\n' \"$sha\" /tools/kubectl | sha256sum -c -\nchmod 0555 /tools/kubectl\n"
+              ],
+              "image": "ghcr.io/openclaw/openclaw:2026.6.10",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "install-kubectl",
+              "resources": {},
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "runAsGroup": 1000,
+                "runAsNonRoot": true,
+                "runAsUser": 1000
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/tools",
+                  "name": "runtime-tools"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true
+                }
+              ]
+            },
+            {
+              "command": [
+                "sh",
+                "-c",
+                "set -eu\nroot=/tools/openssh\nrm -rf \"$root\"\nmkdir -p \"$root/lib\" \"$root/usr/bin\" \"$root/usr/lib\"\ncp /lib/ld-musl-*.so.1 \"$root/lib/\"\ncp /usr/lib/libcrypto.so.3 /usr/lib/libz.so.1 \"$root/usr/lib/\"\ncp /usr/bin/ssh /usr/bin/scp /usr/bin/sftp \"$root/usr/bin/\"\nloader=$(basename /lib/ld-musl-*.so.1)\nfor command in ssh scp sftp; do\n  rm -f \"/tools/$command\"\n  printf '#!/bin/sh\\nexec /tools/openssh/lib/%s --library-path /tools/openssh/usr/lib:/tools/openssh/lib /tools/openssh/usr/bin/%s \"$@\"\\n' \"$loader\" \"$command\" > \"/tools/$command\"\n  chmod 0555 \"/tools/$command\"\ndone\n"
+              ],
+              "image": "alpine/git@sha256:e043be20669db13cbcfb6190192babee4cf2dca98709bb0c2d08ca2d35a0a06a",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "install-openssh-client",
+              "resources": {},
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "runAsGroup": 1000,
+                "runAsNonRoot": true,
+                "runAsUser": 1000
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/tools",
+                  "name": "runtime-tools"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true
+                }
+              ]
+            },
+            {
+              "command": [
+                "sh",
+                "-c",
+                "chown 1000:1000 /home/node/.openclaw && chmod 0775 /home/node/.openclaw"
+              ],
+              "image": "busybox:1.37",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "init-perms",
+              "resources": {},
+              "securityContext": {
+                "runAsGroup": 0,
+                "runAsUser": 0
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/home/node/.openclaw",
+                  "name": "openclaw-home"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true
+                }
+              ]
+            },
+            {
+              "command": [
+                "sh",
+                "-c",
+                "set -eu\nmkdir -p /home/node/.openclaw/tmp/openclaw /home/node/.openclaw/workspace/skills\nchmod 700 /home/node/.openclaw/tmp /home/node/.openclaw/tmp/openclaw\nrm -rf /home/node/.openclaw/extensions/automation-guard \\\n  /home/node/.openclaw/extensions/bcm \\\n  /home/node/.openclaw/extensions/dcgm \\\n  /home/node/.openclaw/extensions/diagnostic-agent \\\n  /home/node/.openclaw/extensions/grafana \\\n  /home/node/.openclaw/extensions/iraop \\\n  /home/node/.openclaw/extensions/kubernetes \\\n  /home/node/.openclaw/extensions/observability \\\n  /home/node/.openclaw/extensions/remote-ssh \\\n  /home/node/.openclaw/extensions/slurm \\\n  /home/node/.openclaw/workspace/skills/bcm \\\n  /home/node/.openclaw/workspace/skills/grafana \\\n  /home/node/.openclaw/workspace/skills/diagnostic-agent \\\n  /home/node/.openclaw/workspace/skills/hardware-agent \\\n  /home/node/.openclaw/workspace/skills/iraop \\\n  /home/node/.openclaw/workspace/skills/observability \\\n  /home/node/.openclaw/workspace/skills/slurm\nrm -f /home/node/.openclaw/extensions/automation-context.ts \\\n  /home/node/.openclaw/extensions/diagnostic-policy.ts \\\n  /home/node/.openclaw/extensions/mutation-ledger.ts\nmkdir -p /home/node/.openclaw/extensions/automation-guard\ncp /seed/automation-context.ts /home/node/.openclaw/extensions/automation-context.ts\ncp /seed/diagnostic-policy.ts /home/node/.openclaw/extensions/diagnostic-policy.ts\ncp /seed/automation-guard.index.ts /home/node/.openclaw/extensions/automation-guard/index.ts\ncp /seed/automation-guard.slack-approval.ts /home/node/.openclaw/extensions/automation-guard/slack-approval.ts\ncp /seed/automation-guard.openclaw.plugin.json /home/node/.openclaw/extensions/automation-guard/openclaw.plugin.json\ncp /seed/automation-guard.package.json /home/node/.openclaw/extensions/automation-guard/package.json\ncp /seed/mutation-ledger.ts /home/node/.openclaw/extensions/mutation-ledger.ts\nmkdir -p /home/node/.openclaw/workspace/skills/observability\nmkdir -p /home/node/.openclaw/extensions/kubernetes\ncp /seed/kubernetes.index.ts /home/node/.openclaw/extensions/kubernetes/index.ts\ncp /seed/kubernetes.policy.ts /home/node/.openclaw/extensions/kubernetes/policy.ts\ncp /seed/kubernetes.runner.ts /home/node/.openclaw/extensions/kubernetes/runner.ts\ncp /seed/kubernetes.openclaw.plugin.json /home/node/.openclaw/extensions/kubernetes/openclaw.plugin.json\ncp /seed/kubernetes.package.json /home/node/.openclaw/extensions/kubernetes/package.json\nmkdir -p /home/node/.openclaw/extensions/remote-ssh\ncp /seed/remote-ssh.index.ts /home/node/.openclaw/extensions/remote-ssh/index.ts\ncp /seed/remote-ssh.policy.ts /home/node/.openclaw/extensions/remote-ssh/policy.ts\ncp /seed/remote-ssh.runner.ts /home/node/.openclaw/extensions/remote-ssh/runner.ts\ncp /seed/remote-ssh.openclaw.plugin.json /home/node/.openclaw/extensions/remote-ssh/openclaw.plugin.json\ncp /seed/remote-ssh.package.json /home/node/.openclaw/extensions/remote-ssh/package.json\nmkdir -p /home/node/.openclaw/workspace/skills/iraop\nmkdir -p /home/node/.openclaw/extensions/iraop\nmkdir -p /home/node/.openclaw/policies\nmkdir -p /home/node/.openclaw/extensions/observability\nmkdir -p /var/run/mosaic-kubernetes/local\ncat > /var/run/mosaic-kubernetes/local/config <<EOF\napiVersion: v1\nkind: Config\nclusters:\n  - name: in-cluster\n    cluster:\n      server: https://${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT_HTTPS:-443}\n      certificate-authority: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt\ncontexts:\n  - name: in-cluster\n    context:\n      cluster: in-cluster\n      namespace: $(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)\n      user: openclaw\ncurrent-context: in-cluster\nusers:\n  - name: openclaw\n    user:\n      tokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token\nEOF\nchmod 600 /var/run/mosaic-kubernetes/local/config\ncp /seed/openclaw.json /home/node/.openclaw/openclaw.json\nrm -rf /home/node/.openclaw/identity /home/node/.openclaw/devices\ncp /seed/AGENTS.md /home/node/.openclaw/workspace/AGENTS.md\ncp /seed/HEARTBEAT.md /home/node/.openclaw/workspace/HEARTBEAT.md\ncp /seed/IDENTITY.md /home/node/.openclaw/workspace/IDENTITY.md\ncp /seed/SOUL.md /home/node/.openclaw/workspace/SOUL.md\ncp /seed/TOOLS.md /home/node/.openclaw/workspace/TOOLS.md\ncp /seed/USER.md /home/node/.openclaw/workspace/USER.md\ncp /seed/observability.SKILL.md /home/node/.openclaw/workspace/skills/observability/SKILL.md\ncp /seed/observability.index.ts /home/node/.openclaw/extensions/observability/index.ts\ncp /seed/observability.grafana.ts /home/node/.openclaw/extensions/observability/grafana.ts\ncp /seed/observability.openclaw.plugin.json /home/node/.openclaw/extensions/observability/openclaw.plugin.json\ncp /seed/observability.package.json /home/node/.openclaw/extensions/observability/package.json\ncp /seed/iraop.SKILL.md /home/node/.openclaw/workspace/skills/iraop/SKILL.md\ncp /seed/iraop.index.ts /home/node/.openclaw/extensions/iraop/index.ts\ncp /seed/iraop.openclaw.plugin.json /home/node/.openclaw/extensions/iraop/openclaw.plugin.json\ncp /seed/iraop.package.json /home/node/.openclaw/extensions/iraop/package.json\nrm -rf /home/node/.openclaw/workspace/.openclaw/sandbox-skills\n"
+              ],
+              "image": "busybox:1.37",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "init-config",
+              "resources": {},
+              "securityContext": {
+                "runAsGroup": 1000,
+                "runAsUser": 1000
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/home/node/.openclaw",
+                  "name": "openclaw-home"
+                },
+                {
+                  "mountPath": "/seed",
+                  "name": "openclaw-seed"
+                },
+                {
+                  "mountPath": "/var/run/mosaic-kubernetes",
+                  "name": "kubernetes-configs"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true
+                }
+              ]
+            },
+            {
+              "command": [
+                "sh",
+                "-c",
+                "set -eu\ncp /source/private-key /credentials/id\ncp /source/known-hosts /credentials/known_hosts\nchmod 0400 /credentials/id\nchmod 0444 /credentials/known_hosts\n"
+              ],
+              "image": "busybox:1.37",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "init-remote-ssh-credentials",
+              "resources": {},
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "runAsGroup": 1000,
+                "runAsNonRoot": true,
+                "runAsUser": 1000
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/source",
+                  "name": "remote-ssh-source",
+                  "readOnly": true
+                },
+                {
+                  "mountPath": "/credentials",
+                  "name": "remote-ssh-credentials"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true
+                }
+              ]
+            },
+            {
+              "command": [
+                "sh",
+                "-ec",
+                "node /app/dist/index.js plugins install \"@openclaw/msteams@2026.6.10\" --force"
+              ],
+              "env": [
+                {
+                  "name": "HOME",
+                  "value": "/home/node"
+                }
+              ],
+              "image": "ghcr.io/openclaw/openclaw:2026.6.10",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "init-msteams-plugin",
+              "resources": {},
+              "securityContext": {
+                "runAsGroup": 1000,
+                "runAsUser": 1000
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/home/node/.openclaw",
+                  "name": "openclaw-home"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true
+                }
+              ]
+            },
+            {
+              "command": [
+                "sh",
+                "-c",
+                "set -eu\ncase \"$(uname -m)\" in\n  x86_64) target=x86_64-unknown-linux-musl; sha=\"9b9331644d0b6350030c521047490314b594591547b4ca28ef105b7adad73eb8\" ;;\n  aarch64|arm64) target=aarch64-unknown-linux-musl; sha=\"c7bf758ed864ef375ba3358d39b4d6e4b80da9e451b67a47ae1341df82c362e0\" ;;\n  *) echo \"unsupported architecture: $(uname -m)\" >&2; exit 1 ;;\nesac\ncli=/tmp/openshell-cli.tar.gz\ncurl -fsSL --retry 5 --retry-all-errors -o \"$cli\" \\\n  \"https://github.com/NVIDIA/OpenShell/releases/download/v0.0.75/openshell-$target.tar.gz\"\nprintf '%s  %s\\n' \"$sha\" \"$cli\" | sha256sum -c -\nrm -f /tools/openshell /tools/openshell.real\ntar -xzf \"$cli\" -C /tools\nmv /tools/openshell /tools/openshell.real\nchmod 0555 /tools/openshell.real\ncat > /tools/openshell <<'EOF'\n#!/bin/sh\nset -eu\nreal=/tools/openshell.real\nprevious=\nsandbox_name=\nis_create=false\nhas_command=false\nfor argument in \"$@\"; do\n  if [ \"$previous\" = sandbox ] && [ \"$argument\" = create ]; then\n    is_create=true\n  elif [ \"$previous\" = --name ]; then\n    sandbox_name=$argument\n  fi\n  [ \"$argument\" = -- ] && has_command=true\n  previous=$argument\ndone\nif [ \"$is_create\" != true ]; then\n  exec \"$real\" \"$@\"\nfi\nif [ -z \"$sandbox_name\" ]; then\n  echo \"openshell sandbox create requires --name\" >&2\n  exit 2\nfi\nlog=/tmp/openshell-create-$$.log\nif [ \"$has_command\" = true ]; then\n  \"$real\" \"$@\" >\"$log\" 2>&1 &\nelse\n  \"$real\" \"$@\" --no-tty -- true >\"$log\" 2>&1 &\nfi\ncreate_pid=$!\nattempts=0\nwhile [ \"$attempts\" -lt 180 ]; do\n  if \"$real\" sandbox exec --name \"$sandbox_name\" -- true >/dev/null 2>&1; then\n    wait \"$create_pid\" >/dev/null 2>&1 || true\n    rm -f \"$log\"\n    exit 0\n  fi\n  attempts=$((attempts + 1))\n  sleep 1\ndone\nwait \"$create_pid\" >/dev/null 2>&1 || true\ncat \"$log\" >&2\nrm -f \"$log\"\necho \"openshell sandbox create timed out waiting for SSH\" >&2\nexit 1\nEOF\nchmod 0555 /tools/openshell\n\nplugin=/tmp/openshell-plugin.tar.gz\ncurl -fsSL --retry 5 --retry-all-errors -o \"$plugin\" \\\n  \"https://registry.npmjs.org/@openclaw/openshell-sandbox/-/openshell-sandbox-2026.6.6.tgz\"\nprintf '%s  %s\\n' \"1e0cbbcf105e931b6dc19c9411de73dcf65e76a111e3f41ffde379e8855caa33\" \"$plugin\" | sha256sum -c -\nrm -rf /openshell-plugin/*\ntar -xzf \"$plugin\" --strip-components=1 -C /openshell-plugin\n"
+              ],
+              "image": "ghcr.io/openclaw/openclaw:2026.6.10",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "install-openshell-assets",
+              "resources": {},
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "runAsGroup": 1000,
+                "runAsNonRoot": true,
+                "runAsUser": 1000
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/tools",
+                  "name": "runtime-tools"
+                },
+                {
+                  "mountPath": "/openshell-plugin",
+                  "name": "openshell-plugin"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true
+                }
+              ]
+            },
+            {
+              "command": [
+                "sh",
+                "-c",
+                "set -eu\nnode /app/dist/index.js plugins install /openshell-plugin --force\nconfig_root=/home/node/.openclaw/.config/openshell\ngateway_name=\"mosaic-openshell\"\ngateway_endpoint=\"https://mosaic-openshell:8080\"\nmetadata_path=\"$config_root/gateways/$gateway_name/metadata.json\"\nmkdir -p \"$(dirname \"$metadata_path\")\"\nprintf \"%s\" \"$gateway_name\" > \"$config_root/active_gateway\"\nnode - \"$metadata_path\" \"$gateway_name\" \"$gateway_endpoint\" <<'EOF'\nconst fs = require(\"fs\");\nconst path = require(\"path\");\nconst [metadataPath, name, endpoint] = process.argv.slice(2);\nfs.mkdirSync(path.dirname(metadataPath), { recursive: true });\nfs.writeFileSync(metadataPath, JSON.stringify({\n  name,\n  gateway_endpoint: endpoint,\n  is_remote: false,\n  gateway_port: 0,\n  auth_mode: \"mtls\"\n}, null, 2));\nEOF\n"
+              ],
+              "image": "ghcr.io/openclaw/openclaw:2026.6.10",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "init-openshell-plugin",
+              "resources": {},
+              "securityContext": {
+                "runAsGroup": 1000,
+                "runAsUser": 1000
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/home/node/.openclaw",
+                  "name": "openclaw-home"
+                },
+                {
+                  "mountPath": "/openshell-plugin",
+                  "name": "openshell-plugin"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "nodeName": "mosaic-poc-control-plane",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {
+            "fsGroup": 1000,
+            "seccompProfile": {
+              "type": "RuntimeDefault"
+            }
+          },
+          "serviceAccount": "openclaw",
+          "serviceAccountName": "openclaw",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "openclaw-home",
+              "persistentVolumeClaim": {
+                "claimName": "openclaw-home-pvc"
+              }
+            },
+            {
+              "configMap": {
+                "defaultMode": 420,
+                "name": "openclaw-seed"
+              },
+              "name": "openclaw-seed"
+            },
+            {
+              "emptyDir": {},
+              "name": "runtime-tools"
+            },
+            {
+              "emptyDir": {},
+              "name": "openshell-plugin"
+            },
+            {
+              "name": "remote-ssh-source",
+              "secret": {
+                "defaultMode": 420,
+                "items": [
+                  {
+                    "key": "privateKey",
+                    "path": "private-key"
+                  },
+                  {
+                    "key": "knownHosts",
+                    "path": "known-hosts"
+                  }
+                ],
+                "secretName": "mosaic-validation-ssh"
+              }
+            },
+            {
+              "emptyDir": {
+                "medium": "Memory"
+              },
+              "name": "remote-ssh-credentials"
+            },
+            {
+              "name": "openshell-client-tls",
+              "secret": {
+                "defaultMode": 420,
+                "secretName": "openshell-client-tls"
+              }
+            },
+            {
+              "emptyDir": {},
+              "name": "kubernetes-configs"
+            },
+            {
+              "name": "kubernetes-external-0",
+              "secret": {
+                "defaultMode": 420,
+                "items": [
+                  {
+                    "key": "config",
+                    "path": "config"
+                  }
+                ],
+                "secretName": "target-lab-kubeconfig"
+              }
+            },
+            {
+              "name": "kube-api-access-qs6rg",
+              "projected": {
+                "defaultMode": 420,
+                "sources": [
+                  {
+                    "serviceAccountToken": {
+                      "expirationSeconds": 3607,
+                      "path": "token"
+                    }
+                  },
+                  {
+                    "configMap": {
+                      "items": [
+                        {
+                          "key": "ca.crt",
+                          "path": "ca.crt"
+                        }
+                      ],
+                      "name": "kube-root-ca.crt"
+                    }
+                  },
+                  {
+                    "downwardAPI": {
+                      "items": [
+                        {
+                          "fieldRef": {
+                            "apiVersion": "v1",
+                            "fieldPath": "metadata.namespace"
+                          },
+                          "path": "namespace"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:46:41Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:47:02Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:47:25Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:47:25Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T03:46:40Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "allocatedResources": {
+                "cpu": "250m",
+                "memory": "512Mi"
+              },
+              "containerID": "containerd://1de5cc6006e95b0d7c1305937528b8020dea7ad2c620a3e7c75429f68d2ca7ef",
+              "image": "ghcr.io/openclaw/openclaw:2026.6.10",
+              "imageID": "ghcr.io/openclaw/openclaw@sha256:af7ea052cf216f581fb18fabada01552356c53717461c0399b623cba7ecad4b1",
+              "lastState": {},
+              "name": "gateway",
+              "ready": true,
+              "resources": {
+                "limits": {
+                  "cpu": "1",
+                  "memory": "2Gi"
+                },
+                "requests": {
+                  "cpu": "250m",
+                  "memory": "512Mi"
+                }
+              },
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-31T03:47:03Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 1000,
+                  "supplementalGroups": [
+                    1000
+                  ],
+                  "uid": 1000
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/home/node/.openclaw",
+                  "name": "openclaw-home"
+                },
+                {
+                  "mountPath": "/tmp",
+                  "name": "openclaw-home"
+                },
+                {
+                  "mountPath": "/tools",
+                  "name": "runtime-tools",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                },
+                {
+                  "mountPath": "/home/node/.openclaw/.config/openshell/gateways/mosaic-openshell/mtls",
+                  "name": "openshell-client-tls",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                },
+                {
+                  "mountPath": "/var/run/mosaic-kubernetes",
+                  "name": "kubernetes-configs",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                },
+                {
+                  "mountPath": "/var/run/mosaic-kubernetes-external/target-lab",
+                  "name": "kubernetes-external-0",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                },
+                {
+                  "mountPath": "/var/run/mosaic-ssh",
+                  "name": "remote-ssh-credentials",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                }
+              ]
+            }
+          ],
+          "hostIP": "continued-private-address-10.example.invalid",
+          "hostIPs": [
+            {
+              "ip": "continued-private-address-10.example.invalid"
+            }
+          ],
+          "initContainerStatuses": [
+            {
+              "containerID": "containerd://6eae52fc9615f98c55213bdf5f8ba43a9752743e3e005a15ccbd047eed3e2d7a",
+              "image": "ghcr.io/openclaw/openclaw:2026.6.10",
+              "imageID": "ghcr.io/openclaw/openclaw@sha256:af7ea052cf216f581fb18fabada01552356c53717461c0399b623cba7ecad4b1",
+              "lastState": {},
+              "name": "install-kubectl",
+              "ready": true,
+              "resources": {},
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://6eae52fc9615f98c55213bdf5f8ba43a9752743e3e005a15ccbd047eed3e2d7a",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-31T03:46:43Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-31T03:46:41Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 1000,
+                  "supplementalGroups": [
+                    1000
+                  ],
+                  "uid": 1000
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/tools",
+                  "name": "runtime-tools"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                }
+              ]
+            },
+            {
+              "containerID": "containerd://f78d8b0bb9213f0cf8f667d311fcc78d88ade5d6c8a5bc96c0588ec7d3d09f51",
+              "image": "sha256:629e1b6ba91cfa77640e3cb19d64dca8c28c5ebe70e48ac5949c4b6c5bf33fbe",
+              "imageID": "docker.io/alpine/git@sha256:e043be20669db13cbcfb6190192babee4cf2dca98709bb0c2d08ca2d35a0a06a",
+              "lastState": {},
+              "name": "install-openssh-client",
+              "ready": true,
+              "resources": {},
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://f78d8b0bb9213f0cf8f667d311fcc78d88ade5d6c8a5bc96c0588ec7d3d09f51",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-31T03:46:44Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-31T03:46:44Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 1000,
+                  "supplementalGroups": [
+                    1000
+                  ],
+                  "uid": 1000
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/tools",
+                  "name": "runtime-tools"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                }
+              ]
+            },
+            {
+              "containerID": "containerd://6f2ff046b053939bbe5f73c69e14e1e8a7a349ae8998ddfcd1dbb083c4587b7d",
+              "image": "docker.io/library/busybox:1.37",
+              "imageID": "docker.io/library/busybox@sha256:9532d8c39891ca2ecde4d30d7710e01fb739c87a8b9299685c63704296b16028",
+              "lastState": {},
+              "name": "init-perms",
+              "ready": true,
+              "resources": {},
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://6f2ff046b053939bbe5f73c69e14e1e8a7a349ae8998ddfcd1dbb083c4587b7d",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-31T03:46:45Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-31T03:46:45Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 0,
+                  "supplementalGroups": [
+                    0,
+                    10,
+                    1000
+                  ],
+                  "uid": 0
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/home/node/.openclaw",
+                  "name": "openclaw-home"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                }
+              ]
+            },
+            {
+              "containerID": "containerd://34e2e3cd455db9dd6ff74b544507876d32c483758cb43da03f1e10d4d721f565",
+              "image": "docker.io/library/busybox:1.37",
+              "imageID": "docker.io/library/busybox@sha256:9532d8c39891ca2ecde4d30d7710e01fb739c87a8b9299685c63704296b16028",
+              "lastState": {},
+              "name": "init-config",
+              "ready": true,
+              "resources": {},
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://34e2e3cd455db9dd6ff74b544507876d32c483758cb43da03f1e10d4d721f565",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-31T03:46:46Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-31T03:46:46Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 1000,
+                  "supplementalGroups": [
+                    1000
+                  ],
+                  "uid": 1000
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/home/node/.openclaw",
+                  "name": "openclaw-home"
+                },
+                {
+                  "mountPath": "/seed",
+                  "name": "openclaw-seed"
+                },
+                {
+                  "mountPath": "/var/run/mosaic-kubernetes",
+                  "name": "kubernetes-configs"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                }
+              ]
+            },
+            {
+              "containerID": "containerd://9281ef6f68ff327cce02cff82e7860a0237d8237d454a31e6518f31ba1814759",
+              "image": "docker.io/library/busybox:1.37",
+              "imageID": "docker.io/library/busybox@sha256:9532d8c39891ca2ecde4d30d7710e01fb739c87a8b9299685c63704296b16028",
+              "lastState": {},
+              "name": "init-remote-ssh-credentials",
+              "ready": true,
+              "resources": {},
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://9281ef6f68ff327cce02cff82e7860a0237d8237d454a31e6518f31ba1814759",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-31T03:46:47Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-31T03:46:47Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 1000,
+                  "supplementalGroups": [
+                    1000
+                  ],
+                  "uid": 1000
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/source",
+                  "name": "remote-ssh-source",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                },
+                {
+                  "mountPath": "/credentials",
+                  "name": "remote-ssh-credentials"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                }
+              ]
+            },
+            {
+              "containerID": "containerd://1e0dd577b7db1be6298b94b9f1f51c51cb18cee43c3876cef6021ab3898b5332",
+              "image": "ghcr.io/openclaw/openclaw:2026.6.10",
+              "imageID": "ghcr.io/openclaw/openclaw@sha256:af7ea052cf216f581fb18fabada01552356c53717461c0399b623cba7ecad4b1",
+              "lastState": {},
+              "name": "init-msteams-plugin",
+              "ready": true,
+              "resources": {},
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://1e0dd577b7db1be6298b94b9f1f51c51cb18cee43c3876cef6021ab3898b5332",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-31T03:46:56Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-31T03:46:48Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 1000,
+                  "supplementalGroups": [
+                    1000
+                  ],
+                  "uid": 1000
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/home/node/.openclaw",
+                  "name": "openclaw-home"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                }
+              ]
+            },
+            {
+              "containerID": "containerd://dbc178fb046fb5a4460e9a2e09201623d5acba6bed9504a81a2783bd2a0356be",
+              "image": "ghcr.io/openclaw/openclaw:2026.6.10",
+              "imageID": "ghcr.io/openclaw/openclaw@sha256:af7ea052cf216f581fb18fabada01552356c53717461c0399b623cba7ecad4b1",
+              "lastState": {},
+              "name": "install-openshell-assets",
+              "ready": true,
+              "resources": {},
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://dbc178fb046fb5a4460e9a2e09201623d5acba6bed9504a81a2783bd2a0356be",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-31T03:46:59Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-31T03:46:57Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 1000,
+                  "supplementalGroups": [
+                    1000
+                  ],
+                  "uid": 1000
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/tools",
+                  "name": "runtime-tools"
+                },
+                {
+                  "mountPath": "/openshell-plugin",
+                  "name": "openshell-plugin"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                }
+              ]
+            },
+            {
+              "containerID": "containerd://5205ce227a1059a35b6ea2118e09bb830b08029ca4eb89e14bcbd9950941b9f2",
+              "image": "ghcr.io/openclaw/openclaw:2026.6.10",
+              "imageID": "ghcr.io/openclaw/openclaw@sha256:af7ea052cf216f581fb18fabada01552356c53717461c0399b623cba7ecad4b1",
+              "lastState": {},
+              "name": "init-openshell-plugin",
+              "ready": true,
+              "resources": {},
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://5205ce227a1059a35b6ea2118e09bb830b08029ca4eb89e14bcbd9950941b9f2",
+                  "exitCode": 0,
+                  "finishedAt": "2026-10-31T03:47:02Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-10-31T03:47:00Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 1000,
+                  "supplementalGroups": [
+                    1000
+                  ],
+                  "uid": 1000
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/home/node/.openclaw",
+                  "name": "openclaw-home"
+                },
+                {
+                  "mountPath": "/openshell-plugin",
+                  "name": "openshell-plugin"
+                },
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "kube-api-access-qs6rg",
+                  "readOnly": true,
+                  "recursiveReadOnly": "Disabled"
+                }
+              ]
+            }
+          ],
+          "observedGeneration": 1,
+          "phase": "Running",
+          "podIP": "continued-private-address-07.example.invalid",
+          "podIPs": [
+            {
+              "ip": "continued-private-address-07.example.invalid"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-31T03:46:40Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "creationTimestamp": "2026-10-31T01:55:44Z",
+          "generateName": "opensearch-",
+          "generation": 1,
+          "labels": {
+            "app": "opensearch",
+            "apps.kubernetes.io/pod-index": "0",
+            "controller-revision-hash": "opensearch-86649674bd",
+            "statefulset.kubernetes.io/pod-name": "opensearch-0"
+          },
+          "name": "opensearch-0",
+          "namespace": "mosaic",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "StatefulSet",
+              "name": "opensearch",
+              "uid": "33ffe924-cf00-48bb-8ffa-453cf2f1c237"
+            }
+          ],
+          "resourceVersion": "11361996",
+          "uid": "27765858-cfcc-43a5-a8d5-6ae532edacec"
+        },
+        "spec": {
+          "automountServiceAccountToken": false,
+          "containers": [
+            {
+              "env": [
+                {
+                  "name": "discovery.type",
+                  "value": "single-node"
+                },
+                {
+                  "name": "DISABLE_SECURITY_PLUGIN",
+                  "value": "true"
+                },
+                {
+                  "name": "OPENSEARCH_JAVA_OPTS",
+                  "value": "-Xms2g -Xmx2g"
+                },
+                {
+                  "name": "cluster.name",
+                  "value": "iraop-cluster"
+                },
+                {
+                  "name": "node.name",
+                  "value": "opensearch-node1"
+                },
+                {
+                  "name": "plugins.ml_commons.only_run_on_ml_node",
+                  "value": "false"
+                },
+                {
+                  "name": "plugins.ml_commons.native_memory_threshold",
+                  "value": "99"
+                },
+                {
+                  "name": "plugins.ml_commons.allow_registering_model_via_url",
+                  "value": "true"
+                },
+                {
+                  "name": "plugins.ml_commons.trusted_connector_endpoints_regex",
+                  "value": "^https://integrate\\.api\\.nvidia\\.com/.*$"
+                }
+              ],
+              "image": "opensearchproject/opensearch:2.17.0",
+              "imagePullPolicy": "IfNotPresent",
+              "livenessProbe": {
+                "failureThreshold": 6,
+                "httpGet": {
+                  "path": "/_cluster/health",
+                  "port": 9200,
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 60,
+                "periodSeconds": 15,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "name": "opensearch",
+              "ports": [
+                {
+                  "containerPort": 9200,
+                  "name": "http",
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 12,
+                "httpGet": {
+                  "path": "/_cluster/health",
+                  "port": 9200,
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 30,
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "resources": {
+                "limits": {
+                  "cpu": "2",
+                  "memory": "4Gi"
+                },
+                "requests": {
+                  "cpu": "500m",
+                  "memory": "2Gi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/usr/share/opensearch/data",
+                  "name": "opensearch-data"
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "hostname": "opensearch-0",
+          "imagePullSecrets": [
+            {
+              "name": "nvcr-image-pull-secret"
+            }
+          ],
+          "nodeName": "mosaic-poc-control-plane",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {
+            "fsGroup": 1000
+          },
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "subdomain": "opensearch-headless",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "opensearch-data",
+              "persistentVolumeClaim": {
+                "claimName": "opensearch-data-opensearch-0"
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T01:56:40Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T01:55:48Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T01:57:12Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T01:57:12Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-10-31T01:55:48Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "allocatedResources": {
+                "cpu": "500m",
+                "memory": "2Gi"
+              },
+              "containerID": "containerd://cd597897e3c5c29ea1983dded8e1a121f45d65b41c724c26b330f28d0bef400c",
+              "image": "docker.io/opensearchproject/opensearch:2.17.0",
+              "imageID": "docker.io/opensearchproject/opensearch@sha256:7b9517dff561f54456fad947f11820fa595a340fd1034fc63d57b77f724b3f8f",
+              "lastState": {},
+              "name": "opensearch",
+              "ready": true,
+              "resources": {
+                "limits": {
+                  "cpu": "2",
+                  "memory": "4Gi"
+                },
+                "requests": {
+                  "cpu": "500m",
+                  "memory": "2Gi"
+                }
+              },
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-31T01:56:40Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 1000,
+                  "supplementalGroups": [
+                    1000
+                  ],
+                  "uid": 1000
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/usr/share/opensearch/data",
+                  "name": "opensearch-data"
+                }
+              ]
+            }
+          ],
+          "hostIP": "continued-private-address-10.example.invalid",
+          "hostIPs": [
+            {
+              "ip": "continued-private-address-10.example.invalid"
+            }
+          ],
+          "observedGeneration": 1,
+          "phase": "Running",
+          "podIP": "continued-private-address-04.example.invalid",
+          "podIPs": [
+            {
+              "ip": "continued-private-address-04.example.invalid"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-10-31T01:55:48Z"
+        }
+      }
+    ],
+    "kind": "List",
+    "metadata": {
+      "resourceVersion": ""
+    }
+  },
+  "proxy": {
+    "sha256": "2148316a0dcd1a92e61c13519249f70be3439fdea0a9d772d40821ab2e146fc2",
+    "researchEnabled": "true",
+    "auditDirectory": null,
+    "auditVolumeExists": false
+  },
+  "modelState": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 128852,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-09-15T07:17:31.481993911Z",
+    "FinishedAt": "2026-09-15T07:17:31.234720915Z"
+  }
+}

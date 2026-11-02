@@ -1,0 +1,13 @@
+--- /home/spark-user/.local/share/mosaic-validation-20261031/research-debug/iraop-index-fixed.ts	2026-10-31 11:28:22.320799571 +0800
++++ /home/spark-user/.local/share/mosaic-validation-20261031/research-debug/iraop-index-final.ts	2026-10-31 11:45:22.065746583 +0800
+@@ -433,7 +433,9 @@
+           if (evidenceProblem) {
+             postSubagentEvent(subagent, "error", `IRA research incomplete: ${evidenceProblem}`);
+             return {
+-              isError: true,
++              // The tool transport completed. Research completion is explicit in
++              // content; returning normally also preserves the raw MCP details.
++              // OpenClaw assigns its own isError flag to the resulting message.
+               content: [{ type: "text", text: JSON.stringify({
+                 status: "incomplete",
+                 error: evidenceProblem,

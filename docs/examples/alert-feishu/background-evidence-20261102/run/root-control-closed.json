@@ -1,0 +1,21 @@
+{
+  "at": "2026-11-02T01:25:48.508214+00:00",
+  "argv": [
+    "ssh",
+    "-S",
+    "/private/tmp/mosaic-background-l20-root-20261102/ssh.sock",
+    "-O",
+    "exit",
+    "root@192.0.2.44"
+  ],
+  "exitCode": 0,
+  "stdout": "",
+  "stderr": "Exit request sent.\n",
+  "socketExistsAfter": true,
+  "verification": {
+    "exitCode": 255,
+    "stdout": "",
+    "stderr": "Control socket connect(/private/tmp/mosaic-background-l20-root-20261102/ssh.sock): No such file or directory\n",
+    "socketExists": false
+  }
+}

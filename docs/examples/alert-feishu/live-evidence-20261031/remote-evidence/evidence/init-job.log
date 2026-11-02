@@ -1,0 +1,1 @@
+error: error from server (NotFound): jobs.batch "opensearch-init" not found in namespace "mosaic"

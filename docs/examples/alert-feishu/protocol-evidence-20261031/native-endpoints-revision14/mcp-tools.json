@@ -1,0 +1,150 @@
+{
+  "meta": null,
+  "nextCursor": null,
+  "tools": [
+    {
+      "name": "list_collections",
+      "title": null,
+      "description": "List all document collections with doc counts and on-disk sizes.\n\n    Use this to discover what knowledge bases are available before calling\n    `query` or `list_documents`.\n    ",
+      "inputSchema": {
+        "properties": {},
+        "title": "list_collectionsArguments",
+        "type": "object"
+      },
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "title": "Result",
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "title": "list_collectionsOutput",
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": null,
+      "meta": null,
+      "execution": null
+    },
+    {
+      "name": "query",
+      "title": null,
+      "description": "Run a research question against one or more collections.\n\n    Returns a synthesized answer plus a `sources` list where each entry has\n    `doc_id`, `url`, `source_file`, and `page_number` so the caller can link\n    users back to the original PDFs.\n\n    Args:\n        question: The research question to answer.\n        depth: 'quick' for a single-pass search, 'deep' for multi-agent\n            iteration (slower, more thorough).\n        collections: Restrict search to named collections. None searches all.\n    ",
+      "inputSchema": {
+        "properties": {
+          "question": {
+            "title": "Question",
+            "type": "string"
+          },
+          "depth": {
+            "default": "deep",
+            "title": "Depth",
+            "type": "string"
+          },
+          "collections": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Collections"
+          }
+        },
+        "required": [
+          "question"
+        ],
+        "title": "queryArguments",
+        "type": "object"
+      },
+      "outputSchema": {
+        "additionalProperties": true,
+        "title": "queryDictOutput",
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": null,
+      "meta": null,
+      "execution": null
+    },
+    {
+      "name": "list_documents",
+      "title": null,
+      "description": "List originals that have chunks indexed in the given collection.\n\n    Each entry includes `doc_id`, `filename`, `url`, and `chunk_count`. Use\n    `url` to fetch the raw PDF over HTTP; MCP itself returns references only.\n    ",
+      "inputSchema": {
+        "properties": {
+          "collection": {
+            "title": "Collection",
+            "type": "string"
+          }
+        },
+        "required": [
+          "collection"
+        ],
+        "title": "list_documentsArguments",
+        "type": "object"
+      },
+      "outputSchema": {
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "title": "Result",
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "title": "list_documentsOutput",
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": null,
+      "meta": null,
+      "execution": null
+    },
+    {
+      "name": "get_document",
+      "title": null,
+      "description": "Return metadata and a download URL for a corpus document.\n\n    MCP does not return PDF bytes — fetch them over HTTP from the returned\n    `url`. This tool's main value is validating the filename and confirming\n    the file exists before the caller sends users to a broken link.\n    ",
+      "inputSchema": {
+        "properties": {
+          "filename": {
+            "title": "Filename",
+            "type": "string"
+          }
+        },
+        "required": [
+          "filename"
+        ],
+        "title": "get_documentArguments",
+        "type": "object"
+      },
+      "outputSchema": {
+        "additionalProperties": true,
+        "title": "get_documentDictOutput",
+        "type": "object"
+      },
+      "icons": null,
+      "annotations": null,
+      "meta": null,
+      "execution": null
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "path": "/api/openclaw/chat/stream",
+    "method": "POST",
+    "body": {
+      "prompt": "Read-only validation: test from Jeff Peng. Use iraop_query exactly once with depth=\"quick\", collections=[\"mosaic-validation-no-such-collection-20261031\"], and this question: Using only the indexed mosaic-validation-control.pdf, reference MOSAIC-KB-20261031, what public verification code is printed in the Operator Decision and Evidence section on page 2? Cite the exact filename and page inline. Explain whether an automated alert investigation may directly repair a service. Perform the document search and return evidence.\nIf that collection is missing, report the actual failure and do not switch collections or use prior knowledge. Do not invent a verification code or execute repairs.",
+      "sessionKey": "agent:default:session-2026-10-31t07-25-37-974z",
+      "conciseMode": false,
+      "accessMode": "view"
+    }
+  }
+]

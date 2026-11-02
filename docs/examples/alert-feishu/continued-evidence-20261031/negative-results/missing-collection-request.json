@@ -1,0 +1,7 @@
+{
+  "question": "Using only the specified collection, search for MOSAIC-KB-20261031 Operator Decision and Evidence. Return the public verification code and exact source filename/page only if they are actually retrieved. If the collection is missing or search fails, report that failure without inventing an answer.",
+  "depth": "quick",
+  "collections": [
+    "mosaic-validation-no-such-collection-20261031"
+  ]
+}

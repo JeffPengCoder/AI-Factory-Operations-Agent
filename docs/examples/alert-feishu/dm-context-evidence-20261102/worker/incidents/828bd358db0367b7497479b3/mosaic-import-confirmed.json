@@ -1,0 +1,45 @@
+{
+  "success": true,
+  "event": {
+    "id": "alertmanager:c8286cdd6ed50269",
+    "payload": "MosaicDirectMessageGpuTelemetrySimulation | test from Jeff Peng: direct-message GPU telemetry cache validation | Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-dm-gpu-20261102t072211z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.",
+    "source": "alertmanager",
+    "createdAt": "2026-11-02T07:24:44.121Z",
+    "stage": "active",
+    "labels": {
+      "alertname": "MosaicDirectMessageGpuTelemetrySimulation",
+      "background_validation": "true",
+      "cluster": "l20-lab",
+      "container": "telemetry",
+      "endpoint": "metrics",
+      "evidence_source": "isolated_dcgm_cache_snapshot",
+      "experiment": "gpu-telemetry-cache",
+      "gpu": "0",
+      "gpu_uuid": "GPU-00000000-0000-0000-0000-000000000005",
+      "instance": "192.0.2.28:8080",
+      "job": "gpu-telemetry-fixture",
+      "mosaic_test": "true",
+      "namespace": "mosaic-dm-gpu-20261102t072211z",
+      "node": "gpu-node-01",
+      "pod": "gpu-telemetry-fixture",
+      "prometheus": "monitoring/kube-prometheus-stack-prometheus",
+      "run_id": "dm-gpu-20261102t072211z",
+      "service": "gpu-telemetry-fixture",
+      "severity": "warning",
+      "simulation": "true",
+      "test_namespace": "mosaic-dm-gpu-20261102t072211z",
+      "test_pod": "gpu-telemetry-fixture"
+    },
+    "annotations": {
+      "description": "Controlled GPU telemetry cache snapshot, not a physical GPU fault. Registered cluster l20-lab; namespace mosaic-dm-gpu-20261102t072211z; Pod gpu-telemetry-fixture. The telemetry, nvml-witness and kernel-witness container logs contain timestamped operator samples. Compare private DCGM 230/311/313 with production DCGM and real NVML. Read-only investigation only. The background service independently consults collection mosaic-gpu-validation-20261031 before synthesis and native Feishu publication.",
+      "evidence_source": "isolated_dcgm_cache_snapshot",
+      "summary": "test from Jeff Peng: direct-message GPU telemetry cache validation",
+      "test_from": "test from Jeff Peng"
+    },
+    "status": "firing",
+    "startsAt": "2026-11-02T07:24:44.121Z",
+    "endsAt": "2026-11-02T07:28:44.121Z",
+    "fingerprint": "c8286cdd6ed50269",
+    "generatorURL": "http://kube-prometheus-stack-prometheus.monitoring:9090/graph?g0.expr=mosaic_test_dcgm_xid_error%7Brun_id%3D%22dm-gpu-20261102t072211z%22%2Csimulation%3D%22true%22%7D+%3D%3D+95&g0.tab=1"
+  }
+}

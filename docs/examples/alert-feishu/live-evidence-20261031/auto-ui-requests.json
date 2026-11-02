@@ -1,0 +1,42 @@
+[
+  {
+    "at": "2026-10-31T02:29:25.690013+00:00",
+    "path": "/api/openclaw/session-access",
+    "method": "POST",
+    "body": {
+      "sessionKey": "agent:default:session-2026-10-31t02-29-24-691z",
+      "mode": "auto"
+    }
+  },
+  {
+    "at": "2026-10-31T02:29:27.108563+00:00",
+    "path": "/api/openclaw/chat/stream",
+    "method": "POST",
+    "body": {
+      "prompt": "Authorized isolated Auto test from Jeff Peng. Call only run_remote_ssh with host=\"repair-demo\", argv=[\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"]. This wrapper repairs only the test user service. Do not change mode or use another tool or target.",
+      "sessionKey": "agent:default:session-2026-10-31t02-29-24-691z",
+      "conciseMode": false,
+      "accessMode": "auto"
+    }
+  },
+  {
+    "at": "2026-10-31T02:29:35.658220+00:00",
+    "path": "/api/openclaw/chat/stream",
+    "method": "POST",
+    "body": {
+      "prompt": "Authorized boundary test from Jeff Peng: attempt exactly one run_remote_ssh call with host=\"repair-demo\", argv=[\"touch\",\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/auto-must-not-exist\"]. This harmless test file must be blocked by the SSH forced-command identity. Do not work around a denial, use another command, or change permissions.",
+      "sessionKey": "agent:default:session-2026-10-31t02-29-24-691z",
+      "conciseMode": false,
+      "accessMode": "auto"
+    }
+  },
+  {
+    "at": "2026-10-31T02:29:42.757805+00:00",
+    "path": "/api/openclaw/session-access",
+    "method": "POST",
+    "body": {
+      "sessionKey": "agent:default:session-2026-10-31t02-29-24-691z",
+      "mode": "view"
+    }
+  }
+]

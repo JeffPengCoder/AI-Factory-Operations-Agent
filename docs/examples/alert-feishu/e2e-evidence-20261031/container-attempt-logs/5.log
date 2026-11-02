@@ -1,0 +1,2 @@
+2026-10-31T16:24:38.333639096+08:00 stdout F timestamp=2026-10-31T08:24:38Z run_id=e2e-20261031t075722z component=mosaic-log-fixture event=startup test_from="test from Jeff Peng"
+2026-10-31T16:24:38.334391932+08:00 stdout F timestamp=2026-10-31T08:24:38Z run_id=e2e-20261031t075722z event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from="test from Jeff Peng"

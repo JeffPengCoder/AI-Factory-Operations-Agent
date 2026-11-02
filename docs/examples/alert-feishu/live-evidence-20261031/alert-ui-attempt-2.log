@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/Users/operator/workspace/system-sa/aiops/mosaic-run/alerts/live-validation-20261031/browser_alert_investigate.py", line 75, in <module>
+    raise
+    
+  File "/Users/operator/workspace/system-sa/aiops/mosaic-run/alerts/live-validation-20261031/browser_alert_investigate.py", line 68, in main
+    (ROOT/'alert-ui-summary.json').write_text(json.dumps({'sessionKey':KEY,'beforeMessageCount':old_count,'afterMessageCount':data['rawMessageCount'],'sessionReplaced':replaced,'newMessages':history['messages'] if replaced else history['messages'][old_count:],'at':datetime.now(timezone.utc).isoformat(),'stage':chosen[0]['stage']},indent=2)+'\n')
+    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/mosaic-access-playwright-cache/archive-v0/eLAgIuzzqGMAEsjA/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 21403, in wait_for_timeout
+    self._sync(self._impl_obj.wait_for_timeout(timeout=to_milliseconds(timeout)))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/mosaic-access-playwright-cache/archive-v0/eLAgIuzzqGMAEsjA/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 110, in _sync
+    wait_for_future(self._loop, self._dispatcher_fiber, task)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/mosaic-access-playwright-cache/archive-v0/eLAgIuzzqGMAEsjA/lib/python3.13/site-packages/playwright/_impl/_greenlets.py", line 84, in wait_for_future
+    dispatcher_fiber.switch()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+KeyboardInterrupt

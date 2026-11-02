@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-31T08:39:37.031830+00:00",
+  "oldSmokeRuleUidUnchanged": true,
+  "commands": [
+    {
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "prometheusrule",
+        "mosaic-alert-smoke-test",
+        "-n",
+        "monitoring",
+        "-o",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n    \"apiVersion\": \"monitoring.coreos.com/v1\",\n    \"kind\": \"PrometheusRule\",\n    \"metadata\": {\n        \"annotations\": {\n            \"kubectl.kubernetes.io/last-applied-configuration\": \"{\\\"apiVersion\\\":\\\"monitoring.coreos.com/v1\\\",\\\"kind\\\":\\\"PrometheusRule\\\",\\\"metadata\\\":{\\\"annotations\\\":{},\\\"labels\\\":{\\\"app.kubernetes.io/part-of\\\":\\\"mosaic-alert-smoke-test\\\",\\\"release\\\":\\\"kube-prometheus-stack\\\"},\\\"name\\\":\\\"mosaic-alert-smoke-test\\\",\\\"namespace\\\":\\\"monitoring\\\"},\\\"spec\\\":{\\\"groups\\\":[{\\\"name\\\":\\\"mosaic.synthetic-tests\\\",\\\"rules\\\":[{\\\"alert\\\":\\\"MosaicSyntheticAlert\\\",\\\"annotations\\\":{\\\"description\\\":\\\"test from Jeff Peng. This is a deliberately generated alert to verify Prometheus -\\\\u003e Alertmanager -\\\\u003e MOSAIC delivery and optional browser-triggered investigation. There is no underlying GPU, driver, node, or application fault. Do not perform remediation. Remove PrometheusRule monitoring/mosaic-alert-smoke-test after verification.\\\",\\\"summary\\\":\\\"MOSAIC synthetic alert delivery test\\\",\\\"test_from\\\":\\\"test from Jeff Peng\\\"},\\\"expr\\\":\\\"vector(1)\\\",\\\"for\\\":\\\"30s\\\",\\\"labels\\\":{\\\"mosaic_test\\\":\\\"true\\\",\\\"severity\\\":\\\"warning\\\"}}]}]}}\\n\",\n            \"prometheus-operator-validated\": \"true\"\n        },\n        \"creationTimestamp\": \"2026-10-29T09:19:04Z\",\n        \"generation\": 1,\n        \"labels\": {\n            \"app.kubernetes.io/part-of\": \"mosaic-alert-smoke-test\",\n            \"release\": \"kube-prometheus-stack\"\n        },\n        \"name\": \"mosaic-alert-smoke-test\",\n        \"namespace\": \"monitoring\",\n        \"resourceVersion\": \"98518108\",\n        \"uid\": \"4c09291f-74eb-4977-b1c8-e5dff613232f\"\n    },\n    \"spec\": {\n        \"groups\": [\n            {\n                \"name\": \"mosaic.synthetic-tests\",\n                \"rules\": [\n                    {\n                        \"alert\": \"MosaicSyntheticAlert\",\n                        \"annotations\": {\n                            \"description\": \"test from Jeff Peng. This is a deliberately generated alert to verify Prometheus -\\u003e Alertmanager -\\u003e MOSAIC delivery and optional browser-triggered investigation. There is no underlying GPU, driver, node, or application fault. Do not perform remediation. Remove PrometheusRule monitoring/mosaic-alert-smoke-test after verification.\",\n                            \"summary\": \"MOSAIC synthetic alert delivery test\",\n                            \"test_from\": \"test from Jeff Peng\"\n                        },\n                        \"expr\": \"vector(1)\",\n                        \"for\": \"30s\",\n                        \"labels\": {\n                            \"mosaic_test\": \"true\",\n                            \"severity\": \"warning\"\n                        }\n                    }\n                ]\n            }\n        ]\n    }\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "kubectl",
+        "--context",
+        "kubernetes-admin@kubernetes",
+        "get",
+        "pods",
+        "-n",
+        "monitoring",
+        "-o",
+        "custom-columns=NAME:.metadata.name,NODE:.spec.nodeName,PHASE:.status.phase,IMAGES:.spec.containers[*].image"
+      ],
+      "exitCode": 0,
+      "stdout": "NAME                                                       NODE         PHASE     IMAGES\nalertmanager-kube-prometheus-stack-alertmanager-0          target-node-2   Running   quay.io/prometheus/alertmanager:v0.30.1,quay.io/prometheus-operator/prometheus-config-reloader:v0.88.1\nkube-prometheus-stack-grafana-96659b767-bw7pk              target-node-1   Failed    quay.io/kiwigrid/k8s-sidecar:2.5.0,quay.io/kiwigrid/k8s-sidecar:2.5.0,docker.io/grafana/grafana:12.3.1\nkube-prometheus-stack-grafana-96659b767-hvkhr              target-node-2   Running   quay.io/kiwigrid/k8s-sidecar:2.5.0,quay.io/kiwigrid/k8s-sidecar:2.5.0,docker.io/grafana/grafana:12.3.1\nkube-prometheus-stack-kube-state-metrics-774cbcbd5-25jpl   target-node-2   Running   registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.18.0\nkube-prometheus-stack-kube-state-metrics-774cbcbd5-nwxpj   target-node-1   Failed    registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.18.0\nkube-prometheus-stack-operator-6d64c465c4-j6bf6            target-node-2   Running   quay.io/prometheus-operator/prometheus-operator:v0.88.1\nkube-prometheus-stack-operator-6d64c465c4-knn9w            target-node-1   Failed    quay.io/prometheus-operator/prometheus-operator:v0.88.1\nkube-prometheus-stack-prometheus-node-exporter-tgwgb       target-node-2   Running   quay.io/prometheus/node-exporter:v1.10.2\nkube-prometheus-stack-prometheus-node-exporter-zm2cx       target-node-1   Running   quay.io/prometheus/node-exporter:v1.10.2\nprometheus-kube-prometheus-stack-prometheus-0              target-node-2   Running   quay.io/prometheus/prometheus:v3.9.1,quay.io/prometheus-operator/prometheus-config-reloader:v0.88.1\n",
+      "stderr": ""
+    }
+  ]
+}

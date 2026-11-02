@@ -1,0 +1,11 @@
+{
+  "message_id": "om_x100b61b14468f570dd6b4d1203771ad",
+  "result": {
+    "runId": "mosaic-alert-6d46296a77db8103e67f514a89b5d427e7abff3eb3c14b60e5cef298a31fa63f",
+    "messageId": "om_x100b61b14468f570dd6b4d1203771ad",
+    "channel": "feishu"
+  },
+  "session_key": "agent:default:feishu:direct:ou_00000000000000000000000000000001",
+  "context_message_id": "8a93da79",
+  "handoff_run_id": "mosaic-alert-6d46296a77db8103e67f514a89b5d427e7abff3eb3c14b60e5cef298a31fa63f-context"
+}

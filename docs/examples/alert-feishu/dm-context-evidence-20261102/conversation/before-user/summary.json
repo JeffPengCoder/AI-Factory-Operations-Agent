@@ -1,0 +1,17 @@
+{
+  "at": "2026-11-02T09:00:36.344196+00:00",
+  "runId": "handoff-gpu-20261102t085400z",
+  "incident": "3b0084bf90af7f0901912918",
+  "workerState": "sent",
+  "reportMessageId": "om_x100b61b14468f570dd6b4d1203771ad",
+  "reportInExpectedPrivateChat": true,
+  "fullRealAgentInputCount": 1,
+  "contextInputSourceRecord": 26,
+  "fullReportMirrorCount": 1,
+  "contextProofPresent": true,
+  "realNativeHumanInputRecordIndices": [],
+  "userFollowups": [],
+  "outgoingReplyIds": [],
+  "completeModelReplies": [],
+  "evidenceDirectory": "/Users/OPERATOR/workspace/system-sa/aiops/mosaic-run/feishu-real-context-handoff-20261102/conversation-before-user"
+}

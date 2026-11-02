@@ -1,0 +1,269 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "annotations": {
+          "checksum/config": "af36dadf020f8fa015f9f2f4fb25a18b1d9b3a55f6e301b4795ec818390996ba"
+        },
+        "creationTimestamp": "2026-10-31T03:18:14Z",
+        "generateName": "iraop-cb7877-",
+        "generation": 1,
+        "labels": {
+          "app": "iraop",
+          "pod-template-hash": "cb7877"
+        },
+        "name": "iraop-cb7877-nmpw7",
+        "namespace": "mosaic",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "ReplicaSet",
+            "name": "iraop-cb7877",
+            "uid": "1d2e8a20-6158-41e4-9cf5-c286f6fcb4dc"
+          }
+        ],
+        "resourceVersion": "11368587",
+        "uid": "7993d92e-bcb0-4ebc-992a-28608bbd5e95"
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "envFrom": [
+              {
+                "configMapRef": {
+                  "name": "iraop-config"
+                }
+              },
+              {
+                "secretRef": {
+                  "name": "iraop-secrets"
+                }
+              }
+            ],
+            "image": "nvcr.io/NGC_ORG_ID/afoa-release/iraop:f804535b",
+            "imagePullPolicy": "IfNotPresent",
+            "livenessProbe": {
+              "failureThreshold": 10,
+              "httpGet": {
+                "path": "/api/v1/live",
+                "port": 8000,
+                "scheme": "HTTP"
+              },
+              "initialDelaySeconds": 15,
+              "periodSeconds": 30,
+              "successThreshold": 1,
+              "timeoutSeconds": 10
+            },
+            "name": "iraop",
+            "ports": [
+              {
+                "containerPort": 8000,
+                "name": "http",
+                "protocol": "TCP"
+              }
+            ],
+            "readinessProbe": {
+              "failureThreshold": 30,
+              "httpGet": {
+                "path": "/api/v1/health",
+                "port": 8000,
+                "scheme": "HTTP"
+              },
+              "initialDelaySeconds": 10,
+              "periodSeconds": 10,
+              "successThreshold": 1,
+              "timeoutSeconds": 5
+            },
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "8Gi"
+              },
+              "requests": {
+                "cpu": "500m",
+                "memory": "2Gi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/cm/shared/iraop-corpus",
+                "name": "corpus",
+                "readOnly": true
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "imagePullSecrets": [
+          {
+            "name": "nvcr-image-pull-secret"
+          }
+        ],
+        "nodeName": "mosaic-poc-control-plane",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {
+          "fsGroup": 10001,
+          "runAsGroup": 10001,
+          "runAsNonRoot": true,
+          "runAsUser": 10001,
+          "seccompProfile": {
+            "type": "RuntimeDefault"
+          }
+        },
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "hostPath": {
+              "path": "/var/local/mosaic-validation-20261031/corpus",
+              "type": "Directory"
+            },
+            "name": "corpus"
+          }
+        ]
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-31T03:18:16Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-31T03:18:14Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-31T03:18:27Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-31T03:18:27Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-31T03:18:14Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "500m",
+              "memory": "2Gi"
+            },
+            "containerID": "containerd://ba5e6c06db08fd19ba8990bc1586b889f6296d3fe7001276a2ed08869aaf9df6",
+            "image": "nvcr.io/NGC_ORG_ID/afoa-release/iraop:f804535b",
+            "imageID": "nvcr.io/NGC_ORG_ID/afoa-release/iraop@sha256:0ebc807d13891938d6d992675d29dc5c802ed5e9d6e8a10e87b9239feee80617",
+            "lastState": {},
+            "name": "iraop",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "8Gi"
+              },
+              "requests": {
+                "cpu": "500m",
+                "memory": "2Gi"
+              }
+            },
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-10-31T03:18:15Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/cm/shared/iraop-corpus",
+                "name": "corpus",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "hostIP": "followup-private-address-24.example.invalid",
+        "hostIPs": [
+          {
+            "ip": "followup-private-address-24.example.invalid"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "followup-private-address-19.example.invalid",
+        "podIPs": [
+          {
+            "ip": "followup-private-address-19.example.invalid"
+          }
+        ],
+        "qosClass": "Burstable",
+        "startTime": "2026-10-31T03:18:14Z"
+      }
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

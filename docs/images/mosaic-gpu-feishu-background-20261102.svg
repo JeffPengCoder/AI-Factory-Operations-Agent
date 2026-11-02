@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1190" viewBox="0 0 1920 1190" role="img" aria-labelledby="title desc">
+<title id="title">GPU 告警、Research 与原生飞书：当前后台链路</title>
+<desc id="desc">新建私有 DCGM 缓存和快照回放触发真实告警，持久服务自动进行只读取证、实际 IRAOP 咨询、完整报告生成和固定原生飞书投递；旧 Webhook 证据独立保留。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#5a6778"/></marker></defs>
+<style>text{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;fill:#172b3c}.title{font-size:40px;font-weight:700}.sub{font-size:23px;fill:#526172}.heading{font-size:28px;font-weight:700}.body{font-size:22px}.small{font-size:20px}.foot{font-size:20px;fill:#657387}</style>
+<rect width="1920" height="1190" fill="white"/>
+<text class="title" x="70" y="72">GPU 告警 → Research → 原生飞书：持久后台流程</text>
+<text class="sub" x="70" y="115">2026-11-02 更新｜故障侧为独立 DCGM 缓存模拟；调查与发布由程序编排，浏览器无需保持打开。</text>
+<text class="small" x="70" y="151">绿色：告警与后台服务　　蓝色：只读采集和知识研究　　米色：投递、证据与历史路线</text>
+<rect x="70" y="175" width="400" height="160" rx="13" fill="#edf5de" stroke="#c7d1d9" stroke-width="1.4"/>
+<text class="heading" x="90" y="213">独立 DCGM 缓存</text>
+<text class="body" x="90" y="251">GPU 0：230=95 / 311=1 / 313=1</text>
+<text class="body" x="90" y="282">仅私有 socket；采样后关闭</text>
+<text class="body" x="90" y="313">真实 GPU / 生产缓存不写入</text>
+<rect x="530" y="175" width="400" height="160" rx="13" fill="#edf5de" stroke="#c7d1d9" stroke-width="1.4"/>
+<text class="heading" x="550" y="213">快照 + Prometheus</text>
+<text class="body" x="550" y="251">回放 Pod 不申请 GPU</text>
+<text class="body" x="550" y="282">ServiceMonitor 抓取测试指标</text>
+<text class="body" x="550" y="313">真实规则求值，for=45s</text>
+<rect x="990" y="175" width="400" height="160" rx="13" fill="#edf5de" stroke="#c7d1d9" stroke-width="1.4"/>
+<text class="heading" x="1010" y="213">Alertmanager</text>
+<text class="body" x="1010" y="251">以 run_id / fingerprint 关联</text>
+<text class="body" x="1010" y="282">新告警带专用验收标签</text>
+<text class="body" x="1010" y="313">不修改原监控路由</text>
+<rect x="1450" y="175" width="400" height="160" rx="13" fill="#edf5de" stroke="#c7d1d9" stroke-width="1.4"/>
+<text class="heading" x="1470" y="213">后台服务 + SQLite</text>
+<text class="body" x="1470" y="251">Spark 用户 systemd 持久运行</text>
+<text class="body" x="1470" y="282">独立轮询；按事件持久去重</text>
+<text class="body" x="1470" y="313">无须打开 MOSAIC 网页</text>
+<path d="M476 255 L521 255" fill="none" stroke="#5a6778" stroke-width="3.2" marker-end="url(#arrow)"/>
+<path d="M936 255 L981 255" fill="none" stroke="#5a6778" stroke-width="3.2" marker-end="url(#arrow)"/>
+<path d="M1396 255 L1441 255" fill="none" stroke="#5a6778" stroke-width="3.2" marker-end="url(#arrow)"/>
+<path d="M1650 337 L1650 400" fill="none" stroke="#5a6778" stroke-width="3.2" marker-end="url(#arrow)"/>
+<rect x="70" y="410" width="400" height="160" rx="13" fill="#e7f0fa" stroke="#c7d1d9" stroke-width="1.4"/>
+<text class="heading" x="90" y="448">结合证据生成完整报告</text>
+<text class="body" x="90" y="486">现场观测与文档来源分开</text>
+<text class="body" x="90" y="517">同一只读会话生成最终结论</text>
+<text class="body" x="90" y="548">保留原始模型完整输出</text>
+<rect x="530" y="410" width="400" height="160" rx="13" fill="#e7f0fa" stroke="#c7d1d9" stroke-width="1.4"/>
+<text class="heading" x="550" y="448">IRAOP Research</text>
+<text class="body" x="550" y="486">后台实际调用 iraop_query</text>
+<text class="body" x="550" y="517">既有 GPU PDF：5 × 384维</text>
+<text class="body" x="550" y="548">返回答案与文件名 / 页码</text>
+<rect x="990" y="410" width="400" height="160" rx="13" fill="#e7f0fa" stroke="#c7d1d9" stroke-width="1.4"/>
+<text class="heading" x="1010" y="448">Jeff&#x27;s Mosaic Agent</text>
+<text class="body" x="1010" y="486">View：读取 3 个容器日志</text>
+<text class="body" x="1010" y="517">保存工具请求与完整结果</text>
+<text class="body" x="1010" y="548">等待真实会话结束再继续</text>
+<rect x="1450" y="410" width="400" height="160" rx="13" fill="#e7f0fa" stroke="#c7d1d9" stroke-width="1.4"/>
+<text class="heading" x="1470" y="448">导入 MOSAIC 告警</text>
+<text class="body" x="1470" y="486">后台写入同一告警列表</text>
+<text class="body" x="1470" y="517">专用只读 automation 会话</text>
+<text class="body" x="1470" y="548">内部 agent ID 仍为 default</text>
+<path d="M1443 490 L1399 490" fill="none" stroke="#5a6778" stroke-width="3.2" marker-end="url(#arrow)"/>
+<path d="M983 490 L939 490" fill="none" stroke="#5a6778" stroke-width="3.2" marker-end="url(#arrow)"/>
+<path d="M523 490 L479 490" fill="none" stroke="#5a6778" stroke-width="3.2" marker-end="url(#arrow)"/>
+<path d="M270 572 L270 635" fill="none" stroke="#5a6778" stroke-width="3.2" marker-end="url(#arrow)"/>
+<rect x="70" y="645" width="400" height="160" rx="13" fill="#f6f2e9" stroke="#c7d1d9" stroke-width="1.4"/>
+<text class="heading" x="90" y="683">保存与去标识</text>
+<text class="body" x="90" y="721">完整原文 / 发布版分别保存</text>
+<text class="body" x="90" y="752">保留大小、哈希和失败记录</text>
+<text class="body" x="90" y="783">报告不截断；事实不由人改写</text>
+<rect x="530" y="645" width="400" height="160" rx="13" fill="#f6f2e9" stroke="#c7d1d9" stroke-width="1.4"/>
+<text class="heading" x="550" y="683">OpenClaw 原生发布器</text>
+<text class="body" x="550" y="721">固定群目标，独立显式发送</text>
+<text class="body" x="550" y="752">@openclaw/feishu 原生通道</text>
+<text class="body" x="550" y="783">复用 gateway 中的应用凭据</text>
+<rect x="990" y="645" width="400" height="160" rx="13" fill="#f6f2e9" stroke="#c7d1d9" stroke-width="1.4"/>
+<text class="heading" x="1010" y="683">Jeff&#x27;s AI Assistant</text>
+<text class="body" x="1010" y="721">群：MOSAIC Alert Test</text>
+<text class="body" x="1010" y="752">应用已发布版本 1.0.1</text>
+<text class="body" x="1010" y="783">使用 App ID / App Secret</text>
+<rect x="1450" y="645" width="400" height="160" rx="13" fill="#f6f2e9" stroke="#c7d1d9" stroke-width="1.4"/>
+<text class="heading" x="1470" y="683">投递结果见证</text>
+<text class="body" x="1470" y="721">原生消息 ID + 完整 Run ID</text>
+<text class="body" x="1470" y="752">平台返回与群内收件分开核对</text>
+<text class="body" x="1470" y="783">重启后检查去重和收发</text>
+<path d="M476 725 L521 725" fill="none" stroke="#5a6778" stroke-width="3.2" marker-end="url(#arrow)"/>
+<path d="M936 725 L981 725" fill="none" stroke="#5a6778" stroke-width="3.2" marker-end="url(#arrow)"/>
+<path d="M1396 725 L1441 725" fill="none" stroke="#5a6778" stroke-width="3.2" marker-end="url(#arrow)"/>
+<rect x="70" y="860" width="860" height="170" rx="13" fill="#f7f9fb" stroke="#c7d1d9" stroke-width="1.4"/>
+<rect x="990" y="860" width="860" height="170" rx="13" fill="#f7f9fb" stroke="#c7d1d9" stroke-width="1.4"/>
+<text class="heading" x="92" y="899">旧 Webhook 路线和原图完整保留</text>
+<text class="body" x="92" y="939">发送脚本 + Webhook / 签名 → Jeff&#x27;s Webhook Bot</text>
+<text class="body" x="92" y="973">2026-10-31 的 GPU 原始实验实际使用这条路线。</text>
+<text class="body" x="92" y="1007">新旧应用凭据分开保管；旧记录不改写为原生通道结果。</text>
+<text class="heading" x="1012" y="899">后台处理与原生投递已通过</text>
+<text class="body" x="1012" y="939">Run ID：bg-gpu-20261102t005029z</text>
+<text class="body" x="1012" y="973">首轮完成判据失败与后续修正、重测分别保留。</text>
+<text class="body" x="1012" y="1007">模型原文、工具调用、研究来源和投递返回可逐项核对。</text>
+<rect x="70" y="1060" width="1780" height="77" rx="12" fill="#fff4dd" stroke="#dba441"/>
+<text class="small" x="92" y="1092">硬件对照：8 张真实 L20 的 NVML ECC / remap 前后不变；生产 DCGM 保持 0 / 0 / 0。</text>
+<text class="small" x="92" y="1120">本轮验收后台处理与投递流程；原始 GPU 实验图、模型输出、完整表格和失败原件继续保留。</text>
+<text class="foot" x="70" y="1170">test from Jeff Peng | 图更新：2026-11-02 | 原实验：2026-10-31 | 当前接入：OpenClaw 原生飞书</text>
+</svg>

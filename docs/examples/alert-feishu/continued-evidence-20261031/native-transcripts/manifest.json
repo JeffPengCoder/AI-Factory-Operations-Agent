@@ -1,0 +1,20 @@
+[
+  {
+    "file": "7039a9ab-1b60-4d8b-8962-222b0a4245f2.jsonl",
+    "bytes": 9436,
+    "sha256": "9c32ad75ddd542965714886a3fd3d2f50ff4928065d60a48d4078b9d5bd55e7d",
+    "toolResults": 1,
+    "toolFile": "7039a9ab-1b60-4d8b-8962-222b0a4245f2.jsonl.tools.jsonl",
+    "toolBytes": 4538,
+    "toolSha256": "0b9222f90b3fc69563ddba0d4a70fa6a312466ac34af9a70c61fe3bbb515ac22"
+  },
+  {
+    "file": "7f9d0e86-e0e8-44af-b3db-1fcb8ce78617.jsonl",
+    "bytes": 5942,
+    "sha256": "cb3f9806ab0552f69461cfb4444b8f3db8e72a55cbfd19f6f47bc1034ca58739",
+    "toolResults": 1,
+    "toolFile": "7f9d0e86-e0e8-44af-b3db-1fcb8ce78617.jsonl.tools.jsonl",
+    "toolBytes": 1395,
+    "toolSha256": "c5f8265298411669591515c73f7425cb34b869890f9ce5f3b03e54b9b951327e"
+  }
+]

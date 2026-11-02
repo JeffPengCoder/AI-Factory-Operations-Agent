@@ -1,0 +1,23 @@
+{
+  "answer": "Based on the indexed document **mosaic-validation-control.pdf** (reference **MOSAIC-KB-20261031**), page 2:\n\n## Public Verification Code\n\n**CEDAR-NEBULA-E720C8C9**\n\nThis code appears in the **Operator Decision and Evidence** section on **page 2** of the source file `mosaic-validation-control.pdf`. The document explicitly states: *\"The verification code is an oracle for this retrieval test and grants no access.\"*\n\n## Can Automated Alert Investigation Directly Repair a Service?\n\n**No.** The document is explicit on this point:\n\n> *\"Automatic alert investigations remain read-only.\"*\n\nAn automated alert investigation cannot directly repair a service. To perform a repair, you must **use a separate authorized interactive repair conversation**, which requires preserving:\n\n- The alert ID\n- Investigation session key\n- Research sources\n- Repair session key\n\nThe workflow is deliberately separated: investigation is read-only and observational, while any authorized repair must occur in a distinct, interactive conversation with its own session key. Completion evidence for any repair requires exact tool arguments, toolCallId, exit status, full service state before and after, logs, and an independently observed restored condition.",
+  "depth": "quick",
+  "collections_searched": [
+    "mosaic-validation-20261031"
+  ],
+  "sources": [
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    }
+  ]
+}

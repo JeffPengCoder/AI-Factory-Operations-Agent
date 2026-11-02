@@ -1,0 +1,8 @@
+[
+  {
+    "at": "2026-10-31T06:41:46.992511+00:00",
+    "path": "/api/alerts/alertmanager",
+    "method": "PUT",
+    "body": null
+  }
+]

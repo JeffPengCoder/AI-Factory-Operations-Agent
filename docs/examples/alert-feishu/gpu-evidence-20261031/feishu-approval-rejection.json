@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-31T13:57:48.035394+00:00",
+  "action": "Send full original-model validation payload to authorized Feishu test group",
+  "executed": false,
+  "reason": "Automatic approval rejected internal host/GPU identifiers and the complete sensitive payload without sufficiently specific external-disclosure authorization.",
+  "nextAction": "Prepare a fully deidentified, reviewable copy; no factual corrections to original Qwen content, preserve complete original internally. Do not bypass rejection."
+}

@@ -1,0 +1,253 @@
+{
+  "at": "2026-10-31T06:37:53.637842+00:00",
+  "pod": "llm-openai-compat-69c74c6b94-b7flt",
+  "podUid": "17ee8f5f-0840-4452-8447-61b5aa52083b",
+  "archive": "/home/spark-user/.local/share/mosaic-validation-20261031/research-protocol-20261031/native-proxy-audit-revision14.private.json.gz",
+  "archiveBytes": 444787,
+  "archiveSha256": "6441545dbe547ef60098cbc44f2ddf5d35e6c6617ab5383e69eada6462bbf0d6",
+  "rawJsonBytes": 1518623,
+  "records": [
+    {
+      "file": "2a5740fb-9b2a-4387-b1e4-2203b47b0fee.json",
+      "bytes": 100578,
+      "sha256": "38aced6abb11180b5380f9b0478a43869b6d0c798823d4668b8ed42a4aae8ce0",
+      "requestId": "2a5740fb-9b2a-4387-b1e4-2203b47b0fee",
+      "at": "2026-10-31T06:37:16.662Z",
+      "normalizationPerformed": true,
+      "toolCallId": "call_research_0d8ba9690f9a46bfa8e0585a033def3b",
+      "upstreamStatus": 200,
+      "upstreamResponseComplete": true,
+      "originalRequestBytes": 34408,
+      "originalRequestSha256": "e4b0fe79b54e118e74a95de2f72a7085ecb4de2c0e6139768a3638c8a359abc6",
+      "forwardedRequestBytes": 34555,
+      "forwardedRequestSha256": "8929104889c8c6eb2a13224efd869668d8534b71c7401d6ff3dea8b0a5057e09",
+      "requestFieldsChanged": [
+        "chat_template_kwargs",
+        "reasoning_effort",
+        "tool_choice"
+      ],
+      "messagesUnchanged": true,
+      "lastUserQuestionContainsOracle": false,
+      "messageRoles": [
+        "system",
+        "user"
+      ],
+      "toolMessageCount": 0,
+      "oraclePresentInActualToolMessage": false,
+      "upstreamResponseBytes": 5079,
+      "returnedResponseBytes": 1001
+    },
+    {
+      "file": "42304ea1-7c4c-4ec0-b595-0b54d23f11a2.json",
+      "bytes": 187193,
+      "sha256": "2a968a45b27ed55d54aa9221aa529b04dc384c5165c4741520435e43894bad46",
+      "requestId": "42304ea1-7c4c-4ec0-b595-0b54d23f11a2",
+      "at": "2026-10-31T06:35:18.225Z",
+      "normalizationPerformed": false,
+      "toolCallId": null,
+      "upstreamStatus": 200,
+      "upstreamResponseComplete": true,
+      "originalRequestBytes": 38030,
+      "originalRequestSha256": "43b0eaf57e8dfa93ebdf807857646fa065428efea4f770823f21d768cd2acfe6",
+      "forwardedRequestBytes": 38054,
+      "forwardedRequestSha256": "2db3f45ea45057d851e92918fd1243ad8a050afe41e8da55fd2e17e4b9d93ae8",
+      "requestFieldsChanged": [
+        "reasoning_effort"
+      ],
+      "messagesUnchanged": true,
+      "lastUserQuestionContainsOracle": false,
+      "messageRoles": [
+        "system",
+        "user",
+        "assistant",
+        "tool"
+      ],
+      "toolMessageCount": 1,
+      "oraclePresentInActualToolMessage": true,
+      "upstreamResponseBytes": 31986,
+      "returnedResponseBytes": 31986
+    },
+    {
+      "file": "43632648-6f92-4783-ad53-b5da12d8a164.json",
+      "bytes": 157913,
+      "sha256": "8dd303071f94e4665e54d9da163a6a86a731a28d00c6b3353d3de0f729fd97e4",
+      "requestId": "43632648-6f92-4783-ad53-b5da12d8a164",
+      "at": "2026-10-31T06:35:14.387Z",
+      "normalizationPerformed": false,
+      "toolCallId": null,
+      "upstreamStatus": 200,
+      "upstreamResponseComplete": true,
+      "originalRequestBytes": 37904,
+      "originalRequestSha256": "d7cecaf5db95ac9616c32029821f7b833fac6a368b7b46f8bfa15b0bac27f002",
+      "forwardedRequestBytes": 37928,
+      "forwardedRequestSha256": "9c975bed323e62bed6055bd5b4a7bb2227fbb04a0848b91fb98caf0ab8b66510",
+      "requestFieldsChanged": [
+        "reasoning_effort"
+      ],
+      "messagesUnchanged": true,
+      "lastUserQuestionContainsOracle": false,
+      "messageRoles": [
+        "system",
+        "user",
+        "assistant",
+        "tool"
+      ],
+      "toolMessageCount": 1,
+      "oraclePresentInActualToolMessage": true,
+      "upstreamResponseBytes": 21132,
+      "returnedResponseBytes": 21132
+    },
+    {
+      "file": "47f307f6-ed5c-4e1a-93eb-1d8c197e2011.json",
+      "bytes": 100918,
+      "sha256": "7b53ffe4d6222ff0a7c1474c1f6eb40426183f43f9117719b5520469ab7feddc",
+      "requestId": "47f307f6-ed5c-4e1a-93eb-1d8c197e2011",
+      "at": "2026-10-31T06:35:13.470Z",
+      "normalizationPerformed": true,
+      "toolCallId": "call_research_923bd7a4185b40e09e4d85e794534afe",
+      "upstreamStatus": 200,
+      "upstreamResponseComplete": true,
+      "originalRequestBytes": 34457,
+      "originalRequestSha256": "d8685c91986848fa10df642dd6348ff8e7d6a0a8d6949b652316e694d66c4714",
+      "forwardedRequestBytes": 34604,
+      "forwardedRequestSha256": "e95ce5060cc4de505c2a25c6ba57575446df4ed4c62cd277035777251a204241",
+      "requestFieldsChanged": [
+        "chat_template_kwargs",
+        "reasoning_effort",
+        "tool_choice"
+      ],
+      "messagesUnchanged": true,
+      "lastUserQuestionContainsOracle": false,
+      "messageRoles": [
+        "system",
+        "user"
+      ],
+      "toolMessageCount": 0,
+      "oraclePresentInActualToolMessage": false,
+      "upstreamResponseBytes": 5275,
+      "returnedResponseBytes": 961
+    },
+    {
+      "file": "83c6f511-9042-4e71-a5aa-d159a46c2d65.json",
+      "bytes": 193049,
+      "sha256": "35a45422ad969d1f4c3a537888862f508d335b8088a13aaf26a4bafbcd003585",
+      "requestId": "83c6f511-9042-4e71-a5aa-d159a46c2d65",
+      "at": "2026-10-31T06:36:02.712Z",
+      "normalizationPerformed": false,
+      "toolCallId": null,
+      "upstreamStatus": 200,
+      "upstreamResponseComplete": true,
+      "originalRequestBytes": 37801,
+      "originalRequestSha256": "b92f1bde85b08517b7fc298d12d8e2cfa4a33087081c4a1ef3bc4793d408baac",
+      "forwardedRequestBytes": 37825,
+      "forwardedRequestSha256": "4eede9e04c3ac2b497c9b48e43f20900486e5db32d0762ff48240bb4725279cc",
+      "requestFieldsChanged": [
+        "reasoning_effort"
+      ],
+      "messagesUnchanged": true,
+      "lastUserQuestionContainsOracle": false,
+      "messageRoles": [
+        "system",
+        "user",
+        "assistant",
+        "tool"
+      ],
+      "toolMessageCount": 1,
+      "oraclePresentInActualToolMessage": true,
+      "upstreamResponseBytes": 34408,
+      "returnedResponseBytes": 34408
+    },
+    {
+      "file": "86201e58-21eb-4047-8bda-581cb4358d8b.json",
+      "bytes": 101694,
+      "sha256": "b388e35d9aea8138b08582cbfe5ce0a71bb4bc425fe73da06e4f4a4d22b6b463",
+      "requestId": "86201e58-21eb-4047-8bda-581cb4358d8b",
+      "at": "2026-10-31T06:35:17.251Z",
+      "normalizationPerformed": true,
+      "toolCallId": "call_research_dea43d95682b475baf8857f2c7e4a4cd",
+      "upstreamStatus": 200,
+      "upstreamResponseComplete": true,
+      "originalRequestBytes": 34457,
+      "originalRequestSha256": "d8685c91986848fa10df642dd6348ff8e7d6a0a8d6949b652316e694d66c4714",
+      "forwardedRequestBytes": 34604,
+      "forwardedRequestSha256": "e95ce5060cc4de505c2a25c6ba57575446df4ed4c62cd277035777251a204241",
+      "requestFieldsChanged": [
+        "chat_template_kwargs",
+        "reasoning_effort",
+        "tool_choice"
+      ],
+      "messagesUnchanged": true,
+      "lastUserQuestionContainsOracle": false,
+      "messageRoles": [
+        "system",
+        "user"
+      ],
+      "toolMessageCount": 0,
+      "oraclePresentInActualToolMessage": false,
+      "upstreamResponseBytes": 5803,
+      "returnedResponseBytes": 1017
+    },
+    {
+      "file": "b1416f32-60ac-41d6-953e-d3dfc8661075.json",
+      "bytes": 99438,
+      "sha256": "6c693e3dd6d9b90cafd19c12f68925273929ccacc43b36ee7d4f244f2cbe6adc",
+      "requestId": "b1416f32-60ac-41d6-953e-d3dfc8661075",
+      "at": "2026-10-31T06:36:01.921Z",
+      "normalizationPerformed": true,
+      "toolCallId": "call_research_c0db9e6def3e4ffe952c375f81130809",
+      "upstreamStatus": 200,
+      "upstreamResponseComplete": true,
+      "originalRequestBytes": 34408,
+      "originalRequestSha256": "e4b0fe79b54e118e74a95de2f72a7085ecb4de2c0e6139768a3638c8a359abc6",
+      "forwardedRequestBytes": 34555,
+      "forwardedRequestSha256": "8929104889c8c6eb2a13224efd869668d8534b71c7401d6ff3dea8b0a5057e09",
+      "requestFieldsChanged": [
+        "chat_template_kwargs",
+        "reasoning_effort",
+        "tool_choice"
+      ],
+      "messagesUnchanged": true,
+      "lastUserQuestionContainsOracle": false,
+      "messageRoles": [
+        "system",
+        "user"
+      ],
+      "toolMessageCount": 0,
+      "oraclePresentInActualToolMessage": false,
+      "upstreamResponseBytes": 4297,
+      "returnedResponseBytes": 927
+    },
+    {
+      "file": "d242bf41-1d3e-4e18-83a9-cea1bafad3d0.json",
+      "bytes": 197233,
+      "sha256": "590f9c2c1a481aed38bec6851e302c9214820f5f919ec19793fe056decb4e179",
+      "requestId": "d242bf41-1d3e-4e18-83a9-cea1bafad3d0",
+      "at": "2026-10-31T06:37:17.549Z",
+      "normalizationPerformed": false,
+      "toolCallId": null,
+      "upstreamStatus": 200,
+      "upstreamResponseComplete": true,
+      "originalRequestBytes": 37949,
+      "originalRequestSha256": "d72231bdd7d57279bd865a932c0c75faa2e9f42b4cbd9cca54a5b4c1aa5e53a6",
+      "forwardedRequestBytes": 37973,
+      "forwardedRequestSha256": "21439714d3745dd60f976fd6ba6b4a319396f1f8e85f868befbd7012b983fb57",
+      "requestFieldsChanged": [
+        "reasoning_effort"
+      ],
+      "messagesUnchanged": true,
+      "lastUserQuestionContainsOracle": false,
+      "messageRoles": [
+        "system",
+        "user",
+        "assistant",
+        "tool"
+      ],
+      "toolMessageCount": 1,
+      "oraclePresentInActualToolMessage": true,
+      "upstreamResponseBytes": 35832,
+      "returnedResponseBytes": 35832
+    }
+  ],
+  "credentialsOrHeadersSaved": false,
+  "scope": "Full original/forwarded model bodies and complete upstream/returned bytes remain private; no model question contained the oracle."
+}

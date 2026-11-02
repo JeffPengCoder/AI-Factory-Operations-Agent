@@ -1,0 +1,23 @@
+{
+  "answer": "## Answer Based on Indexed Document\n\n**Public Verification Code:** `CEDAR-NEBULA-E720C8C9`\n\n**Citation:** *mosaic-validation-control.pdf*, Page 2 — under the heading \"Operator Decision and Evidence,\" the document states: \"Public verification code: CEDAR-NEBULA-E720C8C9.\"\n\n---\n\n## Can an Automated Alert Investigation Directly Repair a Service?\n\n**No.** The document explicitly states that *\"Automatic alert investigations remain read-only.\"* This means the automated investigation phase cannot make any changes to the service state.\n\nIf a repair is needed, a **separate authorized interactive repair conversation** must be used, and the operator must preserve:\n\n1. The **alert ID**\n2. The **investigation session key**\n3. The **research sources**\n4. The **repair session key**\n\nThe automated alert investigation and the actual repair are intentionally decoupled — one is read-only diagnostic, and the other is a separate, authorized, interactive write operation. This separation ensures that automated systems cannot unilaterally alter service state without an explicit, tracked repair session.",
+  "depth": "quick",
+  "collections_searched": [
+    "mosaic-validation-20261031"
+  ],
+  "sources": [
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    }
+  ]
+}

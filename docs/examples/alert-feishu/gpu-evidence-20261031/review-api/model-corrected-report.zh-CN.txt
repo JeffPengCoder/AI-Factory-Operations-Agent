@@ -1,0 +1,323 @@
+
+
+以下是完整的勘正后中文调查报告。此前自主报告在 DCGM 隔离引擎含义、注入偏移量语义、Prometheus 标签、时间线描述、内核日志建议等方面存在错误；以下逐条修正并给出完整报告。
+
+---
+
+# GPU 遥测仿真告警调查报告（勘正版）
+
+**运行 ID**: `gpu-rca-20261031t121240z`
+**指纹**: `d1e25281f02cec92`
+**调查模式**: View（只读，未执行任何变更/重置/排障操作）
+**集群**: target-lab
+**命名空间**: `mosaic-gpu-rca-20261031t121240z`
+**Pod**: `gpu-telemetry-fixture`（UID `9fe844e0-2dc0-4634-b6a9-50f327bd645e`）
+**节点**: `target-node-1`（HostIP `target-node-1.example.invalid`，Pod IP `private-address-07.example.invalid`）
+**操作员勘正提示**: 此报告修正了先前自主报告中的 10 项事实错误。
+
+---
+
+## 一、GPU 身份映射
+
+| 字段 | 值 |
+|---|---|
+| GPU 索引 | 0 |
+| GPU UUID | `GPU-REDACTED-11` |
+| PCI 总线 ID | `PCI-REDACTED-0` |
+| 产品型号 | NVIDIA L20 |
+| DCGM 版本 | 3.3.9 |
+| 驱动版本 | 550.127.08 |
+
+---
+
+## 二、DCGM 取证与隔离引擎勘正
+
+### 2.1 隔离 DCGM 引擎的正确理解
+
+**先前的错误**: 声称 `--denylist-modules 1,2,3,4,5,6,7,8,9` "禁用所有硬件模块"、"隔离引擎无硬件轮询"。
+
+**更正**: `--denylist-modules 1,2,3,4,5,6,7,8,9` 仅禁用辅助模块（如 NVSwitch、NVLink、PCIe 统计等），模块 0（核心 GPU 模块）仍然包含在内。隔离引擎仍然会枚举 GPU、读取 NVML 状态。隔离的本质是：
+
+- 启动了一个**新的子进程** `nv-hostengine`，通过 `--domain-socket /var/tmp/mosaic-gpu-rca-20261031t121240z-attempt3/engine.sock` 监听私有 Unix socket
+- 拥有独立的缓存层，注入通过 `dcgmi test --inject` 修改缓存
+- 进程被**刻意终止**（`privateEngineAlreadyStopped: true`），与生产 DCGM 引擎无共享缓存
+- 目录隔离在 `mosaic-gpu-rca-20261031t121240z-attempt3` 子目录
+
+隔离是**新的私有 Unix 套接字、不同子进程/缓存和受限目录**，不是无硬件进程。
+
+### 2.2 注入偏移量 --offset 60 的语义
+
+**先前的错误**: 将 `--offset 60` 解释为"注入 TTL 60 秒"或"夹具生命周期"。
+
+**更正**: `--offset 60` 表示注入的样本时间戳被设置为**60 秒未来时间**，用于测试时间窗口对齐和重放兼容性。注入本身没有 TTL 或自动过期。隔离引擎被捕获后**被有意终止**，但 replay Pod（busybox httpd）继续运行直至操作员清理，没有自销毁机制。
+
+### 2.3 DCGM 字段注入与观测（时间线）
+
+| 时间 (UTC) | 命令 | 引擎端点 | XID (230) | EDVTL (311) | EDATL (313) |
+|---|---|---|---|---|---|
+| 13:30:13.208 | `dcgmi dmon -e 230,311,313` | 127.0.0.1:5555（生产） | 0 | 0 | 0 |
+| 13:30:16.869 | `dcgmi dmon -e 230,311,313` | engine.sock（隔离） | 0 | 0 | 0 |
+| 13:30:16.873 | `dcgmi test --inject -f 230 -v 95 --offset 60` | engine.sock | — | — | — |
+| 13:30:16.875 | `dcgmi test --inject -f 311 -v 1 --offset 60` | engine.sock | — | — | — |
+| 13:30:16.878 | `dcgmi test --inject -f 313 -v 1 --offset 60` | engine.sock | — | — | — |
+| 13:30:18.906 | `dcgmi dmon -e 230,311,313` | engine.sock（隔离） | **95** | **1** | **1** |
+| 13:30:20.027 | `dcgmi dmon -e 230,311,313` | 127.0.0.1:5555（生产） | 0 | 0 | 0 |
+
+- 所有注入 `exitCode: 0`，stdout 返回 `"Successfully injected field info."`
+- `--offset 60` 使注入样本的时间戳标记为未来 60 秒
+
+### 2.4 隔离引擎配置
+
+- `privateEngineAlreadyStopped: true`
+- `liveHardwareCountersWritten: false`
+- `--denylist-modules 1,2,3,4,5,6,7,8,9`（辅助模块禁用，核心模块 0 仍运行）
+- `DCGM_ENABLE_INJECTION_APIS: "1"`
+- 私有 Unix socket: `/var/tmp/mosaic-gpu-rca-20261031t121240z-attempt3/engine.sock`
+- 进程 PID: 1339392
+
+---
+
+## 三、生产 DCGM 遥测（更正标签后的查询结果）
+
+### 3.1 更正前的错误
+
+**先前错误**: 使用 `node="target-node-1"` 标签查询生产 DCGM 系列，得到 0 条结果，错误地解释为"无数据"。
+
+**更正**: 实际生产 DCGM 系列使用的正确标签为 `Hostname="target-node-1", gpu="0", UUID="GPU-REDACTED-11"`。使用正确标签后，系列存在且值均为 0。
+
+### 3.2 更正后的生产 DCGM 查询结果
+
+| 指标 | 系列数 | 值 | 时间戳 | 完整标签 |
+|---|---|---|---|---|
+| `DCGM_FI_DEV_UNCORRECTABLE_REMAPPED_ROWS` | 1 | **0** | 1793454757.946 | `Hostname="target-node-1", gpu="0", UUID="GPU-REDACTED-11", Driver="550.127.08", Device="nvidia0", PCI="PCI-REDACTED-0"` |
+| `DCGM_FI_DEV_CORRECTABLE_REMAPPED_ROWS` | 1 | **0** | 1793454757.946 | `Hostname="target-node-1", gpu="0", UUID="GPU-REDACTED-11", Driver="550.127.08", Device="nvidia0", PCI="PCI-REDACTED-0"` |
+| `DCGM_FI_DEV_ROW_REMAP_FAILURE` | 1 | **0** | 1793454757.946 | `Hostname="target-node-1", gpu="0", UUID="GPU-REDACTED-11", Driver="550.127.08", Device="nvidia0", PCI="PCI-REDACTED-0"` |
+
+以上三个系列均返回**值 0 的 1 条系列**，而非"0 条系列"。这表明：
+
+- **一个零值系列**（存在该指标但当前值为 0）
+- **与零条系列（不存在该指标）不同**
+- 这是有效的一手测量：`nvidia-dcgm-exporter` pod `nvidia-dcgm-exporter-qz8j6`（namespace `nvidia-gpu-operator`）通过 `gpu-metrics` 端点实时导出
+
+### 3.3 生产 DCGM 健康事件
+
+`dcgm_health_active_events` 没有 `node` 标签。使用正确的 `instance` 标签查询：
+
+| 查询 | 系列数 | 值 | 说明 |
+|---|---|---|---|
+| `dcgm_health_active_events{instance="target-node-1.example.invalid:2112"}` | 1 | **0** | 仅 `GpuDcgmConnectivityFailure` 类型，值为 0 |
+
+**注意**: `GpuDcgmConnectivityFailure=0` 仅表示当前无 DCGM 连接故障，不等于完整 ECC/硬件健康覆盖。全局原始 DCGM Xid/ECC 系列仍然缺失（无全局 Xid 指标），但 remap 系列通过正确 `Hostname` 标签已验证存在。
+
+---
+
+## 四、NVML 实时取证
+
+nvml-witness 容器仅打印之前收集的、带时间戳的操作员取证结果。通过 `kubectl logs` 获取日志，**并未直接在主机上运行 `nvidia-smi`/`dmesg`**。
+
+- **采集时间**: 注入前 `2026-10-31T13:30:15.555170+00:00` / 注入后 `2026-10-31T13:30:22.708637+00:00`
+- **结论**: `allEightGpuEccAndRemapUnchanged: true`
+- **NVML 来源标注**: `"operator-collected live nvidia-smi/NVML, not a model inference"`
+
+### 目标 GPU 前后 NVML 数据对比
+
+| 字段 | 注入前 | 注入后 |
+|---|---|---|
+| Volatile SRAM 可纠正 | 0 | 0 |
+| Volatile SRAM 不可纠正(parity) | 0 | 0 |
+| Volatile SRAM 不可纠正(secded) | 0 | 0 |
+| Volatile DRAM 可纠正 | 0 | 0 |
+| Volatile DRAM 不可纠正 | 0 | 0 |
+| Aggregate SRAM 可纠正 | 0 | 0 |
+| Aggregate SRAM 不可纠正(parity) | 0 | 0 |
+| Aggregate SRAM 不可纠正(secded) | 0 | 0 |
+| Aggregate DRAM 可纠正 | 0 | 0 |
+| Aggregate DRAM 不可纠正 | 0 | 0 |
+| SRAM 阈值超 | No | No |
+| SRAM 不可纠正源（L2/SM/MCU/PCIe/Other） | 0/0/0/0/0 | 0/0/0/0/0 |
+| 已重映射行(可纠正) | 0 | 0 |
+| 已重映射行(不可纠正) | 0 | 0 |
+| 重映射等待中 | No | No |
+| 重映射失败 | No | No |
+
+- **当前计算进程**: 查询返回空输出
+- **限制声明**: `"Read-only sample comparison is not an active hardware diagnostic or RMA verdict."` / `"These are timestamped snapshots, not continuous GPU sampling."`
+
+### 关于 `mosaic_test_nvml_*` 指标
+
+先前报告提到的 `mosaic_test_nvml_gpu_info`、`mosaic_test_nvml_ecc_volatile`、`mosaic_test_nvml_ecc_aggregate` 在该夹具中**不存在**。这些不是有效的零错误测量。
+
+---
+
+## 五、内核日志取证
+
+kernel-witness 容器仅打印之前采集的时间戳内核快照。
+
+- **采集命令**: `dmesg --time-format iso`，选择正则 `NVRM\|Xid\|PCIe Bus Error\|AER:\|nvidia\|ECC (case insensitive)`
+- **匹配 Xid 行**: 空（`matchingXidLines: []`）
+- **唯一匹配行**: `2026-10-28T12:07:16,980908+08:00 IPv6: ADDRCONF(NETDEV_CHANGE): calif75eeccbfcb: link becomes ready`（网络接口名含 "ecc" 字符串，非 ECC 事件）
+- **限制声明**:
+  - 内核环可能已轮转
+  - 此为采集快照快照
+  - 无 NVDebug、BMC dump、压力测试或生产重置
+  - 原始宽选择器误匹配含 "ecc" 的网络接口名
+
+---
+
+## 六、Kubernetes Pod 事件
+
+所有 10 条事件均为 **Normal** 类型：
+
+| 时间 (UTC) | 容器 | 事件 |
+|---|---|---|
+| 13:33:05 | 全部 | Scheduled（绑定到 target-node-1） |
+| 13:33:05 | telemetry | Pulled（busybox 镜像已存在） |
+| 13:33:05 | telemetry | Created |
+| 13:33:07 | telemetry | Started |
+| 13:33:07 | nvml-witness | Pulled |
+| 13:33:07 | nvml-witness | Created |
+| 13:33:08 | nvml-witness | Started |
+| 13:33:08 | kernel-witness | Pulled |
+| 13:33:08 | kernel-witness | Created |
+| 13:33:09 | kernel-witness | Started |
+
+**无任何 Warning 事件**。
+
+---
+
+## 七、Prometheus 时间线勘正
+
+### 7.1 范围查询的精确描述
+
+范围查询 `mosaic_test_dcgm_xid_error{run_id="gpu-rca-20261031t121240z"}` 返回 1 条系列，10 个点：
+
+| 点序号 | 时间戳 (Unix) | 时间 (UTC) | 值 |
+|---|---|---|---|
+| 1 | 1793454057 | 13:40:57 | 95 |
+| 2 | 1793454117 | 13:41:17 | 95 |
+| 3 | 1793454177 | 13:41:37 | 95 |
+| 4 | 1793454237 | 13:41:57 | 95 |
+| 5 | 1793454297 | 13:42:17 | 95 |
+| 6 | 1793454357 | 13:42:37 | 95 |
+| 7 | 1793454417 | 13:42:57 | 95 |
+| 8 | 1793454477 | 13:43:17 | 95 |
+| 9 | 1793454537 | 13:43:37 | 95 |
+| 10 | 1793454597 | 13:43:57 | 95 |
+
+- **时间跨度**: 540 秒（13:40:57 至 13:43:57）
+- **步长**: 60 秒
+- **这是采样静态快照重放**（Prometheus 以 60 秒步长从 Pod 的 `/metrics` 端点抓取），不是连续的注入物理错误
+- 告警规则触发时间为 13:43:37，与最后 2 个数据点重叠
+- scrape 间隔约为 5 秒，规则间隔 5 秒 / for 45 秒，UI 轮询 30 秒，range step 60 秒，注入时间戳偏移 60 秒——这些是不同层次的时间概念，不可混淆
+
+---
+
+## 八、知识库对照
+
+引用文件: `mosaic-gpu-evidence-runbook.pdf`（集合 `mosaic-gpu-validation-20261031`）
+
+| 条目 | 引用内容 | 页码 |
+|---|---|---|
+| Xid 95 定义 | "Xid 95 denotes an **uncontained memory error**. It is a serious error classification, not by itself proof of a particular failed memory chip, bank, or replaceable card." | P1 |
+| 缺失系列说明 | "A missing Prometheus Xid/ECC series is an instrumentation gap. It is not a successful zero-error measurement." | P1 |
+| 隔离 DCGM 缓存注入边界 | "DCGM test injection changes samples in a host-engine cache. **Synthetic Xid or ECC samples from one isolated engine are not independent NVML or kernel evidence.**" | P2 |
+| 不一致处置 | "When injected DCGM samples disagree with unchanged live NVML ECC/remap counters and no matching kernel Xid exists, report as **simulated GPU telemetry with insufficient evidence of a live hardware defect**." | P2 |
+| 公开检索验证代码 | **`GPU-CEDAR-7304`** | P2 |
+
+---
+
+## 九、CPU 资源 vs GPU 测试区分
+
+### 本实验（GPU 遥测仿真）
+
+| 资源 | 请求（3 容器合计） | 限制（3 容器合计） |
+|---|---|---|
+| CPU | 15m（每个容器 5m） | 150m（每个容器 50m） |
+| 内存 | 24Mi（每个容器 8Mi） | 96Mi（每个容器 32Mi） |
+
+- 无 `nvidia.com/gpu` 资源请求
+- 无 GPU 设备挂载或 `hostPath`
+- 3 个容器：`telemetry`（httpd 静态文件服务器 + 输出证据 JSON）、`nvml-witness`（打印 NVML 快照）、`kernel-witness`（打印内核快照）
+- busybox 基础镜像，无 GPU 驱动
+
+### 上一轮 CPU 崩溃实验
+
+- 是一个实际的应用 Pod，因 ConfigMap 中 `/fixture/ready` 键缺失而**退出代码 23**
+- 非 CPU 硬件损坏
+- 本 GPU 实验是正常 CPU 托管的 HTTP 重放服务器，通过 3 个容器分别提供 DCGM 缓存快照、NVML 快照和内核快照
+
+两者均使用 CPU 资源，但**受影响的信号/工作负载和取证内容不同**，应分别描述。
+
+---
+
+## 十、根因分析
+
+### 告警根因
+
+**本告警为受控的 DCGM 缓存快照重放测试信号，非物理 GPU 故障。**
+
+Jeff Peng 发起的 GPU 遥测仿真实验：
+1. 在隔离 DCGM 引擎（私有 Unix socket，子进程，受限目录）中启动 `nv-hostengine`
+2. 通过 `dcgmi test --inject` 注入 Xid 95（字段 230）和 ECC 值 1（字段 311、313），时间戳偏移 60 秒
+3. 采集隔离引擎快照后终止引擎进程
+4. replay Pod（busybox httpd）通过 `/metrics` 端点持续暴露缓存中的 Xid 95 值
+5. Prometheus 以 60 秒步长抓取，触发告警规则
+
+### 证据链一致性
+
+| 证据源 | 是否有 Xid 95 / ECC 错误 | 来源/备注 |
+|---|---|---|
+| 隔离 DCGM 缓存（注入目标） | ✅ Xid 95, EDVTL=1, EDATL=1 | `dcgmi dmon` 通过隔离 socket 读取 |
+| 生产 DCGM（端口 5555） | ❌ 全零 | `dcgmi dmon` 直接读取硬件 |
+| NVML 快照（注入前后） | ❌ 全部 0，未变 | `nvidia-smi` 采集 |
+| `DCGM_FI_DEV_UNCORRECTABLE_REMAPPED_ROWS{Hostname="target-node-1",gpu="0"}` | 值 0（存在系列） | 生产 DCGM exporter |
+| `DCGM_FI_DEV_CORRECTABLE_REMAPPED_ROWS{Hostname="target-node-1",gpu="0"}` | 值 0（存在系列） | 生产 DCGM exporter |
+| `DCGM_FI_DEV_ROW_REMAP_FAILURE{Hostname="target-node-1",gpu="0"}` | 值 0（存在系列） | 生产 DCGM exporter |
+| `dcgm_health_active_events{instance="target-node-1.example.invalid:2112"}` | 值 0（ConnectivityFailure） | 生产 DCGM 健康监控 |
+| 内核 dmesg（NVRM/Xid） | ❌ 无匹配行 | 采集快照 |
+
+全部独立硬件证据源与注入的隔离 DCGM 缓存不一致，符合知识库 P2 规定的"仿真遥测、无活硬件故障证据"判定。
+
+### 置信度
+
+- **本轮告警由缓存快照重放导致的置信度**: 高
+- **物理 GPU 故障的证据**: 不足
+- **RMA 适用性**: 不适用
+- **此判定不证明 GPU 永远不会出现硬件故障**
+
+---
+
+## 十一、操作员勘正汇总（本次修正的内容）
+
+| # | 先前的错误 | 已更正为 |
+|---|---|---|
+| 1 | 声称 `--denylist-modules 1..9` 禁用所有硬件、隔离引擎无硬件轮询 | 模块 0（核心）仍运行；隔离引擎仍发现并读取 NVML 设备；隔离是私有 Unix socket + 子进程 + 受限目录 |
+| 2 | 将 `--offset 60` 解释为 TTL/生命周期 | `--offset 60` 是注入样本的时间戳偏移 60 秒未来；夹具无自销毁 |
+| 3 | 暗示直接运行了 `nvidia-smi`/`dmesg` | 仅通过 `kubectl logs` 获取容器日志；日志内容本身是时间戳标记的操作员采集快照 |
+| 4 | 使用 `node="target-node-1"` 标签查询生产 DCGM | 使用正确标签 `Hostname="target-node-1",gpu="0"`，得到 3 条值 0 的系列 |
+| 5 | 使用错误指标名和 `node` 标签查询健康事件；错误解释 `dcgm_health_active_events` | 使用 `instance="target-node-1.example.invalid:2112"` 查询，仅 `GpuDcgmConnectivityFailure=0`；明确这不是完整 ECC 覆盖 |
+| 6 | 范围查询结果描述为"持续 10 秒" | 实际跨度 540 秒、步长 60 秒、10 个采样点，是采样静态快照重放 |
+| 7 | 建议 `dmesg -C` | 更正为建议 `journalctl -k` 只读导出和已批准持久化日志；明确未授权任何 reset/drain/stress 操作 |
+| 8 | 错误描述 CPU 崩溃测试和 Pod 资源 | CPU 实验是退出码 23 的应用 Pod；本实验 3 容器各 5m/8Mi 请求、50m/32Mi 限制，合计 15m/24Mi 请求、150m/96Mi 限制，无 GPU 资源 |
+| 9 | 页码标注不准确 | Xid 95 定义和缺失系列说明在 P1；缓存注入边界和检索代码在 P2 |
+| 10 | 推断超出证据范围 | 限定为"高置信度本轮告警由受控缓存重放引起"；明确这是"证据不足"而非"证明硬件无故障" |
+
+---
+
+## 十二、待验证/未验证能力
+
+| 项目 | 状态 |
+|---|---|
+| 生产 DCGM remap 系列（通过正确 `Hostname` 标签） | ✅ 已验证存在且值为 0 |
+| 全局原始 DCGM Xid 指标 | ⚠️ 缺失（需验证 exporter 字段列表和 scrape 配置） |
+| 内核完整日志覆盖（含历史轮转） | ⚠️ 仅部分快照；需 `journalctl -k` 导出 |
+| NVDebug / BMC dump | ❌ 未授权采集 |
+| Stress 测试 / 生产重置 | ❌ 未授权 |
+| Hardware Agent | ❌ 未启用，未参与 |
+| Feishu 投递 | ❌ 本报告未通过 Feishu 发送，操作员将另行处理 |
+
+---
+
+*报告完成时间: 2026-10-31T13:52 UTC*
+*调查模式: View（只读）*
+*工具: run_kubectl (target-lab), observability_query, observability_range_query, iraop_query (mosaic-gpu-validation-20261031)*

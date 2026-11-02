@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-31T03:41:02.157610+00:00",
+  "sessionKey": "agent:default:validation-iraop-evidence-guard-20261031",
+  "httpStatus": 200,
+  "elapsedSeconds": 11.288497500005178,
+  "rawMessages": 4,
+  "tools": [
+    {
+      "name": "iraop_query",
+      "toolCallId": "call_9aa44b597852457887211081",
+      "isError": false
+    }
+  ],
+  "hasActiveRun": false
+}

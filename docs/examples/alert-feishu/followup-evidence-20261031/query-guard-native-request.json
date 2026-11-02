@@ -1,0 +1,6 @@
+{
+  "prompt": "test from Jeff Peng: read-only IRAOP evidence validation. Call iraop_query exactly once with depth=\"quick\", collections=[\"mosaic-validation-20261031\"], and this question: \"Using only the indexed mosaic-validation-control.pdf, reference MOSAIC-KB-20261031, what public verification code is printed in the Operator Decision and Evidence section on page 2? Cite the exact filename and page inline. Explain whether an automated alert investigation may directly repair a service. Perform the document search and return evidence.\" Report the actual tool outcome honestly. If the tool says incomplete or provides no document evidence, do not invent a code, assert a missing collection, or claim research completed. Do not run commands, use other tools, or mutate anything.\n",
+  "sessionKey": "agent:default:validation-iraop-evidence-guard-20261031",
+  "conciseMode": false,
+  "accessMode": "view"
+}

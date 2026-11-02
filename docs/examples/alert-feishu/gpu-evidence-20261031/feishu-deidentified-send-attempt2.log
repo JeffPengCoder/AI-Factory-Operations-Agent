@@ -1,0 +1,3 @@
+Review payload: /Users/operator/workspace/system-sa/aiops/mosaic-run/alerts/gpu-rca-20261031t121240z/feishu-payload-deidentified.json (16359 UTF-8 bytes before signing)
+Bot API accepted the message. Verify the matching run ID in the destination group.
+{"at": "2026-10-31T14:02:27.638705+00:00", "group": "MOSAIC Alert Test", "runId": "gpu-rca-20261031t121240z", "botApiAccepted": true, "groupReceiptConfirmed": false, "completeResponseFile": "feishu-response-attempt2.json", "credentialValuesSaved": false, "unattendedAcceptance": "NOT_PASSED", "identityDeidentified": true, "semanticCorrectionsToQwenReport": false}

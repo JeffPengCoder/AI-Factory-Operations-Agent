@@ -1,0 +1,20 @@
+{
+  "agents": [
+    {
+      "id": "default",
+      "name": "Jeff's Mosaic Agent",
+      "identity": {
+        "name": "Jeff's Mosaic Agent"
+      }
+    }
+  ],
+  "sessions": {
+    "dmScope": "per-channel-peer"
+  },
+  "feishu": {
+    "enabled": true,
+    "groupPolicy": "allowlist",
+    "allowUserCount": 1,
+    "allowGroupCount": 1
+  }
+}

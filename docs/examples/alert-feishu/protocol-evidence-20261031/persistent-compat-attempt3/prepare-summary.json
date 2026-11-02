@@ -1,0 +1,239 @@
+{
+  "at": "2026-10-31T06:34:05.412889+00:00",
+  "baseRevision": 13,
+  "chartVersionBefore": "0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031",
+  "chartVersionAfter": "0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031.startup2",
+  "chartPath": "/home/spark-user/.local/share/mosaic-validation-20261031/research-protocol-20261031/persistent-compat-attempt3/mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031.startup2.tgz",
+  "changeScope": [
+    {
+      "path": "files/llm-compat-server.mjs",
+      "bytes": 12333,
+      "sha256": "2148316a0dcd1a92e61c13519249f70be3439fdea0a9d772d40821ab2e146fc2"
+    },
+    {
+      "path": "templates/llm-compat.yaml",
+      "bytes": 3891,
+      "sha256": "146d9f2e3aaeaf7bf2edc74914224d283cdaa7f64a7a4ee7ad15c17050205aca"
+    }
+  ],
+  "originalChartSha256": "0903316df51457cc4f80f65cf1aa1b951c3fe501117a905d20e27824168d4545",
+  "renderedProxySha256": "2148316a0dcd1a92e61c13519249f70be3439fdea0a9d772d40821ab2e146fc2",
+  "existingSecretDataUnchangedInServerDryRun": true,
+  "checkedSecretNames": [
+    "mosaic-cluster-monitor-auth",
+    "mosaic-ui-auth",
+    "openclaw-secrets"
+  ],
+  "applicationSecretsCompared": 12,
+  "noEditorBinding": true,
+  "researchToolCallsEnabled": true,
+  "auditEnabledForValidation": true,
+  "renderedResources": [
+    {
+      "kind": "Namespace",
+      "namespace": null,
+      "name": "agent-sandbox-system"
+    },
+    {
+      "kind": "NetworkPolicy",
+      "namespace": null,
+      "name": "opensearch-allow-iraop-only"
+    },
+    {
+      "kind": "ServiceAccount",
+      "namespace": null,
+      "name": "mosaic-openshell"
+    },
+    {
+      "kind": "ServiceAccount",
+      "namespace": "mosaic",
+      "name": "mosaic-openshell-sandbox"
+    },
+    {
+      "kind": "ServiceAccount",
+      "namespace": "agent-sandbox-system",
+      "name": "agent-sandbox-controller"
+    },
+    {
+      "kind": "ServiceAccount",
+      "namespace": null,
+      "name": "openclaw"
+    },
+    {
+      "kind": "Secret",
+      "namespace": null,
+      "name": "mosaic-cluster-monitor-auth"
+    },
+    {
+      "kind": "Secret",
+      "namespace": null,
+      "name": "mosaic-ui-auth"
+    },
+    {
+      "kind": "Secret",
+      "namespace": null,
+      "name": "openclaw-secrets"
+    },
+    {
+      "kind": "ConfigMap",
+      "namespace": null,
+      "name": "mosaic-openshell-config"
+    },
+    {
+      "kind": "ConfigMap",
+      "namespace": null,
+      "name": "iraop-config"
+    },
+    {
+      "kind": "ConfigMap",
+      "namespace": null,
+      "name": "llm-openai-compat"
+    },
+    {
+      "kind": "ConfigMap",
+      "namespace": null,
+      "name": "openclaw-seed"
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "namespace": null,
+      "name": "openclaw-home-pvc"
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "namespace": null,
+      "name": "mosaic-cluster-monitor"
+    },
+    {
+      "kind": "PersistentVolumeClaim",
+      "namespace": null,
+      "name": "mosaic-audit-log"
+    },
+    {
+      "kind": "ClusterRole",
+      "namespace": null,
+      "name": "mosaic-openshell-node-reader"
+    },
+    {
+      "kind": "ClusterRole",
+      "namespace": null,
+      "name": "agent-sandbox-controller"
+    },
+    {
+      "kind": "ClusterRole",
+      "namespace": null,
+      "name": "mosaic-mosaic-stack-mosaic-05387cc7-oc-reader"
+    },
+    {
+      "kind": "ClusterRoleBinding",
+      "namespace": null,
+      "name": "mosaic-openshell-node-reader"
+    },
+    {
+      "kind": "ClusterRoleBinding",
+      "namespace": null,
+      "name": "agent-sandbox-controller"
+    },
+    {
+      "kind": "ClusterRoleBinding",
+      "namespace": null,
+      "name": "mosaic-mosaic-stack-mosaic-05387cc7-oc-reader"
+    },
+    {
+      "kind": "Role",
+      "namespace": "mosaic",
+      "name": "mosaic-openshell-sandbox"
+    },
+    {
+      "kind": "RoleBinding",
+      "namespace": "mosaic",
+      "name": "mosaic-openshell-sandbox"
+    },
+    {
+      "kind": "Service",
+      "namespace": null,
+      "name": "mosaic-openshell"
+    },
+    {
+      "kind": "Service",
+      "namespace": null,
+      "name": "iraop"
+    },
+    {
+      "kind": "Service",
+      "namespace": null,
+      "name": "opensearch-headless"
+    },
+    {
+      "kind": "Service",
+      "namespace": null,
+      "name": "opensearch"
+    },
+    {
+      "kind": "Service",
+      "namespace": "agent-sandbox-system",
+      "name": "agent-sandbox-controller"
+    },
+    {
+      "kind": "Service",
+      "namespace": null,
+      "name": "llm-openai-compat"
+    },
+    {
+      "kind": "Service",
+      "namespace": null,
+      "name": "mosaic-cluster-monitor"
+    },
+    {
+      "kind": "Service",
+      "namespace": null,
+      "name": "mosaic-ui"
+    },
+    {
+      "kind": "Service",
+      "namespace": null,
+      "name": "openclaw"
+    },
+    {
+      "kind": "Deployment",
+      "namespace": null,
+      "name": "iraop"
+    },
+    {
+      "kind": "Deployment",
+      "namespace": null,
+      "name": "llm-openai-compat"
+    },
+    {
+      "kind": "Deployment",
+      "namespace": null,
+      "name": "mosaic-cluster-monitor"
+    },
+    {
+      "kind": "Deployment",
+      "namespace": null,
+      "name": "mosaic-ui"
+    },
+    {
+      "kind": "Deployment",
+      "namespace": null,
+      "name": "openclaw"
+    },
+    {
+      "kind": "StatefulSet",
+      "namespace": null,
+      "name": "mosaic-openshell"
+    },
+    {
+      "kind": "StatefulSet",
+      "namespace": null,
+      "name": "opensearch"
+    },
+    {
+      "kind": "StatefulSet",
+      "namespace": "agent-sandbox-system",
+      "name": "agent-sandbox-controller"
+    }
+  ],
+  "sharedModelRestarted": false
+}

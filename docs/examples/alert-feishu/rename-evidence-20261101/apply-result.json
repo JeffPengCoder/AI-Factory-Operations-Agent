@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-01T13:35:08.429007+00:00",
+  "exitCode": 0,
+  "revision": 18,
+  "releaseStatus": "deployed",
+  "agentId": "default",
+  "agentDisplayName": "Jeff's Mosaic Agent",
+  "identityName": "Jeff's Mosaic Agent",
+  "appSecretsUnchanged": true,
+  "sharedModelUnchanged": true
+}

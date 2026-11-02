@@ -1,0 +1,6 @@
+{
+  "callback_type": "websocket",
+  "subscribed_callbacks": [
+    "card.action.trigger"
+  ]
+}

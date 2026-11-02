@@ -1,0 +1,361 @@
+✔ recognizes cluster-monitor automation (0.711667ms)
+✔ recognizes alert automation (0.052708ms)
+✔ does not trust unrelated session names (0.055875ms)
+✔ defaults conversations to view and never enables automation edits (0.086625ms)
+✔ allows mutations only when editing is enabled and the conversation permits it (0.188625ms)
+✔ uses verified Slack identity access without changing non-Slack sessions (0.44625ms)
+✔ fails closed when a Slack Edit run has no identity approval broker (0.061ms)
+✔ projects and registers access state in every approval-owning plugin (0.50575ms)
+✔ separates sandbox execution from external tool permissions (0.250375ms)
+✔ applies explicit per-server MCP tool access without trusting unknown servers (0.139042ms)
+✔ View permits dashboard authoring while infrastructure changes still require Edit (0.050917ms)
+✔ runs BCM tools locally and sends command execution over SSH (0.439375ms)
+✔ does not permit BCM configuration to disable TLS verification (1.053292ms)
+✔ keeps readonly and admin CMSH on separate tools and identities (0.186083ms)
+✔ requires approval for BCM mutation tools (0.103708ms)
+✔ uses per-session Auto to skip BCM approvals without weakening automation (0.070459ms)
+✔ retains the authenticated admin backend without readonly fallback (0.076666ms)
+✔ startup-loads the Kubernetes approval hook (1.854416ms)
+✔ startup-loads one shared diagnostic policy (195.735958ms)
+✔ startup removes managed plugins before applying the enabled module set (86.297041ms)
+✔ startup-loads the remote SSH approval hook (0.199625ms)
+✔ startup-loads the automation read-only guard (202.725875ms)
+✔ preserves memory maintenance with embedding-free indexed recall (64.127458ms)
+﹣ native memory indexes Markdown and preserves appended notes across restarts (0.062042ms) # SKIP
+✔ generates one internal Hardware Agent credential for the service and OpenClaw (60.927583ms)
+✔ preserves the secured Hardware Agent image entrypoint (70.638ms)
+✔ wires Hardware Agent BCM lookup through the internal SSH adapter (58.705208ms)
+✔ applies global scheduling controls to the Hardware Agent (69.512167ms)
+✔ requires the BCM SSH adapter for Hardware Agent installs (67.495208ms)
+✔ renders only official OpenClaw and OpenShell runtime images (52.8255ms)
+✔ pins every default runtime image (53.184916ms)
+✔ renders namespace labeling with the configured kubectl image (62.064208ms)
+✔ pins the UI to an immutable commit tag (64.192791ms)
+✔ protects the UI with a generated login (56.449959ms)
+✔ authenticates internal UI callbacks with one machine credential (181.632209ms)
+✔ uses an existing UI auth secret for browser and machine credentials (119.469667ms)
+✔ seeds BCM manuals without deployment-time network access (199.116417ms)
+✔ uses NMC observability services by default (54.164083ms)
+✔ configures the Alertmanager endpoint (125.844ms)
+✔ shares the managed Research Agent corpus with the UI (63.925625ms)
+✔ shares the managed Research Agent credential with OpenClaw (66.256709ms)
+✔ generates a bearer credential with a chart-managed Research Agent Secret (63.278084ms)
+✔ uses one no-reasoning request contract for external endpoints (60.381041ms)
+✔ research compatibility is opt-in and requires the research module (125.132541ms)
+✔ the rendered compatibility server is the tested source file (61.514459ms)
+✔ a compatibility source change rolls the proxy without a chart version change (227.503875ms)
+✔ configures chart-managed vLLM for non-thinking generation (179.058333ms)
+✔ defaults to a single Super inference pod with one GPU (59.538292ms)
+✔ the Ultra profile uses four GPUs in a single inference pod (60.103708ms)
+✔ rejects removed distributed inference and mismatched GPU allocation (102.507459ms)
+✔ renders the OpenShell backend with mTLS under XDG_CONFIG_HOME (52.6925ms)
+✔ installs the verified OpenShell package through OpenClaw (59.521416ms)
+✔ does not render Slack runtime behavior when disabled (51.624792ms)
+✔ renders native Slack Socket Mode with isolated execution (52.108625ms)
+✔ restricts Slack channel mentions to approved users (51.874416ms)
+✔ configures Slack group DMs, replies, and streaming (52.912917ms)
+✔ rejects incomplete native Slack configuration (67.990334ms)
+✔ does not render web search when disabled (119.329167ms)
+✔ enables key-free DuckDuckGo web search by default (185.452ms)
+✔ renders Brave web search when selected (121.652791ms)
+✔ web search adds only its own OpenClaw config (184.676708ms)
+✔ rejects incomplete web search configuration (137.936084ms)
+✔ provides a Slack app manifest for approved DMs and mentions (0.225958ms)
+✔ keeps Slack messaging access broad while granting Edit to explicit identities (50.902375ms)
+✔ omits Slack identity and exec approval configuration when Slack is disabled (51.472333ms)
+✔ validates Slack edit identities without weakening the messaging allowlist (66.773459ms)
+✔ patches Slack Enterprise Grid workspace events without weakening app checks (53.47925ms)
+✔ exposes only blueprint-owned skills to OpenClaw agents (61.749541ms)
+✔ renders named external Kubernetes clusters from Secrets (54.569833ms)
+✔ renders read-only Kubernetes RBAC including metrics without Secrets or pod execution (58.555667ms)
+✔ renders workload editor and pod exec RBAC for OpenClaw when edit mode is enabled (60.954375ms)
+✔ binds an installer-supplied editor role without rendering a duplicate role (59.748792ms)
+✔ seeds edit mode and approval settings into Kubernetes and BCM plugins (181.581916ms)
+✔ tells the assistant about session access modes only when editing is enabled (105.329375ms)
+✔ renders an authenticated BCM admin path only for BCM edit mode (55.5415ms)
+✔ keeps the managed BCM adapter read-only when edit mode is disabled (53.375958ms)
+✔ exposes edit and HITL state to the UI without changing their defaults (181.190709ms)
+✔ validates edit mode dependencies and backend configuration (387.858625ms)
+✔ renders constrained remote SSH only in the OpenClaw pod (124.005875ms)
+✔ omits remote SSH credentials and plugin files by default (119.709625ms)
+✔ omits every terminal workload resource when the module is disabled (52.506709ms)
+✔ renders the terminal service from the UI image with isolated read-only access (114.302333ms)
+✔ rejects terminal deployments without their required modules (102.867791ms)
+✔ omits the cluster monitor when its module is disabled (51.770791ms)
+✔ renders a credential-isolated persistent cluster monitor from configured targets (117.679458ms)
+✔ validates cluster monitor dependencies and configuration (237.031458ms)
+✔ installs a checksum-pinned upstream kubectl binary (59.912042ms)
+✔ packages every Kubernetes plugin module into the OpenClaw seed (120.180083ms)
+✔ creates the base workspace when every optional skill module is disabled (51.071875ms)
+✔ initializes a fresh OpenClaw workspace before seeding it (60.369959ms)
+✔ preserves the Slurm evidence apiVersion after its SPDX header (60.801ms)
+✔ shares a generated credential between OpenClaw and the Slurm evidence collector (52.228125ms)
+✔ rejects an unregistered default Kubernetes cluster (33.869333ms)
+✔ preloads selected skill instructions from their authoritative files (124.257375ms)
+✔ packaged product and GPU documentation installs locally with research, UI and BCM disabled (298.722833ms)
+✔ workspace and audit storage use the cluster default unless overridden (122.765083ms)
+✔ configures optional Loki access without exposing its credential to UI or sandbox (299.189583ms)
+✔ external inference can trust a site CA with or without the compatibility proxy (210.364166ms)
+✔ configures a tenant-scoped VictoriaMetrics backend and native Grafana datasource (184.019125ms)
+✔ deployment reference reflects module settings without exporting credentials (118.67325ms)
+✔ allows bounded read-only diagnostic argv (0.695125ms)
+✔ rejects mutation flags, arbitrary programs, paths, and shell syntax (0.162292ms)
+✔ routes Hardware Agent requests through the hardware backend (0.5ms)
+(node:83079) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+[iraop-plugin] query: opening SSE http://127.0.0.1:58792/mcp/sse
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:58792/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:58811/mcp/sse
+✔ planning text without sources is incomplete and emits an error event (39.838083ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:58811/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:58820/mcp/sse
+✔ fabricated source-free answer stays complete in details and is withheld from model content (18.835791ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:58820/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:58832/mcp/sse
+✔ research with missing sources is incomplete (13.282041ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:58832/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:58841/mcp/sse
+✔ research with null sources is incomplete (15.500125ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:58841/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:58857/mcp/sse
+✔ research with wrong type sources is incomplete (12.71525ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:58857/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:58878/mcp/sse
+✔ research with empty reference sources is incomplete (13.761291ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:58878/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:58894/mcp/sse
+✔ research with invalid page sources is incomplete (14.115959ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:58894/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:58918/mcp/sse
+✔ an empty answer is incomplete even when a source is present (13.2485ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:58918/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:58939/mcp/sse
+✔ valid sourced answer remains complete and evidence notes do not mutate raw details (12.043417ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:58939/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:58957/mcp/sse
+✔ structured MCP query payload can carry the source references (13.28975ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:58957/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] query: opening SSE http://127.0.0.1:58975/mcp/sse
+✔ unreadable research payload is incomplete with the raw response retained (13.416375ms)
+[iraop-plugin] query: SSE open, status=200
+[iraop-plugin] query: got endpoint http://127.0.0.1:58975/mcp/messages?session=1
+[iraop-plugin] query: session ready, sending initialize
+[iraop-plugin] query: initialize ok, sending notifications/initialized
+[iraop-plugin] query: calling tools/call name=query
+[iraop-plugin] query: tools/call returned ok
+[iraop-plugin] list_collections: opening SSE http://127.0.0.1:58984/mcp/sse
+✔ MCP error remains a rejected tool call and error event (12.684583ms)
+[iraop-plugin] list_collections: SSE open, status=200
+[iraop-plugin] list_collections: got endpoint http://127.0.0.1:58984/mcp/messages?session=1
+[iraop-plugin] list_collections: session ready, sending initialize
+[iraop-plugin] list_collections: initialize ok, sending notifications/initialized
+[iraop-plugin] list_collections: calling tools/call name=list_collections
+[iraop-plugin] list_collections: tools/call returned ok
+✔ collection listing does not require answer or sources fields (600.280041ms)
+✔ allows kubectl get pods -A -o wide (0.953042ms)
+✔ allows kubectl get deployments -n mosaic (0.059833ms)
+✔ allows kubectl describe pod openclaw-0 -n mosaic (0.049125ms)
+✔ allows kubectl logs openclaw-0 -n mosaic --tail=100 (0.050584ms)
+✔ allows kubectl top pods -A (0.048458ms)
+✔ allows kubectl explain deployment.spec (0.033333ms)
+✔ allows kubectl api-resources (0.036625ms)
+✔ allows kubectl api-versions (0.037666ms)
+✔ allows kubectl cluster-info (0.042875ms)
+✔ allows kubectl version --client (0.076125ms)
+✔ allows kubectl auth can-i get pods (0.043334ms)
+✔ allows kubectl auth can-i get secrets (0.035459ms)
+✔ rejects kubectl create namespace forbidden (0.096417ms)
+✔ rejects kubectl apply -f manifest.yaml (0.031375ms)
+✔ rejects kubectl delete pod openclaw-0 (0.028833ms)
+✔ rejects kubectl patch deployment openclaw -p {} (0.033ms)
+✔ rejects kubectl exec openclaw-0 -- id (0.024667ms)
+✔ rejects kubectl port-forward pod/openclaw-0 8080:80 (0.02225ms)
+✔ rejects kubectl get secrets -A (0.03375ms)
+✔ rejects kubectl describe secret/api-key (0.046042ms)
+✔ rejects kubectl config view --raw (0.035667ms)
+✔ rejects kubectl get pods --server=https://example.invalid (0.031625ms)
+✔ rejects kubectl get pods -s https://example.invalid (0.034833ms)
+✔ rejects kubectl get pods --kubeconfig /tmp/admin (0.022208ms)
+✔ rejects kubectl get pods --cluster admin (0.023333ms)
+✔ rejects kubectl get pods --token=secret (0.02075ms)
+✔ rejects kubectl get pods --user admin (0.026167ms)
+✔ rejects kubectl get pods --as cluster-admin (0.026958ms)
+✔ rejects kubectl cluster-info dump (0.022917ms)
+✔ rejects kubectl auth reconcile -f rbac.yaml (0.0225ms)
+✔ rejects malformed argument arrays (0.054208ms)
+✔ exec forwards supplied input only with a client stdin option (0.734334ms)
+✔ validates arbitrary exact admin argv and optional stdin (0.268167ms)
+✔ keeps mutation out of the read tool and protects admin credentials (0.864792ms)
+✔ resolves only registered clusters (0.075959ms)
+✔ applies installer-owned API endpoint overrides outside model arguments (0.046041ms)
+✔ accepts structured registered cluster settings in the plugin schema (0.260875ms)
+✔ blocks kubectl fallback through exec without blocking ordinary shell commands (0.222375ms)
+✔ registers the exec guard through OpenClaw's trusted tool policy (0.316583ms)
+✔ instructs the agent to report a Kubernetes policy denial (0.136333ms)
+✔ makes the per-session access mode authoritative (0.174667ms)
+✔ separates exec payload options from kubectl connection options (0.227167ms)
+✔ returns exit status and redacts the kubeconfig path (957.719541ms)
+✔ enforces the combined output limit (19.905959ms)
+✔ terminates commands after the configured timeout (21.182542ms)
+✔ reports command launch failures (0.705542ms)
+✔ passes an apply manifest only over stdin (9.6705ms)
+✔ preserves raw command streams and structured execution metadata (0.322208ms)
+✔ disabled research compatibility preserves the existing no-reasoning contract and raw reply (55.173542ms)
+✔ normalizes only complete named query arguments and retains the full original audit (81.935666ms)
+✔ already structured named calls pass through byte for byte (7.521458ms)
+✔ explicit none is forwarded without a forced search or response rewrite (8.827041ms)
+✔ another named tool is forwarded without a forced search or response rewrite (6.208583ms)
+✔ post-search synthesis is forwarded without a forced search or response rewrite (7.980417ms)
+✔ subagent without task is forwarded without a forced search or response rewrite (8.877416ms)
+✔ unrelated OpenClaw tools is forwarded without a forced search or response rewrite (3.824875ms)
+✔ multiple requested choices is forwarded without a forced search or response rewrite (4.155334ms)
+✔ a different search schema is forwarded without a forced search or response rewrite (4.757292ms)
+✔ nonstream callers receive real tool arguments and complete provider usage (12.696917ms)
+✔ handles complete gzip upstream frames (4.515334ms)
+✔ handles complete deflate upstream frames (4.940292ms)
+✔ handles complete br upstream frames (4.984542ms)
+✔ rejects unsupported arguments without inventing a call: I will search. {"query":"a"} (19.636916ms)
+✔ rejects unsupported arguments without inventing a call: {"query": (13.959834ms)
+✔ rejects unsupported arguments without inventing a call: {"query":""} (11.988875ms)
+✔ rejects unsupported arguments without inventing a call: {"query":123} (8.126875ms)
+✔ rejects unsupported arguments without inventing a call: {} (9.653583ms)
+✔ rejects unsupported arguments without inventing a call: [] (8.082042ms)
+✔ rejects unsupported arguments without inventing a call: {"query":"a","unexpected":"b"} (8.597917ms)
+✔ missing terminator cannot become a successful tool call (2.390083ms)
+✔ token exhaustion cannot become a successful tool call (3.088375ms)
+✔ filtered output cannot become a successful tool call (2.864041ms)
+✔ upstream failures preserve their status and complete body (2.291375ms)
+✔ unexpected tools cannot replace the explicitly selected read-only search (1.860459ms)
+✔ oversized buffered responses fail instead of truncating arguments (2.141667ms)
+✔ an upstream timeout returns an error rather than a fabricated tool result (28.478208ms)
+✔ health does not call the model or create an audit (2.541917ms)
+✔ Loki is opt-in, read-only, and rejects credentials in URLs (0.79975ms)
+✔ discovers labels and queries bounded timestamped logs with operator credentials (42.759625ms)
+✔ Loki registers without Prometheus and absent endpoints register no query tools (3.550208ms)
+✔ numeric LogQL preserves complete labeled samples for instant and range evaluations (9.710625ms)
+✔ does not deploy managed MCP servers by default (107.293791ms)
+✔ deploys and registers a hardened managed MCP server (171.901667ms)
+✔ passes container arguments and secret-backed native MCP headers (201.010083ms)
+✔ mounts an optional private CA only in the managed server (129.939209ms)
+✔ rejects unsafe or incomplete managed MCP definitions (136.635417ms)
+✔ registers installer-defined external MCP without deploying a server or changing the UI (244.385833ms)
+✔ rejects unsafe external MCP definitions (182.986083ms)
+✔ accepts an in-cluster external MCP service (61.158792ms)
+✔ registers Run:ai and external MCP with separate installer policies (65.929917ms)
+✔ renews expiring tokens and shares concurrent requests (0.806125ms)
+✔ streams MCP responses through the authenticated proxy (23.370208ms)
+✔ dashboard_create (prometheus) routes mixed panels to their datasources and rejects failed validation (67.939167ms)
+✔ dashboard_create (victoriametrics-metrics-datasource) routes mixed panels to their datasources and rejects failed validation (32.201209ms)
+✔ grafana_dashboard_create (prometheus) routes mixed panels to their datasources and rejects failed validation (34.15225ms)
+✔ grafana_dashboard_create (victoriametrics-metrics-datasource) routes mixed panels to their datasources and rejects failed validation (24.8045ms)
+✔ suppresses a completed replay without persisting arguments (27.403791ms)
+✔ suppresses a concurrent replay while the first call is running (23.915083ms)
+✔ records failure and rejects reuse with different arguments (44.428959ms)
+✔ missing-command results preserve execution evidence and add recovery context (0.721708ms)
+✔ other exit statuses and policy denials preserve their existing results (0.073292ms)
+✔ resolves configured hosts and preserves exact argv through POSIX quoting (0.2185ms)
+✔ accepts explicit shell argv while rejecting a raw command parameter (0.145958ms)
+✔ rejects unknown hosts and all connection override fields (0.170833ms)
+✔ rejects malformed argv and nested SSH clients (0.104958ms)
+✔ builds only fixed hardened SSH connection options (0.218333ms)
+✔ redacts all credential paths from process output (0.126125ms)
+✔ blocks remote SSH in readonly automation sessions (0.262584ms)
+✔ does not deploy Run:ai by default (77.949292ms)
+✔ implements Run:ai through the managed MCP module (164.260291ms)
+✔ rejects unsafe Run:ai overrides (184.488875ms)
+✔ openclaw tool init removes read-only files before rewriting them (95.258709ms)
+✔ terminal kubectl init removes the read-only binary before rewriting it (77.14775ms)
+✔ Slack approval buttons bind the decision to the requesting Edit user (23.804708ms)
+✔ Slack approval broker denies users outside the Edit identity list (0.153583ms)
+✔ keeps an approved failed attempt separate from a denied retry (51.672042ms)
+✔ authenticates evidence reads and rejects symlink escapes (68.952375ms)
+✔ reads only the last MAX_FILE_BYTES of a large file (31.887208ms)
+✔ metrics discovery and queries preserve the configured API prefix (root) (19.054333ms)
+✔ metrics discovery and queries preserve the configured API prefix (/select/23/prometheus) (8.001542ms)
+﹣ VictoriaMetrics serves discovery, MetricsQL instant queries and historical queries (0.083791ms) # SKIP
+✔ generated selection renders in Helm: {"modules":[]} (69.0925ms)
+✔ generated selection renders in Helm: {"modules":["terminal"]} (59.232875ms)
+✔ generated selection renders in Helm: {"modules":["slurm"]} (57.714792ms)
+✔ generated selection renders in Helm: {"modules":["slurm"],"slurmBackend":"vanilla"} (53.533083ms)
+✔ generated selection renders in Helm: {"modules":["kubernetes","prometheus","alertmanager","loki","grafana","bcm","slurm","diagnostics","research","terminal","edit","clusters"]} (68.491834ms)
+✔ generated selection renders in Helm: {"inference":"super","modules":["terminal"]} (81.568ms)
+✔ generated selection renders in Helm: {"inference":"ultra","modules":["grafana"]} (78.859167ms)
+✔ dependencies are derived without changing requested modules (0.463208ms)
+✔ shell metacharacters remain literal arguments and Helm list separators are escaped (12.670542ms)
+✔ pinning replaces the development selector (5.977625ms)
+✔ Loki connection settings remain optional and use Secret references (18.906875ms)
+✔ builder covers every module toggle and observability connection setting (39.112042ms)
+✔ each observability service is independently selectable and clears other endpoints (23.836458ms)
+✔ Kubernetes quantities preserve decimal and binary units (0.290875ms)
+✔ pod scheduling footprint sums app containers and takes init peak before replicas (0.127084ms)
+✔ selection deduplicates dependencies and merges shared workload init containers (0.147125ms)
+✔ composed footprints match direct Helm renders across inference and module selections (18564.413333ms)
+✔ Grafana datasource type preserves the default or configured selection: undefined (9.834166ms)
+✔ Grafana datasource type preserves the default or configured selection: victoriametrics-metrics-datasource (8.398042ms)
+✔ stdio bridge exposes and invokes tools without a token (154.063917ms)
+✔ stdio bridge exposes and invokes tools with a token (151.545666ms)
+✔ tracked source files carry the approved NVIDIA SPDX header (33.693708ms)
+✔ tracked Markdown outside Helm does not use the cluster manager acronym (31.006959ms)
+ℹ tests 260
+ℹ suites 0
+ℹ pass 258
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 2
+ℹ todo 0
+ℹ duration_ms 19436.4965

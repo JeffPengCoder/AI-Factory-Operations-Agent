@@ -1,0 +1,12 @@
+secret/mosaic-validation-ssh
+==> Linting /home/spark-user/.local/share/mosaic-validation-20261031/baseline/chart.tgz
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+Release "mosaic" has been upgraded. Happy Helming!
+NAME: mosaic
+LAST DEPLOYED: Sat Oct 31 10:13:36 2026
+NAMESPACE: mosaic
+STATUS: deployed
+REVISION: 10
+TEST SUITE: None

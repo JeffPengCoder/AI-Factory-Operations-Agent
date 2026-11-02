@@ -1,0 +1,29 @@
+{
+  "messages": [
+    {
+      "content": "Using only the indexed mosaic-validation-control.pdf, reference MOSAIC-KB-20261031, what public verification code is printed in the Operator Decision and Evidence section on page 2? Cite the exact filename and page inline. Explain whether an automated alert investigation may directly repair a service. Perform the document search and return evidence.",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": "51177a6b-e5e1-4eab-8ba0-4cbcaa4d81a5"
+    },
+    {
+      "content": "\n\nI'll search for the indexed PDF document and gather the required information.\n\n",
+      "additional_kwargs": {},
+      "response_metadata": {
+        "finish_reason": "stop",
+        "model_name": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+        "system_fingerprint": "vllm-0.21.0+2325b6f0.dev-9f46b229",
+        "model_provider": "openai"
+      },
+      "type": "ai",
+      "name": null,
+      "id": "lc_run--01a18fe7-7fe4-7861-a841-c0ab55fd6906",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": null
+    }
+  ],
+  "files": {}
+}

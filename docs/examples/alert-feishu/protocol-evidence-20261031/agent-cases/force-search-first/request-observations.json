@@ -1,0 +1,14 @@
+[
+  {
+    "sequence": 1,
+    "toolCount": 10,
+    "toolChoice": {
+      "type": "function",
+      "function": {
+        "name": "opensearch_search"
+      }
+    },
+    "lastMessageRole": "user",
+    "intervention": "force exactly the first model call to the actual opensearch_search tool"
+  }
+]

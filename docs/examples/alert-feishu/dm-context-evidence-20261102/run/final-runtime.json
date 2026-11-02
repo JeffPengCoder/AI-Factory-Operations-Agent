@@ -1,0 +1,180 @@
+{
+  "helm": {
+    "revision": 18,
+    "updated": "2026-11-01T21:34:04.909729131+08:00",
+    "status": "deployed",
+    "chart": "mosaic-stack-0.0.2-main.20261007233259.g4f4a6e75+teams71.20261029.iraop-evidence.20261031.2.research-tools.20261031.startup2",
+    "app_version": "4f4a6e7514837703ccac1d287f915fde767c07f3",
+    "description": "Rename default agent display/identity to Jeff's Mosaic Agent; preserve routes and sessions"
+  },
+  "pods": [
+    {
+      "name": "iraop-cb7877-nmpw7",
+      "uid": "7993d92e-bcb0-4ebc-992a-28608bbd5e95",
+      "ready": true
+    },
+    {
+      "name": "llm-openai-compat-58bd8857f4-d5f8k",
+      "uid": "2bd6c507-e9a1-4f30-84de-c23f47b8ad43",
+      "ready": true
+    },
+    {
+      "name": "mosaic-cluster-monitor-76fd6d7cb5-5l5m6",
+      "uid": "b973a853-ae9c-4270-8f91-bdd25548e248",
+      "ready": true
+    },
+    {
+      "name": "mosaic-openshell-0",
+      "uid": "43644e83-65d5-4fbb-a056-e1a15ffa5b98",
+      "ready": true
+    },
+    {
+      "name": "mosaic-ui-677489c76b-bf8cm",
+      "uid": "130d2a4e-09f9-4adf-9b05-611012790720",
+      "ready": true
+    },
+    {
+      "name": "openclaw-b784fd979-872k9",
+      "uid": "02fad834-25b3-4e87-bfa5-dad4f58876c5",
+      "ready": true
+    },
+    {
+      "name": "opensearch-0",
+      "uid": "27765858-cfcc-43a5-a8d5-6ae532edacec",
+      "ready": true
+    }
+  ],
+  "secretFingerprints": {
+    "iraop-secrets": {
+      "uid": "4c49f466-981b-40e8-9798-e1df17bbeab4",
+      "keys": [
+        "EMBEDDING_API_KEY",
+        "IRAOP_API_KEY",
+        "NVIDIA_API_KEY",
+        "NVIDIA_CHAT_API_KEY"
+      ],
+      "sha256": "6c1a829346dad9f0f4c8445c1d28b05db04dea4a74afe449753d0d40cc1ac51c"
+    },
+    "l20-lab-kubeconfig": {
+      "uid": "77691a8b-0c32-4f30-a95c-97069bbfc740",
+      "keys": [
+        "config"
+      ],
+      "sha256": "0977ed2c6b49cfed1461a79e3124bae9e28f71d5129a4c1fa1a2a161e28edb13"
+    },
+    "mosaic-cluster-monitor-auth": {
+      "uid": "e502f8eb-9bc4-4bdf-8ad8-c3ba599ec190",
+      "keys": [
+        "token"
+      ],
+      "sha256": "0c5365c999f249164b5d68392f374ffa013769bc747b356a9bbad4ed4fabf213"
+    },
+    "mosaic-external-llm": {
+      "uid": "2e55cc61-36ab-4fb7-9271-2a27b431bbc1",
+      "keys": [
+        "apiKey"
+      ],
+      "sha256": "0525c30fa42cc179b01a5d90bcd6c44217d2a5d0af0e717405b7056fccaeed18"
+    },
+    "mosaic-feishu": {
+      "uid": "5913eb5f-17b4-4691-b1b2-a9442aeb0aec",
+      "keys": [
+        "FEISHU_APP_ID",
+        "FEISHU_APP_SECRET"
+      ],
+      "sha256": "09e8936e7a17f8cccec6550e2f0b51ebbd06acc8f8940d2ca4e7333bae6a79b9"
+    },
+    "mosaic-grafana-auth": {
+      "uid": "ce2ed6a0-5c9f-42a6-b114-a3652f24ce55",
+      "keys": [
+        "password",
+        "username"
+      ],
+      "sha256": "90be37dfc250046ba7a636aa661e80663ff23e01ca1323752462e1ee08557aa4"
+    },
+    "mosaic-openshell-jwt-keys": {
+      "uid": "ebbce304-637b-4b80-b86d-469f254f05ad",
+      "keys": [
+        "kid",
+        "public.pem",
+        "signing.pem"
+      ],
+      "sha256": "8c175ffedff1f72817e86dda1da2e4cecfed5856bc2c44240e2b4590e5216989"
+    },
+    "mosaic-ui-auth": {
+      "uid": "4c89c05c-8041-406b-baa1-8231f45a38b4",
+      "keys": [
+        "machineToken",
+        "password",
+        "username"
+      ],
+      "sha256": "68ed9a025b45b058b5dbb9c1babd3640327ae30cc47b8ce225a672bb476dc59e"
+    },
+    "mosaic-validation-ssh": {
+      "uid": "a06fa1c9-f929-471d-832a-265b29f374e5",
+      "keys": [
+        "knownHosts",
+        "privateKey"
+      ],
+      "sha256": "d0bb9d7d491da43c0b710fea1f9767e34c67e15792718e37e11f0a16ee2028f8"
+    },
+    "nvcr-image-pull-secret": {
+      "uid": "883549bf-7bd0-4229-9f1f-0079332793ff",
+      "keys": [
+        ".dockerconfigjson"
+      ],
+      "sha256": "8c872468b6075ada99132754b690806326937968f83e391dcf13b599bb3158a3"
+    },
+    "openclaw-secrets": {
+      "uid": "1c089b24-48ee-4f6d-b796-3390d8ac6cdd",
+      "keys": [
+        "OPENCLAW_GATEWAY_TOKEN"
+      ],
+      "sha256": "678ac9ed8add030d5681fb2ab3ab8ddaebe6a2f20ad6f5836d2ac66cdb6e84be"
+    },
+    "openshell-client-tls": {
+      "uid": "b940b954-7d4a-4c18-9182-ba5cde9cdad5",
+      "keys": [
+        "ca.crt",
+        "tls.crt",
+        "tls.key"
+      ],
+      "sha256": "652fe4e146d7443e9b8c8a065ec944cd95537266b0fd43cb452e206af89b78d0"
+    },
+    "openshell-server-tls": {
+      "uid": "ae784495-d501-43ce-904b-265e9cd04355",
+      "keys": [
+        "ca.crt",
+        "tls.crt",
+        "tls.key"
+      ],
+      "sha256": "45a4b43c0770ce12173992d1f0886205ab197a6b626a8c5ed3662cef681ac174"
+    }
+  },
+  "sharedModel": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 128852,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-09-15T07:17:31.481993911Z",
+    "FinishedAt": "2026-09-15T07:17:31.234720915Z"
+  },
+  "workerSourceSha256": "74225e67da718168bbc8d1b6b608ecc0765c845381c99232503422fee106c838",
+  "services": {
+    "mosaic-alert-worker.service": "MainPID=534309\nActiveState=active\nSubState=running\nUnitFileState=enabled\n",
+    "mosaic-alert-ui-forward.service": "MainPID=3645158\nActiveState=active\nSubState=running\nUnitFileState=enabled\n"
+  },
+  "at": "2026-11-02T09:09:14.489097+00:00",
+  "baseline": "background-alert-feishu-20261102/final-runtime.private.json",
+  "unchanged": {
+    "helmRevision": true,
+    "podNamesAndUids": true,
+    "applicationSecrets": true,
+    "sharedModelProcess": true
+  }
+}

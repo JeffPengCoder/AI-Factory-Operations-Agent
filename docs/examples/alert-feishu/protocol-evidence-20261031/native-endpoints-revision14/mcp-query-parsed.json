@@ -1,0 +1,23 @@
+{
+  "answer": "## Results\n\nBased on the indexed document **mosaic-validation-control.pdf** referencing **MOSAIC-KB-20261031**, the evidence is as follows:\n\n### Public Verification Code\n\nThe public verification code printed in the **Operator Decision and Evidence** section on **page 2** of `mosaic-validation-control.pdf` is:\n\n> **CEDAR-NEBULA-E720C8C9**\n\n### Automated Alert Investigation and Service Repair\n\nPer the same section of `mosaic-validation-control.pdf`, page 2:\n\n> *\"Automatic alert investigations remain read-only. Use a separate authorized interactive repair conversation, preserving the alert ID, investigation session key, research sources and repair session key.\"*\n\n**Answer: No.** An automated alert investigation **may not** directly repair a service. Automated alert investigations are strictly read-only. A separate, authorized interactive repair conversation is required to perform any repair operation, and that repair session must preserve the alert ID, the investigation session key, research sources, and the repair session key.",
+  "depth": "quick",
+  "collections_searched": [
+    "mosaic-validation-20261031"
+  ],
+  "sources": [
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    },
+    {
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "collection": "mosaic-validation-20261031",
+      "doc_id": "mosaic-validation-control.pdf",
+      "url": "/api/v1/documents/mosaic-validation-control.pdf"
+    }
+  ]
+}

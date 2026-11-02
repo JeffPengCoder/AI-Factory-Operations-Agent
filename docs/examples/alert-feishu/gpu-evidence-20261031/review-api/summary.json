@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-31T13:53:41.661230+00:00",
+  "sessionKey": "agent:default:alert-alertmanager-d1e25281f02cec92",
+  "sessionId": "c826df3c-4868-4506-8913-64ae45bd8956",
+  "messages": 41,
+  "elapsedSeconds": 75.79730295902118,
+  "newResearchCalls": 0,
+  "operatorCorrectionsProvided": true,
+  "viewOnly": true
+}

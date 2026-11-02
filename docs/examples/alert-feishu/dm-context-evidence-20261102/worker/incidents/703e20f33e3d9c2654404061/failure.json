@@ -1,0 +1,6 @@
+{
+  "at": "2026-11-02T08:32:54Z",
+  "stage": "sending",
+  "errorType": "RuntimeError",
+  "message": "Delivered report is absent or incomplete in the configured conversation history"
+}

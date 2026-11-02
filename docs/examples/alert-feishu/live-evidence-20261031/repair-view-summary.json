@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-31T02:20:31.767999+00:00",
+  "sessionKey": "agent:default:validation-repair-view-20261031",
+  "httpStatus": 200,
+  "elapsedSeconds": 13.548693958000513,
+  "rawMessages": 6,
+  "tools": [
+    {
+      "name": "run_remote_ssh",
+      "toolCallId": "call_75bc1a32d5b14f699daf0855",
+      "isError": true
+    },
+    {
+      "name": "run_remote_ssh",
+      "toolCallId": "call_1f856a1050ea4e70a3200f17",
+      "isError": true
+    }
+  ],
+  "hasActiveRun": false
+}

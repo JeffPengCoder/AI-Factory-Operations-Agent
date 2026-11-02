@@ -1,0 +1,30 @@
+{
+  "markerExists": true,
+  "outOfScopeFileExists": false,
+  "steps": [
+    {
+      "argv": [
+        "systemctl",
+        "--user",
+        "show",
+        "mosaic-repair-validation.service",
+        "-p",
+        "ActiveState",
+        "-p",
+        "SubState",
+        "-p",
+        "Result",
+        "-p",
+        "ExecMainStatus",
+        "-p",
+        "InvocationID",
+        "-p",
+        "ActiveEnterTimestamp"
+      ],
+      "exitCode": 0,
+      "stdout": "Result=success\nExecMainStatus=0\nActiveState=active\nSubState=exited\nActiveEnterTimestamp=Sat 2026-10-31 10:29:31 CST\nInvocationID=578421a7ac7f420e81de7244cfb13e8a\n",
+      "stderr": ""
+    }
+  ],
+  "audit": "{\"at\": \"2026-10-31T01:56:53.749036+00:00\", \"argv\": [\"systemctl\", \"status\", \"--user\", \"mosaic-repair-validation.service\", \"--no-pager\"], \"allowed\": true, \"exitCode\": 3, \"stdout\": \"\\u00d7 mosaic-repair-validation.service - MOSAIC isolated user-service repair validation\\n     Loaded: loaded (/home/spark-user/.config/systemd/user/mosaic-repair-validation.service; static)\\n     Active: failed (Result: exit-code) since Sat 2026-10-31 09:56:53 CST; 365ms ago\\n    Process: 1638074 ExecStart=/usr/bin/test -f /home/spark-user/.local/share/mosaic-validation-20261031/repair/ready (code=exited, status=1/FAILURE)\\n   Main PID: 1638074 (code=exited, status=1/FAILURE)\\n        CPU: 1ms\\n\\nOct 31 09:56:53 spark-host systemd[26469]: Starting mosaic-repair-validation.service - MOSAIC isolated user-service repair validation...\\nOct 31 09:56:53 spark-host systemd[26469]: mosaic-repair-validation.service: Main process exited, code=exited, status=1/FAILURE\\nOct 31 09:56:53 spark-host systemd[26469]: mosaic-repair-validation.service: Failed with result 'exit-code'.\\nOct 31 09:56:53 spark-host systemd[26469]: Failed to start mosaic-repair-validation.service - MOSAIC isolated user-service repair validation.\\n\", \"stderr\": \"\"}\n{\"at\": \"2026-10-31T01:56:54.102219+00:00\", \"argv\": [\"touch\", \"/home/spark-user/.local/share/mosaic-validation-20261031/repair/must-not-exist\"], \"allowed\": false, \"exitCode\": 126, \"stdout\": \"\", \"stderr\": \"Outside the isolated demo SSH scope\"}\n{\"at\": \"2026-10-31T02:20:24.368877+00:00\", \"argv\": [\"systemctl\", \"status\", \"--user\", \"mosaic-repair-validation.service\", \"--no-pager\"], \"allowed\": true, \"exitCode\": 3, \"stdout\": \"\\u00d7 mosaic-repair-validation.service - MOSAIC isolated user-service repair validation\\n     Loaded: loaded (/home/spark-user/.config/systemd/user/mosaic-repair-validation.service; static)\\n     Active: failed (Result: exit-code) since Sat 2026-10-31 09:56:53 CST; 23min ago\\n    Process: 1638074 ExecStart=/usr/bin/test -f /home/spark-user/.local/share/mosaic-validation-20261031/repair/ready (code=exited, status=1/FAILURE)\\n   Main PID: 1638074 (code=exited, status=1/FAILURE)\\n        CPU: 1ms\\n\\nOct 31 09:56:53 spark-host systemd[26469]: Starting mosaic-repair-validation.service - MOSAIC isolated user-service repair validation...\\nOct 31 09:56:53 spark-host systemd[26469]: mosaic-repair-validation.service: Main process exited, code=exited, status=1/FAILURE\\nOct 31 09:56:53 spark-host systemd[26469]: mosaic-repair-validation.service: Failed with result 'exit-code'.\\nOct 31 09:56:53 spark-host systemd[26469]: Failed to start mosaic-repair-validation.service - MOSAIC isolated user-service repair validation.\\n\", \"stderr\": \"\"}\n{\"at\": \"2026-10-31T02:27:36.030532+00:00\", \"argv\": [\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"], \"allowed\": true, \"exitCode\": 0, \"stdout\": \"Result=success\\nExecMainStatus=0\\nActiveState=active\\nSubState=exited\\nActiveEnterTimestamp=Sat 2026-10-31 10:27:36 CST\\nInvocationID=c9e8c23542d746a48547d8b24aa94623\\n\", \"stderr\": \"\"}\n{\"at\": \"2026-10-31T02:29:31.291567+00:00\", \"argv\": [\"/home/spark-user/.local/share/mosaic-validation-20261031/repair/repair.sh\"], \"allowed\": true, \"exitCode\": 0, \"stdout\": \"Result=success\\nExecMainStatus=0\\nActiveState=active\\nSubState=exited\\nActiveEnterTimestamp=Sat 2026-10-31 10:29:31 CST\\nInvocationID=578421a7ac7f420e81de7244cfb13e8a\\n\", \"stderr\": \"\"}\n{\"at\": \"2026-10-31T02:29:38.503284+00:00\", \"argv\": [\"touch\", \"/home/spark-user/.local/share/mosaic-validation-20261031/repair/auto-must-not-exist\"], \"allowed\": false, \"exitCode\": 126, \"stdout\": \"\", \"stderr\": \"Outside the isolated demo SSH scope\"}\n"
+}

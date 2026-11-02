@@ -1,0 +1,100 @@
+--- before/templates/openclaw.yaml
++++ after/templates/openclaw.yaml
+@@ -299,7 +299,47 @@
+           env:
+             - name: HOME
+               value: /home/node
+-          securityContext:
++            {{- if .Values.openclaw.feishu.enabled }}
++            {{- range $env, $key := dict "FEISHU_APP_ID" .Values.openclaw.feishu.appIdKey "FEISHU_APP_SECRET" .Values.openclaw.feishu.appSecretKey }}
++            - name: {{ $env }}
++              valueFrom:
++                secretKeyRef:
++                  name: {{ $.Values.openclaw.feishu.existingSecret | quote }}
++                  key: {{ $key | quote }}
++            {{- end }}
++            {{- end }}
++          securityContext:
++            runAsUser: 1000
++            runAsGroup: 1000
++          volumeMounts:
++            - name: openclaw-home
++              mountPath: /home/node/.openclaw
++        {{- end }}
++        {{- if .Values.openclaw.feishu.enabled }}
++        - name: init-feishu-plugin
++          image: {{ include "mosaic-stack.image" .Values.openclaw.image | quote }}
++          imagePullPolicy: {{ .Values.openclaw.image.pullPolicy }}
++          command:
++            - sh
++            - -c
++            - |
++              set -eu
++              node /app/dist/index.js plugins install {{ printf "@openclaw/feishu@%v" .Values.openclaw.feishu.pluginVersion | quote }} --force
++          env:
++            - name: HOME
++              value: /home/node
++            {{- range $env, $key := dict "FEISHU_APP_ID" .Values.openclaw.feishu.appIdKey "FEISHU_APP_SECRET" .Values.openclaw.feishu.appSecretKey }}
++            - name: {{ $env }}
++              valueFrom:
++                secretKeyRef:
++                  name: {{ $.Values.openclaw.feishu.existingSecret | quote }}
++                  key: {{ $key | quote }}
++            {{- end }}
++          securityContext:
++            allowPrivilegeEscalation: false
++            capabilities:
++              drop: ["ALL"]
++            runAsNonRoot: true
+             runAsUser: 1000
+             runAsGroup: 1000
+           volumeMounts:
+@@ -319,6 +359,15 @@
+           env:
+             - name: HOME
+               value: /home/node
++            {{- if .Values.openclaw.feishu.enabled }}
++            {{- range $env, $key := dict "FEISHU_APP_ID" .Values.openclaw.feishu.appIdKey "FEISHU_APP_SECRET" .Values.openclaw.feishu.appSecretKey }}
++            - name: {{ $env }}
++              valueFrom:
++                secretKeyRef:
++                  name: {{ $.Values.openclaw.feishu.existingSecret | quote }}
++                  key: {{ $key | quote }}
++            {{- end }}
++            {{- end }}
+           securityContext:
+             runAsUser: 1000
+             runAsGroup: 1000
+@@ -467,6 +516,16 @@
+                 auth_mode: {{ ternary "\"plaintext\"" "\"mtls\"" .Values.openshell.server.disableTls }}
+               }, null, 2));
+               EOF
++          env:
++            {{- if .Values.openclaw.feishu.enabled }}
++            {{- range $env, $key := dict "FEISHU_APP_ID" .Values.openclaw.feishu.appIdKey "FEISHU_APP_SECRET" .Values.openclaw.feishu.appSecretKey }}
++            - name: {{ $env }}
++              valueFrom:
++                secretKeyRef:
++                  name: {{ $.Values.openclaw.feishu.existingSecret | quote }}
++                  key: {{ $key | quote }}
++            {{- end }}
++            {{- end }}
+           securityContext:
+             runAsUser: 1000
+             runAsGroup: 1000
+@@ -542,6 +601,15 @@
+                   optional: {{ not $.Values.openclaw.msteams.enabled }}
+             {{- end }}
+             {{- end }}
++            {{- if .Values.openclaw.feishu.enabled }}
++            {{- range $env, $key := dict "FEISHU_APP_ID" .Values.openclaw.feishu.appIdKey "FEISHU_APP_SECRET" .Values.openclaw.feishu.appSecretKey }}
++            - name: {{ $env }}
++              valueFrom:
++                secretKeyRef:
++                  name: {{ $.Values.openclaw.feishu.existingSecret | quote }}
++                  key: {{ $key | quote }}
++            {{- end }}
++            {{- end }}
+             {{- if .Values.openclaw.slack.enabled }}
+             - name: SLACK_BOT_TOKEN
+               valueFrom:

@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-31T06:32:36.500595+00:00",
+  "scope": "Correct CLI realpath detection while Helm waits; persist the same correction in the next real chart upgrade.",
+  "beforeSha256": "224c39f2da1a8162580194d7795286afa8925c6b4f43f98f7dc2cb1efddd4a36",
+  "afterSha256": "2148316a0dcd1a92e61c13519249f70be3439fdea0a9d772d40821ab2e146fc2",
+  "replacedFailedPod": "llm-openai-compat-54dcdf8ffc-87l6q",
+  "sharedModelChanged": false,
+  "replaceOutput": "configmap/llm-openai-compat replaced\n"
+}

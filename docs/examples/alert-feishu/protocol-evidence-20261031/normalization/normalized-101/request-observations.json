@@ -1,0 +1,16 @@
+[
+  {
+    "sequence": 1,
+    "httpStatus": 200,
+    "normalizeNamedResearchCall": true,
+    "normalizationPerformed": true,
+    "query": "public verification code operator decision evidence page 2 mosaic validation control MOSAIC-KB-20261031",
+    "normalizedCallId": "call_research_de921ddc51354bdcbc6efbf7f041880a"
+  },
+  {
+    "sequence": 2,
+    "httpStatus": 200,
+    "normalizeNamedResearchCall": false,
+    "normalizationPerformed": false
+  }
+]

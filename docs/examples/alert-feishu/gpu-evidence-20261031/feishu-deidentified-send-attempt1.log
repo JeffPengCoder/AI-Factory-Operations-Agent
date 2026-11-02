@@ -1,0 +1,2 @@
+Review payload: /Users/operator/workspace/system-sa/aiops/mosaic-run/alerts/gpu-rca-20261031t121240z/feishu-payload-deidentified.json (16073 UTF-8 bytes before signing)
+{"at": "2026-10-31T14:00:06.266316+00:00", "group": "MOSAIC Alert Test", "runId": "gpu-rca-20261031t121240z", "botApiAccepted": false, "errorType": "ValueError", "error": "bot rejected the message or returned an unknown status; inspect response file", "groupReceiptConfirmed": false, "credentialValuesSaved": false}

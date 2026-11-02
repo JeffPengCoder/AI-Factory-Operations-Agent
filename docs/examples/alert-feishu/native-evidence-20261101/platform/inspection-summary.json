@@ -1,0 +1,25 @@
+{
+  "bot-info.json": {
+    "code": 0,
+    "msg": "ok"
+  },
+  "app-info.json": {
+    "code": 0,
+    "msg": "success",
+    "data_keys": [
+      "app"
+    ]
+  },
+  "bot-chats.json": {
+    "code": 0,
+    "msg": "success",
+    "chat_count": 1,
+    "has_more": false,
+    "chats": [
+      {
+        "chat_id": "oc_TEST_GROUP",
+        "name": "MOSAIC Alert Test"
+      }
+    ]
+  }
+}

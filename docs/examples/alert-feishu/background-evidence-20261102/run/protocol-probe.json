@@ -1,0 +1,79 @@
+{
+  "gateway": {
+    "sourceFiles": [
+      "embedded-agent-message-tool-source-reply-BNDmht0w.js",
+      "message-action-discovery-B7WkObDZ.js",
+      "message-action-dispatch-DgDELRqd.js",
+      "message-action-names-Csg2tRuR.js",
+      "message-action-runner-CbOt6PeP.js",
+      "message-action-runner-jQYM2Orj.js",
+      "message-actions-BEe0cgAs.js",
+      "message-tool-api-DzZx8NO0.js",
+      "message-tool-delivery-hints-BSLgiMlM.js",
+      "tools-invoke-http-aViPNl65.js"
+    ],
+    "sourceSnippets": [
+      {
+        "file": "embedded-agent-message-tool-source-reply-BNDmht0w.js",
+        "dryRun": [
+          "ryEnvelopeIndicatesDryRun(item, depth + 1));\n\tconst record = value;\n\tif (record.dryRun === true || normalizeStatus(record.deliveryStatus) === DRY_RUN_DELIVERY_STATUS || normalizeStatus(record.status) === DRY_RUN_DELIVERY_STATUS) r",
+          " asRecord(params.args);\n\tconst action = normalizeStatus(args.action);\n\tif (args.dryRun === true || deliveryEnvelopeIndicatesDryRun(params.result) || deliveryEnvelopeIndicatesDryRun(params.hookResult)) return false;\n\tif (deliveryEn"
+        ]
+      },
+      {
+        "file": "message-action-discovery-B7WkObDZ.js",
+        "dryRun": []
+      },
+      {
+        "file": "message-action-dispatch-DgDELRqd.js",
+        "dryRun": [
+          " ?? void 0 });\n\tconst maxBytes = resolveSendBufferMaxBytes(params);\n\tif (params.dryRun || params.preserveBuffer) {\n\t\tdecodeBoundedBase64Attachment({\n\t\t\tbase64: normalized.base64,\n\t\t\tmaxBytes\n\t\t});\n\t\tparams.args.media = SEND_BUFFER",
+          "rce = (params.mediaHint ?? void 0) || (params.fileHint ?? void 0);\n\tif (!params.dryRun && !readStringParam(params.args, \"buffer\", { trim: false }) && mediaSource) {\n\t\tconst maxBytes = resolveAttachmentMaxBytes({\n\t\t\tcfg: params.cfg",
+          "\tchannel: params.channel,\n\t\taccountId: params.accountId,\n\t\targs: params.args,\n\t\tdryRun: params.dryRun,\n\t\tcontentTypeParam,\n\t\tmediaHint: mediaHint ?? (attachmentSource?.kind === \"media\" ? attachmentSource.value : void 0),\n\t\tfileHin",
+          "s.channel,\n\t\taccountId: params.accountId,\n\t\targs: params.args,\n\t\tdryRun: params.dryRun,\n\t\tcontentTypeParam,\n\t\tmediaHint: mediaHint ?? (attachmentSource?.kind === \"media\" ? attachmentSource.value : void 0),\n\t\tfileHint: fileHint ?? ",
+          "annel: params.channel,\n\t\t\taccountId: params.accountId,\n\t\t\targs: params.args,\n\t\t\tdryRun: params.dryRun,\n\t\t\tpreserveBuffer: params.preserveSendBuffer,\n\t\t\textraParamKeys: params.extraParamKeys\n\t\t});\n\t\treturn;\n\t}\n\tif (params.action !=",
+          "hannel,\n\t\t\taccountId: params.accountId,\n\t\t\targs: params.args,\n\t\t\tdryRun: params.dryRun,\n\t\t\tpreserveBuffer: params.preserveSendBuffer,\n\t\t\textraParamKeys: params.extraParamKeys\n\t\t});\n\t\treturn;\n\t}\n\tif (params.action !== \"sendAttachme"
+        ]
+      },
+      {
+        "file": "message-action-names-Csg2tRuR.js",
+        "dryRun": []
+      },
+      {
+        "file": "message-action-runner-CbOt6PeP.js",
+        "dryRun": []
+      },
+      {
+        "file": "message-action-runner-jQYM2Orj.js",
+        "dryRun": [
+          "rams.actionParams, \"replyTo\");\n\tconst outboundRoute = params.agentId && !params.dryRun ? await params.resolveOutboundSessionRoute({\n\t\tcfg: params.cfg,\n\t\tchannel: params.channel,\n\t\tagentId: params.agentId,\n\t\taccountId: params.accou",
+          "d: resolvedThreadId\n\t}) : null;\n\tif (outboundRoute && params.agentId && !params.dryRun) await params.ensureOutboundSessionEntry({\n\t\tcfg: params.cfg,\n\t\tchannel: params.channel,\n\t\taccountId: params.accountId,\n\t\troute: outboundRoute\n",
+          "Id: params.accountId,\n\t\troute: outboundRoute\n\t});\n\tif (outboundRoute && !params.dryRun) params.actionParams[\"__sessionKey\"] = outboundRoute.sessionKey;\n\tif (params.agentId) params.actionParams[\"__agentId\"] = params.agentId;\n\tretur",
+          "*/\nasync function maybeApplyTtsToMessageActionSendPayload(params) {\n\tif (params.dryRun) return params.payload;\n\tconst ttsAuto = resolveMessageActionSessionTtsAuto({\n\t\tcfg: params.cfg,\n\t\tsessionKey: params.sessionKey,\n\t\tagentId: pa",
+          "Id,\n\t\tgifPlayback: params.gifPlayback,\n\t\tforceDocument: params.forceDocument,\n\t\tdryRun: params.ctx.dryRun,\n\t\tbestEffort: params.bestEffort ?? void 0,\n\t\tqueuePolicy: params.queuePolicy,\n\t\tdeps: params.ctx.deps,\n\t\tgateway: params.ct",
+          "params.gifPlayback,\n\t\tforceDocument: params.forceDocument,\n\t\tdryRun: params.ctx.dryRun,\n\t\tbestEffort: params.bestEffort ?? void 0,\n\t\tqueuePolicy: params.queuePolicy,\n\t\tdeps: params.ctx.deps,\n\t\tgateway: params.ctx.gateway,\n\t\tmirror"
+        ]
+      },
+      {
+        "file": "message-actions-BEe0cgAs.js",
+        "dryRun": []
+      },
+      {
+        "file": "message-tool-api-DzZx8NO0.js",
+        "dryRun": []
+      }
+    ],
+    "uiTokenPresent": true,
+    "headless": {
+      "status": 200,
+      "body": "{\"success\":true,\"sessionKey\":\"agent:default:mosaic-automation-alert-protocol-preflight-20261102\",\"runId\":\"mosaic-headless-1793578372833\",\"message\":\"BACKGROUND_API_OK\",\"timedOut\":false,\"elapsedMs\":3831,\"messages\":[{\"id\":\"user-1793578373241-0\",\"role\":\"user\",\"content\":\"test from Jeff Peng. Protocol preflight. Reply only BACKGROUND_API_OK. Do not call any tools.\",\"timestamp\":\"2026-11-02T00:12:53.241Z\"},{\"id\":\"assistant-1793578373997-1\",\"role\":\"assistant\",\"content\":\"BACKGROUND_API_OK\",\"timestamp\":\"2026-11-02T00:12:53.997Z\"}],\"tools\":[],\"toolResults\":[],\"trace\":\"OpenClaw gateway call\\n\\n{\\n  \\\"runId\\\": \\\"mosaic-headless-1793578372833\\\",\\n  \\\"status\\\": \\\"started\\\",\\n  \\\"serverTiming\\\": {\\n    \\\"receivedToAckMs\\\": 2.628,\\n    \\\"loadSessionMs\\\": 0.594\\n  }\\n}\"}"
+    }
+  },
+  "observability": {
+    "alertmanagerUrl": "http://192.0.2.44:30093",
+    "prometheusUrl": "http://192.0.2.44:30090"
+  },
+  "registeredClusterNames": [
+    "l20-lab"
+  ]
+}

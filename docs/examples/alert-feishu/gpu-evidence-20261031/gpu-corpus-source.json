@@ -1,0 +1,36 @@
+{
+  "reference": "MOSAIC-GPU-KB-20261031",
+  "pages": 2,
+  "filename": "mosaic-gpu-evidence-runbook.pdf",
+  "bytes": 5909,
+  "sha256": "a5907d666fab963214deff3650b52b1c3774adf64226baf3f4b5134b2364363a",
+  "collection": "mosaic-gpu-validation-20261031",
+  "verificationCode": "GPU-CEDAR-7304",
+  "expectedPage": 2,
+  "sources": [
+    "https://docs.nvidia.com/datacenter/dcgm/latest/learn/dcgm-error-injection.html",
+    "https://docs.nvidia.com/datacenter/dcgm/latest/reference/command-line-reference/dcgmi/dcgmi-test.html",
+    "https://docs.nvidia.com/deploy/xid-errors/analyzing-xid-catalog.html"
+  ],
+  "sourcePages": [
+    [
+      "GPU Evidence Triage",
+      "Reference MOSAIC-GPU-KB-20261031 | Authored test runbook | Page 1",
+      "Scope: assess GPU error evidence without performing repairs. This document supplies general diagnostic procedure. It contains no observations about any current GPU, host, alert, or experiment.",
+      "Evidence order: map GPU index to UUID and PCI bus ID; retain driver and DCGM versions and timestamps. Collect nvidia-smi -q -x, compute-process inventory, relevant kernel NVRM/Xid/PCIe AER records, and existing DCGM/Prometheus observations. State the observed time window and inaccessible or rotated logs.",
+      "Xid 95 denotes an uncontained memory error. It is a serious error classification, not by itself proof of a particular failed memory chip, bank, or replaceable card. For a genuine incident, follow the applicable NVIDIA recovery guidance and the site maintenance procedure. Do not reset an occupied GPU during read-only investigation.",
+      "Read volatile and aggregate ECC counts separately. A nonzero lifetime aggregate alone does not prove errors are growing now. Compare timestamped samples. Preserve SRAM versus DRAM distinctions and exact counter labels. Check remapped-row pending/failure and spare-bank information. Keep N/A separate from numeric zero.",
+      "A missing Prometheus Xid/ECC series is an instrumentation gap. It is not a successful zero-error measurement. Verify the exporter collector list, field support, versions, scrape targets and exact metric names before claiming absence of a fault."
+    ],
+    [
+      "Simulation Boundary and Decision",
+      "Reference MOSAIC-GPU-KB-20261031 | Authored test runbook | Page 2",
+      "Public retrieval verification code: GPU-CEDAR-7304. This marker grants no access. Retrieve it only from this file and cite page 2.",
+      "DCGM test injection changes samples in a host-engine cache. Synthetic Xid or ECC samples from one isolated engine are not independent NVML or kernel evidence. Label the source as isolated_dcgm_cache_snapshot. A Kubernetes pod serving that snapshot is a telemetry replay fixture; its CPU resources do not make the observed signal a CPU application fault.",
+      "When injected DCGM samples disagree with unchanged live NVML ECC/remap counters and no matching kernel Xid in the available log window, report simulated GPU telemetry and insufficient evidence of a live hardware defect. Identify the injection/fixture as the cause of this test alert. Do not call injected counters corroboration of a physical failure.",
+      "Keep test engines on private sockets. Never inject into a production engine shared with health monitoring or remediation. Never globally pause monitoring. Preserve exact command, GPU identity, engine endpoint, field ID, value, timestamp, tool output and cleanup evidence. Terminate only the test engine that this run created.",
+      "Research sources provide generic procedure. The operator or agent must obtain incident facts from actual tools and logs, cite those separately, and state uncertainty. View mode permits evidence collection and recommendations only. A completed analysis does not establish repair, RMA eligibility, or Feishu receipt.",
+      "Primary sources (checked 2026-10-31): NVIDIA DCGM Error Injection; NVIDIA dcgmi test reference; NVIDIA Xid Catalog. The URLs below support error semantics and cache-injection boundaries. This authored document does not reproduce the manuals."
+    ]
+  ]
+}

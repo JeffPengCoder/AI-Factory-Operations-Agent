@@ -1,0 +1,194 @@
+[
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.43",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/dashboard/feedback",
+    "requestId": "94078.41",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/commands",
+    "requestId": "94078.40",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/chat",
+    "requestId": "94078.42",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/alerts/alertmanager",
+    "requestId": "94078.44",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/modules",
+    "requestId": "94078.45",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/agents",
+    "requestId": "94078.46",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/sessions",
+    "requestId": "94078.47",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/session-access",
+    "requestId": "94078.53",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/alerts/events",
+    "requestId": "94078.57",
+    "status": 200,
+    "mimeType": "application/x-ndjson"
+  },
+  {
+    "path": "/api/settings/llm",
+    "requestId": "94078.58",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.59",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.60",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.61",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/session-access",
+    "requestId": "94078.72",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/commands",
+    "requestId": "94078.73",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/dashboard/feedback",
+    "requestId": "94078.74",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.75",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/chat/stream",
+    "requestId": "94078.76",
+    "status": 200,
+    "mimeType": "application/x-ndjson"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.79",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/settings/llm",
+    "requestId": "94078.80",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.81",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.82",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.83",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.84",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.85",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.86",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/ui/events",
+    "requestId": "94078.56",
+    "status": 200,
+    "mimeType": "application/x-ndjson"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.87",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.88",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.91",
+    "status": 200,
+    "mimeType": "application/json"
+  },
+  {
+    "path": "/api/openclaw/approvals",
+    "requestId": "94078.92",
+    "status": 200,
+    "mimeType": "application/json"
+  }
+]

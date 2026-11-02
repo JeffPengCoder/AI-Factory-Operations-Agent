@@ -1,0 +1,45 @@
+{
+  "success": true,
+  "requestCleanup": {
+    "removedSelfGeneratedApprovalRequests": [
+      {
+        "requestId": "7cee66f6-b063-4aea-b1a0-d5f8b870b79f",
+        "scopes": [
+          "operator.pairing",
+          "operator.write"
+        ],
+        "result": {
+          "requestId": "7cee66f6-b063-4aea-b1a0-d5f8b870b79f",
+          "deviceId": "76263b6a5cbf27267b9e43c0175edb66916347be34963082612ab7b999df9484"
+        }
+      }
+    ]
+  },
+  "beforeProbe": {
+    "exitCode": 1,
+    "stdout": "{\n  \"ok\": false,\n  \"error\": {\n    \"type\": \"gateway_transport_error\",\n    \"kind\": \"closed\",\n    \"message\": \"gateway closed (1008): pairing required: device is asking for more scopes than currently approved (requestId: ebfb992f-13e5-4ade-afbc-4f6015f1d\",\n    \"code\": 1008,\n    \"reason\": \"pairing required: device is asking for more scopes than currently approved (requestId: ebfb992f-13e5-4ade-afbc-4f6015f1d\"\n  },\n  \"gateway\": {\n    \"url\": \"ws://127.0.0.1:18789\",\n    \"urlSource\": \"local loopback\",\n    \"bindDetail\": \"Bind: lan\"\n  }\n}\n",
+    "stderr": "gateway connect failed: GatewayClientRequestError: scope upgrade pending approval (requestId: ebfb992f-13e5-4ade-afbc-4f6015f1d8b7)\ncommand terminated with exit code 1\n"
+  },
+  "approval": {
+    "method": "Official CLI local recovery helper; no direct state-file editing",
+    "requestId": "ebfb992f-13e5-4ade-afbc-4f6015f1d8b7",
+    "clientId": "cli",
+    "status": "approved",
+    "approvedScopes": [
+      "operator.read",
+      "operator.write"
+    ],
+    "tokenScopes": [
+      "operator.read",
+      "operator.write"
+    ],
+    "otherDeviceRecordsUnchanged": true,
+    "pendingForDevice": 0
+  },
+  "afterProbe": {
+    "exitCode": 1,
+    "stdout": "{\n  \"ok\": false,\n  \"error\": {\n    \"type\": \"gateway_request_error\",\n    \"code\": \"INVALID_REQUEST\",\n    \"message\": \"invalid send params: must have required property 'to'\",\n    \"retryable\": false\n  }\n}\n",
+    "stderr": "command terminated with exit code 1\n"
+  },
+  "writeAuthorizationVerifiedWithoutSending": true
+}

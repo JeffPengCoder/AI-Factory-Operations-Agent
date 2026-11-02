@@ -1,0 +1,11 @@
+{
+  "runId": "feishu-dm-delivery-20261102-01",
+  "target": "chat:oc_00000000000000000000000000000001",
+  "chatMode": "p2p",
+  "originalIncident": "2803c2516df6ec7c3eed3f2f",
+  "originalReportBytes": 11966,
+  "originalReportSha256": "dbe7a94cfdc1fd30b96155018e6a104dd9451087183fe4c649a688006ddb8a5f",
+  "messageBytes": 12328,
+  "messageSha256": "0a7ac3f885c1e86df2f12d7529cddb6b8bd93576ceea38994ed30610aad80614",
+  "sourceSha256": "50c750c45b00f1ef81628d12d3fa456c5b94511dc0b6f1bf9a9f325634b7c9fa"
+}

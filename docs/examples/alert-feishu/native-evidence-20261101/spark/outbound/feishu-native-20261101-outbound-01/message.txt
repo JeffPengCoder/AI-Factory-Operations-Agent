@@ -1,0 +1,3 @@
+test from Jeff Peng
+OpenClaw 飞书原生通道主动发送测试：本条由新应用机器人发送。
+Run ID: feishu-native-20261101-outbound-01

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="680" viewBox="0 0 1320 680" role="img" aria-labelledby="title desc">
+  <title id="title">MOSAIC 飞书群 Webhook 与 OpenClaw 原生通道架构</title>
+  <desc id="desc">上半图为显式执行 Python 脚本通过群 Webhook 推送报告。下半图为飞书应用机器人经 Spark 主动建立的 WebSocket 接收用户消息，OpenClaw 调用工具和 IRAOP 后经飞书消息 API 回复。告警完成后的自动发布另需后台编排。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#43515b"/></marker>
+    <style>text{font-family:"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;fill:#172633}.heading{font-size:26px;font-weight:700}.label{font-size:18px}.small{font-size:16px}.box{fill:#fff;stroke:#80909b;stroke-width:1.5}.link{fill:none;stroke:#43515b;stroke-width:2;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1320" height="680" fill="#fff"/>
+  <text x="36" y="44" class="heading">MOSAIC → 飞书：两种接入方式</text>
+  <rect x="24" y="70" width="1272" height="230" rx="12" fill="#f1f7e9"/>
+  <text x="44" y="108" class="heading">A. 群自定义机器人 Webhook：报告推送</text>
+  <g class="box">
+    <rect x="44" y="150" width="190" height="82" rx="8"/><rect x="284" y="150" width="230" height="82" rx="8"/>
+    <rect x="564" y="150" width="220" height="82" rx="8"/><rect x="834" y="150" width="210" height="82" rx="8"/>
+    <rect x="1094" y="150" width="168" height="82" rx="8"/>
+  </g>
+  <g class="label" text-anchor="middle">
+    <text x="139" y="183">Prometheus /</text><text x="139" y="210">Alertmanager</text>
+    <text x="399" y="183">MOSAIC 收到告警</text><text x="399" y="210">调查、采集、IRAOP</text>
+    <text x="674" y="183">完整告警与报告</text><text x="674" y="210">Python 脚本显式发送</text>
+    <text x="939" y="183">Webhook + 签名</text><text x="939" y="210">群自定义机器人</text>
+    <text x="1178" y="197">测试群收件</text>
+  </g>
+  <path class="link" d="M234 191H280"/><path class="link" d="M514 191H560"/><path class="link" d="M784 191H830"/><path class="link" d="M1044 191H1090"/>
+  <text x="44" y="270" class="small">该机器人不能接收群内 @ 或私聊；Webhook 成功不代表原生通道已验证。</text>
+  <rect x="24" y="324" width="1272" height="330" rx="12" fill="#edf4fa"/>
+  <text x="44" y="362" class="heading">B. 应用机器人 + OpenClaw 原生通道：双向交互与消息发送</text>
+  <g class="box">
+    <rect x="44" y="418" width="190" height="94" rx="8"/><rect x="314" y="418" width="220" height="94" rx="8"/>
+    <rect x="654" y="418" width="250" height="94" rx="8"/><rect x="1004" y="418" width="250" height="94" rx="8"/>
+  </g>
+  <g class="label" text-anchor="middle">
+    <text x="139" y="456">允许用户</text><text x="139" y="484">测试群 @ / 私聊</text>
+    <text x="424" y="456">飞书应用机器人</text><text x="424" y="484">App ID / App Secret</text>
+    <text x="779" y="456">Spark：OpenClaw</text><text x="779" y="484">官方飞书插件、白名单</text>
+    <text x="1129" y="456">集群、日志、指标</text><text x="1129" y="484">IRAOP 知识咨询</text>
+  </g>
+  <path class="link" d="M234 444H310"/><path class="link" d="M314 488H238"/>
+  <path class="link" d="M654 436H538"/><text x="594" y="403" class="small" text-anchor="middle">Spark 主动建长连接</text>
+  <path class="link" d="M534 470H650"/><text x="594" y="493" class="small" text-anchor="middle">消息事件</text>
+  <path class="link" d="M654 530H550V502"/><text x="594" y="555" class="small" text-anchor="middle">API 发回复/报告</text>
+  <path class="link" d="M904 444H1000"/><path class="link" d="M1004 488H908"/>
+  <path d="M779 604V520" fill="none" stroke="#43515b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+  <text x="44" y="630" class="small">告警调查完成 → 原生通道自动发报告：另需服务端发布编排、关联 ID、幂等及结果记录。</text>
+  <text x="1000" y="595" class="small">长连接无需公网回调地址</text>
+</svg>

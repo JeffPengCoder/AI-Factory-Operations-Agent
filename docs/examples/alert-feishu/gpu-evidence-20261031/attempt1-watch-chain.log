@@ -1,0 +1,4 @@
+{"at": "2026-10-31T13:32:27.873937+00:00", "states": {"fixture": [], "firing": [], "alertmanagerCount": 0}, "mosaicCount": 0}
+{"at": "2026-10-31T13:32:59.284882+00:00", "states": {}, "mosaicCount": 0}
+{"at": "2026-10-31T13:33:35.377519+00:00", "states": {"fixture": [], "firing": [], "alertmanagerCount": 0}, "mosaicCount": 0}
+{"watcherStoppedAt": "2026-10-31T13:33:46.147263+00:00"}

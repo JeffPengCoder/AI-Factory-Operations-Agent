@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-31T07:59:43.049846+00:00",
+  "path": "/api/alerts/alertmanager",
+  "httpStatus": 200,
+  "body": {
+    "success": true,
+    "status": {
+      "enabled": true,
+      "baseUrl": "http://target-node-1.example.invalid:30093",
+      "intervalMs": 30000,
+      "lastSyncAt": "2026-10-31T07:59:28.274Z",
+      "lastImported": 0,
+      "lastSeenCount": 25
+    }
+  },
+  "elapsedSeconds": 0.49368700000923127
+}

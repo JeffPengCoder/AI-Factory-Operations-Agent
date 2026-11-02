@@ -1,0 +1,1 @@
+{"groups": 1, "rules": [{"name": "MosaicInjectedWorkloadFailure", "state": "firing", "health": "ok", "lastError": null, "query": "max_over_time(kube_pod_container_status_waiting_reason{container=\"fixture\",namespace=\"mosaic-e2e-20261031t075722z\",pod=\"mosaic-log-fixture\",reason=\"CrashLoopBackOff\"}[2m]) > 0"}]}

@@ -1,0 +1,85 @@
+{
+  "requests": [
+    {
+      "path": "/api/v1/live",
+      "httpStatus": 200,
+      "elapsedSeconds": 0.026969770900905132,
+      "body": {
+        "status": "alive",
+        "opensearch": "not checked",
+        "embedding": "not checked",
+        "version": "0.1.0"
+      }
+    },
+    {
+      "path": "/api/v1/health",
+      "httpStatus": 200,
+      "elapsedSeconds": 0.00197009788826108,
+      "body": {
+        "status": "healthy",
+        "opensearch": "connected (v2.17.0)",
+        "embedding": "ok (sentence-transformers/all-MiniLM-L6-v2, 384d)",
+        "version": "0.1.0"
+      }
+    },
+    {
+      "path": "/api/v1/collections",
+      "httpStatus": 200,
+      "elapsedSeconds": 0.002310914918780327,
+      "body": [
+        {
+          "name": "mosaic-validation-20261031",
+          "doc_count": 4,
+          "store_size": "36.2kb"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/collections/mosaic-validation-20261031/documents",
+      "httpStatus": 200,
+      "elapsedSeconds": 0.003315491136163473,
+      "body": [
+        {
+          "filename": "mosaic-validation-control.pdf",
+          "doc_id": "mosaic-validation-control.pdf",
+          "url": "/api/v1/documents/mosaic-validation-control.pdf",
+          "chunk_count": 4
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/documents/mosaic-validation-control.pdf",
+      "httpStatus": 200,
+      "elapsedSeconds": 0.0009537613950669765,
+      "bytes": 3781,
+      "sha256": "e65f46b9daa87b4420336d989b0951ac6d2d6fd0a479bdcaeda42862cd92e820",
+      "bodyBase64": "JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNCAwIG9iago8PAovQ29udGVudHMgOSAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCA4IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyAxMCAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCA4IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago2IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgOCAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjcgMCBvYmoKPDwKL0F1dGhvciAoXChhbm9ueW1vdXNcKSkgL0NyZWF0aW9uRGF0ZSAoRDoyMDI2MTAzMTA5NTQwMSswOCcwMCcpIC9DcmVhdG9yIChcKHVuc3BlY2lmaWVkXCkpIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI2MTAzMTA5NTQwMSswOCcwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gXChvcGVuc291cmNlXCkpIAogIC9TdWJqZWN0IChcKHVuc3BlY2lmaWVkXCkpIC9UaXRsZSAoXChhbm9ueW1vdXNcKSkgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9Db3VudCAyIC9LaWRzIFsgNCAwIFIgNSAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjkgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggOTM2Cj4+CnN0cmVhbQpHYXQlITlsbGRYJkFAc0JtKlk0PSJDXSloSFpHUk5qKmpaOExcP3NqJSNbZ10mc1wsVWNoLDglViNZXG1cdCc2Y1IqZlsrXjQjbSViZVUtM1xUXzNYPlU0OTtjJSN0WmpNNCk4S11FZU8tJWtvPWspT2suZyliVSdjWG5uYWhnYTIxQiE8JTVuZC9xSz1LaS1lVD4wMSsoW2xsNUFnOCUmWWlUR1lFRG9DL1dEbiM4aT9vSmwjJykiP3BqZFciMl5tN1wrRi9MdUZcQVRlKmYmVGcoKkNvVmRDbyIkcmBXIlM4TmNeYGwiaXRPO1RPJ1VrPHNgOytRcT5XWWMySXMjXS04cDl0X1sqVkEpaDNeNEMyLWhUSkJpVWpWTiRPLkleMVA/Vz9eQitwOmdeTGQiTDBPVD11J1wyRSguTGg8SFdQaytmRS8/UyknSWdiSS1fQClvKFNlYlZAY2lgNFtKOmFkSionMmkjdEZILGRLYS4hLitvPTIwXlZRMjluZ0g3NGYhVzpVTGAkZTUqbFcjIzJ1YElsTEVMRFdZKysmYWlCVXRvPj1NZks6aWFILCFWW3NRMk1dMlFsO3NsTFs+IVRuLkpfbzRpPVItVSNIOjRrOClUczwtLEJjaFh0OGJXKV89aVVdSi9rNDNEZXRvQ1dNSUFabC5tYjNRVmk7Viw6LWcrX1xhOF1mamQoJj9dWEVDM0JMb0toYlU2Y0k+WURFMVskbjI5MWNLcVAmQSdyMzVvUjdrcj82S2tsJSZSSFYwTWdaPk9DaWRzIjEpL2wjYjBuIW9fJE9adEg/WzJsLlAhUD9gPC9cSl1ocDNTLXVKIToyWD9AZ2sjbz1mUmcjbmUyOm46bTRkJjhsLG0nNjwpUS42KmRJOzROW0kqUEttZWtQYTE6YV9AZUtvQzFqJHRySUNwOkRQWHBGU2dtRVJpKFBcdV8iYWJ1JGcuPCpuajMrK0JrTj8tVWsnaFxENVtTW2xlXjQvSyhFNXFiNCRhbVtWclhyYUA9XXVUZkJOMWA+W29lNyFSTVVpRD5LSlpLWVRVUGc1U3BqdE1OSUcoZT9JW01BSyk2dEgrJktjZXJlSWteMGJTWGhMaU84TUU7T01fLEpnWDMzLCktUT8nKjNzMFxbZD0/XVREVTN1T0FfS0RRb1AxQlwmJFsuRE4iNGMvP2I0YCVNL0pTWkwnaVYmRkNPa1JOWi9iLCFSWVIpMHMjNG1ZSkFFbzlkZFcofj5lbmRzdHJlYW0KZW5kb2JqCjEwIDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDEwODkKPj4Kc3RyZWFtCkdhdCUhZ04pIiUmOk1sK2xzbmBNZi9AI1VoXCY4UmwyPHNHMCcnRTsubmQjajZkazU+RzluM2s4aSVLImFAKidsSGhRZi9PWylVNCxeZjIlaS1ZdGU/NnRdL1lWJSllN1QzRihLQFRnbzVMNzVlKiVoJElCR010QFFHRUk2VlhiVHIlbUdtWEI5SVNGKUddMT5yLUVPcyJQMS9kMkhbYlQ4UHEvaFppW0MpZG91TUslXXRCM2tTaTtjPWkpT2NlTUM+LUpHJk4qYlEnZW83WDpUXVRWbzllckFraCFBSkNfS1BBJVBLKFhzamVpWGlbbzFrbCMkaWAtPy1fUkd1Ml48bjMkVUZgPSwodEprXElWZEBiVltabFIoWTgxaVdkclZwJ1c8dTRsQXRDRyZZNzg/XFBIcCNNO2ssVF9kSm9BXy4uayoqRkc3OyZrOCgxXjhHPkI3LHVEJUtNTHEpZ1tmRCdWY2FYLiZmPSFSLllRUEs0W3EkS1VLTWJuPi4wZS9fPmc7KFdTTCtdQD5APTpKZmkhPSZDXWIraXA9a2BfczcwU108aCRCVCNTc20xQjA7UkNuPSljb0dHV2pATCslOFFtUmxXPl05LVU2UCxPZiVHRUtnJlBBTSxnWDszTUIqPUJTNDRBTCs8LylpNzYic19zVVU6XShIJnBUQClRNmxPYC5dLlhFWi5jVURASXNtNi1wW0lSaDRxcVcyTiVYTj4mPWRKZihGUzpXU10yZDRARiliQTxhW18uMGNFaylbW1U/L1FjPTAxRyk2LDtvSz0zIlxNKSUtWG80VWZSXSI2RmNJSz9GVlQiXjgtLVVDYTNaUTZTZENQXSJ1MD9acF5fXSs5dVsjVUlpYDphTWs4LT50SmJDQy4mPF9BUDZQcSUmSFRENEprUVInLXB0ZHBtLmxkJGR1XDFcdGFkV2FCUCpuOkRpQSE8YikuOE07TnRfQCcncyFHZzxtQzVsSFhzVkkzZypEdFJgXFhfaUdackhMTC9zJjRAJzpKRk1CMFQhZiM6Y2dHJlZ1ZiFKX2pVbU0oMDZDJVAxTDpuWmZoUmlRRGY/cl1hRWwiLklQLkIwWTlVZFhwTlwzISc1X08/cjQ8Kz88P3BtQFddKD1lWmUhUXIvJyNNbjB1VE5EPTswWHItWV1qWGI4KE9TRUAwOmQ9KXEmLTtWQT44KDpmL1xyZGleQSxnUko7ZD9hNzB1Yl5WI0ZzP1hSJlNkWEJxN2NRcyE8bSJaNUNzdUVqJ1cwWzFrI24uMGcrUzZcR29zIiolZy8wKipScG9GWFciOytgZkU8M2E0Q2t0PSReJT03JiNkJlVfYHBoY2dAY20iMSddJE5QTmwrTDJQQFNDTlo7bC5rKT9RQkI5OjksYC5bYkZQTzgiP3R0Iz9pRUNUVjZLajldYDVbVWo4MTg1NlBycihGMF9pJE5+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDExCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA2MSAwMDAwMCBuIAowMDAwMDAwMTAyIDAwMDAwIG4gCjAwMDAwMDAyMDkgMDAwMDAgbiAKMDAwMDAwMDMyMSAwMDAwMCBuIAowMDAwMDAwNTI0IDAwMDAwIG4gCjAwMDAwMDA3MjggMDAwMDAgbiAKMDAwMDAwMDc5NiAwMDAwMCBuIAowMDAwMDAxMDc2IDAwMDAwIG4gCjAwMDAwMDExNDEgMDAwMDAgbiAKMDAwMDAwMjE2NyAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzw5MGM4YzBmZjhiZWU1MDc1MDQ2Y2ZmYmE4MjMwMTE2OT48OTBjOGMwZmY4YmVlNTA3NTA0NmNmZmJhODIzMDExNjk+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAob3BlbnNvdXJjZSkKCi9JbmZvIDcgMCBSCi9Sb290IDYgMCBSCi9TaXplIDExCj4+CnN0YXJ0eHJlZgozMzQ4CiUlRU9GCg=="
+    }
+  ],
+  "hybridHits": [
+    {
+      "content": "Operator Decision and Evidence\nReference: MOSAIC-KB-20261031 - page 2\nPublic verification code: CEDAR-NEBULA-E720C8C9\nThe verification code is an oracle for this retrieval test and grants no access. An answer must cite\nthis source file and page 2 when reporting the code.\nView mode must block the repair operation. Edit mode with HITL enabled must await a specific\napproval. Refusal or expiration must leave the failed service unchanged. Auto mode executes the\nsame authorized demo repair without per-operation approval.\nAutomatic alert investigations remain read-only. Use a separate authorized interactive repair\nconversation, preserving the alert ID, investigation session key, research sources and repair\nsession key.\nCompletion evidence includes exact tool arguments, toolCallId, exit status, full service state before\nand after, logs, and an independently observed restored condition.",
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "chunk_index": 2,
+      "collection": "mosaic-validation-20261031",
+      "score": 1.0
+    },
+    {
+      "content": "MOSAIC Validation Runbook\nReference: MOSAIC-KB-20261031\nThis authored document is a control corpus for the Spark validation run.\nA vector(1) alert is a deliberate delivery-path test. It does not show a GPU, driver or application\nfault. Verify the Prometheus state, Alertmanager fingerprint and the same MOSAIC alert before\ninterpreting it.\nAn alert injected directly through the Alertmanager API bypasses Prometheus rule evaluation.\nMissing Prometheus ALERTS samples for that injected run ID are expected. Do not claim a new\nPrometheusRule was evaluated.\nFor an isolated user-level repair demo, the named service fails when its ready marker is absent.\nRead the exact service state and logs before repair. Repair only the registered demo wrapper;\nverify the marker and service result afterward.\nMOSAIC authored validation corpus | test from Jeff Peng 1",
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 1,
+      "chunk_index": 0,
+      "collection": "mosaic-validation-20261031",
+      "score": 0.16626103
+    },
+    {
+      "content": "ources and repair\nsession key.\nCompletion evidence includes exact tool arguments, toolCallId, exit status, full service state before\nand after, logs, and an independently observed restored condition. Documentation advice alone\ndoes not establish the root cause or a completed repair.\nMOSAIC authored validation corpus | test from Jeff Peng 2",
+      "source_file": "mosaic-validation-control.pdf",
+      "page_number": 2,
+      "chunk_index": 3,
+      "collection": "mosaic-validation-20261031",
+      "score": 0.017017923
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Namespace",
+      "metadata": {
+        "name": "mosaic-e2e-20261031t075722z",
+        "labels": {
+          "mosaic_test": "true",
+          "run_id": "e2e-20261031t075722z",
+          "app.kubernetes.io/part-of": "mosaic-e2e-validation"
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "ConfigMap",
+      "metadata": {
+        "name": "fixture-input",
+        "namespace": "mosaic-e2e-20261031t075722z",
+        "labels": {
+          "mosaic_test": "true",
+          "run_id": "e2e-20261031t075722z",
+          "app.kubernetes.io/part-of": "mosaic-e2e-validation"
+        }
+      },
+      "data": {
+        "README": "Deliberately omit ready for a bounded startup-failure test. No production service is modified."
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "mosaic-log-fixture",
+        "namespace": "mosaic-e2e-20261031t075722z",
+        "labels": {
+          "mosaic_test": "true",
+          "run_id": "e2e-20261031t075722z",
+          "app.kubernetes.io/part-of": "mosaic-e2e-validation"
+        }
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "restartPolicy": "Always",
+        "terminationGracePeriodSeconds": 5,
+        "securityContext": {
+          "runAsNonRoot": true,
+          "runAsUser": 65534,
+          "runAsGroup": 65534,
+          "seccompProfile": {
+            "type": "RuntimeDefault"
+          }
+        },
+        "containers": [
+          {
+            "name": "fixture",
+            "image": "busybox:1.37.0",
+            "imagePullPolicy": "IfNotPresent",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "printf 'timestamp=%s run_id=%s component=mosaic-log-fixture event=startup test_from=\"test from Jeff Peng\"\\n' \"$(date -u +%FT%TZ)\" \"$RUN_ID\"\nif [ ! -f /fixture/ready ]; then\n  printf 'timestamp=%s run_id=%s event=startup_failed error=REQUIRED_FILE_MISSING path=/fixture/ready exit_code=23 test_from=\"test from Jeff Peng\"\\n' \"$(date -u +%FT%TZ)\" \"$RUN_ID\"\n  exit 23\nfi\nprintf 'timestamp=%s run_id=%s event=ready\\n' \"$(date -u +%FT%TZ)\" \"$RUN_ID\"\nwhile :; do sleep 3600; done\n"
+            ],
+            "env": [
+              {
+                "name": "RUN_ID",
+                "value": "e2e-20261031t075722z"
+              }
+            ],
+            "resources": {
+              "requests": {
+                "cpu": "5m",
+                "memory": "8Mi"
+              },
+              "limits": {
+                "cpu": "50m",
+                "memory": "32Mi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "readOnlyRootFilesystem": true,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              }
+            },
+            "volumeMounts": [
+              {
+                "name": "input",
+                "mountPath": "/fixture",
+                "readOnly": true
+              }
+            ]
+          }
+        ],
+        "volumes": [
+          {
+            "name": "input",
+            "configMap": {
+              "name": "fixture-input"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "monitoring.coreos.com/v1",
+      "kind": "PrometheusRule",
+      "metadata": {
+        "name": "mosaic-e2e-20261031t075722z",
+        "namespace": "monitoring",
+        "labels": {
+          "mosaic_test": "true",
+          "run_id": "e2e-20261031t075722z",
+          "app.kubernetes.io/part-of": "mosaic-e2e-validation",
+          "release": "kube-prometheus-stack"
+        }
+      },
+      "spec": {
+        "groups": [
+          {
+            "name": "e2e-20261031t075722z",
+            "interval": "10s",
+            "rules": [
+              {
+                "alert": "MosaicInjectedWorkloadFailure",
+                "expr": "max_over_time(kube_pod_container_status_waiting_reason{namespace=\"mosaic-e2e-20261031t075722z\",pod=\"mosaic-log-fixture\",container=\"fixture\",reason=\"CrashLoopBackOff\"}[2m]) > 0",
+                "for": "10s",
+                "labels": {
+                  "severity": "warning",
+                  "mosaic_test": "true",
+                  "run_id": "e2e-20261031t075722z",
+                  "test_namespace": "mosaic-e2e-20261031t075722z",
+                  "test_pod": "mosaic-log-fixture"
+                },
+                "annotations": {
+                  "test_from": "test from Jeff Peng",
+                  "summary": "Isolated test workload repeatedly fails to start",
+                  "description": "test from Jeff Peng. Run e2e-20261031t075722z. Read the actual Pod status, previous/current logs and events in mosaic-e2e-20261031t075722z; correlate with this exact alert and consult the indexed runbook. This is a bounded validation workload; no GPU fault was injected."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

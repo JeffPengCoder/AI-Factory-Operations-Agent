@@ -1,0 +1,14 @@
+--- before/files/openclaw-seed/nemoclaw.json
++++ after/files/openclaw-seed/nemoclaw.json
+@@ -83,7 +83,10 @@
+     "list": [
+       {
+         "id": "default",
+-        "name": "OpenClaw Assistant",
++        "name": {{ default "OpenClaw Assistant" .Values.openclaw.agentDisplayName | quote }},
++        "identity": {
++          "name": {{ default "OpenClaw Assistant" .Values.openclaw.agentDisplayName | quote }}
++        },
+         "workspace": "~/.openclaw/workspace",
+         "thinkingDefault": "off",
+         "reasoningDefault": "off"

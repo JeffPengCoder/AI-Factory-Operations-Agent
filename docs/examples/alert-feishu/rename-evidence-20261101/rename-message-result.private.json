@@ -1,0 +1,99 @@
+{
+  "at": "2026-11-01T13:51:57.284125+00:00",
+  "exitCode": 0,
+  "results": [
+    {
+      "action": "send",
+      "channel": "feishu",
+      "dryRun": false,
+      "handledBy": "plugin",
+      "messageId": "om_REDACTED_01",
+      "payload": {
+        "ok": true,
+        "channel": "feishu",
+        "action": "send",
+        "messageId": "om_REDACTED_01",
+        "chatId": "oc_REDACTED_01",
+        "receipt": {
+          "primaryPlatformMessageId": "om_REDACTED_01",
+          "platformMessageIds": [
+            "om_REDACTED_01"
+          ],
+          "parts": [
+            {
+              "platformMessageId": "om_REDACTED_01",
+              "kind": "text",
+              "index": 0,
+              "threadId": "oc_REDACTED_01",
+              "raw": {
+                "channel": "feishu",
+                "messageId": "om_REDACTED_01",
+                "chatId": "oc_REDACTED_01",
+                "conversationId": "oc_REDACTED_01"
+              }
+            }
+          ],
+          "threadId": "oc_REDACTED_01",
+          "sentAt": 1793541117153,
+          "raw": [
+            {
+              "channel": "feishu",
+              "messageId": "om_REDACTED_01",
+              "chatId": "oc_REDACTED_01",
+              "conversationId": "oc_REDACTED_01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "ok": true,
+      "channel": "feishu",
+      "action": "send",
+      "messageId": "om_REDACTED_01",
+      "chatId": "oc_REDACTED_01",
+      "receipt": {
+        "primaryPlatformMessageId": "om_REDACTED_01",
+        "platformMessageIds": [
+          "om_REDACTED_01"
+        ],
+        "parts": [
+          {
+            "platformMessageId": "om_REDACTED_01",
+            "kind": "text",
+            "index": 0,
+            "threadId": "oc_REDACTED_01",
+            "raw": {
+              "channel": "feishu",
+              "messageId": "om_REDACTED_01",
+              "chatId": "oc_REDACTED_01",
+              "conversationId": "oc_REDACTED_01"
+            }
+          }
+        ],
+        "threadId": "oc_REDACTED_01",
+        "sentAt": 1793541117153,
+        "raw": [
+          {
+            "channel": "feishu",
+            "messageId": "om_REDACTED_01",
+            "chatId": "oc_REDACTED_01",
+            "conversationId": "oc_REDACTED_01"
+          }
+        ]
+      }
+    },
+    {
+      "channel": "feishu",
+      "messageId": "om_REDACTED_01",
+      "chatId": "oc_REDACTED_01",
+      "conversationId": "oc_REDACTED_01"
+    },
+    {
+      "channel": "feishu",
+      "messageId": "om_REDACTED_01",
+      "chatId": "oc_REDACTED_01",
+      "conversationId": "oc_REDACTED_01"
+    }
+  ]
+}

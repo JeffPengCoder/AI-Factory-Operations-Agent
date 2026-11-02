@@ -1,0 +1,5 @@
+{
+  "at": "2026-10-31T13:33:03.498057+00:00",
+  "runId": "gpu-rca-20261031t121240z",
+  "scope": "six new run-labelled GPU simulation fixture objects; no production/Secret/RBAC/GPU hardware changes"
+}

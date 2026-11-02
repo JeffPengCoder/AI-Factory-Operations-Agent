@@ -1,0 +1,1 @@
+{"phase": "after-query-guard-check", "localListenerExit": 0, "remoteHasListener": true, "healthHttp": null, "unauthenticatedApiHttp": null, "authenticatedApiHttp": null, "evidence": "/Users/operator/workspace/system-sa/aiops/mosaic-run/alerts/live-validation-20261031/after-query-guard-check.json"}

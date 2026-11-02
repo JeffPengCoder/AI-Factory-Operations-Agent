@@ -1,0 +1,13 @@
+{
+  "case": "direct-default-thinking-stream",
+  "url": "http://spark-kind-bridge.example.invalid:8000/v1",
+  "stream": true,
+  "httpStatus": 200,
+  "contentType": "text/event-stream; charset=utf-8",
+  "elapsedSeconds": 3.39587530400604,
+  "fullContent": "\n\nI'll search for the referenced PDF document and examine the specific section you mentioned.\n\n`write_todos`:\n```\n- Search for and locate mosaic-validation-control.pdf\n- Read page 2, Operator Decision and Evidence section\n- Identify the public verification code\n- Address the automated alert investigation question\n- Compile evidence with citations\n```\n</think>\n\n{\"tool_call_id\": \"tool_u044c14d902d0e6c7a42d1218d047\", \"arguments\": {\"pattern\": \"mosaic-validation-control.pdf\"}}",
+  "allToolCallDeltas": [],
+  "finishReasons": [
+    "stop"
+  ]
+}

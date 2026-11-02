@@ -1,0 +1,8 @@
+{
+  "sessionKey": "agent:default:session-2026-10-31t02-27-16-251z",
+  "denyApprovalId": "plugin:a1c51c40-9026-412f-a4e2-564aed791668",
+  "approveApprovalId": "plugin:5ad3d0e3-6691-47c4-97cd-8b29481dd64a",
+  "denyKeptFailed": true,
+  "approveRestoredService": true,
+  "at": "2026-10-31T02:27:41.083421+00:00"
+}

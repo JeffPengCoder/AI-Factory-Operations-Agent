@@ -1,0 +1,31 @@
+{
+  "channel": "feishu",
+  "target": "chat:oc_00000000000000000000000000000001",
+  "messageBytes": 12328,
+  "messageSha256": "0a7ac3f885c1e86df2f12d7529cddb6b8bd93576ceea38994ed30610aad80614",
+  "argvWithoutMessage": [
+    "/home/DEPLOY_USER/.local/bin/kubectl",
+    "--context",
+    "kind-mosaic-poc",
+    "-n",
+    "mosaic",
+    "--cache-dir",
+    "/home/DEPLOY_USER/.local/state/mosaic-alert-worker/kubectl-cache",
+    "exec",
+    "deploy/openclaw",
+    "-c",
+    "gateway",
+    "--",
+    "node",
+    "/app/dist/index.js",
+    "message",
+    "send",
+    "--channel",
+    "feishu",
+    "--target",
+    "chat:oc_00000000000000000000000000000001",
+    "--message",
+    "<complete report in published-report.txt>",
+    "--json"
+  ]
+}

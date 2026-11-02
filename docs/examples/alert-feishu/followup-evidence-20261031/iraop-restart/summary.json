@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-31T03:18:27.367855+00:00",
+  "oldPod": "iraop-cb7877-kmr2f",
+  "oldUid": "8a76ac66-1208-4d5f-920a-715f434e9d22",
+  "newPod": "iraop-cb7877-nmpw7",
+  "newUid": "7993d92e-bcb0-4ebc-992a-28608bbd5e95",
+  "sameImageID": true,
+  "pdfBytes": 3781,
+  "pdfSha256": "e65f46b9daa87b4420336d989b0951ac6d2d6fd0a479bdcaeda42862cd92e820",
+  "documentCount": 1,
+  "chunks": 4,
+  "page2OracleRetrieved": true,
+  "noReingestion": true,
+  "scope": "Only IRAOP stateless Pod; OpenSearch Pod/PVC, host corpus and model service untouched."
+}

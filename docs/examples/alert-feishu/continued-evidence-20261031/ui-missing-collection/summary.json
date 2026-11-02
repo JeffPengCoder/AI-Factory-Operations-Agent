@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-31T07:25:49.266847+00:00",
+  "sessionKey": "agent:default:session-2026-10-31t07-25-37-974z",
+  "sessionId": "7f9d0e86-e0e8-44af-b3db-1fcb8ce78617",
+  "toolCallId": "call_2e542a06a32243dc8dab979c",
+  "elapsedSeconds": 11.167661582992878,
+  "rawMessages": 4,
+  "gatewayToolIsError": true,
+  "status": "error",
+  "sourceCount": 0,
+  "sources": [],
+  "toolAnswerContainsOracle": false,
+  "toolAnswerHasFilename": false,
+  "uiBodyContainsOracle": false,
+  "selectedFetchEventCount": 1,
+  "selectedEventSourceCount": 0,
+  "selectedCdpNdjsonCount": 0,
+  "viewMode": true
+}

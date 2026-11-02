@@ -1,0 +1,1 @@
+{"phase": "final-access", "localListenerExit": 0, "remoteHasListener": true, "healthHttp": 200, "unauthenticatedApiHttp": 401, "authenticatedApiHttp": 200, "evidence": "/Users/operator/workspace/system-sa/aiops/mosaic-run/alerts/live-validation-20261031/final-access.json"}

@@ -1,0 +1,16 @@
+{
+  "transport": "gateway.send",
+  "channel": "feishu",
+  "target": "chat:oc_00000000000000000000000000000001",
+  "sessionKey": "agent:default:feishu:direct:ou_00000000000000000000000000000001",
+  "idempotencyKey": "mosaic-alert-514b35993a720308facf6ae9e1579e0af93887b6aacbf2c919522a213779b54b",
+  "messageBytes": 12286,
+  "messageSha256": "93586033f1f65a4492e31829b8c04417451aa26636b91fbadac044c3bcc9eaea",
+  "paramsWithoutMessage": {
+    "channel": "feishu",
+    "to": "chat:oc_00000000000000000000000000000001",
+    "message": "<complete report in published-report.txt>",
+    "sessionKey": "agent:default:feishu:direct:ou_00000000000000000000000000000001",
+    "idempotencyKey": "mosaic-alert-514b35993a720308facf6ae9e1579e0af93887b6aacbf2c919522a213779b54b"
+  }
+}

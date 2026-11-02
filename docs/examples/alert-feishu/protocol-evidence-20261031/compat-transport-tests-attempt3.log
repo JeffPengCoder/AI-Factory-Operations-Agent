@@ -1,0 +1,34 @@
+
+  #  /private/tmp/mosaic-im-prs-20261029/bin/node[86497]: void node::InternalCallbackScope::Close() at ../src/api/callback.cc:165
+  #  Assertion failed: (env_->execution_async_id()) == (0)
+
+----- Native stack trace -----
+
+ 1: 0x1009eff4c node::Assert(node::AssertionInfo const&) [/private/tmp/mosaic-im-prs-20261029/bin/node]
+ 2: 0x102b2d2cc node::InternalCallbackScope::Close() (.cold.3) [/private/tmp/mosaic-im-prs-20261029/bin/node]
+ 3: 0x1008f116c node::InternalCallbackScope::Close() [/private/tmp/mosaic-im-prs-20261029/bin/node]
+ 4: 0x1008f0ae8 node::InternalCallbackScope::~InternalCallbackScope() [/private/tmp/mosaic-im-prs-20261029/bin/node]
+ 5: 0x100a7f550 node::PerIsolatePlatformData::RunForegroundTask(std::__1::unique_ptr<v8::Task, std::__1::default_delete<v8::Task>>) [/private/tmp/mosaic-im-prs-20261029/bin/node]
+ 6: 0x100a7e364 node::PerIsolatePlatformData::FlushForegroundTasksInternal() [/private/tmp/mosaic-im-prs-20261029/bin/node]
+ 7: 0x101849654 uv__async_io [/private/tmp/mosaic-im-prs-20261029/bin/node]
+ 8: 0x10185d9ec uv__io_poll [/private/tmp/mosaic-im-prs-20261029/bin/node]
+ 9: 0x101849bbc uv_run [/private/tmp/mosaic-im-prs-20261029/bin/node]
+10: 0x1008f1b7c node::SpinEventLoopInternal(node::Environment*) [/private/tmp/mosaic-im-prs-20261029/bin/node]
+11: 0x100a444b0 node::NodeMainInstance::Run() [/private/tmp/mosaic-im-prs-20261029/bin/node]
+12: 0x1009aa2d8 node::Start(int, char**) [/private/tmp/mosaic-im-prs-20261029/bin/node]
+13: 0x181f844e4 start [/usr/lib/dyld]
+✖ helm/mosaic-stack/tests/llm-compat.test.mjs (80.05775ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 90.474584
+
+✖ failing tests:
+
+test at helm/mosaic-stack/tests/llm-compat.test.mjs:1:1
+✖ helm/mosaic-stack/tests/llm-compat.test.mjs (80.05775ms)
+  'test failed'

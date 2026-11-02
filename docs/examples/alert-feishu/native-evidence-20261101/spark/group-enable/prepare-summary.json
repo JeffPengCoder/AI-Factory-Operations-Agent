@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-01T12:57:49.030391+00:00",
+  "baseRevision": 16,
+  "allowedGroupCount": 1,
+  "allowedUserCount": 1,
+  "dryRunPassed": true,
+  "secretDataUnchanged": true,
+  "rbacUnchanged": true,
+  "changedWorkloads": [
+    "mosaic-ui",
+    "openclaw"
+  ],
+  "chartSha256": "0ca66fe1c23da0f52db31d0a0ac2d9e744f23cf8269422b0fac3cc5a1347a43e"
+}

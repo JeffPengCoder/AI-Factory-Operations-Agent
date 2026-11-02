@@ -1,0 +1,196 @@
+[
+  {
+    "sessionKey": "agent:default:feishu:group:oc_00000000000000000000000000000002:sender:ou_00000000000000000000000000000001",
+    "origin": {
+      "label": "MOSAIC Alert Test",
+      "provider": "feishu",
+      "surface": "feishu",
+      "chatType": "group",
+      "from": "feishu:ou_00000000000000000000000000000001",
+      "to": "chat:oc_00000000000000000000000000000002",
+      "accountId": "default"
+    },
+    "deliveryContext": {
+      "channel": "feishu",
+      "to": "chat:oc_00000000000000000000000000000002",
+      "accountId": "default"
+    },
+    "records": [
+      {
+        "sourceRecordNumber": 13,
+        "record": {
+          "type": "message",
+          "id": "81837137",
+          "parentId": "ed7f4762",
+          "timestamp": "2026-11-02T01:17:27.397Z",
+          "message": {
+            "role": "user",
+            "content": "[message_id: om_x100b614a04f92898cfc95e645a6ea79]\nou_00000000000000000000000000000001: test from Jeff Peng; feishu-extra-20261102-restart-group\n\n[System: The content may include mention tags in the form <at user_id=\"...\">name</at>. Treat these as real mentions of Feishu entities (users or bots).]\n[System: If user_id is \"ou_00000000000000000000000000000002\", that mention refers to you.]",
+            "timestamp": 1793582243374
+          }
+        }
+      },
+      {
+        "sourceRecordNumber": 14,
+        "record": {
+          "type": "message",
+          "id": "6a8d921c",
+          "parentId": "81837137",
+          "timestamp": "2026-11-02T01:17:38.246Z",
+          "message": {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "text",
+                "text": "\n\n收到，Jeff。测试通过。"
+              }
+            ],
+            "api": "openai-completions",
+            "provider": "llm",
+            "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+            "usage": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "totalTokens": 0,
+              "cost": {
+                "input": 0,
+                "output": 0,
+                "cacheRead": 0,
+                "cacheWrite": 0,
+                "total": 0
+              }
+            },
+            "stopReason": "stop",
+            "timestamp": 1793582247405,
+            "responseId": "chatcmpl-97bb14fd7c6f2b5f"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "sessionKey": "agent:default:feishu:direct:ou_00000000000000000000000000000001",
+    "origin": {
+      "label": "ou_00000000000000000000000000000001",
+      "provider": "feishu",
+      "surface": "feishu",
+      "chatType": "direct",
+      "from": "feishu:ou_00000000000000000000000000000001",
+      "to": "user:ou_00000000000000000000000000000001",
+      "accountId": "default"
+    },
+    "deliveryContext": {
+      "channel": "feishu",
+      "to": "user:ou_00000000000000000000000000000001",
+      "accountId": "default"
+    },
+    "records": [
+      {
+        "sourceRecordNumber": 5,
+        "record": {
+          "type": "message",
+          "id": "1763947e",
+          "parentId": "ca0d1336",
+          "timestamp": "2026-11-02T00:26:54.144Z",
+          "message": {
+            "role": "user",
+            "content": "[message_id: om_x100b6149c27b20a4ce3e256f5f3fea9]\nou_00000000000000000000000000000001: test from Jeff Peng;\n feishu-extra-20261102-dm",
+            "timestamp": 1793579211553
+          }
+        }
+      },
+      {
+        "sourceRecordNumber": 6,
+        "record": {
+          "type": "message",
+          "id": "c26de53d",
+          "parentId": "1763947e",
+          "timestamp": "2026-11-02T00:26:55.797Z",
+          "message": {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "text",
+                "text": "\n\nTest received. All good on this end."
+              }
+            ],
+            "api": "openai-completions",
+            "provider": "llm",
+            "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+            "usage": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "totalTokens": 0,
+              "cost": {
+                "input": 0,
+                "output": 0,
+                "cacheRead": 0,
+                "cacheWrite": 0,
+                "total": 0
+              }
+            },
+            "stopReason": "stop",
+            "timestamp": 1793579214147,
+            "responseId": "chatcmpl-a71667586b58dca9"
+          }
+        }
+      },
+      {
+        "sourceRecordNumber": 7,
+        "record": {
+          "type": "message",
+          "id": "91f09042",
+          "parentId": "c26de53d",
+          "timestamp": "2026-11-02T01:16:38.832Z",
+          "message": {
+            "role": "user",
+            "content": "[message_id: om_x100b614a0988e4acce417b4afac0816]\nou_00000000000000000000000000000001: test from Jeff Peng; feishu-extra-20261102-restart-dm",
+            "timestamp": 1793582196482
+          }
+        }
+      },
+      {
+        "sourceRecordNumber": 8,
+        "record": {
+          "type": "message",
+          "id": "f4eb9cb4",
+          "parentId": "91f09042",
+          "timestamp": "2026-11-02T01:16:39.812Z",
+          "message": {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "text",
+                "text": "\n\nTest received. Everything working."
+              }
+            ],
+            "api": "openai-completions",
+            "provider": "llm",
+            "model": "nvidia/Qwen3.6-35B-A3B-NVFP4",
+            "usage": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "totalTokens": 0,
+              "cost": {
+                "input": 0,
+                "output": 0,
+                "cacheRead": 0,
+                "cacheWrite": 0,
+                "total": 0
+              }
+            },
+            "stopReason": "stop",
+            "timestamp": 1793582198836,
+            "responseId": "chatcmpl-8c75d7205512fba0"
+          }
+        }
+      }
+    ]
+  }
+]

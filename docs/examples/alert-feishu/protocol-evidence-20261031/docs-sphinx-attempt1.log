@@ -1,0 +1,293 @@
+Running Sphinx v9.1.0
+loading translations [en]... done
+making output directory... done
+myst v5.1.0: MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions={'colon_fence', 'strikethrough', 'tasklist'}, disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=('http', 'https', 'mailto', 'ftp'), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=4, heading_slug_func=None, html_meta={}, footnote_sort=True, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes='tex2jax_process|mathjax_process|math|output_area', enable_checkboxes=False, strikethrough_single_tilde=False, colon_fence_exact_match=False, suppress_warnings=[], highlight_code_blocks=True)
+building [mo]: targets for 0 po files that are out of date
+writing output... 
+building [html]: targets for 29 source files that are out of date
+updating environment: [new config] 29 added, 0 changed, 0 removed
+reading sources... [  3%] CHANGELOG
+reading sources... [  7%] CODE_OF_CONDUCT
+reading sources... [ 10%] CONTRIBUTING
+reading sources... [ 14%] DCO
+reading sources... [ 17%] GOVERNANCE
+reading sources... [ 21%] IP_REVIEW
+reading sources... [ 24%] MAINTAINERS
+reading sources... [ 28%] README
+reading sources... [ 31%] SECURITY
+reading sources... [ 34%] SUPPORT
+reading sources... [ 38%] docs/bcm
+reading sources... [ 41%] docs/building
+reading sources... [ 45%] docs/installation
+reading sources... [ 48%] docs/installation_builder
+reading sources... [ 52%] docs/kind_installation
+reading sources... [ 55%] docs/loki
+reading sources... [ 59%] docs/multitenancy
+reading sources... [ 62%] docs/nmc_installation
+reading sources... [ 66%] docs/security_model
+reading sources... [ 69%] docs/skills/ai-factory-operations-agent-headless/SKILL
+reading sources... [ 72%] docs/slurm_rca
+reading sources... [ 76%] docs/spark_alert_feishu_runbook.zh-CN
+reading sources... [ 79%] docs/spark_edit_auto_repair_validation.zh-CN
+reading sources... [ 83%] docs/spark_iraop_alert_validation.zh-CN
+reading sources... [ 86%] docs/spark_live_validation_20261031.zh-CN
+reading sources... [ 90%] docs/spark_live_validation_20261031_followup.zh-CN
+reading sources... [ 93%] docs/spark_research_protocol_validation_20261031.zh-CN
+reading sources... [ 97%] docs/use_cases
+reading sources... [100%] index
+
+looking for now-outdated files... none found
+pickling environment... done
+checking consistency... done
+preparing documents... done
+copying assets... 
+copying downloadable files... [  0%] LICENSE-3rd-party.txt
+copying downloadable files... [  1%] .github/CODEOWNERS
+copying downloadable files... [  1%] LICENSE
+copying downloadable files... [  2%] NOTICE
+copying downloadable files... [  2%] docs/examples/multitenancy/tenant-values.yaml
+copying downloadable files... [  3%] docs/examples/multitenancy/tenant-reader.yaml
+copying downloadable files... [  3%] docs/examples/multitenancy/operator-values.yaml
+copying downloadable files... [  4%] docs/examples/alert-feishu/evidence/manifest.json
+copying downloadable files... [  4%] docs/examples/alert-feishu/handover.env.example
+copying downloadable files... [  5%] docs/examples/alert-feishu/synthetic-alert.yaml.in
+copying downloadable files... [  5%] docs/examples/alert-feishu/send_feishu_report.py
+copying downloadable files... [  6%] docs/examples/alert-feishu/evidence/poll-samples-20261029.jsonl
+copying downloadable files... [  6%] docs/examples/alert-feishu/evidence/investigation-gateway-20261029.json
+copying downloadable files... [  7%] docs/examples/alert-feishu/evidence/current-test-alert-20261030.json
+copying downloadable files... [  7%] docs/examples/alert-feishu/live-evidence-20261031/manifest.json
+copying downloadable files... [  8%] docs/examples/alert-feishu/live-evidence-20261031/final-access.json
+copying downloadable files... [  8%] docs/examples/alert-feishu/live-evidence-20261031/combined-stopped.json
+copying downloadable files... [  9%] docs/examples/alert-feishu/live-evidence-20261031/remote-only.json
+copying downloadable files... [  9%] docs/examples/alert-feishu/live-evidence-20261031/local-listener-remote-missing.json
+copying downloadable files... [ 10%] docs/examples/alert-feishu/live-evidence-20261031/combined-restored.json
+copying downloadable files... [ 10%] docs/examples/alert-feishu/live-evidence-20261031/after-edit-old-tunnel-check.json
+copying downloadable files... [ 11%] docs/examples/alert-feishu/live-evidence-20261031/remote-evidence/evidence/live-alert-create.json
+copying downloadable files... [ 11%] docs/examples/alert-feishu/live-evidence-20261031/selected-alert-current.json
+copying downloadable files... [ 12%] docs/examples/alert-feishu/live-evidence-20261031/alert-ui-history-gateway.json
+copying downloadable files... [ 12%] docs/examples/alert-feishu/live-evidence-20261031/collected-live-data.json
+copying downloadable files... [ 13%] docs/examples/alert-feishu/live-evidence-20261031/remote-evidence/evidence/embedding-probe.json
+copying downloadable files... [ 13%] docs/examples/alert-feishu/live-evidence-20261031/remote-evidence/evidence/iraop-direct-validation.jsonl
+copying downloadable files... [ 14%] docs/examples/alert-feishu/live-evidence-20261031/native-research-history-gateway.json
+copying downloadable files... [ 14%] docs/examples/alert-feishu/live-evidence-20261031/native-research-retry-history-gateway.json
+copying downloadable files... [ 15%] docs/examples/alert-feishu/live-evidence-20261031/alert-followup-history-gateway.json
+copying downloadable files... [ 15%] docs/examples/alert-feishu/live-evidence-20261031/remote-evidence/evidence/model-tool-protocol.jsonl
+copying downloadable files... [ 16%] docs/examples/alert-feishu/live-evidence-20261031/remote-evidence/evidence/research-direct-model-experiment.json
+copying downloadable files... [ 16%] docs/examples/alert-feishu/live-evidence-20261031/repair-view-history-gateway.json
+copying downloadable files... [ 17%] docs/examples/alert-feishu/live-evidence-20261031/edit-after-deny-host.json
+copying downloadable files... [ 17%] docs/examples/alert-feishu/live-evidence-20261031/edit-after-approve-host.json
+copying downloadable files... [ 18%] docs/examples/alert-feishu/live-evidence-20261031/auto-after-repair-host.json
+copying downloadable files... [ 18%] docs/examples/alert-feishu/live-evidence-20261031/auto-after-boundary-host.json
+copying downloadable files... [ 19%] docs/examples/alert-feishu/live-evidence-20261031/auto-ui-summary.json
+copying downloadable files... [ 19%] docs/examples/alert-feishu/live-evidence-20261031/audit-current-events.json
+copying downloadable files... [ 20%] docs/examples/alert-feishu/live-evidence-20261031/feishu-status.json
+copying downloadable files... [ 20%] docs/examples/alert-feishu/live-evidence-20261031/helm-history-after.json
+copying downloadable files... [ 21%] docs/examples/alert-feishu/live-evidence-20261031/runtime-after.json
+copying downloadable files... [ 21%] docs/examples/alert-feishu/live-evidence-20261031/alert-investigate-ui-requests.json
+copying downloadable files... [ 22%] docs/examples/alert-feishu/live-evidence-20261031/alert-ui-before-history-api.json
+copying downloadable files... [ 22%] docs/examples/alert-feishu/live-evidence-20261031/all-metric-points.csv
+copying downloadable files... [ 23%] docs/examples/alert-feishu/live-evidence-20261031/embedding_server.py
+copying downloadable files... [ 23%] docs/examples/alert-feishu/live-evidence-20261031/download_embedding.py
+copying downloadable files... [ 24%] docs/examples/alert-feishu/live-evidence-20261031/research-overlay.yaml
+copying downloadable files... [ 24%] docs/examples/alert-feishu/live-evidence-20261031/mosaic-validation-control.pdf
+copying downloadable files... [ 25%] docs/examples/alert-feishu/live-evidence-20261031/control-source.json
+copying downloadable files... [ 25%] docs/examples/alert-feishu/live-evidence-20261031/provision_repair.py
+copying downloadable files... [ 26%] docs/examples/alert-feishu/live-evidence-20261031/remote-evidence/repair/provision-evidence.json
+copying downloadable files... [ 26%] docs/examples/alert-feishu/live-evidence-20261031/edit-ui-summary.json
+copying downloadable files... [ 27%] docs/examples/alert-feishu/live-evidence-20261031/edit-ui-requests.json
+copying downloadable files... [ 27%] docs/examples/alert-feishu/live-evidence-20261031/auto-ui-requests.json
+copying downloadable files... [ 28%] docs/examples/alert-feishu/live-evidence-20261031/auto-repair-approval-polls.json
+copying downloadable files... [ 28%] docs/examples/alert-feishu/live-evidence-20261031/auto-boundary-approval-polls.json
+copying downloadable files... [ 29%] docs/examples/alert-feishu/live-evidence-20261031/edit-initial-host.json
+copying downloadable files... [ 29%] docs/examples/alert-feishu/live-evidence-20261031/edit-before-approve-host.json
+copying downloadable files... [ 30%] docs/examples/alert-feishu/live-evidence-20261031/auto-initial-host.json
+copying downloadable files... [ 30%] docs/examples/alert-feishu/live-evidence-20261031/remote-evidence/repair/ssh-audit.jsonl
+copying downloadable files... [ 31%] docs/examples/alert-feishu/live-evidence-20261031/feishu-review-payload.json
+copying downloadable files... [ 31%] docs/examples/alert-feishu/live-evidence-20261031/feishu-reviewed-analysis.txt
+copying downloadable files... [ 32%] docs/examples/alert-feishu/live-evidence-20261031/feishu-dry-run.log
+copying downloadable files... [ 32%] docs/examples/alert-feishu/live-evidence-20261031/edit-approved-history-gateway.json
+copying downloadable files... [ 33%] docs/examples/alert-feishu/live-evidence-20261031/auto-boundary-history-gateway.json
+copying downloadable files... [ 33%] docs/examples/alert-feishu/live-evidence-20261031/tool-results-complete.json
+copying downloadable files... [ 34%] docs/examples/alert-feishu/followup-evidence-20261031/manifest.json
+copying downloadable files... [ 34%] docs/examples/alert-feishu/followup-evidence-20261031/approval-timeout/summary.json
+copying downloadable files... [ 35%] docs/examples/alert-feishu/followup-evidence-20261031/iraop-restart/summary.json
+copying downloadable files... [ 35%] docs/examples/alert-feishu/followup-evidence-20261031/restart-mcp-history-gateway.json
+copying downloadable files... [ 36%] docs/examples/alert-feishu/followup-evidence-20261031/guided-search-1/trace-summary.json
+copying downloadable files... [ 36%] docs/examples/alert-feishu/followup-evidence-20261031/replay/completed.json
+copying downloadable files... [ 37%] docs/examples/alert-feishu/followup-evidence-20261031/raw/raw-summary.json
+copying downloadable files... [ 37%] docs/examples/alert-feishu/followup-evidence-20261031/query-guard-2/apply-verification-summary.json
+copying downloadable files... [ 38%] docs/examples/alert-feishu/followup-evidence-20261031/query-guard-final/apply-summary.json
+copying downloadable files... [ 38%] docs/examples/alert-feishu/followup-evidence-20261031/query-guard-ui/history-gateway.json
+copying downloadable files... [ 39%] docs/examples/alert-feishu/followup-evidence-20261031/query-guard-ui/ui-observation.json
+copying downloadable files... [ 39%] docs/examples/alert-feishu/followup-evidence-20261031/access/after-final-guard-restored.json
+copying downloadable files... [ 40%] docs/examples/alert-feishu/followup-evidence-20261031/alerts-restored/summary.json
+copying downloadable files... [ 40%] docs/examples/alert-feishu/followup-evidence-20261031/runtime-final.json
+copying downloadable files... [ 41%] docs/examples/alert-feishu/followup-evidence-20261031/alerts-restored/selected-alert-current.json
+copying downloadable files... [ 41%] docs/examples/alert-feishu/followup-evidence-20261031/restore_alert_polling.py
+copying downloadable files... [ 42%] docs/examples/alert-feishu/followup-evidence-20261031/approval_timeout.py
+copying downloadable files... [ 42%] docs/examples/alert-feishu/followup-evidence-20261031/approval-timeout/pending-approval.json
+copying downloadable files... [ 43%] docs/examples/alert-feishu/followup-evidence-20261031/approval-timeout/history-gateway.json
+copying downloadable files... [ 43%] docs/examples/alert-feishu/followup-evidence-20261031/approval-timeout/after-expiry-host.json
+copying downloadable files... [ 44%] docs/examples/alert-feishu/followup-evidence-20261031/approval-timeout/maintenance-restored-host.json
+copying downloadable files... [ 44%] docs/examples/alert-feishu/followup-evidence-20261031/iraop-restart/before-data.json
+copying downloadable files... [ 45%] docs/examples/alert-feishu/followup-evidence-20261031/iraop-restart/after-data.json
+copying downloadable files... [ 45%] docs/examples/alert-feishu/followup-evidence-20261031/iraop-restart/delete-result.json
+copying downloadable files... [ 46%] docs/examples/alert-feishu/followup-evidence-20261031/iraop-restart/rollout-result.json
+copying downloadable files... [ 46%] docs/examples/alert-feishu/followup-evidence-20261031/restart_iraop.py
+copying downloadable files... [ 47%] docs/examples/alert-feishu/followup-evidence-20261031/restart-mcp-request.json
+copying downloadable files... [ 47%] docs/examples/alert-feishu/followup-evidence-20261031/restart-mcp-stream.jsonl
+copying downloadable files... [ 48%] docs/examples/alert-feishu/followup-evidence-20261031/baseline/agent-state.json
+copying downloadable files... [ 48%] docs/examples/alert-feishu/followup-evidence-20261031/direct-no-thinking-1/agent-state.json
+copying downloadable files... [ 49%] docs/examples/alert-feishu/followup-evidence-20261031/temperature-zero-1/agent-state.json
+copying downloadable files... [ 49%] docs/examples/alert-feishu/followup-evidence-20261031/guided-search-1/agent-state.json
+copying downloadable files... [ 50%] docs/examples/alert-feishu/followup-evidence-20261031/baseline/trace-summary.json
+copying downloadable files... [ 50%] docs/examples/alert-feishu/followup-evidence-20261031/baseline/direct-hybrid-search.json
+copying downloadable files... [ 51%] docs/examples/alert-feishu/followup-evidence-20261031/baseline/metadata.json
+copying downloadable files... [ 51%] docs/examples/alert-feishu/followup-evidence-20261031/direct-no-thinking-1/trace-summary.json
+copying downloadable files... [ 52%] docs/examples/alert-feishu/followup-evidence-20261031/direct-no-thinking-1/direct-hybrid-search.json
+copying downloadable files... [ 52%] docs/examples/alert-feishu/followup-evidence-20261031/direct-no-thinking-1/metadata.json
+copying downloadable files... [ 53%] docs/examples/alert-feishu/followup-evidence-20261031/temperature-zero-1/trace-summary.json
+copying downloadable files... [ 53%] docs/examples/alert-feishu/followup-evidence-20261031/temperature-zero-1/direct-hybrid-search.json
+copying downloadable files... [ 54%] docs/examples/alert-feishu/followup-evidence-20261031/temperature-zero-1/metadata.json
+copying downloadable files... [ 54%] docs/examples/alert-feishu/followup-evidence-20261031/guided-search-1/direct-hybrid-search.json
+copying downloadable files... [ 55%] docs/examples/alert-feishu/followup-evidence-20261031/guided-search-1/metadata.json
+copying downloadable files... [ 55%] docs/examples/alert-feishu/followup-evidence-20261031/replay/compat-default-result.json
+copying downloadable files... [ 56%] docs/examples/alert-feishu/followup-evidence-20261031/replay/compat-no-thinking-result.json
+copying downloadable files... [ 56%] docs/examples/alert-feishu/followup-evidence-20261031/replay/direct-default-result.json
+copying downloadable files... [ 57%] docs/examples/alert-feishu/followup-evidence-20261031/replay/direct-no-thinking-result.json
+copying downloadable files... [ 57%] docs/examples/alert-feishu/followup-evidence-20261031/vllm-flags.json
+copying downloadable files... [ 58%] docs/examples/alert-feishu/followup-evidence-20261031/tokenizer-generation.json
+copying downloadable files... [ 58%] docs/examples/alert-feishu/followup-evidence-20261031/query-guard-native-history-gateway.json
+copying downloadable files... [ 59%] docs/examples/alert-feishu/followup-evidence-20261031/query-guard-final/native-tool-results.jsonl
+copying downloadable files... [ 59%] docs/examples/alert-feishu/followup-evidence-20261031/query-guard-2/native-tool-results.jsonl
+copying downloadable files... [ 60%] docs/examples/alert-feishu/followup-evidence-20261031/query-guard-ui/after.txt
+copying downloadable files... [ 60%] docs/examples/alert-feishu/followup-evidence-20261031/browser_query_guard.py
+copying downloadable files... [ 61%] docs/examples/alert-feishu/followup-evidence-20261031/fix-ci-tests-final.log
+copying downloadable files... [ 61%] docs/examples/alert-feishu/followup-evidence-20261031/query-guard-final/prepare-summary.json
+copying downloadable files... [ 62%] docs/examples/alert-feishu/protocol-evidence-20261031/code-pr-complete.diff
+copying downloadable files... [ 62%] docs/examples/alert-feishu/protocol-evidence-20261031/agent-cases/baseline-seeded/agent-state.json
+copying downloadable files... [ 63%] docs/examples/alert-feishu/protocol-evidence-20261031/agent-cases/force-search-first/agent-state.json
+copying downloadable files... [ 63%] docs/examples/alert-feishu/protocol-evidence-20261031/agent-cases/force-search-first-no-thinking/agent-state.json
+copying downloadable files... [ 64%] docs/examples/alert-feishu/protocol-evidence-20261031/normalization/baseline/agent-state.json
+copying downloadable files... [ 64%] docs/examples/alert-feishu/protocol-evidence-20261031/normalization/normalized-101/agent-state.json
+copying downloadable files... [ 65%] docs/examples/alert-feishu/protocol-evidence-20261031/normalization/normalized-202/agent-state.json
+copying downloadable files... [ 65%] docs/examples/alert-feishu/protocol-evidence-20261031/node-candidate/seed101/agent-state.json
+copying downloadable files... [ 66%] docs/examples/alert-feishu/protocol-evidence-20261031/node-candidate/seed202/agent-state.json
+copying downloadable files... [ 66%] docs/examples/alert-feishu/protocol-evidence-20261031/agent-cases/force-search-first/trace-summary.json
+copying downloadable files... [ 67%] docs/examples/alert-feishu/protocol-evidence-20261031/agent-cases/force-search-first/direct-hybrid-search.json
+copying downloadable files... [ 67%] docs/examples/alert-feishu/protocol-evidence-20261031/agent-cases/force-search-first/metadata.json
+copying downloadable files... [ 68%] docs/examples/alert-feishu/protocol-evidence-20261031/agent-cases/force-search-first-no-thinking/trace-summary.json
+copying downloadable files... [ 68%] docs/examples/alert-feishu/protocol-evidence-20261031/agent-cases/force-search-first-no-thinking/direct-hybrid-search.json
+copying downloadable files... [ 69%] docs/examples/alert-feishu/protocol-evidence-20261031/agent-cases/force-search-first-no-thinking/metadata.json
+copying downloadable files... [ 69%] docs/examples/alert-feishu/protocol-evidence-20261031/normalization/baseline/trace-summary.json
+copying downloadable files... [ 70%] docs/examples/alert-feishu/protocol-evidence-20261031/normalization/baseline/direct-hybrid-search.json
+copying downloadable files... [ 70%] docs/examples/alert-feishu/protocol-evidence-20261031/normalization/baseline/metadata.json
+copying downloadable files... [ 71%] docs/examples/alert-feishu/protocol-evidence-20261031/normalization/normalized-101/trace-summary.json
+copying downloadable files... [ 71%] docs/examples/alert-feishu/protocol-evidence-20261031/normalization/normalized-101/direct-hybrid-search.json
+copying downloadable files... [ 72%] docs/examples/alert-feishu/protocol-evidence-20261031/normalization/normalized-101/metadata.json
+copying downloadable files... [ 72%] docs/examples/alert-feishu/protocol-evidence-20261031/normalization/normalized-202/trace-summary.json
+copying downloadable files... [ 73%] docs/examples/alert-feishu/protocol-evidence-20261031/normalization/normalized-202/direct-hybrid-search.json
+copying downloadable files... [ 73%] docs/examples/alert-feishu/protocol-evidence-20261031/normalization/normalized-202/metadata.json
+copying downloadable files... [ 74%] docs/examples/alert-feishu/protocol-evidence-20261031/node-candidate/seed101/trace-summary.json
+copying downloadable files... [ 74%] docs/examples/alert-feishu/protocol-evidence-20261031/node-candidate/seed101/direct-hybrid-search.json
+copying downloadable files... [ 75%] docs/examples/alert-feishu/protocol-evidence-20261031/node-candidate/seed101/metadata.json
+copying downloadable files... [ 75%] docs/examples/alert-feishu/protocol-evidence-20261031/node-candidate/seed202/trace-summary.json
+copying downloadable files... [ 76%] docs/examples/alert-feishu/protocol-evidence-20261031/node-candidate/seed202/direct-hybrid-search.json
+copying downloadable files... [ 76%] docs/examples/alert-feishu/protocol-evidence-20261031/node-candidate/seed202/metadata.json
+copying downloadable files... [ 77%] docs/examples/alert-feishu/protocol-evidence-20261031/named-wire/compat-nonstream-response.raw
+copying downloadable files... [ 77%] docs/examples/alert-feishu/protocol-evidence-20261031/named-wire/compat-stream-response.raw
+copying downloadable files... [ 78%] docs/examples/alert-feishu/protocol-evidence-20261031/named-wire/direct-nonstream-response.raw
+copying downloadable files... [ 78%] docs/examples/alert-feishu/protocol-evidence-20261031/named-wire/direct-stream-response.raw
+copying downloadable files... [ 79%] docs/examples/alert-feishu/protocol-evidence-20261031/named-wire-thinking/direct-default-thinking-nonstream-response.raw
+copying downloadable files... [ 79%] docs/examples/alert-feishu/protocol-evidence-20261031/named-wire-thinking/direct-default-thinking-stream-response.raw
+copying downloadable files... [ 80%] docs/examples/alert-feishu/protocol-evidence-20261031/persistent-prepare-attempt1.log
+copying downloadable files... [ 80%] docs/examples/alert-feishu/protocol-evidence-20261031/persistent-compat-attempt2/startup-failure.json
+copying downloadable files... [ 81%] docs/examples/alert-feishu/protocol-evidence-20261031/persistent-compat-attempt2/apply-host.stderr
+copying downloadable files... [ 81%] docs/examples/alert-feishu/protocol-evidence-20261031/persistent-compat-attempt2/startup-hotfix-summary.json
+copying downloadable files... [ 82%] docs/examples/alert-feishu/protocol-evidence-20261031/persistent-compat-attempt3/prepare-summary.json
+copying downloadable files... [ 82%] docs/examples/alert-feishu/protocol-evidence-20261031/native-endpoints-revision14/http-unauthenticated-response.json
+copying downloadable files... [ 83%] docs/examples/alert-feishu/protocol-evidence-20261031/native-endpoints-revision14/mcp-unauthenticated-response.json
+copying downloadable files... [ 83%] docs/examples/alert-feishu/protocol-evidence-20261031/native-endpoints-revision14/http-invalid-depth-response.json
+copying downloadable files... [ 84%] docs/examples/alert-feishu/protocol-evidence-20261031/native-endpoints-revision14/mcp-invalid-depth-response.json
+copying downloadable files... [ 84%] docs/examples/alert-feishu/protocol-evidence-20261031/native-endpoints-revision14/mcp-tools.json
+copying downloadable files... [ 85%] docs/examples/alert-feishu/protocol-evidence-20261031/native-endpoints-revision14/mcp-collections.json
+copying downloadable files... [ 85%] docs/examples/alert-feishu/protocol-evidence-20261031/native-endpoints-revision14/mcp-documents.json
+copying downloadable files... [ 86%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui/history-gateway.json
+copying downloadable files... [ 86%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui-attempt2/history-gateway.json
+copying downloadable files... [ 87%] docs/examples/alert-feishu/protocol-evidence-20261031/native-alert-research-revision15/history-gateway.json
+copying downloadable files... [ 87%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui/recovered-summary.json
+copying downloadable files... [ 88%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui/requests.json
+copying downloadable files... [ 88%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui/polls.json
+copying downloadable files... [ 89%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui-attempt2/summary.json
+copying downloadable files... [ 89%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui-attempt2/requests.json
+copying downloadable files... [ 90%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui-attempt2/polls.json
+copying downloadable files... [ 90%] docs/examples/alert-feishu/protocol-evidence-20261031/native-alert-research-revision15/summary.json
+copying downloadable files... [ 91%] docs/examples/alert-feishu/protocol-evidence-20261031/native-alert-research-revision15/requests.json
+copying downloadable files... [ 91%] docs/examples/alert-feishu/protocol-evidence-20261031/native-alert-research-revision15/polls.json
+copying downloadable files... [ 92%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui-transcripts/976cddf9-ca87-440c-a7fa-f329f9f654f0.jsonl
+copying downloadable files... [ 92%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui-transcripts/976cddf9-ca87-440c-a7fa-f329f9f654f0.jsonl.tool-results.jsonl
+copying downloadable files... [ 93%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui-transcripts/81afed9a-ae3f-4f0c-a8ce-be0a3e66eb2a.jsonl
+copying downloadable files... [ 93%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui-transcripts/81afed9a-ae3f-4f0c-a8ce-be0a3e66eb2a.jsonl.tool-results.jsonl
+copying downloadable files... [ 94%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui-transcripts/a40ec4b9-5c63-4868-bb53-a854abfdf273.jsonl
+copying downloadable files... [ 94%] docs/examples/alert-feishu/protocol-evidence-20261031/native-ui-transcripts/a40ec4b9-5c63-4868-bb53-a854abfdf273.jsonl.tool-results.jsonl
+copying downloadable files... [ 95%] docs/examples/alert-feishu/protocol-evidence-20261031/remote-metadata/node-candidate-provenance.json
+copying downloadable files... [ 95%] docs/examples/alert-feishu/protocol-evidence-20261031/native-alert-research-revision15/selected-alert.json
+copying downloadable files... [ 96%] docs/examples/alert-feishu/protocol-evidence-20261031/native_endpoints.py
+copying downloadable files... [ 96%] docs/examples/alert-feishu/protocol-evidence-20261031/export_native_transcripts.py
+copying downloadable files... [ 97%] docs/examples/alert-feishu/protocol-evidence-20261031/runtime-final.json
+copying downloadable files... [ 97%] docs/examples/alert-feishu/protocol-evidence-20261031/after-research-final.json
+copying downloadable files... [ 98%] docs/examples/alert-feishu/protocol-evidence-20261031/compat-full-tests-attempt2.log
+copying downloadable files... [ 98%] docs/examples/alert-feishu/protocol-evidence-20261031/compat-transport-tests-attempt4.log
+copying downloadable files... [ 99%] docs/examples/alert-feishu/protocol-evidence-20261031/compat-transport-tests-attempt2.log
+copying downloadable files... [ 99%] docs/examples/alert-feishu/protocol-evidence-20261031/compat-transport-tests-attempt3.log
+copying downloadable files... [100%] docs/examples/alert-feishu/protocol-evidence-20261031/compat-code-sphinx-attempt1.log
+copying downloadable files... [100%] docs/examples/alert-feishu/protocol-evidence-20261031/manifest.json
+
+copying static files... 
+Writing evaluated template result to /private/tmp/afoa-spark-research-protocol-docs-20261031/_static/basic.css
+Writing evaluated template result to /private/tmp/afoa-spark-research-protocol-docs-20261031/_static/language_data.js
+Writing evaluated template result to /private/tmp/afoa-spark-research-protocol-docs-20261031/_static/documentation_options.js
+Writing evaluated template result to /private/tmp/afoa-spark-research-protocol-docs-20261031/_static/copybutton.js
+copying static files: done
+copying extra files... 
+copying extra files: done
+copying assets: done
+writing output... [  3%] CHANGELOG
+writing output... [  7%] CODE_OF_CONDUCT
+writing output... [ 10%] CONTRIBUTING
+writing output... [ 14%] DCO
+writing output... [ 17%] GOVERNANCE
+writing output... [ 21%] IP_REVIEW
+writing output... [ 24%] MAINTAINERS
+writing output... [ 28%] README
+writing output... [ 31%] SECURITY
+writing output... [ 34%] SUPPORT
+writing output... [ 38%] docs/bcm
+writing output... [ 41%] docs/building
+writing output... [ 45%] docs/installation
+writing output... [ 48%] docs/installation_builder
+writing output... [ 52%] docs/kind_installation
+writing output... [ 55%] docs/loki
+writing output... [ 59%] docs/multitenancy
+writing output... [ 62%] docs/nmc_installation
+writing output... [ 66%] docs/security_model
+writing output... [ 69%] docs/skills/ai-factory-operations-agent-headless/SKILL
+writing output... [ 72%] docs/slurm_rca
+writing output... [ 76%] docs/spark_alert_feishu_runbook.zh-CN
+writing output... [ 79%] docs/spark_edit_auto_repair_validation.zh-CN
+writing output... [ 83%] docs/spark_iraop_alert_validation.zh-CN
+writing output... [ 86%] docs/spark_live_validation_20261031.zh-CN
+writing output... [ 90%] docs/spark_live_validation_20261031_followup.zh-CN
+writing output... [ 93%] docs/spark_research_protocol_validation_20261031.zh-CN
+writing output... [ 97%] docs/use_cases
+writing output... [100%] index
+
+generating indices... genindex done
+writing additional pages... search done
+copying images... [100%] docs/images/tenant-operator-instances.svg
+
+dumping search index in English (code: en)... done
+dumping object inventory... done
+build succeeded.
+
+The HTML pages are in ../afoa-spark-research-protocol-docs-20261031.

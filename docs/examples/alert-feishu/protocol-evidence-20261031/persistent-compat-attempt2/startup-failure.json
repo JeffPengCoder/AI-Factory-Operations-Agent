@@ -1,0 +1,457 @@
+{
+  "name": "llm-openai-compat-54dcdf8ffc-87l6q",
+  "uid": "3f0f8cba-7e22-4435-999a-19d866c24642",
+  "command": [
+    "node",
+    "/config/server.mjs"
+  ],
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2026-10-31T06:28:50Z",
+        "observedGeneration": 1,
+        "status": "True",
+        "type": "PodReadyToStartContainers"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2026-10-31T06:28:46Z",
+        "observedGeneration": 1,
+        "status": "True",
+        "type": "Initialized"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2026-10-31T06:28:46Z",
+        "message": "containers with unready status: [proxy]",
+        "observedGeneration": 1,
+        "reason": "ContainersNotReady",
+        "status": "False",
+        "type": "Ready"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2026-10-31T06:28:46Z",
+        "message": "containers with unready status: [proxy]",
+        "observedGeneration": 1,
+        "reason": "ContainersNotReady",
+        "status": "False",
+        "type": "ContainersReady"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2026-10-31T06:28:46Z",
+        "observedGeneration": 1,
+        "status": "True",
+        "type": "PodScheduled"
+      }
+    ],
+    "containerStatuses": [
+      {
+        "containerID": "containerd://017d4aea48f6f5e57ab3564e33bc020e81660db01d65eafeba0b500a3671b0ce",
+        "image": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8",
+        "imageID": "nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui@sha256:30f2479340d324a484a2d330a6749fbf2ab63ef0a24c848f1964a53d8423a0a7",
+        "lastState": {
+          "terminated": {
+            "containerID": "containerd://017d4aea48f6f5e57ab3564e33bc020e81660db01d65eafeba0b500a3671b0ce",
+            "exitCode": 0,
+            "finishedAt": "2026-10-31T06:30:23Z",
+            "reason": "Completed",
+            "startedAt": "2026-10-31T06:30:23Z"
+          }
+        },
+        "name": "proxy",
+        "ready": false,
+        "resources": {},
+        "restartCount": 4,
+        "started": false,
+        "state": {
+          "waiting": {
+            "message": "back-off 1m20s restarting failed container=proxy pod=llm-openai-compat-54dcdf8ffc-87l6q_mosaic(3f0f8cba-7e22-4435-999a-19d866c24642)",
+            "reason": "CrashLoopBackOff"
+          }
+        },
+        "user": {
+          "linux": {
+            "gid": 0,
+            "supplementalGroups": [
+              0,
+              1000
+            ],
+            "uid": 0
+          }
+        },
+        "volumeMounts": [
+          {
+            "mountPath": "/config",
+            "name": "config",
+            "readOnly": true,
+            "recursiveReadOnly": "Disabled"
+          },
+          {
+            "mountPath": "/audit",
+            "name": "research-audit"
+          },
+          {
+            "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+            "name": "kube-api-access-58sbp",
+            "readOnly": true,
+            "recursiveReadOnly": "Disabled"
+          }
+        ]
+      }
+    ],
+    "hostIP": "protocol-private-address-22.example.invalid",
+    "hostIPs": [
+      {
+        "ip": "protocol-private-address-22.example.invalid"
+      }
+    ],
+    "observedGeneration": 1,
+    "phase": "Running",
+    "podIP": "protocol-private-address-19.example.invalid",
+    "podIPs": [
+      {
+        "ip": "protocol-private-address-19.example.invalid"
+      }
+    ],
+    "qosClass": "BestEffort",
+    "startTime": "2026-10-31T06:28:46Z"
+  },
+  "events": {
+    "apiVersion": "v1",
+    "items": [
+      {
+        "action": "Binding",
+        "apiVersion": "v1",
+        "eventTime": "2026-10-31T06:28:46.646627Z",
+        "firstTimestamp": null,
+        "involvedObject": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q",
+          "namespace": "mosaic",
+          "resourceVersion": "11383954",
+          "uid": "3f0f8cba-7e22-4435-999a-19d866c24642"
+        },
+        "kind": "Event",
+        "lastTimestamp": null,
+        "message": "Successfully assigned mosaic/llm-openai-compat-54dcdf8ffc-87l6q to mosaic-poc-control-plane",
+        "metadata": {
+          "creationTimestamp": "2026-10-31T06:28:46Z",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q.18e3896112f7790e",
+          "namespace": "mosaic",
+          "resourceVersion": "11383959",
+          "uid": "aab9af33-6ec3-489f-99cd-bdb07f6c5151"
+        },
+        "reason": "Scheduled",
+        "reportingComponent": "default-scheduler",
+        "reportingInstance": "default-scheduler-mosaic-poc-control-plane",
+        "source": {},
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 5,
+        "eventTime": null,
+        "firstTimestamp": "2026-10-31T06:28:47Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{proxy}",
+          "kind": "Pod",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q",
+          "namespace": "mosaic",
+          "resourceVersion": "11383958",
+          "uid": "3f0f8cba-7e22-4435-999a-19d866c24642"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-10-31T06:30:21Z",
+        "message": "Pulling image \"nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8\"",
+        "metadata": {
+          "creationTimestamp": "2026-10-31T06:28:47Z",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q.18e389612c448a9c",
+          "namespace": "mosaic",
+          "resourceVersion": "11384119",
+          "uid": "7e96c767-ff07-404e-aab5-4c8ab5486277"
+        },
+        "reason": "Pulling",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "mosaic-poc-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "mosaic-poc-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-10-31T06:28:49Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{proxy}",
+          "kind": "Pod",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q",
+          "namespace": "mosaic",
+          "resourceVersion": "11383958",
+          "uid": "3f0f8cba-7e22-4435-999a-19d866c24642"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-10-31T06:28:49Z",
+        "message": "Successfully pulled image \"nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8\" in 2.255s (2.255s including waiting). Image size: 614246952 bytes.",
+        "metadata": {
+          "creationTimestamp": "2026-10-31T06:28:49Z",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q.18e38961b2b0c26c",
+          "namespace": "mosaic",
+          "resourceVersion": "11383968",
+          "uid": "df2d1875-9069-4282-9bb9-b0ee027d0f10"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "mosaic-poc-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "mosaic-poc-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 5,
+        "eventTime": null,
+        "firstTimestamp": "2026-10-31T06:28:49Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{proxy}",
+          "kind": "Pod",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q",
+          "namespace": "mosaic",
+          "resourceVersion": "11383958",
+          "uid": "3f0f8cba-7e22-4435-999a-19d866c24642"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-10-31T06:30:23Z",
+        "message": "Container created",
+        "metadata": {
+          "creationTimestamp": "2026-10-31T06:28:49Z",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q.18e38961b41eb906",
+          "namespace": "mosaic",
+          "resourceVersion": "11384123",
+          "uid": "36e723da-1d3a-4da2-95f6-5d4c22152406"
+        },
+        "reason": "Created",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "mosaic-poc-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "mosaic-poc-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 5,
+        "eventTime": null,
+        "firstTimestamp": "2026-10-31T06:28:49Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{proxy}",
+          "kind": "Pod",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q",
+          "namespace": "mosaic",
+          "resourceVersion": "11383958",
+          "uid": "3f0f8cba-7e22-4435-999a-19d866c24642"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-10-31T06:30:23Z",
+        "message": "Container started",
+        "metadata": {
+          "creationTimestamp": "2026-10-31T06:28:49Z",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q.18e38961b9821b83",
+          "namespace": "mosaic",
+          "resourceVersion": "11384124",
+          "uid": "9e093dce-e9eb-4e84-a506-aaa1af6605d6"
+        },
+        "reason": "Started",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "mosaic-poc-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "mosaic-poc-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-10-31T06:28:52Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{proxy}",
+          "kind": "Pod",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q",
+          "namespace": "mosaic",
+          "resourceVersion": "11383958",
+          "uid": "3f0f8cba-7e22-4435-999a-19d866c24642"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-10-31T06:28:52Z",
+        "message": "Successfully pulled image \"nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8\" in 1.759s (1.759s including waiting). Image size: 614246952 bytes.",
+        "metadata": {
+          "creationTimestamp": "2026-10-31T06:28:52Z",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q.18e3896255c2e05d",
+          "namespace": "mosaic",
+          "resourceVersion": "11383979",
+          "uid": "91e05276-b1ee-496f-9bb6-8ddce163ac15"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "mosaic-poc-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "mosaic-poc-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 9,
+        "eventTime": null,
+        "firstTimestamp": "2026-10-31T06:28:52Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{proxy}",
+          "kind": "Pod",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q",
+          "namespace": "mosaic",
+          "resourceVersion": "11383958",
+          "uid": "3f0f8cba-7e22-4435-999a-19d866c24642"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-10-31T06:30:26Z",
+        "message": "Back-off restarting failed container proxy in pod llm-openai-compat-54dcdf8ffc-87l6q_mosaic(3f0f8cba-7e22-4435-999a-19d866c24642)",
+        "metadata": {
+          "creationTimestamp": "2026-10-31T06:28:52Z",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q.18e3896264759c14",
+          "namespace": "mosaic",
+          "resourceVersion": "11384132",
+          "uid": "6ae6d140-7052-4097-a1aa-0c8d0beb80dd"
+        },
+        "reason": "BackOff",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "mosaic-poc-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "mosaic-poc-control-plane"
+        },
+        "type": "Warning"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-10-31T06:29:05Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{proxy}",
+          "kind": "Pod",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q",
+          "namespace": "mosaic",
+          "resourceVersion": "11383958",
+          "uid": "3f0f8cba-7e22-4435-999a-19d866c24642"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-10-31T06:29:05Z",
+        "message": "Successfully pulled image \"nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8\" in 1.974s (1.974s including waiting). Image size: 614246952 bytes.",
+        "metadata": {
+          "creationTimestamp": "2026-10-31T06:29:05Z",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q.18e389657a18ecd1",
+          "namespace": "mosaic",
+          "resourceVersion": "11384004",
+          "uid": "ce745857-d02f-494b-acf4-1ffbe8a5e475"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "mosaic-poc-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "mosaic-poc-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-10-31T06:29:32Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{proxy}",
+          "kind": "Pod",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q",
+          "namespace": "mosaic",
+          "resourceVersion": "11383958",
+          "uid": "3f0f8cba-7e22-4435-999a-19d866c24642"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-10-31T06:29:32Z",
+        "message": "Successfully pulled image \"nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8\" in 1.829s (1.829s including waiting). Image size: 614246952 bytes.",
+        "metadata": {
+          "creationTimestamp": "2026-10-31T06:29:32Z",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q.18e3896bbaeb81ec",
+          "namespace": "mosaic",
+          "resourceVersion": "11384048",
+          "uid": "5f3f080f-a894-4ad0-a93e-868991053876"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "mosaic-poc-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "mosaic-poc-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-10-31T06:30:23Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{proxy}",
+          "kind": "Pod",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q",
+          "namespace": "mosaic",
+          "resourceVersion": "11383958",
+          "uid": "3f0f8cba-7e22-4435-999a-19d866c24642"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-10-31T06:30:23Z",
+        "message": "Successfully pulled image \"nvcr.io/NGC_ORG_ID/afoa-release/mosaic-ui:a011dcc8\" in 1.867s (1.867s including waiting). Image size: 614246952 bytes.",
+        "metadata": {
+          "creationTimestamp": "2026-10-31T06:30:23Z",
+          "name": "llm-openai-compat-54dcdf8ffc-87l6q.18e389779cedf6aa",
+          "namespace": "mosaic",
+          "resourceVersion": "11384122",
+          "uid": "3d0b84cf-68fd-47ad-96d4-13290115458e"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "mosaic-poc-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "mosaic-poc-control-plane"
+        },
+        "type": "Normal"
+      }
+    ],
+    "kind": "List",
+    "metadata": {
+      "resourceVersion": ""
+    }
+  }
+}

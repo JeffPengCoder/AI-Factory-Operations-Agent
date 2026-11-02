@@ -4,7 +4,14 @@
 import assert from "node:assert/strict";
 import { AsyncLocalStorage } from "node:async_hooks";
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdtempSync,
+  readFileSync,
+  readdirSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import http from "node:http";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -18,6 +25,7 @@ import {
   sha256,
   requestJson,
   completedReport,
+  save,
 } from "../files/openclaw-seed/extensions/alert-automation/core.ts";
 import {
   nativeRuntime,
@@ -786,4 +794,58 @@ test("webhook-only recovery clears the imported UI alert without polling Alertma
   assert.equal(deleted, 1);
   assert.deepEqual(rt.counters(), { runs: 1, sends: 1 });
   assert.equal(existsSync(join(root, "last-poll.json")), false);
+});
+
+test("an agent-only hook registration reads the latest durable report without starting the Gateway service", (t) => {
+  const root = directory(t);
+  const cfg = config();
+  const state = join(root, cfg.stateDirectory);
+  const store = new Store(state);
+  const source = alert();
+  const id = incidentKey(source);
+  store.ingest([source], cfg);
+  const report =
+    "FRESH REPORT: evidence belongs to fresh-report-run, not the old conversation.";
+  // The real publisher has already persisted this file and binding.
+  save(join(store.directory(id), "published-report.txt"), report);
+  store.bindReport(id, cfg.delivery.sessionKey, "fresh-report-run", report);
+  store.close();
+  let hook;
+  const api = {
+    pluginConfig: { alertmanagerUrl: cfg.alertmanagerUrl, delivery: cfg.delivery },
+    config: {},
+    logger,
+    runtime: { state: { resolveStateDir: () => root } },
+    registerService() {},
+    registerGatewayMethod() {},
+    on(name, handler) {
+      assert.equal(name, "before_prompt_build");
+      hook = handler;
+    },
+  };
+  registerAlertAutomation(api);
+  // Native Agent hook registries do not run the Gateway service lifecycle.
+  // Native channel turns can also omit ctx.runId.
+  const result = hook(
+    { prompt: "What is the report Run ID?" },
+    { sessionKey: cfg.delivery.sessionKey },
+  );
+  assert.ok(result?.prependContext.includes(report));
+  assert.ok(result.prependContext.includes("Run ID: fresh-report-run"));
+  const paths = readdirSync(join(state, "incidents", id, "context-use"));
+  assert.equal(paths.length, 1);
+  const witness = JSON.parse(
+    readFileSync(join(state, "incidents", id, "context-use", paths[0]), "utf8"),
+  );
+  assert.equal(witness.runId, null);
+  assert.equal(witness.reportIncidentId, id);
+  assert.equal(witness.inputPrompt, "What is the report Run ID?");
+  assert.equal(witness.completeReportSha256, sha256(report));
+  assert.equal(
+    hook(
+      { prompt: "Same Run ID?" },
+      { sessionKey: "agent:other:slack:channel:c_test" },
+    ),
+    undefined,
+  );
 });

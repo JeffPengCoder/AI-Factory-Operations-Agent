@@ -197,6 +197,14 @@ new Webhooks wake the service immediately and do not wait for a source poll.
 
 ## Task state, report integrity and shutdown
 
+The recipient prompt hook reads its report binding and integrity-checked full
+report from the durable state directory. Agent hook registries can be created
+without starting the Gateway service; follow-up context must not depend on a
+service instance held in one plugin registration's memory. Each applied context
+has a witness with the actual input prompt, receiving session, incident and full
+report hash/context. If a native channel turn does not expose a run ID, the
+witness has a separate generated identifier and a null native run ID.
+
 The queue uses fingerprint **and** alert start time, matching the legacy worker.
 An alert firing again later is a new occurrence. Polling silence/inhibition does
 not imply resolution. Webhook `resolved` events and complete polling snapshots

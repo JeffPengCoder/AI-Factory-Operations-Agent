@@ -272,6 +272,56 @@ export function matches(alert: Json, labels: Record<string, string>) {
   );
 }
 
+function reportContextFromDatabase(
+  db: DatabaseSync,
+  root: string,
+  sessionKey: string,
+  prompt = "",
+) {
+  const records = db
+    .prepare(
+      "SELECT * FROM report_contexts WHERE session_key=? OR substr(?,1,length(session_key)+1)=session_key||':' ORDER BY created_at DESC",
+    )
+    .all(sessionKey, sessionKey) as Json[];
+  const selected =
+    records.find(
+      (r) => prompt.includes(r.incident_id) || prompt.includes(r.run_id),
+    ) ?? records[0];
+  if (!selected) return undefined;
+  const report = readFileSync(
+    path.join(root, "incidents", selected.incident_id, "published-report.txt"),
+    "utf8",
+  );
+  if (sha256(report) !== selected.report_sha256)
+    throw new Error("Stored report context integrity mismatch");
+  return { ...selected, report };
+}
+
+/** Agent hook registries need not own a started Gateway service instance. */
+export function readStoredReportContext(
+  root: string,
+  sessionKey: string,
+  prompt = "",
+) {
+  const filename = path.join(root, "state.sqlite3");
+  if (!existsSync(filename)) return undefined;
+  const db = new DatabaseSync(filename, { readOnly: true });
+  try {
+    db.exec("PRAGMA busy_timeout=5000");
+    if (
+      !db
+        .prepare(
+          "SELECT name FROM sqlite_schema WHERE type='table' AND name='report_contexts'",
+        )
+        .get()
+    )
+      return undefined;
+    return reportContextFromDatabase(db, root, sessionKey, prompt);
+  } finally {
+    db.close();
+  }
+}
+
 /** Same incident/event schema as the legacy worker, permitting an explicit stopped-worker migration. */
 export class Store {
   root: string;
@@ -415,23 +465,7 @@ export class Store {
       .run(id, sessionKey, runId, sha256(report), now());
   }
   reportContext(sessionKey: string, prompt = "") {
-    const records = this.db
-      .prepare(
-        "SELECT * FROM report_contexts WHERE session_key=? OR substr(?,1,length(session_key)+1)=session_key||':' ORDER BY created_at DESC",
-      )
-      .all(sessionKey, sessionKey) as Json[];
-    const selected =
-      records.find(
-        (r) => prompt.includes(r.incident_id) || prompt.includes(r.run_id),
-      ) ?? records[0];
-    if (!selected) return undefined;
-    const report = readFileSync(
-      path.join(this.directory(selected.incident_id), "published-report.txt"),
-      "utf8",
-    );
-    if (sha256(report) !== selected.report_sha256)
-      throw new Error("Stored report context integrity mismatch");
-    return { ...selected, report };
+    return reportContextFromDatabase(this.db, this.root, sessionKey, prompt);
   }
   close() {
     this.db.close();

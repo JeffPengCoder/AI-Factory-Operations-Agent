@@ -1632,11 +1632,11 @@
     {
       "path": "document-qa.json",
       "originalBytes": 1359,
-      "originalSha256": "74d99f3c7848e0cf3419f8c99e63aeeedf62844fde9c545f2b5f4642bb29e0a3",
+      "originalSha256": "b5c866dd43be849ce2170b3e5123519345936a3c244298b36f516b33733c3742",
       "publicUncompressedBytes": 1359,
-      "publicUncompressedSha256": "74d99f3c7848e0cf3419f8c99e63aeeedf62844fde9c545f2b5f4642bb29e0a3",
+      "publicUncompressedSha256": "b5c866dd43be849ce2170b3e5123519345936a3c244298b36f516b33733c3742",
       "storedBytes": 1359,
-      "storedSha256": "74d99f3c7848e0cf3419f8c99e63aeeedf62844fde9c545f2b5f4642bb29e0a3",
+      "storedSha256": "b5c866dd43be849ce2170b3e5123519345936a3c244298b36f516b33733c3742",
       "gzip": false,
       "identitySubstituted": false
     },
@@ -1661,6 +1661,18 @@
       "storedSha256": "f4b4feef18317cb72d01c978fd6848fe44594b1e0a8891e53a7ca79ddd573603",
       "gzip": false,
       "identitySubstituted": false
+    },
+    {
+      "path": "policy/LICENSE-OpenClaw.txt",
+      "originalBytes": 1170,
+      "originalSha256": "73571b25326281d369087f469842c02444fe39faaecebda4d82ed21ff3a1c29d",
+      "publicUncompressedBytes": 1170,
+      "publicUncompressedSha256": "73571b25326281d369087f469842c02444fe39faaecebda4d82ed21ff3a1c29d",
+      "storedBytes": 1170,
+      "storedSha256": "73571b25326281d369087f469842c02444fe39faaecebda4d82ed21ff3a1c29d",
+      "gzip": false,
+      "identitySubstituted": false,
+      "sourceUrl": "https://github.com/openclaw/openclaw/blob/v2026.6.10/LICENSE"
     }
   ]
 }

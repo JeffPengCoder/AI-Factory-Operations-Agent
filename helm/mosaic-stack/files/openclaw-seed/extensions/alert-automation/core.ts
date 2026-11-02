@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { createHash } from "node:crypto";
+import { AsyncResource } from "node:async_hooks";
 import {
   mkdirSync,
   readFileSync,
@@ -598,6 +599,9 @@ export class AlertService {
   timer: ReturnType<typeof setInterval> | undefined;
   polling = false;
   processing: Promise<void> | undefined;
+  // Created by the native service lifecycle, before any inbound HTTP request.
+  // Background work must retain service ownership rather than a webhook caller's scopes.
+  workContext = new AsyncResource("mosaic-alert-automation-service");
   logger: { info: (text: string) => void; error: (text: string) => void };
   constructor(
     config: Config,
@@ -630,20 +634,24 @@ export class AlertService {
   }
   start() {
     if (this.timer) return;
-    const tick = () => {
+    this.timer = setInterval(() => this.wake(), this.config.pollSeconds * 1000);
+    this.timer.unref();
+    this.wake();
+  }
+  wake() {
+    if (this.controller.signal.aborted) return;
+    this.workContext.runInAsyncScope(() => {
       void this.tick().catch((error) =>
         this.logger.error(`alert-automation tick: ${error.name}`),
       );
-    };
-    this.timer = setInterval(tick, this.config.pollSeconds * 1000);
-    this.timer.unref();
-    tick();
+    });
   }
   async tick() {
     if (this.polling || this.controller.signal.aborted) return;
     this.polling = true;
     try {
       if (this.config.sourceMode !== "webhook") await this.poll();
+      else await this.reconcileResolvedUi();
       this.kick();
     } finally {
       this.polling = false;
@@ -681,12 +689,24 @@ export class AlertService {
       at: now(),
       selected: selected.length,
     });
+    await this.reconcileResolvedUi(new Set(matching.map((a) => a.fingerprint)));
+  }
+  async reconcileResolvedUi(presentFingerprints?: Set<string>) {
+    const config = this.config;
+    const present =
+      presentFingerprints ??
+      new Set(
+        this.store
+          .rows()
+          .filter((row) => !row.resolved_at)
+          .map((row) => row.fingerprint),
+      );
     if (config.mosaicUrl)
       for (const row of this.store.rows()) {
         if (
           !row.resolved_at ||
           row.ui_cleared_at ||
-          matching.some((a) => a.fingerprint === row.fingerprint)
+          present.has(row.fingerprint)
         )
           continue;
         if (
@@ -749,7 +769,7 @@ export class AlertService {
       ),
       { at: now(), payload: body },
     );
-    this.kick();
+    this.wake();
     return { accepted: selected.length };
   }
   kick() {
@@ -1024,6 +1044,7 @@ export class AlertService {
     this.controller.abort();
     if (this.timer) clearInterval(this.timer);
     this.timer = undefined;
+    this.workContext.emitDestroy();
     // Native Agent runs may outlive shutdown. No new investigation or send is permitted afterwards.
     if (this.processing) void this.processing.finally(() => this.store.close());
     else this.store.close();

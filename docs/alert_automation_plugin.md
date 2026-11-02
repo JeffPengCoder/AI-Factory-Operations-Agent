@@ -182,6 +182,19 @@ JSON/body limits and full-batch intake are enforced before acknowledgement.
 Repeated deliveries share the same incident key. `both` mode can reconcile
 source state through polling while using webhook events for prompt intake.
 
+The authenticated HTTP handler validates and persists the batch, then wakes
+work under the context owned by the native service lifecycle. It does not run
+the Agent under the inbound HTTP client's Gateway scopes, and it does not grant
+that client `operator.write`. This separation is required for native subagent
+dispatch from a plugin-authenticated Webhook route.
+
+In Webhook-only mode, source recovery also clears the confirmed imported alert
+from the Mosaic UI. The service retries that reconciliation on its maintenance
+timer without fetching Alertmanager. A newer unresolved occurrence with the
+same fingerprint prevents an older recovery from clearing its UI entry.
+`pollSeconds` still controls periodic queue/recovery maintenance in this mode;
+new Webhooks wake the service immediately and do not wait for a source poll.
+
 ## Task state, report integrity and shutdown
 
 The queue uses fingerprint **and** alert start time, matching the legacy worker.
